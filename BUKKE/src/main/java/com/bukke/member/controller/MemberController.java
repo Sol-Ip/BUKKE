@@ -27,7 +27,7 @@ public class MemberController {
                         @ModelAttribute Member member, 
                         Model model){
 	   
-	   return "";
+	   return ""; 
    }
    
    //·Î±×¾Æ¿ô

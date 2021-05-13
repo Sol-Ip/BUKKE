@@ -46,11 +46,7 @@ public class MemberController {
    
    //회원등록
    @RequestMapping(value="", method=RequestMethod.POST)
-   public String memberRegister(@ModelAttribute Member member, 
-                         @RequestParam("post") String post,
-                         @RequestParam("address1") String address1,
-                         @RequestParam("address2") String address2,
-                         Model model) {
+   public String memberRegister() {
    
       return "common/errorPage";
    
@@ -65,7 +61,7 @@ public class MemberController {
    
    //정보수정
    @RequestMapping(value="", method=RequestMethod.POST)
-   public String modifyMember(@ModelAttribute Member member, @RequestParam("post") String post, @RequestParam("address1") String address1, @RequestParam String address2, Model model, HttpServletRequest request) {
+   public String modifyMember() {
          return "common/errorPage";
       
    }

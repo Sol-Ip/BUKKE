@@ -10,16 +10,16 @@ import com.bukke.schedule.domain.Schedule;
 import com.bukke.schedule.store.ScheduleStore;
 @Repository
 public class ScheduleStoreLogic implements ScheduleStore{
-	private SqlSessionTemplate session; 
-	
+	private SqlSessionTemplate session;
+
 	@Override
-	public ArrayList<Schedule> printAllList() {
+	public ArrayList<Schedule> printAllScheduleList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Schedule selectOne(int scheduleNo) {
+	public Schedule selectOneSchedule(int scheduleNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -34,7 +34,9 @@ public class ScheduleStoreLogic implements ScheduleStore{
 	public int deleteSchedule(int scheduleNo) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
+	} 
+	
+	
 
 	
 }

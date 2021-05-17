@@ -12,21 +12,21 @@ import com.bukke.notice.store.NoticeStore;
 public class NoticeServiceImpl  implements NoticeService{
 
 	private NoticeStore bStore;
-	
+
 	@Override
-	public ArrayList<Notice> printAll() {
+	public ArrayList<Notice> printAllNotice() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Notice> printAll(NoticePageInfo pi) {
+	public ArrayList<Notice> printrintAllNotice(NoticePageInfo pi) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Notice PrintOne(int nId) {
+	public Notice printOneNotice(int nId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -48,6 +48,8 @@ public class NoticeServiceImpl  implements NoticeService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
 
 	
 

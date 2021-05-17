@@ -14,15 +14,15 @@ public class ScheduleServiceImpl implements ScheduleService{
 
 	@Autowired
 	private ScheduleStore bStore;
-	
+
 	@Override
-	public ArrayList<Schedule> printAll() {
+	public ArrayList<Schedule> printAllSchedule() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Schedule printOne(int scheduleNo) {
+	public Schedule printOneSchedule(int scheduleNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -38,5 +38,7 @@ public class ScheduleServiceImpl implements ScheduleService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
 
 }

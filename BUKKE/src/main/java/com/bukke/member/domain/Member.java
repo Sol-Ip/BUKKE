@@ -10,6 +10,7 @@ public class Member {
 	private String memberPhone;
 	private String memberEmail;
 	
+	
 	public Member() {}
 
 	public String getMemberId() {

@@ -2,11 +2,19 @@ package com.bukke.reservation.service.logic;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bukke.reservation.domain.Reservation;
 import com.bukke.reservation.service.ReservationService;
+import com.bukke.reservation.store.ReservationStore;
 
+@Service
 public class ReservationServiceImpl implements ReservationService{
 
+	@Autowired
+	private ReservationStore rStore;
+	
 	@Override
 	public ArrayList<Reservation> printAll() {
 		// TODO Auto-generated method stub

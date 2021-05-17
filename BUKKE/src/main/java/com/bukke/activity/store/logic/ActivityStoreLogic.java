@@ -2,12 +2,18 @@ package com.bukke.activity.store.logic;
 
 import java.util.ArrayList;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.bukke.activity.domain.Activity;
 import com.bukke.activity.domain.ActivityPageInfo;
 import com.bukke.activity.store.ActivityStore;
 
 public class ActivityStoreLogic implements ActivityStore {
 
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
 	@Override
 	public ArrayList<Activity> selectAllList(ActivityPageInfo pi) { //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
 		// TODO Auto-generated method stub

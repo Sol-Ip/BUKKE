@@ -2,11 +2,19 @@ package com.bukke.activity.service.logic;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bukke.activity.domain.Activity;
 import com.bukke.activity.domain.ActivityPageInfo;
 import com.bukke.activity.service.ActivityService;
+import com.bukke.activity.store.ActivityStore;
 
+@Service
 public class ActivityServiceImpl implements ActivityService {
+	
+	@Autowired
+	public ActivityStore aStore;
 
 	@Override
 	public ArrayList<Activity> printAll(ActivityPageInfo pi) { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함

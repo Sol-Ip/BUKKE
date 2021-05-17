@@ -6,9 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bukke.review.domain.Review;
+import com.bukke.review.domain.ReviewComment;
 import com.bukke.review.store.ReviewStore;
 
-public class ReviewStoreImpl implements ReviewStore {
+public class ReviewStoreLogic implements ReviewStore {
 	
 	@Autowired
 	private SqlSessionTemplate session;
@@ -48,6 +49,30 @@ public class ReviewStoreImpl implements ReviewStore {
 	//후기 삭제
 	@Override
 	public int deleteReview(int nId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	// 댓글 조회
+	@Override
+	public ArrayList<ReviewComment> selectCommentList(int nId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	// 댓글 등록
+	@Override
+	public int insertComment(ReviewComment rComment) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	// 댓글 수정
+	@Override
+	public int updateComment(ReviewComment rComment) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	// 댓글 삭제
+	@Override
+	public int deleteComment(int rId) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

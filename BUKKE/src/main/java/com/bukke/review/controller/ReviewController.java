@@ -64,4 +64,24 @@ public class ReviewController {
 	public String reviewRemove() {
 		return null;
 	}
+	// 댓글 조회 기능
+	@RequestMapping(value="")
+	public String commentList() {
+		return null;
+	}
+	// 댓글 작성 기능
+	@RequestMapping(value="")
+	public String commentWrite() {
+		return null;
+	}
+	// 댓글 수정 기능
+	@RequestMapping(value="")
+	public String commentUpdate() {
+		return null;
+	}
+	// 댓글 삭제 기능
+	@RequestMapping(value="")
+	public String commentRemove() {
+		return null;
+	}
 }

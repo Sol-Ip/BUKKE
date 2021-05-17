@@ -8,5 +8,5 @@ public class Chat {
 	private String chatTitle;// 채팅방 제목
 	private Date chatTime;// 채팅 시간
 	private int unidentifiedChatCount; // 미확인채팅수
-	private char chatStatus;// 개설여부
+	private String chatStatus;// 개설여부
 }

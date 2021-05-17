@@ -10,8 +10,8 @@ public class Gift {
 	private int classNo;
 	private Date sendDate;
 	private Date receiveDate;
-	private char payStatus;
-	private char giftStatus;
+	private String payStatus;
+	private String giftStatus;
 	public int getGiftNo() {
 		return giftNo;
 	}
@@ -48,16 +48,16 @@ public class Gift {
 	public void setReceiveDate(Date receiveDate) {
 		this.receiveDate = receiveDate;
 	}
-	public char getPayStatus() {
+	public String getPayStatus() {
 		return payStatus;
 	}
-	public void setPayStatus(char payStatus) {
+	public void setPayStatus(String payStatus) {
 		this.payStatus = payStatus;
 	}
-	public char getGiftStatus() {
+	public String getGiftStatus() {
 		return giftStatus;
 	}
-	public void setGiftStatus(char giftStatus) {
+	public void setGiftStatus(String giftStatus) {
 		this.giftStatus = giftStatus;
 	}
 	@Override

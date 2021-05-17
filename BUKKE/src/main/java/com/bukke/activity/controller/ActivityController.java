@@ -14,42 +14,42 @@ public class ActivityController {
 	
 	// 클래스 전체목록 jsp 이동 (관리자)
 	@RequestMapping(value="")
-	public String ActivityListView() {
+	public String activityListView() {
 		return null;
 	}
 	// 클래스 상세정보 jsp 이동 (모든회원)
 	@RequestMapping(value="")
-	public String ActivityDetailView() {
+	public String activityDetailView() {
 		return null;
 	}
 	// *클래스 검색기능 메소드
 	@RequestMapping(value="")
-	public String ActivitySearch() {
+	public String activitySearch() {
 		return null;
 	}
 	// 클래스 등록 jsp 이동 (업체회원)
 	@RequestMapping(value="")
-	public String ActivityEnrollView() {
+	public String activityEnrollView() {
 		return null;
 	}
 	// *클래스 등록기능 메소드
 	@RequestMapping(value="")
-	public String ActivityAdd() {
+	public String activityAdd() {
 		return null;
 	}
 	// 클래스 수정 jsp 이동 (업체회원)
 	@RequestMapping(value="")
-	public String ActivityModifyView() {
+	public String activityModifyView() {
 		return null;
 	}
 	// *클래스 수정기능 메소드
 	@RequestMapping(value="")
-	public String ActivityUpdate() {
+	public String activityUpdate() {
 		return null;
 	}
 	// *클래스 삭제기능 메소드
 	@RequestMapping(value="")
-	public String ActivityRemove() {
+	public String activityRemove() {
 		return null;
 	}
 }

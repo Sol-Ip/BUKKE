@@ -3,12 +3,19 @@ package com.bukke.notice.store.logic;
 import java.util.ArrayList;
 
 import com.bukke.notice.domain.Notice;
+import com.bukke.notice.domain.NoticePageInfo;
 import com.bukke.notice.store.NoticeStore;
 
 public class NoticeStoreLogic implements NoticeStore{
 
 	@Override
-	public ArrayList<Notice> selectList() {
+	public ArrayList<Notice> selectAllList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Notice> selectAllList(NoticePageInfo pi) {
 		// TODO Auto-generated method stub
 		return null;
 	}

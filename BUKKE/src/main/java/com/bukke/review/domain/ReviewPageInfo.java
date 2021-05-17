@@ -19,6 +19,20 @@ public class ReviewPageInfo {
 			public ReviewPageInfo() {
 				// TODO Auto-generated constructor stub
 			}
+			
+			public ReviewPageInfo(int currentPage, int boardLimit, int pageLimit, int startPage, int endPage,
+					int listCount, int maxPage) {
+				super();
+				this.currentPage = currentPage;
+				this.boardLimit = boardLimit;
+				this.pageLimit = pageLimit;
+				this.startPage = startPage;
+				this.endPage = endPage;
+				this.listCount = listCount;
+				this.maxPage = maxPage;
+			}
+
+
 
 			public int getCurrentPage() {
 				return currentPage;

@@ -2,12 +2,16 @@ package com.bukke.notice.store.logic;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
 import com.bukke.notice.domain.Notice;
 import com.bukke.notice.domain.NoticePageInfo;
 import com.bukke.notice.store.NoticeStore;
-
+@Repository
 public class NoticeStoreLogic implements NoticeStore{
-
+	private SqlSession sqlSession;
+	
 	@Override
 	public ArrayList<Notice> selectAllList() {
 		// TODO Auto-generated method stub

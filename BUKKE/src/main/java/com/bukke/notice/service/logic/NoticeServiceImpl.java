@@ -2,12 +2,17 @@ package com.bukke.notice.service.logic;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import com.bukke.notice.domain.Notice;
 import com.bukke.notice.domain.NoticePageInfo;
 import com.bukke.notice.service.NoticeService;
-
+import com.bukke.notice.store.NoticeStore;
+@Service
 public class NoticeServiceImpl  implements NoticeService{
 
+	private NoticeStore bStore;
+	
 	@Override
 	public ArrayList<Notice> printAll() {
 		// TODO Auto-generated method stub

@@ -10,10 +10,10 @@ public interface GiftService {
 	public int sendGift(Gift gift);
 	
 	// 선물 전체 보기
-	 public ArrayList<Gift> printAll(Gift gift);
+	 public ArrayList<Gift> printAllGift(Gift gift);
 	 
 	 // 선물 상세 보기
-	 public Gift printOne(int giftNo);
+	 public Gift printOneGift(int giftNo);
 	 
 	 // 선물 삭제
 	 public int removeGift(int giftNo);

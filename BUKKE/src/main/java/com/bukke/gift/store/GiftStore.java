@@ -7,10 +7,10 @@ import com.bukke.gift.domain.Gift;
 public interface GiftStore {
 	
 	// 선물 전체 보기
-	public ArrayList<Gift> selectAllList(Gift gift);
+	public ArrayList<Gift> selectAllListGift(Gift gift);
 	
 	// 선물 상세 보기
-	public Gift selectOne(int giftNo);
+	public Gift selectOneGift(int giftNo);
 	
 	// 선물하기(선물 등록)
 	public int insertGift(Gift gift);

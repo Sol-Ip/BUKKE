@@ -14,13 +14,13 @@ public class GiftServiceImpl implements GiftService {
 	}
 
 	@Override
-	public ArrayList<Gift> printAll(Gift gift) {
+	public ArrayList<Gift> printAllGift(Gift gift) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Gift printOne(int giftNo) {
+	public Gift printOneGift(int giftNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

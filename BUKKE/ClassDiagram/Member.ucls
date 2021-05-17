@@ -30,7 +30,7 @@
   </class>  
   <interface id="4" language="java" name="com.bukke.member.service.MemberService" project="BUKKE" 
     file="/BUKKE/src/main/java/com/bukke/member/service/MemberService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="523" y="108"/>    
+    <position height="-1" width="-1" x="508" y="148"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,7 +40,7 @@
   <class id="5" language="java" name="com.bukke.member.service.logic.MemberServiceImpl" project="BUKKE" 
     file="/BUKKE/src/main/java/com/bukke/member/service/logic/MemberServiceImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="523" y="346"/>    
+    <position height="-1" width="-1" x="506" y="345"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -69,18 +69,22 @@
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="4"/>  
   </realization>  
-  <realization id="9">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
-  </realization>  
-  <association id="10">    
+  <association id="9">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="11" name="mStore"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
+      <attribute id="10" name="mStore">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="11" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="12">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

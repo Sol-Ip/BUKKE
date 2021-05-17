@@ -9,14 +9,8 @@ public interface BukkeClassStore {
 
 	/**
 	 * 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
-	 * 페이징 포함
 	 */
 	public ArrayList<BukkeClass> selectAllList(BukkeClassPageInfo pi);
-	/**
-	 * 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
-	 * 페이징 미포함
-	 */
-	public ArrayList<BukkeClass> selectAllList();
 	/**
 	 * 클래스 상세정보
 	 */

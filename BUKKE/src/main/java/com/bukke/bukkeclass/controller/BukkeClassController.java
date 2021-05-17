@@ -1,8 +1,17 @@
 package com.bukke.bukkeclass.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bukke.bukkeclass.service.BukkeClassService;
+
+@Controller
 public class BukkeClassController {
+	
+	@Autowired
+	private BukkeClassService bService;
+	
 	// 클래스 전체목록 jsp 이동 (관리자)
 	@RequestMapping(value="")
 	public String BukkeClassListView() {

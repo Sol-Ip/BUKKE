@@ -2,21 +2,23 @@ package com.bukke.bukkeclass.service.logic;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.bukke.bukkeclass.domain.BukkeClass;
 import com.bukke.bukkeclass.domain.BukkeClassPageInfo;
 import com.bukke.bukkeclass.service.BukkeClassService;
+import com.bukke.bukkeclass.store.BukkeClassStore;
 
+@Service
 public class BukkeClassServiceImpl implements BukkeClassService {
 
+	@Autowired
+	private BukkeClassStore bStore;
+	
 	@Override
 	public ArrayList<BukkeClass> printAll(BukkeClassPageInfo pi) {
-		// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴) 페이징 포함
-		return null;
-	}
-
-	@Override
-	public ArrayList<BukkeClass> printAll() {
-		// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴) 페이징 미포함
+		// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 		return null;
 	}
 

@@ -17,19 +17,51 @@ public class ReviewController {
 	@Autowired
 	private ReviewService rService;
 	
+	// 후기 전체 조회
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String reviewList(Model model) {
-		
 		return "";
 	}
 	
+	// 후기 상세 조회
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String reviewDetail(@RequestParam("reviewNo") int reviewNo, Model model) {
-		
-		
 		return "";
 	}
 	
+	// 후기 검색 기능
+	@RequestMapping(value="")
+	public String reviewSearch() {
+		return null;
+	}
 	
+	// 후기 등록 뷰
+	@RequestMapping(value="")
+	public String reviewEnrollView() {
+		return null;
+	}
 	
+	// 후기 등록 기능
+	@RequestMapping(value="")
+	public String reviewAdd() {
+		return null;
+	}
+	
+	// 후기 수정 뷰
+	@RequestMapping(value="")
+	public String reviewModifyView() {
+		return null;
+	}
+	
+	// 후기 수정 기능
+	@RequestMapping(value="")
+	public String reviewUpdate() {
+		return null;
+	}
+	
+	// 후기 삭제 기능
+	@RequestMapping(value="")
+	public String reviewRemove() {
+		return null;
+	}
 }

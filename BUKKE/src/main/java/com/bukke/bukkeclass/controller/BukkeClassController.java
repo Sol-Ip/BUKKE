@@ -14,42 +14,42 @@ public class BukkeClassController {
 	
 	// 클래스 전체목록 jsp 이동 (관리자)
 	@RequestMapping(value="")
-	public String BukkeClassListView() {
+	public String bukkeClassListView() {
 		return null;
 	}
 	// 클래스 상세정보 jsp 이동 (모든회원)
 	@RequestMapping(value="")
-	public String BukkeClassDetailView() {
+	public String bukkeClassDetailView() {
 		return null;
 	}
 	// *클래스 검색기능 메소드
 	@RequestMapping(value="")
-	public String BukkeClassSearch() {
+	public String bukkeClassSearch() {
 		return null;
 	}
 	// 클래스 등록 jsp 이동 (업체회원)
 	@RequestMapping(value="")
-	public String BukkeClassEnrollView() {
+	public String bukkeClassEnrollView() {
 		return null;
 	}
 	// *클래스 등록기능 메소드
 	@RequestMapping(value="")
-	public String BukkeClassAdd() {
+	public String bukkeClassAdd() {
 		return null;
 	}
 	// 클래스 수정 jsp 이동 (업체회원)
 	@RequestMapping(value="")
-	public String BukkeClassModifyView() {
+	public String bukkeClassModifyView() {
 		return null;
 	}
 	// *클래스 수정기능 메소드
 	@RequestMapping(value="")
-	public String BukkeClassUpdate() {
+	public String bukkeClassUpdate() {
 		return null;
 	}
 	// *클래스 삭제기능 메소드
 	@RequestMapping(value="")
-	public String BukkeClassRemove() {
+	public String bukkeClassRemove() {
 		return null;
 	}
 }

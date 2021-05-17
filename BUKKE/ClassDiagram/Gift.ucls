@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.bukke.gift.controller.GiftController" project="BUKKE" 
     file="/BUKKE/src/main/java/com/bukke/gift/controller/GiftController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="292" y="23"/>    
+    <position height="-1" width="-1" x="313" y="23"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -56,12 +56,12 @@
     </display>  
   </class>  
   <realization id="7">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <realization id="8">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="5"/>  
+  </realization>  
+  <realization id="8">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

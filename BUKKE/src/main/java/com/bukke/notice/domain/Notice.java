@@ -24,6 +24,7 @@ public class Notice {
 		this.nCreateDate = nCreateDate;
 		this.nUpdateDate = nUpdateDate;
 		this.noticeFilePath = noticeFilePath;
+		 
 	}
 
 	public int getNoticeNo() {

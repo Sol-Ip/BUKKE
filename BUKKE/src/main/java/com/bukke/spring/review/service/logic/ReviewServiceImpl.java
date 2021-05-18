@@ -3,12 +3,14 @@ package com.bukke.spring.review.service.logic;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.service.ReviewService;
 import com.bukke.spring.review.store.ReviewStore;
 
+@Service
 public class ReviewServiceImpl implements ReviewService {
 	
 	@Autowired

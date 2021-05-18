@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.store.ReviewStore;
 
+@Repository
 public class ReviewStoreLogic implements ReviewStore {
 	
 	@Autowired

@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.store.ActivityStore;
 
+@Repository
 public class ActivityStoreLogic implements ActivityStore {
 
 	@Autowired

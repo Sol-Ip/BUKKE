@@ -21,7 +21,7 @@ public class MemberController {
    @Autowired
    private MemberService service;
    
-   @RequestMapping(value="", method=RequestMethod.POST)
+   //@RequestMapping(value="", method=RequestMethod.POST)
    public String memberLogin(HttpServletRequest request, 
                         @ModelAttribute Member member, 
                         Model model){
@@ -29,7 +29,7 @@ public class MemberController {
 	   return ""; 
    }
    
-   @RequestMapping(value="", method=RequestMethod.GET)
+   //@RequestMapping(value="", method=RequestMethod.GET)
    public String memberLogout(HttpServletRequest request) {
       HttpSession session = request.getSession();
       session.invalidate();
@@ -46,27 +46,27 @@ public class MemberController {
       return "common/errorPage";
    }
 
-   @RequestMapping(value="", method=RequestMethod.GET)
+   //@RequestMapping(value="", method=RequestMethod.GET)
    public String myInfoView() {
       return "";
       
    }
    
-   @RequestMapping(value="", method=RequestMethod.POST)
+   //@RequestMapping(value="", method=RequestMethod.POST)
    public String modifyMember() {
          return "common/errorPage";
       
    }
    
-   @RequestMapping(value="", method=RequestMethod.GET)
+   //@RequestMapping(value="", method=RequestMethod.GET)
    public String memberDelete(@RequestParam("userId") String userId, Model model) {
      
          return "";
       
       }
    
-   @ResponseBody
-   @RequestMapping(value="", method=RequestMethod.GET)
+   //@ResponseBody
+   //@RequestMapping(value="", method=RequestMethod.GET)
    public String idDuplicateCheck(@RequestParam("userId") String userId) {
       return "";
    }

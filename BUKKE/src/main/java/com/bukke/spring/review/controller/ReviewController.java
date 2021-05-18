@@ -23,63 +23,53 @@ public class ReviewController {
 	}
 	
 	// 후기 상세 조회
-	@RequestMapping(value="", method=RequestMethod.GET)
+	//@RequestMapping(value="", method=RequestMethod.GET)
 	public String reviewDetail(@RequestParam("reviewNo") int reviewNo, Model model) {
 		return "";
 	}
 	
 	// 후기 검색 기능
-	@RequestMapping(value="")
 	public String reviewSearch() {
 		return null;
 	}
 	
 	// 후기 등록 뷰
-	@RequestMapping(value="")
 	public String reviewEnrollView() {
 		return null;
 	}
 	
 	// 후기 등록 기능
-	@RequestMapping(value="")
 	public String reviewAdd() {
 		return null;
 	}
 	
 	// 후기 수정 뷰
-	@RequestMapping(value="")
 	public String reviewModifyView() {
 		return null;
 	}
 	
 	// 후기 수정 기능
-	@RequestMapping(value="")
 	public String reviewUpdate() {
 		return null;
 	}
 	
 	// 후기 삭제 기능
-	@RequestMapping(value="")
 	public String reviewRemove() {
 		return null;
 	}
 	// 댓글 조회 기능
-	@RequestMapping(value="")
 	public String commentList() {
 		return null;
 	}
 	// 댓글 작성 기능
-	@RequestMapping(value="")
 	public String commentWrite() {
 		return null;
 	}
 	// 댓글 수정 기능
-	@RequestMapping(value="")
 	public String commentUpdate() {
 		return null;
 	}
 	// 댓글 삭제 기능
-	@RequestMapping(value="")
 	public String commentRemove() {
 		return null;
 	}

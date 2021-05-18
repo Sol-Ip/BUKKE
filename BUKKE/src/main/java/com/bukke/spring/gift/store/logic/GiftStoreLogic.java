@@ -2,9 +2,12 @@ package com.bukke.spring.gift.store.logic;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
 import com.bukke.spring.gift.domain.Gift;
 import com.bukke.spring.gift.store.GiftStore;
 
+@Repository
 public class GiftStoreLogic implements GiftStore {
 
 	@Override

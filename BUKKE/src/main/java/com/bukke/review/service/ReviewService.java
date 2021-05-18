@@ -9,7 +9,7 @@ public interface ReviewService {
 	// 후기 전체 조회
 	public ArrayList<Review> printAllReview();
 	// 후기 상세 조회
-	public Review printOneReview(int nId);
+	public Review printOneReview(int rId);
 	// 후기 검색
 	public ArrayList<Review> searchReview(String searchValue);
 	// 후기 등록
@@ -17,7 +17,7 @@ public interface ReviewService {
 	// 후기 수정
 	public int modifyReview(Review review);
 	// 후기 삭제
-	public int removeReview(int nId);
+	public int removeReview(int rId);
 	// 댓글 조회
 	public ArrayList<ReviewComment> printCommentAll();
 	// 댓글 등록

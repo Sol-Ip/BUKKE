@@ -35,4 +35,10 @@ public interface ReviewStore {
 	
 	// 댓글 삭제
 	public int deleteComment(int rId);
+	
+	//좋아요 올림
+	public int insertLikes(Review review);
+	
+	//좋아요 내림
+	public int deleteLikes(Review review);
 }

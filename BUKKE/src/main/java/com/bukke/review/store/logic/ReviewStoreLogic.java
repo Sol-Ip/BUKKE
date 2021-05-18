@@ -76,4 +76,14 @@ public class ReviewStoreLogic implements ReviewStore {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public int insertLikes(Review review) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int deleteLikes(Review review) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

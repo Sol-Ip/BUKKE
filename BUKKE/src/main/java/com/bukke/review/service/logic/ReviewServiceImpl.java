@@ -75,5 +75,15 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public int addLikes(Review review) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int removeLikes(Review review) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

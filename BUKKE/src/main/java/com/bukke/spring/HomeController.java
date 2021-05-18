@@ -36,4 +36,10 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="sample.com", method=RequestMethod.GET)
+	public String sample() {
+		
+		return "sample";
+	}
+	
 }

@@ -15,32 +15,51 @@ public class ReservationServiceImpl implements ReservationService{
 	@Autowired
 	private ReservationStore rStore;
 	
+	// 예약 전체 목록 보기
 	@Override
 	public ArrayList<Reservation> printAllReservation() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	// 예약 상세 보기
 	@Override
 	public Reservation PrintOneReservation(int reservationNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	// 예약하기
 	@Override
 	public int makeReservation() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	// 예약 수정하기
 	@Override
 	public int modifyReservation() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	// 예약 취소
 	@Override
 	public int removeReservation() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	// 예약 승인
+	@Override
+	public int confirmReservaion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	 // 예약 거절
+	@Override
+	public int cancleReservation() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

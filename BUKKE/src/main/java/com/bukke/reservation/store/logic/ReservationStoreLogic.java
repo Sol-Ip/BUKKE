@@ -40,7 +40,19 @@ public class ReservationStoreLogic implements ReservationStore {
 	}
 
 	@Override
-	public int removeReservation() { // 예약 삭제
+	public int deleteReservation() { // 예약 삭제
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int confirmReservaion() { // 예약 승인
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int cancleReservation() { // 예약 거절
 		// TODO Auto-generated method stub
 		return 0;
 	}

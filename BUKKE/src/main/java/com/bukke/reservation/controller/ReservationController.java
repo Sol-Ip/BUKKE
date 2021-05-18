@@ -52,4 +52,16 @@ public class ReservationController {
 		public String reservationRemove() {
 			return null;
 		}
+		
+		// 예약 승인
+		@RequestMapping(value="")
+		public String confirmReservation() {
+			return null;
+		}
+		
+		// 예약 거절
+		@RequestMapping(value="")
+		public String cancleReservation() {
+			return null;
+		}
 }

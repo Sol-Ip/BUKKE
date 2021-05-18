@@ -11,4 +11,6 @@ public interface ReservationService {
 	public int makeReservation(); //예약 하기 
 	public int modifyReservation(); //예약 수정
 	public int removeReservation(); //예약 삭제
+	public int confirmReservaion(); // 예약 승인
+	public int cancleReservation(); // 예약 거절
 }

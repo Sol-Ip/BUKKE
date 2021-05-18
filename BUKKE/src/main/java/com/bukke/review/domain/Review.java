@@ -16,6 +16,13 @@ public class Review {
 	private String rFilePath;
 	private String rOrifinalFilename;
 	private String rRenameFilename;
+	private int reviewLikes;
+	public int getReviewLikes() {
+		return reviewLikes;
+	}
+	public void setReviewLikes(int reviewLikes) {
+		this.reviewLikes = reviewLikes;
+	}
 	public int getReviewNo() {
 		return reviewNo;
 	}
@@ -100,7 +107,7 @@ public class Review {
 				+ ", reviewContents=" + reviewContents + ", reviewDate=" + reviewDate + ", rFileNo=" + rFileNo
 				+ ", rFileName=" + rFileName + ", rFileSize=" + rFileSize + ", rFileType=" + rFileType + ", rFileDate="
 				+ rFileDate + ", rFilePath=" + rFilePath + ", rOrifinalFilename=" + rOrifinalFilename
-				+ ", rRenameFilename=" + rRenameFilename + "]";
+				+ ", rRenameFilename=" + rRenameFilename + ", reviewLikes=" + reviewLikes + "]";
 	}
 	
 }

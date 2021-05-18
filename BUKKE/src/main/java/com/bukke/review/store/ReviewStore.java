@@ -7,10 +7,10 @@ import com.bukke.review.domain.ReviewComment;
 
 public interface ReviewStore {
 	// 후기 전체 조회
-	public ArrayList<Review> selectList();
+	public ArrayList<Review> selectReviewList();
 	
 	// 후기 상세 조회
-	public Review selectOne(int nId);
+	public Review selectOneReview(int rId);
 	
 	// 후기 검색
 	public ArrayList<Review> searchReviewList(String reviewValue);
@@ -22,7 +22,7 @@ public interface ReviewStore {
 	public int updateReview(Review review);
 	
 	// 후기 삭제
-	public int deleteReview(int nId);
+	public int deleteReview(int rId);
 	
 	// 댓글 조회
 	public ArrayList<ReviewComment> selectCommentList(int nId);

@@ -16,13 +16,13 @@ public class ReviewServiceImpl implements ReviewService {
 
 	// 후기 전체 조회
 	@Override
-	public ArrayList<Review> printAll() {
+	public ArrayList<Review> printAllReview() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	// 후기 상세 조회
 	@Override
-	public Review printOne(int nId) {
+	public Review printOneReview(int rId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -47,7 +47,7 @@ public class ReviewServiceImpl implements ReviewService {
 	} 
 	// 후기 삭제
 	@Override
-	public int removeReview(int nId) {
+	public int removeReview(int rId) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

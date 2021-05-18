@@ -16,13 +16,13 @@ public class ReviewStoreLogic implements ReviewStore {
 	
 	// 후기 전체 조회(리스트)
 	@Override
-	public ArrayList<Review> selectList() {
+	public ArrayList<Review> selectReviewList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	// 후기 상세 조회
 	@Override
-	public Review selectOne(int nId) {
+	public Review selectOneReview(int rId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -48,7 +48,7 @@ public class ReviewStoreLogic implements ReviewStore {
 	}
 	//후기 삭제
 	@Override
-	public int deleteReview(int nId) {
+	public int deleteReview(int rId) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

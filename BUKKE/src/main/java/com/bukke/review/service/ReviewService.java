@@ -7,9 +7,9 @@ import com.bukke.review.domain.ReviewComment;
 
 public interface ReviewService {
 	// 후기 전체 조회
-	public ArrayList<Review> printAll();
+	public ArrayList<Review> printAllReview();
 	// 후기 상세 조회
-	public Review printOne(int nId);
+	public Review printOneReview(int nId);
 	// 후기 검색
 	public ArrayList<Review> searchReview(String searchValue);
 	// 후기 등록

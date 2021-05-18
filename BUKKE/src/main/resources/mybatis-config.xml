@@ -7,8 +7,8 @@
 	</settings>
 	
  <typeAliases>
-	<typeAlias type="com.bukke.member.domain.Member" alias="Member"/>
-	<typeAlias type="com.bukke.notice.domain.Notice" alias="Notice"/>
+	<typeAlias type="com.bukke.spring.member.domain.Member" alias="Member"/>
+	<typeAlias type="com.bukke.spring.notice.domain.Notice" alias="Notice"/>
 </typeAliases> 
 
 	<mappers>

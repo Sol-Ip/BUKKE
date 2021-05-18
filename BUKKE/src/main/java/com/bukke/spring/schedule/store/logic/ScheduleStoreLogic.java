@@ -1,13 +1,12 @@
-package com.bukke.schedule.store.logic;
+package com.bukke.spring.schedule.store.logic;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.bukke.schedule.domain.Schedule;
-import com.bukke.schedule.store.ScheduleStore;
+import com.bukke.spring.schedule.domain.Schedule;
+import com.bukke.spring.schedule.store.ScheduleStore;
 @Repository
 public class ScheduleStoreLogic implements ScheduleStore{
 	private SqlSessionTemplate session;

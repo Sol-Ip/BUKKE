@@ -1,4 +1,4 @@
-package com.bukke.reservation.store.logic;
+package com.bukke.spring.reservation.store.logic;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bukke.reservation.domain.Reservation;
-import com.bukke.reservation.store.ReservationStore;
+import com.bukke.spring.reservation.domain.Reservation;
+import com.bukke.spring.reservation.store.ReservationStore;
 
 @Repository
 public class ReservationStoreLogic implements ReservationStore {

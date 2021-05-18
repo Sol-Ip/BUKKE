@@ -1,8 +1,8 @@
-package com.bukke.schedule.service;
+package com.bukke.spring.schedule.service;
 
 import java.util.ArrayList;
 
-import com.bukke.schedule.domain.Schedule;
+import com.bukke.spring.schedule.domain.Schedule;
 
 public interface ScheduleService {
 	

@@ -1,9 +1,9 @@
-package com.bukke.review.service;
+package com.bukke.spring.review.service;
 
 import java.util.ArrayList;
 
-import com.bukke.review.domain.Review;
-import com.bukke.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewComment;
 
 public interface ReviewService {
 	// 후기 전체 조회

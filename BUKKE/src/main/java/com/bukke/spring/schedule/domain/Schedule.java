@@ -1,4 +1,4 @@
-package com.bukke.schedule.domain;
+package com.bukke.spring.schedule.domain;
 
 public class Schedule {
 

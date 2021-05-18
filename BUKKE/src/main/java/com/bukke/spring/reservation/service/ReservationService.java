@@ -1,8 +1,8 @@
-package com.bukke.reservation.service;
+package com.bukke.spring.reservation.service;
 
 import java.util.ArrayList;
 
-import com.bukke.reservation.domain.Reservation;
+import com.bukke.spring.reservation.domain.Reservation;
 
 public interface ReservationService {
 	public ArrayList<Reservation> printAllReservation(); //예약 전체목록 조회  

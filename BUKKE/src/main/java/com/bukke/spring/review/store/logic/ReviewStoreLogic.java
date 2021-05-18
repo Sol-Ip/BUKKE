@@ -1,13 +1,13 @@
-package com.bukke.review.store.logic;
+package com.bukke.spring.review.store.logic;
 
 import java.util.ArrayList;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bukke.review.domain.Review;
-import com.bukke.review.domain.ReviewComment;
-import com.bukke.review.store.ReviewStore;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.store.ReviewStore;
 
 public class ReviewStoreLogic implements ReviewStore {
 	

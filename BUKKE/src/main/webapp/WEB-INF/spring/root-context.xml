@@ -52,7 +52,7 @@
 	</tx:advice>
 	
 	<aop:config proxy-target-class="true">
-		<aop:pointcut expression="execution(* com.bukke..*Impl.*(..))" id="serviceMethod"/>
+		<aop:pointcut expression="execution(* com.bukke.spring..*Impl.*(..))" id="serviceMethod"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>
 	</aop:config>
 	

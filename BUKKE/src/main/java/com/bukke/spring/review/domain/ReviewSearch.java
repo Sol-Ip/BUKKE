@@ -1,4 +1,4 @@
-package com.bukke.review.domain;
+package com.bukke.spring.review.domain;
 
 public class ReviewSearch {
 	

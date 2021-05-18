@@ -1,4 +1,4 @@
-package com.bukke.reservation.domain;
+package com.bukke.spring.reservation.domain;
 
 import java.sql.Date;
 

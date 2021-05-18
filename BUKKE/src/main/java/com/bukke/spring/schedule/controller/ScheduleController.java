@@ -1,10 +1,9 @@
-package com.bukke.schedule.controller;
+package com.bukke.spring.schedule.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bukke.bukkeclass.service.BukkeClassService;
-import com.bukke.schedule.service.ScheduleService;
+import com.bukke.spring.schedule.service.ScheduleService;
 
 public class ScheduleController {
 

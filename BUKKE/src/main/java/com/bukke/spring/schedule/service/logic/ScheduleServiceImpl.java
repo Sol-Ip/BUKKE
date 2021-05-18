@@ -1,13 +1,13 @@
-package com.bukke.schedule.service.logic;
+package com.bukke.spring.schedule.service.logic;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bukke.schedule.domain.Schedule;
-import com.bukke.schedule.service.ScheduleService;
-import com.bukke.schedule.store.ScheduleStore;
+import com.bukke.spring.schedule.domain.Schedule;
+import com.bukke.spring.schedule.service.ScheduleService;
+import com.bukke.spring.schedule.store.ScheduleStore;
 
 @Service
 public class ScheduleServiceImpl implements ScheduleService{

@@ -1,13 +1,13 @@
-package com.bukke.review.service.logic;
+package com.bukke.spring.review.service.logic;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bukke.review.domain.Review;
-import com.bukke.review.domain.ReviewComment;
-import com.bukke.review.service.ReviewService;
-import com.bukke.review.store.ReviewStore;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.service.ReviewService;
+import com.bukke.spring.review.store.ReviewStore;
 
 public class ReviewServiceImpl implements ReviewService {
 	

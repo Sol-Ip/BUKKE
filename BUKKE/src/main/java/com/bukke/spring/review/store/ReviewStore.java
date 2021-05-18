@@ -1,9 +1,9 @@
-package com.bukke.review.store;
+package com.bukke.spring.review.store;
 
 import java.util.ArrayList;
 
-import com.bukke.review.domain.Review;
-import com.bukke.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewComment;
 
 public interface ReviewStore {
 	// 후기 전체 조회

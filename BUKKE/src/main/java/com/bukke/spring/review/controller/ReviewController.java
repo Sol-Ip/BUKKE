@@ -1,15 +1,14 @@
-package com.bukke.review.controller;
+package com.bukke.spring.review.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bukke.review.service.ReviewService;
+import com.bukke.spring.review.service.ReviewService;
 
 @Controller
 public class ReviewController {
@@ -18,9 +17,9 @@ public class ReviewController {
 	private ReviewService rService;
 	
 	// 후기 전체 조회
-	@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="reviewList.com", method=RequestMethod.GET)
 	public String reviewList(Model model) {
-		return "";
+		return "review/reviewListView";
 	}
 	
 	// 후기 상세 조회

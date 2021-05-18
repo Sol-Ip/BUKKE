@@ -1,10 +1,10 @@
-package com.bukke.keep.controller;
+package com.bukke.spring.keep.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bukke.keep.service.KeepService;
+import com.bukke.spring.keep.service.KeepService;
 
 @Controller
 public class KeepController {

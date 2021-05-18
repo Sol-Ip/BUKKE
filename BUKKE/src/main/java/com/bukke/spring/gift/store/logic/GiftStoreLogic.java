@@ -1,9 +1,9 @@
-package com.bukke.gift.store.logic;
+package com.bukke.spring.gift.store.logic;
 
 import java.util.ArrayList;
 
-import com.bukke.gift.domain.Gift;
-import com.bukke.gift.store.GiftStore;
+import com.bukke.spring.gift.domain.Gift;
+import com.bukke.spring.gift.store.GiftStore;
 
 public class GiftStoreLogic implements GiftStore {
 

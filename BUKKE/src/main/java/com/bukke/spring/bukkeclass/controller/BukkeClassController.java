@@ -1,10 +1,10 @@
-package com.bukke.bukkeclass.controller;
+package com.bukke.spring.bukkeclass.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bukke.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
 
 @Controller
 public class BukkeClassController {

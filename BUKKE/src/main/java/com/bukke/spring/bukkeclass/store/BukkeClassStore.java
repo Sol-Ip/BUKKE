@@ -1,9 +1,9 @@
-package com.bukke.bukkeclass.store;
+package com.bukke.spring.bukkeclass.store;
 
 import java.util.ArrayList;
 
-import com.bukke.bukkeclass.domain.BukkeClass;
-import com.bukke.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
 
 public interface BukkeClassStore {
 

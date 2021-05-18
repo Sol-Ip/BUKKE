@@ -1,4 +1,4 @@
-package com.bukke.gift.domain;
+package com.bukke.spring.gift.domain;
 
 import java.sql.Date;
 

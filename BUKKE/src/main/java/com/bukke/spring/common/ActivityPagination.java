@@ -1,6 +1,6 @@
-package com.bukke.common;
+package com.bukke.spring.common;
 
-import com.bukke.activity.domain.ActivityPageInfo;
+import com.bukke.spring.activity.domain.ActivityPageInfo;
 
 public class ActivityPagination {
 		// PageInfo 객체를 리턴해주는 메소드

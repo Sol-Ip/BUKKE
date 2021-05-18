@@ -1,10 +1,10 @@
-package com.bukke.gift.controller;
+package com.bukke.spring.gift.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bukke.gift.service.GiftService;
+import com.bukke.spring.gift.service.GiftService;
 
 @Controller
 public class GiftController {

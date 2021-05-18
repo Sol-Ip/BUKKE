@@ -1,6 +1,6 @@
-package com.bukke.common;
+package com.bukke.spring.common;
 
-import com.bukke.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
 
 public class BukkeClassPagination {
 		// PageInfo 객체를 리턴해주는 메소드

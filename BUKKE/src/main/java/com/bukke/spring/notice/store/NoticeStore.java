@@ -1,9 +1,9 @@
-package com.bukke.notice.store;
+package com.bukke.spring.notice.store;
 
 import java.util.ArrayList;
 
-import com.bukke.notice.domain.Notice;
-import com.bukke.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.domain.Notice;
+import com.bukke.spring.notice.domain.NoticePageInfo;
 
 public interface NoticeStore {
 

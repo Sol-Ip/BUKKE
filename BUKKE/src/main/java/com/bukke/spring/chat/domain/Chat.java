@@ -1,4 +1,4 @@
-package com.bukke.chat.domain;
+package com.bukke.spring.chat.domain;
 
 import java.sql.Date;
 

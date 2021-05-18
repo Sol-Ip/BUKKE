@@ -1,6 +1,6 @@
-package com.bukke.common;
+package com.bukke.spring.common;
 
-import com.bukke.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.domain.NoticePageInfo;
 
 public class NoticePagination {
 		// PageInfo 객체를 리턴해주는 메소드

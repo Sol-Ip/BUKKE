@@ -1,4 +1,4 @@
-package com.bukke.keep.domain;
+package com.bukke.spring.keep.domain;
 
 public class Keep {
 

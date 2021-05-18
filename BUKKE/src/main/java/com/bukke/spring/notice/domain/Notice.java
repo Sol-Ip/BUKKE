@@ -1,4 +1,4 @@
-package com.bukke.notice.domain;
+package com.bukke.spring.notice.domain;
 
 import java.sql.Date;
 

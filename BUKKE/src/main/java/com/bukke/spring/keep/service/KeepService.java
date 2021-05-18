@@ -1,9 +1,9 @@
-package com.bukke.keep.service;
+package com.bukke.spring.keep.service;
 
 import java.util.ArrayList;
 
-import com.bukke.activity.domain.Activity;
-import com.bukke.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
 
 public interface KeepService {
 	

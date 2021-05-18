@@ -1,4 +1,4 @@
-package com.bukke.bukkeclass.store.logic;
+package com.bukke.spring.bukkeclass.store.logic;
 
 import java.util.ArrayList;
 
@@ -6,9 +6,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bukke.bukkeclass.domain.BukkeClass;
-import com.bukke.bukkeclass.domain.BukkeClassPageInfo;
-import com.bukke.bukkeclass.store.BukkeClassStore;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.store.BukkeClassStore;
 
 @Repository
 public class BukkeClassStoreLogic implements BukkeClassStore {

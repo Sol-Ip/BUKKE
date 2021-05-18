@@ -1,14 +1,14 @@
-package com.bukke.bukkeclass.service.logic;
+package com.bukke.spring.bukkeclass.service.logic;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bukke.bukkeclass.domain.BukkeClass;
-import com.bukke.bukkeclass.domain.BukkeClassPageInfo;
-import com.bukke.bukkeclass.service.BukkeClassService;
-import com.bukke.bukkeclass.store.BukkeClassStore;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.bukkeclass.store.BukkeClassStore;
 
 @Service
 public class BukkeClassServiceImpl implements BukkeClassService {

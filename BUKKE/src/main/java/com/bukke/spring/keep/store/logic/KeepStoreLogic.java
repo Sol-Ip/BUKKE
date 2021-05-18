@@ -1,4 +1,4 @@
-package com.bukke.keep.store.logic;
+package com.bukke.spring.keep.store.logic;
 
 import java.util.ArrayList;
 
@@ -6,9 +6,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bukke.activity.domain.Activity;
-import com.bukke.bukkeclass.domain.BukkeClass;
-import com.bukke.keep.store.KeepStore;
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.keep.store.KeepStore;
 
 @Repository
 public class KeepStoreLogic implements KeepStore {

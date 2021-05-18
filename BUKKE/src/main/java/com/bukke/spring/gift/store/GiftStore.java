@@ -1,8 +1,8 @@
-package com.bukke.gift.store;
+package com.bukke.spring.gift.store;
 
 import java.util.ArrayList;
 
-import com.bukke.gift.domain.Gift;
+import com.bukke.spring.gift.domain.Gift;
 
 public interface GiftStore {
 	

@@ -1,14 +1,14 @@
-package com.bukke.keep.service.logic;
+package com.bukke.spring.keep.service.logic;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bukke.activity.domain.Activity;
-import com.bukke.bukkeclass.domain.BukkeClass;
-import com.bukke.keep.service.KeepService;
-import com.bukke.keep.store.KeepStore;
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.keep.service.KeepService;
+import com.bukke.spring.keep.store.KeepStore;
 
 @Service
 public class KeepServiceImpl implements KeepService {

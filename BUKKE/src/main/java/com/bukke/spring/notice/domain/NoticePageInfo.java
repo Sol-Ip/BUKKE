@@ -1,4 +1,4 @@
-package com.bukke.notice.domain;
+package com.bukke.spring.notice.domain;
 
 public class NoticePageInfo {
 	private int currentPage; //게시글

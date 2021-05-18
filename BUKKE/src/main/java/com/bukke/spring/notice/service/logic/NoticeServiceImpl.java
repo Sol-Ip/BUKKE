@@ -1,16 +1,18 @@
-package com.bukke.notice.service.logic;
+package com.bukke.spring.notice.service.logic;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bukke.notice.domain.Notice;
-import com.bukke.notice.domain.NoticePageInfo;
-import com.bukke.notice.service.NoticeService;
-import com.bukke.notice.store.NoticeStore;
+import com.bukke.spring.notice.domain.Notice;
+import com.bukke.spring.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.service.NoticeService;
+import com.bukke.spring.notice.store.NoticeStore;
 @Service
 public class NoticeServiceImpl  implements NoticeService{
-
+	
+	@Autowired
 	private NoticeStore bStore;
 
 	@Override

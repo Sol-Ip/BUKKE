@@ -1,6 +1,6 @@
-package com.bukke.common;
+package com.bukke.spring.common;
 
-import com.bukke.review.domain.ReviewPageInfo;
+import com.bukke.spring.review.domain.ReviewPageInfo;
 
 public class ReviewPagination {
 		// PageInfo 객체를 리턴해주는 메소드

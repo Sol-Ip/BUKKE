@@ -1,14 +1,13 @@
-package com.bukke.notice.store.logic;
+package com.bukke.spring.notice.store.logic;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.bukke.notice.domain.Notice;
-import com.bukke.notice.domain.NoticePageInfo;
-import com.bukke.notice.store.NoticeStore;
+import com.bukke.spring.notice.domain.Notice;
+import com.bukke.spring.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.store.NoticeStore;
 @Repository
 public class NoticeStoreLogic implements NoticeStore{
 	private SqlSessionTemplate sqlSession;

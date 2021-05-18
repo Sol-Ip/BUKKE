@@ -1,13 +1,15 @@
-package com.bukke.notice.controller;
+package com.bukke.spring.notice.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bukke.bukkeclass.service.BukkeClassService;
-import com.bukke.notice.service.NoticeService;
+import com.bukke.spring.notice.service.NoticeService;
 
 @Controller
 public class NoticeController {
+	
+	@Autowired
 	private NoticeService bService;
 
 	//전체목록 조회(리스트)

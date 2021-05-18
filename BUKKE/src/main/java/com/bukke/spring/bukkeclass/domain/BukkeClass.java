@@ -1,4 +1,4 @@
-package com.bukke.bukkeclass.domain;
+package com.bukke.spring.bukkeclass.domain;
 
 import java.sql.Date;
 

@@ -1,9 +1,9 @@
-package com.bukke.gift.service.logic;
+package com.bukke.spring.gift.service.logic;
 
 import java.util.ArrayList;
 
-import com.bukke.gift.domain.Gift;
-import com.bukke.gift.service.GiftService;
+import com.bukke.spring.gift.domain.Gift;
+import com.bukke.spring.gift.service.GiftService;
 
 public class GiftServiceImpl implements GiftService {
 

@@ -1,6 +1,6 @@
-package com.bukke.member.service;
+package com.bukke.spring.member.service;
 
-import com.bukke.member.domain.Member;
+import com.bukke.spring.member.domain.Member;
 
 public interface MemberService {
 	

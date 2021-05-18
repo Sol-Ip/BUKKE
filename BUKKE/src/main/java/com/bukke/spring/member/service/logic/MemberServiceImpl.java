@@ -1,11 +1,11 @@
-package com.bukke.member.service.logic;
+package com.bukke.spring.member.service.logic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bukke.member.domain.Member;
-import com.bukke.member.service.MemberService;
-import com.bukke.member.store.MemberStore;
+import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.member.service.MemberService;
+import com.bukke.spring.member.store.MemberStore;
 
 @Service
 public class MemberServiceImpl implements MemberService {

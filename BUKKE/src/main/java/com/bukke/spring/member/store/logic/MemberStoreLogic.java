@@ -1,11 +1,11 @@
-package com.bukke.member.store.logic;
+package com.bukke.spring.member.store.logic;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bukke.member.domain.Member;
-import com.bukke.member.store.MemberStore;
+import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.member.store.MemberStore;
 
 @Repository
 public class MemberStoreLogic implements MemberStore {

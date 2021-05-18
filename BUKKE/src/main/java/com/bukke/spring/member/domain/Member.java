@@ -1,4 +1,4 @@
-package com.bukke.member.domain;
+package com.bukke.spring.member.domain;
 
 public class Member {
 	

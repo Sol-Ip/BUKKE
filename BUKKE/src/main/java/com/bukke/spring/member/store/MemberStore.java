@@ -1,6 +1,6 @@
-package com.bukke.member.store;
+package com.bukke.spring.member.store;
 
-import com.bukke.member.domain.Member;
+import com.bukke.spring.member.domain.Member;
 
 public interface MemberStore {
 	

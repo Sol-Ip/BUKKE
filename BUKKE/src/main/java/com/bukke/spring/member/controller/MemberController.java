@@ -1,4 +1,4 @@
-package com.bukke.member.controller;
+package com.bukke.spring.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bukke.member.domain.Member;
-import com.bukke.member.service.MemberService;
+import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.member.service.MemberService;
 
 @Controller
 public class MemberController {
@@ -21,7 +21,6 @@ public class MemberController {
    @Autowired
    private MemberService service;
    
-   // 로그인
    @RequestMapping(value="", method=RequestMethod.POST)
    public String memberLogin(HttpServletRequest request, 
                         @ModelAttribute Member member, 
@@ -30,7 +29,6 @@ public class MemberController {
 	   return ""; 
    }
    
-   //로그아웃
    @RequestMapping(value="", method=RequestMethod.GET)
    public String memberLogout(HttpServletRequest request) {
       HttpSession session = request.getSession();
@@ -38,35 +36,28 @@ public class MemberController {
       return "";
    }
    
-   //회원가입 폼
-   @RequestMapping(value="", method=RequestMethod.GET)
+   @RequestMapping(value="memberRegisterView.com", method=RequestMethod.GET)
    public String enrollView() {
-      return "";
+      return "member/memberRegister";
    }
    
-   //회원등록
-   @RequestMapping(value="", method=RequestMethod.POST)
+   @RequestMapping(value="memberRegister.com", method=RequestMethod.POST)
    public String memberRegister() {
-   
       return "common/errorPage";
-   
    }
 
-   //마이페이지 뷰
    @RequestMapping(value="", method=RequestMethod.GET)
    public String myInfoView() {
       return "";
       
    }
    
-   //정보수정
    @RequestMapping(value="", method=RequestMethod.POST)
    public String modifyMember() {
          return "common/errorPage";
       
    }
    
-   //회원 탈퇴
    @RequestMapping(value="", method=RequestMethod.GET)
    public String memberDelete(@RequestParam("userId") String userId, Model model) {
      
@@ -74,7 +65,6 @@ public class MemberController {
       
       }
    
-   //아이디 중복 검사
    @ResponseBody
    @RequestMapping(value="", method=RequestMethod.GET)
    public String idDuplicateCheck(@RequestParam("userId") String userId) {

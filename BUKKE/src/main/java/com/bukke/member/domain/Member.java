@@ -2,13 +2,13 @@ package com.bukke.member.domain;
 
 public class Member {
 	
-	private String memberId;
-	private String memberPw;
-	private String memberName;
-	private String memberNick;
-	private String memberAddr;
-	private String memberPhone;
-	private String memberEmail;
+	private String memberId; // 회원아이디
+	private String memberPw; // 회원비밀번호
+	private String memberName; // 회원이름
+	private String memberNick; // 부캐명
+	private String memberAddr; // 회원주소
+	private String memberPhone; // 회원전화번호
+	private String memberEmail; // 회원이메일
 	
 	
 	public Member() {}

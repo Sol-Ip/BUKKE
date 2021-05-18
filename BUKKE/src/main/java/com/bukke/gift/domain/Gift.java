@@ -4,14 +4,15 @@ import java.sql.Date;
 
 public class Gift {
 	
-	private int giftNo;
-	private String sender;
-	private String receiver;
-	private int classNo;
-	private Date sendDate;
-	private Date receiveDate;
-	private String payStatus;
-	private String giftStatus;
+	private int giftNo; // 선물번호
+	private String sender; // 보낸사람
+	private String receiver; // 받은사람
+	private int classNo; // 클래스번호
+	private Date sendDate; // 보낸날짜
+	private Date receiveDate; // 받은날짜
+	private String payStatus; // 결제여부
+	private String giftStatus; // 선물수신여부
+	
 	public int getGiftNo() {
 		return giftNo;
 	}
@@ -60,6 +61,7 @@ public class Gift {
 	public void setGiftStatus(String giftStatus) {
 		this.giftStatus = giftStatus;
 	}
+	
 	@Override
 	public String toString() {
 		return "Gift [giftNo=" + giftNo + ", sender=" + sender + ", receiver=" + receiver + ", classNo=" + classNo

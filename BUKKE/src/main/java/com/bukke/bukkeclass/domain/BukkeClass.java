@@ -4,44 +4,27 @@ import java.sql.Date;
 
 public class BukkeClass {
 	
-	// 클래스번호
-	private int classNo;
-	// 업체아이디
-	private String shopId;
-	// 클래스명
-	private String className;
-	// 주소
-	private String classAddr;
-	// 분류
-	private String classType;
-	// 상세분류
-	private String classTypedetails;
-	// 상세내용
-	private String classInfo;
-	// 인원수
-	private String classCapacity;
-	// 사진 번호
-	private int cFileNo;
-	// 사진 이름
-	private String cFileName;
-	// 사진 크기
-	private int cFileSize;
-	// 파일 형식
-	private String cFileType;
-	// 업로드 날짜
-	private Date cFileDate;
-	// 사진 경로
-	private String cFilePath;
-	// 기존 파일 이름
-	private String cOriginalFilename;
-	// 변경된 파일 이름
-	private String cRenameFilename;
-	// 등록일
-	private Date classEnrolldate;
-	// 개강일
-	private Date classStartdate;
-	// 종강일
-	private Date classEnddate;
+	
+	private int classNo; // 클래스번호
+	private String shopId; // 업체아이디
+	private String className; // 클래스명
+	private String classAddr; // 주소
+	private String classType; // 분류
+	private String classTypedetails; // 상세분류
+	private String classInfo; // 상세내용
+	private String classCapacity; // 인원수
+	private int cFileNo; // 사진 번호
+	private String cFileName; // 사진 이름
+	private int cFileSize; // 사진 크기 
+	private String cFileType; // 파일 형식
+	private Date cFileDate; // 업로드 날짜
+	private String cFilePath; // 사진 경로
+	private String cOriginalFilename; // 기존 파일 이름
+	private String cRenameFilename; // 변경된 파일 이름
+	private Date classEnrolldate; // 등록일
+	private Date classStartdate; // 개강일
+	private Date classEnddate; // 종강일
+	private String classStatus; // 클래스(삭제)여부
 	
 	// 생성자
 	public BukkeClass() {}
@@ -94,71 +77,54 @@ public class BukkeClass {
 	public void setClassCapacity(String classCapacity) {
 		this.classCapacity = classCapacity;
 	}
-	
 	public int getcFileNo() {
 		return cFileNo;
 	}
-
 	public void setcFileNo(int cFileNo) {
 		this.cFileNo = cFileNo;
 	}
-
 	public String getcFileName() {
 		return cFileName;
 	}
-
 	public void setcFileName(String cFileName) {
 		this.cFileName = cFileName;
 	}
-
 	public int getcFileSize() {
 		return cFileSize;
 	}
-
 	public void setcFileSize(int cFileSize) {
 		this.cFileSize = cFileSize;
 	}
-
 	public String getcFileType() {
 		return cFileType;
 	}
-
 	public void setcFileType(String cFileType) {
 		this.cFileType = cFileType;
 	}
-
 	public Date getcFileDate() {
 		return cFileDate;
 	}
-
 	public void setcFileDate(Date cFileDate) {
 		this.cFileDate = cFileDate;
 	}
-
 	public String getcFilePath() {
 		return cFilePath;
 	}
-
 	public void setcFilePath(String cFilePath) {
 		this.cFilePath = cFilePath;
 	}
-
 	public String getcOriginalFilename() {
 		return cOriginalFilename;
 	}
-
 	public void setcOriginalFilename(String cOriginalFilename) {
 		this.cOriginalFilename = cOriginalFilename;
 	}
-
 	public String getcRenameFilename() {
 		return cRenameFilename;
 	}
-
 	public void setcRenameFilename(String cRenameFilename) {
 		this.cRenameFilename = cRenameFilename;
 	}
-
 	public Date getClassEnrollDate() {
 		return classEnrolldate;
 	}
@@ -177,6 +143,12 @@ public class BukkeClass {
 	public void setClassEndDate(Date classEnddate) {
 		this.classEnddate = classEnddate;
 	}
+	public String getClassStatus() {
+		return classStatus;
+	}
+	public void setClassStatus(String classStatus) {
+		this.classStatus = classStatus;
+	}
 
 	@Override
 	public String toString() {
@@ -186,8 +158,7 @@ public class BukkeClass {
 				+ ", cFileSize=" + cFileSize + ", cFileType=" + cFileType + ", cFileDate=" + cFileDate + ", cFilePath="
 				+ cFilePath + ", cOriginalFilename=" + cOriginalFilename + ", cRenameFilename=" + cRenameFilename
 				+ ", classEnrolldate=" + classEnrolldate + ", classStartdate=" + classStartdate + ", classEnddate="
-				+ classEnddate + "]";
+				+ classEnddate + ", classStatus=" + classStatus + "]";
 	}
-	
 	
 }

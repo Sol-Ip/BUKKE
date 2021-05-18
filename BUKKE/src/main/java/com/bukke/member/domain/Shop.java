@@ -12,7 +12,7 @@ public class Shop {
 	private String shopEmail;// 업체이메일
 	private char shopApproval;// 업체 승인
 	private int crnNo; // 사업자번호
-	private int crnFileNo; //사진번호
+	private int crnFileNo; // 사진번호
 	private String crnFileName; // 사진 이름
 	private int crnFileSize; // 사진 크기
 	private String crnFileType; // 파일 형식

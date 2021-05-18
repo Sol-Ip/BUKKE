@@ -13,7 +13,7 @@ public class ScheduleStoreLogic implements ScheduleStore{
 	private SqlSessionTemplate session;
 
 	@Override
-	public ArrayList<Schedule> printAllScheduleList() {
+	public ArrayList<Schedule> selectAllScheduleList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -34,8 +34,8 @@ public class ScheduleStoreLogic implements ScheduleStore{
 	public int deleteSchedule(int scheduleNo) {
 		// TODO Auto-generated method stub
 		return 0;
-	} 
-	
+	}
+
 	
 
 	

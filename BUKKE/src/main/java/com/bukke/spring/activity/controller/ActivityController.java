@@ -2,6 +2,8 @@ package com.bukke.spring.activity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bukke.spring.activity.service.ActivityService;
 
@@ -42,5 +44,12 @@ public class ActivityController {
 	// *클래스 삭제기능 메소드
 	public String activityRemove() {
 		return null;
+	}
+	
+	
+	@RequestMapping(value="loginForm.com" , method = RequestMethod.POST)
+	public String testing() {
+		
+		return "member/loginForm";
 	}
 }

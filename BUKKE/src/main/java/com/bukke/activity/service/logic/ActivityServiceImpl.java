@@ -17,19 +17,19 @@ public class ActivityServiceImpl implements ActivityService {
 	public ActivityStore aStore;
 
 	@Override
-	public ArrayList<Activity> printAll(ActivityPageInfo pi) { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
+	public ArrayList<Activity> printAllActivity(ActivityPageInfo pi) { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Activity> printAll() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+	public ArrayList<Activity> printAllActivity() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Activity printOne(int activityNo) { // 액티비티 상세정보
+	public Activity printOneActivity(int activityNo) { // 액티비티 상세정보
 		// TODO Auto-generated method stub
 		return null;
 	}

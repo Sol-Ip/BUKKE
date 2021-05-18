@@ -15,19 +15,19 @@ public class ActivityStoreLogic implements ActivityStore {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public ArrayList<Activity> selectAllList(ActivityPageInfo pi) { //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
+	public ArrayList<Activity> selectAllActivityList(ActivityPageInfo pi) { //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Activity> selectAllList() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+	public ArrayList<Activity> selectAllActivityList() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Activity selectOne(int activityNo) { // 액티비티 상세정보
+	public Activity selectOneActivity(int activityNo) { // 액티비티 상세정보
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -6,11 +6,11 @@ import com.bukke.activity.domain.Activity;
 import com.bukke.activity.domain.ActivityPageInfo;
 
 public interface ActivityStore {
-	public ArrayList<Activity> selectAllList(ActivityPageInfo pi); //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
+	public ArrayList<Activity> selectAllActivityList(ActivityPageInfo pi); //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
 
-	public ArrayList<Activity> selectAllList(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+	public ArrayList<Activity> selectAllActivityList(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
 
-	public Activity selectOne(int activityNo); // 액티비티 상세정보
+	public Activity selectOneActivity(int activityNo); // 액티비티 상세정보
 
 	public ArrayList<Activity> searchActivityList(String activityValue); //액티비티 검색 (일반회원, 업체회원)
 

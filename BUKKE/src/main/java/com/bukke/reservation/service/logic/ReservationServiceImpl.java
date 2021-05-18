@@ -16,13 +16,13 @@ public class ReservationServiceImpl implements ReservationService{
 	private ReservationStore rStore;
 	
 	@Override
-	public ArrayList<Reservation> printAll() {
+	public ArrayList<Reservation> printAllReservation() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Reservation PrintOne(int reservationNo) {
+	public Reservation PrintOneReservation(int reservationNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

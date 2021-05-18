@@ -1,14 +1,14 @@
-package com.bukke.activity.service.logic;
+package com.bukke.spring.activity.service.logic;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bukke.activity.domain.Activity;
-import com.bukke.activity.domain.ActivityPageInfo;
-import com.bukke.activity.service.ActivityService;
-import com.bukke.activity.store.ActivityStore;
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.domain.ActivityPageInfo;
+import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.activity.store.ActivityStore;
 
 @Service
 public class ActivityServiceImpl implements ActivityService {

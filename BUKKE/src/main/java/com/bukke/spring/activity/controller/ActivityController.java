@@ -1,10 +1,10 @@
-package com.bukke.activity.controller;
+package com.bukke.spring.activity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bukke.activity.service.ActivityService;
+import com.bukke.spring.activity.service.ActivityService;
 
 @Controller
 public class ActivityController {

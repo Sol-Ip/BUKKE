@@ -1,9 +1,9 @@
-package com.bukke.activity.service;
+package com.bukke.spring.activity.service;
 
 import java.util.ArrayList;
 
-import com.bukke.activity.domain.Activity;
-import com.bukke.activity.domain.ActivityPageInfo;
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.domain.ActivityPageInfo;
 
 public interface ActivityService {
 	

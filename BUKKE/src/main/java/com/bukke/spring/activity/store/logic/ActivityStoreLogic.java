@@ -1,13 +1,13 @@
-package com.bukke.activity.store.logic;
+package com.bukke.spring.activity.store.logic;
 
 import java.util.ArrayList;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bukke.activity.domain.Activity;
-import com.bukke.activity.domain.ActivityPageInfo;
-import com.bukke.activity.store.ActivityStore;
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.domain.ActivityPageInfo;
+import com.bukke.spring.activity.store.ActivityStore;
 
 public class ActivityStoreLogic implements ActivityStore {
 

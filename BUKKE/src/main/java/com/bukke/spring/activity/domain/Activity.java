@@ -1,4 +1,4 @@
-package com.bukke.activity.domain;
+package com.bukke.spring.activity.domain;
 
 import java.sql.Date;
 

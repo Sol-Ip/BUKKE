@@ -1,9 +1,9 @@
-package com.bukke.activity.store;
+package com.bukke.spring.activity.store;
 
 import java.util.ArrayList;
 
-import com.bukke.activity.domain.Activity;
-import com.bukke.activity.domain.ActivityPageInfo;
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.domain.ActivityPageInfo;
 
 public interface ActivityStore {
 	public ArrayList<Activity> selectAllActivityList(ActivityPageInfo pi); //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함

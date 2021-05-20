@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
-import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
 
 @Repository
@@ -16,9 +16,15 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	@Autowired
 	private SqlSessionTemplate session; 
 	
+	// 클래스 전체 수 조회 수
+	@Override
+	public int selectListCount() {
+		return session.selectOne("bClassMapper.selectListCount");
+	}
+	
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	@Override
-	public ArrayList<BukkeClass> selectAllListBclass(BukkeClassPageInfo pi) {
+	public ArrayList<BukkeClass> selectAllListBclass(PageInfo pi) {
 		return null;
 	}
 

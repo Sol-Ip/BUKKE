@@ -1,6 +1,6 @@
 package com.bukke.spring.bukkeclass.domain;
 
-public class BukkeClassPageInfo {
+public class PageInfo {
 	
 		// 현재 페이지
 		private int currentPage;
@@ -19,7 +19,7 @@ public class BukkeClassPageInfo {
 		
 		
 		
-		public BukkeClassPageInfo(int currentPage, int boardLimit, int pageLimit, int startPage, int endPage,
+		public PageInfo(int currentPage, int boardLimit, int pageLimit, int startPage, int endPage,
 				int listCount, int maxPage) {
 			super();
 			this.currentPage = currentPage;

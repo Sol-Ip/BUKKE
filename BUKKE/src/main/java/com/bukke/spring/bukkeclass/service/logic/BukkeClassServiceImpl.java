@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
-import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
 
@@ -16,10 +16,15 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	@Autowired
 	private BukkeClassStore bStore;
 	
+	@Override
+	public int getListCount() {
+		return bStore.selectListCount();
+	}
+	
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	@Override
-	public ArrayList<BukkeClass> printAllBclass(BukkeClassPageInfo pi) {
-		return null;
+	public ArrayList<BukkeClass> printAllBclass(PageInfo pi) {
+		return bStore.selectAllListBclass(pi);
 	}
 
 	// 클래스 상세정보

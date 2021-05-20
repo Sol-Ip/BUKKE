@@ -3,13 +3,15 @@ package com.bukke.spring.bukkeclass.service;
 import java.util.ArrayList;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
-import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.domain.PageInfo;
 
 public interface BukkeClassService {
 
+	// 게시물 전체 수 조회수
+	public int getListCount();
 	
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
-	public ArrayList<BukkeClass> printAllBclass(BukkeClassPageInfo pi);
+	public ArrayList<BukkeClass> printAllBclass(PageInfo pi);
 	
 	// 클래스 상세 정보
 	public BukkeClass printOneBclass(int classNo);
@@ -25,4 +27,5 @@ public interface BukkeClassService {
 	
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)
 	public int removeBclass(int classNo);
+
 }

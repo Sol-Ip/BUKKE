@@ -1,12 +1,12 @@
 package com.bukke.spring.common;
 
-import com.bukke.spring.bukkeclass.domain.BukkeClassPageInfo;
+import com.bukke.spring.bukkeclass.domain.PageInfo;
 
 public class BukkeClassPagination {
 		// PageInfo 객체를 리턴해주는 메소드
 		// static : 한번만 생성하여 정보를 조정해서 가지고 있을 수 있도록 (전역변수로 사용할 수 있도록) 하기위해 사용하여 만든 메소드
-		public static BukkeClassPageInfo getPageInfo(int currentPage, int listCount) { 
-			BukkeClassPageInfo pi = null;
+		public static PageInfo getPageInfo(int currentPage, int listCount) { 
+			PageInfo pi = null;
 			int pageLimit = 10; // 한 페이지에서 보여줄 네비게이션 수
 			int boardLimit = 5; // 한 페이지에서 보여줄 게시글의 갯수 
 			int maxPage;		// 전체 페이지 중 가장 마지막 페이지
@@ -20,7 +20,7 @@ public class BukkeClassPagination {
 			if(maxPage < endPage) {
 				endPage = maxPage;
 			}
-			pi = new BukkeClassPageInfo(currentPage, boardLimit, pageLimit, startPage, endPage, listCount, maxPage);
+			pi = new PageInfo(currentPage, boardLimit, pageLimit, startPage, endPage, listCount, maxPage);
 			return pi;
 		}
 }

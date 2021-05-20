@@ -29,13 +29,14 @@
 			<td>작성날짜</td>
 			<td>${review.reviewDate }</td>
 		</tr>
-		<tr height="300">
+		<tr>
 			<td>내용</td>
 			<td>${review.reviewContents }</td>
-			 <td>
-            <img src="resources/reviewFiles/${review.rRenameFilename }" style="width:300px; height:300px;">
-         </td>
-		</tr>		
+			
+		</tr>
+			
+		<td>첨부파일</td>
+		<td><img src="resources/reviewFiles/${review.rRenameFilename }" style="width:300px; height:300px;"></td>
 		
 		<tr>
 			<td colspan="2" align="center">

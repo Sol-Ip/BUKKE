@@ -2,6 +2,7 @@ package com.bukke.spring.bukkeclass.store.logic;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,13 +20,15 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	
 	@Override
 	public int selectListCount() {
-		return session.selectOne("bClassMapper.selectListCount");
+		return session.selectOne("bclassMapper.selectListCount");
 	}
 	
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	@Override
 	public ArrayList<BukkeClass> selectAllListBclass(PageInfo pi) {
-		return null;
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllList", null, rowBounds);
 	}
 
 	// 클래스 상세정보

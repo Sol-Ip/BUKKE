@@ -31,7 +31,7 @@
 	<!-- fixed section END-->
 
 	<section class="ftco-section">
-		<div class="container" style="margin:auto;">
+		<div class="container" style="text-align:center;">
 		<h1>sample !! <- 여기는 width 꽉 채워지는 full - section</h1>
 		<br> <br>
 		<hr>
@@ -40,23 +40,19 @@
 		<div class="container">
 			<br> <br>
 			<h1>sample !! <- 여기는 반응형 section</h1>
-			<!-- <div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-7 heading-section ftco-animate">
-					<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-white">Expert Team</small></span>
-					<h2 class="mb-4">Our Architect Team</h2>
-					<p>Far far away, behind the word mountains, far from the
-						countries Vokalia and Consonantia, there live the blind texts.
-						Separated they live in</p>
-				</div>
-			</div> -->
+			
 			<div class="row">
 				<h1>sample !! <- 여기는 row section</h1>
 			</div>
 		</div>
-	</section>
+		<hr>
+<!-- 	</section>
 
-	<section class="ftco-section bg-light">
+	<section class="ftco-section bg-light"> -->
+		
+		<!-- ========================= 리스트 시작 =========================  -->
+		
+		<!-- ========================= 액티비티 정보란 =========================  -->
 		<div class="container">
 
 			<div class="row justify-content-start mb-5 pb-2">
@@ -77,7 +73,45 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- ========================= 액티비티 정보란 END =========================  -->
+		
+		
+		<!-- ========================= 액티비티 탭  =========================  -->
+		<div class="container">
+		<ul class="nav nav-tabs">
+			<li class="nav-item"><a class="nav-link active" href="#">Active</a>
+			</li>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Action</a> <a
+						class="dropdown-item" href="#">Another action</a> <a
+						class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</div></li>
+				<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Action</a> <a
+						class="dropdown-item" href="#">Another action</a> <a
+						class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				</div></li>
+			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+			<li class="nav-item"><a class="nav-link disabled" href="#"
+				tabindex="-1" aria-disabled="true">Disabled</a></li>
+		</ul>
+		</div>
+		<!-- ========================= 액티비티 탭 END =========================  -->
+		
+		
+		
+		
+		
 		<!-- 액티비티 전체 수업 이미지 목록 -->
 		<div class="container">
 			<div class="row">
@@ -204,7 +238,11 @@
 
 		</div>
 
+
+
 	</section>
+	
+
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

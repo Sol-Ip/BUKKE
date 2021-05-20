@@ -37,23 +37,25 @@
 			<div class="p-5 order-md-last" margin="auto;">
 				<form action="#">
 	              <div class="form-group">
-	                <input type="text" class="form-control" placeholder="Your Name">
+	                <input type="text" class="form-control" placeholder="클래스 명">
 	              </div>
 	              <div class="form-group">
-	                <input type="text" class="form-control" placeholder="Your Email">
+	                <input type="text" class="form-control" placeholder="클래스 주소">
 	              </div>
 	              <div class="form-group">
-	                <input type="text" class="form-control" placeholder="Subject">
+	                <input type="text" class="form-control" placeholder="인원 수">
 	              </div>
 	              <div class="form-group">
-	                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+	                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="상세 설명"></textarea>
+	              </div>
+	              <div class="form-group">
+	                <input type="file" class="form-control" placeholder="첨부파일">
 	              </div>
 	         </div>
 	              <div class="" style="text-align:center;">
 	                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
 	              </div>
             	</form>
-			
 			</div>
 		</section>
 	

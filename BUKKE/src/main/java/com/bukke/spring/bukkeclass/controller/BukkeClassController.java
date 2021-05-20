@@ -21,23 +21,28 @@ public class BukkeClassController {
 	private BukkeClassService bService;
 	
 	// 클래스 전체목록 jsp 이동 (관리자)
+//	@RequestMapping(value="bukkeClassList.com", method=RequestMethod.GET)
+//	public ModelAndView bukkeClassListView(ModelAndView mv,
+//											@RequestParam(value="page", required=false) Integer page) {
+//		int currentPage = (page != null) ? page : 1; // page가 null 이 아니면 page 사용 null이면 1
+//	    int listCount = bService.getListCount();
+//	    PageInfo pi = Pagination.getPageInfo(currentPage, listCount);
+//	    
+//		ArrayList<BukkeClass> bList = bService.printAllBclass(pi);
+//		if(!bList.isEmpty()) {
+//			mv.addObject("bList", bList);
+//			mv.addObject("pi", pi);
+//			mv.addObject("bukkeClass/bukkClassList");
+//		}else {
+//			mv.addObject("msg", "클래스 전체 조회 실패");
+//	        mv.setViewName("common/errorPage");
+//		}
+//		return mv;
+//	}
+	
 	@RequestMapping(value="bukkeClassList.com", method=RequestMethod.GET)
-	public ModelAndView bukkeClassListView(ModelAndView mv,
-											@RequestParam(value="page", required=false) Integer page) {
-		int currentPage = (page != null) ? page : 1; // page가 null 이 아니면 page 사용 null이면 1
-	    int listCount = bService.getListCount();
-	    PageInfo pi = Pagination.getPageInfo(currentPage, listCount);
-	    
-		ArrayList<BukkeClass> bList = bService.printAllBclass(pi);
-		if(!bList.isEmpty()) {
-			mv.addObject("bList", bList);
-			mv.addObject("pi", pi);
-			mv.addObject("bukkeClass/bukkClassList");
-		}else {
-			mv.addObject("msg", "클래스 전체 조회 실패");
-	        mv.setViewName("common/errorPage");
-		}
-		return mv;
+	public String bukkeClassListView() {
+		return "bukkeClass/bukkeClassList";
 	}
 	
 	

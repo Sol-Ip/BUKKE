@@ -47,7 +47,7 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int modifyReview(Review review) {
 		// TODO Auto-generated method stub
-		return 0;
+		return rStore.updateReview(review);
 	} 
 	// 후기 삭제
 	@Override

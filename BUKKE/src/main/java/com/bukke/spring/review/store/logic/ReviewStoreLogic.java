@@ -48,7 +48,7 @@ public class ReviewStoreLogic implements ReviewStore {
 	@Override
 	public int updateReview(Review review) {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.update("reviewMapper.updateReview", review);
 	}
 	//후기 삭제
 	@Override

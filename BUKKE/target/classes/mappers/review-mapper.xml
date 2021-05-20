@@ -26,5 +26,12 @@
 	<insert id="insertReview" parameterType="Review">
 		INSERT INTO REVIEW VALUES(SEQ_REVIEWID.NEXTVAL, '3', #{reviewTitle }, #{reviewContents }, SYSDATE, 'Y', #{rOriginalFilename },#{rRenameFilename })
 	</insert>
+	
+	
+	<update id="updateReview">
+		UPDATE REVIEW
+		SET REVIEW_TITLE = #{reviewTitle }, REVIEW_CONTENTs = #{reviewContents }, R_ORIGINAL_FILENAME = #{rOriginalFilename }, R_RENAME_FILENAME = #{rRenameFilename },REVIEW_DATE = SYSDATE
+		WHERE REVIEW_NO = #{reviewNo }
+	</update>
 
 </mapper>

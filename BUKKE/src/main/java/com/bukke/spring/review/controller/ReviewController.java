@@ -22,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.service.ReviewService;
 
+
+
 @Controller
 public class ReviewController {
 	
@@ -129,13 +131,52 @@ public class ReviewController {
 	}
 	
 	// 후기 수정 뷰
-	public String reviewModifyView() {
-		return null;
+	@RequestMapping(value="reviewModifyView.com")
+	public ModelAndView reviewModifyView(ModelAndView mv, @RequestParam("reviewNo") int reviewNo) {
+
+		Review review = rService.printOneReview(reviewNo);
+		if (review != null) {
+			mv.addObject("review", review).setViewName("review/reviewUpdateView");
+		} else {
+			mv.addObject("msg", "게시글 상세 조회 실패").setViewName("common/errorPage");
+		}
+
+		return mv;
 	}
 	
 	// 후기 수정 기능
-	public String reviewUpdate() {
-		return null;
+	@RequestMapping(value="reviewUpdate.com", method=RequestMethod.POST)
+	public ModelAndView reviewUpdate(ModelAndView mv, HttpServletRequest request, @ModelAttribute Review review,
+			@RequestParam(value = "reloadFile", required = false) MultipartFile reloadFile) {
+			// 파일 삭제 후 업로드 ( 수정 )
+		if (reloadFile != null && !reloadFile.isEmpty()) {
+				// 기존 파일 삭제
+			if (review.getrOriginalFilename() != "") {
+				deleteFile(review.getrRenameFilename(), request);
+			}
+				// 새 파일 업로드
+			String renameFileName = saveFile(reloadFile, request);
+			if (renameFileName != null) {
+				review.setrOriginalFilename(reloadFile.getOriginalFilename());
+				review.setrRenameFilename(renameFileName);
+			}
+		}
+			// DB 수정
+		int result = rService.modifyReview(review);
+		if (result > 0) {
+			mv.setViewName("redirect:reviewList.com");
+		} else {
+			mv.addObject("msg", "게시글 수정 실패").setViewName("common/errorPage");
+		}
+		return mv;
+	}
+	public void deleteFile(String fileName, HttpServletRequest request) {
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = root + "\\reviewFiles";
+		File file = new File(savePath + "\\" + fileName);
+		if(file.exists()) {
+			file.delete();
+		}
 	}
 	
 	// 후기 삭제 기능

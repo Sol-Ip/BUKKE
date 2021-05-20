@@ -11,18 +11,12 @@
 		<result property="classTypedetails" column="CLASS_TYPEDETAILS"></result>
 		<result property="classInfo" column="CLASS_INFO"></result>
 		<result property="classCapacity" column="CLASS_CAPACITY"></result>
-		<result property="cFileNo" column="CFILE_NO"></result>
-		<result property="cFileName" column="CFILE_NAME"></result>
-		<result property="cFileSize" column="CFILE_SIZE"></result>
-		<result property="cFileType" column="CFILE_TYPE"></result>
-		<result property="cFileDate" column="CFILE_DATE"></result>
-		<result property="cFilePath" column="CFILE_PATH"></result>
-		<result property="cOriginalFilename" column="C_ORIGINAL_FILENAME"></result>
-		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
 		<result property="classEnrollDate" column="CLASS_ENROLL_DATE"></result>  
 		<result property="classStartDate" column="CLASS_START_DATE"></result>
 		<result property="classEndDate" column="CLASS_END_DATE"></result>
 		<result property="classStatus" column="CLASS_STATUS"></result>
+		<result property="cOriginalFilename" column="C_ORIGINAL_FILENAME"></result>
+		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
 	</resultMap>
 	 
 	<!-- 게시물 리스트 -->

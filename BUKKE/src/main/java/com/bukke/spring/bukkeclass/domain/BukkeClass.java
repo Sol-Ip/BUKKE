@@ -13,12 +13,6 @@ public class BukkeClass {
 	private String classTypedetails; // 상세분류
 	private String classInfo; // 상세내용
 	private String classCapacity; // 인원수
-	private int cFileNo; // 사진 번호
-	private String cFileName; // 사진 이름
-	private int cFileSize; // 사진 크기 
-	private String cFileType; // 파일 형식
-	private Date cFileDate; // 업로드 날짜
-	private String cFilePath; // 사진 경로
 	private String cOriginalFilename; // 기존 파일 이름
 	private String cRenameFilename; // 변경된 파일 이름
 	private Date classEnrollDate; // 등록일
@@ -77,42 +71,6 @@ public class BukkeClass {
 	public void setClassCapacity(String classCapacity) {
 		this.classCapacity = classCapacity;
 	}
-	public int getcFileNo() {
-		return cFileNo;
-	}
-	public void setcFileNo(int cFileNo) {
-		this.cFileNo = cFileNo;
-	}
-	public String getcFileName() {
-		return cFileName;
-	}
-	public void setcFileName(String cFileName) {
-		this.cFileName = cFileName;
-	}
-	public int getcFileSize() {
-		return cFileSize;
-	}
-	public void setcFileSize(int cFileSize) {
-		this.cFileSize = cFileSize;
-	}
-	public String getcFileType() {
-		return cFileType;
-	}
-	public void setcFileType(String cFileType) {
-		this.cFileType = cFileType;
-	}
-	public Date getcFileDate() {
-		return cFileDate;
-	}
-	public void setcFileDate(Date cFileDate) {
-		this.cFileDate = cFileDate;
-	}
-	public String getcFilePath() {
-		return cFilePath;
-	}
-	public void setcFilePath(String cFilePath) {
-		this.cFilePath = cFilePath;
-	}
 	public String getcOriginalFilename() {
 		return cOriginalFilename;
 	}
@@ -154,11 +112,9 @@ public class BukkeClass {
 	public String toString() {
 		return "BukkeClass [classNo=" + classNo + ", shopId=" + shopId + ", className=" + className + ", classAddr="
 				+ classAddr + ", classType=" + classType + ", classTypedetails=" + classTypedetails + ", classInfo="
-				+ classInfo + ", classCapacity=" + classCapacity + ", cFileNo=" + cFileNo + ", cFileName=" + cFileName
-				+ ", cFileSize=" + cFileSize + ", cFileType=" + cFileType + ", cFileDate=" + cFileDate + ", cFilePath="
-				+ cFilePath + ", cOriginalFilename=" + cOriginalFilename + ", cRenameFilename=" + cRenameFilename
-				+ ", classEnrollDate=" + classEnrollDate + ", classStartDate=" + classStartDate + ", classEndDate="
-				+ classEndDate + ", classStatus=" + classStatus + "]";
+				+ classInfo + ", classCapacity=" + classCapacity + ", cOriginalFilename=" + cOriginalFilename
+				+ ", cRenameFilename=" + cRenameFilename + ", classEnrollDate=" + classEnrollDate + ", classStartDate="
+				+ classStartDate + ", classEndDate=" + classEndDate + ", classStatus=" + classStatus + "]";
 	}
-	
+
 }

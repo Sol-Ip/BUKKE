@@ -49,9 +49,11 @@ public class BukkeClassController {
 	public String bukkeClassSearch() {
 		return null;
 	}
+	
 	// 클래스 등록 jsp 이동 (업체회원)
+	@RequestMapping(value="bukkeClassWriteForm.com", method=RequestMethod.GET)
 	public String bukkeClassEnrollView() {
-		return null;
+		return "bukkeClass/bukkeClassWriteForm";
 	}
 	// *클래스 등록기능 메소드
 	public String bukkeClassAdd() {

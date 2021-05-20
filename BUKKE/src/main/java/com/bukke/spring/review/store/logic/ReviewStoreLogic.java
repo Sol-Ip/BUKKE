@@ -27,7 +27,8 @@ public class ReviewStoreLogic implements ReviewStore {
 	@Override
 	public Review selectOneReview(int rId) {
 		// TODO Auto-generated method stub
-		return null;
+		Review review = session.selectOne("reviewMapper.selectOne", rId);
+		return review;
 	}
 	
 	// 후기 검색

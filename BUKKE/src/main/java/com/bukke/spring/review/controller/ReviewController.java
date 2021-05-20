@@ -35,9 +35,18 @@ public class ReviewController {
 	}
 	
 	// 후기 상세 조회
-	//@RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="reviewDetail.com", method=RequestMethod.GET)
 	public String reviewDetail(@RequestParam("reviewNo") int reviewNo, Model model) {
-		return "";
+		
+		Review review = rService.printOneReview(reviewNo);
+		if(review != null) {
+			model.addAttribute("review", review);
+			return "review/reviewDetailView";
+		}else {
+			model.addAttribute("msg", "공지사항 상세조회 실패");
+			return "common/errorPage";
+		}
+		
 	}
 	
 	// 후기 검색 기능

@@ -27,7 +27,8 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public Review printOneReview(int rId) {
 		// TODO Auto-generated method stub
-		return null;
+		Review review = rStore.selectOneReview(rId);
+		return review;
 	}
 	// 후기 검색
 	@Override

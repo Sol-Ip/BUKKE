@@ -24,7 +24,7 @@
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>소개</a></li>
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>클래스</a></li>
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>액티비티</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>후기</a></li>
+                <li><a href="reviewList.com"><span class="icon-long-arrow-right mr-2"></span>후기</a></li>
               </ul>
             </div>
           </div>

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="noticeMapper">
-	
 
-	
+	<resultMap type="Notice" id="noticeResultMap">
+		<id property="noticeNo" column="NOTICE_NO"></id>
+		<result property="memberId" column="MEMBER_ID"></result>
+		<result property="noticeTitle" column="NOTICE_TITLE"></result>
+		<result property="noticeContents" column="NOTICE_CONTENTS"></result>
+		<result property="noticeDate" column="NOTICE_DATE"></result>
+		<result property="noticeStatus" column="NOTICE_STATUS"></result>
+		<result property="nOriginalFilename" column="N_ORIGINAL_FILENAME"></result>
+		<result property="nRenameFilename" column="N_RENAME_FILENAME"></result>
+	</resultMap>
+
+		<!-- <select id="selectNoticeList">
+			SELECT * FROM NOTICE
+		</select> -->
+
 </mapper>

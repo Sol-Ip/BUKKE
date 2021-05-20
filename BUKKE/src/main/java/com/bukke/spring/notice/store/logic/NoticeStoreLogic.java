@@ -14,7 +14,7 @@ public class NoticeStoreLogic implements NoticeStore{
 
 	@Override
 	public ArrayList<Notice> selectAllNoticeList() {
-		// TODO Auto-generated method stub
+		//return (ArrayList)sqlSession.selectList("noticeMapper.selectNoticeList");
 		return null;
 	}
 

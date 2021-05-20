@@ -13,11 +13,13 @@ import com.bukke.spring.notice.store.NoticeStore;
 public class NoticeServiceImpl  implements NoticeService{
 	
 	@Autowired
-	private NoticeStore bStore;
+	private NoticeStore nStore;
 
 	@Override
 	public ArrayList<Notice> printAllNotice() {
-		// TODO Auto-generated method stub
+		/*
+		 * ArrayList<Notice> nList = nStore.selectAllNoticeList(); return nList;
+		 */
 		return null;
 	}
 

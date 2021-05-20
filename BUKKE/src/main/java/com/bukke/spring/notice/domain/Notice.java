@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Notice {
 
 	private int noticeNo; // 게시글번호
+	private String memberId; //관리자
 	private String noticeTitle; // 공지사항제목
 	private String noticeContents; // 공지사항내용
 	private Date noticeDate; // 작성일
@@ -23,6 +24,16 @@ public class Notice {
 
 	public void setNoticeNo(int noticeNo) {
 		this.noticeNo = noticeNo;
+	}
+
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 
@@ -88,11 +99,13 @@ public class Notice {
 
 	@Override
 	public String toString() {
-		return "Notice [noticeNo=" + noticeNo + ", noticeTitle=" + noticeTitle + ", noticeContents=" + noticeContents
-				+ ", noticeDate=" + noticeDate + ", noticeStatus=" + noticeStatus + ", nOriginalFilename="
-				+ nOriginalFilename + ", nRenameFilename=" + nRenameFilename + "]";
+		return "Notice [noticeNo=" + noticeNo + ", memberId=" + memberId + ", noticeTitle=" + noticeTitle
+				+ ", noticeContents=" + noticeContents + ", noticeDate=" + noticeDate + ", noticeStatus=" + noticeStatus
+				+ ", nOriginalFilename=" + nOriginalFilename + ", nRenameFilename=" + nRenameFilename + "]";
 	}
 
+
+	
 	
 	
 }

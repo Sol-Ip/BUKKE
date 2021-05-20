@@ -1,10 +1,15 @@
 package com.bukke.spring.activity.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.service.ActivityService;
 
 @Controller
@@ -14,10 +19,18 @@ public class ActivityController {
 	private ActivityService aService;
 	
 	// 클래스 전체목록 jsp 이동 (관리자)
-	public String activityListView() {
-		return null;
+	@RequestMapping(value="activityList.com", method=RequestMethod.GET)
+	public String activityListView()
+								//ModelAndView mv
+								//	, @RequestParam(value="page", required=false) Integer page) 
+														{
+		//ArrayList<Activity> aList = aService.printAllActivity();
+		
+		
+		return "activity/activityListView";
 	}
 	// 클래스 상세정보 jsp 이동 (모든회원)
+	@RequestMapping(value="activityList")
 	public String activityDetailView() {
 		return null;
 	}

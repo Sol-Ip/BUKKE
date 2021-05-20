@@ -17,7 +17,7 @@
 		<mapper resource="mappers/member-mapper.xml"></mapper>
 		<mapper resource="mappers/notice-mapper.xml"></mapper>
 		<mapper resource="mappers/review-mapper.xml"></mapper>
-		<mapper resource="mappers/bclass-mapper.xml"></mapper>
+		<mapper resource="mappers/bclass-mapper.xml"></mapper> 
 	</mappers>
 
 </configuration>

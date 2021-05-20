@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 수정</title>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<jsp:include page="../common/header.jsp?active=review"></jsp:include>
 </head>
 <body>
 <!-- fixed section -->

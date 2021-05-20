@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<jsp:include page="./common/header.jsp"></jsp:include>
+<jsp:include page="./common/header.jsp?active=introduce"></jsp:include>
 </head>
 <body>
 

@@ -20,7 +20,14 @@ public class MemberController {
 	@Autowired
 	private MemberService mService;
 
-	// @RequestMapping(value="", method=RequestMethod.POST)
+	// 로그인 JSP 이동
+	@RequestMapping(value = "memberLoginForm.com", method = RequestMethod.GET)
+	public String loginView() {
+		return "member/loginForm";
+		
+	}
+	
+	@RequestMapping(value = "memberLogin.com", method = RequestMethod.POST)
 	public String memberLogin(
 			HttpServletRequest request, @ModelAttribute Member member, Model model) {
 		return "";
@@ -36,6 +43,7 @@ public class MemberController {
 		
 	}
 
+	// 회원가입 JSP 이동
 	@RequestMapping(value = "memberRegisterForm.com", method = RequestMethod.GET)
 	public String enrollView() {
 		return "member/memberRegister";
@@ -50,6 +58,7 @@ public class MemberController {
 		member.setMemberAddr(memberAddr);
 		int result = mService.registerMember(member);
 		if(result > 0) {
+			model.addAttribute("msg","회원가입성공~");
 			return "redirect:home.com";
 		} else {
 			model.addAttribute("msg","회원가입실패!");

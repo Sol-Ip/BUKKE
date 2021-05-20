@@ -21,9 +21,9 @@ public class BukkeClass {
 	private String cFilePath; // 사진 경로
 	private String cOriginalFilename; // 기존 파일 이름
 	private String cRenameFilename; // 변경된 파일 이름
-	private Date classEnrolldate; // 등록일
-	private Date classStartdate; // 개강일
-	private Date classEnddate; // 종강일
+	private Date classEnrollDate; // 등록일
+	private Date classStartDate; // 개강일
+	private Date classEndDate; // 종강일
 	private String classStatus; // 클래스(삭제)여부
 	
 	// 생성자
@@ -126,22 +126,22 @@ public class BukkeClass {
 		this.cRenameFilename = cRenameFilename;
 	}
 	public Date getClassEnrollDate() {
-		return classEnrolldate;
+		return classEnrollDate;
 	}
-	public void setClassEnrollDate(Date classEnrolldate) {
-		this.classEnrolldate = classEnrolldate;
+	public void setClassEnrollDate(Date classEnrollDate) {
+		this.classEnrollDate = classEnrollDate;
 	}
 	public Date getClassStartDate() {
-		return classStartdate;
+		return classStartDate;
 	}
-	public void setClassStartDate(Date classStartdate) {
-		this.classStartdate = classStartdate;
+	public void setClassStartDate(Date classStartDate) {
+		this.classStartDate = classStartDate;
 	}
 	public Date getClassEndDate() {
-		return classEnddate;
+		return classEndDate;
 	}
-	public void setClassEndDate(Date classEnddate) {
-		this.classEnddate = classEnddate;
+	public void setClassEndDate(Date classEndDate) {
+		this.classEndDate = classEndDate;
 	}
 	public String getClassStatus() {
 		return classStatus;
@@ -157,8 +157,8 @@ public class BukkeClass {
 				+ classInfo + ", classCapacity=" + classCapacity + ", cFileNo=" + cFileNo + ", cFileName=" + cFileName
 				+ ", cFileSize=" + cFileSize + ", cFileType=" + cFileType + ", cFileDate=" + cFileDate + ", cFilePath="
 				+ cFilePath + ", cOriginalFilename=" + cOriginalFilename + ", cRenameFilename=" + cRenameFilename
-				+ ", classEnrolldate=" + classEnrolldate + ", classStartdate=" + classStartdate + ", classEnddate="
-				+ classEnddate + ", classStatus=" + classStatus + "]";
+				+ ", classEnrollDate=" + classEnrollDate + ", classStartDate=" + classStartDate + ", classEndDate="
+				+ classEndDate + ", classStatus=" + classStatus + "]";
 	}
 	
 }

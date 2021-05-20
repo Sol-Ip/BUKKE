@@ -1,3 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
+<mapper namespace="bclassMapper">
+	<resultMap type="bClass" id="bClassResultMap">
+		<id property="classNo" column="CLASS_NO"></id>
+		<result property="shopId" column="SHOP_ID"></result>
+		<result property="className" column="CLASS_NAME"></result>
+		<result property="classAddr" column="CLASS_ADDR"></result>
+		<result property="classType" column="CLASS_TYPE"></result>
+		<result property="classTypedetails" column="CLASS_TYPEDETAILS"></result>
+		<result property="classInfo" column="CLASS_INFO"></result>
+		<result property="classCapacity" column="CLASS_CAPACITY"></result>
+		<result property="cFileNo" column="CFILE_NO"></result>
+		<result property="cFileName" column="CFILE_NAME"></result>
+		<result property="cFileSize" column="CFILE_SIZE"></result>
+		<result property="cFileType" column="CFILE_TYPE"></result>
+		<result property="cFileDate" column="CFILE_DATE"></result>
+		<result property="cFilePath" column="CFILE_PATH"></result>
+		<result property="cOriginalFilename" column="C_ORIGINAL_FILENAME"></result>
+		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
+		<result property="classEnrollDate" column="CLASS_ENROLL_DATE"></result>
+		<result property="classStartDate" column="CLASS_START_DATE"></result>
+		<result property="classEndDate" column="CLASS_END_DATE"></result>
+		<result property="classStatus" column="CLASS_STATUS"></result>
+	</resultMap>
+	
+	<!-- 게시물 리스트 -->
+   <!-- <select id="selectListCount" resultType="_int">
+      SELECT COUNT(*) FROM BOARD WHERE B_STATUS = 'Y'
+   </select>
+   
+   <select id="selectAllList" resultMap="boardResultMap">
+      SELECT * FROM BOARD WHERE B_STATUS = 'Y' ORDER BY BOARD_NO DESC
+   </select> -->
+</mapper>

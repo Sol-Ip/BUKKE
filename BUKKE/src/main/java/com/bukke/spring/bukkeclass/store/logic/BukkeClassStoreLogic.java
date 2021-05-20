@@ -16,7 +16,7 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	@Autowired
 	private SqlSessionTemplate session; 
 	
-	// 클래스 전체 수 조회 수
+	
 	@Override
 	public int selectListCount() {
 		return session.selectOne("bClassMapper.selectListCount");

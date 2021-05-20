@@ -20,7 +20,8 @@ public class ReviewStoreLogic implements ReviewStore {
 	@Override
 	public ArrayList<Review> selectReviewList() {
 		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList)session.selectList("reviewMapper.selectReviewList");
+		
 	}
 	// 후기 상세 조회
 	@Override

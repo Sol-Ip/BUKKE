@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="reviewMapper">
+
+	<resultMap type="Review" id="reviewResultMap">
+		<id property="reviewNo" column="REVIEW_NO"></id>
+		<result property="memberId" column="MEMBER_ID"></result>
+		<result property="reviewTitle" column="REVIEW_TITLE"></result>
+		<result property="reviewContents" column="REVIEW_CONTENTS"></result>
+		<result property="reviewDate" column="REVIEW_DATE"></result>
+		<result property="reviewStatus" column="REVIEW_STATUS"></result>
+		
+	</resultMap>
+	
+	<select id="selectReviewList" resultMap="reviewResultMap">
+		SELECT * FROM REVIEW ORDER BY REVIEW_DATE DESC
+	</select>
+
+</mapper>

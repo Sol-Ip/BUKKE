@@ -14,13 +14,14 @@ import com.bukke.spring.review.store.ReviewStore;
 public class ReviewServiceImpl implements ReviewService {
 	
 	@Autowired
-	private ReviewStore bStore;
+	private ReviewStore rStore;
 
 	// 후기 전체 조회
 	@Override
 	public ArrayList<Review> printAllReview() {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Review> rList = rStore.selectReviewList();
+		return rList;
 	}
 	// 후기 상세 조회
 	@Override

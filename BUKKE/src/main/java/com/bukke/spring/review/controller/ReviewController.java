@@ -1,6 +1,8 @@
 package com.bukke.spring.review.controller;
 
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.service.ReviewService;
 
 @Controller
@@ -19,7 +22,16 @@ public class ReviewController {
 	// 후기 전체 조회
 	@RequestMapping(value="reviewList.com", method=RequestMethod.GET)
 	public String reviewList(Model model) {
-		return "review/reviewListView";
+		ArrayList<Review> rList = rService.printAllReview();
+	
+		if(!rList.isEmpty()) {
+			model.addAttribute("rList", rList);
+			return "review/reviewListView";
+		}else {
+			model.addAttribute("msg", "후기 목록조회 실패");
+			return "common/errorPage";
+		}
+		
 	}
 	
 	// 후기 상세 조회

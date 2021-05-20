@@ -9,16 +9,17 @@ public class Review {
 	private String reviewContents; // 후기글 내용
 	private Date reviewDate; // 리뷰작성일
 	private String reviewStatus; // 리뷰(삭제)여부
+	
 	private int rFileNo; // 사진번호
 	private String rFileName; // 사진이름
 	private int rFileSize; // 사진크기
 	private String rFileType; // 사진파일형식
-	private Date rFileDate; //업로드날짜
+	private Date rFileDate; // 업로드날짜
 	private String rFilePath; // 사진경로
 	private String rOrifinalFilename; // 기존파일이름
 	private String rRenameFilename; // 변경파일이름
 	private String likeCheck; // 좋아요체크
-	
+	 	
 	public int getReviewNo() {
 		return reviewNo;
 	}
@@ -49,67 +50,88 @@ public class Review {
 	public void setReviewDate(Date reviewDate) {
 		this.reviewDate = reviewDate;
 	}
+
+	
 	public int getrFileNo() {
 		return rFileNo;
 	}
+
 	public void setrFileNo(int rFileNo) {
 		this.rFileNo = rFileNo;
 	}
+
 	public String getrFileName() {
 		return rFileName;
 	}
+
 	public void setrFileName(String rFileName) {
 		this.rFileName = rFileName;
 	}
+
 	public int getrFileSize() {
 		return rFileSize;
 	}
+
 	public void setrFileSize(int rFileSize) {
 		this.rFileSize = rFileSize;
 	}
+
 	public String getrFileType() {
 		return rFileType;
 	}
+
 	public void setrFileType(String rFileType) {
 		this.rFileType = rFileType;
 	}
+
 	public Date getrFileDate() {
 		return rFileDate;
 	}
+
 	public void setrFileDate(Date rFileDate) {
 		this.rFileDate = rFileDate;
 	}
+
 	public String getrFilePath() {
 		return rFilePath;
 	}
+
 	public void setrFilePath(String rFilePath) {
 		this.rFilePath = rFilePath;
 	}
+
 	public String getrOrifinalFilename() {
 		return rOrifinalFilename;
 	}
+
 	public void setrOrifinalFilename(String rOrifinalFilename) {
 		this.rOrifinalFilename = rOrifinalFilename;
 	}
+
 	public String getrRenameFilename() {
 		return rRenameFilename;
 	}
+
 	public void setrRenameFilename(String rRenameFilename) {
 		this.rRenameFilename = rRenameFilename;
 	}
+
 	public String getLikeCheck() {
 		return likeCheck;
 	}
+
 	public void setLikeCheck(String likeCheck) {
 		this.likeCheck = likeCheck;
 	}
+
 	public String getReviewStatus() {
 		return reviewStatus;
 	}
+
 	public void setReviewStatus(String reviewStatus) {
 		this.reviewStatus = reviewStatus;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Review [reviewNo=" + reviewNo + ", memberId=" + memberId + ", reviewTitle=" + reviewTitle

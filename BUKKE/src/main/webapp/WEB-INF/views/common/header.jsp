@@ -46,7 +46,7 @@
 	        	<li class="nav-item"><a href="introduce.com" class="nav-link">소개</a></li>
 	        	<li class="nav-item"><a href="#" class="nav-link">클래스</a></li>
 	        	<li class="nav-item"><a href="#" class="nav-link">액티비티</a></li>
-	        	<li class="nav-item"><a href="#" class="nav-link">후기</a></li>
+	        	<li class="nav-item"><a href="reviewList.com" class="nav-link">후기</a></li>
 	        	<li class="nav-item"><a href="#" class="nav-link">선물하기</a></li>
 	          <li class="nav-item"><a href="#" class="nav-link">로그인</a></li>
 	        </ul>

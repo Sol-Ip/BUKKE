@@ -2,15 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <jsp:include page="./common/header.jsp"></jsp:include>
+</head>
+<body>
 
  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">ㅂㅜㅋㅐ</h1>
+            <h1 class="mb-2 bread">about</h1>
             <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
@@ -20,13 +26,14 @@
 		<section class="ftco-section">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-5 p-md-5 img img-2" style="background-image: url(resources/images/bg_3.jpg);">
+					<div class="col-md-5 p-md-5 img img-2" style="background-image: url(resources/images/introduce1.jpg);">
 					</div>
 					<div class="col-md-7 wrap-about pb-md-5 ftco-animate">
 	          <div class="heading-section mb-5 pl-md-5">
 	          	<div class="pl-md-5 ml-md-5">
 		          	<span class="subheading subheading-with-line"><small class="pr-2 bg-white">About</small></span>
-		            <h2 class="mb-4">We are the best Interior, Exterior &amp; Architecture Firm</h2>
+		            <h2 class="mb-4">평소의 나의 모습이 아닌 "새로운 나!"</h2>
+		            
 	            </div>
 	          </div>
 	          <div class="pl-md-5 ml-md-5 mb-5">
@@ -39,15 +46,18 @@
 				<div class="row mt-5 pt-4">
 					<div class="col-md-4 ftco-animate">
 						<h3 class="h4">Mission</h3>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+						<p>취미로 일상을 아름답게 하고자 합니다. 힘들고 지친 일상 속에서 새로운 내가 되어 취미생활을 즐기며 우리의 취미가 즐거운 삶, 도움이 되는 삶이 될 수 있도록 노력합니다.
+							취미가 새로운 가치가 될 수 있도록 부캐에서는 더욱 더 노력할 것입니다.</p>
 					</div>
 					<div class="col-md-4 ftco-animate">
 						<h3 class="h4">Vission</h3>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+						<p>부캐는 모든 사람들이 행복한 마음으로 살  수 있도록 세상을 바꾸고자 합니다. 하나의 기쁨이 모여 여러 행복을 만들 수 있도록 부캐는 클래스와 액티비티 활성화를 위해 노력하고 있습니다.
+							소소한 행복이 가져오는 행복의 가치를 더욱 더 높일 것입니다.</p>
 					</div>
 					<div class="col-md-4 ftco-animate">
-						<h3 class="h4">Mosaic</h3>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+						<h3 class="h4">Promise</h3>
+						<p>부캐를 이용하는 고객들이 만족할 수 있는 클래스와 액티비티를 제공하고 있습니다. 즐겁고 안전하게 즐길 수 있도록 부캐에서는 최선을 다 할것을 약속합니다.
+							취미가 없었던 사람들도 취미를 만들 수 있도록 노력하겠습니다.</p>
 					</div>
 				</div>
 			</div>
@@ -98,112 +108,14 @@
     </section>
 
     <section class="ftco-section testimony-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate">
-          	<span class="subheading subheading-with-line"><small class="pr-2 bg-light">Testimony</small></span>
-            <h2 class="mb-4">Our satisfied customer says</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(resources/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
+      <div class="form-group" align="center">
+                    <input type="submit" value="부캐 사용설명서" class="btn py-4 px-4 btn-primary">
                   </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">CEO Founder of Commercial Building</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">CEO Founder of Interior Design</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">Exterior Designer</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">Landscape Designer</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">System Analyst</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
     
-<jsp:include page="./common/footer.jsp"></jsp:include>
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+              
+
 
 </body>
-</html> -->
+</html> 
+<jsp:include page="./common/footer.jsp"></jsp:include>

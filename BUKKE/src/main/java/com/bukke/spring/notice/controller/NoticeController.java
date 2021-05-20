@@ -2,7 +2,9 @@ package com.bukke.spring.notice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bukke.spring.notice.service.NoticeService;
 
@@ -13,8 +15,9 @@ public class NoticeController {
 	private NoticeService bService;
 
 	//전체목록 조회(리스트)
-	public String NoticeListView() {
-		return null;
+	@RequestMapping(value="noticeList.com" , method = RequestMethod.GET)
+	public String NoticeListView(Model model) {
+		return "notice/noticeListView";
 	}
 	
 	//상세정보 조회(detail)

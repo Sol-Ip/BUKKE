@@ -47,7 +47,7 @@ public class ActivityController {
 	}
 	
 	
-	@RequestMapping(value="loginForm.com" , method = RequestMethod.POST)
+	@RequestMapping(value="loginForm.com" , method = RequestMethod.GET)
 	public String testing() {
 		
 		return "member/loginForm";

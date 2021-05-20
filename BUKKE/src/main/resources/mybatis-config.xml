@@ -10,12 +10,14 @@
 	<typeAlias type="com.bukke.spring.member.domain.Member" alias="Member"/>
 	<typeAlias type="com.bukke.spring.notice.domain.Notice" alias="Notice"/>
 	<typeAlias type="com.bukke.spring.review.domain.Review" alias="Review"/>
+	<typeAlias type="com.bukke.spring.bukkeclass.domain.BukkeClass" alias="BukkeClass"/>
 </typeAliases> 
 
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"></mapper>
 		<mapper resource="mappers/notice-mapper.xml"></mapper>
 		<mapper resource="mappers/review-mapper.xml"></mapper>
+		<mapper resource="mappers/bclass-mapper.xml"></mapper>
 	</mappers>
 
 </configuration>

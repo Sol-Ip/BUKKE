@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>후기 작성</title>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<jsp:include page="../common/header.jsp?active=review"></jsp:include>
 </head>
 <body>
 	<!-- fixed section -->

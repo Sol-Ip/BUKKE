@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="resources/css/noticecss/nucleo-svg.css">
 <link rel="stylesheet" href="resources/css/noticecss/soft-ui-dashboard.css">
 <link rel="stylesheet" href="resources/css/noticecss/soft-ui-dashboard.min.css">
-<jsp:include page="../common/header.jsp"></jsp:include>
 <link rel="stylesheet" href="resources/css/notice-custom/noticeListView.css">
+<jsp:include page="../common/header.jsp"></jsp:include>
 </head>
 <body>
 

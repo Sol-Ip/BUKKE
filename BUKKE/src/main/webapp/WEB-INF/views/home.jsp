@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 
-<jsp:include page="./common/header.jsp"></jsp:include>
+<jsp:include page="./common/header.jsp?active=home"></jsp:include>
 
     <section class="home-slider js-fullheight owl-carousel bg-white">
       <div class="slider-item js-fullheight">

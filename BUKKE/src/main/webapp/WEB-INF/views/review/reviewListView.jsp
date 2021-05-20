@@ -11,7 +11,9 @@
 	<jsp:include page="../common/header.jsp"></jsp:include>
 
 	<h1 align="center">후기 목록 보기</h1>
-	
+	<div align="center">
+		<button onclick="location.href='reviewWriteView.com'">글쓰기</button>
+	</div>
 	<br style="clear:both">
 	
 	<table align="center" width="600" border="1" cellspacing="0" style="clear:right;">

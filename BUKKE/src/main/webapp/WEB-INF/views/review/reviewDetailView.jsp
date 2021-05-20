@@ -32,6 +32,9 @@
 		<tr height="300">
 			<td>내용</td>
 			<td>${review.reviewContents }</td>
+			 <td>
+            <img src="resources/reviewFiles/${review.rRenameFilename }" style="width:300px; height:300px;">
+         </td>
 		</tr>		
 		
 		<tr>

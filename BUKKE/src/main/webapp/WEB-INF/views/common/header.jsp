@@ -9,6 +9,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> 
 <link rel="stylesheet" href="resources/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/animate.css">
 
@@ -28,6 +29,7 @@
 <link rel="stylesheet" href="resources/css/icomoon.css">
 <link rel="stylesheet" href="resources/css/style.css">
 
+
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
@@ -44,8 +46,8 @@
 					<ul class="navbar-nav ml-auto">
 						<li id="home" class="nav-item"><a href="home.com" class="nav-link">home</a></li>
 						<li id="introduce" class="nav-item"><a href="introduce.com" class="nav-link">소개</a></li>
-						<li id="bclass" class="nav-item"><a href="#" class="nav-link">클래스</a></li>
-						<li id="activity" class="nav-item"><a href="#" class="nav-link">액티비티</a></li>
+						<li id="bclass" class="nav-item"><a href="bukkeClassList.com" class="nav-link">클래스</a></li>
+						<li id="activity" class="nav-item"><a href="activityList.com" class="nav-link">액티비티</a></li>
 						<li id="review" class="nav-item"><a href="reviewList.com" class="nav-link">후기</a></li>
 						<li id="gift" class="nav-item"><a href="#" class="nav-link">선물하기</a></li>
 						<li id="login" class="nav-item"><a href="memberLoginForm.com" class="nav-link">로그인</a></li>

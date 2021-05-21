@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>부캐, 새로운 나 ! - Activity</title>
-<jsp:include page="../common/header.jsp"></jsp:include>
 <link rel="stylesheet" href="resources/css/activity-custom/activityListView.css">
+<jsp:include page="../common/header.jsp"></jsp:include>
 </head>
 <body>
 	<!-- fixed section -->
@@ -43,6 +43,7 @@
 			
 			<div class="row">
 				<h1>sample !! <- 여기는 row section</h1>
+			
 			</div>
 		</div>
 		<hr>
@@ -51,7 +52,7 @@
 	<section class="ftco-section bg-light"> -->
 		
 		<!-- ========================= 리스트 시작 =========================  -->
-		
+
 		<!-- ========================= 액티비티 정보란 =========================  -->
 		<div class="container">
 
@@ -75,9 +76,10 @@
 		</div>
 		<!-- ========================= 액티비티 정보란 END =========================  -->
 		
-		
+
 		<!-- ========================= 액티비티 탭  =========================  -->
 		<div class="container">
+		
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active" href="#">Active</a>
 			</li>
@@ -107,11 +109,9 @@
 		</ul>
 		</div>
 		<!-- ========================= 액티비티 탭 END =========================  -->
-		
-		
-		
-		
-		
+
+
+
 		<!-- 액티비티 전체 수업 이미지 목록 -->
 		<div class="container">
 			<div class="row">

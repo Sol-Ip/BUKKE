@@ -34,6 +34,7 @@ public class ActivityController {
 	public String activityDetailView() {
 		return null;
 	}
+	
 	// *클래스 검색기능 메소드
 	public String activitySearch() {
 		return null;

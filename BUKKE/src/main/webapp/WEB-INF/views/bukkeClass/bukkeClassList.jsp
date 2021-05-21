@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bukke Class</title>
+<title>Bukke Class</title>  
 
 <link rel="stylesheet" href="resources/css/bClass-custom/bClassListView.css">
 </head>

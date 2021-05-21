@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../common/header.jsp?active=bclass"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>부캐 클래스 등록 폼</title>
+<jsp:include page="../common/header.jsp"></jsp:include>
+
+<!-- 시작일, 종료일 체크 캘린더 시 필요 -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="../resources/css/bClass-custom/calendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="../resources/js/bclass/calendar.js">
-</script>
+<script type="text/javascript" src="../resources/js/bclass/calendar.js"></script>
+
 </head>
 <body>
 	<!-- fixed section -->
@@ -47,10 +49,16 @@
 			              <div class="form-group">
 			                <input type="text" class="form-control" placeholder="클래스 주소">
 			              </div>
+						  <select class="form-control">
+							  <option>공예</option>
+							  <option>플라워</option>
+							  <option>음악</option>
+							  <option>그림</option>
+						  </select>
+						  <br>
 			              <div class="form-group">
 			                <input type="text" class="form-control" placeholder="Subject">
 			              </div>
-			              
 			              <div class="form-group">
 			                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="상세설명"></textarea>
 			              </div>

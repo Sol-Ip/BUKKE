@@ -2,27 +2,20 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|K2D');
 
 html, body {
-  /* Frankenstein Green?
-  --light-main-color: #293532;
-  --dark-main-color: #57ad68;
-  --darker-main-color: #227744;
-  */
-  --light-main-color: rgba(235,97,35, 0.4)/*#221925*/;
-  --dark-main-color: #ee7c11;
-  --darker-main-color: #bf6d1c;
-  
-  background: var(--light-main-color);
+
+  background: #56baed;
   font-size: 16px;
   margin: 0;
   padding: 0;
-  font-family: K2D,Roboto, Arial, Verdana, sans-serif;
+  font-family: K2D, Roboto, Arial, Verdana, sans-serif;
 }
 
 form {
   display: inline-block;
-  background: #f5f5f5;
+  background: #fff;
   padding: 1.5rem;
-  border: 3px solid var(--dark-main-color);
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -41,26 +34,19 @@ form svg {
 fieldset {
   border: 0;
   padding: 0;
-  margin: 1.2rem 0 0 0;
+  margin: 1.0rem 0 0 0;
 }
 
 legend {
   margin: 0;
   padding: 0;
-  color: var(--darker-main-color);
 }
 
 fieldset > div {
-  border: 3px solid var(--dark-main-color);
   border-radius: 3px;
   position: relative;
-  margin-top: 0.5rem;
-  background: white;
-}
-
-fieldset#submit-field > div {
-  border-color: var(--darker-main-color);
-  background: var(--darker-main-color);
+  margin-top: 0.4rem;
+  background: rgb(239, 239, 239);
 }
 
 fieldset .placeholder {
@@ -93,7 +79,6 @@ fieldset input {
   font-size: 1.1rem;
   position: relative;
   z-index: 3;
-  outline-color: var(--dark-main-color);
 }
 
 fieldset.with-placeholder input {
@@ -101,14 +86,55 @@ fieldset.with-placeholder input {
 }
 
 fieldset input[type=submit] {
-  border: 0;
-  color: white;
+  border-radius: 3px;
+  background-color: #56baed;
+  color: #fff;
+  box-shadow: 3px 3px 3px rgba(87, 186, 237, .5);
   cursor: pointer;
   font-family: Roboto, K2D, Arial, Verdana, Sans-serif;
 }
 
-footer {
+input[type=radio] {
+  display: none;
+}
+.switch {
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform:translate(-50%,0);
+}
+.switch label {
+	
+}
+#typeMember {
+	margin: 0 20px 0 20px;
+}
+#typeShop {
+	margin: 0 20px 0 20px;
+}
+/*가운데서 좌우로 펼쳐지는 라인 에니메이션*/
+.spread-underline {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 0;
+  position: relative;
+  font-weight: bold;
+
+}
+.spread-underline:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 50%;
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  background: #ffc107;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.spread-underline:hover:after { 
+  width: 100%; 
+  left: 0; 
 }

@@ -46,7 +46,7 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	// 클래스 등록 (업체회원-클래스 등록 메뉴)
 	@Override
 	public int insertBclass(BukkeClass bClass) {
-		return session.insert("bclass-mapper.insertBclass", bClass);
+		return session.insert("bclassMapper.insertBclass", bClass);
 	}
 
 	// 클래스 수정 (업체회원-클래스 수정 메뉴)

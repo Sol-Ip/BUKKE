@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,6 +76,12 @@ public class BukkeClassController {
 										@ModelAttribute BukkeClass bukkeClass,
 										@RequestParam(value="uploadFile", required=false) MultipartFile uploadFile,
 										HttpServletRequest request) {
+		System.out.println(bukkeClass.getClassStartDate());
+		/*
+		 * SimpleDateFormat sDate = new SimpleDateFormat("yyyy/MM/dd"); String
+		 * changeStartDate = sDate.format(classStartDate); String changeEndDate =
+		 * sDate.format(classStartDate);
+		 */
 		// 서버에 파일 저장
 		// MultipartFile : 파일 업로드 처리(스프링에서 제공하는 인터페이스)
 		if(!uploadFile.getOriginalFilename().equals("")) {

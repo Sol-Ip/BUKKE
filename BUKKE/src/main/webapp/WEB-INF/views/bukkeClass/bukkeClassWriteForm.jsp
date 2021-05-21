@@ -64,8 +64,8 @@
 			              </div>
 			              <br>
 			              <div class="calendar">
-						    <input type="text" id="from" name="classStartDate" placeholder="시작일">&nbsp;&nbsp;
-  							<input type="text" id="to" name="classEndDate" placeholder="종료일">
+						    <input type="date" name="classStartDate" placeholder="시작일">&nbsp;&nbsp;
+  							<input type="date" name="classEndDate" placeholder="종료일">
 			              </div>
 			              <br>
 			              <div class="form-group">

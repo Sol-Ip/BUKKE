@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:include page="../common/header.jsp?active=activity"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>부캐, 새로운 나 ! - Activity</title>
 <link rel="stylesheet" href="resources/css/activity-custom/activityListView.css">
-<jsp:include page="../common/header.jsp"></jsp:include>
+
 </head>
 <body>
 	<!-- fixed section -->

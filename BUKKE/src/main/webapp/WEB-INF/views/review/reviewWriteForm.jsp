@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:include page="../common/header.jsp?active=review"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>후기 작성</title>
-<jsp:include page="../common/header.jsp?active=review"></jsp:include>
 </head>
 <body>
 	<!-- fixed section -->

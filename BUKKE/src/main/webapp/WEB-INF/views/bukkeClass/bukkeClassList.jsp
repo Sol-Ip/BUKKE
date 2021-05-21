@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<jsp:include page="../common/header.jsp?active=bclass"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Bukke Class</title>
-<jsp:include page="../common/header.jsp"></jsp:include>
+
 <link rel="stylesheet" href="resources/css/bClass-custom/bClassListView.css">
 </head>
 <body>

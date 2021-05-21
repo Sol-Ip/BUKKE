@@ -69,7 +69,6 @@
 		$("#home").addClass("active");
 		break;
 	case "introduce":
-		var a = $("#introduce");
 		$("#introduce").addClass("active");
 		break;
 	case "bclass":

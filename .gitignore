@@ -1,5 +1,9 @@
 # Compiled class file
 *.class
+.settigs
+.project
+.classpath
+.springBeans
 
 # Log file
 *.log
@@ -11,7 +15,6 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -20,9 +23,12 @@
 *.rar
 
 # Target
+/target/
 *.MF
 *.properties
 
+# bin
+/bin/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*

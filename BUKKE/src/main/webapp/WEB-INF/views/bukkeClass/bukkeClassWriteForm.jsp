@@ -60,10 +60,8 @@
 			              </div>
 			              <br>
 			              <div class="calendar">
-			              	<label for="from">From</label>
-						    <input type="text" id="from" name="from">
-  							<label for="to">to</label>
-  							<input type="text" id="to" name="to">
+						    <input type="text" id="from" name="from" placeholder="시작일">&nbsp;&nbsp;
+  							<input type="text" id="to" name="to" placeholder="종료일">
 			              </div>
 			              <br>
 			              <div class="form-group">

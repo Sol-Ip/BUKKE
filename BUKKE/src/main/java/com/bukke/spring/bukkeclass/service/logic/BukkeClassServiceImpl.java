@@ -42,7 +42,7 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	// 클래스 등록 (업체회원-클래스 등록 메뉴)
 	@Override
 	public int registerBclass(BukkeClass bClass) {
-		return 0;
+		return bStore.insertBclass(bClass);
 	}
 
 	@Override

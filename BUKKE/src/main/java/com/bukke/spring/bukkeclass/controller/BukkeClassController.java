@@ -1,6 +1,11 @@
 package com.bukke.spring.bukkeclass.controller;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,7 +106,26 @@ public class BukkeClassController {
 		String root = request.getSession().getServletContext().getRealPath("resources");
 		String savePath = root + "\\bClassFiles";
 		// 저장 폴더 선택
-		return "";
+		File folder = new File(savePath);
+		if(!folder.exists()) {
+			folder.mkdir();
+		}
+		// 파일명 변경하기
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String cOriginalFilename = file.getOriginalFilename();
+		
+		String cRenameFilename = sdf.format(new Date(System.currentTimeMillis()))
+				+ "." + cOriginalFilename.substring(cOriginalFilename.lastIndexOf(".")+1);
+		String filePath = folder + "\\" + cRenameFilename;
+		// 파일 저장
+		try {
+			file.transferTo(new File(filePath));
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return cRenameFilename;
 	}
 	
 	// 클래스 수정 jsp 이동 (업체회원)

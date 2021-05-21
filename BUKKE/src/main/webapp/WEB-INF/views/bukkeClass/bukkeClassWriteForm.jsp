@@ -42,14 +42,14 @@
 			<!-- <div class="col-md-6 p-5 order-md-last" align="center"> -->
 			<div class="container">
 				<div class="p-5 order-md-last">
-					 <form action="#">
+					 <form action="bukkeClassRegister.com" method="post" enctype="multipart/form-data">
 			              <div class="form-group">
-			                <input type="text" class="form-control" placeholder="클래스 명">
+			                <input type="text" class="form-control" name="className" placeholder="클래스 명">
 			              </div>
 			              <div class="form-group">
-			                <input type="text" class="form-control" placeholder="클래스 주소">
+			                <input type="text" class="form-control" name="classAddr" placeholder="클래스 주소">
 			              </div>
-						  <select class="form-control">
+						  <select class="form-control" name="classType">
 							  <option>공예</option>
 							  <option>플라워</option>
 							  <option>음악</option>
@@ -57,18 +57,15 @@
 						  </select>
 						  <br>
 			              <div class="form-group">
-			                <input type="text" class="form-control" placeholder="Subject">
-			              </div>
-			              <div class="form-group">
-			                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="상세설명"></textarea>
+			                <textarea name="" id="" cols="30" rows="7" class="form-control" name="classInfo" placeholder="상세설명"></textarea>
 			              </div>
 			              <div>
-			              	<input type="file" class="form-control">
+			              	<input type="file" class="form-control" name="uploadFile">
 			              </div>
 			              <br>
 			              <div class="calendar">
-						    <input type="text" id="from" name="from" placeholder="시작일">&nbsp;&nbsp;
-  							<input type="text" id="to" name="to" placeholder="종료일">
+						    <input type="text" id="from" name="classStartDate" placeholder="시작일">&nbsp;&nbsp;
+  							<input type="text" id="to" name="classEndDate" placeholder="종료일">
 			              </div>
 			              <br>
 			              <div class="form-group">

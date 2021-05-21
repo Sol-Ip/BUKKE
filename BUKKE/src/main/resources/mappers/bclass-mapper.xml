@@ -31,6 +31,6 @@
    <insert id="insertBclass">
    	  INSERT INTO CLASS
    	  VALUES(SEQ_CLASS_NO.NEXTVAL, #{className }, #{classAddr }, #{classType }, #{classInfo}, #{cOriginalFilename }, #{cRenameFilename }, #{classStartDate }, #{classEndDate })
-   </insert>
+   </insert>  
    
 </mapper>

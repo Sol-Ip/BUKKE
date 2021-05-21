@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.calendar {
+	max-width : 1000px;
+	margin : 0 auto;
+}
+input {
+	font-size : 18px;
+	padding : 10px 30px;
+	boarder : 2px solid;
+}

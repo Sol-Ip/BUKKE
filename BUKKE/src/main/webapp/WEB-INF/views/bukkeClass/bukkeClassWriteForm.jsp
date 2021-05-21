@@ -6,7 +6,13 @@
 <meta charset="UTF-8">
 <title>부캐 클래스 등록 폼</title>
 <jsp:include page="../common/header.jsp"></jsp:include>
-
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="../resources/css/bClass-custom/calendar.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="../resources/js/bclass/calendar.js">
+	
+</script>
 </head>
 <body>
 	<!-- fixed section -->
@@ -51,6 +57,13 @@
 			              </div>
 			              <div>
 			              	<input type="file" class="form-control">
+			              </div>
+			              <br>
+			              <div class="calendar">
+			              	<label for="from">From</label>
+						    <input type="text" id="from" name="from">
+  							<label for="to">to</label>
+  							<input type="text" id="to" name="to">
 			              </div>
 			              <br>
 			              <div class="form-group">

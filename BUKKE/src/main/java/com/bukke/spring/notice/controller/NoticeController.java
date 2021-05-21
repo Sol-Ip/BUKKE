@@ -20,15 +20,15 @@ public class NoticeController {
 	//전체목록 조회(리스트)
 	@RequestMapping(value="noticeList.com" , method = RequestMethod.GET)
 	public String NoticeListView(Model model) {
-//		ArrayList<Notice> nList = nService.printAllNotice();
-//		if(!nList.isEmpty()) {
-//			model.addAttribute("nList",nList);
-//			return "notice/noticeListView";
-//		}else {
-//			model.addAttribute("msg","공지사항 조회 실패");
-//			return "common/errorPage";
-//		}
-		return "notice/noticeListView";
+		ArrayList<Notice> nList = nService.printAllNotice();
+		if(!nList.isEmpty()) {
+			model.addAttribute("nList",nList);
+			return "notice/noticeListView";
+		}else {
+			model.addAttribute("msg","공지사항 조회 실패");
+			return "common/errorPage";
+		}
+	//	return "notice/noticeListView";
 	}
 	
 	//상세정보 조회(detail)

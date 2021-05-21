@@ -13,8 +13,8 @@
 		<result property="nRenameFilename" column="N_RENAME_FILENAME"></result>
 	</resultMap>
 
-		<!-- <select id="selectNoticeList">
+		<select id="selectNoticeList" resultMap="noticeResultMap">
 			SELECT * FROM NOTICE
-		</select> -->
+		</select>
 
 </mapper>

@@ -17,10 +17,8 @@ public class NoticeServiceImpl  implements NoticeService{
 
 	@Override
 	public ArrayList<Notice> printAllNotice() {
-		/*
-		 * ArrayList<Notice> nList = nStore.selectAllNoticeList(); return nList;
-		 */
-		return null;
+		 ArrayList<Notice> nList = nStore.selectAllNoticeList(); 
+		 return nList;
 	}
 
 	@Override

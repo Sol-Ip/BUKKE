@@ -3,6 +3,7 @@ package com.bukke.spring.notice.store.logic;
 import java.util.ArrayList;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.notice.domain.Notice;
@@ -10,12 +11,13 @@ import com.bukke.spring.notice.domain.NoticePageInfo;
 import com.bukke.spring.notice.store.NoticeStore;
 @Repository
 public class NoticeStoreLogic implements NoticeStore{
+	
+	@Autowired
 	private SqlSessionTemplate sqlSession;
 
 	@Override
 	public ArrayList<Notice> selectAllNoticeList() {
-		//return (ArrayList)sqlSession.selectList("noticeMapper.selectNoticeList");
-		return null;
+		return (ArrayList)sqlSession.selectList("noticeMapper.selectNoticeList");
 	}
 
 	@Override

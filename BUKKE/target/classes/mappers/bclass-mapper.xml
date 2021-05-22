@@ -30,7 +30,7 @@
    
    <insert id="insertBclass">
    	  INSERT INTO CLASS
-   	  VALUES(SEQ_CLASS_NO.NEXTVAL, #{className }, #{classAddr }, #{classType }, #{classInfo}, #{cOriginalFilename }, #{cRenameFilename }, #{classStartDate }, #{classEndDate })
+   	  VALUES(SEQ_CLASS_NO.NEXTVAL, #{className }, #{classAddr }, #{classType }, #{classTypedetails }, #{classInfo }, #{classCapacity }, #{classStartDate }, #{classEndDate }, #{cOriginalFilename }, #{cRenameFilename }, CLASS_ENROLL_DATE = SYSDATE)
    </insert>  
    
 </mapper>

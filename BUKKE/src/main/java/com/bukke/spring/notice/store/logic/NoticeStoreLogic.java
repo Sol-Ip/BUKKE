@@ -2,6 +2,7 @@ package com.bukke.spring.notice.store.logic;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,26 +17,26 @@ public class NoticeStoreLogic implements NoticeStore{
 	private SqlSessionTemplate sqlSession;
 
 	@Override
-	public ArrayList<Notice> selectAllNoticeList() {
-		return (ArrayList)sqlSession.selectList("noticeMapper.selectNoticeList");
-	}
-
-	@Override
 	public ArrayList<Notice> selectAllNoticeList(NoticePageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)sqlSession.selectList("noticeMapper.selectNoticeList",null,rowBounds);
 	}
 
+//	@Override
+//	public ArrayList<Notice> selectAllNoticeList(NoticePageInfo pi) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
 	@Override
-	public Notice selectOneNotice(int nId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Notice selectOneNotice(int noticeNo) {
+		return sqlSession.selectOne("noticeMapper.selectOneNotice", noticeNo);
 	}
 
 	@Override
 	public int insertNotice(Notice notice) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("noticeMapper.insertNotice", notice);
 	}
 
 	@Override
@@ -46,6 +47,12 @@ public class NoticeStoreLogic implements NoticeStore{
 
 	@Override
 	public int deleteNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int selectListCount() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -15,42 +15,44 @@ public class NoticeServiceImpl  implements NoticeService{
 	@Autowired
 	private NoticeStore nStore;
 
-	@Override
-	public ArrayList<Notice> printAllNotice() {
-		 ArrayList<Notice> nList = nStore.selectAllNoticeList(); 
-		 return nList;
-	}
 
 	@Override
-	public ArrayList<Notice> printrintAllNotice(NoticePageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Notice printOneNotice(int nId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int registerNotice() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int modifyNotice() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int removeNotice() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getListCount() {
+		return nStore.selectListCount();
 	}
 	
+	@Override
+	public ArrayList<Notice> printAllNotice(NoticePageInfo pi) {
+		 return nStore.selectAllNoticeList(pi); 
+	}
+
+	/*
+	 * @Override public ArrayList<Notice> printrintAllNotice(NoticePageInfo pi) { //
+	 * TODO Auto-generated method stub return null; }
+	 */
+
+	@Override
+	public Notice printOneNotice(int noticeNo) {
+		return nStore.selectOneNotice(noticeNo);
+	}
+
+	@Override
+	public int registerNotice(Notice notice) {
+		return nStore.insertNotice(notice);
+	}
+
+	@Override
+	public int modifyNotice(Notice notice) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int removeNotice(int nId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 
 	

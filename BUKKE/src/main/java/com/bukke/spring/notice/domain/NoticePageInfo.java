@@ -2,7 +2,7 @@ package com.bukke.spring.notice.domain;
 
 public class NoticePageInfo {
 	private int currentPage; //게시글
-	private int boardLimit;  //네비게이션 수
+	private int noticeLimit;  //네비게이션 수
 	private int pageLimit;  // 네비게이션 첫번째 값
 	private int startPage;  // 네비게이션 마지막 값
 	private int endPage;    // 전체 게시글 갯수
@@ -15,7 +15,7 @@ public class NoticePageInfo {
 			int maxPage) {
 		super();
 		this.currentPage = currentPage;
-		this.boardLimit = boardLimit;
+		this.noticeLimit = boardLimit;
 		this.pageLimit = pageLimit;
 		this.startPage = startPage;
 		this.endPage = endPage;
@@ -32,11 +32,11 @@ public class NoticePageInfo {
 	}
 
 	public int getBoardLimit() {
-		return boardLimit;
+		return noticeLimit;
 	}
 
 	public void setBoardLimit(int boardLimit) {
-		this.boardLimit = boardLimit;
+		this.noticeLimit = boardLimit;
 	}
 
 	public int getPageLimit() {
@@ -81,7 +81,7 @@ public class NoticePageInfo {
 
 	@Override
 	public String toString() {
-		return "NoticePageInfo [currentPage=" + currentPage + ", boardLimit=" + boardLimit + ", pageLimit=" + pageLimit
+		return "NoticePageInfo [currentPage=" + currentPage + ", boardLimit=" + noticeLimit + ", pageLimit=" + pageLimit
 				+ ", startPage=" + startPage + ", endPage=" + endPage + ", listCount=" + listCount + ", maxPage="
 				+ maxPage + "]";
 	}

@@ -12,9 +12,24 @@
 		<result property="nOriginalFilename" column="N_ORIGINAL_FILENAME"></result>
 		<result property="nRenameFilename" column="N_RENAME_FILENAME"></result>
 	</resultMap>
+	
+		<select id="selectListCount" resultType="_int">
+		SELECT COUNT(*) FROM NOTICE
+		WHERE NOTICE_STATUS = 'Y'	
+		</select>
 
 		<select id="selectNoticeList" resultMap="noticeResultMap">
 			SELECT * FROM NOTICE
 		</select>
+		
+		<select id="selectOneNotice" resultMap="noticeResultMap">
+			SELECT * FROM NOTICE WHERE NOTICE_NO=#{noticeNo} AND NOTICE_STATUS='Y'
+		</select>
 
+		<insert id="insertNotice" parameterType="Notice">
+			INSERT INTO NOTICE 
+				VALUES (SEQ_NOTICE_NO.NEXTVAL,#{memberId}, #{noticeTitle}, #{noticeContents},SYSDATE,#{noticeStatus},#{nOriginalFilename},#{nRenameFilename})
+		</insert>
+		
+		
 </mapper>

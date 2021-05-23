@@ -97,123 +97,20 @@
 			<c:forEach items="${bList }" var="bukkeClass">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="project">
-						<img src="${bukkeClass.cOriginalFilename } class="img-fluid"
+						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }" class="img-fluid"
 							alt="Colorlib Template">
 						<div class="text">
 							<h3>
 								<a href="#">${bukkeClass.className }</a>
 							</h3>
 						</div>
-						<a href="resources/images/work-1.jpg"
+						<a href="#"
 							class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
 						</a>
 					</div>
 				</div>
-				</c:forEach>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-2.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-2.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-3.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-3.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-4.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-4.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-		
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-1.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>
-								<a href="project.html">Office Interior Design</a>
-							</h3>
-						</div>
-						<a href="resources/images/work-1.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-2.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-2.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-3.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-3.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-4.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-4.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
+			</c:forEach>
 			</div>
 		</div>
     		<div class="row no-gutters mt-5">

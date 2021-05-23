@@ -53,8 +53,15 @@ public class BukkeClassController {
 	
 	
 	// 클래스 상세정보 jsp 이동 (모든회원)
-	public String bukkeClassDetailView() {
-		return null;
+	@RequestMapping(value="bukkeClassDetailView.com", method=RequestMethod.GET)
+	public ModelAndView bukkeClassDetailView(ModelAndView mv, @RequestParam("classNo") int classNo) {
+		BukkeClass bukkeClass = bService.printOneBclass(classNo);
+		if(bukkeClass != null) {
+			mv.addObject("bukkeClass", bukkeClass).setViewName("bukkeClass/bukkeClassDetailView");
+		} else {
+			mv.addObject("msg", "클래스 상세 조회 실패 !");
+		}
+		return mv;
 	}
 	// *클래스 검색기능 메소드
 	public String bukkeClassSearch() {

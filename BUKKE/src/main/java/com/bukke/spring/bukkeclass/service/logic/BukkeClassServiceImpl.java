@@ -30,7 +30,7 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	// 클래스 상세정보
 	@Override
 	public BukkeClass printOneBclass(int classNo) {
-		return null;
+		return bStore.selectOneBclass(classNo);
 	}
 
 	// 클래스 검색 (일반회원, 업체회원)

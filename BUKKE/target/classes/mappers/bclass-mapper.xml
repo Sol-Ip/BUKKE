@@ -28,6 +28,10 @@
       SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' ORDER BY CLASS_NO DESC
    </select>
    
+   <select id="selectOneBclass" resultMap="_int">
+   	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo }
+   </select>
+   
    <insert id="insertBclass" parameterType="BukkeClass">
    	  INSERT INTO CLASS 
    	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename })

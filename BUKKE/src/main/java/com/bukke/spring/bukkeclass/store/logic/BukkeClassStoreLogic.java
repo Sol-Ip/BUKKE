@@ -34,7 +34,7 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	// 클래스 상세정보
 	@Override
 	public BukkeClass selectOneBclass(int classNo) {
-		return null;
+		return session.selectOne("bclassMapper.selectOneBclass", classNo);
 	}
 
 	// 클래스 검색 (일반회원, 업체회원)

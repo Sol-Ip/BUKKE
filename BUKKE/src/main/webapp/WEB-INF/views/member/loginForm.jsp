@@ -25,7 +25,7 @@
       .ghost-arm { animation: float-arm 3s linear alternate infinite; }
       .pupil, #mouth, .ghost-arm { transition: all 0.25s; }
     </style>
-    <g id="ghost-body" fill="white" fill="#fff" stroke="#999" stroke-width="3" stroke-linejoin="round">
+     <g id="ghost-body" fill="white" fill="#fff" stroke="#999" stroke-width="3" stroke-linejoin="round">
       <path d="M 54,181 C 44,131 13,11 99,11 185,12 164,110 150,182 146,195 139,185 137,177 134,170 126,169 124,179 120,192 114,190 109,179 105,167 98,166 94,179 92,185 85,193 79,179 74,170 68,168 66,179 62,193 56,191 54,181 Z" />
       <path id="eye-right" class="eye" fill="#ffffee" d="M 69,71 C 69,64 73,54 84,55 96,56 100,62 100,70 100,79 89,83 84,83 78,83 69,80 69,71 Z" />
       <path id="eye-left" class="eye" fill="#ffffee" d="M 105,73 C 104,66 108,57 120,57 130,57 134,65 134,71 134,80 125,85 119,85 114,85 105,82 105,73 Z" />
@@ -36,39 +36,38 @@
       <path id="ghost-arm-left" class="ghost-arm" d="M 155,88 C 191,90 194,114 192,125 191,137 172,109 155,116" data-hover="M 155,88 C 145,68 105,51 103,62 102,74 123,117 155,116" style="animation-delay:-1s" />
     </g>
   </svg>
-  <fieldset id="email-field" class="with-placeholder">
-    <legend>Email</legend>
+  <div class="member-check">
+  	<input type="radio" name="loginType"  value="typeMember" checked>
+  	<label name="typeMember" for="typeMember"><span class="spread-underline">일반회원</span></label>
+  	<input type="radio" name="loginType"  value="typeMember">
+    <label name="typeShop" class="spread-underline" for="typeShop"><span class="spread-underline">업체회원</span></label>
+  </div>
+  <fieldset id="id-field" class="with-placeholder">
+    <legend>아이디</legend>
     <div>
-      <input type="email" name="email" id="email"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
-      <div class="placeholder">e.g. username@example.com</div>
+      <input type="text" name="memberId" id="memberId"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+      <div class="placeholder">USER NAME</div>
     </div>
   </fieldset>
   <fieldset id="password-field">
-    <legend>Password</legend>
+    <legend>비밀번호</legend>
     <div>
-      <input type="password" name="password" id="password"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+      <input type="password" name="memberPw" id="memberPw" placeholder="●●●●●●" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
     </div>
-    
-  </fieldset>
-  <fieldset id="enroll-field">
-    <legend>회원가입</legend>
-    <input type="text" value="소셜로그인 공간">
-    	<input type="text" value="메인, 회원가입, 아이디/비밀번호 찾기 버튼 만들기">
-    
   </fieldset>
   <fieldset id="submit-field">
-    <legend>
-    	
-    </legend>
     <div>
-      <input type="submit" name="submit" id="submit" value="Login"/>
+      <input type="submit" name="submit" id="submit" value="로그인"/>
     </div>
   </fieldset>
+  <fieldset id="social-filed">
+    소셜로그인은 여기에!
+  </fieldset>
+    <div>
+      <a href="#">ID/PW 찾기</a>
+      <a href="memberRegisterForm.com">회원가입</a>
+    </div>
 </form>
-
-<!-- <footer>
-  Inspired by <a href="https://codepen.io/dsenneff/full/2c3e5bc86b372d5424b00edaf4990173/">Darin's amazing Pen</a>
-</footer> -->
 
  <!-- JS -->
      <script src="/resources/js/member/loginForm.js"></script>

@@ -88,6 +88,7 @@ fieldset.with-placeholder input {
 
 fieldset input[type=submit] {
   border-radius: 3px;
+  padding: 13px;
   background-color: #56baed;
   color: #fff;
   box-shadow: 0 0 5px rgba(87, 186, 237, .5);
@@ -108,7 +109,15 @@ fieldset input[type=submit] {
 	margin-top: 5px;
 }
 .member-check label {
-	padding: 0 20px;
+	padding: 0 19px;
+}
+
+#enroll-and-find {
+	text-align: right;
+}
+#enroll-and-find a {
+	color: #333;
+	padding: 0 5px;
 }
 
 /*가운데서 좌우로 펼쳐지는 라인 에니메이션*/
@@ -135,7 +144,7 @@ input[type=radio] + label .spread-underline:after {
   width: 0;
 }
 
-input[type=radio]:checked + label .spread-underline:after { 
+input[type=radio]:checked + label .spread-underline:after {
   width: 100%; 
   left: 0; 
 }

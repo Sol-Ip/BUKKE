@@ -14,7 +14,6 @@
   <svg width="200px" height="200px" viewBox="0 0 200 200" aria-labelledby="svg-title svg-desc">
     <title id="svg-title">Floating Ghost</title>
     <desc id="svg-desc">A smiling ghost that floats ups and down while looking at the user interactions.</desc>
-    <style type="text/css">
       @keyframes float { 
         from { transform: translate(0, 0px); }
         to   { transform: translate(0, 8px); } 
@@ -65,12 +64,24 @@
   <fieldset id="social-filed">
     소셜로그인은 여기에!
   </fieldset>
-    <div>
+    <div id="enroll-and-find">
       <a href="#">ID/PW 찾기</a>
       <a href="memberRegisterForm.com">회원가입</a>
     </div>
 </form>
  <!-- JS -->
   <script src="/resources/js/member/loginForm.js"></script>
+  <script>
+  	$("input[type=radio]").on("change",function(){
+  		// 유령 사라졌다 나타나는 효과
+  		$("g").fadeOut(1000).fadeIn(1000);
+  		var type = $(this).val();
+  		if(!(type=="typeMember")) {
+  			$("#social-filed").hide();
+  		} else {
+  			$("#social-filed").show();
+  		}
+  	})
+  </script>
 </body>
 </html>

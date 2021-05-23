@@ -30,7 +30,7 @@
    
    <insert id="insertBclass" parameterType="BukkeClass">
    	  INSERT INTO CLASS 
-   	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },#{classStatus}, #{cOriginalFilename }, #{cRenameFilename })
+   	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename })
    </insert>  
    
 </mapper>

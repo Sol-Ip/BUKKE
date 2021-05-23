@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../common/header.jsp?active=bclass"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -93,14 +94,14 @@
 		<!-- 클래스 전체 수업 이미지 목록 -->
 		<div class="container">
 			<div class="row">
+			<c:forEach items="${bList }" var="bukkeClass">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="project">
-						<img src="resources/images/work-1.jpg" class="img-fluid"
+						<img src="${bukkeClass.cOriginalFilename } class="img-fluid"
 							alt="Colorlib Template">
 						<div class="text">
-							<span>Interior Design</span>
 							<h3>
-								<a href="project.html">Office Interior Design</a>
+								<a href="#">${bukkeClass.className }</a>
 							</h3>
 						</div>
 						<a href="resources/images/work-1.jpg"
@@ -109,6 +110,7 @@
 						</a>
 					</div>
 				</div>
+				</c:forEach>
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="project">
 						<img src="resources/images/work-2.jpg" class="img-fluid"

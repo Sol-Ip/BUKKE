@@ -5,8 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 수정</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <jsp:include page="../common/header.jsp"></jsp:include>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<script src="/js/summernote/lang/summernote-ko-KR.js"></script>
 </head>
 <body>
 	<!-- fixed section -->
@@ -33,7 +45,7 @@
 			<section class="ftco-section">
 			<div class="container">
 			<br> <br>
-			<form action="noticeInsert.com" method="post">
+			<form action="noticeUpdate.com" method="post">
 			<input type="hidden" name="noticeNo" value="${notice.noticeNo}">
 				<div class="form-group">
 					<input type="text" class="form-control" name="noticeTitle"
@@ -41,11 +53,11 @@
 				</div>
 				<div class="form-group">
 					<input type="text" class="form-control" name="memberId"
-						placeholder="작성자">
+						value="${notice.noticeWriter }">
 				</div>
-				<textarea id="summernote" name="noticeContents"></textarea>
+				<textarea id="summernote" name="noticeContents" value="${notice.noticeContents }"></textarea>
 				<div>
-					<input type="submit" id="subBtn" value="글 작성" style="float: right;" />
+					<input type="submit" id="subBtn" value="수정하기" style="float: right;" />
 				</div>
 			</form>
 

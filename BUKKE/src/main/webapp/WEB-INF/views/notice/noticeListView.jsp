@@ -82,6 +82,7 @@
 											<tr>
 												<td>
 													<div class="d-flex px-2 py-1">
+															<input type="hidden" name="noticeNo" value="${notice.noticeNo}">
 														<ul class="notice1">
 															<li class="menu"><a>${notice.noticeTitle }</a>
 																<ul class="hide">
@@ -101,6 +102,9 @@
 												<td class="align-middle text-center"><span
 													class="text-secondary text-xs font-weight-bold">${notice.noticeDate }</span>
 												</td>
+												<td class="align-middle text-center"><span
+													class="text-secondary text-xs font-weight-bold"><a href="noticeModifyView.com">수정/</a><a href="#">삭제</a></span>
+												</td>
 											</tr>
 										</c:forEach>
 
@@ -114,7 +118,7 @@
 		</div>
 		<div>
 			<button type="button" class="btn btn-outline-secondary"
-				style="float: right">글쓰기</button>
+				style="float: right"><a href="noticeWriteView.com">글쓰기</a></button>
 		</div>
 		
 		<!-- 페이징처리 -->

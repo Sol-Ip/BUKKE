@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Introduce</title>
 </head>
 <body>
  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -35,9 +35,10 @@
 		            
 	            </div>
 	          </div>
-	          <div class="pl-md-5 ml-md-5 mb-5">
-							<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-							<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+	          <div class="pl-md-5 ml-md-5 mb-5 ">
+							<p>'부캐'란 게임에서 사용하던 용어로 '본 캐릭터' 외에 새롭게 만든 '부 캐릭터'의 줄임말입니다. 지금은 많은 사람들이 '평소의 나의 모습이 아닌 새로운 모습이나 캐릭터'를 칭하는 말로 쓰이고 있습니다. </p>
+							<P>최근 직장인들 사이에서 취미생활을 위한 다양한 원데이 클래스, 액티비티 등 취미활동을 통해 행복과 만족감을 얻는 사람들이 늘고 있습니다. 워라벨을 중시하면서 일과 삶의 분리를 하려는 사람들이 증가하였기 때문입니다</P>
+							<p>부캐에서는 일상생활에서 벗어나 오로지 '나'로써 온전한 시간을 취미생활을 통해 느낄 수 있도록 다양한 클래스와 액티비티의 정보를 공유하며 누구든지 취미를 만들 수 있는 서비스를 제공하고 있습니다.</p>
 							<p><a href="#" class="btn-custom">Learn More <span class="ion-ios-arrow-forward"></span></a></p>
 						</div>
 					</div>
@@ -71,8 +72,8 @@
 		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
 		              <div class="text">
-		                <strong class="number" data-number="18">0</strong>
-		                <span>Years of Experienced</span>
+		                <strong class="number" data-number="180">0</strong>
+		                <span>New 액티비티 </span>
 		              </div>
 		            </div>
 		          </div>
@@ -80,7 +81,7 @@
 		            <div class="block-18">
 		              <div class="text">
 		                <strong class="number" data-number="351">0</strong>
-		                <span>Happy Clients</span>
+		                <span>New 클래스</span>
 		              </div>
 		            </div>
 		          </div>
@@ -88,7 +89,7 @@
 		            <div class="block-18">
 		              <div class="text">
 		                <strong class="number" data-number="564">0</strong>
-		                <span>Finished Projects</span>
+		                <span>오늘의 총 수강</span>
 		              </div>
 		            </div>
 		          </div>
@@ -96,7 +97,7 @@
 		            <div class="block-18">
 		              <div class="text">
 		                <strong class="number" data-number="300">0</strong>
-		                <span>Working Days</span>
+		                <span>오늘의 후기</span>
 		              </div>
 		            </div>
 		          </div>
@@ -105,11 +106,64 @@
         </div>
     	</div>
     </section>
-
+							<!-- 새 메뉴  -->
+							<section class="ftco-services">
+			<div class="container">
+				<div class="row justify-content-start mb-5 pb-5">
+          <div class="col-md-4 heading-section ftco-animate">
+            <h2 class="mb-4">Our Work Flow</h2>
+          </div>
+          <div class="col-md-8 pl-md-5 ftco-animate">
+          	<div class="pl-md-4 border-line">
+	          	<p> 우리는 부캐를 이용하는 사람들을 위해 다양한 일을 하고 있습니다. 당신이 원할 때에 언제나 어디서나 즐길 수  있도록 열심히 노력하고 있습니다.</p>
+          	</div>
+          </div>
+        </div>
+				<div class="row">
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-idea"></span>
+              </div>
+              <div class="media-body p-2 mt-3"  style="text-align: center" >
+                <h3 class="heading">Perfectly Design</h3>
+                <p>부캐를 이용하는 여러분들의 취미를 위해 다양한 크리에이티브를 가진 문화/예술 분야의 작가님들이 함께하고 있습니다.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-compass-symbol"></span>
+              </div>
+              <div class="media-body p-2 mt-3" style="text-align: center">
+                <h3 class="heading">Beautiful Life</h3>
+                <p>부캐는 일상을 아름답게 할 수 있습니다. '취미로 살맛나는 세상'을 만들겠습니다. 우리의 취미가 즐거운 삶을 만들어 갈 수 있도록 노력하고 있습니다.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-layers"></span>
+              </div>
+              <div class="media-body p-2 mt-3" style="text-align: center">
+                <h3 class="heading">Accurate review</h3>
+                <p>부캐는 일회성이 아닌 일상의 변화시키는 취미생활을 응원합니다. 후기 게시판에서 여러분들의 후기를 맘껏 자랑하고 소개해주세요. </p>
+              </div>
+            </div>      
+          </div>
+        </div>
+			</div>
+			
+		</section>
+		
+			<!--사용설명서 -->
     <section class="ftco-section testimony-section bg-light">
+        
       <div class="form-group" align="center">
-                    <input type="submit" value="부캐 사용설명서" class="btn py-4 px-4 btn-primary">
-                  </div>
+		            <p><a href="noticeList.com" class="btn btn-primary px-5 py-4 mt-3">부캐 사용설명서</a></p>
+      </div>
     </section>
     
               

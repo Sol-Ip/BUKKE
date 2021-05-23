@@ -105,8 +105,15 @@ public class NoticeController {
 	}
 	
 	//공지사항 수정 
-	public String noticeUpdate() {
-		return null;
+	@RequestMapping(value="noticeUpdate.com", method = RequestMethod.POST)
+	public String noticeUpdate(@ModelAttribute Notice notice,Model model) {
+		int result = nService.modifyNotice(notice);
+		if(result>0) {
+			return "redirect:noticeList.com?noticeNo="+notice.getNoticeNo();
+		}else {
+			model.addAttribute("msg","수정 실패");
+			return "common/errorPage";
+		}
 	}
 	
 	//공지사항 삭제

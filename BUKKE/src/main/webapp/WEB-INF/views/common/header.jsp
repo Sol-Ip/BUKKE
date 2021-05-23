@@ -10,6 +10,8 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> 
+<!-- <link rel="stylesheet" href="resources/css/theme/bootstrap.css">
+<link rel="stylesheet" href="resources/css/theme/bootstrap.min.css">  -->
 <link rel="stylesheet" href="resources/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/animate.css">
 

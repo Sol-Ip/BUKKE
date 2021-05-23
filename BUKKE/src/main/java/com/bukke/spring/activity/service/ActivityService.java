@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.domain.ActivityPageInfo;
+import com.bukke.spring.activity.domain.ActivitySearch;
 
 public interface ActivityService {
 	
@@ -13,7 +14,7 @@ public interface ActivityService {
 
 	public Activity printOneActivity(int activityNo); // 액티비티 상세정보
 
-	public ArrayList<Activity> searchActivity(String activityValue); //액티비티 검색 (일반회원, 업체회원)
+	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch); //액티비티 검색 (일반회원, 업체회원)
 
 	public int registerActivity(Activity activity); // 액티비티 등록 (업체회원-액티비티 등록 메뉴)
 

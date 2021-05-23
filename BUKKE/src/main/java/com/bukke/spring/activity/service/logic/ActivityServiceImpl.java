@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.domain.ActivityPageInfo;
+import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.activity.store.ActivityStore;
 
@@ -35,7 +36,7 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public ArrayList<Activity> searchActivity(String activityValue) { //액티비티 검색 (일반회원, 업체회원)
+	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
 		// TODO Auto-generated method stub
 		return null;
 	}

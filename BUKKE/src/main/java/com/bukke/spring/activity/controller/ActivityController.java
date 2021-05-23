@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 
 @Controller
@@ -29,20 +32,38 @@ public class ActivityController {
 		
 		return "activity/activityListView";
 	}
+	
+	
 	// 클래스 상세정보 jsp 이동 (모든회원)
-	@RequestMapping(value="activityList")
+	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
 	public String activityDetailView() {
-		return null;
+		return "activity/activityDetailView";
 	}
 	
+	
 	// *클래스 검색기능 메소드
+	@RequestMapping(value="activitySearch.com", method=RequestMethod.GET) 
 	public String activitySearch() {
-		return null;
+//	public String activitySearch(@ModelAttribute ActivitySearch activitySearch, Model model) {
+//		ArrayList<Activity> aSearchList = aService.searchActivity(activitySearch);
+//		if(aSearchList.isEmpty()) {
+//			model.addAttribute("aList", aSearchList);
+//			model.addAttribute("acticitySearch", activitySearch);
+//			return "acticity/activityListView";
+//		}
+		return "activity/activityListView";
 	}
+	
+	
+	
 	// 클래스 등록 jsp 이동 (업체회원)
+	@RequestMapping(value="activityWriteView.com", method = RequestMethod.GET)
 	public String activityEnrollView() {
-		return null;
+		
+		return "activity/activityWriteForm";
 	}
+	
+	
 	// *클래스 등록기능 메소드
 	public String activityAdd() {
 		return null;

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="activityMapper">
+	
+	<resultMap type="Activity" id="ActivityResultMap">
+		<id property="activityNo" column="ACTIVITY_NO"></id>
+		<result property="shopId" column="SHOP_ID"></result> 
+		<result property="activityName" column="ACTIVITY_NAME"></result> 
+		<result property="activityAddr" column="ACTIVITY_ADDR"></result> 
+		<result property="activityType" column="ACTIVITY_TYPE"></result> 
+		<result property="activityTypedetails" column="ACTIVITY_TYPEDETAILS"></result> 
+		<result property="activityInfo" column="ACTIVITY_INFO"></result> 
+		<result property="activityCapacity" column="ACTIVITY_CAPACITY"></result> 
+		<result property="activityEnrolldate" column="ACTIVITY_ENROLL_DATE"></result> 
+		<result property="activityStartdate" column="ACTIVITY_START_DATE"></result> 
+		<result property="activityEnddate" column="ACTIVITY_END_DATE"></result> 
+		<result property="activityStatus" column="ACTIVITY_STATUS"></result> 
+		<result property="aOriginalFilename" column="A_ORIGINAL_FILENAME"></result> 
+		<result property="aRenameFilename" column="A_RENAME_FILENAME"></result> 
+	</resultMap>
+
+	 <select id="selectListActivityCount" resultType="_int">
+		SELECT COUNT (*) FROM
+		ACTIVITY WHERE ACTIVITY_STATUS = 'Y'
+	</select>
+
+	<select id="selectAllActivityList" resultMap="ActivityResultMap">
+		SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
+	</select>
+
+	<select id="selectActivityOne" resultMap="ActivityResultMap">
+		SELECT * FROM ACTIVITY WHERE
+		ACTIVITY_NO = #{activityNo} ACTIVITY_STATUS = 'Y'
+	</select>
+
+	<!-- <insert id="insertBoard">
+		INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, #{boardTitle },
+		#{boardContent }, #{boardWriter }, #{originalFilename },
+		#{renameFilename }, DEFAULT, DEFAULT, DEFAULT, DEFAULT)
+	</insert>
+
+	<update id="updateBoard">
+		UPDATE BOARD SET BOARD_TITLE = #{boardTitle},
+		BOARD_CONTENT=#{boardContent}, ORIGINAL_FILENAME =
+		#{originalFilename}, RENAME_FILENAME=#{renameFilename},
+		B_UPDATE_DATE = SYSDATE WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	삭제인 것 처럼 보여지는 것!
+	<update id="deleteBoard" parameterType="_int">
+		UPDATE BOARD SET B_STATUS = 'N' WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<update id="updateCount">
+		UPDATE BOARD SET BOARD_COUNT = BOARD_COUNT + 1 WHERE BOARD_NO = #{boardNo}
+	</update> -->
+	
+</mapper>

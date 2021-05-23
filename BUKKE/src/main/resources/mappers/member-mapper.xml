@@ -13,7 +13,7 @@
 	</resultMap>
 	
 	<select id="selectOneMember" parameterType="Member" resultMap="memberResultMap">
-		<!-- SELECT * FROM MEMBER WHERE USER_ID = #{ userId } AND USER_PW = #{ userPw } -->
+		SELECT * FROM MEMBER WHERE MEMBER_ID = #{ memberId } AND MEMBER_PW = #{ memberPw }
 	</select>
 
 	<select id="checkIdDup" resultType="_int">

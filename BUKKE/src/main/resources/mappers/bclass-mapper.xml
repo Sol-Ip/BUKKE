@@ -28,7 +28,7 @@
       SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' ORDER BY CLASS_NO DESC
    </select>
    
-   <select id="selectOneBclass" resultMap="_int">
+   <select id="selectOneBclass" resultMap="bClassResultMap">
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo }
    </select>
    

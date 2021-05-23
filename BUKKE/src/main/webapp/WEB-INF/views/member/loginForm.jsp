@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:include page="../common/header.jsp?active=login"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="/resources/css/member/loginForm.css">
+
 </head>
 <body>
-<form method="post" action="#">
+<form method="post" action="memberLogin.com">
   <svg width="200px" height="200px" viewBox="0 0 200 200" aria-labelledby="svg-title svg-desc">
     <title id="svg-title">Floating Ghost</title>
     <desc id="svg-desc">A smiling ghost that floats ups and down while looking at the user interactions.</desc>
@@ -37,9 +39,9 @@
     </g>
   </svg>
   <div class="member-check">
-  	<input type="radio" name="loginType"  value="typeMember" checked>
+  	<input type="radio" name="loginType" value="typeMember" checked>
   	<label name="typeMember" for="typeMember"><span class="spread-underline">일반회원</span></label>
-  	<input type="radio" name="loginType"  value="typeMember">
+  	<input type="radio" name="loginType" value="typeShop">
     <label name="typeShop" class="spread-underline" for="typeShop"><span class="spread-underline">업체회원</span></label>
   </div>
   <fieldset id="id-field" class="with-placeholder">
@@ -68,8 +70,7 @@
       <a href="memberRegisterForm.com">회원가입</a>
     </div>
 </form>
-
  <!-- JS -->
-     <script src="/resources/js/member/loginForm.js"></script>
+  <script src="/resources/js/member/loginForm.js"></script>
 </body>
 </html>

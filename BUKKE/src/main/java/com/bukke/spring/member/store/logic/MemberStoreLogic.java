@@ -15,8 +15,8 @@ public class MemberStoreLogic implements MemberStore {
 
 	@Override
 	public Member selectOneMember(Member member) {
-		// TODO Auto-generated method stub
-		return null;
+		Member loginMember = session.selectOne("memberMapper.selectOneMember",member);
+		return loginMember;
 	}
 
 	@Override

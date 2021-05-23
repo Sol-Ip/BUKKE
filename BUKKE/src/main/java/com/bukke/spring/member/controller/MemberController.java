@@ -30,8 +30,15 @@ public class MemberController {
 	@RequestMapping(value = "memberLogin.com", method = RequestMethod.POST)
 	public String memberLogin(
 			HttpServletRequest request, @ModelAttribute Member member, Model model) {
-		return "";
-		
+		Member loginMember = mService.loginMember(member);
+		if(loginMember != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("loginMember", loginMember);
+			return "redirect:home.com";
+		} else {
+			model.addAttribute("msg","로그인 실패!");
+			return "common/errorPage";
+		}
 	}
 
 	// @RequestMapping(value="", method=RequestMethod.GET)

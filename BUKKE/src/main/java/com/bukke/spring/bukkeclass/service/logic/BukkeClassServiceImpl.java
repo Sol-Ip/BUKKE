@@ -45,10 +45,10 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return bStore.insertBclass(bClass);
 	}
 
+	// 클래스 수정 (업체회원-클래스 수정 메뉴)
 	@Override
 	public int modifyBclass(BukkeClass bClass) {
-		// 클래스 수정 (업체회원-클래스 수정 메뉴)
-		return 0;
+		return bStore.updateBclass(bClass);
 	}
 
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)

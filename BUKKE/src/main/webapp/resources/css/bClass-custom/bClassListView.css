@@ -2,4 +2,9 @@
 
  .project {
 	padding : 20px;
-} 
+}
+
+#class-img {
+	width : 230px;
+	height : 200px;
+}

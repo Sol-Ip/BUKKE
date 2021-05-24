@@ -29,12 +29,20 @@
    </select>
    
    <select id="selectOneBclass" resultMap="bClassResultMap">
-   	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo }
+   	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>
    
    <insert id="insertBclass" parameterType="BukkeClass">
    	  INSERT INTO CLASS 
    	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename })
    </insert>  
+   
+   <update id="updateBclass">
+   		UPDATE CLASS
+   		SET CLASS_NAME = #{className }, CLASS_ADDR = #{classAddr }, CLASS_TYPE = #{classType }, CLASS_TYPEDETAILS = #{classTypedetails }, 
+   		CLASS_INFO = #{classInfo }, CLASS_START_DATE = #{classStartDate }, CLASS_END_DATE = #{classEndDate }, C_ORIGINAL_FILENAME = #{cOriginalFilename }, C_RENAME_FILENAME = #{cRenameFilename }
+   		WHERE CLASS_NO = #{classNo }
+   </update>
+   
    
 </mapper>

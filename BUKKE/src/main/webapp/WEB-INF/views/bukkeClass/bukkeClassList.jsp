@@ -6,9 +6,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bukke Class</title>  
-
+<title>Bukke Class</title> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/bClass-custom/bClassListView.css">
+<style>
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    
+
+}
+</style>
 </head>
 <body>
 	<!-- fixed section -->
@@ -20,10 +33,10 @@
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">About Us</h1>
+					<h1 class="mb-2 bread">CLASS</h1>
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
+								class="ion-ios-arrow-forward"></i></a></span> <span>Class <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
 				</div>
@@ -97,14 +110,17 @@
 			<c:forEach items="${bList }" var="bukkeClass">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="project">
-						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }" class="img-fluid"
+						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }" id="class-img" class="img-fluid"
 							alt="Colorlib Template">
 						<div class="text">
+						<c:url var="cDetail" value="bukkeClassDetailView.com">
+                     		<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+                  		</c:url>
 							<h3>
-								<a href="#">${bukkeClass.className }</a>
+								<a href="${cDetail }">${bukkeClass.className }</a>
 							</h3>
 						</div>
-						<a href="#"
+						<a href="${cDetail }"
 							class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
 						</a>
@@ -113,17 +129,43 @@
 			</c:forEach>
 			</div>
 		</div>
+		<!-- 페이징 처리 -->
     		<div class="row no-gutters mt-5">
           <div class="col text-center">
             <div class="block-27">
               <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
+              <!-- 이전 -->
+	            <c:url var="before" value="bukkeClassList.com">
+	               <c:param name="page" value="${pi.currentPage - 1 }"></c:param>
+	            </c:url>
+	            <c:if test="${pi.currentPage <= 1 }">
+	               &lt; 
+	            </c:if>
+	            <c:if test="${pi.currentPage > 1 }">
+	               <li><a href="${before }">&lt;</a></li>
+	            </c:if>
+	            <!-- 페이지 -->
+                <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage }">
+	               <c:url var="pagination" value="bukkeClassList.com">
+	                  <c:param name="page" value="${p }"></c:param>
+	               </c:url>
+	               <c:if test="${p eq pi.currentPage }">
+	                  <li><sapn>${p }</sapn></li>
+	               </c:if>
+	               <c:if test="${p ne pi.currentPage }">
+	                  <li><a href="${pagination }">${p }</a></li>
+	               </c:if>
+            	</c:forEach>
+            	<!-- 다음 -->
+	            <c:url var="after" value="bukkeClassList.com">
+	               <c:param name="page" value="${pi.currentPage + 1 }"></c:param>
+	            </c:url>
+	            <c:if test="${pi.currentPage >= pi.maxPage }">
+	               &gt;
+	            </c:if>
+	            <c:if test="${pi.currentPage < pi.maxPage }">
+	               <li><a href="${after }">&gt;</a></li>
+	            </c:if>
               </ul>
             </div>
           </div>

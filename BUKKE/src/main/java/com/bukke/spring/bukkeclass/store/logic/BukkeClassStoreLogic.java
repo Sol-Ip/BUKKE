@@ -52,7 +52,7 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	// 클래스 수정 (업체회원-클래스 수정 메뉴)
 	@Override
 	public int updateBclass(BukkeClass bClass) {
-		return 0;
+		return session.update("bclassMapper.updateBclass", bClass);
 	}
 
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)

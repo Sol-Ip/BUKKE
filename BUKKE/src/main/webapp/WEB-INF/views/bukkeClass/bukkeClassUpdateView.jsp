@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CLASS ENROLL</title>
+<title>CLASS MODIFY</title>
 
 <jsp:include page="../common/header.jsp?active=bclass"></jsp:include>
 <link href="/resources/css/show-custom.css" rel="stylesheet">
@@ -73,7 +73,7 @@ $(document).ready(function() {
 				<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate">
           	<span class="subheading subheading-with-line"><small class="pr-2 bg-white">BUKKE</small></span>
-            <h2 class="mb-4">CLASS REGISTERED</h2>
+            <h2 class="mb-4">CLASS MODIFIED</h2>
           </div>
         </div>	
 		</div>
@@ -81,16 +81,18 @@ $(document).ready(function() {
 		<div class="container">
 			<!-- <div class="row"> -->
 	
-				<form action="bukkeClassRegister.com" method="post" enctype="multipart/form-data">
-
+				<form action="bukkeClassUpdate.com" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="classNo" value="${bukkeClass.classNo }">
+					<input type="hidden" name="cOriginalFilename" value="${bukkeClass.cOriginalFilename }">
+					<input type="hidden" name="cRenameFileName" value="${bukkeClass.cRenameFilename }">
 					
 						<!-- 글쓰기 폼 전체 틀 -->
 					<div class="row border col-md-12">
 						<div class="col-md-4">
 							<!-- 분류 -->
 							<br> <label class="form-label" for="classType">분류</label>
-							<select class="form-control" name="classType" id="" required>
-								<option value="" hidden="hidden">분류를 선택해주세요</option>
+							<select class="form-control" name="classType" required>
+								<option  value="${bukkeClass.classType }" hidden="hidden">분류를 선택해주세요</option>
 								<option value="test1">test1</option>
 								<option value="test2">test2</option>
 								<option value="test3">test3</option>
@@ -103,8 +105,8 @@ $(document).ready(function() {
 						<div class="col-md-4">
 							<!-- 상세 분류 -->
 							<br> <label class="form-label" for="classTypedetails">상세분류</label>
-							<select class="form-control" name="classTypedetails" id="" required>
-								<option value="" hidden="hidden">상세분류를 선택해주세요</option>
+							<select class="form-control" name="classTypedetails" required>
+								<option value="${bukkeClass.classTypedetails }" hidden="hidden">상세분류를 선택해주세요</option>
 								<option value="test1">test1</option>
 								<option value="test2">test2</option>
 								<option value="test3">test3</option>
@@ -130,31 +132,34 @@ $(document).ready(function() {
 						<!-- 제목, 시작일-종료일, 주소, 내용, 첨부파일 -->
 						<div class="form-outline col-md-12">
 							<label class="form-label" for="className">클래스 명</label> <input
-								type="text" id="className" class="form-control"
+								type="text" id="className" class="form-control" value="${bukkeClass.className }"
 								name="className" autocomplete="off" required maxlength="50" />
 
 							<hr>
 
 							<div class="calendar">
 								<label class="form-label" for="">시작일</label> <input type="date"
-									name="classStartDate" placeholder="시작일">&nbsp;&nbsp;
+									name="classStartDate" value="${bukkeClass.classStartDate }" placeholder="시작일">&nbsp;&nbsp;
 								<label class="form-label" for="">종료일</label> <input type="date"
-									name="classEndDate" placeholder="종료일">
+									name="classEndDate" value="${bukkeClass.classEndDate }" placeholder="종료일">
 							</div>
 
 							<hr>
 
 							<label class="form-label" for="classAddr">클래스 주소</label> <input
-								type="text" id="classAddr" class="form-control"
+								type="text" id="classAddr" class="form-control" value="${bukkeClass.classAddr }"
 								name="classAddr" autocomplete="off" required maxlength="50" />
 
 							<hr>
 
-							<textarea id="summernote" name="classInfo"></textarea>
+							<textarea id="summernote" name="classInfo" value="${bukkeClass.classInfo }"></textarea>
 
 							<hr>
 
-							<input type="file" class="form-control" name="uploadFile">
+							<input type="file" class="form-control" name="reloadFile">
+							<c:if test="${!empty bukkeClass.cOriginalFilename }">
+								${bukkeClass.cOriginalFilename }
+							</c:if>
 							<br>
 						</div>
 
@@ -164,7 +169,7 @@ $(document).ready(function() {
 						
 						<br><br>
 						<div class="button-set text-center">
-							 <input type="submit" value="등록" class="btn btn-lg btn-primary"> 
+							 <input type="submit" value="수정" class="btn btn-lg btn-primary"> 
 							 <input type="button" value="취소" class="btn btn-lg btn-outline-warning">
 						</div>
 						

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,7 +60,7 @@ public class BukkeClassController {
 		if(bukkeClass != null) {
 			mv.addObject("bukkeClass", bukkeClass).setViewName("bukkeClass/bukkeClassDetailView");
 		} else {
-			mv.addObject("msg", "클래스 상세 조회 실패 !");
+			mv.addObject("msg", "클래스 상세 조회 실패 !").setViewName("common/errorPage");
 		}
 		return mv;
 	}
@@ -140,13 +141,56 @@ public class BukkeClassController {
 	}
 	
 	// 클래스 수정 jsp 이동 (업체회원)
-	public String bukkeClassModifyView() {
-		return null;
+	@RequestMapping(value="bukkeClassModify.com", method=RequestMethod.GET)
+	public ModelAndView bukkeClassModifyView(ModelAndView mv, @RequestParam("classNo") int classNo) {
+		BukkeClass bukkeClass = bService.printOneBclass(classNo);
+		if(bukkeClass != null) {
+			mv.addObject("bukkeClass", bukkeClass).setViewName("bukkeClass/bukkeClassUpdateView");
+		} else {
+			mv.addObject("msg", "부캐 클래스 수정 실패").setViewName("common/errorPage");
+		}
+		return mv;
 	}
+	
 	// *클래스 수정기능 메소드
-	public String bukkeClassUpdate() {
-		return null;
+	@RequestMapping(value="bukkeClassUpdate.com", method=RequestMethod.POST)
+	public ModelAndView bukkeClassUpdate(ModelAndView mv, 
+										HttpServletRequest request,
+										@ModelAttribute BukkeClass bClass,
+										@RequestParam(value="reloadFile", required=false) MultipartFile reloadFile) {
+		// 파일 삭제 후 업로드 (수정)
+		if(reloadFile != null && !reloadFile.isEmpty()) {
+			// 기존 파일 삭제
+			if(bClass.getcOriginalFilename() != "") {
+				deleteFile(bClass.getcRenameFilename(), request);
+			}
+			// 새 파일 업로드
+			String cRenameFileName = saveFile(reloadFile, request);
+			if(cRenameFileName != null) {
+				bClass.setcOriginalFilename(reloadFile.getOriginalFilename());
+				bClass.setcRenameFilename(cRenameFileName);
+			}
+		}
+		// DB 수정
+		int result = bService.modifyBclass(bClass);
+		if(result > 0) {
+			mv.setViewName("redirect:bukkeClassList.com");
+		}else  {
+			mv.addObject("msg", "부캐 클래스 수정 실패").setViewName("common/errorPage");
+		}
+		return mv;
 	}
+	
+	// 파일 삭제
+	private void deleteFile(String fileName, HttpServletRequest request) {
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = root + "\\bClassFiles";
+		File file = new File(savePath + "\\" + fileName);
+		if(file.exists()) {
+			file.delete();
+		}
+	}
+	
 	// *클래스 삭제기능 메소드
 	public String bukkeClassRemove() {
 		return null;

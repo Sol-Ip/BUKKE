@@ -19,44 +19,38 @@ public class ActivityServiceImpl implements ActivityService {
 
 	@Override
 	public ArrayList<Activity> printAllActivity(ActivityPageInfo pi) { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
-		// TODO Auto-generated method stub
-		return null;
+		return aStore.selectAllActivityList(pi);
 	}
 
-	@Override
-	public ArrayList<Activity> printAllActivity() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public ArrayList<Activity> printAllActivity() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+//		return null;
+//	}
 
 	@Override
 	public Activity printOneActivity(int activityNo) { // 액티비티 상세정보
-		// TODO Auto-generated method stub
-		return null;
+		return aStore.selectOneActivity(activityNo);
 	}
 
 	@Override
 	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Activity> searchList = aStore.searchActivityList(activitySearch);
+		return searchList;
 	}
 
 	@Override
 	public int registerActivity(Activity activity) { // 액티비티 등록 (업체회원-액티비티 등록 메뉴)
-		// TODO Auto-generated method stub
-		return 0;
+		return aStore.insertActivity(activity);
 	}
 
 	@Override
 	public int modifyActivity(Activity activity) { // 액티비티 수정 (업체회원-액티비티 수정 메뉴)
-		// TODO Auto-generated method stub
-		return 0;
+		return aStore.updateActivity(activity);
 	}
 
 	@Override
-	public int removeActivity(int classNo) { // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
-		// TODO Auto-generated method stub
-		return 0;
+	public int removeActivity(int activityNo) { // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
+		return aStore.deleteActivity(activityNo);
 	}
 
 }

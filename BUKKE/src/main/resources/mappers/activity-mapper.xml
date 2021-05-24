@@ -20,8 +20,7 @@
 	</resultMap>
 
 	 <select id="selectListActivityCount" resultType="_int">
-		SELECT COUNT (*) FROM
-		ACTIVITY WHERE ACTIVITY_STATUS = 'Y'
+		SELECT COUNT (*) FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y'
 	</select>
 
 	<select id="selectAllActivityList" resultMap="ActivityResultMap">
@@ -29,17 +28,16 @@
 	</select>
 
 	<select id="selectActivityOne" resultMap="ActivityResultMap">
-		SELECT * FROM ACTIVITY WHERE
-		ACTIVITY_NO = #{activityNo} ACTIVITY_STATUS = 'Y'
+		SELECT * FROM ACTIVITY WHERE ACTIVITY_NO = #{activityNo} AND ACTIVITY_STATUS = 'Y'
 	</select>
 
-	<!-- <insert id="insertBoard">
-		INSERT INTO BOARD VALUES(SEQ_BOARD_NO.NEXTVAL, #{boardTitle },
-		#{boardContent }, #{boardWriter }, #{originalFilename },
-		#{renameFilename }, DEFAULT, DEFAULT, DEFAULT, DEFAULT)
+	<insert id="insertActivity">
+		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, 'shoptest',
+		#{activityName},#{activityAddr}, #{activityType},NULL, #{activityInfo},#{activityCapacity},
+		 SYSDATE, #{activityStartdate}, #{activityEnddate},DEFAULT,#{aOriginalFilename}, #{aRenameFilename})
 	</insert>
 
-	<update id="updateBoard">
+	<!-- <update id="updateBoard">
 		UPDATE BOARD SET BOARD_TITLE = #{boardTitle},
 		BOARD_CONTENT=#{boardContent}, ORIGINAL_FILENAME =
 		#{originalFilename}, RENAME_FILENAME=#{renameFilename},

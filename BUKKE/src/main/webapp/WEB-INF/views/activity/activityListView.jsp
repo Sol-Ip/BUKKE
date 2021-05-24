@@ -124,37 +124,42 @@
 		</div>
 		<!-- ========================= 액티비티 정보란 END =========================  -->
 		
-
 		<!-- ========================= 액티비티 탭  =========================  -->
 		<div class="container">
-		
-		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active" href="#">Active</a>
-			</li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div></li>
+			<ul class="nav nav-tabs">
+				<li class="nav-item"><a class="nav-link active"
+					data-bs-toggle="tab" href="#home">Home</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
+					href="#profile">Profile</a></li>
+				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
+				</li>
 				<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div></li>
-			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-			<li class="nav-item"><a class="nav-link disabled" href="#"
-				tabindex="-1" aria-disabled="true">Disabled</a></li>
-		</ul>
+					class="nav-link dropdown-toggle show" data-bs-toggle="dropdown"
+					href="#" role="button" aria-haspopup="true" aria-expanded="true">Dropdown</a>
+					<!-- div class = "dropdown-menu show" -->
+					<div class="dropdown-menu" data-popper-placement="bottom-start"
+						style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 43px);">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a> <a
+							class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</div></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane fade active show" id="home">
+					<h1>전체</h1>
+				</div>
+				<div class="tab-pane fade" id="profile">
+					<h1>분류탭1</h1>
+				</div>
+				<div class="tab-pane fade" id="dropdown1">
+					<h1>분류탭2</h1>
+				</div>
+				<div class="tab-pane fade" id="dropdown2">
+					<h1>분류탭3</h1>
+				</div>
+			</div>
 		</div>
 		<!-- ========================= 액티비티 탭 END =========================  -->
 
@@ -170,19 +175,18 @@
 						<div class="text">
 							<span>Interior Design</span>
 							<h3>
-								<a href="project.html">Office Interior Design</a>
+								<a href="home.com">Office Interior Design</a>
 							</h3>
 						</div>
-						<a href="resources/images/work-1.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
+						<a href="resources/images/work-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
 						</a>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="project">
-						<img src="resources/images/work-2.jpg" class="img-fluid"
-							alt="Colorlib Template">
+					 <img src="resources/images/work-2.jpg" class="img-fluid" alt="Colorlib Template"> 
+						<!-- <img src="resources/그림1.png" class="img-fluid" alt="Colorlib Template">  -->
 						<div class="text">
 							<span>Interior Design</span>
 							<h3>Office Interior Design</h3>
@@ -285,8 +289,6 @@
 			</div>
 
 		</div>
-
-
 
 	</section>
 	

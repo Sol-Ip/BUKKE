@@ -80,6 +80,8 @@ public class BukkeClassController {
 	@RequestMapping(value="bukkeClassRegister.com", method=RequestMethod.POST)
 	public ModelAndView bukkeClassAdd(ModelAndView mv,
 										@ModelAttribute BukkeClass bukkeClass,
+										@RequestParam("classAddr1") String classAddr1,
+										@RequestParam("classAddr2") String classAddr2,
 										@RequestParam(value="uploadFile", required=false) MultipartFile uploadFile,
 										HttpServletRequest request) {
 		System.out.println(bukkeClass.getClassStartDate());
@@ -102,6 +104,7 @@ public class BukkeClassController {
 		// DB에 데이터 저장
 		int result = 0;
 		String cPath = "";
+		bukkeClass.setClassAddr(classAddr1 + ","+ classAddr2);
 		result = bService.registerBclass(bukkeClass);
 		if(result > 0) {
 			cPath = "redirect:bukkeClassList.com";

@@ -10,11 +10,11 @@
 
 <jsp:include page="../common/header.jsp?active=bclass"></jsp:include>
 <link href="/resources/css/show-custom.css" rel="stylesheet">
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+
+<!-- 썸머 노트 -->
 <script src="/resources/note/summernote-lite.js"></script>
 <script src="/resources/note//lang/summernote-ko-KR.js"></script>
-
 <link rel="stylesheet" href="/resources/note/summernote-lite.css">
 
 </head>
@@ -39,6 +39,10 @@ $(document).ready(function() {
 		  ]
 	});
 			
+});
+
+$(function() {
+	$("#postcodify_search_button").postcodifyPopUp();
 });
 </script>
 <body>
@@ -136,49 +140,49 @@ $(document).ready(function() {
 							<hr>
 
 							<div class="calendar">
-								<label class="form-label" for="">시작일</label> <input type="date"
-									name="classStartDate" placeholder="시작일">&nbsp;&nbsp;
-								<label class="form-label" for="">종료일</label> <input type="date"
-									name="classEndDate" placeholder="종료일">
+								<label class="form-label" for="">시작일</label> 
+								<input type="date" name="classStartDate" placeholder="시작일">&nbsp;&nbsp;
+								<label class="form-label" for="">종료일</label> 
+								<input type="date" name="classEndDate" placeholder="종료일">
 							</div>
 
 							<hr>
 
-							<label class="form-label" for="classAddr">클래스 주소</label> <input
+							<!-- <label class="form-label" for="classAddr">클래스 주소</label> <input
 								type="text" id="classAddr" class="form-control"
-								name="classAddr" autocomplete="off" required maxlength="50" />
-
+								name="classAddr" autocomplete="off" required maxlength="50" /> -->
+								
+							<label class="form-label" for="classAddr">클래스 주소</label>&nbsp;
+							<input type="button" id="postcodify_search_button" class="btn btn btn-dark btn-md" value="주소찾기">
+							<div class="col-md-12">
+								<input type="text" class="postcodify_address" name="classAddr1" autocomplete="off" placeholder="도로명주소" required size="50" /> 
+								<input type="text" class="postcodify_extra_info" name="classAddr2" autocomplete="off" placeholder="상세주소" required size="50" />
+							</div> 
 							<hr>
-
-							<textarea id="summernote" name="classInfo"></textarea>
+							<br>
+							<textarea id="summernote" name="classInfo" required></textarea>
 
 							<hr>
 
 							<input type="file" class="form-control" name="uploadFile">
 							<br>
 						</div>
-
 						<br>
-
 					</div>
-						
 						<br><br>
 						<div class="button-set text-center">
 							 <input type="submit" value="등록" class="btn btn-lg btn-primary"> 
 							 <input type="button" value="취소" class="btn btn-lg btn-outline-warning">
 						</div>
-						
 				</form>
 			</div>
-	
 	</section>
-
-
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 <script src="/resources/note/summernote-lite.js"></script>
 <script src="/resources/note//lang/summernote-ko-KR.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+<!-- 주소 검색 -->
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <script type="text/javascript" src="/resources/js/note-ready.js"></script>

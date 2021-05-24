@@ -35,11 +35,11 @@
 				<td>제목</td>
 				<td><input type="text" size="50" name="reviewTitle" value="${review.reviewTitle }"></td>
 			</tr>
-			<!-- 로그인 세션 완료되면 아래 주석 없애버리자 -->
-			<%-- <tr>
+			
+			<tr>
 				<td>작성자</td>
 				<td><input type="text" name="memberId" value="${review.memberId }" readonly></td>
-			</tr> --%>
+			</tr>
 			<tr>
 				<td>내용</td>
 				<td><textarea rows="7" cols="50" name="reviewContents">${review.reviewContents }</textarea></td>

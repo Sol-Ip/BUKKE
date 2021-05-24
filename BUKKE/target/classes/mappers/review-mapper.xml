@@ -22,9 +22,9 @@
 		SELECT * FROM REVIEW WHERE REVIEW_NO = #{reviewNo }
 	</select>
 	
-	<!-- 로그인 기능 되면 '3' 대신 #{memberId } 들어가야함 --> 
+	 
 	<insert id="insertReview" parameterType="Review">
-		INSERT INTO REVIEW VALUES(SEQ_REVIEWID.NEXTVAL, '3', #{reviewTitle }, #{reviewContents }, SYSDATE, 'Y', #{rOriginalFilename },#{rRenameFilename })
+		INSERT INTO REVIEW VALUES(SEQ_REVIEWID.NEXTVAL,  #{memberId }, #{reviewTitle }, #{reviewContents }, SYSDATE, 'Y', #{rOriginalFilename },#{rRenameFilename })
 	</insert>
 	
 	

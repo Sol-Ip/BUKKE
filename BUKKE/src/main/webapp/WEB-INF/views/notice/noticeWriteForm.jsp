@@ -1,25 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>자주 묻는 질문 작성</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <jsp:include page="../common/header.jsp"></jsp:include>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css"
-	rel="stylesheet">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
-<script src="/js/summernote/lang/summernote-ko-KR.js"></script>
-</head>
+<!-- 썸머노트를 위해 작성할 코드 -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script></head>
+  
 <body>
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
@@ -55,9 +49,10 @@
 					<input type="text" class="form-control" name="memberId"
 						placeholder="작성자">
 				</div>
-				<textarea id="summernote" name="noticeContents"></textarea>
+				<textarea id="summernote" name="noticeContents" class="summernote"></textarea>
 				<div>
-					<input type="submit" id="subBtn" value="글 작성" style="float: right;" />
+					<input type="submit" id="subBtn" value="글 작성" style="float: right;" />&nbsp;
+					<input type="reset" id="subBtn" value="취소" style="float: right;" />
 				</div>
 			</form>
 
@@ -68,16 +63,16 @@
 		</div>
 	</section>
 	<script>
-		$('#summernote').summernote(
-				{
-					placeholder : 'A.답변을 입력하세요',
-					tabsize : 2,
-					height : 100,
-					lang : "ko-KR",
-					height : 400
-		});
-		
-		
+	var $j= jQuery.noConflict();
+	$j(document).ready(function() {
+		  $j('#summernote').summernote({
+			  height: 500,                 // 에디터 높이
+				focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+				lang: "ko-KR",					// 한글 설정
+				placeholder: '최대 2048자까지 쓸 수 있습니다',	//placeholder 설정
+			});
+			})
+	
 	</script>
 
 

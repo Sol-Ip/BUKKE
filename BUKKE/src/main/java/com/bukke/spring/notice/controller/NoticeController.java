@@ -2,10 +2,17 @@ package com.bukke.spring.notice.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,8 +62,16 @@ public class NoticeController {
 	
 	
 	//상세정보 조회(detail)
-	public String noticeDetailView() {
-		return null;
+	@RequestMapping(value ="noticeDetail.com", method =RequestMethod.GET)
+	public ModelAndView noticeDetailView(ModelAndView mv, @RequestParam("noticeNo")int noticeNo) {
+		Notice notice = nService.printOneNotice(noticeNo);
+		if(notice !=null) {
+			mv.addObject("notice",notice).setViewName("notice/noticeDetailView");
+		}else {
+			mv.addObject("msg","실패");
+			mv.setViewName("common/errorPage");
+		}
+		return mv;
 	}
 	  
 	//공지사항 등록
@@ -71,6 +86,9 @@ public class NoticeController {
 			return "common/errorPage.jsp";
 		}
 	}
+	//공지사항 이미지 저장
+		
+		
 	//파일 저장
 //	public String saveFile(MultipartFile file, HttpServletRequest request) {
 //		//파일 저장 경로 설정
@@ -115,10 +133,16 @@ public class NoticeController {
 			return "common/errorPage";
 		}
 	}
-	
 	//공지사항 삭제
-	public String noticeRemove() {
-		return null;
+	@RequestMapping(value="noticeDelete.com", method = RequestMethod.GET)
+	public String noticeRemove(Model model, @RequestParam("noticeNo")int noticeNo) {
+		int result = nService.removeNotice(noticeNo);
+		if(result>0) {
+			return "redirect:noticeList.com";
+		}else {
+			model.addAttribute("msg", "삭제 실패");
+			return "common/errorPage";
+		}
 	}
-	
-}
+	}
+

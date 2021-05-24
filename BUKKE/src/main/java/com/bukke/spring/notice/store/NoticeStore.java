@@ -13,5 +13,5 @@ public interface NoticeStore {
 	public Notice selectOneNotice(int noticeNo); //공지사항 상세페이지
 	public int insertNotice(Notice notice); //공지사항 등록
 	public int updateNotice(Notice notice); //공지사항 수정
-	public int deleteNotice(Notice notice); //공지사항 삭제
+	public int deleteNotice(int noticeNo); //공지사항 삭제
 }

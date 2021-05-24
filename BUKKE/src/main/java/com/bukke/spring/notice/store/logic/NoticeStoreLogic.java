@@ -45,9 +45,8 @@ public class NoticeStoreLogic implements NoticeStore{
 	}
 
 	@Override
-	public int deleteNotice(Notice notice) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteNotice(int noticeNo) {
+		return sqlSession.delete("noticeMapper.deleteNotice", noticeNo);
 	}
 
 	@Override

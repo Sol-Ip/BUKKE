@@ -13,6 +13,6 @@ public interface NoticeService {
 	public Notice printOneNotice(int noticeNo); // 공지사항 상세정보 조회
 	public int registerNotice(Notice notice); //공지사항 등록
 	public int modifyNotice(Notice notice); //공지사항 수정
-	public int removeNotice(int nId); //공지사항 삭제
+	public int removeNotice(int noticeNo); //공지사항 삭제
 	}
 

@@ -29,7 +29,7 @@
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					_
-					<h1 class="mb-2 bread">About Us</h1>
+					<h1 class="mb-2 bread">Notice</h1>
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="home.com">Home <i
 								class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
@@ -48,7 +48,7 @@
 				style="width: 300px; float: right">
 				<div class="form-group">
 					<span class="icon icon-search"></span> <input type="text"
-						class="form-control" placeholder="제목을 입력해 주세요">
+						class="form-control" placeholder="검색어를 입력해 주세요">
 				</div>
 			</form>
 		</div>
@@ -66,45 +66,58 @@
 									<thead>
 										<tr>
 											<th
-												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">제목</th>
+												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-1" style="width: 50px;"></th>
 											<th
-												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
+												class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center">제목</th>
 											<th
-												class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"></th>
 											<th
-												class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">작성자</th>
+												class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7" style="text-align: right">작성자</th>
 											<th
-												class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">날짜</th>
+												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">날짜</th>
+											<%-- <c:if test="${loginMember.memberId=='admin' }"> --%>
+											<th
+												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">상태</th>
+											<%-- 	</c:if> --%>	
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach items="${nList }" var="notice">
 											<tr>
 												<td>
-													<div class="d-flex px-2 py-1">
-															<input type="hidden" name="noticeNo" value="${notice.noticeNo}">
+												</td>
+												<td style="">
+													<p class="text-xs font-weight-bold mb-0">
 														<ul class="notice1">
 															<li class="menu"><a>${notice.noticeTitle }</a>
 																<ul class="hide">
 																	<li>${notice.noticeContents }</li>
 																</ul></li>
 														</ul>
-													</div>
-												</td>
-												<td>
-													<p class="text-xs font-weight-bold mb-0"></p>
+													</p>
 													<p class="text-xs text-secondary mb-0"></p>
 												</td>
 												<td class="align-middle text-center text-sm"><span
 													class="badge badge-sm bg-gradient-success"></span></td>
-												<td class="align-middle text-center"><span
+												<td class="align-middle text-right"><span
 													class="text-secondary text-xs font-weight-bold">${notice.memberId }</span></td>
 												<td class="align-middle text-center"><span
 													class="text-secondary text-xs font-weight-bold">${notice.noticeDate }</span>
 												</td>
+												<%-- <c:if test="${loginMember.memberId=='admin' }"> --%>
 												<td class="align-middle text-center"><span
-													class="text-secondary text-xs font-weight-bold"><a href="noticeModifyView.com">수정/</a><a href="#">삭제</a></span>
+													class="text-secondary text-xs font-weight-bold">
+														<c:url var="nDetail" value="noticeDetail.com">
+															<c:param name="noticeNo" value="${notice.noticeNo }"></c:param>
+														</c:url>
+														<c:url var="nDelete" value="noticeDelete.com">
+															<c:param name="noticeNo" value="${notice.noticeNo }"></c:param>
+														</c:url>
+																<a href="${nDetail}">수정 /</a> 
+																<a href="${nDelete}">삭제</a>
+													</span>
 												</td>
+											<%-- 	</c:if> --%>
 											</tr>
 										</c:forEach>
 
@@ -116,10 +129,13 @@
 				</div>
 			</div>
 		</div>
+		<%-- <c:if test="${loginMember.memberId=='admin' }"> --%>
 		<div>
 			<button type="button" class="btn btn-outline-secondary"
 				style="float: right"><a href="noticeWriteView.com">글쓰기</a></button>
 		</div>
+	<%-- 	</c:if> --%>
+		
 		
 		<!-- 페이징처리 -->
 		<div class="row no-gutters mt-5">

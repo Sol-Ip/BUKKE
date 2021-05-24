@@ -52,9 +52,9 @@ public class ReviewStoreLogic implements ReviewStore {
 	}
 	//후기 삭제
 	@Override
-	public int deleteReview(int rId) {
+	public int deleteReview(int reviewNo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.update("reviewMapper.deleteReview", reviewNo);
 	}
 	// 댓글 조회
 	@Override

@@ -179,6 +179,26 @@ public class ReviewController {
 		}
 	}
 	
+	// 게시글 삭제(실제로는 상태 업데이트)
+	@RequestMapping(value = "reviewDelete.com", method = RequestMethod.GET)
+	public String reviewDelete(Model model, @RequestParam("reviewNo") int reviewNo,
+			@RequestParam("rRenameFilename") String rRenameFilename, HttpServletRequest request) {
+		// 업로드된 파일 삭제
+		if (rRenameFilename != "") {
+			deleteFile(rRenameFilename, request);
+		}
+
+		// 디비에 데이터 업데이트
+		int result = rService.removeReview(reviewNo);
+		if (result > 0) {
+			return "redirect:reviewList.com";
+		} else {
+			model.addAttribute("msg", "게시글 삭제 실패");
+			return "common/errorPage";
+		}
+	}
+		
+	
 	// 후기 삭제 기능
 	public String reviewRemove() {
 		return null;

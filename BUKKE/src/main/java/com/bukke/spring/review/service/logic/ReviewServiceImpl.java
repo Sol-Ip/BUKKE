@@ -51,9 +51,9 @@ public class ReviewServiceImpl implements ReviewService {
 	} 
 	// 후기 삭제
 	@Override
-	public int removeReview(int rId) {
+	public int removeReview(int reviewNo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return rStore.deleteReview(reviewNo);
 	}
 	// 댓글 조회
 	@Override

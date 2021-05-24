@@ -59,6 +59,7 @@
 				</c:url>
 				<c:url var="rDelete" value="reviewDelete.com">
 					<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
+					<c:param name="rRenameFilename" value="${review.rRenameFilename }"></c:param>
 				</c:url>
 				<a href="${rModify }">수정 페이지로 이동</a> &nbsp;
 				<a href="${rDelete }">삭제하기</a>

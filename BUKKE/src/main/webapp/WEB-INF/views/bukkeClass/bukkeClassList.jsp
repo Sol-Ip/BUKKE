@@ -129,6 +129,10 @@
 			</c:forEach>
 			</div>
 		</div>
+		<!-- 글쓰기 버튼 -->
+		<div class="write-btn">
+			<a href="#"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+		</div>
 		<!-- 페이징 처리 -->
     		<div class="row no-gutters mt-5">
           <div class="col text-center">

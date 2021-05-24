@@ -58,7 +58,7 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)
 	@Override
 	public int deleteBclass(int classNo) {
-		return 0;
+		return session.update("bclassMapper.deleteBclass", classNo);
 	}
 
 }

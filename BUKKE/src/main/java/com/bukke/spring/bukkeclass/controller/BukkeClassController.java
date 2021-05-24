@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -192,7 +193,23 @@ public class BukkeClassController {
 	}
 	
 	// *클래스 삭제기능 메소드
-	public String bukkeClassRemove() {
-		return null;
+	@RequestMapping(value="bukkeClassDelete.com", method=RequestMethod.GET)
+	public String bukkeClassRemove(Model model,
+									@RequestParam("classNo") int classNo,
+									@RequestParam("cRenameFilename") String cRenameFilename,
+									HttpServletRequest request) {
+		// 업로드 된 파일 삭제
+		if(cRenameFilename != "") {
+			deleteFile(cRenameFilename, request);
+		}
+		// DB에 데이터 업데이트
+		int result = bService.removeBclass(classNo);
+		if(result > 0) {
+			return "redirect:bukkeClassList.com";
+		}else {
+			model.addAttribute("msg", "부캐 클래스 삭제 실패");
+			return "common/errorPage";
+		}
+		
 	}
 }

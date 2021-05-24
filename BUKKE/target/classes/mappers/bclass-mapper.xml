@@ -44,5 +44,12 @@
    		WHERE CLASS_NO = #{classNo }
    </update>
    
+   <update id="deleteBclass">
+   		UPDATE CLASS
+   		SET CLASS_STATUS = 'N'
+   		WHERE CLASS_NO = #{classNo }
+   </update>
+   
+   
    
 </mapper>

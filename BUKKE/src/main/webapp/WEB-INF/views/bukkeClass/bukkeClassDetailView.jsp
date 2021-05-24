@@ -199,9 +199,13 @@
 					<c:url var="cModify" value="bukkeClassModify.com">
 		               <c:param name="classNo" value="${ bukkeClass.classNo }"></c:param>
 		            </c:url>
+		            <c:url var="cDelete" value="bukkeClassDelete.com">
+		               <c:param name="classNo" value="${ bukkeClass.classNo }"></c:param>
+		               <c:param name="cRenameFilename" value="${ bukkeClass.cRenameFilename }"></c:param>
+		            </c:url>
 					<input type="submit" class="btn btn-lg btn-primary" value="버튼 1">
-					<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
 					<a href="${cModify }"><button class="btn btn-lg btn-primary" type="submit">수정</button></a>
+					<a href="${cDelete }"><button class="btn btn-lg btn-primary" onclick="return confirm('정말 삭제하시겠습니까?')" type="submit">삭제</button></a>
 					</div>
 					<br><br>
 					<div class="sidebar-box ftco-animate">

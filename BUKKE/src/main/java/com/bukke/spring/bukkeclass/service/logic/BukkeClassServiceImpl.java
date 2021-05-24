@@ -54,7 +54,7 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)
 	@Override
 	public int removeBclass(int classNo) {
-		return 0;
+		return bStore.deleteBclass(classNo);
 	}
 
 }

@@ -64,7 +64,7 @@
 					<p>Temporibus ad error suscipit exercitationem hic molestiae
 						totam obcaecati rerum, eius aut, in. Exercitationem atque quidem
 						tempora maiores ex architecto voluptatum aut officia doloremque.
-						Error dolore voluptas, omnis molestias odio dignissimos culpa ex
+						Error dolore voluptas, omnis molestias odio dignissimos culpa ex 
 						earum nisi consequatur quos odit quasi repellat qui officiis
 						reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
 					<p>

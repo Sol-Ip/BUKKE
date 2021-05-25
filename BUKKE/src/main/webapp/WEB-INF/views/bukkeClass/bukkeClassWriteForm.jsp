@@ -136,7 +136,7 @@ function findAddr(){
 						<div class="form-outline col-md-12">
 							<label class="form-label" for="classPrice">클래스 가격</label> 
 							<input type="text" id="classPrice" class="form-control" name="classPrice" autocomplete="off" required maxlength="50" />
-						
+						 
 							<hr>
 						
 

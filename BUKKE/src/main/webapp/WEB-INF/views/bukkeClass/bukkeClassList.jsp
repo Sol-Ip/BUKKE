@@ -141,7 +141,7 @@
     	<div class="row no-gutters mt-5">	
           <div class="col text-center">
             <div class="block-27">
-              <!-- 이전 -->
+              <!-- 이전 --> 
               <ul>
 	            <c:url var="before" value="bukkeClassList.com">
 	               <c:param name="page" value="${pi.currentPage - 1 }"></c:param>

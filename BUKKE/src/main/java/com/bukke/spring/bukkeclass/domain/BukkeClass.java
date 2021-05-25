@@ -115,7 +115,7 @@ public class BukkeClass {
 	}
 	public void setClassStatus(String classStatus) {
 		this.classStatus = classStatus;
-	}
+	} 
 
 	@Override
 	public String toString() {

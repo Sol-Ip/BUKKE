@@ -33,7 +33,7 @@ public class BukkeClassController {
 	@Autowired
 	private BukkeClassService bService;
 	
-	// 클래스 전체목록 jsp 이동 (관리자)
+	// 클래스 전체목록 jsp 이동 (관리자) 
 	@RequestMapping(value="bukkeClassList.com", method=RequestMethod.GET)
 	public ModelAndView bukkeClassListView(ModelAndView mv,
 											@RequestParam(value="page", required=false) Integer page) {

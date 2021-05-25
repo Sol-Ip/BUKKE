@@ -85,6 +85,14 @@
   	})
   	// 동적 로그인
   	$("#submit").click(function(event){
+  		if($("#memberId").val() == "") {
+  			$(".invalid-id").html("아이디를 입력해주세요.");
+  			return;
+  		}
+  		if($("#memberPw").val() == "") {
+  			$(".invalid-pw").html("비밀번호를 입력해주세요.");
+  			return;
+  		}
   		$.ajax({
   			url : "memberLogin.com",
   			type : "POST",
@@ -97,7 +105,7 @@
 					alert("로그인 성공!");
 					location.href="home.com"
 				} else {
-					$(".invalid-pw").val("아이디 혹은 비밀번호가 일치하지 않습니다.");
+					$(".invalid-pw").html("아이디 혹은 비밀번호가 일치하지 않습니다.");
 				}
 			},
 			error:function(request,status,error) {
@@ -105,6 +113,14 @@
 			}
 		})
 	})
+	// 텍스트 클릭시 초기화
+	$("#memberId").on("focus",function(){
+		$(".invalid-id").html("");
+	})
+	$("#memberPw").on("focus",function(){
+		$(".invalid-pw").html("");
+	})
+	
 	</script>
 </body>
 </html>

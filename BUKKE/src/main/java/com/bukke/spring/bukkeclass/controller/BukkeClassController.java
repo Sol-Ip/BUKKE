@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.common.BukkeClassPagination;
 import com.bukke.spring.common.Pagination;
 
 @Controller
@@ -38,7 +39,7 @@ public class BukkeClassController {
 											@RequestParam(value="page", required=false) Integer page) {
 		int currentPage = (page != null) ? page : 1; // page가 null 이 아니면 page 사용 null이면 1
 	    int listCount = bService.getListCount();
-	    PageInfo pi = Pagination.getPageInfo(currentPage, listCount);
+	    PageInfo pi = BukkeClassPagination.getPageInfo(currentPage, listCount);
 	    
 		ArrayList<BukkeClass> bList = bService.printAllBclass(pi);
 		if(!bList.isEmpty()) {

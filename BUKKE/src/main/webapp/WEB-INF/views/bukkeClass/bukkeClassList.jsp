@@ -129,21 +129,25 @@
 			</c:forEach>
 			</div>
 		</div>
+		<br>
+		
 		<!-- 글쓰기 버튼 -->
-			<div>
-				<a href="#"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
-			</div>
+		<div style="float: right; padding-right : 350px;" class="ftco-animate">
+			<a href="bukkeClassWriteForm.com"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+		</div>
+		
 		<!-- 페이징 처리 -->
-    		<div class="row no-gutters mt-5">	
+		<div class="container">
+    	<div class="row no-gutters mt-5">	
           <div class="col text-center">
             <div class="block-27">
-              <ul>
               <!-- 이전 -->
+              <ul>
 	            <c:url var="before" value="bukkeClassList.com">
 	               <c:param name="page" value="${pi.currentPage - 1 }"></c:param>
 	            </c:url>
 	            <c:if test="${pi.currentPage <= 1 }">
-	               &lt; 
+	               <li><a href="#" onclick="firstPage()">&lt;</a></li>
 	            </c:if>
 	            <c:if test="${pi.currentPage > 1 }">
 	               <li><a href="${before }">&lt;</a></li>
@@ -154,8 +158,8 @@
 	                  <c:param name="page" value="${p }"></c:param>
 	               </c:url>
 	               <c:if test="${p eq pi.currentPage }">
-	                  <li><sapn>${p }</sapn></li>
-	               </c:if>
+						<li class="active"><span>${p }</span></li>
+					</c:if>
 	               <c:if test="${p ne pi.currentPage }">
 	                  <li><a href="${pagination }">${p }</a></li>
 	               </c:if>
@@ -165,7 +169,7 @@
 	               <c:param name="page" value="${pi.currentPage + 1 }"></c:param>
 	            </c:url>
 	            <c:if test="${pi.currentPage >= pi.maxPage }">
-	               &gt;
+	               <li><a href="#" onclick="lastPage()">&gt;</a></li>
 	            </c:if>
 	            <c:if test="${pi.currentPage < pi.maxPage }">
 	               <li><a href="${after }">&gt;</a></li>

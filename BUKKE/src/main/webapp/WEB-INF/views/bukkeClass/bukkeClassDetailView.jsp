@@ -44,7 +44,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 ftco-animate"> <!-- 클래스 분류 -->
-					<h3>[SHOP_ID] ${bukkeClass.className } </h3>
+					<h3>[ ${bukkeClass.shopId } ] ${bukkeClass.className } </h3>
 				</div>
 				<div class="col-lg-8 ftco-animate">
 					<p>
@@ -136,14 +136,13 @@
 
 								<div class="meta">
 									<div>
-										<a href="#"><span class="icon-calendar"></span> Oct. 04,
-											2018</a>
+										<a href="#"><span class="icon-calendar"></span> ${bukkeClass.classStartDate } - ${bukkeClass.classEndDate }</a>
 									</div>
 									<div>
-										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
+										<a href="#"><span class="icon-person"></span> ${bukkeClass.shopId }</a>
 									</div>
 									<div>
-										<a href="#"><span class="icon-chat"></span> 19</a>
+										<a href="#"><span class="icon-chat"></span> ${bukkeClass.classPrice }</a>
 									</div>
 								</div>
 							</div>
@@ -204,8 +203,10 @@
 		               <c:param name="cRenameFilename" value="${ bukkeClass.cRenameFilename }"></c:param>
 		            </c:url>
 					<input type="submit" class="btn btn-lg btn-primary" value="예약">
-					<a href="${cModify }"><button class="btn btn-lg btn-primary" type="submit">수정</button></a>
-					<a href="${cDelete }"><button class="btn btn-lg btn-primary" onclick="return confirm('정말 삭제하시겠습니까?')" type="submit">삭제</button></a>
+					<a href="#"><button class="btn btn-lg btn-primary" type="submit">선물</button></a>
+					<a href="#"><button class="btn btn-lg btn-primary" type="submit">결제</button></a>
+					<%-- <a href="${cModify }"><button class="btn btn-lg btn-primary" type="submit">수정</button></a>
+					<a href="${cDelete }"><button class="btn btn-lg btn-primary" onclick="return confirm('정말 삭제하시겠습니까?')" type="submit">삭제</button></a> --%>
 					</div>
 					<br><br>
 					<div class="sidebar-box ftco-animate">
@@ -263,28 +264,30 @@
           <div class="col-md-7 heading-section ftco-animate">
           	<span class="subheading subheading-with-line"><small class="pr-2 bg-light">CLASS REVIEW</small></span>
             <h2 class="mb-4">Class Review</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+            <p>후기들을 볼 수 있습니다.</p>
           </div>
         </div>
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">[일반회원 아이디]</p>
-	                    <span class="position">[후기 제목]</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <c:forEach items="${rList }" var="review">
+	              <div class="item">
+	                <div class="testimony-wrap p-4 pb-5">
+	                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)"><!-- 리뷰 사진 넣을 예정 -->
+	                    <span class="quote d-flex align-items-center justify-content-center">
+	                      <i class="icon-quote-left"></i>
+	                    </span>
+	                  </div>
+		              <div class="text">
+		                    <p class="mb-5 pl-4 line">${review.reviewContents }</p>
+			                  <div class="pl-5">
+				                <p class="name">${review.memberId }</p>
+				                <span class="position">${review.reviewTitle }</span>
+			                  </div>
+		              </div>
+	                </div>
+	              </div>
+              </c:forEach>
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
                   <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">

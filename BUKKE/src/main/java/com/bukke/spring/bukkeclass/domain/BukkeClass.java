@@ -14,6 +14,7 @@ public class BukkeClass {
 	private String classType; // 분류
 	private String classTypedetails; // 상세분류
 	private String classInfo; // 상세내용
+	private String classPrice;// 클래스 가격
 	private String classCapacity; // 인원수
 	private String cOriginalFilename; // 기존 파일 이름
 	private String cRenameFilename; // 변경된 파일 이름
@@ -67,6 +68,12 @@ public class BukkeClass {
 	public void setClassInfo(String classInfo) {
 		this.classInfo = classInfo;
 	}
+	public String getClassPrice() {
+		return classPrice;
+	}
+	public void setClassPrice(String classPrice) {
+		this.classPrice = classPrice;
+	}
 	public String getClassCapacity() {
 		return classCapacity;
 	}
@@ -114,9 +121,10 @@ public class BukkeClass {
 	public String toString() {
 		return "BukkeClass [classNo=" + classNo + ", shopId=" + shopId + ", className=" + className + ", classAddr="
 				+ classAddr + ", classType=" + classType + ", classTypedetails=" + classTypedetails + ", classInfo="
-				+ classInfo + ", classCapacity=" + classCapacity + ", cOriginalFilename=" + cOriginalFilename
-				+ ", cRenameFilename=" + cRenameFilename + ", classEnrollDate=" + classEnrollDate + ", classStartDate="
-				+ classStartDate + ", classEndDate=" + classEndDate + ", classStatus=" + classStatus + "]";
+				+ classInfo + ", classPrice=" + classPrice + ", classCapacity=" + classCapacity + ", cOriginalFilename="
+				+ cOriginalFilename + ", cRenameFilename=" + cRenameFilename + ", classEnrollDate=" + classEnrollDate
+				+ ", classStartDate=" + classStartDate + ", classEndDate=" + classEndDate + ", classStatus="
+				+ classStatus + "]";
 	}
 
 }

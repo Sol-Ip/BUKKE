@@ -40,7 +40,7 @@
 
 		<div class="container">
 			<br> <br>
-			<form action="noticeInsert.com" method="post">
+			<form action="noticeInsert.com" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<input type="text" class="form-control" name="noticeTitle"
 						placeholder="Q. 질문을 입력하세요">
@@ -50,6 +50,10 @@
 						placeholder="작성자">
 				</div>
 				<textarea id="summernote" name="noticeContents" class="summernote"></textarea>
+				<div class="form-group">
+					<input type="file" class="form-control" name="uploadFile"
+						>
+				</div>
 				<div>
 					<input type="submit" id="subBtn" value="글 작성" style="float: right;" />&nbsp;
 					<input type="reset" id="subBtn" value="취소" style="float: right;" />

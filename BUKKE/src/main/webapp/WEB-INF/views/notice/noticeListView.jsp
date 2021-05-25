@@ -75,10 +75,10 @@
 												class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7" style="text-align: right">작성자</th>
 											<th
 												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">날짜</th>
-											<%-- <c:if test="${loginMember.memberId=='admin' }"> --%>
+											 <c:if test="${loginMember.memberId=='admin' }"> 
 											<th
 												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">상태</th>
-											<%-- 	</c:if> --%>	
+											 	</c:if> 	
 										</tr>
 									</thead>
 									<tbody>
@@ -91,7 +91,11 @@
 														<ul class="notice1">
 															<li class="menu"><a>${notice.noticeTitle }</a>
 																<ul class="hide">
-																	<li>${notice.noticeContents }</li>
+																	<li>${notice.noticeContents } 
+																	<c:if test="${!empty notice.nOriginalFilename }">
+																	<img src="../resources/noticeFiles/${notice.nRenameFilename }">
+																	</c:if>
+																	</li>
 																</ul></li>
 														</ul>
 													</p>
@@ -104,7 +108,7 @@
 												<td class="align-middle text-center"><span
 													class="text-secondary text-xs font-weight-bold">${notice.noticeDate }</span>
 												</td>
-												<%-- <c:if test="${loginMember.memberId=='admin' }"> --%>
+												 <c:if test="${loginMember.memberId=='admin' }"> 
 												<td class="align-middle text-center"><span
 													class="text-secondary text-xs font-weight-bold">
 														<c:url var="nDetail" value="noticeDetail.com">
@@ -112,12 +116,13 @@
 														</c:url>
 														<c:url var="nDelete" value="noticeDelete.com">
 															<c:param name="noticeNo" value="${notice.noticeNo }"></c:param>
+															<c:param name="nRenameFilename" value="${notice.nRenameFilename }"></c:param>
 														</c:url>
 																<a href="${nDetail}">수정 /</a> 
 																<a href="${nDelete}">삭제</a>
 													</span>
 												</td>
-											<%-- 	</c:if> --%>
+											 	</c:if> 
 											</tr>
 										</c:forEach>
 
@@ -129,34 +134,60 @@
 				</div>
 			</div>
 		</div>
-		<%-- <c:if test="${loginMember.memberId=='admin' }"> --%>
+		 <c:if test="${loginMember.memberId=='admin' }"> 
 		<div>
 			<button type="button" class="btn btn-outline-secondary"
-				style="float: right"><a href="noticeWriteView.com">글쓰기</a></button>
+				style="float: right;"><a href="noticeWriteView.com">글쓰기</a></button>
 		</div>
-	<%-- 	</c:if> --%>
+	 	</c:if> 
 		
 		
 		<!-- 페이징처리 -->
-		<div class="row no-gutters mt-5">
+		<div class="container">
+		<div class="row no-gutters mt-5 ftco-animate">
           <div class="col text-center">
             <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-              	
-            </div>
+              	<!-- 이전 -->
+              	<ul>
+				<c:url var="before" value="noticeList.com">
+					<c:param name="page" value="${pi.currentPage - 1 }"></c:param> <!-- controller의 param value값 -->
+				</c:url>
+				<c:if test="${pi.currentPage <= 1 }">
+					<li><a href="#" onclick="firstPage()">&lt;</a></li>
+				</c:if>
+				<c:if test="${pi.currentPage > 1 }">
+					<li><a href="${before}">&lt;</a></li>
+				</c:if>
+				
+				<!-- 페이지 -->
+				<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage }">
+					<c:url var="pagination" value="noticeList.com">
+						<c:param name="page" value="${p}"></c:param>
+					</c:url>
+					<c:if test="${p eq pi.currentPage }">
+						<li class="active"><span>${p }</span></li>
+					</c:if>
+					<c:if test="${p ne pi.currentPage }"> <!-- ne : not equal -->
+						<li><a href="${pagination}">${p }</a></li>
+					</c:if>
+				</c:forEach>
+				
+				<!-- 다음 -->
+				<c:url var="after" value="noticeList.com">
+					<c:param name="page" value="${pi.currentPage + 1}"></c:param>
+				</c:url>
+				<c:if test="${pi.currentPage >= pi.maxPage }">
+					<li><a href="#" onclick="lastPage()">&gt;</a></li>
+				</c:if>
+				<c:if test="${pi.currentPage < pi.maxPage }">
+					<li><a href="${after}">&gt;</a></li>
+				</c:if>
+				</ul>
+			</div>
           </div>
         </div>
-		<br> <br>
-		<hr>
-	</section>
+        </div>
+        </section>
 
 	<script>
 		$(document).ready(function() {

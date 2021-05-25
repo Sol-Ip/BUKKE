@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -76,44 +78,59 @@ public class NoticeController {
 	  
 	//공지사항 등록
 	@RequestMapping(value="noticeInsert.com")
-	public String noticeEnrollView(@ModelAttribute Notice notice,@RequestParam(value="uploadFile",required =false) HttpServletRequest request,Model model) {
+	public ModelAndView noticeEnrollView(ModelAndView mv,@ModelAttribute Notice notice,@RequestParam(value="uploadFile",required =false) MultipartFile uploadFile,HttpServletRequest request) {
+		if(!uploadFile.getOriginalFilename().equals("")) {
+			String renameFileName = saveFile(uploadFile,request);
+			if(renameFileName != null) {
+				notice.setnOriginalFilename(uploadFile.getOriginalFilename());
+				notice.setnRenameFilename(renameFileName);
+			}
+		}
+	//공지사항 이미지 데이터에 저장
 		int result = 0;
+		String path = "";
 		result = nService.registerNotice(notice);
 		if(result>0) {
-			return "redirect:noticeList.com";
+			path = "redirect:noticeList.com";
 		}else {
-			model.addAttribute("msg", "공지사항 실패");
-			return "common/errorPage.jsp";
+			mv.addObject("msg","등록실패");
+			path = "common/errorPage";
 		}
+		mv.setViewName(path);
+		return mv;
+}
+	//공지사항 파일 저장하기
+	public String saveFile(MultipartFile file, HttpServletRequest request) {
+		// 파일 저장 경로 설정
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = root + "\\noticeFiles";
+		// 저장 폴더 선택
+		File folder = new File(savePath);
+		// 폴더없으면 자동 생성
+		if(!folder.exists()) {
+			folder.mkdir();
+		}
+		// 파일명 변경하기
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String originalFileName = file.getOriginalFilename();
+		String renameFileName = sdf.format(new Date(System.currentTimeMillis())) 
+								+ "." + originalFileName.substring(originalFileName.lastIndexOf(".")+1);
+								// a.bc.jpg
+		String filePath = folder + "\\" + renameFileName;
+		// 파일저장
+		try {
+			file.transferTo(new File(filePath));
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// 리턴
+		return renameFileName;
 	}
-	//공지사항 이미지 저장
-		
-		
-	//파일 저장
-//	public String saveFile(MultipartFile file, HttpServletRequest request) {
-//		//파일 저장 경로 설정
-//		String root = request.getSession().getServletContext().getRealPath("resources");
-//		String savePath = root+"\\noticeuploadFiles";
-//		//저장 폴더 선택
-//		File folder = new File(savePath);
-//		//폴더가 없을 경우 자동 생성
-//		if(!folder.exists()) {
-//			folder.mkdir();
-//		}
-//		String filePath = folder + "\\" + file.getOriginalFilename();
-//		//파일 저장
-//		try {
-//			file.transferTo(new File(filePath));
-//		} catch (IllegalStateException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		//파일 경로 리턴
-//		return filePath;
-//	}
+	
 	
 	//공지사항 수정 view
 	@RequestMapping(value="noticeModifyView.com")
@@ -124,18 +141,43 @@ public class NoticeController {
 	
 	//공지사항 수정 
 	@RequestMapping(value="noticeUpdate.com", method = RequestMethod.POST)
-	public String noticeUpdate(@ModelAttribute Notice notice,Model model) {
+	public ModelAndView noticeUpdate(ModelAndView mv, @ModelAttribute Notice notice,@RequestParam(value="reloadFile",required=false)MultipartFile reloadFile,HttpServletRequest request) {
+		if(reloadFile !=null && !reloadFile.isEmpty()) {
+			if(notice.getnOriginalFilename() != "") {
+				deleteFile(notice.getnRenameFilename(),request);
+			}
+			String renameFileName = saveFile(reloadFile,request);
+			if(renameFileName != null) {
+				notice.setnOriginalFilename(reloadFile.getOriginalFilename());
+				notice.setnRenameFilename(renameFileName);
+			}
+		}
 		int result = nService.modifyNotice(notice);
 		if(result>0) {
-			return "redirect:noticeList.com?noticeNo="+notice.getNoticeNo();
+			mv.setViewName("redirect:noticeList.com?noticeNo="+notice.getNoticeNo()); 
 		}else {
-			model.addAttribute("msg","수정 실패");
-			return "common/errorPage";
+			mv.addObject("msg","수정 실패").setViewName("common/errorPage");
+		}
+		return mv;
+	}
+	
+	//파일 삭제
+	public void deleteFile(String fileName, HttpServletRequest request) {
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = root + "\\noticeFiles";
+		File file = new File(savePath + "\\" + fileName);
+		if(file.exists()) {
+			file.delete();
 		}
 	}
+	
+	
 	//공지사항 삭제
 	@RequestMapping(value="noticeDelete.com", method = RequestMethod.GET)
-	public String noticeRemove(Model model, @RequestParam("noticeNo")int noticeNo) {
+	public String noticeRemove(Model model, @RequestParam("noticeNo")int noticeNo,@RequestParam("nRenameFilename")String nRenameFilename,HttpServletRequest request) {
+		if(nRenameFilename != "") {
+			deleteFile(nRenameFilename,request);
+		}		
 		int result = nService.removeNotice(noticeNo);
 		if(result>0) {
 			return "redirect:noticeList.com";
@@ -144,5 +186,5 @@ public class NoticeController {
 			return "common/errorPage";
 		}
 	}
-	}
+}
 

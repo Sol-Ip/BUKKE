@@ -33,7 +33,8 @@
 		
 		 <update id="updateNotice" parameterType="Notice">
 			UPDATE NOTICE
-			SET NOTICE_TITLE=#{noticeTitle} , NOTICE_CONTENTS=#{noticeContents},NOTICE_DATE =SYSDATE WHERE NOTICE_NO = #{noticeNo}
+			SET NOTICE_TITLE=#{noticeTitle} , NOTICE_CONTENTS=#{noticeContents},NOTICE_DATE =SYSDATE, N_ORIGINAL_FILENAME=#{nOriginalFilename},N_RENAME_FILENAME=#{nRenameFilename}
+			WHERE NOTICE_NO = #{noticeNo}
 		</update>
 		
 		<update id="deleteNotice" parameterType="Notice">

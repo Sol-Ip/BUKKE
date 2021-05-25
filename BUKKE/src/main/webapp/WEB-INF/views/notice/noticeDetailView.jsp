@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,9 +41,12 @@
 			<section class="ftco-section">
 			<div class="container">
 			<br> <br>
-			<form action="noticeUpdate.com" method="post">
+			<form action="noticeUpdate.com" method="post" enctype="multipart/form-data">
+				
 				<div class="form-group">
 				 <input type="hidden" name="noticeNo" value="${notice.noticeNo}">
+				 <input type="hidden" name="nOriginalFilename" value="${notice.nOriginalFilename}">
+				 <input type="hidden" name="nRenameFilename" value="${notice.nRenameFilename}">
 					<input type="text" class="form-control" name="noticeTitle"
 						value="${notice.noticeTitle }">
 				</div>
@@ -51,6 +55,11 @@
 						value="${notice.memberId }">
 				</div>
 				<textarea id="summernote" name="noticeContents" >${notice.noticeContents }</textarea>
+				<div class="form-group">
+					<input type="file" class="form-control" name="reloadFile">
+					<c:if test="${ !empty notice.nOriginalFilename  }">
+					</c:if>
+				</div>
 				<div>
 					<input type="submit" id="subBtn" value="수정하기" style="float: right;" />
 				</div>

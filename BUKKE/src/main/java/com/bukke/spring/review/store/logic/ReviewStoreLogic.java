@@ -58,15 +58,15 @@ public class ReviewStoreLogic implements ReviewStore {
 	}
 	// 댓글 조회
 	@Override
-	public ArrayList<ReviewComment> selectCommentList(int nId) {
+	public ArrayList<ReviewComment> selectCommentList(int reviewNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList)session.selectList("reviewMapper.selectCommentList", reviewNo);
 	}
 	// 댓글 등록
 	@Override
 	public int insertComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.insert("reviewMapper.insertComment", rComment);
 	}
 	// 댓글 수정
 	@Override
@@ -76,9 +76,9 @@ public class ReviewStoreLogic implements ReviewStore {
 	}
 	// 댓글 삭제
 	@Override
-	public int deleteComment(int rId) {
+	public int deleteComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.delete("reviewMapper.deleteComment", rComment);
 	}
 	@Override
 	public int insertLikes(Review review) {

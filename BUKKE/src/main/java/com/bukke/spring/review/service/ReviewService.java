@@ -19,13 +19,13 @@ public interface ReviewService {
 	// 후기 삭제
 	public int removeReview(int rId);
 	// 댓글 조회
-	public ArrayList<ReviewComment> printCommentAll();
+	public ArrayList<ReviewComment> printCommentAll(int reviewNo);
 	// 댓글 등록
 	public int registerComment(ReviewComment rComment);
 	// 댓글 수정
 	public int modifyComment(ReviewComment rComment);
 	// 댓글 삭제
-	public int removeComment(int rId);
+	public int removeComment(ReviewComment rComment);
 	//좋아요 올림
 	public int addLikes(Review review);
 	//좋아요 내림

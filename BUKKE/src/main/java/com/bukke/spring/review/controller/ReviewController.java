@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,11 +18,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.service.ReviewService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
 
@@ -198,25 +205,49 @@ public class ReviewController {
 		}
 	}
 		
+	//댓글 등록
+	@ResponseBody
+	@RequestMapping(value="addComment.com", method=RequestMethod.POST)
+	public String addComment(@ModelAttribute ReviewComment rComment, HttpSession session) {
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		rComment.setMemberId(loginMember.getMemberId());
+		int result = rService.registerComment(rComment);
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 	
-	// 후기 삭제 기능
-	public String reviewRemove() {
-		return null;
+	//댓글 삭제
+	@ResponseBody
+	@RequestMapping(value="deleteComment.com", method=RequestMethod.GET)
+	public String removeComment(@ModelAttribute ReviewComment rComment) {
+		int result = rService.removeComment(rComment);
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
-	// 댓글 조회 기능
-	public String commentList() {
-		return null;
+	
+	//댓글 리스트 조회
+	@RequestMapping(value="commentList.com", method=RequestMethod.GET)
+	public void getCommentList(HttpServletResponse response, @RequestParam("reviewNo") int reviewNo) throws Exception {
+		ArrayList<ReviewComment> rcList = rService.printCommentAll(reviewNo);
+		if(!rcList.isEmpty()) {
+			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); // 날짜 포맷 변경!
+			gson.toJson(rcList, response.getWriter());
+		}else {
+			System.out.println("데이터가 없습니다.");
+		}
 	}
-	// 댓글 작성 기능
-	public String commentWrite() {
-		return null;
-	}
+	
+	
+	
 	// 댓글 수정 기능
 	public String commentUpdate() {
 		return null;
 	}
-	// 댓글 삭제 기능
-	public String commentRemove() {
-		return null;
-	}
+	
 }

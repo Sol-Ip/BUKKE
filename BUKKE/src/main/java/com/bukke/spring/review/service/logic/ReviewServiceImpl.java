@@ -57,15 +57,15 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	// 댓글 조회
 	@Override
-	public ArrayList<ReviewComment> printCommentAll() {
+	public ArrayList<ReviewComment> printCommentAll(int reviewNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return rStore.selectCommentList(reviewNo);
 	}
 	// 댓글 등록
 	@Override
 	public int registerComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
-		return 0;
+		return rStore.insertComment(rComment);
 	}
 	// 댓글 수정
 	@Override
@@ -75,9 +75,9 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	// 댓글 삭제
 	@Override
-	public int removeComment(int rId) {
+	public int removeComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
-		return 0;
+		return rStore.deleteComment(rComment);
 	}
 	@Override
 	public int addLikes(Review review) {

@@ -39,5 +39,33 @@
 		SET REVIEW_STATUS = 'N'
 		WHERE REVIEW_NO = #{reviewNo }
 	</update>
+	
+	<!-- 댓글 관련 부분 -->
+	<resultMap type="reviewComment" id="commentResultMap">
+		<id property="commentNo" column="COMMENT_NO"/>
+		<result property="memberId" column="MEMBER_ID" />
+		<result property="reviewNo" column="REVIEW_NO" />
+		<result property="commentContents" column="COMMENT_CONTENTS" />
+		<result property="commentDate" column="COMMENT_DATE" />
+		<result property="commentStatus" column="COMMENT_STATUS" />
+	</resultMap>
+	
+	<insert id="insertComment">
+		INSERT INTO REVIEW_COMMENT
+		VALUES(SEQ_REVIEW_COMMENT.NEXTVAL, #{memberId }, #{reviewNo }, #{commentContents }, SYSDATE, 'Y')
+	</insert>
+	
+	<update id="deleteComment">
+		UPDATE REVIEW_COMMENT
+		SET COMMENT_STATUS = 'N'
+		WHERE REVIEW_NO = #{reviewNo } AND COMMENT_NO = #{commentNo }
+	</update>
+	
+	<select id="selectCommentList" resultMap="commentResultMap">
+		SELECT * FROM REVIEW_COMMENT
+		WHERE REVIEW_NO = #{reviewNo }
+		AND COMMENT_STATUS = 'Y'
+		ORDER BY COMMENT_NO DESC
+	</select>
 
 </mapper>

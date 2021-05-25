@@ -34,7 +34,7 @@ public interface ReviewStore {
 	public int updateComment(ReviewComment rComment);
 	
 	// 댓글 삭제
-	public int deleteComment(int rId);
+	public int deleteComment(ReviewComment rComment);
 	
 	//좋아요 올림
 	public int insertLikes(Review review);

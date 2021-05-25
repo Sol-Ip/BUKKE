@@ -66,6 +66,150 @@
 			</td>
 		</tr>							
 	</table>
+	<br><br>
+
+	<!-- 댓글 등록 -->
+	<table align="center" width="500" border="1" cellspacing="0">
+		<tr>
+			<td><textarea rows="3" cols="55" id="rContent"></textarea></td>
+			<td>
+				<button id="rSubmit">등록하기</button>
+			</td>
+			
+		</tr>
+	</table>
+
+	<!-- 댓글 목록 -->
+	<table align="center" width="500" border="1" cellspacing="0" id="rtb">
+		<thead>
+			<tr>
+				<!-- 댓글 갯수 -->
+				<td colspan="2"><b id="rCount"></b></td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+	<script>
+		$(function() {
+			getCommentList();
+			$("#rSubmit").on("click", function() {
+				
+				var reviewNo = '${review.reviewNo }';
+				var rContent = $("#rContent").val();
+				$.ajax({
+					url : "addComment.com",
+					type : "post",
+					data : {	
+						"reviewNo" : reviewNo,
+						"commentContents" : rContent
+					},
+					success : function(data) {
+						if (data == "success") {
+							// 댓글 불러오기
+							getCommentList();
+							console.log("성공");
+							// 작성 후 내용 초기화
+							$("#rContent").val("");
+						} else {
+							alert("댓글 등록 실패..");
+						}
+					},
+					error:function(request,status,error){
+				        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+				       }
+				}); 
+			});
+		});
+
+		function getCommentList() {
+			
+			 var reviewNo = '${review.reviewNo }';
+			
+			$.ajax({
+						url : "commentList.com",
+						type : "get",
+						data : {"reviewNo" : reviewNo},
+						dataType : "json",
+						success : function(data) {
+							// db에 있는 데이터를 json형태로 가져와서
+							// 댓글 목록 테이블의 tbody에 넣어주어야 함.
+							//console.log(data);
+							// tbody에 필요한 tr, td 태그를 만들면서
+							// 데이터를 tbody에 꽂아줄 것임.
+							var $tableBody = $("#rtb tbody");
+							$tableBody.html(""); // 비워주기
+							var $tr;
+							var $rWriter;
+							var $rContent;
+							var $rCreateDate;
+							var $btnArea;
+							$("#rCount").text("댓글 (" + data.length + ")"); // 댓글 갯수 표시
+							if (data.length > 0) {
+								for ( var i in data) {
+									$tr = $("<tr>");
+									$rWriter = $("<td width='100'>").text(
+											data[i].memberId);
+									$rContent = $("<td>").text(
+											data[i].commentContents);
+									$rCreateDate = $("<td width='100'>").text(
+											data[i].commentDate);
+									$btnArea = $("<td>")
+											.append(
+													"<a href='#' onclick='modifyComment(this);'>수정 </a>")
+											.append(
+													"<a href='#' onclick='removeComment("
+															+ reviewNo + ","
+															+ data[i].commentNo
+															+ ");'> 삭제</a>");
+									$tr.append($rWriter);
+									$tr.append($rContent);
+									$tr.append($rCreateDate);
+									$tr.append($btnArea);
+									$tableBody.append($tr);
+									console.log(data);
+								}
+							}
+						},
+						error:function(request,status,error){
+					        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+					       }
+					}); 
+		}
+		function modifyComment(obj) {
+			$trModify = $("<tr>");
+			$trModify
+					.append("<td colspan='3'><input type='text' size='50'></td>");
+			$trModify
+					.append("<td><button onclick='modifyCommentCommit()'>수정완료</button></td>");
+			$(obj).parent().parent().after($trModify);
+		}
+		function modifyCommentCommit() {
+
+		}
+		function removeComment(reviewNo, commentNo) {
+			// /deleteComment.com?refReviewNo="+reviewNo+"&commentNo="+data[i].commentNo+"
+			$.ajax({
+				url : "deleteComment.com",
+				type : "get",
+				data : {
+					"reviewNo" : reviewNo,
+					"commentNo" : commentNo
+				},
+				success : function(data) {
+					if (data == "success") {
+						getCommentList();
+					} else {
+						alert("댓글 조회 실패!");
+					}
+				},
+				error : function() {
+
+				}
+			});
+		}
+	</script>
+
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

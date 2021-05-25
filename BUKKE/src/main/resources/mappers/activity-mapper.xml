@@ -8,8 +8,9 @@
 		<result property="activityName" column="ACTIVITY_NAME"></result> 
 		<result property="activityAddr" column="ACTIVITY_ADDR"></result> 
 		<result property="activityType" column="ACTIVITY_TYPE"></result> 
-		<result property="activityTypedetails" column="ACTIVITY_TYPEDETAILS"></result> 
+		<result property="activityTypeDetails" column="ACTIVITY_TYPEDETAILS"></result> 
 		<result property="activityInfo" column="ACTIVITY_INFO"></result> 
+		<result property="activityPrice" column="ACTIVITY_PRICE"></result>
 		<result property="activityCapacity" column="ACTIVITY_CAPACITY"></result> 
 		<result property="activityEnrolldate" column="ACTIVITY_ENROLL_DATE"></result> 
 		<result property="activityStartdate" column="ACTIVITY_START_DATE"></result> 
@@ -33,24 +34,26 @@
 
 	<insert id="insertActivity">
 		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, 'shoptest',
-		#{activityName},#{activityAddr}, #{activityType},NULL, #{activityInfo},#{activityCapacity},
+		#{activityName},#{activityAddr}, #{activityType},NULL, #{activityInfo}, #{activityPrice}, #{activityCapacity},
 		 SYSDATE, #{activityStartdate}, #{activityEnddate},DEFAULT,#{aOriginalFilename}, #{aRenameFilename})
 	</insert>
 
-	<!-- <update id="updateBoard">
-		UPDATE BOARD SET BOARD_TITLE = #{boardTitle},
-		BOARD_CONTENT=#{boardContent}, ORIGINAL_FILENAME =
-		#{originalFilename}, RENAME_FILENAME=#{renameFilename},
-		B_UPDATE_DATE = SYSDATE WHERE BOARD_NO = #{boardNo}
+	<update id="updateActivity">
+   		UPDATE ACTIVITY SET ACTIVITY_NAME = #{activityName }, ACTIVITY_ADDR = #{activityAddr }, 
+   		ACTIVITY_TYPE = #{activityType }, NULL, ACTIVITY_INFO = #{activityInfo }, ACTIVITY_PRICE = #{activityPrice }, 
+   		ACTIVITY_START_DATE = #{activityStartdate }, ACTIVITY_END_DATE = #{activityEnddate }, 
+   		A_ORIGINAL_FILENAME = #{aOriginalFilename }, SYSDATE, A_RENAME_FILENAME = #{aRenameFilename }
+   		WHERE ACTIVITY_NO = #{activityNo }
+   </update>
+	
+	<!-- 삭제인 것 처럼 보여지는 것! -->
+	<update id="deleteActivity" parameterType="_int">
+		UPDATE ACTIVITY SET ACTIVITY_STATUS = 'N' WHERE ACTIVITY_NO = #{activityNo }
 	</update>
 	
-	삭제인 것 처럼 보여지는 것!
-	<update id="deleteBoard" parameterType="_int">
-		UPDATE BOARD SET B_STATUS = 'N' WHERE BOARD_NO = #{boardNo}
-	</update>
-	
-	<update id="updateCount">
-		UPDATE BOARD SET BOARD_COUNT = BOARD_COUNT + 1 WHERE BOARD_NO = #{boardNo}
+	<!-- 조회 수
+	<update id="updateActivityCount">
+		UPDATE ACTIVITY SET ACTIVITY_COUNT = ACTIVITY_COUNT + 1 WHERE ACTIVITY_NO = #{activityNo }
 	</update> -->
 	
 </mapper>

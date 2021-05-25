@@ -8,7 +8,7 @@ $(document).ready(function() {
 	//activityType('1' , '11');
 	
 	//여기 아래 부분
-	$('#summernote').summernote({
+/*	$('#summernote').summernote({
 		  height: 300,                 // 에디터 높이
 		  minHeight: null,             // 최소 높이
 		  maxHeight: null,             // 최대 높이
@@ -24,6 +24,22 @@ $(document).ready(function() {
 		    ['para', ['ul', 'ol', 'paragraph']],
 		    ['height', ['height']]
 		  ]
+	});*/
+	
+	$('#summernote').summernote({
+		height: 300,                 // 에디터 높이
+		minHeight: null,             // 최소 높이
+		maxHeight: null,             // 최대 높이
+		focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+		lang: "ko-KR",					// 한글 설정
+		placeholder: '최대 2048자까지 쓸 수 있습니다',
+		callbacks: {
+	    		onImageUpload : function(files, editor, welEditable){
+	       			for (var i = files.length - 1; i >= 0; i--) {
+					uploadSummernoteImageFile(files[i], editor, welEditable);
+				}
+			}
+		}
 	});
 	
 	

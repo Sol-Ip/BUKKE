@@ -1,17 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../common/header.jsp?active=activity"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>부캐, 새로운 나 ! - Activity</title>
-<link rel="stylesheet"
-	href="resources/css/activity-custom/activityListView.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="resources/css/activity-custom/activityDetailView.css">
 </head>
 
 <body>
@@ -41,226 +38,170 @@
 	<!-- ================ Activity Detail ================ -->
 	<section class="ftco-section">
 		<div class="container">
+
+			<!-- <div class="container"> -->
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">BUKKE</small></span>
+					<h2 class="mb-4">ACTIVITY DETAILS</h2>
+				</div>
+			</div>
+			<!-- 	</div> -->
+
 			<div class="row">
-				<div class="col-lg-12 ftco-animate"> <!-- 클래스 분류 -->
-					<h3>[SHOP_ID] ACTIVITY_NAME</h3>
+				<!-- 클래스 분류 -->
+				<div class="col-lg-12 ftco-animate">
+					<ul id="type-ul">
+						<li><h3 class="act-type">[&nbsp;</h3></li>
+						<li><h3 id="act-type">${activity.activityType}</h3></li>
+						<li><h3 class="act-type">&nbsp;>&nbsp;</h3></li>
+						<li><h3 id="act-type">${activity.activityTypeDetails}</h3></li>
+						<li><h3 class="act-type">&nbsp;]</h3></li>
+					</ul>
+
+
+
+
 				</div>
 				<div class="col-lg-8 ftco-animate">
 					<p>
-						<img src="resources/images/image_1.jpg" alt="" class="img-fluid">
+						<img
+							src="resources/images/activityImageFiles/${activity.aRenameFilename}"
+							alt="" class="img-fluid">
 					</p>
-					<h2 class="mb-3">[지역] 클래스명 들어오기</h2>
+					<!-- style="font-family: 'KOTRA_BOLD-Bold';" -->
+					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명
+						: ${activity.activityName }</h2>
+					<hr>
 
-					<H6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					<!-- <H6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 						Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio
 						perferendis et doloribus unde architecto optio laboriosam porro
 						adipisci sapiente officiis nemo accusamus ad praesentium? Esse
 						minima nisi et. Dolore perferendis, enim praesentium omnis, iste
 						doloremque quia officia optio deserunt molestiae voluptates soluta
-						architecto tempora.</H6>
-						
-						
-					<p>Molestiae cupiditate inventore animi, maxime sapiente optio,
-						illo est nemo veritatis repellat sunt doloribus nesciunt! Minima
-						laborum magni reiciendis qui voluptate quisquam voluptatem soluta
-						illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti
-						tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor
-						minima esse vero ut ea, repudiandae suscipit!</p>
-					<h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>
-					<p>Temporibus ad error suscipit exercitationem hic molestiae
-						totam obcaecati rerum, eius aut, in. Exercitationem atque quidem
-						tempora maiores ex architecto voluptatum aut officia doloremque.
-						Error dolore voluptas, omnis molestias odio dignissimos culpa ex
-						earum nisi consequatur quos odit quasi repellat qui officiis
-						reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
-					<p>
-						<img src="resources/images/image_2.jpg" alt="" class="img-fluid">
-					</p>
-					<p>Quisquam esse aliquam fuga distinctio, quidem delectus
-						veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde
-						aut non tenetur tempore, nisi culpa voluptate maiores officiis
-						quis vel ab consectetur suscipit veritatis nulla quos quia
-						aspernatur perferendis, libero sint. Error, velit, porro. Deserunt
-						minus, quibusdam iste enim veniam, modi rem maiores.</p>
-					<p>Odit voluptatibus, eveniet vel nihil cum ullam dolores
-						laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga
-						iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis
-						porro explicabo soluta commodi libero voluptatem similique id
-						quidem? Blanditiis voluptates aperiam non magni. Reprehenderit
-						nobis odit inventore, quia laboriosam harum excepturi ea.</p>
-					<p>Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam
-						ipsam quidem, dolor distinctio similique asperiores voluptas enim,
-						exercitationem ratione aut adipisci modi quod quibusdam iusto,
-						voluptates beatae iure nemo itaque laborum. Consequuntur et
-						pariatur totam fuga eligendi vero dolorum provident. Voluptatibus,
-						veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur
-						recusandae!</p>
-					<p>Voluptas dolores dignissimos dolorum temporibus, autem
-						aliquam ducimus at officia adipisci quasi nemo a perspiciatis
-						provident magni laboriosam repudiandae iure iusto commodi debitis
-						est blanditiis alias laborum sint dolore. Dolores, iure,
-						reprehenderit. Error provident, pariatur cupiditate soluta
-						doloremque aut ratione. Harum voluptates mollitia illo minus
-						praesentium, rerum ipsa debitis, inventore?</p>
+						architecto tempora.</H6> -->
+
+					<div style="padding: 30px;">
+						<h5>${activity.activityInfo }</h5>
+					</div>
+					<hr>
+
 					<div class="tag-widget post-tag-container mb-5 mt-5">
-						<div class="tagcloud">
-							<a href="#" class="tag-cloud-link">Life</a> <a href="#"
-								class="tag-cloud-link">Sport</a> <a href="#"
-								class="tag-cloud-link">Tech</a> <a href="#"
-								class="tag-cloud-link">Travel</a>
+						<div class="meta">
+							<div>
+								<button class="btn btn-outline-danger">
+									<span class="icon-heart icon-large"></span> 찜하기
+								</button>
+								<button class="btn btn-outline-warning">
+									<span class="icon-smile icon-large"></span> 찜하기
+								</button>
+								<button class="btn btn-outline-danger">❤</button>
+								<button class="btn btn-outline-danger">
+									<i class="fas fa-bookmark fa-2x"></i>
+								</button>
+
+								<span class="icon-eye-open"></span>
+							</div>
+
 						</div>
 					</div>
 
-					<div class="about-author d-flex p-4 bg-light">
-						<div class="bio mr-5">
-							<img src="resources/images/person_1.jpg" alt="Image placeholder"
-								class="img-fluid mb-4">
-						</div>
-						<div class="desc">
-							<h3>George Washington</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Ducimus itaque, autem necessitatibus voluptate quod mollitia
-								delectus aut, sunt placeat nam vero culpa sapiente consectetur
-								similique, inventore eos fugit cupiditate numquam!</p>
-						</div>
-					</div>
 
-
-					<!--             <div class="pt-5 mt-5">
-              <h3 class="mb-5 h4 font-weight-bold">6 Comments</h3>
-              <ul class="comment-list">
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="resources/images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>John Doe</h3>
-                    <div class="meta mb-2">January 03, 2019 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
-
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="resources/images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>John Doe</h3>
-                    <div class="meta mb-2">January 03, 2019 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-
-                  <ul class="children">
-                    <li class="comment">
-                      <div class="vcard bio">
-                        <img src="resources/images/person_1.jpg" alt="Image placeholder">
-                      </div>
-                      <div class="comment-body">
-                        <h3>John Doe</h3>
-                        <div class="meta mb-2">January 03, 2019 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                      </div>
-
-
-                      <ul class="children">
-                        <li class="comment">
-                          <div class="vcard bio">
-                            <img src="resources/images/person_1.jpg" alt="Image placeholder">
-                          </div>
-                          <div class="comment-body">
-                            <h3>John Doe</h3>
-                            <div class="meta mb-2">January 03, 2019 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                          </div>
-
-                            <ul class="children">
-                              <li class="comment">
-                                <div class="vcard bio">
-                                  <img src="resources/images/person_1.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                  <h3>John Doe</h3>
-                                  <div class="meta mb-2">January 03, 2019 at 2:21pm</div>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                  <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-                              </li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="resources/images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>John Doe</h3>
-                    <div class="meta mb-2">January 03, 2019 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
-              </ul>
-              END comment-list
-              
-              <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5 h4 font-weight-bold">Leave a comment</h3>
-                <form action="#" class="p-5 bg-light">
-                  <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" class="form-control" id="name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" class="form-control" id="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" class="form-control" id="website">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
-                  </div>
-
-                </form>
-              </div>
-            </div> -->
 				</div>
 
 				<!-- ================ Activity Detail END================ -->
 
 
-				<!-- =============== side bar =============== -->
+				<!-- =============== SIDE bar =============== -->
 
+				<!-- 액티비티 정보 -->
 				<div class="col-lg-4 sidebar ftco-animate">
-					<!--  <div class="sidebar-box">
-              <form action="#" class="search-form">
-                <div class="form-group">
-                  <span class="icon icon-search"></span>
-                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                </div>
-              </form>
-            </div> -->
+					<div
+						class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
+						<div class="sidebar-box ftco-animate">
+							<h2 align="center">
+								<i class="fas fa-list fa-lg"></i>&nbsp;Information
+							</h2>
+							<hr>
+							<br>
+							<div class="block-21 mb-4 d-flex">
+								<ul id="type-ul">
+									<li><h3 class="act-type">
+											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${activity.activityStartdate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>종료일</b>&nbsp;&nbsp;<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${activity.activityEnddate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${activity.shopId }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>조회 수</b>&nbsp;&nbsp;<i class="far fa-eye"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">조회수 들어오기</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>찜 갯수</b>&nbsp;&nbsp;<i class="fas fa-heartbeat"></i></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">찜 갯수 들어오기</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b> 주소 </b>&nbsp;&nbsp;<i class="fas fa-map-marked-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${activity.activityAddr }</h3></li>
+								</ul>
+
+							</div>
+
+							<!-- 사업자에게만 버튼 보이게 하기 -->
+							<div align="center">
+								<c:url var="aModify" value="activityUpdateForm.com">
+									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
+								</c:url>
+								<!-- renameFilename 은 실제 저장된 파일 이름  -->
+								<c:url var="aDelete" value="boardDelete.kh">
+									<c:param name="boardNo" value="${activity.activityNo }"></c:param>
+									<c:param name="aRenameFilename" value="${activity.aRenameFilename }"></c:param>
+								</c:url>
+								<a href="${aModify }"><input class="btn btn-lg btn-warning" type="submit" value="수정"></a> 
+									<a href="#"><input
+									class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="ftco-animate">
+						<input type="submit" class="btn btn-lg btn-primary" value="버튼 1">
+						<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
+						<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
+					</div>
+					<br>
+					<br>
+
 
 					<div class="sidebar-box ftco-animate">
-						<h3>상세 정보</h3>
+						<h3>Popular Articles</h3>
 						<div class="block-21 mb-4 d-flex">
-							<div class="meta">
-								<h3 class="heading">Even the all-powerful Pointing has no
-									control about the blind texts</h3>
-
+							<a class="blog-img mr-4"
+								style="background-image: url(resources/images/image_1.jpg);"></a>
+							<div class="text">
+								<h3 class="heading">
+									<a href="#">Even the all-powerful Pointing has no control
+										about the blind texts</a>
+								</h3>
 								<div class="meta">
 									<div>
 										<a href="#"><span class="icon-calendar"></span> Oct. 04,
@@ -274,9 +215,7 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
-
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
 								style="background-image: url(resources/images/image_2.jpg);"></a>
@@ -322,61 +261,15 @@
 							</div>
 						</div>
 					</div>
-					<div class="ftco-animate">
-					<input type="submit" class="btn btn-lg btn-primary" value="버튼 1">
-					<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
-					<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
-					</div>
-					<br><br>
-					<div class="sidebar-box ftco-animate">
-						<h3>Category</h3>
-						<ul class="categories">
-							<li><a href="#">Interior Design <span>(6)</span></a></li>
-							<li><a href="#">Exterior Design <span>(8)</span></a></li>
-							<li><a href="#">Industrial Design <span>(2)</span></a></li>
-							<li><a href="#">Landscape Design <span>(2)</span></a></li>
-						</ul>
-					</div>
-
-
-					<div class="sidebar-box ftco-animate">
-						<h3>Tag Cloud</h3>
-						<ul class="tagcloud m-0 p-0">
-							<a href="#" class="tag-cloud-link">House</a>
-							<a href="#" class="tag-cloud-link">Office</a>
-							<a href="#" class="tag-cloud-link">Land</a>
-							<a href="#" class="tag-cloud-link">Building</a>
-							<a href="#" class="tag-cloud-link">Table</a>
-							<a href="#" class="tag-cloud-link">Intrior</a>
-							<a href="#" class="tag-cloud-link">Exterior</a>
-						</ul>
-					</div>
-
-					<div class="sidebar-box ftco-animate">
-						<h3>Archives</h3>
-						<ul class="categories">
-							<li><a href="#">December 2018 <span>(30)</span></a></li>
-							<li><a href="#">Novemmber 2018 <span>(20)</span></a></li>
-							<li><a href="#">September 2018 <span>(6)</span></a></li>
-							<li><a href="#">August 2018 <span>(8)</span></a></li>
-						</ul>
-					</div>
-
-
-					<div class="sidebar-box ftco-animate">
-						<h3>Paragraph</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Ducimus itaque, autem necessitatibus voluptate quod mollitia
-							delectus aut, sunt placeat nam vero culpa sapiente consectetur
-							similique, inventore eos fugit cupiditate numquam!</p>
-					</div>
 				</div>
-				<!-- END COL -->
+			</div>
+		</div>
+		<!-- END COL -->
 
 				<!-- =============== side bar END =============== -->
 
-			</div>
-		</div>
+			
+		
 	</section>
 
 

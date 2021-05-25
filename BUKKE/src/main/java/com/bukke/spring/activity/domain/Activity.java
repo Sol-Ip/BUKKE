@@ -9,8 +9,9 @@ public class Activity {
 	private String activityName; // 클래스명
 	private String activityAddr; // 주소
 	private String activityType; // 분류
-	private String activityTypedetails; // 상세분류
+	private String activityTypeDetails; // 상세분류
 	private String activityInfo; // 상세내용
+	private String activityPrice;// 액티비티 가격
 	private String activityCapacity; // 인원수
 	private String aOriginalFilename; // 기존 파일 이름
 	private String aRenameFilename; // 변경된 파일 이름
@@ -64,12 +65,12 @@ public class Activity {
 		this.activityType = activityType;
 	}
 
-	public String getActivityTypedetails() {
-		return activityTypedetails;
+	public String getActivityTypeDetails() {
+		return activityTypeDetails;
 	}
 
-	public void setActivityTypedetails(String activityTypedetails) {
-		this.activityTypedetails = activityTypedetails;
+	public void setActivityTypeDetails(String activityTypeDetails) {
+		this.activityTypeDetails = activityTypeDetails;
 	}
 
 	public String getActivityInfo() {
@@ -78,6 +79,14 @@ public class Activity {
 
 	public void setActivityInfo(String activityInfo) {
 		this.activityInfo = activityInfo;
+	}
+
+	public String getActivityPrice() {
+		return activityPrice;
+	}
+
+	public void setActivityPrice(String activityPrice) {
+		this.activityPrice = activityPrice;
 	}
 
 	public String getActivityCapacity() {
@@ -139,14 +148,13 @@ public class Activity {
 	@Override
 	public String toString() {
 		return "Activity [activityNo=" + activityNo + ", shopId=" + shopId + ", activityName=" + activityName
-				+ ", activityAddr=" + activityAddr + ", activityType=" + activityType + ", activityTypedetails="
-				+ activityTypedetails + ", activityInfo=" + activityInfo + ", activityCapacity=" + activityCapacity
-				+ ", aOriginalFilename=" + aOriginalFilename + ", aRenameFilename=" + aRenameFilename
-				+ ", activityEnrolldate=" + activityEnrolldate + ", activityStartdate=" + activityStartdate
-				+ ", activityEnddate=" + activityEnddate + ", activityStatus=" + activityStatus + "]";
+				+ ", activityAddr=" + activityAddr + ", activityType=" + activityType + ", activityTypeDetails="
+				+ activityTypeDetails + ", activityInfo=" + activityInfo + ", activityPrice=" + activityPrice
+				+ ", activityCapacity=" + activityCapacity + ", aOriginalFilename=" + aOriginalFilename
+				+ ", aRenameFilename=" + aRenameFilename + ", activityEnrolldate=" + activityEnrolldate
+				+ ", activityStartdate=" + activityStartdate + ", activityEnddate=" + activityEnddate
+				+ ", activityStatus=" + activityStatus + "]";
 	}
-
-	
 
 	
 }

@@ -38,8 +38,7 @@ public class ActivityStoreLogic implements ActivityStore {
 
 	@Override
 	public Activity selectOneActivity(int activityNo) { // 액티비티 상세정보
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("activityMapper.selectActivityOne", activityNo);
 	}
 
 	@Override

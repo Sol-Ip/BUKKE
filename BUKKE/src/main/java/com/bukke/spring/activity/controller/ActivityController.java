@@ -63,6 +63,7 @@ public class ActivityController {
 		Activity activity = aService.printOneActivity(activityNo);
 		if(activity != null) {
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
+			//System.out.println(activity.toString());
 		} else {
 			mv.addObject("msg", "액티비티 상세조회 실패");
 			mv.setViewName("common/errorPage");
@@ -162,15 +163,63 @@ public class ActivityController {
 	
 
 	// 액티비티 수정 jsp 이동 (업체회원)
-	public String activityModifyView() {
-		return null;
+	@RequestMapping(value="activityUpdateForm.com", method = RequestMethod.GET) 
+	public ModelAndView activityModifyView(ModelAndView mv,
+										@RequestParam("activityNo") int activityNo) {
+		
+		Activity activity = aService.printOneActivity(activityNo);
+		if(activity != null) {
+			mv.addObject("activity", activity).setViewName("activity/activityUpdateForm");
+		} else {
+			mv.addObject("msg", "액티비티 수정화면 조회 실패").setViewName("common/errorPage");
+		}
+		return mv;
 	}
+	
+	
 	// *액티비티 수정기능 메소드
-	public String activityUpdate() {
-		return null;
+	@RequestMapping(value="activityUpdate.com", method=RequestMethod.POST)
+	public ModelAndView activityUpdate(ModelAndView mv,
+									HttpServletRequest request,
+									@ModelAttribute Activity activity,
+									@RequestParam(value="reloadActivityFile", required=false) MultipartFile reloadActivityFile) {
+		// 파일 삭제 후 업로드 (수정)
+		if(reloadActivityFile != null && !reloadActivityFile.isEmpty()) {
+			// 기존 파일 삭제
+			if(activity.getaOriginalFilename() != "") {
+				deleteActivityFile(activity.getaRenameFilename(), request);
+			}
+			// 새 파일 업로드
+			String aRenameFileName = saveActivityFile(reloadActivityFile, request);
+			if(aRenameFileName != null) {
+				activity.setaOriginalFilename(reloadActivityFile.getOriginalFilename());
+				activity.setaRenameFilename(aRenameFileName);
+			}
+		}
+		//DB 수정
+		int result = aService.modifyActivity(activity);
+		if(result > 0) {
+			mv.setViewName("redirect:activityList.com");
+		} else {
+			mv.addObject("msg", "액티비티 수정 실패").setViewName("common/errorPage");
+		}
+		return mv;
 	}
+	
+	// 기존 파일 삭제해주는 메소드
+	public void deleteActivityFile(String fileName, HttpServletRequest request) {
+		String root = request.getSession().getServletContext().getRealPath("resources/images");
+		String savePath = root + "\\activityImageFiles";
+		File file = new File(savePath + "\\" + fileName);
+		if(file.exists()) {
+			file.delete();
+		}
+	}
+	
+	
 	// *액티비티 삭제기능 메소드
 	public String activityRemove() {
+		
 		return null;
 	}
 	

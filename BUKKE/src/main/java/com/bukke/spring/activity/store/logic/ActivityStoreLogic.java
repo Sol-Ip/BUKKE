@@ -19,6 +19,11 @@ public class ActivityStoreLogic implements ActivityStore {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
+	public int selectListCount() { // 게시물 전체 수 카운트
+		return sqlSession.selectOne("activityMapper.selectListActivityCount");
+	}
+	
+	@Override
 	public ArrayList<Activity> selectAllActivityList(ActivityPageInfo pi) { //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
@@ -59,5 +64,6 @@ public class ActivityStoreLogic implements ActivityStore {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 }

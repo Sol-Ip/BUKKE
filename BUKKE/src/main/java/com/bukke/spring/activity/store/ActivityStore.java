@@ -7,6 +7,9 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 
 public interface ActivityStore {
+	
+	public int selectListCount(); // 게시물 전체 수 카운트
+	
 	public ArrayList<Activity> selectAllActivityList(ActivityPageInfo pi); //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
 
 	//public ArrayList<Activity> selectAllActivityList(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함

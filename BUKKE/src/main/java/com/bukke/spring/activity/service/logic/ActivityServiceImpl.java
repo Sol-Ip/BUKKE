@@ -10,12 +10,18 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.activity.store.ActivityStore;
+import com.bukke.spring.bukkeclass.domain.PageInfo;
 
 @Service
 public class ActivityServiceImpl implements ActivityService {
 	
 	@Autowired
 	public ActivityStore aStore;
+	
+	@Override
+	public int getListCount() { // 게시물 전체 수 카운트
+		return aStore.selectListCount();
+	}
 
 	@Override
 	public ArrayList<Activity> printAllActivity(ActivityPageInfo pi) { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
@@ -52,5 +58,7 @@ public class ActivityServiceImpl implements ActivityService {
 	public int removeActivity(int activityNo) { // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
 		return aStore.deleteActivity(activityNo);
 	}
+
+
 
 }

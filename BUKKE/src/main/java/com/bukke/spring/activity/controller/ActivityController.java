@@ -20,8 +20,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.common.ActivityPagination;
 
 @Controller
 public class ActivityController {
@@ -31,21 +33,41 @@ public class ActivityController {
 	
 	// 액티비티 전체목록 jsp 이동 (관리자)
 	@RequestMapping(value="activityList.com", method=RequestMethod.GET)
-	public String activityListView()
-								//ModelAndView mv
-								//	, @RequestParam(value="page", required=false) Integer page) 
-														{
-		//ArrayList<Activity> aList = aService.printAllActivity();
+	public ModelAndView activityListView(ModelAndView mv,
+										@RequestParam(value="page", required=false) Integer page) {
 		
-		
-		return "activity/activityListView";
+		int currentPage = (page != null) ? page : 1;
+		int listCount = aService.getListCount(); // 게시글 전체 갯수
+		ActivityPageInfo pi = ActivityPagination.getPageInfo(currentPage, listCount);
+		ArrayList<Activity> aList = aService.printAllActivity(pi);
+		if(!aList.isEmpty()) {
+			mv.addObject("aList", aList);
+			mv.addObject("pi", pi); // 화면을 구성하는데에 사용
+			mv.setViewName("activity/activityListView");
+		} else {
+			mv.addObject("msg", "액티비티 전체조회 실패");
+			mv.setViewName("common/errorPage");
+		}
+		return mv;
 	}
 	
 	
 	// 액티비티 상세정보 jsp 이동 (모든회원)
 	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
-	public String activityDetailView() {
-		return "activity/activityDetailView";
+	public ModelAndView activityDetailView(ModelAndView mv,
+										@RequestParam("activityNo") int activityNo) {
+		//조회 수 증가
+		//aService.addReadCountActivity(activityNo);
+		
+		//게시글 상세조회
+		Activity activity = aService.printOneActivity(activityNo);
+		if(activity != null) {
+			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
+		} else {
+			mv.addObject("msg", "액티비티 상세조회 실패");
+			mv.setViewName("common/errorPage");
+		}
+		return mv;
 		
 	}
 	

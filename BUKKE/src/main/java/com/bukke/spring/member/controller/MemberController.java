@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.member.service.MemberService;
@@ -27,17 +28,18 @@ public class MemberController {
 		
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "memberLogin.com", method = RequestMethod.POST)
 	public String memberLogin(
-			HttpServletRequest request, @ModelAttribute Member member, Model model) {
+			HttpServletRequest request, @ModelAttribute Member member) {
+		System.out.println(member.getMemberId());
 		Member loginMember = mService.loginMember(member);
 		if(loginMember != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
-			return "redirect:home.com";
+			return "0"; // 로그인 성공
 		} else {
-			model.addAttribute("msg","로그인 실패!");
-			return "common/errorPage";
+			return "1"; // 로그인 실패
 		}
 	}
 

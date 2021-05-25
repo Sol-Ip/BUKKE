@@ -3,7 +3,7 @@
 
 html, body {
 
-  background: #335cd2;
+  background: #3a9dd8;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -99,6 +99,12 @@ fieldset input[type=submit] {
 /* 헤더 오류 수정 */
 .navbar-brand {
 	font-family: "Poppins", Arial, sans-serif;
+}
+
+/* 유효성검사 */
+.invalid-check {
+	font-size: 13px;
+	color: red;
 }
 
 .member-check {

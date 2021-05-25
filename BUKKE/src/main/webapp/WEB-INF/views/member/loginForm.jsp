@@ -7,10 +7,9 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="/resources/css/member/loginForm.css">
-
 </head>
 <body>
-<form method="post" action="memberLogin.com">
+<form action="memberLogin.com" method="POST">
   <svg width="200px" height="200px" viewBox="0 0 200 200" aria-labelledby="svg-title svg-desc">
     <title id="svg-title">Floating Ghost</title>
     <desc id="svg-desc">A smiling ghost that floats ups and down while looking at the user interactions.</desc>
@@ -50,15 +49,17 @@
       <div class="placeholder">USER NAME</div>
     </div>
   </fieldset>
+  <div class="invalid-check invalid-id"></div>
   <fieldset id="password-field">
     <legend>비밀번호</legend>
     <div>
       <input type="password" name="memberPw" id="memberPw" placeholder="●●●●●●" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
     </div>
   </fieldset>
+  <div class="invalid-check invalid-pw"></div>
   <fieldset id="submit-field">
     <div>
-      <input type="submit" name="submit" id="submit" value="로그인"/>
+      <input type="button" name="submit" id="submit" value="로그인"/>
     </div>
   </fieldset>
   <fieldset id="social-filed">
@@ -76,12 +77,34 @@
   		// 유령 사라졌다 나타나는 효과
   		$("g").fadeOut(1000).fadeIn(1000);
   		var type = $(this).val();
-  		if(!(type=="typeMember")) {
-  			$("#social-filed").hide();
-  		} else {
+  		if(type == "typeMember") {
   			$("#social-filed").show();
+  		} else {
+  			$("#social-filed").hide();
   		}
   	})
-  </script>
+  	// 동적 로그인
+  	$("#submit").click(function(event){
+  		$.ajax({
+  			url : "memberLogin.com",
+  			type : "POST",
+			data : {
+						memberId : $("#memberId").val(),
+						memberPw : $("#memberPw").val()
+					},
+			success : function(data) {
+				if(data == "0") {
+					alert("로그인 성공!");
+					location.href="home.com"
+				} else {
+					$(".invalid-pw").val("아이디 혹은 비밀번호가 일치하지 않습니다.");
+				}
+			},
+			error:function(request,status,error) {
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		})
+	})
+	</script>
 </body>
 </html>

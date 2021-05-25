@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.bukke.spring.notice.domain.Notice;
 import com.bukke.spring.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.domain.NoticeSearch;
 
 public interface NoticeService {
 
@@ -14,5 +15,6 @@ public interface NoticeService {
 	public int registerNotice(Notice notice); //공지사항 등록
 	public int modifyNotice(Notice notice); //공지사항 수정
 	public int removeNotice(int noticeNo); //공지사항 삭제
+	public ArrayList<Notice> printSearchAll(NoticeSearch search);
 	}
 

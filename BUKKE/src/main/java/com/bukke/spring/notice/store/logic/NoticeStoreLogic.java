@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.notice.domain.Notice;
 import com.bukke.spring.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.domain.NoticeSearch;
 import com.bukke.spring.notice.store.NoticeStore;
 @Repository
 public class NoticeStoreLogic implements NoticeStore{
@@ -53,6 +54,11 @@ public class NoticeStoreLogic implements NoticeStore{
 	public int selectListCount() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public ArrayList<Notice> selectSearchList(NoticeSearch search) {
+		return (ArrayList)sqlSession.selectList("noticeMapper.selectSearchList",search);
 	}
 	
 	

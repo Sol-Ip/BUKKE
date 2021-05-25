@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bukke.spring.notice.domain.Notice;
 import com.bukke.spring.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.domain.NoticeSearch;
 import com.bukke.spring.notice.service.NoticeService;
 import com.bukke.spring.notice.store.NoticeStore;
 @Service
@@ -49,6 +50,11 @@ public class NoticeServiceImpl  implements NoticeService{
 	@Override
 	public int removeNotice(int noticeNo) {
 		return nStore.deleteNotice(noticeNo);
+	}
+
+	@Override
+	public ArrayList<Notice> printSearchAll(NoticeSearch search) {
+		return nStore.selectSearchList(search);
 	}
 
 	

@@ -30,6 +30,7 @@ import com.bukke.spring.common.NoticePagination;
 import com.bukke.spring.common.Pagination;
 import com.bukke.spring.notice.domain.Notice;
 import com.bukke.spring.notice.domain.NoticePageInfo;
+import com.bukke.spring.notice.domain.NoticeSearch;
 import com.bukke.spring.notice.service.NoticeService;
 import com.google.gson.JsonObject;
 
@@ -185,6 +186,19 @@ public class NoticeController {
 			model.addAttribute("msg", "삭제 실패");
 			return "common/errorPage";
 		}
+	}
+	//공지사항 검색
+	@RequestMapping(value="noticeSearch.com", method = RequestMethod.GET)
+	public String noticeSearch(@ModelAttribute NoticeSearch search,Model model) {
+		ArrayList<Notice> nSearchList = nService.printSearchAll(search);
+		if(!nSearchList.isEmpty()) {
+			model.addAttribute("nList", nSearchList);
+			model.addAttribute("search", search);
+			return "notice/noticeListView";
+	}else {
+		model.addAttribute("msg","검색 실패");
+		return "common/errorPage";
+	}
 	}
 }
 

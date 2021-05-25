@@ -40,16 +40,22 @@
 		</div>
 	</section>
 	<!-- fixed section END-->
-
+	
 	<section class="ftco-section">
 
 		<div class="sidebar-box">
-			<form action="#" class="search-form "
-				style="width: 300px; float: right">
+			<form action="noticeSearch.com" class="search-form" method="get"
+				style="width: 300px; ">
+							<select class="form-control" name="noticeCategory" id="" style="width: 100px;">
+								<option value="" hidden="hidden">검색</option>
+								<option value="title" <c:if test="${search.noticeCategory =='title'}">selected</c:if>>제목</option>
+								<option value="contents" <c:if test="${search.noticeCategory =='contents'}">selected</c:if>>내용</option>
+							</select>
 				<div class="form-group">
-					<span class="icon icon-search"></span> <input type="text"
-						class="form-control" placeholder="검색어를 입력해 주세요">
+					<input type="text" class="form-control" placeholder="검색어를 입력해 주세요" width="200px;" name="noticeKeyword" value="${search.noticeKeyword }">
+					<input type="submit" value="검색">
 				</div>
+				
 			</form>
 		</div>
 		<!-- 공지사항 리스트 -->

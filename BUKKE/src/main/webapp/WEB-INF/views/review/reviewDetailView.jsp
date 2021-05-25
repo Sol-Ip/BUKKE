@@ -155,10 +155,10 @@
 									$rCreateDate = $("<td width='100'>").text(
 											data[i].commentDate);
 									$btnArea = $("<td>")
-											.append(
-													"<a href='#' onclick='modifyComment(this);'>수정 </a>")
-											.append(
-													"<a href='#' onclick='removeComment("
+									.append(
+											"<a href='#' onclick='modifyComment(this);'>수정 </a>")
+									.append(
+											"<a href='#' onclick='removeComment("
 															+ reviewNo + ","
 															+ data[i].commentNo
 															+ ");'> 삭제</a>");
@@ -167,7 +167,7 @@
 									$tr.append($rCreateDate);
 									$tr.append($btnArea);
 									$tableBody.append($tr);
-									console.log(data);
+								
 								}
 							}
 						},
@@ -213,3 +213,4 @@
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>

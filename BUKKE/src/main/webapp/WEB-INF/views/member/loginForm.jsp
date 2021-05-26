@@ -13,6 +13,7 @@
   <svg width="200px" height="200px" viewBox="0 0 200 200" aria-labelledby="svg-title svg-desc">
     <title id="svg-title">Floating Ghost</title>
     <desc id="svg-desc">A smiling ghost that floats ups and down while looking at the user interactions.</desc>
+    <style>
       @keyframes float { 
         from { transform: translate(0, 0px); }
         to   { transform: translate(0, 8px); } 
@@ -36,91 +37,40 @@
       <path id="ghost-arm-left" class="ghost-arm" d="M 155,88 C 191,90 194,114 192,125 191,137 172,109 155,116" data-hover="M 155,88 C 145,68 105,51 103,62 102,74 123,117 155,116" style="animation-delay:-1s" />
     </g>
   </svg>
-  <div class="member-check">
+  <div class="member-checkbox">
   	<input type="radio" name="loginType" value="typeMember" checked>
   	<label name="typeMember" for="typeMember"><span class="spread-underline">일반회원</span></label>
   	<input type="radio" name="loginType" value="typeShop">
     <label name="typeShop" class="spread-underline" for="typeShop"><span class="spread-underline">업체회원</span></label>
   </div>
-  <fieldset id="id-field" class="with-placeholder">
+  <fieldset class="member-filed with-placeholder">
     <legend>아이디</legend>
     <div>
-      <input type="text" name="memberId" id="memberId"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+      <input type="text" name="memberId" id="memberId" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
       <div class="placeholder">USER NAME</div>
     </div>
+    <div class="invalid-check"></div>
   </fieldset>
-  <div class="invalid-check invalid-id"></div>
-  <fieldset id="password-field">
+  <fieldset class="member-filed">
     <legend>비밀번호</legend>
     <div>
-      <input type="password" name="memberPw" id="memberPw" placeholder="●●●●●●" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+      <input type="password" name="memberPw" id="memberPw" placeholder="⦁⦁⦁⦁⦁⦁" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
     </div>
+    <div class="invalid-check"></div>
   </fieldset>
-  <div class="invalid-check invalid-pw"></div>
   <fieldset id="submit-field">
-    <div>
-      <input type="button" name="submit" id="submit" value="로그인"/>
-    </div>
+  	<input type="button" name="submit" id="submit" value="로그인"/>
   </fieldset>
-  <fieldset id="social-filed">
-    소셜로그인은 여기에!
-  </fieldset>
-    <div id="enroll-and-find">
+  <fieldset id="member-filed">
+    <input type="button" name="kakao" id="kakao" value="카카오 로그인"/>
+    <div id="registerMember">
       <a href="#">ID/PW 찾기</a>
       <a href="memberRegisterForm.com">회원가입</a>
     </div>
+  </fieldset>
 </form>
  <!-- JS -->
   <script src="/resources/js/member/loginForm.js"></script>
-  <script>
-  	$("input[type=radio]").on("change",function(){
-  		// 유령 사라졌다 나타나는 효과
-  		$("g").fadeOut(1000).fadeIn(1000);
-  		var type = $(this).val();
-  		if(type == "typeMember") {
-  			$("#social-filed").show();
-  		} else {
-  			$("#social-filed").hide();
-  		}
-  	})
-  	// 동적 로그인
-  	$("#submit").click(function(event){
-  		if($("#memberId").val() == "") {
-  			$(".invalid-id").html("아이디를 입력해주세요.");
-  			return;
-  		}
-  		if($("#memberPw").val() == "") {
-  			$(".invalid-pw").html("비밀번호를 입력해주세요.");
-  			return;
-  		}
-  		$.ajax({
-  			url : "memberLogin.com",
-  			type : "POST",
-			data : {
-						memberId : $("#memberId").val(),
-						memberPw : $("#memberPw").val()
-					},
-			success : function(data) {
-				if(data == "0") {
-					alert("로그인 성공!");
-					location.href="home.com"
-				} else {
-					$(".invalid-pw").html("아이디 혹은 비밀번호가 일치하지 않습니다.");
-				}
-			},
-			error:function(request,status,error) {
-				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-			}
-		})
-	})
-	// 텍스트 클릭시 초기화
-	$("#memberId").on("focus",function(){
-		$(".invalid-id").html("");
-	})
-	$("#memberPw").on("focus",function(){
-		$(".invalid-pw").html("");
-	})
-	
-	</script>
+  <script src="/resources/js/member/loginAjax.js"></script>
 </body>
 </html>

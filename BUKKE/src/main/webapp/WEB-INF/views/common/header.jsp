@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="resources/css/magnific-popup.css">
 
-<link rel="stylesheet" href="resources/css/aos.css">
+<!-- <link rel="stylesheet" href="resources/css/aos.css"> -->
 
 <link rel="stylesheet" href="resources/css/ionicons.min.css">
 
@@ -53,7 +53,12 @@
 						<li id="activity" class="nav-item"><a href="activityList.com" class="nav-link">액티비티</a></li>
 						<li id="review" class="nav-item"><a href="reviewList.com" class="nav-link">후기</a></li>
 						<li id="gift" class="nav-item"><a href="#" class="nav-link">선물하기</a></li>
+						<c:if test="${ empty sessionScope.loginMember }">
 						<li id="login" class="nav-item"><a href="memberLoginForm.com" class="nav-link">로그인</a></li>
+						</c:if>
+						<c:if test="${ !empty sessionScope.loginMember }">
+						<li id="login" class="nav-item"><a href="memberLogout.com" id="memberLogout" class="nav-link" >로그아웃</a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>

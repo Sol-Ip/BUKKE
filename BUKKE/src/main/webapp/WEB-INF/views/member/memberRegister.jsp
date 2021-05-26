@@ -24,10 +24,10 @@
       
 </style>
 <body>
-    <div class="container">
-        <div class="py-5 text-center">
-            <h2>회원가입</h2>
-        </div>
+	<div class="py-5 text-center">
+		<h2>회원가입</h2>
+	</div>
+	<div class="container">
         <form action="memberRegister.com" method="post">
             <div class="form-group">
                 <label for="memberId">아이디</label>

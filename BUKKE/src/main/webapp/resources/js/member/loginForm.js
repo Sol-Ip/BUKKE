@@ -63,4 +63,4 @@ memberPw.addEventListener("blur", function() {
 			"M 155,88 C 191,90 194,114 192,125 191,137 172,109 155,116");
 	document.querySelector("#ghost-arm-right").setAttribute("d",
 			"M 45,89 C 25,92 9,108 11,124 13,141 27,115 48,119");
-})
+});

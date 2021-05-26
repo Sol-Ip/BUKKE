@@ -14,6 +14,10 @@
 		
 	</resultMap>
 	
+	<select id="selectListCount" resultType="_int">
+      SELECT COUNT(*) FROM REVIEW WHERE REVIEW_STATUS = 'Y'
+   </select>
+	
 	<select id="selectReviewList" resultMap="reviewResultMap">
 		SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
 	</select>
@@ -39,6 +43,25 @@
 		SET REVIEW_STATUS = 'N'
 		WHERE REVIEW_NO = #{reviewNo }
 	</update>
+	
+	<select id="selectSearchList" resultMap="reviewResultMap">
+		SELECT * FROM REVIEW
+		<if test="reviewCategory.toString() == 'writer'">
+			WHERE MEMBER_ID LIKE '%' || #{reviewKeyword } || '%'
+		</if>
+		<if test="reviewCategory.toString() == 'title'">
+			WHERE REVIEW_TITLE LIKE '%' || #{reviewKeyword } || '%'
+		</if>
+		<if test="reviewCategory.toString() == 'content'">
+			WHERE REVIEW_CONTENTS LIKE '%' || #{reviewKeyword } || '%'
+		</if>
+		<if test="reviewCategory.toString() == 'all'">
+			WHERE MEMBER_ID LIKE '%' || #{reviewKeyword } || '%'
+			OR REVIEW_TITLE LIKE '%' || #{reviewKeyword } || '%'
+			OR REVIEW_CONTENTS LIKE '%' || #{reviewKeyword } || '%'
+		</if>
+		ORDER BY REVIEW_DATE DESC
+	</select>
 	
 	<!-- 댓글 관련 부분 -->
 	<resultMap type="reviewComment" id="commentResultMap">

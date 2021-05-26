@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewPageInfo;
+import com.bukke.spring.review.domain.ReviewSearch;
 
 public interface ReviewService {
 	// 후기 전체 조회
-	public ArrayList<Review> printAllReview();
+	public ArrayList<Review> printAllReview(ReviewPageInfo pi);
 	// 후기 상세 조회
 	public Review printOneReview(int rId);
 	// 후기 검색
-	public ArrayList<Review> searchReview(String searchValue);
+	public ArrayList<Review> searchReview(ReviewSearch search);
 	// 후기 등록
 	public int registerReview(Review review);
 	// 후기 수정
@@ -30,4 +32,5 @@ public interface ReviewService {
 	public int addLikes(Review review);
 	//좋아요 내림
 	public int removeLikes(Review review);
+	public int getListCount();
 }

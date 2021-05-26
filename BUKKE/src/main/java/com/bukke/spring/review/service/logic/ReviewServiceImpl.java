@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewPageInfo;
+import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.service.ReviewService;
 import com.bukke.spring.review.store.ReviewStore;
 
@@ -18,9 +20,9 @@ public class ReviewServiceImpl implements ReviewService {
 
 	// 후기 전체 조회
 	@Override
-	public ArrayList<Review> printAllReview() {
+	public ArrayList<Review> printAllReview(ReviewPageInfo pi) {
 		// TODO Auto-generated method stub
-		ArrayList<Review> rList = rStore.selectReviewList();
+		ArrayList<Review> rList = rStore.selectReviewList(pi);
 		return rList;
 	}
 	// 후기 상세 조회
@@ -32,9 +34,10 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	// 후기 검색
 	@Override
-	public ArrayList<Review> searchReview(String searchValue) {
+	public ArrayList<Review> searchReview(ReviewSearch search) {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Review> searchList = rStore.selectSearchList(search);
+		return searchList;
 	}
 	
 	// 후기 등록
@@ -88,6 +91,11 @@ public class ReviewServiceImpl implements ReviewService {
 	public int removeLikes(Review review) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public int getListCount() {
+		// TODO Auto-generated method stub
+		return rStore.selectListCount();
 	}
 
 }

@@ -22,9 +22,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewPageInfo;
+import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.service.ReviewService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,16 +42,23 @@ public class ReviewController {
 	
 	// 후기 전체 조회
 	@RequestMapping(value="reviewList.com", method=RequestMethod.GET)
-	public String reviewList(Model model) {
-		ArrayList<Review> rList = rService.printAllReview();
-	
+	public ModelAndView reviewListView(ModelAndView mv
+			,@RequestParam(value="page", required=false) Integer page) {
+		int currentPage = (page != null) ? page : 1;
+		int listCount = rService.getListCount();
+		ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
+		ArrayList<Review> rList = rService.printAllReview(pi);
 		if(!rList.isEmpty()) {
-			model.addAttribute("rList", rList);
-			return "review/reviewListView";
+			mv.addObject("rList", rList);
+			mv.addObject("pi", pi);
+			mv.setViewName("review/reviewListView");
+			
 		}else {
-			model.addAttribute("msg", "후기 목록조회 실패");
-			return "common/errorPage";
+			mv.addObject("msg", "게시글 전체조회 실패");
+			mv.setViewName("common/errorPage");
+			
 		}
+		return mv;
 		
 	}
 	
@@ -68,9 +78,24 @@ public class ReviewController {
 	}
 	
 	// 후기 검색 기능
-	public String reviewSearch() {
-		return null;
+	@RequestMapping(value="reviewSearch.com", method=RequestMethod.GET)
+	public String reviewSearch(@ModelAttribute ReviewSearch search, Model model) {
+		
+		// 2개의 값을 하나에 담아서 보내는 방법
+		// 1. Domain(VO) 클래스 이용
+		// 2. HashMap 사용하기
+		ArrayList<Review> searchList = rService.searchReview(search);
+		if(!searchList.isEmpty()) {
+			model.addAttribute("rList", searchList);
+			model.addAttribute("search", search);
+			return "review/reviewListView";
+		}else {
+			model.addAttribute("msg", "공지사항 검색 실패");
+			return "common/errorPage";
+		}
 	}
+	
+	
 	
 	// 후기 등록 뷰
 	@RequestMapping(value="reviewWriteView.com", method=RequestMethod.GET)

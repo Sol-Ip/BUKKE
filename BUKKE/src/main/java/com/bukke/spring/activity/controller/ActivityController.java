@@ -182,6 +182,8 @@ public class ActivityController {
 	public ModelAndView activityUpdate(ModelAndView mv,
 									HttpServletRequest request,
 									@ModelAttribute Activity activity,
+									@RequestParam("activityAddr1") String activityAddr1, // 기본주소
+									@RequestParam("activityAddr2") String activityAddr2, // 상세주소
 									@RequestParam(value="reloadActivityFile", required=false) MultipartFile reloadActivityFile) {
 		// 파일 삭제 후 업로드 (수정)
 		if(reloadActivityFile != null && !reloadActivityFile.isEmpty()) {
@@ -197,7 +199,9 @@ public class ActivityController {
 			}
 		}
 		//DB 수정
+		activity.setActivityAddr(activityAddr1 + ","+ activityAddr2);
 		int result = aService.modifyActivity(activity);
+		System.out.println("result : " +result);
 		if(result > 0) {
 			mv.setViewName("redirect:activityList.com");
 		} else {

@@ -1,9 +1,5 @@
 $(document).ready(function() {
 	
-	/*$("#write-btn").on("click", function() {
-	alert("글이 등록되었습니다.");
-});*/
-	
 	
 	//activityType('1' , '11');
 	
@@ -45,7 +41,14 @@ $(document).ready(function() {
 	
 	$("#postcodify_search_button").postcodifyPopUp();
 	
-	 
+	 $("#write-btn").on("click",function(){
+		 if (!confirm("글을 등록하시겠습니까?")) {
+			 // 취소
+					return false;
+		 		} else {
+		     // 확인
+		 		}
+	 		});
 });
 
 function activityType(type , select) {

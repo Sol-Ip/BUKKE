@@ -2,12 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|K2D');
 
 html, body {
-
   background: #3a9dd8;
   font-size: 16px;
   margin: 0;
   padding: 0;
-  font-family: K2D, Roboto, Arial, Verdana, sans-serif;
+  font-family: K2D, Roboto, Arial, sans-serif;
 }
 
 form {
@@ -34,17 +33,17 @@ form svg {
 fieldset {
   border: 0;
   padding: 0;
-  margin: 1.0rem 0 0 0;
+  margin: 0;
 }
 
 legend {
   font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 fieldset > div {
-  border-radius: 3px;
   position: relative;
   margin-top: 0.4rem;
   background: #efefef;
@@ -86,55 +85,48 @@ fieldset.with-placeholder input {
   padding: 1.3rem 1rem 0.7rem 1rem;
 }
 
-fieldset input[type=submit] {
-  border-radius: 3px;
-  padding: 13px;
-  background-color: #56baed;
-  color: #fff;
-  box-shadow: 0 0 5px rgba(87, 186, 237, .5);
-  cursor: pointer;
-  font-family: Roboto, K2D, Arial, Verdana, Sans-serif;
-}
-
 /* 헤더 오류 수정 */
 .navbar-brand {
 	font-family: "Poppins", Arial, sans-serif;
 }
 
-/* 유효성검사 */
+/* 유효성 검사 */
 .invalid-check {
-	font-size: 13px;
+	font-size: 0.7rem;
 	color: red;
+	background: none;
 }
 
-.member-check {
+/* 로그인 유형 선택 */
+.member-checkbox {
 	display: inline-block;
 	position: relative;
 	left: 50%;
 	transform:translate(-50%,0);
 	margin-top: 5px;
 }
-.member-check label {
+.member-checkbox label {
 	padding: 0 19px;
 }
 
-#enroll-and-find {
+#registerMember {
 	text-align: right;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: none;
 }
-#enroll-and-find a {
+#registerMember a {
 	color: #333;
 	padding: 0 5px;
+	
 }
 
 /*가운데서 좌우로 펼쳐지는 라인 에니메이션*/
 .spread-underline {
   color: #333;
-  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline-block;
-  padding: 10px 0;
+  padding: 0 0 10px 0;
   position: relative;
-  font-weight: bold;
-
 }
 
 input[type=radio] + label .spread-underline:after {    
@@ -153,4 +145,19 @@ input[type=radio] + label .spread-underline:after {
 input[type=radio]:checked + label .spread-underline:after {
   width: 100%; 
   left: 0; 
+}
+
+input[type=button] {
+	border-radius: 3px;
+	padding: 13px;
+	margin: 0.4rem 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#submit {
+  background-color: #56baed;
+  color: #fff;
+}
+
+#kakao {
+	background-color: #eed95b;
 }

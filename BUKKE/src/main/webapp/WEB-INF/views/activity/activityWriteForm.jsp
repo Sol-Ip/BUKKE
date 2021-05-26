@@ -59,7 +59,7 @@
 		<div class="container">
 			<!-- <div class="row"> -->
 	
-				<form action="activityRegister.com" method="post" enctype="multipart/form-data">
+				<form action="activityRegister.com" method="post" id="write-form" enctype="multipart/form-data">
 
 					
 						<!-- 글쓰기 폼 전체 틀 -->
@@ -212,12 +212,12 @@
 <script type="text/javascript" src="../resources/js/activity/calendar.js"></script>
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script type="text/javascript" src="../resources/js/activity/write-address.js"></script>
 <script type="text/javascript" src="../resources/js/activity/activityWriteForm.js"></script>
+<script type="text/javascript" src="../resources/js/activity/write-address.js"></script>
 <!-- 주소찾기 -->
 
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-섬머노트 
+<!-- 섬머노트  -->
 <script src="/resources/note/summernote-lite.js"></script>
 <script src="/resources/note//lang/summernote-ko-KR.js"></script>
 <script type="text/javascript"

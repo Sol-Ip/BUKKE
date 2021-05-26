@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
 
@@ -39,8 +40,8 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 
 	// 클래스 검색 (일반회원, 업체회원)
 	@Override
-	public ArrayList<BukkeClass> selectSearchListBclass(String searchValue) {
-		return null;
+	public ArrayList<BukkeClass> selectSearchListBclass(ClassSearch search) {
+		return (ArrayList)session.selectList("bclassMapper.selectSearchBclass", search);
 	}
 
 	// 클래스 등록 (업체회원-클래스 등록 메뉴)

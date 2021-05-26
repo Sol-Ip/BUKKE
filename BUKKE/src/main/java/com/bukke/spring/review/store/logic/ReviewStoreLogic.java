@@ -2,12 +2,15 @@ package com.bukke.spring.review.store.logic;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewPageInfo;
+import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.store.ReviewStore;
 
 @Repository
@@ -18,9 +21,11 @@ public class ReviewStoreLogic implements ReviewStore {
 	
 	// 후기 전체 조회(리스트)
 	@Override
-	public ArrayList<Review> selectReviewList() {
+	public ArrayList<Review> selectReviewList(ReviewPageInfo pi) {
 		// TODO Auto-generated method stub
-		return (ArrayList)session.selectList("reviewMapper.selectReviewList");
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)session.selectList("reviewMapper.selectReviewList",null,rowBounds);
 		
 	}
 	// 후기 상세 조회
@@ -33,9 +38,9 @@ public class ReviewStoreLogic implements ReviewStore {
 	
 	// 후기 검색
 	@Override
-	public ArrayList<Review> searchReviewList(String reviewValue) {
+	public ArrayList<Review> selectSearchList(ReviewSearch search) {
 		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList)session.selectList("reviewMapper.selectSearchList", search);
 	}
 	
 	//후기 등록
@@ -89,5 +94,9 @@ public class ReviewStoreLogic implements ReviewStore {
 	public int deleteLikes(Review review) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public int selectListCount() {
+		return session.selectOne("reviewMapper.selectListCount");
 	}
 }

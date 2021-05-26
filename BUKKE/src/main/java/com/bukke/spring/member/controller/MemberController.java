@@ -32,23 +32,26 @@ public class MemberController {
 	@RequestMapping(value = "memberLogin.com", method = RequestMethod.POST)
 	public String memberLogin(
 			HttpServletRequest request, @ModelAttribute Member member) {
-		System.out.println(member.getMemberId());
 		Member loginMember = mService.loginMember(member);
 		if(loginMember != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
-			return "0"; // 로그인 성공
+			if(member.getMemberId().equals("admin")) {
+				return "admin"; // 관리자로 로그인
+			} else {
+				return "success"; // 로그인 성공
+			}
 		} else {
-			return "1"; // 로그인 실패
+			return "fail"; // 로그인 실패
 		}
 	}
 
-	// @RequestMapping(value="", method=RequestMethod.GET)
+	@RequestMapping(value="memberLogout.com", method=RequestMethod.GET)
 	public String memberLogout(
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "";
+		return "redirect:home.com";
 		
 	}
 
@@ -74,6 +77,13 @@ public class MemberController {
 			return "common/errorPage";
 		}
 		
+	}
+	
+	// 카카오 로그인 매핑을 위한 페이지
+	@RequestMapping(value = "kakao/memberLogin.com", method = RequestMethod.GET)
+	public String kakaoLogin(Model model) {
+		model.addAttribute("msg","카카오 로그인 리다이렉트 페이지입니다.");
+		return "common/errorPage";
 	}
 
 	// @RequestMapping(value="", method=RequestMethod.GET)

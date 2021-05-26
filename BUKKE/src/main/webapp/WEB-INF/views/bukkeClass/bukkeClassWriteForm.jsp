@@ -93,19 +93,19 @@ function findAddr(){
 				<form action="bukkeClassRegister.com" method="post" enctype="multipart/form-data">
 
 					
-						<!-- 글쓰기 폼 전체 틀 -->
+					<!-- 글쓰기 폼 전체 틀 -->
 					<div class="row border col-md-12">
 						<div class="col-md-6">
 							<!-- 분류 -->
 							<br> <label class="form-label" for="classType">분류</label>
 							<select class="form-control" name="classType" id="" required>
 								<option value="" hidden="hidden">분류를 선택해주세요</option>
-								<option value="플라워">플라워</option>
-								<option value="미술">미술</option>
-								<option value="수공예">수공예</option>
-								<option value="뷰티">뷰티</option>
-								<option value="음악">음악</option>
-								<option value="요리">요리</option>
+								<option value="플라워" <c:if test="${bukkeClass.classType == '플라워' }">selected </c:if>>플라워</option>
+								<option value="미술" <c:if test="${bukkeClass.classType == '미술' }">selected </c:if>>미술</option>
+								<option value="수공예" <c:if test="${bukkeClass.classType == '수공예' }">selected </c:if>>수공예</option>
+								<option value="뷰티" <c:if test="${bukkeClass.classType == '뷰티' }">selected </c:if>>뷰티</option>
+								<option value="음악" <c:if test="${bukkeClass.classType == '음악' }">selected </c:if>>음악</option>
+								<option value="요리" <c:if test="${bukkeClass.classType == '요리' }">selected </c:if>>요리</option>
 							</select>
 							<hr>
 						</div>
@@ -121,25 +121,21 @@ function findAddr(){
 							<hr>
 						</div>
 
-
-
-
-
-
 						<!-- 제목, 시작일-종료일, 주소, 내용, 첨부파일 -->
-						<div class="form-outline col-md-12">
-							<label class="form-label" for="className">클래스 명</label> 
-							<input type="text" id="className" class="form-control" name="className" autocomplete="off" required maxlength="50" />
-						
-							<hr>
-						<!-- 클래스 가격 -->
-						<div class="form-outline col-md-12">
-							<label class="form-label" for="classPrice">클래스 가격</label> 
-							<input type="text" id="classPrice" class="form-control" name="classPrice" autocomplete="off" required maxlength="50" />
+						<div class="form-outline col-md-12"> 
+						<div class="row col-md-12">
+							<div class="col-md-8">
+								<label class="form-label" for="activityName">클래스 명</label> 
+								<input type="text" id="className" class="form-control" name="className" 
+									autocomplete="off" placeholder="강좌명을 작성해주세요!" required maxlength="50" /><hr>
+							</div>
+							<div class="col-md-4">
+								<label class="form-label" for="classPrice">강좌 금액</label> 
+								<input type="text" id="classPrice" class="form-control" name="classPrice" 
+									autocomplete="off" placeholder="단위제외 및 , 포함 (ex_50,000)" required maxlength="50" /><hr>
+							</div>
+						</div>
 						 
-							<hr>
-						
-
 						<div class="row col-md-12" style="align:center;">
 
 							<br>
@@ -161,29 +157,10 @@ function findAddr(){
 							<div class="col-md-4">
 							<label for="classCapacity" class="form-label">수강인원</label>
 							<br>
-								<input type="number" min="1" max="10" class="form-control" id="classCapacity" name="classCapacity" required>
+								<input type="number" min="1" max="10" class="form-control" id="classCapacity" name="classCapacity" placeholder="수강 인원은 1~10명입니다." required>
 							</div>
 						</div>
 						
-<!-- 							<div class="col-md-8">
-								<div class="calendar">
-									<label class="form-label" for="">시작일</label> <input type="date"
-										name="activityStartdate" placeholder="시작일">&nbsp;&nbsp;
-									<label class="form-label" for="">종료일</label> <input type="date"
-										name="activityEnddate" placeholder="종료일">
-								</div>
-							</div>
-
-							<div class="col-md-4">
-								<br> <label for="activityCapacity" class="form-label">수강인원</label>
-								<div class="form-group">
-									<input type="number" min="1" max="10" class="form-control"
-										id="activityCapacity" name="activityCapacity">
-								</div>
-							</div> -->
-						
-
-
 						<hr>
 						<label class="form-label" for="classAddr">클래스 주소</label>&nbsp;&nbsp;&nbsp;
 							<input type="button" id="class-post" class="btn btn btn-dark btn-md" value="주소찾기" onclick="findAddr()">
@@ -197,44 +174,15 @@ function findAddr(){
 							</div>
 							<br>
 							<hr>
-							<!-- <input id="class_post"  type="text" placeholder="Zip Code" readonly onclick="findAddr()"> -->
-								<!-- <input id="classAddr1" type="text" placeholder="Address" readonly> <br> -->
-								<!-- <input type="text" id="classAddr2" placeholder="Detailed Address"> -->
-								<!-- <div id="classAddr2" class="input-div">
-		                            <input type="text" name="classAddr2" id="classAddr2" placeholder="상세주소">
-		                        </div> -->
-							<!-- <label class="form-label" for="classAddr">클래스 주소</label>&nbsp;
-							<input type="button" id="postcodify_search_button" class="btn btn btn-dark btn-md" value="주소찾기">
-							<div class="col-md-12">
 							
-							<div id="zip-input" class="input-div">
-                            	<input type="text" id="zip" name="zip" placeholder="우편번호">
-	                        </div>
-	                        	<button id="addr-search-btn" type="button" style="width:60px; height:32px;" onclick="openZipSearch()">입력</button>
-	                        <div id="aadr1-input" class="input-div">
-	                            <input type="text" name="classAddr1" id="classAddr1" placeholder="기본주소" readonly>
-	                        </div>
-	                        <div id="addr2-input" class="input-div">
-	                            <input type="text" name="classAddr2" id="classAddr2" placeholder="상세주소">
-	                        </div> -->
-						<!--  <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" /> 
-						 <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" />  -->
-							
-							<!-- <input type="text" class="postcodify_address" name="classAddr1" autocomplete="off" placeholder="도로명주소" required size="50" /> 
-							<input type="text" class="postcodify_extra_info" name="classAddr2" autocomplete="off" placeholder="상세주소" required size="50" /> -->
-							
-							</div> 
-							<hr>
-							<br>
 								<label class="form-label" for="classInfo">상세내용</label><br>
 								<textarea id="summernote" name="classInfo" class="summernote" required></textarea>
-							<br><br>
+							<br>
 							<hr>
 
 							<input type="file" class="form-control" name="uploadFile" required>
 							<br>
 						</div>
-
 						<br>
 
 					</div>
@@ -243,7 +191,7 @@ function findAddr(){
 						<div class="button-set text-center">
 							 <input type="submit" value="등록" id="write-btn" class="btn btn-lg btn-primary"> 
 							 <a href="bukkeClassList.com"><input type="button" value="취소" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
-							 <br>
+							 <br><br><br>
 						</div>
 				</form>
 			</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +60,10 @@
 		<div class="container">
 			<!-- <div class="row"> -->
 	
-				<form action="activityRegister.com" method="post" enctype="multipart/form-data">
+				<form action="activityUpdate.com" method="post" id="" enctype="multipart/form-data">
+					<input type="hidden" id="activityNo" name="activityNo" value="${activity.activityNo }">
+					<input type="hidden" name="aOriginalFilename" value="${activity.aOriginalFilename }">
+					<input type="hidden" name="aRenameFilename" value="${activity.aRenameFilename }">
 
 					
 						<!-- 글쓰기 폼 전체 틀 -->
@@ -67,7 +71,7 @@
 						<div class="col-md-6">
 							<!-- 분류 -->
 							<br> <label class="form-label" for="activityType">분류</label>
-							<select class="form-control" name="activityType" id="" required>
+							<select class="form-control" name="activityType" id="activity-type" required>
 								
 								<!-- <option value="Outdoor">아웃도어</option>
 								<option value="surfing">서핑</option>
@@ -103,12 +107,12 @@
 						<div class="row col-md-12">
 							<div class="col-md-8">
 								<label class="form-label" for="activityName">액티비티 명</label> 
-								<input type="text" id="activityName" class="form-control" name="activityName" 
+								<input type="text" id="activityName" class="form-control" name="activityName" value="${activity.activityName }"
 									autocomplete="off" placeholder="강좌명을 작성해주세요!" required maxlength="50" /><hr>
 							</div>
 							<div class="col-md-4">
 								<label class="form-label" for="activityPrice">강좌 금액</label> 
-								<input type="text" id="activityPrice" class="form-control" name="activityPrice" 
+								<input type="text" id="activityPrice" class="form-control" name="activityPrice" value="${activity.activityPrice }"
 									autocomplete="off" placeholder="단위제외 및 , 포함 (ex_50,000)" required maxlength="50" /><hr>
 							</div>
 						</div>
@@ -121,21 +125,21 @@
 							<div class="calendar">
 									<label class="form-label" for="">시작일</label>
 									<br> 
-									<input type="date" name="activityStartdate" placeholder="시작일" required>
+									<input type="date" value="${activity.activityStartdate }" name="activityStartdate" placeholder="시작일" required>
 							</div>
 							</div>
 							<div class="col-md-4">
 							<div class="calendar">
 									<label class="form-label" for="">종료일</label> 
 									<br>
-									<input type="date" name="activityEnddate" placeholder="종료일" required>
+									<input type="date" value="${activity.activityEnddate }" name="activityEnddate" placeholder="종료일" required>
 							</div>
 							
 							</div>
 							<div class="col-md-4">
 							<label for="activityCapacity" class="form-label">수강인원</label>
 							<br>
-								<input type="number" min="1" max="10" class="form-control" id="activityCapacity" name="activityCapacity" placeholder="수강 인원은 1~10명입니다." required>
+								<input type="number" min="1" max="10" value="${activity.activityCapacity }" class="form-control" id="activityCapacity" name="activityCapacity" placeholder="수강 인원은 1~10명입니다." required>
 							</div>
 						</div>
 						
@@ -168,7 +172,7 @@
 						<!--  <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" /> 
 						 <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" />  -->
 							
-							 <input type="text" class="postcodify_address" name="activityAddr1" autocomplete="off" placeholder="도로명주소" required size="50" /> 
+							 <input type="text" class="postcodify_address" name="activityAddr1" autocomplete="off" placeholder="도로명주소" value="${activity.activityAddr }"required size="50" /> 
 							<input type="text" class="postcodify_extra_info" name="activityAddr2" autocomplete="off" placeholder="상세주소" required size="50" /> 
 							
 							<!-- <input type="text"  class="form-control" id="sample4_roadAddress" name="activityAddr1" autocomplete="none" placeholder="도로명주소" required size="50" />
@@ -179,11 +183,13 @@
 							</div> 
 							<hr>
 							<br>
-							<textarea id="summernote" name="activityInfo" required></textarea>
+							<textarea id="summernote" name="activityInfo" required>${activity.activityInfo} </textarea>
 
 							<hr>
-
-							<input type="file" class="form-control" name="uploadActivityFile" required>
+							<c:if test="${!empty activity.aOriginalFilename }">
+							<input type="file" class="form-control" name="reloadActivityFile" required>
+								기존 파일 : ${activity.aOriginalFilename}
+							</c:if>
 							<br>
 						</div> 
 
@@ -193,8 +199,9 @@
 						
 						<br><br>
 						<div class="button-set text-center">
-							 <input type="submit" value="등록" id="write-btn" class="btn btn-lg btn-primary"> 
-							 <a href="activityList.com"><input type="button" value="취소" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
+							 <input type="submit" value="수정" id="update-btn" class="btn btn-lg btn-primary">
+					
+					<a href="activityList.com"><input type="button" value="목록으로" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
 							 <br>
 						</div>
 				</form>
@@ -206,6 +213,7 @@
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+
 <!-- 캘린더 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -213,13 +221,14 @@
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="../resources/js/activity/write-address.js"></script>
-<script type="text/javascript" src="../resources/js/activity/activityWriteForm.js"></script>
+<!-- <script type="text/javascript" src="../resources/js/activity/activityWriteForm.js"></script> -->
+<script type="text/javascript" src="../resources/js/activity/activityUpdateForm.js"></script>
 <!-- 주소찾기 -->
-
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-섬머노트 
+<!-- 섬머노트  -->
 <script src="/resources/note/summernote-lite.js"></script>
 <script src="/resources/note//lang/summernote-ko-KR.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 <script type="text/javascript" src="/resources/js/note-ready.js"></script>
+<!-- <script type="text/javascript" src="../resources/js/activity/activityUpdateForm.js"></script> -->

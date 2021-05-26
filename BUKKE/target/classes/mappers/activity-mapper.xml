@@ -40,10 +40,11 @@
 
 	<update id="updateActivity">
    		UPDATE ACTIVITY SET ACTIVITY_NAME = #{activityName }, ACTIVITY_ADDR = #{activityAddr }, 
-   		ACTIVITY_TYPE = #{activityType }, NULL, ACTIVITY_INFO = #{activityInfo }, ACTIVITY_PRICE = #{activityPrice }, 
+   		ACTIVITY_TYPE = #{activityType }, ACTIVITY_TYPEDETAILS = NULL, ACTIVITY_INFO = #{activityInfo }, 
+   		ACTIVITY_PRICE = #{activityPrice }, ACTIVITY_ENROLL_DATE = SYSDATE, 
    		ACTIVITY_START_DATE = #{activityStartdate }, ACTIVITY_END_DATE = #{activityEnddate }, 
-   		A_ORIGINAL_FILENAME = #{aOriginalFilename }, SYSDATE, A_RENAME_FILENAME = #{aRenameFilename }
-   		WHERE ACTIVITY_NO = #{activityNo }
+   		A_ORIGINAL_FILENAME = #{aOriginalFilename }, A_RENAME_FILENAME = #{aRenameFilename }
+   		WHERE ACTIVITY_NO = #{activityNo } AND ACTIVITY_STATUS = 'Y'
    </update>
 	
 	<!-- 삭제인 것 처럼 보여지는 것! -->

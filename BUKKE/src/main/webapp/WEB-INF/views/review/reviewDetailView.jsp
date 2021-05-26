@@ -23,6 +23,18 @@
       </div>
     </section>
 	<!-- fixed section END-->
+	<section class="ftco-section">
+	<div class="container">
+
+			<!-- <div class="container"> -->
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">REVIEW</small></span>
+					<h2 class="mb-4">DETAILS</h2>
+				</div>
+			</div>
+	
 	<br style="clear:both">
 	<h1 align="center">${review.reviewNo }번 글 상세보기</h1>
 	<br><br>
@@ -89,7 +101,7 @@
 		</thead>
 		<tbody></tbody>
 	</table>
-
+	</section>
 	<script>
 		$(function() {
 			getCommentList();
@@ -116,7 +128,7 @@
 						}
 					},
 					error:function(request,status,error){
-				        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+				      //  alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
 				       }
 				}); 
 			});
@@ -172,7 +184,7 @@
 							}
 						},
 						error:function(request,status,error){
-					        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+					       // alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
 					       }
 					}); 
 		}

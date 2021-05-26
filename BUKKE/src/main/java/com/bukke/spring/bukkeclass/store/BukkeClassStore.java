@@ -3,6 +3,7 @@ package com.bukke.spring.bukkeclass.store;
 import java.util.ArrayList;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 
 public interface BukkeClassStore {
@@ -17,7 +18,7 @@ public interface BukkeClassStore {
 	public BukkeClass selectOneBclass(int classNo);
 
 	// 클래스 검색 (일반회원, 업체회원)
-	public ArrayList<BukkeClass> selectSearchListBclass(String searchValue);
+	public ArrayList<BukkeClass> selectSearchListBclass(ClassSearch search);
 
 	// 클래스 등록 (업체회원-클래스 등록 메뉴)
 	public int insertBclass(BukkeClass bClass);

@@ -42,7 +42,7 @@
 	<!-- fixed section END-->
 	
 	<section class="ftco-section">
- 
+  
 		<form class="col-md-4 card card-lg" style="margin-left: 10px"
 						action="noticeSearch.com" method="get" >
 					<div class="card-body row no-gutters align-items-center">

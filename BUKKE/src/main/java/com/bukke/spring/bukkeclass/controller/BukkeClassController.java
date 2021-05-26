@@ -96,12 +96,6 @@ public class BukkeClassController {
 										@RequestParam("classAddr2") String classAddr2,
 										@RequestParam(value="uploadFile", required=false) MultipartFile uploadFile,
 										HttpServletRequest request) {
-		System.out.println(bukkeClass.getClassStartDate());
-		/*
-		 * SimpleDateFormat sDate = new SimpleDateFormat("yyyy/MM/dd"); String
-		 * changeStartDate = sDate.format(classStartDate); String changeEndDate =
-		 * sDate.format(classStartDate);
-		 */
 		// 서버에 파일 저장
 		// MultipartFile : 파일 업로드 처리(스프링에서 제공하는 인터페이스)
 		if(!uploadFile.getOriginalFilename().equals("")) {
@@ -173,6 +167,8 @@ public class BukkeClassController {
 	public ModelAndView bukkeClassUpdate(ModelAndView mv, 
 										HttpServletRequest request,
 										@ModelAttribute BukkeClass bClass,
+										@RequestParam("classAddr1") String classAddr1,
+										@RequestParam("classAddr2") String classAddr2,
 										@RequestParam(value="reloadFile", required=false) MultipartFile reloadFile) {
 		// 파일 삭제 후 업로드 (수정)
 		if(reloadFile != null && !reloadFile.isEmpty()) {
@@ -189,6 +185,7 @@ public class BukkeClassController {
 		}
 		// DB 수정
 		int result = bService.modifyBclass(bClass);
+		bClass.setClassAddr(classAddr1 + ","+ classAddr2);
 		if(result > 0) {
 			mv.setViewName("redirect:bukkeClassList.com");
 		}else  {

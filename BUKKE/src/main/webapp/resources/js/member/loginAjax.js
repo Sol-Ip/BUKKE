@@ -30,14 +30,14 @@ $("#submit").click(
 					memberPw : $("#memberPw").val()
 				},
 				success : function(data) {
-					if (data == "success") {
-						alert("로그인 성공!");
-						location.href = "home.com"
-					} else if (data == "admin") {
+					 if (data == "admin") {
 						alert("관리자로 로그인하셨습니다.");
 						location.href = "home.com"
+					} else if (data == "success") {
+						alert("로그인 성공!");
+						location.href = "home.com"
 					} else {
-						$(".invalid-pw").html("아이디 혹은 비밀번호가 일치하지 않습니다.");
+						$(".invalid-check").eq(1).html("아이디 혹은 비밀번호가 일치하지 않습니다.");
 					}
 				},
 				error : function(request, status, error) {
@@ -53,8 +53,8 @@ $("#kakao").click(function(){
 })
 // 텍스트 클릭시 초기화
 $("#memberId").on("focus", function() {
-	$(".invalid-id").html("");
+	$(".invalid-check").eq(0).html("");
 })
 $("#memberPw").on("focus", function() {
-	$(".invalid-pw").html("");
+	$(".invalid-check").eq(1).html("");
 })

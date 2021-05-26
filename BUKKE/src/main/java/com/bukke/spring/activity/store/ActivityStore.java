@@ -22,7 +22,7 @@ public interface ActivityStore {
 
 	public int updateActivity(Activity activity); // 액티비티 수정 (업체회원-액티비티 수정 메뉴)
 
-	public int deleteActivity(int classNo); // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
+	public int deleteActivity(int activityNo); // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
 
 
 }

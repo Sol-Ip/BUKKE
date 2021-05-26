@@ -54,14 +54,12 @@ public class ActivityStoreLogic implements ActivityStore {
 
 	@Override
 	public int updateActivity(Activity activity) { // 액티비티 수정 (업체회원-액티비티 수정 메뉴)
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("activityMapper.updateActivity", activity);
 	}
 
 	@Override
-	public int deleteActivity(int classNo) { // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteActivity(int activityNo) { // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
+		return sqlSession.delete("activityMapper.deleteActivity", activityNo);
 	}
 
 

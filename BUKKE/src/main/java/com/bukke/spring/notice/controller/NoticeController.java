@@ -200,5 +200,10 @@ public class NoticeController {
 		return "common/errorPage";
 	}
 	}
+	//아이디 비밀번호 찾기 테스트
+	@RequestMapping(value="memberId.com",method = RequestMethod.GET)
+	public String memberIdSearch() {
+		return "member/memberSearch";
+	}
 }
 

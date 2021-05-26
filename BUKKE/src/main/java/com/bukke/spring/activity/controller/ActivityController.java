@@ -222,9 +222,24 @@ public class ActivityController {
 	
 	
 	// *액티비티 삭제기능 메소드
-	public String activityRemove() {
+	@RequestMapping(value="activityDelete.com", method = RequestMethod.GET)
+	public String activityRemove(Model model,
+						@RequestParam("activityNo") int activityNo,
+						@RequestParam("aRenameFilename") String aRenameFilename,
+						HttpServletRequest request) {
+		// 업로드 된 파일 삭제
+		if(aRenameFilename !="") {
+			deleteActivityFile(aRenameFilename, request);
+		}
 		
-		return null;
+		// DB에 데이터 업데이트
+		int result = aService.removeActivity(activityNo);
+		if(result > 0) {
+			return "redirect:activityList.com";
+		} else {
+			model.addAttribute("msg", "액티비티 삭제 실패");
+			return "common/errorPage";
+		}
 	}
 	
 	

@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/bg_1.jpg');"
@@ -172,13 +173,12 @@
 									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
 								</c:url>
 								<!-- renameFilename 은 실제 저장된 파일 이름  -->
-								<c:url var="aDelete" value="boardDelete.kh">
-									<c:param name="boardNo" value="${activity.activityNo }"></c:param>
+								<c:url var="aDelete" value="activityDelete.com">
+									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
 									<c:param name="aRenameFilename" value="${activity.aRenameFilename }"></c:param>
 								</c:url>
-								<a href="${aModify }"><input class="btn btn-lg btn-warning" type="submit" value="수정"></a> 
-									<a href="#"><input
-									class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
+								<a href="${aModify }"><input class="btn btn-lg btn-warning" type="button" value="수정"></a> 
+									<a href="${aDelete }"><input class="btn btn-lg btn-danger" id="delete-btn" type="button" value="삭제"></a>
 							</div>
 						</div>
 					</div>
@@ -275,6 +275,22 @@
 
 	<!-- Activity detail section END-->
 
+<script>
+$(document).ready(function() {
+
+	 $("#delete-btn").on("click",function(){
+		 consol.log("삭제완료");
+		/*  if (!confirm("삭제하시겠습니까?")) {
+			 // 취소
+					return false;
+		 		} else {
+		     // 확인
+		 		}
+	 		}); */
+
+});
+</script>
 </body>
 </html>
+
 <jsp:include page="../common/footer.jsp"></jsp:include>

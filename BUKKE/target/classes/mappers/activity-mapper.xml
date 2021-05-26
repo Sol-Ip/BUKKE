@@ -49,7 +49,7 @@
 	
 	<!-- 삭제인 것 처럼 보여지는 것! -->
 	<update id="deleteActivity" parameterType="_int">
-		UPDATE ACTIVITY SET ACTIVITY_STATUS = 'N' WHERE ACTIVITY_NO = #{activityNo }
+		UPDATE ACTIVITY SET ACTIVITY_STATUS = 'N' WHERE ACTIVITY_NO = #{activityNo}
 	</update>
 	
 	<!-- 조회 수

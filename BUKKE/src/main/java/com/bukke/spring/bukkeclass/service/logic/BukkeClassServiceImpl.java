@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
@@ -35,8 +36,8 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 
 	// 클래스 검색 (일반회원, 업체회원)
 	@Override
-	public ArrayList<BukkeClass> searchBclass(String searchValue) {
-		return null;
+	public ArrayList<BukkeClass> searchBclass(ClassSearch search) {
+		return bStore.selectSearchListBclass(search);
 	}
 
 	// 클래스 등록 (업체회원-클래스 등록 메뉴)

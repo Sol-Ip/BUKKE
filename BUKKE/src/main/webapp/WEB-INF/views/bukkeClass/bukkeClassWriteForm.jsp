@@ -197,39 +197,11 @@ function findAddr(){
 							</div>
 							<br>
 							<hr>
-							<!-- <input id="class_post"  type="text" placeholder="Zip Code" readonly onclick="findAddr()"> -->
-								<!-- <input id="classAddr1" type="text" placeholder="Address" readonly> <br> -->
-								<!-- <input type="text" id="classAddr2" placeholder="Detailed Address"> -->
-								<!-- <div id="classAddr2" class="input-div">
-		                            <input type="text" name="classAddr2" id="classAddr2" placeholder="상세주소">
-		                        </div> -->
-							<!-- <label class="form-label" for="classAddr">클래스 주소</label>&nbsp;
-							<input type="button" id="postcodify_search_button" class="btn btn btn-dark btn-md" value="주소찾기">
-							<div class="col-md-12">
 							
-							<div id="zip-input" class="input-div">
-                            	<input type="text" id="zip" name="zip" placeholder="우편번호">
-	                        </div>
-	                        	<button id="addr-search-btn" type="button" style="width:60px; height:32px;" onclick="openZipSearch()">입력</button>
-	                        <div id="aadr1-input" class="input-div">
-	                            <input type="text" name="classAddr1" id="classAddr1" placeholder="기본주소" readonly>
-	                        </div>
-	                        <div id="addr2-input" class="input-div">
-	                            <input type="text" name="classAddr2" id="classAddr2" placeholder="상세주소">
-	                        </div> -->
-						<!--  <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" /> 
-						 <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" />  -->
-							
-							<!-- <input type="text" class="postcodify_address" name="classAddr1" autocomplete="off" placeholder="도로명주소" required size="50" /> 
-							<input type="text" class="postcodify_extra_info" name="classAddr2" autocomplete="off" placeholder="상세주소" required size="50" /> -->
-							
-							</div> 
-							<hr>
-							<br>
 								<label class="form-label" for="classInfo">상세내용</label><br>
 								<textarea id="summernote" name="classInfo" class="summernote" required></textarea>
 							<br><br>
-							<hr>
+							<hr><br>
 
 							<input type="file" class="form-control" name="uploadFile" required>
 							<br>
@@ -240,10 +212,10 @@ function findAddr(){
 					</div>
 						
 						<br><br>
-						<div class="button-set text-center">
+						<div class="button-set text-center" style="padding-left : 500px;">
 							 <input type="submit" value="등록" id="write-btn" class="btn btn-lg btn-primary"> 
 							 <a href="bukkeClassList.com"><input type="button" value="취소" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
-							 <br>
+							 <br><br><br>
 						</div>
 				</form>
 			</div>

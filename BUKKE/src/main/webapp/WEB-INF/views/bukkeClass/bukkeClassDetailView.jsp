@@ -7,12 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>부캐, 새로운 나 ! - Class</title>
-<link rel="stylesheet"
-	href="resources/css/bClass-custom/bClassListView.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="resources/css/bClass-custom/bClassListView.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="resources/css/bClass-custom/bClassDetailView.css">
 </head>
 
 <body>
@@ -25,10 +23,10 @@
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">CLASS</h1>
+					<h1 class="mb-2 bread">CLASS DETAILS</h1>
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Class <i
+								class="ion-ios-arrow-forward"></i></a></span> <span>Class Details <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
 				</div>
@@ -42,18 +40,31 @@
 	<!-- ================ Class Detail ================ -->
 	<section class="ftco-section">
 		<div class="container">
+		<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">BUKKE</small></span>
+					<h2 class="mb-4">CLASS DETAILS</h2>
+				</div>
+			</div>
 			<div class="row">
-				<div class="col-lg-12 ftco-animate"> <!-- 클래스 분류 -->
-					<h3>[ ${bukkeClass.shopId } ] ${bukkeClass.className } </h3>
+			<!-- 클래스 분류 -->
+				<div class="col-lg-12 ftco-animate"> 
+					<ul id="type-ul">
+						<li><h3 class="act-type">[&nbsp;</h3></li>
+						<li><h3 id="act-type">${bukkeClass.classType}</h3></li>
+						<li><h3 class="act-type">&nbsp;>&nbsp;</h3></li>
+						<li><h3 id="act-type">${bukkeClass.classTypedetails}</h3></li>
+						<li><h3 class="act-type">&nbsp;]</h3></li>
+					</ul>
 				</div>
 				<div class="col-lg-8 ftco-animate">
 					<p>
 						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }" alt="class photo" class="img-fluid">
 					</p>
-
-					<H6>${bukkeClass.classInfo }</H6>
-						
-						
+					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명 : ${bukkeClass.className }</h2>
+					<hr>
+					<%-- <H6>${bukkeClass.classInfo }</H6>
 					<p>Molestiae cupiditate inventore animi, maxime sapiente optio,
 						illo est nemo veritatis repellat sunt doloribus nesciunt! Minima
 						laborum magni reiciendis qui voluptate quisquam voluptatem soluta
@@ -66,58 +77,34 @@
 						tempora maiores ex architecto voluptatum aut officia doloremque.
 						Error dolore voluptas, omnis molestias odio dignissimos culpa ex 
 						earum nisi consequatur quos odit quasi repellat qui officiis
-						reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
-					<p>
-						<img src="resources/images/image_2.jpg" alt="" class="img-fluid">
-					</p>
-					<p>Quisquam esse aliquam fuga distinctio, quidem delectus
-						veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde
-						aut non tenetur tempore, nisi culpa voluptate maiores officiis
-						quis vel ab consectetur suscipit veritatis nulla quos quia
-						aspernatur perferendis, libero sint. Error, velit, porro. Deserunt
-						minus, quibusdam iste enim veniam, modi rem maiores.</p>
-					<p>Odit voluptatibus, eveniet vel nihil cum ullam dolores
-						laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga
-						iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis
-						porro explicabo soluta commodi libero voluptatem similique id
-						quidem? Blanditiis voluptates aperiam non magni. Reprehenderit
-						nobis odit inventore, quia laboriosam harum excepturi ea.</p>
-					<p>Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam
-						ipsam quidem, dolor distinctio similique asperiores voluptas enim,
-						exercitationem ratione aut adipisci modi quod quibusdam iusto,
-						voluptates beatae iure nemo itaque laborum. Consequuntur et
-						pariatur totam fuga eligendi vero dolorum provident. Voluptatibus,
-						veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur
-						recusandae!</p>
-					<p>Voluptas dolores dignissimos dolorum temporibus, autem
-						aliquam ducimus at officia adipisci quasi nemo a perspiciatis
-						provident magni laboriosam repudiandae iure iusto commodi debitis
-						est blanditiis alias laborum sint dolore. Dolores, iure,
-						reprehenderit. Error provident, pariatur cupiditate soluta
-						doloremque aut ratione. Harum voluptates mollitia illo minus
-						praesentium, rerum ipsa debitis, inventore?</p>
-					<div class="tag-widget post-tag-container mb-5 mt-5">
-						<div class="tagcloud">
-							<a href="#" class="tag-cloud-link">Life</a> <a href="#"
-								class="tag-cloud-link">Sport</a> <a href="#"
-								class="tag-cloud-link">Tech</a> <a href="#"
-								class="tag-cloud-link">Travel</a>
-						</div>
+						reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p> --%>
+						
+						
+					<div style="padding: 30px;">
+						<h5>${bukkeClass.classInfo }</h5>
 					</div>
+					<hr>
 
-					<div class="about-author d-flex p-4 bg-light">
-						<div class="bio mr-5">
-							<img src="resources/images/person_1.jpg" alt="Image placeholder"
-								class="img-fluid mb-4">
-						</div>
-						<div class="desc">
-							<h3>George Washington</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Ducimus itaque, autem necessitatibus voluptate quod mollitia
-								delectus aut, sunt placeat nam vero culpa sapiente consectetur
-								similique, inventore eos fugit cupiditate numquam!</p>
+					<div class="tag-widget post-tag-container mb-5 mt-5">
+						<div class="meta">
+							<div>
+								<button class="btn btn-outline-danger">
+									<span class="icon-heart icon-large"></span> 찜하기
+								</button>
+								<button class="btn btn-outline-warning">
+									<span class="icon-smile icon-large"></span> 찜하기
+								</button>
+								<button class="btn btn-outline-danger">❤</button>
+								<button class="btn btn-outline-danger">
+									<i class="fas fa-bookmark fa-2x"></i>
+								</button>
+
+								<span class="icon-eye-open"></span>
+							</div>
+
 						</div>
 					</div>
+					
 				</div>
 
 				<!-- ================  Detail END================ -->
@@ -126,29 +113,99 @@
 				<!-- =============== side bar =============== -->
 
 				<div class="col-lg-4 sidebar ftco-animate">
-
+					<div class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
 					<div class="sidebar-box ftco-animate">
-						<h3>상세 정보</h3>
+					<h2 align="center">
+						<i class="fas fa-list fa-lg"></i>&nbsp;Information
+					</h2>
+					<hr>
+					<br>
 						<div class="block-21 mb-4 d-flex">
-							<div class="meta">
-								<h3 class="heading">Even the all-powerful Pointing has no
-									control about the blind texts</h3>
+							<ul id="type-ul">
+									<li><h3 class="act-type">
+											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classStartDate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>종료일</b>&nbsp;&nbsp;<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classEndDate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.shopId }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>조회 수</b>&nbsp;&nbsp;<i class="far fa-eye"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">조회수 들어오기</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>찜 갯수</b>&nbsp;&nbsp;<i class="fas fa-heartbeat"></i></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">찜 개수 들어오기</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b> 주소 </b>&nbsp;&nbsp;<i class="fas fa-map-marked-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classAddr }</h3></li>
+								</ul>
+						</div>
 
+							<!-- 사업자에게만 버튼 보이게 하기 -->
+							<div align="center">
+								<c:url var="cModify" value="bukkeClassModify.com">
+									<c:param name="activityNo" value="${bukkeClass.classNo }"></c:param>
+								</c:url>
+								<!-- renameFilename 은 실제 저장된 파일 이름  -->
+								<c:url var="cDelete" value="bukkeClassDelete.com">
+									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+									<c:param name="cRenameFilename" value="${bukkeClass.cRenameFilename }"></c:param>
+								</c:url>
+								<a href="${cModify }"><input class="btn btn-lg btn-warning" type="submit" value="수정"></a> 
+									<a href="#"><input class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="ftco-animate">
+						<input type="submit" class="btn btn-lg btn-primary" value="버튼 1">
+						<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
+						<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
+					</div>
+					<br>
+					<br>
+					<div class="sidebar-box ftco-animate">
+						<h3>Popular Articles</h3>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4"
+								style="background-image: url(resources/images/image_1.jpg);"></a>
+							<div class="text">
+								<h3 class="heading">
+									<a href="#">Even the all-powerful Pointing has no control
+										about the blind texts</a>
+								</h3>
 								<div class="meta">
 									<div>
-										<a href="#"><span class="icon-calendar"></span> ${bukkeClass.classStartDate } - ${bukkeClass.classEndDate }</a>
+										<a href="#"><span class="icon-calendar"></span> Oct. 04,
+											2018</a>
 									</div>
 									<div>
-										<a href="#"><span class="icon-person"></span> ${bukkeClass.shopId }</a>
+										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
 									</div>
 									<div>
-										<a href="#"><span class="icon-chat"></span> ${bukkeClass.classPrice }</a>
+										<a href="#"><span class="icon-chat"></span> 19</a>
 									</div>
 								</div>
 							</div>
-
 						</div>
-
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
 								style="background-image: url(resources/images/image_2.jpg);"></a>
@@ -194,67 +251,12 @@
 							</div>
 						</div>
 					</div>
-					<div class="ftco-animate">
-					<c:url var="cModify" value="bukkeClassModify.com">
-		               <c:param name="classNo" value="${ bukkeClass.classNo }"></c:param>
-		            </c:url>
-		            <c:url var="cDelete" value="bukkeClassDelete.com">
-		               <c:param name="classNo" value="${ bukkeClass.classNo }"></c:param>
-		               <c:param name="cRenameFilename" value="${ bukkeClass.cRenameFilename }"></c:param>
-		            </c:url>
-					<input type="submit" class="btn btn-lg btn-primary" value="예약">
-					<a href="#"><button class="btn btn-lg btn-primary" type="submit">선물</button></a>
-					<a href="#"><button class="btn btn-lg btn-primary" type="submit">결제</button></a>
-					<%-- <a href="${cModify }"><button class="btn btn-lg btn-primary" type="submit">수정</button></a>
-					<a href="${cDelete }"><button class="btn btn-lg btn-primary" onclick="return confirm('정말 삭제하시겠습니까?')" type="submit">삭제</button></a> --%>
-					</div>
-					<br><br>
-					<div class="sidebar-box ftco-animate">
-						<h3>Category</h3>
-						<ul class="categories">
-							<li><a href="#">Interior Design <span>(6)</span></a></li>
-							<li><a href="#">Exterior Design <span>(8)</span></a></li>
-							<li><a href="#">Industrial Design <span>(2)</span></a></li>
-							<li><a href="#">Landscape Design <span>(2)</span></a></li>
-						</ul>
-					</div>
-
-
-					<div class="sidebar-box ftco-animate">
-						<h3>Tag Cloud</h3>
-						<ul class="tagcloud m-0 p-0">
-							<a href="#" class="tag-cloud-link">House</a>
-							<a href="#" class="tag-cloud-link">Office</a>
-							<a href="#" class="tag-cloud-link">Land</a>
-							<a href="#" class="tag-cloud-link">Building</a>
-							<a href="#" class="tag-cloud-link">Table</a>
-							<a href="#" class="tag-cloud-link">Intrior</a>
-							<a href="#" class="tag-cloud-link">Exterior</a>
-						</ul>
-					</div>
-
-					<div class="sidebar-box ftco-animate">
-						<h3>Archives</h3>
-						<ul class="categories">
-							<li><a href="#">December 2018 <span>(30)</span></a></li>
-							<li><a href="#">Novemmber 2018 <span>(20)</span></a></li>
-							<li><a href="#">September 2018 <span>(6)</span></a></li>
-							<li><a href="#">August 2018 <span>(8)</span></a></li>
-						</ul>
-					</div>
-
-
-					<div class="sidebar-box ftco-animate">
-						<h3>Paragraph</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Ducimus itaque, autem necessitatibus voluptate quod mollitia
-							delectus aut, sunt placeat nam vero culpa sapiente consectetur
-							similique, inventore eos fugit cupiditate numquam!</p>
-					</div>
 				</div>
-				<!-- END COL -->
 			</div>
 		</div>
+		<!-- END COL -->
+
+				<!-- =============== side bar END =============== -->
 	</section>
 	
 	<!-- 후기 보기 -->

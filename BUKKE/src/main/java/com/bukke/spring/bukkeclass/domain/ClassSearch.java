@@ -4,6 +4,7 @@ public class ClassSearch {
 	
 	private String classCategory; // 클래스 검색 카테고리
 	private String classKeyword; // 클래스 검색 키워드
+	
 	public String getClassCategory() {
 		return classCategory;
 	}

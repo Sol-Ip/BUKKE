@@ -3,6 +3,7 @@ package com.bukke.spring.bukkeclass.service;
 import java.util.ArrayList;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 
 public interface BukkeClassService {
@@ -17,7 +18,7 @@ public interface BukkeClassService {
 	public BukkeClass printOneBclass(int classNo);
 
 	// 클래스 검색
-	public ArrayList<BukkeClass> searchBclass(String searchValue);
+	public ArrayList<BukkeClass> searchBclass(ClassSearch search);
 	
 	// 클래스 등록 (업체회원-클래스 등록 메뉴)
 	public int registerBclass(BukkeClass bClass);
@@ -27,5 +28,6 @@ public interface BukkeClassService {
 	
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)
 	public int removeBclass(int classNo);
+
 
 }

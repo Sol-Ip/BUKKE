@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.BukkeClassPagination;
@@ -66,9 +67,19 @@ public class BukkeClassController {
 		}
 		return mv;
 	}
+	
 	// *클래스 검색기능 메소드
-	public String bukkeClassSearch() {
-		return null;
+	@RequestMapping(value="bukkeClassSearch.com", method=RequestMethod.GET)
+	public String bukkeClassSearch(@ModelAttribute ClassSearch search, Model model) {
+		ArrayList<BukkeClass> bSearchList = bService.searchBclass(search);
+		if(!bSearchList.isEmpty()) {
+			model.addAttribute("bList", bSearchList);
+			model.addAttribute("search", search);
+			return "bukkeClass/bukkeClassList";
+		}else {
+			model.addAttribute("msg", "클래스 검색 실패");
+			return "common/errorPage";
+		}
 	}
 	
 	// 클래스 등록 jsp 이동 (업체회원)

@@ -46,7 +46,37 @@
 	<!-- fixed section END-->
 	
 	<!-- ========================= 리스트 시작 =========================  -->
-		
+	
+	<!-- ========================= 검색창 =========================  -->
+	<div class="container ftco-animate">
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-md-4 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-light">BUKKE</small></span>
+					<h2 class="mb-4">SEARCH</h2>
+				</div>
+				
+				<form class="col-md-8 card card-lg" action="bukkeClassSearch.com" method="get">
+					<div class="card-body row no-gutters align-items-center">
+						<div class="col-auto">
+							<i class="fas fa-search h4 text-body"></i>
+						</div>
+						<!--end of col-->
+						<div class="col">
+							<input class="form-control form-control-lg form-control-borderless" type="search" name="classKeyword" value="${search.classKeyword }" placeholder="검색어를 입력해주세요">
+						</div>
+						<!--end of col-->
+						<div class="col-auto">
+							<button class="btn btn-lg btn-primary" type="submit">Search</button>
+						</div>
+						<!--end of col-->
+					</div>
+				</form>
+			</div>
+			<!--end of col-->
+			<hr>
+		</div>
 		<!-- ========================= 클래스 정보란 =========================  -->
 		<div class="container">
 

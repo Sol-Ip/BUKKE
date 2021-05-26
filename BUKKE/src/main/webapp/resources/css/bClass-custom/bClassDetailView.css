@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+@font-face { /* 티웨이항공체 */
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face { /* 코트라볼드체 */
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face { /* Rix 열정도체 */
+    font-family: 'RixYeoljeongdo_Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#act-type {
+	font-family: 'KOTRA_BOLD-Bold';
+	color : #0033c7;
+}
+
+.act-type {
+	font-family: 'KOTRA_BOLD-Bold';
+	
+}
+#type-ul {
+	padding-left:0;
+	list-style:none;
+}
+
+li {
+	float:left;
+}
+
+.bg-light {
+	background-color : #f2f7fc !important;
+}
+
+.sidebar-box {
+	padding : 0 25px 0;
+}

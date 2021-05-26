@@ -33,6 +33,14 @@
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>
    
+   <select id="selectSearchBclass" resultMap="bClassResultMap">
+		<!-- <if test="classCategory.toString() =='name'">WHERE CLASS_NAME LIKE '%' || #{classKeyword}||'%'</if> -->
+		<!-- <if test="classCategory.toString() =='info'">WHERE CLASS_CONTENTS LIKE '%' || #{classKeyword}||'%'</if> -->
+	   	SELECT * FROM CLASS
+	   	WHERE CLASS_NAME LIKE '%' || #{classKeyword} ||'%' AND CLASS_INFO LIKE '%' || #{classKeyword} ||'%'
+		ORDER BY CLASS_ENROLL_DATE DESC
+   </select>
+   
    <insert id="insertBclass" parameterType="BukkeClass">
    	  INSERT INTO CLASS 
    	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename })

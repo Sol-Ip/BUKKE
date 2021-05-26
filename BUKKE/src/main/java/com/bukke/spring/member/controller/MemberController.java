@@ -86,9 +86,10 @@ public class MemberController {
 		return "common/errorPage";
 	}
 
-	// @RequestMapping(value="", method=RequestMethod.GET)
+	// 마이페이지 화면
+	@RequestMapping(value="memberMyPage.com", method=RequestMethod.GET)
 	public String myInfoView() {
-		return "";
+		return "member/memberInfo";
 		
 	}
 

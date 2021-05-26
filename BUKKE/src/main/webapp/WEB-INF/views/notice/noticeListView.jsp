@@ -43,21 +43,31 @@
 	
 	<section class="ftco-section">
 
-		<div class="sidebar-box">
-			<form action="noticeSearch.com" class="search-form" method="get"
-				style="width: 300px; ">
+		<form class="col-md-4 card card-lg" style="margin-left: 10px"
+						action="noticeSearch.com" method="get" >
+					<div class="card-body row no-gutters align-items-center">
+						<div class="col-auto">
+							<i class="fas fa-search h4 text-body"></i>
+						</div>
+						<!--end of col-->
+						<div class="col-auto">
 							<select class="form-control" name="noticeCategory" id="" style="width: 100px;">
 								<option value="" hidden="hidden">검색</option>
 								<option value="title" <c:if test="${search.noticeCategory =='title'}">selected</c:if>>제목</option>
 								<option value="contents" <c:if test="${search.noticeCategory =='contents'}">selected</c:if>>내용</option>
 							</select>
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="검색어를 입력해 주세요" width="200px;" name="noticeKeyword" value="${search.noticeKeyword }">
-					<input type="submit" value="검색">
-				</div>
-				
-			</form>
-		</div>
+						</div>
+						<div class="col-auto">
+							<input class="form-control form-control form-control-borderless" style="width: 300px;"
+								type="text" value="${search.noticeKeyword }" name="noticeKeyword" placeholder="검색어를 입력해주세요">
+						</div>
+						<!--end of col-->
+						<div class="col-auto" style="top: 8px;">
+							<button class="btn btn-primary"  type="submit" style="margin-left:15px;">Search</button>
+						</div>
+						<!--end of col-->
+					</div>
+				</form>
 		<!-- 공지사항 리스트 -->
 		<div class="container-fluid py-4">
 			<div class="row">

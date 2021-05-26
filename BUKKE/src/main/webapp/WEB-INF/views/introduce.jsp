@@ -10,6 +10,12 @@
 <title>Introduce</title>
 </head>
 <body>
+<p style="margin-top:-12px">
+    <em class="link">
+        <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+        </a>
+    </em>
+</p>
  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -155,8 +161,36 @@
           </div>
         </div>
 			</div>
+			<br><br><br><br>
+			<hr>
+			<br><br><br><br>
 			
-		</section>
+			
+							<!-- 지도 -->
+			<section>
+			<div class="container">
+				<div class="row justify-content-start mb-5 pb-5">
+          <div class="col-md-4 heading-section ftco-animate">
+            <h2 class="mb-4">부캐 오시는길</h2>
+          </div>
+          <div class="col-md-8 pl-md-5 ftco-animate">
+          	<div class="pl-md-4 border-line">
+	          	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in.</p>
+          	</div>
+          </div>
+        </div>
+        </div>
+			<div>
+				<div id="maps" style="width:30%;height:350px; margin-left:15%">
+				<div></div>
+				<div></div>
+				</div>
+			</div>
+			</section>
+			
+    </section>
+		
+			
 		
 			<!--사용설명서 -->
     <section class="ftco-section testimony-section bg-light">
@@ -166,7 +200,46 @@
       </div>
     </section>
     
-              
+   <!-- 지도 스크립트 부분 -->
+   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4dba342dbd27f0cb9dd734f93e5c8160&libraries=services"></script>
+<script>
+var mapContainer = document.getElementById('maps'), // 지도를 표시할 div 
+mapOption = {
+    center: new kakao.maps.LatLng(37.499656103908876, 127.0285969119337), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
+};  
+
+//지도를 생성합니다    
+var maps = new kakao.maps.Map(mapContainer, mapOption); 
+
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+//주소로 좌표를 검색합니다
+geocoder.addressSearch('서울특별시 강남구 역삼동 818-11', function(result, status) {
+
+// 정상적으로 검색이 완료됐으면 
+ if (status === kakao.maps.services.Status.OK) {
+
+    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+    // 결과값으로 받은 위치를 마커로 표시합니다
+    var marker = new kakao.maps.Marker({
+        map: maps,
+        position: coords
+    });
+
+    // 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="width:150px;text-align:center;padding:6px 0;">부캐 본사</div>'
+    });
+    infowindow.open(maps, marker);
+
+    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+    map.setCenter(coords);
+} 
+});     
+</script>        
 
 
 </body>

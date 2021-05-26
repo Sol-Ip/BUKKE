@@ -13,7 +13,7 @@
 		<result property="nRenameFilename" column="N_RENAME_FILENAME"></result>
 	</resultMap>
 	
-		<select id="selectListCount" resultType="_int">
+		<select id="selectListNoticeCount" resultType="_int">
 		SELECT COUNT(*) FROM NOTICE
 		WHERE NOTICE_STATUS = 'Y'	
 		</select>

@@ -19,8 +19,8 @@ public class NoticeStoreLogic implements NoticeStore{
 
 	@Override
 	public ArrayList<Notice> selectAllNoticeList(NoticePageInfo pi) {
-		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
-		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		int offset = (pi.getCurrentPage() - 1) * pi.getNoticeLimit();
+		RowBounds rowBounds = new RowBounds(offset, pi.getNoticeLimit());
 		return (ArrayList)sqlSession.selectList("noticeMapper.selectNoticeList",null,rowBounds);
 	}
 
@@ -52,8 +52,7 @@ public class NoticeStoreLogic implements NoticeStore{
 
 	@Override
 	public int selectListCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne("noticeMapper.selectListNoticeCount");
 	}
 
 	@Override

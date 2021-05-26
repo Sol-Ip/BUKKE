@@ -11,17 +11,21 @@ public class NoticePageInfo {
 	
 	public NoticePageInfo() {}
 
-	public NoticePageInfo(int currentPage, int boardLimit, int pageLimit, int startPage, int endPage, int listCount,
+	
+	
+	public NoticePageInfo(int currentPage, int noticeLimit, int pageLimit, int startPage, int endPage, int listCount,
 			int maxPage) {
 		super();
 		this.currentPage = currentPage;
-		this.noticeLimit = boardLimit;
+		this.noticeLimit = noticeLimit;
 		this.pageLimit = pageLimit;
 		this.startPage = startPage;
 		this.endPage = endPage;
 		this.listCount = listCount;
 		this.maxPage = maxPage;
 	}
+
+
 
 	public int getCurrentPage() {
 		return currentPage;
@@ -31,12 +35,12 @@ public class NoticePageInfo {
 		this.currentPage = currentPage;
 	}
 
-	public int getBoardLimit() {
+	public int getNoticeLimit() {
 		return noticeLimit;
 	}
 
-	public void setBoardLimit(int boardLimit) {
-		this.noticeLimit = boardLimit;
+	public void setNoticeLimit(int noticeLimit) {
+		this.noticeLimit = noticeLimit;
 	}
 
 	public int getPageLimit() {
@@ -81,10 +85,11 @@ public class NoticePageInfo {
 
 	@Override
 	public String toString() {
-		return "NoticePageInfo [currentPage=" + currentPage + ", boardLimit=" + noticeLimit + ", pageLimit=" + pageLimit
-				+ ", startPage=" + startPage + ", endPage=" + endPage + ", listCount=" + listCount + ", maxPage="
-				+ maxPage + "]";
+		return "NoticePageInfo [currentPage=" + currentPage + ", noticeLimit=" + noticeLimit + ", pageLimit="
+				+ pageLimit + ", startPage=" + startPage + ", endPage=" + endPage + ", listCount=" + listCount
+				+ ", maxPage=" + maxPage + "]";
 	}
+
 	
 	
 }

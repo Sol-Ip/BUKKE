@@ -13,6 +13,7 @@ document.querySelectorAll("fieldset.with-placeholder input").forEach(
 			})
 		});
 
+// 아이디 입력 애니메이션
 function updateMouthEyes() {
 	if (memberId.value.length > 0) {
 			document
@@ -37,7 +38,7 @@ function updateMouthEyes() {
 	pupilLeft.setAttribute("cx", 113 + movePos);
 }
 
-let memberId = document.querySelector("#memberId");
+let memberId = document.querySelector(".id");
 memberId.addEventListener("focus", updateMouthEyes);
 memberId.addEventListener("input", updateMouthEyes);
 memberId.addEventListener("blur", function() {
@@ -49,8 +50,7 @@ memberId.addEventListener("blur", function() {
 	pupilLeft.setAttribute("cy", 71);
 });
 
-// password animation: move arms to cover eyes on focus,
-// and return to original position on blur
+// 비밀번호 입력 애니메이션
 let memberPw = document.querySelector("#memberPw");
 memberPw.addEventListener("focus", function() {
 	document.querySelector("#ghost-arm-left").setAttribute("d",

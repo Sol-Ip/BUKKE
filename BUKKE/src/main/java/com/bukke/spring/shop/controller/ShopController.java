@@ -14,9 +14,6 @@ public class ShopController {
 	@Autowired
 	private ShopService sService;
 	
-	//1.업체 탈퇴시 컬럼을 추가로 만들어서 회원탈퇴 체크
-	//2.실제 삭제되지 않음
-	
 	// 업체회원 로그인(ajax)
 	@ResponseBody
 	@RequestMapping(value = "shopLogin.com", method = RequestMethod.POST)
@@ -29,9 +26,9 @@ public class ShopController {
 		return "";
 	}
 	
-	// 업체회원 회원가입
-	@RequestMapping(value = "shopRegister.com", method = RequestMethod.POST)
-	public String shopRegister() {
+	// 업체회원 회원가입(jsp)
+	@RequestMapping(value = "shopRegisterForm.com", method = RequestMethod.GET)
+	public String enrollView() {
 		return "";
 	}
 	

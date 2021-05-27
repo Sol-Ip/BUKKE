@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 주소검색 api -->
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<title>부캐 - 회원가입</title>
+<title>업체 - 회원가입</title>
 </head>
 <style>
     @media (min-width: 650px) {

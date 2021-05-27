@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../common/header.jsp?active=login"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="/resources/css/member/loginForm.css">
+<!-- 제이쿼리 -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 <form action="memberLogin.com" method="POST">
@@ -43,29 +44,57 @@
   	<input type="radio" name="loginType" value="typeShop">
     <label name="typeShop" class="spread-underline" for="typeShop"><span class="spread-underline">업체회원</span></label>
   </div>
-  <fieldset class="member-filed with-placeholder">
+  <!-- 일반회원 -->
+  <fieldset class="member-field with-placeholder">
     <legend>아이디</legend>
     <div>
-      <input type="text" name="memberId" id="memberId" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+      <input type="text" class="id" name="memberId" id="memberId" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
       <div class="placeholder">USER NAME</div>
     </div>
     <div class="invalid-check"></div>
   </fieldset>
-  <fieldset class="member-filed">
-    <legend>비밀번호</legend>
+  <!-- 업체회원 -->
+  <fieldset class="shop-field with-placeholder">
+    <legend>아이디</legend>
     <div>
-      <input type="password" name="memberPw" id="memberPw" placeholder="⦁⦁⦁⦁⦁⦁" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+      <input type="text" class="id" name="shopId" id="shopId" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+      <div class="placeholder">SHOP NAME</div>
     </div>
     <div class="invalid-check"></div>
   </fieldset>
-  <fieldset id="submit-field">
+  <!-- 일반회원 -->
+  <fieldset class="member-field">
+    <legend>비밀번호</legend>
+    <div>
+      <input type="password" class="pw" name="memberPw" id="memberPw" placeholder="⦁⦁⦁⦁⦁⦁" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+    </div>
+    <div class="invalid-check"></div>
+  </fieldset>
+  <!-- 업체회원 -->
+  <fieldset class="shop-field">
+    <legend>비밀번호</legend>
+    <div>
+      <input type="password" class="pw" name="shopPw" id="shopPw" placeholder="⦁⦁⦁⦁⦁⦁" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+    </div>
+    <div class="invalid-check"></div>
+  </fieldset>
+  <!-- 공용 -->
+  <fieldset class="submit-field">
   	<input type="button" name="submit" id="submit" value="로그인"/>
   </fieldset>
-  <fieldset id="member-filed">
+  <!-- 일반회원 -->
+  <fieldset class="member-field">
     <input type="button" name="kakao" id="kakao" value="카카오 로그인"/>
-    <div id="registerMember">
-      <a href="#">ID/PW 찾기</a>
+    <div class="enroll-and-findId">
+      <a href="memberId.com">ID/PW 찾기</a>
       <a href="memberRegisterForm.com">회원가입</a>
+    </div>
+  </fieldset>
+  <!-- 업체회원 -->
+    <fieldset class="shop-field">
+    <div class="enroll-and-findId">
+      <a href="">ID/PW 찾기</a>
+      <a href="shopRegisterForm.com">회원가입</a>
     </div>
   </fieldset>
 </form>

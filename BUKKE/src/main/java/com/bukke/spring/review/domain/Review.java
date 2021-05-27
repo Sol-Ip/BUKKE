@@ -11,7 +11,17 @@ public class Review {
 	private String reviewStatus; // 리뷰(삭제)여부
 	private String rOriginalFilename; // 기존파일이름
 	private String rRenameFilename; // 변경파일이름
+	private int classNo; //클래스번호
+	private int activityNo;//액티비티번호
 	
+	
+	@Override
+	public String toString() {
+		return "Review [reviewNo=" + reviewNo + ", memberId=" + memberId + ", reviewTitle=" + reviewTitle
+				+ ", reviewContents=" + reviewContents + ", reviewDate=" + reviewDate + ", reviewStatus=" + reviewStatus
+				+ ", rOriginalFilename=" + rOriginalFilename + ", rRenameFilename=" + rRenameFilename + ", classNo="
+				+ classNo + ", activityNo=" + activityNo + "]";
+	}
 	public int getReviewNo() {
 		return reviewNo;
 	}
@@ -30,11 +40,18 @@ public class Review {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	@Override
-	public String toString() {
-		return "Review [reviewNo=" + reviewNo + ", memberId=" + memberId + ", reviewTitle=" + reviewTitle
-				+ ", reviewContents=" + reviewContents + ", reviewDate=" + reviewDate + ", reviewStatus=" + reviewStatus
-				+ ", rOriginalFilename=" + rOriginalFilename + ", rRenameFilename=" + rRenameFilename + "]";
+	
+	public int getClassNo() {
+		return classNo;
+	}
+	public void setClassNo(int classNo) {
+		this.classNo = classNo;
+	}
+	public int getActivityNo() {
+		return activityNo;
+	}
+	public void setActivityNo(int activityNo) {
+		this.activityNo = activityNo;
 	}
 	public String getReviewTitle() {
 		return reviewTitle;

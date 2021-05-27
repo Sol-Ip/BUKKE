@@ -35,7 +35,192 @@
 				</div>
 			</div>
 	
-	<br style="clear:both">
+	<!-- 왼쪽위사진넣어보기 -->
+			<div class="col-lg-8 ftco-animate">
+				<p>
+					<img src="../resources/reviewFiles/${review.rRenameFilename }"
+						alt="class photo" class="img-fluid">
+				</p>
+				<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">${review.reviewTitle }</h2>
+				<hr>
+
+				<div style="padding: 30px;">
+					<h5>${review.reviewContents }</h5>
+				</div>
+				<hr>
+
+				<div class="tag-widget post-tag-container mb-5 mt-5">
+					<div class="meta">
+						<div>
+							<button class="btn btn-outline-danger">
+								<span class="icon-heart icon-large"></span> 찜하기
+							</button>
+							<button class="btn btn-outline-warning">
+								<span class="icon-smile icon-large"></span> 찜하기
+							</button>
+							<button class="btn btn-outline-danger">❤</button>
+							<button class="btn btn-outline-danger">
+								<i class="fas fa-bookmark fa-2x"></i>
+							</button>
+
+							<span class="icon-eye-open"></span>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			
+			<!-- 사이드바 -->
+			<div class="col-lg-4 sidebar ftco-animate">
+					<div class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
+					<div class="sidebar-box ftco-animate">
+					<h2 align="center">
+						<i class="fas fa-list fa-lg"></i>&nbsp;Information
+					</h2>
+					<hr>
+					<br>
+						<div class="block-21 mb-4 d-flex">
+							<ul id="type-ul">
+									<li><h3 class="act-type">
+											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classStartDate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>종료일</b>&nbsp;&nbsp;<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classEndDate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.shopId }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>가격</b>&nbsp;&nbsp;<i class="fas fa-won-sign"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classPrice }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>조회 수</b>&nbsp;&nbsp;<i class="far fa-eye"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">조회수 들어오기</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>찜 갯수</b>&nbsp;&nbsp;<i class="fas fa-heartbeat"></i></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">찜 개수 들어오기</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b> 주소 </b>&nbsp;&nbsp;<i class="fas fa-map-marked-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classAddr }</h3></li>
+								</ul>
+						</div>
+
+							<!-- 사업자에게만 버튼 보이게 하기 -->
+							<div align="center">
+								<c:url var="cModify" value="bukkeClassModify.com">
+									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+								</c:url>
+								<!-- renameFilename 은 실제 저장된 파일 이름  -->
+								<c:url var="cDelete" value="bukkeClassDelete.com">
+									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+									<c:param name="cRenameFilename" value="${bukkeClass.cRenameFilename }"></c:param>
+								</c:url>
+								<a href="${cModify }"><input class="btn btn-lg btn-warning" type="submit" value="수정"></a> 
+									<a href="${cDelete }"><input class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="ftco-animate">
+						<input type="submit" class="btn btn-lg btn-primary" value="예약하기">
+						<button class="btn btn-lg btn-primary" type="submit">선물하기</button>
+						<button class="btn btn-lg btn-primary" type="submit">채팅하기</button>
+					</div>
+					<br>
+					<br>
+					<div class="sidebar-box ftco-animate">
+						<h3>Popular Articles</h3>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4"
+								style="background-image: url(resources/images/image_1.jpg);"></a>
+							<div class="text">
+								<h3 class="heading">
+									<a href="#">Even the all-powerful Pointing has no control
+										about the blind texts</a>
+								</h3>
+								<div class="meta">
+									<div>
+										<a href="#"><span class="icon-calendar"></span> Oct. 04,
+											2018</a>
+									</div>
+									<div>
+										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
+									</div>
+									<div>
+										<a href="#"><span class="icon-chat"></span> 19</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4"
+								style="background-image: url(resources/images/image_2.jpg);"></a>
+							<div class="text">
+								<h3 class="heading">
+									<a href="#">Even the all-powerful Pointing has no control
+										about the blind texts</a>
+								</h3>
+								<div class="meta">
+									<div>
+										<a href="#"><span class="icon-calendar"></span> Oct. 04,
+											2018</a>
+									</div>
+									<div>
+										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
+									</div>
+									<div>
+										<a href="#"><span class="icon-chat"></span> 19</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4"
+								style="background-image: url(resources/images/image_3.jpg);"></a>
+							<div class="text">
+								<h3 class="heading">
+									<a href="#">Even the all-powerful Pointing has no control
+										about the blind texts</a>
+								</h3>
+								<div class="meta">
+									<div>
+										<a href="#"><span class="icon-calendar"></span> Oct. 04,
+											2018</a>
+									</div>
+									<div>
+										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
+									</div>
+									<div>
+										<a href="#"><span class="icon-chat"></span> 19</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+
+			<br style="clear:both">
 	<h1 align="center">${review.reviewNo }번 글 상세보기</h1>
 	<br><br>
 	<table align="center" width="450" border="1">

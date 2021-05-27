@@ -33,10 +33,10 @@
 	<!-- 액티비티 검색 -->
 	<select id="selectSearchActivity" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE 
-		SHOP_ID LIKE '%' || #{activityKeyword} ||'%' AND
-		ACTIVITY_NAME LIKE '%' || #{activityKeyword} ||'%' AND 
-		ACTIVITY_TYPE LIKE '%' || #{activityKeyword} ||'%' AND 
-		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' AND
+		SHOP_ID LIKE '%' || #{activityKeyword} ||'%' OR
+		ACTIVITY_NAME LIKE '%' || #{activityKeyword} ||'%' OR 
+		ACTIVITY_TYPE LIKE '%' || #{activityKeyword} ||'%' OR 
+		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' OR
 		ACTIVITY_INFO LIKE '%' || #{activityKeyword} ||'%'
 		ORDER BY ACTIVITY_ENROLL_DATE DESC
 	</select>

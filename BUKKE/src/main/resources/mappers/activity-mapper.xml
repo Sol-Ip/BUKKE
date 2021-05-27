@@ -30,6 +30,7 @@
 		SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
 	</select>
 	
+	
 	<!-- 액티비티 검색 -->
 	<select id="selectSearchActivity" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE 
@@ -40,7 +41,12 @@
 		ACTIVITY_INFO LIKE '%' || #{activityKeyword} ||'%'
 		ORDER BY ACTIVITY_ENROLL_DATE DESC
 	</select>
-
+	
+	<!-- 액티비티 TOP3 목록 ()-->
+	<select id="selectThreeActivityList" resultMap="ActivityResultMap">
+		SELECT * FROM (SELECT * FROM ACTIVITY ORDER BY ACTIVITY_END_DATE DESC) WHERE ROWNUM &lt;= 3 AND ACTIVITY_STATUS = 'Y'
+	</select>
+	
 	<!-- 액티비티 상세조회 -->
 	<select id="selectActivityOne" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE ACTIVITY_NO = #{activityNo} AND ACTIVITY_STATUS = 'Y'

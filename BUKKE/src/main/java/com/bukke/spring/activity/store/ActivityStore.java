@@ -12,7 +12,7 @@ public interface ActivityStore {
 	
 	public ArrayList<Activity> selectAllActivityList(ActivityPageInfo pi); //액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 포함
 
-	//public ArrayList<Activity> selectAllActivityList(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+	public ArrayList<Activity> selectAllActivityList(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
 
 	public Activity selectOneActivity(int activityNo); // 액티비티 상세정보
 

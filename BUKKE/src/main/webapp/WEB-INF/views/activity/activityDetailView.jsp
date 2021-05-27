@@ -191,32 +191,41 @@
 					<br>
 					<br>
 
-
+					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) ========== -->
 					<div class="sidebar-box ftco-animate">
-						<h3>Popular Articles</h3>
+						
+						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
+						<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의 또 다른 강좌</h4>
+						<hr>
+						
+							<c:forEach items="${aList }" var="activity">
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
-								style="background-image: url(resources/images/image_1.jpg);"></a>
+								style="background-image: url(resources/images/activityImageFiles/${activity.aRenameFilename});"></a>
 							<div class="text">
-								<h3 class="heading">
-									<a href="#">Even the all-powerful Pointing has no control
-										about the blind texts</a>
-								</h3>
-								<div class="meta">
+								
+									<h3 id="top-actname" class="heading">
+										<c:url var="aDetail" value="activityDetail.com">
+											<c:param name="activityNo" value="${activity.activityNo }"></c:param>
+										</c:url>
+										<a href="${aDetail}">[${activity.activityType}]&nbsp;${activity.activityName}</a>
+									</h3>
+									<div class="meta">
 									<div>
-										<a href="#"><span class="icon-calendar"></span> Oct. 04,
-											2018</a>
+										<i class="far fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityStartdate}
 									</div>
 									<div>
-										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
+										<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityEnddate}
 									</div>
 									<div>
-										<a href="#"><span class="icon-chat"></span> 19</a>
+										<i class="fas fa-arrow-circle-right fa-lg"></i>&nbsp;${activity.activityTypeDetails}
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="block-21 mb-4 d-flex">
+						<hr>
+							</c:forEach>
+						<!-- <div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
 								style="background-image: url(resources/images/image_2.jpg);"></a>
 							<div class="text">
@@ -237,8 +246,9 @@
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="block-21 mb-4 d-flex">
+						</div> -->
+						
+						<!-- <div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
 								style="background-image: url(resources/images/image_3.jpg);"></a>
 							<div class="text">
@@ -259,7 +269,8 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
+						
 					</div>
 				</div>
 			</div>
@@ -288,7 +299,7 @@ $(document).ready(function() {
 		 		}
 	 		}); */
 
-})
+});
 </script>
 </body>
 </html>

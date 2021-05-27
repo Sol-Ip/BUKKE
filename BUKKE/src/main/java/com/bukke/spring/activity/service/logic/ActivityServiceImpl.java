@@ -28,10 +28,11 @@ public class ActivityServiceImpl implements ActivityService {
 		return aStore.selectAllActivityList(pi);
 	}
 
-//	@Override
-//	public ArrayList<Activity> printAllActivity() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
-//		return null;
-//	}
+	@Override
+	public ArrayList<Activity> printAllActivity() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+		ArrayList<Activity> aList = aStore.selectAllActivityList();
+		return aList;
+	}
 
 	@Override
 	public Activity printOneActivity(int activityNo) { // 액티비티 상세정보

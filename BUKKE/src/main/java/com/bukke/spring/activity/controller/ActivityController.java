@@ -51,20 +51,44 @@ public class ActivityController {
 		return mv;
 	}
 	
+	//액티비티 상위3개 글 목록
+	@RequestMapping(value="activityTopThreeList.com", method=RequestMethod.GET)
+	public String activityTopThreeList(Model model) {
+		ArrayList<Activity> aList = aService.printAllActivity();
+		if(!aList.isEmpty()) {
+			model.addAttribute("aList", aList);
+			System.out.println("컨트롤러들어옴");
+			System.out.println("TOP3 list : " + aList);
+			return "activity/activityDetailView";
+		} else {
+			System.out.println("TOP3 list 없으면 : " + aList);
+			model.addAttribute("msg", "액티비티 TOP3 목록 조회 실패");
+			return "common/errorPage";
+		}
+	}
+											
+	
+	
 	
 	// 액티비티 상세정보 jsp 이동 (모든회원)
 	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
 	public ModelAndView activityDetailView(ModelAndView mv,
+										Model model,
 										@RequestParam("activityNo") int activityNo) {
 		//조회 수 증가
 		//aService.addReadCountActivity(activityNo);
 		
 		//게시글 상세조회
 		Activity activity = aService.printOneActivity(activityNo);
-		if(activity != null) {
+		ArrayList<Activity> aList = aService.printAllActivity();
+		if(activity != null && !aList.isEmpty()) {
+			model.addAttribute("aList", aList);
+			System.out.println("컨트롤러들어옴");
+			System.out.println("TOP3 list : " + aList);
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
 			//System.out.println(activity.toString());
 		} else {
+			System.out.println("TOP3 list 없으면 : " + aList);
 			mv.addObject("msg", "액티비티 상세조회 실패");
 			mv.setViewName("common/errorPage");
 		}

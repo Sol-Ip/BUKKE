@@ -30,11 +30,10 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityList", null, rowBounds);
 	}
 
-//	@Override
-//	public ArrayList<Activity> selectAllActivityList() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	@Override
+	public ArrayList<Activity> selectAllActivityList() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+		return (ArrayList)sqlSession.selectList("activityMapper.selectThreeActivityList");
+	}
 
 	@Override
 	public Activity selectOneActivity(int activityNo) { // 액티비티 상세정보

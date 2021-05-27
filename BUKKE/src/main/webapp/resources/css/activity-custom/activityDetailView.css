@@ -46,3 +46,8 @@ li {
 .sidebar-box {
 	padding : 0 25px 0;
 }
+
+#top-actname {
+	font-family: 'KOTRA_BOLD-Bold';
+	text-align:left;
+}

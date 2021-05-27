@@ -202,16 +202,14 @@
 								style="background-image: url(resources/images/image_2.jpg);"></a>
 							<div class="text">
 								<h3 class="heading">
-									<a href="#">Even the all-powerful Pointing has no control
-										about the blind texts</a>
+									<a href="#">${review.reviewContents }</a>
 								</h3>
 								<div class="meta">
 									<div>
-										<a href="#"><span class="icon-calendar"></span> Oct. 04,
-											2018</a>
+										<a href="#"><span class="icon-calendar"></span>${review.reviewDate }</a>
 									</div>
 									<div>
-										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
+										<a href="#"><span class="icon-person"></span> ${review.memberId }</a>
 									</div>
 									<div>
 										<a href="#"><span class="icon-chat"></span> 19</a>
@@ -271,80 +269,19 @@
 	                      <i class="icon-quote-left"></i>
 	                    </span>
 	                  </div>
+	                  <c:url var="rDetail" value="bukkeClassDetailView.com">
+                     		<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
+                  	  </c:url>
 		              <div class="text">
 		                    <p class="mb-5 pl-4 line">${review.reviewContents }</p>
 			                  <div class="pl-5">
 				                <p class="name">${review.memberId }</p>
-				                <span class="position">${review.reviewTitle }</span>
+				                <a href="${rDetail }"><span class="position">${review.reviewTitle }</span></a>
 			                  </div>
 		              </div>
 	                </div>
 	              </div>
               </c:forEach>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">CEO Founder of Interior Design</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">Exterior Designer</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">Landscape Designer</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="pl-5">
-	                    <p class="name">Garreth Smith</p>
-	                    <span class="position">System Analyst</span>
-	                  </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

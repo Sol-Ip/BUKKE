@@ -33,4 +33,6 @@ public interface ReviewService {
 	//좋아요 내림
 	public int removeLikes(Review review);
 	public int getListCount();
+	// 클래스에서 후기 보여주기
+	public ArrayList<Review> printReviewToBclass();
 }

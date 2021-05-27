@@ -10,6 +10,7 @@ import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
+import com.bukke.spring.review.domain.Review;
 
 @Service
 public class BukkeClassServiceImpl implements BukkeClassService {
@@ -57,5 +58,6 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	public int removeBclass(int classNo) {
 		return bStore.deleteBclass(classNo);
 	}
+
 
 }

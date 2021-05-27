@@ -11,6 +11,7 @@ import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
+import com.bukke.spring.review.domain.Review;
 
 @Repository
 public class BukkeClassStoreLogic implements BukkeClassStore {
@@ -61,5 +62,6 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	public int deleteBclass(int classNo) {
 		return session.update("bclassMapper.deleteBclass", classNo);
 	}
+
 
 }

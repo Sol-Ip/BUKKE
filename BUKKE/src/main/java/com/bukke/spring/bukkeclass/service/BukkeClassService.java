@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
+import com.bukke.spring.review.domain.Review;
 
 public interface BukkeClassService {
 
@@ -28,6 +29,7 @@ public interface BukkeClassService {
 	
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)
 	public int removeBclass(int classNo);
+
 
 
 }

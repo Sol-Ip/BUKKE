@@ -10,10 +10,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,13 +24,17 @@ import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.BukkeClassPagination;
-import com.bukke.spring.common.Pagination;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.service.ReviewService;
 
 @Controller
 public class BukkeClassController {
 	
 	@Autowired
 	private BukkeClassService bService;
+	
+	@Autowired
+	private ReviewService rService;
 	
 	// 클래스 전체목록 jsp 이동 (관리자) 
 	@RequestMapping(value="bukkeClassList.com", method=RequestMethod.GET)
@@ -58,10 +60,15 @@ public class BukkeClassController {
 	
 	// 클래스 상세정보 jsp 이동 (모든회원)
 	@RequestMapping(value="bukkeClassDetailView.com", method=RequestMethod.GET)
-	public ModelAndView bukkeClassDetailView(ModelAndView mv, @RequestParam("classNo") int classNo) {
+	public ModelAndView bukkeClassDetailView(ModelAndView mv, 
+											@RequestParam("classNo") int classNo) {
 		BukkeClass bukkeClass = bService.printOneBclass(classNo);
-		if(bukkeClass != null) {
-			mv.addObject("bukkeClass", bukkeClass).setViewName("bukkeClass/bukkeClassDetailView");
+		ArrayList<Review> rList = rService.printReviewToBclass();
+		if(bukkeClass != null && !rList.isEmpty()) {
+			mv.addObject("bukkeClass", bukkeClass);
+			mv.addObject("rList", rList);
+			System.out.println(rList);
+			mv.setViewName("bukkeClass/bukkeClassDetailView");
 		} else {
 			mv.addObject("msg", "클래스 상세 조회 실패 !").setViewName("common/errorPage");
 		}
@@ -222,6 +229,7 @@ public class BukkeClassController {
 			model.addAttribute("msg", "부캐 클래스 삭제 실패");
 			return "common/errorPage";
 		}
-		
 	}
+	
+	
 }

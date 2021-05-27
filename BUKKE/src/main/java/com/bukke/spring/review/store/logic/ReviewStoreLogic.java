@@ -99,4 +99,10 @@ public class ReviewStoreLogic implements ReviewStore {
 	public int selectListCount() {
 		return session.selectOne("reviewMapper.selectListCount");
 	}
+	
+	// 클래스에서 후기 보여주기
+	@Override
+	public ArrayList<Review> selectReviewToBclass() {
+		return (ArrayList)session.selectList("reviewMapper.selectListToBclass");
+	}
 }

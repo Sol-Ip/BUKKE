@@ -46,5 +46,8 @@ public interface ReviewStore {
 
 	public int selectListCount();
 
+	// 클래스에서 리뷰 보여주기
+	public ArrayList<Review> selectReviewToBclass();
+
 	
 }

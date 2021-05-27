@@ -97,5 +97,11 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return rStore.selectListCount();
 	}
+	
+	// 클래스에서 후기 보여주기
+	@Override
+	public ArrayList<Review> printReviewToBclass() {
+		return rStore.selectReviewToBclass();
+	}
 
 }

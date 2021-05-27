@@ -43,8 +43,7 @@ public class ActivityStoreLogic implements ActivityStore {
 
 	@Override
 	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
-		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchActivity", activitySearch);
 	}
 
 	@Override

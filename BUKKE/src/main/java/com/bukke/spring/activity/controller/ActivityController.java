@@ -75,15 +75,18 @@ public class ActivityController {
 	
 	// *액티비티 검색기능 메소드
 	@RequestMapping(value="activitySearch.com", method=RequestMethod.GET) 
-	public String activitySearch() {
-//	public String activitySearch(@ModelAttribute ActivitySearch activitySearch, Model model) {
-//		ArrayList<Activity> aSearchList = aService.searchActivity(activitySearch);
-//		if(aSearchList.isEmpty()) {
-//			model.addAttribute("aList", aSearchList);
-//			model.addAttribute("acticitySearch", activitySearch);
-//			return "acticity/activityListView";
-//		}
-		return "activity/activityListView";
+	public String activitySearch(@ModelAttribute ActivitySearch activitySearch, Model model) {
+		ArrayList<Activity> aSearchList = aService.searchActivity(activitySearch);
+		if(!aSearchList.isEmpty()) {
+			model.addAttribute("aList", aSearchList);
+			model.addAttribute("activitySearch", activitySearch);
+			System.out.println("aList :" + aSearchList);
+			return "activity/activityListView";
+		} else {
+			System.out.println("aList  :" + aSearchList);
+			model.addAttribute("msg", "액티비티 검색결과 없음");
+			return "activity/activityNonSearch";
+		}
 	}
 	
 	

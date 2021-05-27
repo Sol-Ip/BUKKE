@@ -65,8 +65,8 @@
 						class="pr-2 bg-light">BUKKE</small></span>
 					<h2 class="mb-4">SEARCH</h2>
 				</div>
-				
-				<form class="col-md-8 card card-lg">
+			
+				<form class="col-md-8 card card-lg" action="activitySearch.com" method="get">
 					<div class="card-body row no-gutters align-items-center">
 						<div class="col-auto">
 							<i class="fas fa-search h4 text-body"></i>
@@ -74,7 +74,7 @@
 						<!--end of col-->
 						<div class="col">
 							<input class="form-control form-control-lg form-control-borderless"
-								type="search" placeholder="검색어를 입력해주세요">
+								type="search" name="activityKeyword" value="${activitySearch.activityKeyword }" placeholder="검색어를 입력해주세요">
 						</div>
 						<!--end of col-->
 						<div class="col-auto">

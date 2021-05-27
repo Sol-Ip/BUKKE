@@ -40,8 +40,7 @@ public class ActivityServiceImpl implements ActivityService {
 
 	@Override
 	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
-		ArrayList<Activity> searchList = aStore.searchActivityList(activitySearch);
-		return searchList;
+		return aStore.searchActivityList(activitySearch);
 	}
 
 	@Override

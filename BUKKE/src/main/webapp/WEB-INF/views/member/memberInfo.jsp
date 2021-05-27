@@ -4,103 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SAMPLE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Page</title>
 <jsp:include page="../common/header.jsp"></jsp:include>
-<style>
-	.service-heading-block{
-	display:block;
-	margin-bottom:30px;
-	}
-.title {
-  display: block;
-  font-size: 30px;
-  font-weight: 200;
-  margin-bottom: 10px;
-}
-.sub-title {
-  font-size: 18px;
-  font-weight: 100;
-  line-height: 24px;
-}
-.feature-block {
-  background-color: #fff;
-  border-radius: 2px;
-  padding: 15px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  margin-bottom: 15px;
-  transition:all ease .5s
-}
-.ms-feature:hover, 
-.ms-feature:focus {
-  background-color: #fafafa;
-  box-shadow: 0 3px 4px 3px rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 3px rgba(0, 0, 0, 0.12);
-}
-.fb-icon {
-  border-radius: 50%;
-  display: block;
-  font-size: 36px;
-  height: 80px;
-  line-height: 80px;
-  text-align:center;
-  margin:1rem auto;
-  width: 80px;
-  transition: all 0.5s ease 0s;
-}
-.feature-block:hover .fb-icon,
-.feature-block:focus .fb-icon {
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  transform: rotate(360deg);
-}
-.fb-icon.color-info {
-  background-color: #5bc0de;
-  color: #fff;
-}
-.fb-icon.color-warning {
-  background-color: #eea236;
-  color: #fff;
-}
-.fb-icon.color-success {
-  background-color: #5cb85c;
-  color: #fff;
-}
-.fb-icon.color-danger {
-  background-color: #d9534f;
-  color: #fff;
-}
-.feature-block h4 {
-  font-size: 16px;
-  font-weight: 500;
-  margin: 3rem 0 1rem;
-}
-.color-info {
-  color: #46b8da;
-}
-.color-warning {
-  color: #f0ad4e;
-}
-.color-success {
-  color: #4cae4c;
-}
-.color-danger {
-  color: #d43f3a;
-}
-.btn-custom{
-  border: medium none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  margin: 10px 1px;
-  outline: 0 none;
-  padding: 8px 30px;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-</style>
+<!-- 사이드바 -->
+<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+
+
+<!-- 회원정보 -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="../resources/css/member/mypage.css">
+
+
 </head>
-<body>
+<body id="body-pd">
 
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
@@ -120,40 +38,75 @@
 		</div>
 	</section>
 	<!-- fixed section END-->
-		<!-- ==============================마이페이지 시작====================================== -->
-		<h3>왼쪽 사이드 바 임의로 넣은거에요 !! 다시 바꿀 예정 놀라지마십쇼 !!</h3>
-	<div class="container text-center">
-	<div class="row">
+		<!-- ============================== 사이드바 ====================================== -->
 		<div class="col-sm-3">
-			<!--left col-->
-			<div class="text-center">
-				<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
-					class="avatar img-circle img-thumbnail" alt="avatar"
-					style="width: 100%; height: 230px;"> <br> 
-					<input type="file" class="text-center center-block file-upload">
-			</div>
-			<br>
-			<div class="card" style="width: 16rem;">
-				<div class="card-header">소개글</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item">안녕하세요~! 저는 식물을 사랑하는 사람입니다.</li>
-				</ul>
+			<div class="row">
+	<div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">Bedimcode</a>
+                </div>
+                <div class="nav__list">
+                    <a href="#" class="nav__link active">
+                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+                    <a href="#" class="nav__link">
+                        <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Messenger</span>
+                    </a>
 
-			</div>
-			<br>
-			<div class="card" style="width: 16rem;">
-				<div class="card-header">반려식물</div>
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb"
-						style="margin-bottom: -; margin-bottom: 0px; background-color: white;">
-						<li class="breadcrumb-item"><a href="#">#Home</a></li>
-						<li class="breadcrumb-item"><a href="#">#Library</a></li>
-						<li class="breadcrumb-item"><a href="#">#Data</a></li>
-					</ol>
-				</nav>
-			</div>
-			<br>
-		</div>
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Projects</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">Data</a>
+                            <a href="#" class="collapse__sublink">Group</a>
+                            <a href="#" class="collapse__sublink">Members</a>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="nav__link">
+                        <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Analytics</span>
+                    </a>
+
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Team</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">Data</a>
+                            <a href="#" class="collapse__sublink">Group</a>
+                            <a href="#" class="collapse__sublink">Members</a>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="nav__link">
+                        <ion-icon name="settings-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Settings</span>
+                    </a>
+                </div>
+                <a href="#" class="nav__link">
+                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">Log out</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    </div>
+    </div>
+
+	<!-- ==================== 사이드 바 끝 ======================================= -->
+		
+		<!--===================== 회원 정보 관리 시작 =========== -->
 		<div class="col-sm-9">
 			<div class="row">
 				<!-- <div class="col-lg-12 col-md-12 col-sm-12"> 
@@ -165,21 +118,20 @@
 				<div class="col-lg-3 col-md-6 col-sm-6" style="margin-left: 150px;">
 					<div class="text-center feature-block" style="width: 330px;">
 						<span class="fb-icon color-info"> 
-							<i class="far fa-user" aria-hidden="true"></i>
+							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
-						<h4 class="color-info">Cloud Upload</h4>
-						<p class="">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Delectus dicta error.</p>
+						<h4 class="color-info">내 정보</h4>
+						<p class="">내 정보 수정을 할 수 있습니다.</p>
 						<a href="javascript:void(0)" class="btn btn-info btn-custom">Click here</a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="text-center feature-block" style="width: 330px; margin-left: 130px"">
 						<span class="fb-icon color-warning"> 
-							<i class="fa fa-desktop" aria-hidden="true"></i>
+							<i class="far fa-calendar-check " aria-hidden="true"></i>
 						</span>
-						<h4 class="color-warning">Computer Service</h4>
-						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dicta error.</p>
+						<h4 class="color-warning">부캐 일정</h4>
+						<p class="">클래스, 액티비티 일정 확인할 수 있습니다.</p>
 						<a href="javascript:void(0)" class="btn btn-warning btn-custom">Click here</a>
 					</div>
 				</div>
@@ -188,10 +140,10 @@
 				<div class="col-lg-3 col-md-6 col-sm-6" style="margin-left: 150px;">
 					<div class="text-center feature-block" style="width: 330px;">
 						<span class="fb-icon color-success"> 
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fas fa-pen" aria-hidden="true"></i>
 						</span>
-						<h4 class="color-success">Email Service</h4>
-						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dicta error.</p>
+						<h4 class="color-success">내 활동</h4>
+						<p class="">작성한 게시글, 댓글을 확인할 수 있습니다.</p>
 						<a href="javascript:void(0)" class="btn btn-success btn-custom">Click here</a>
 					</div>
 				</div>
@@ -199,10 +151,10 @@
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="text-center feature-block" style="width: 330px; margin-left: 130px">
 						<span class="fb-icon color-danger"> 
-							<i class="fa fa-fire" aria-hidden="true"></i>
+							<i class="fas fa-user-slash" aria-hidden="true"></i>
 						</span>
-						<h4 class="color-danger">Quality Service</h4>
-						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dicta error.</p>
+						<h4 class="color-danger">회원 탈퇴</h4>
+						<p class="">사이트 회원 탈퇴를 할 수 있습니다.</p>
 						<a href="javascript:void(0)" class="btn btn-danger btn-custom">Click here</a>
 					</div>
 				</div>
@@ -210,8 +162,10 @@
 		</div>
 	</div>
 	</div>
+	
 <br>
-
+<script src="../resources/js/member/mypageSidebar.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

@@ -1,6 +1,4 @@
-package com.bukke.spring.member.domain;
-
-import java.sql.Date;
+package com.bukke.spring.shop.domain;
 
 public class Shop {
 	private String shopId; //업체아이디
@@ -10,14 +8,9 @@ public class Shop {
 	private String shopAddr;// 업체 주소
 	private String shopPhone;// 업체 전화번호
 	private String shopEmail;// 업체이메일
-	private char shopApproval;// 업체 승인
+	private String shopApproval;// 업체 승인
+	private String shopRemoval;// 업체 승인
 	private int crnNo; // 사업자번호
-	private int crnFileNo; // 사진번호
-	private String crnFileName; // 사진 이름
-	private int crnFileSize; // 사진 크기
-	private String crnFileType; // 파일 형식
-	private Date crnFileDate; // 업로드 날짜
-	private String crnFilePath; // 사진 경로
 	private String crnOriginalFilename; // 기존 파일 이름
 	private String crnRenameFilename; // 변경된 파일 이름
 
@@ -79,68 +72,12 @@ public class Shop {
 		this.shopEmail = shopEmail;
 	}
 
-	public char getShopApproval() {
-		return shopApproval;
-	}
-
-	public void setShopApproval(char shopApproval) {
-		this.shopApproval = shopApproval;
-	}
-
 	public int getCrnNo() {
 		return crnNo;
 	}
 
 	public void setCrnNo(int crnNo) {
 		this.crnNo = crnNo;
-	}
-
-	public int getCrnFileNo() {
-		return crnFileNo;
-	}
-
-	public void setCrnFileNo(int crnFileNo) {
-		this.crnFileNo = crnFileNo;
-	}
-
-	public String getCrnFileName() {
-		return crnFileName;
-	}
-
-	public void setCrnFileName(String crnFileName) {
-		this.crnFileName = crnFileName;
-	}
-
-	public int getCrnFileSize() {
-		return crnFileSize;
-	}
-
-	public void setCrnFileSize(int crnFileSize) {
-		this.crnFileSize = crnFileSize;
-	}
-
-	public String getCrnFileType() {
-		return crnFileType;
-	}
-
-	public void setCrnFileType(String crnFileType) {
-		this.crnFileType = crnFileType;
-	}
-
-	public Date getCrnFileDate() {
-		return crnFileDate;
-	}
-
-	public void setCrnFileDate(Date crnFileDate) {
-		this.crnFileDate = crnFileDate;
-	}
-
-	public String getCrnFilePath() {
-		return crnFilePath;
-	}
-
-	public void setCrnFilePath(String crnFilePath) {
-		this.crnFilePath = crnFilePath;
 	}
 
 	public String getCrnOriginalFilename() {
@@ -159,15 +96,27 @@ public class Shop {
 		this.crnRenameFilename = crnRenameFilename;
 	}
 
+	public String getShopApproval() {
+		return shopApproval;
+	}
+
+	public void setShopApproval(String shopApproval) {
+		this.shopApproval = shopApproval;
+	}
+
+	public String getShopRemoval() {
+		return shopRemoval;
+	}
+
+	public void setShopRemoval(String shopRemoval) {
+		this.shopRemoval = shopRemoval;
+	}
+
 	@Override
 	public String toString() {
 		return "Shop [shopId=" + shopId + ", ceoName=" + ceoName + ", shopName=" + shopName + ", shopPw=" + shopPw
 				+ ", shopAddr=" + shopAddr + ", shopPhone=" + shopPhone + ", shopEmail=" + shopEmail + ", shopApproval="
-				+ shopApproval + ", crnNo=" + crnNo + ", crnFileNo=" + crnFileNo + ", crnFileName=" + crnFileName
-				+ ", crnFileSize=" + crnFileSize + ", crnFileType=" + crnFileType + ", crnFileDate=" + crnFileDate
-				+ ", crnFilePath=" + crnFilePath + ", crnOriginalFilename=" + crnOriginalFilename
-				+ ", crnRenameFilename=" + crnRenameFilename + "]";
+				+ shopApproval + ", shopRemoval=" + shopRemoval + ", crnNo=" + crnNo + ", crnOriginalFilename="
+				+ crnOriginalFilename + ", crnRenameFilename=" + crnRenameFilename + "]";
 	}
-	
-	
 }

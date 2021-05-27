@@ -97,7 +97,7 @@
 										</h3></li>
 									
 								
-									
+									 
 									<li><h3 class="act-type">
 											<b>조회수 엉엉</b>&nbsp;&nbsp;<i class="fas fa-won-sign"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>

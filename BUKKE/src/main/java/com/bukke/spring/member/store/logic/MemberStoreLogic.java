@@ -1,5 +1,6 @@
 package com.bukke.spring.member.store.logic;
 
+import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -41,6 +42,12 @@ public class MemberStoreLogic implements MemberStore {
 	public int deleteMember(String memberId) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public int checkIdmember(Member member) {
+		int result =session.selectOne("memberMapper.searchMemberId", member);
+		return result;
 	}
 	
 	

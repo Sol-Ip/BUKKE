@@ -113,4 +113,25 @@ public class MemberController {
 		return "";
 		
 	}
+	
+	
+	//아이디 비밀번호 찾기 페이지
+		@RequestMapping(value="memberCheck.com",method = RequestMethod.GET)
+		public String memberIdSearch() {
+			return "member/memberSearch";
+		}
+	
+	
+	//아이디 찾기
+	@ResponseBody
+	@RequestMapping(value="memberSearchId.com",method = RequestMethod.POST)
+	public String userIdSearch(@ModelAttribute Member member){
+		
+		int result = mService.searchMemberId(member);
+		if(result>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 }

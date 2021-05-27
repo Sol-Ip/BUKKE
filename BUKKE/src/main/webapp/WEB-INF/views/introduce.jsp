@@ -205,7 +205,7 @@
 <script>
 var mapContainer = document.getElementById('maps'), // 지도를 표시할 div 
 mapOption = {
-    center: new kakao.maps.LatLng(37.499656103908876, 127.0285969119337), // 지도의 중심좌표
+    center: new kakao.maps.LatLng(37.51572, 127.03760), // 지도의 중심좌표
     level: 3 // 지도의 확대 레벨
 };  
 
@@ -216,7 +216,7 @@ var maps = new kakao.maps.Map(mapContainer, mapOption);
 var geocoder = new kakao.maps.services.Geocoder();
 
 //주소로 좌표를 검색합니다
-geocoder.addressSearch('서울특별시 강남구 역삼동 818-11', function(result, status) {
+geocoder.addressSearch('서울특별시 강남구 논현동 239-1', function(result, status) {
 
 // 정상적으로 검색이 완료됐으면 
  if (status === kakao.maps.services.Status.OK) {

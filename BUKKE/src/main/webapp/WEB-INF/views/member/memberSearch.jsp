@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="/resources/css/member/memberSearch.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
+<jsp:include page="userIdSearchModal.jsp"></jsp:include>
 	<form action="#" method="POST">
 		<svg width="200px" height="0px" viewBox="0 0 200 200"
 			aria-labelledby="svg-title svg-desc">
@@ -42,7 +45,7 @@
 			<fieldset class="member-filed with-placeholder">
 				<legend>이름</legend>
 				<div>
-					<input type="text" name="inputName1" id="inputName1" />
+					<input type="text" name="memberName" id="memberName" />
 					<div class="placeholder">USER NAME</div>
 				</div>
 				<div class="invalid-check"></div>
@@ -50,20 +53,20 @@
 			<fieldset class="member-filed with-placeholder">
 				<legend>휴대폰 번호</legend>
 				<div>
-					<input type="text" name="inputPhone1" id="inputPhone1"
+					<input type="text" name="memberPhone" id="memberPhone"
 						autocomplete="off" autocorrect="off" autocapitalize="off"
-						spellcheck="false" required />
+						spellcheck="false" />
 					<div class="placeholder">-없이 입력해주세요</div>
 				</div>
 				<div class="invalid-check"></div>
 			</fieldset>
 			<br>
 			<fieldset id="submit-field">
-				<button id="searchBtn1" type="button" onclick="idSearchClick1()"
+				<button id="searchBtn1"  onclick="idSearchClick1()" type="button"
 					class="ok">확인</button>
 			</fieldset>
 			<fieldset id="member-filed">
-				<button id="searchBtn2" type="button" onclick="idSearchClick2()"
+				<button id="searchBtn2"  onclick="idSearchClick2()" type="button"
 					class="cancle">취소</button>
 			</fieldset>
 		</div>
@@ -74,7 +77,7 @@
 			<fieldset class="member-filed with-placeholder">
 				<legend>아이디</legend>
 				<div>
-					<input type="text" name="inputId2" id="inputId2" />
+					<input type="text" name="memberId" id="memberId" />
 					<div class="placeholder">USER ID</div>
 				</div>
 				<div class="invalid-check"></div>
@@ -82,25 +85,26 @@
 			<fieldset class="member-filed with-placeholder">
 				<legend>이메일</legend>
 				<div>
-					<input type="email" name="inputEmail" id="inputEmail"
+					<input type="email" name="memberEmail" id="memberEmail"
 						autocomplete="off" autocorrect="off" autocapitalize="off"
-						spellcheck="false" required />
+						spellcheck="false"/>
 					<div class="placeholder">Email@gmail.com</div>
 				</div>
 				<div class="invalid-check"></div>
 			</fieldset>
 			<br>
 			<fieldset id="submit-field">
-				<button id="searchBtn3" type="button" onclick="idSearchClick1()"
+				<button id="searchBtn3" onclick="idSearchClick1()" type="button"
 					class="ok">확인</button>
 			</fieldset>
 			<fieldset id="member-filed">
-				<button id="searchBtn4" type="button" onclick="idSearchClick2()"
+				<button id="searchBtn4" onclick="idSearchClick2()" type="button"
 					class="cancle">취소</button>
 			</fieldset>
 		</div>
 	</form>
 	
+	<!-- 아이디/비밀번호 찾기 버튼 js -->
 	<script type="text/javascript">
 	function searchCheck(num) {
 		if (num == '1') {
@@ -111,10 +115,53 @@
 			document.getElementById("searchP").style.display = "";
 		}
 	}
-	</script>
+	
+	 $(document).ready(function(){
+		$('#searchBtn1').click(function() {
+			$('#backgroundModal').fadeIn();
+			
+		});
+		// 2. 모달창 닫기 버튼
+		$('#close').on('click', function() {
+			$('#backgroundModal').fadeOut();
+		});
+		// 3. 모달창 윈도우 클릭 시 닫기
+		$(window).on('click', function() {
+			if (event.target == $('#backgroundModal').get(0)) {
+	            $('#backgroundModal').hide();
+	         }
+		});
+	}); 
+	
+	  var idV = "";
+	  var memberName =$("#memberName").val;
+	  var memberPhone =$("#memberPhone").val;
+		// 아이디 값 받고 출력하는 ajax
+		var idSearchClick1 = function(){
+			console.log($('#memberName').val());
+			console.log($('#memberPhone').val());
+			$.ajax({
+				type:"POST",
+				url:"memberSearchId.com",
+				dataType:'json',
+				data: {"memberName": memberName, "memberPhone" : memberPhone},
+				success:function(data){
+					if(data == 0){
+						$('#idValue').text("회원 정보를 확인해주세요!");
+					} else {
+						$('#idValue').text(data);
+						// 아이디값 별도로 저장
+						idV = data;
+					}
+				}
+			});
+		} 
+	 </script> 
+	
+	
 	<!-- JS -->
-	<script src="/resources/js/member/loginForm.js"></script>
-	<script src="/resources/js/member/loginAjax.js"></script>
+	  <script src="/resources/js/member/loginForm.js"></script>
+	<script src="/resources/js/member/loginAjax.js"></script> 
 
 </body>
 </html>

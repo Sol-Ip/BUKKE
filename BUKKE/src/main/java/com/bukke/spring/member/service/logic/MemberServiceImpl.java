@@ -42,6 +42,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int searchMemberId(Member member) {
+		int result =mStore.checkIdmember(member); 
+		return result;
+	}
 	
 	
 

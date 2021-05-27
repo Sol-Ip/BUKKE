@@ -29,6 +29,7 @@
 	</div>
 	<div class="container">
         <form action="memberRegister.com" method="post">
+        	<hr>
             <div class="form-group">
                 <label for="memberId">아이디</label>
                 <input type="text" class="form-control" name="memberId" placeholder="아이디를 입력해주세요">
@@ -44,6 +45,7 @@
                 <input type="password" class="form-control" name="memberPw_re"  placeholder="비밀번호를 한번 더 입력해주세요">
                 <div class="invalid-check invalid-pw_re">필수 정보입니다.</div>
             </div>
+            <hr>
             <div class="form-group">
                 <label for="memberName">이름</label>
                 <input type="text" class="form-control" name="memberName" placeholder="이름을 입력해주세요">
@@ -54,6 +56,7 @@
                 <input type="text" class="form-control" name="memberNick" placeholder="당신의 부캐명을 입력해주세요">
                 <div class="invalid-check invalid-nick">필수 정보입니다.</div>
             </div>
+            <hr>
             <div class="form-group">
                 <label for="memberAddr1">도로명주소   <button type="button" class="btn btn-default btn-sm" id="postSearch">주소찾기</button></label>
                 <input type="text" class="form-control postcodify_address" name="memberAddr1" readonly>
@@ -63,6 +66,7 @@
                 <label for="memberAddr2">상세주소</label>
                 <input type="text" class="form-control" name="memberAddr2" placeholder="상세주소를 입력해주세요">
             </div>
+            <hr>
             <div class="form-group">
                 <label for="memberPhone">전화번호</label>
                 <input type="text" class="form-control" name="memberPhone" placeholder="-를 제외한 전화번호를 입력해주세요">

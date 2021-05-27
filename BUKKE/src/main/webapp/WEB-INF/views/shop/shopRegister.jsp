@@ -9,6 +9,7 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 주소검색 api -->
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<!-- 파일업로드 커스텀 css -->
 <title>업체 - 회원가입</title>
 </head>
 <style>
@@ -21,7 +22,9 @@
     	display: none;
         color: #f00;
     }
-      
+    .upload-name {
+	height: 34px;
+	}
 </style>
 <body>
 	<div class="py-5 text-center">
@@ -29,49 +32,67 @@
 	</div>
 	<div class="container">
         <form action="memberRegister.com" method="post">
+        	<hr>
             <div class="form-group">
                 <label for="memberId">아이디</label>
-                <input type="text" class="form-control" name="memberId" placeholder="아이디를 입력해주세요">
+                <input type="text" class="form-control" name="shopId" placeholder="아이디를 입력해주세요">
                 <div class="invalid-check invalid-id">필수 정보입니다.</div>
             </div>
             <div class="form-group">
-                <label for="memberPw">비밀번호</label>
-                <input type="password" class="form-control" name="memberPw" placeholder="비밀번호를 입력해주세요">
+                <label for="shopPw">비밀번호</label>
+                <input type="password" class="form-control" name="shopPw" placeholder="비밀번호를 입력해주세요">
                 <div class="invalid-check invalid-pw">필수 정보입니다.</div>
             </div>
             <div class="form-group">
-                <label for="memberPw">비밀번호 재확인</label>
-                <input type="password" class="form-control" name="memberPw_re"  placeholder="비밀번호를 한번 더 입력해주세요">
+                <label for="shopPw">비밀번호 재확인</label>
+                <input type="password" class="form-control" name="shopPw_re"  placeholder="비밀번호를 한번 더 입력해주세요">
                 <div class="invalid-check invalid-pw_re">필수 정보입니다.</div>
             </div>
+            <hr>
             <div class="form-group">
-                <label for="memberName">이름</label>
-                <input type="text" class="form-control" name="memberName" placeholder="이름을 입력해주세요">
+                <label for="ceoName">대표자명</label>
+                <input type="text" class="form-control" name="ceoName" placeholder="대표자명을 입력해주세요">
                 <div class="invalid-check invalid-name">필수 정보입니다.</div>
             </div>
             <div class="form-group">
-                <label for="memberNick">부캐명</label>
-                <input type="text" class="form-control" name="memberNick" placeholder="당신의 부캐명을 입력해주세요">
+                <label for="shopName">업체명</label>
+                <input type="text" class="form-control" name="shopName" placeholder="업체명을 입력해주세요">
                 <div class="invalid-check invalid-nick">필수 정보입니다.</div>
             </div>
+            <hr>
             <div class="form-group">
-                <label for="memberAddr1">도로명주소   <button type="button" class="btn btn-default btn-sm" id="postSearch">주소찾기</button></label>
-                <input type="text" class="form-control postcodify_address" name="memberAddr1" readonly>
+                <label for="shopAddr1">도로명주소   <button type="button" class="btn btn-default btn-sm" id="postSearch">주소찾기</button></label>
+                <input type="text" class="form-control postcodify_address" name="shopAddr1" readonly>
                 <div class="invalid-check invalid-addr">필수 정보입니다.</div>
             </div>
             <div class="form-group">
-                <label for="memberAddr2">상세주소</label>
-                <input type="text" class="form-control" name="memberAddr2" placeholder="상세주소를 입력해주세요">
+                <label for="shopAddr2">상세주소</label>
+                <input type="text" class="form-control" name="shopAddr2" placeholder="상세주소를 입력해주세요">
             </div>
+            <hr>
             <div class="form-group">
-                <label for="memberPhone">전화번호</label>
-                <input type="text" class="form-control" name="memberPhone" placeholder="-를 제외한 전화번호를 입력해주세요">
+                <label for="shopPhone">연락처</label>
+                <input type="text" class="form-control" name="shopPhone" placeholder="-를 제외한 전화번호를 입력해주세요">
                 <div class="invalid-check invalid-phone">필수 정보입니다.</div>
             </div>
             <div class="form-group">
-                <label for="memberEmail">이메일</label>
-                <input type="text" class="form-control" name="memberEmail" placeholder="이메일을 입력해주세요">
+                <label for="shopEmail">이메일</label>
+                <input type="text" class="form-control" name="shopEmail" placeholder="이메일을 입력해주세요">
                 <div class="invalid-check invalid-email">필수 정보입니다.</div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="crnNo">사업자번호</label>
+                <input type="text" class="form-control" name="crnNo" placeholder="사업자번호를 입력해주세요">
+                <div class="invalid-check invalid-crn">필수 정보입니다.</div>
+            </div>
+            <div class="form-group">
+                <label id = "crnFile">사업자등록증</label>
+                <div class="filebox bs3-primary preview-image"></div>
+                <input class="upload-name" value="파일선택" disabled="disabled" >
+                <label for="input-file" class="btn btn-primary">업로드</label>
+                <input type="file" id="input-file">
+                <div class="invalid-check invalid-file">필수 정보입니다.</div>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-large">가입하기</button>
@@ -79,66 +100,8 @@
         </form>
     </div>
 </body>
-<script>
-	// css 속성 (fucus상태에서 테두리)
-	$(".form-control").focus(function(){
-		$(this).css({
-			"box-shadow" : "0px 0px 5px #0033c"
-		})
-	})
-	// 주소 검색
-	$(function() {
-		$("#postSearch").postcodifyPopUp({})
-	})
-	// 전송 시 유효성 검사
-	$("form").submit(function(e){
-		var check_ok = false;
-		check_ok = invaliedId();
-		check_ok = invaliedPw();
-		check_ok = invaliedPw_re();
-		check_ok = invaliedName();
-		check_ok = invaliedAddr();
-		check_ok = invaliedPhone();
-		check_ok = invaildEmail();
-		if(check_ok) {
-			return false;
-		} else {
-			return true;
-		}
-	})
-	function invaliedId() {
-		// required 빈 칸을 허용하지 않음
-		// duplicate 중복을 허용하지 않음
-		// format 영어, 숫자, _만 허용
-		return false;
-	}
-	function invaliedPw() {
-		// required 빈 칸을 허용하지 않음
-		// format 영어, 숫자, 특수문자만 허용
-		return false;
-	}
-	function invaliedPw_re() {
-		// required 빈 칸을 허용하지 않음
-		// match 비밀번호가 일치해야 함
-		return false;
-	}
-	function invaliedName() {
-		// required 빈 칸을 허용하지 않음
-		return false;
-	}
-	function invaliedAddr() {
-		// required 빈 칸을 허용하지 않음
-		return false;
-	}
-	function invaliedPhone() {
-		// required 빈 칸을 허용하지 않음
-		// format 11자리의 숫자로만 이루어져야 함
-		return false;
-	}
-	function invaildEmail() {
-		// required 빈 칸을 허용하지 않음
-		// format @가 포함되어야 함
-		return false;
-	}
-</script>
+<!-- 파일업로드 커스텀 js -->
+<script src="/resources/js/shop/shopFileUpload.js"></script>
+<!-- 유효성검사 ajax + 주소검색 -->
+<script src="/resources/js/shop/shopRegister.js"></script>
 </html>

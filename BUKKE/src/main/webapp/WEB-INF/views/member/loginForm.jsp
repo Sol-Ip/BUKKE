@@ -11,9 +11,12 @@
 </head>
 <body>
 <form action="memberLogin.com" method="POST">
+  <div id="text-bubble">홈 바로가기</div>
   <svg width="200px" height="200px" viewBox="0 0 200 200" aria-labelledby="svg-title svg-desc">
+  <!--
     <title id="svg-title">Floating Ghost</title>
     <desc id="svg-desc">A smiling ghost that floats ups and down while looking at the user interactions.</desc>
+  -->
     <style>
       @keyframes float { 
         from { transform: translate(0, 0px); }

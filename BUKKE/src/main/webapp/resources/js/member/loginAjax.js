@@ -1,9 +1,22 @@
-// 로그인 ajax, 유효성 검사
-$(document).ready(function(){
-	$(".shop-field").hide();
+
+// 홈 바로가기
+$("g").click(function(){
+	location.href = "home.com";
+})
+// 말풍선 효과
+$("g").mouseover(function(){
+	$("#text-bubble").stop().fadeIn(550);
+})
+$("g").mouseout(function(){
+	$("#text-bubble").stop().hide();
 })
 
+$(document).ready(function(){
+	$(".shop-field").hide();
+	$("#text-bubble").hide();
+})
 
+// 로그인 ajax, 유효성 검사
 $("input[type=radio]").on("change", function() {
 	$("g").fadeOut(1000).fadeIn(1000);
 	var type = $(this).val();
@@ -20,15 +33,10 @@ $("input[type=radio]").on("change", function() {
 $("#submit").click(
 		function(event) {
 			$(".invalid-check").eq(0).html("");
+			$(".invalid-check").eq(1).html("");
 			$(".invalid-check").eq(2).html("");
-/*			if ($("#shopId").val() == "") {
-				$(".invalid-check").eq(1).html("아이디를 입력해주세요.");
-				return;
-			}
-			if ($("#shopPw").val() == "") {
-				$(".invalid-check").eq(3).html("비밀번호를 입력해주세요.");
-				return;
-			}*/
+			$(".invalid-check").eq(3).html("");
+
 			if ($("input[type=radio]").val() == "typeMember") {
 				// 유효성 검사
 				if ($("#memberId").val() == "") {
@@ -53,7 +61,7 @@ $("#submit").click(
 							alert("관리자로 로그인하셨습니다.");
 							location.href = "home.com"
 						} else if (data == "success") {
-							alert("로그인 성공!");
+							//alert("로그인 성공!");
 							location.href = "home.com"
 						} else {
 							$(".invalid-check").eq(2).html("아이디 혹은 비밀번호가 일치하지 않습니다.");
@@ -65,12 +73,21 @@ $("#submit").click(
 					}
 				})
 			} else {
-				
+				// 유효성 검사
+				if ($("#shopId").val() == "") {
+					$("#shopId").focus();
+					$(".invalid-check").eq(1).html("아이디를 입력해주세요.");
+					return;
+				}
+				if ($("#shopPw").val() == "") {
+					$("#shopPw").focus();
+					$(".invalid-check").eq(3).html("비밀번호를 입력해주세요.");
+					return;
+				}
 			}
 			
 		})
 // 카카오 소셜로그인
-// 팝업을 띄우는 방식으로 가야 하나?
 $("#kakao").click(function(){
 	location.href = "kakao/memberLogin.com";
 })

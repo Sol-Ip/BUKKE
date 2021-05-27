@@ -1,4 +1,4 @@
-// generic: inputs with placeholder will have some animation to minimize the placeholder
+// 유령 움직임 애니메이션!!
 document.querySelectorAll("fieldset.with-placeholder input").forEach(
 		function(el, idx) {
 			el.addEventListener("focus", function() {
@@ -13,7 +13,6 @@ document.querySelectorAll("fieldset.with-placeholder input").forEach(
 			})
 		});
 
-// 아이디 입력 애니메이션
 function updateMouthEyes() {
 	if (memberId.value.length > 0) {
 			document
@@ -50,7 +49,6 @@ memberId.addEventListener("blur", function() {
 	pupilLeft.setAttribute("cy", 71);
 });
 
-// 비밀번호 입력 애니메이션
 let memberPw = document.querySelector("#memberPw");
 memberPw.addEventListener("focus", function() {
 	document.querySelector("#ghost-arm-left").setAttribute("d",

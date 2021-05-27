@@ -29,7 +29,7 @@ public class ShopController {
 	// 업체회원 회원가입(jsp)
 	@RequestMapping(value = "shopRegisterForm.com", method = RequestMethod.GET)
 	public String enrollView() {
-		return "";
+		return "shop/shopRegister";
 	}
 	
 	// 사업자등록증 이미지 저장

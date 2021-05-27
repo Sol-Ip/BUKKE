@@ -1,4 +1,4 @@
-// generic: inputs with placeholder will have some animation to minimize the placeholder
+// 유령 움직임 애니메이션!!
 document.querySelectorAll("fieldset.with-placeholder input").forEach(
 		function(el, idx) {
 			el.addEventListener("focus", function() {
@@ -37,7 +37,7 @@ function updateMouthEyes() {
 	pupilLeft.setAttribute("cx", 113 + movePos);
 }
 
-let memberId = document.querySelector("#memberId");
+let memberId = document.querySelector(".id");
 memberId.addEventListener("focus", updateMouthEyes);
 memberId.addEventListener("input", updateMouthEyes);
 memberId.addEventListener("blur", function() {
@@ -49,8 +49,6 @@ memberId.addEventListener("blur", function() {
 	pupilLeft.setAttribute("cy", 71);
 });
 
-// password animation: move arms to cover eyes on focus,
-// and return to original position on blur
 let memberPw = document.querySelector("#memberPw");
 memberPw.addEventListener("focus", function() {
 	document.querySelector("#ghost-arm-left").setAttribute("d",

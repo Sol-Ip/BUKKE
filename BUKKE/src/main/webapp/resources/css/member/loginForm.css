@@ -85,14 +85,9 @@ fieldset.with-placeholder input {
   padding: 1.3rem 1rem 0.7rem 1rem;
 }
 
-/* 헤더 오류 수정 */
-.navbar-brand {
-	font-family: "Poppins", Arial, sans-serif;
-}
-
 /* 유효성 검사 */
 .invalid-check {
-	font-size: 0.7rem;
+	font-size: 0.8rem;
 	color: red;
 	background: none;
 }
@@ -102,6 +97,7 @@ fieldset.with-placeholder input {
 	display: inline-block;
 	position: relative;
 	left: 50%;
+	-webkit-transform: translate(-50%,0);
 	transform:translate(-50%,0);
 	margin-top: 5px;
 }
@@ -109,15 +105,32 @@ fieldset.with-placeholder input {
 	padding: 0 19px;
 }
 
-#registerMember {
+.enroll-and-findId {
 	text-align: right;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: none;
 }
-#registerMember a {
+.enroll-and-findId a {
 	color: #333;
 	padding: 0 5px;
 	
+}
+
+/* 말풍선 */
+#text-bubble {
+	background-image: url(../../images/member/purple_balloon.svg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color: white;
+	width: 200px;
+	height: 50px;
+	position: absolute;
+	text-align: center;
+	padding-top: 40px;
+    padding-bottom: 30px;
+    line-height: 1.2;
+    top: -50px;
+	left: 250px;
 }
 
 /*가운데서 좌우로 펼쳐지는 라인 에니메이션*/

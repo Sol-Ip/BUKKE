@@ -36,12 +36,14 @@
 			</div>
 	
 	<!-- 왼쪽위사진넣어보기 -->
+	<section class="ftco-section">
+			<div class="row">
 			<div class="col-lg-8 ftco-animate">
 				<p>
 					<img src="../resources/reviewFiles/${review.rRenameFilename }"
 						alt="class photo" class="img-fluid">
 				</p>
-				<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">${review.reviewTitle }</h2>
+				
 				<hr>
 
 				<div style="padding: 30px;">
@@ -76,79 +78,60 @@
 					<div class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
 					<div class="sidebar-box ftco-animate">
 					<h2 align="center">
-						<i class="fas fa-list fa-lg"></i>&nbsp;Information
+						<i class="fas fa-list fa-lg"></i>&nbsp;${review.reviewTitle }
 					</h2>
 					<hr>
 					<br>
 						<div class="block-21 mb-4 d-flex">
 							<ul id="type-ul">
 									<li><h3 class="act-type">
-											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+											<b>부캐명 : </b>&nbsp;&nbsp;${review.memberId }<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.classStartDate }</h3></li>
-									<br>
-									<br>
 									<li><h3 class="act-type">
-											<b>종료일</b>&nbsp;&nbsp;<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+											<b>작성날짜 : </b>&nbsp;&nbsp;${review.reviewDate }<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.classEndDate }</h3></li>
-									<br>
-									<br>
+									
+							
 									<li><h3 class="act-type">
-											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+											<b>좋아요 엉엉</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.shopId }</h3></li>
-									<br>
-									<br>
+									
+								
+									 
 									<li><h3 class="act-type">
-											<b>가격</b>&nbsp;&nbsp;<i class="fas fa-won-sign"></i>&nbsp;&nbsp;&nbsp;
+											<b>조회수 엉엉</b>&nbsp;&nbsp;<i class="fas fa-won-sign"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.classPrice }</h3></li>
-									<br>
-									<br>
-									<li><h3 class="act-type">
-											<b>조회 수</b>&nbsp;&nbsp;<i class="far fa-eye"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">조회수 들어오기</h3></li>
-									<br>
-									<br>
-									<li><h3 class="act-type">
-											<b>찜 갯수</b>&nbsp;&nbsp;<i class="fas fa-heartbeat"></i></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">찜 개수 들어오기</h3></li>
-									<br>
-									<br>
-									<li><h3 class="act-type">
-											<b> 주소 </b>&nbsp;&nbsp;<i class="fas fa-map-marked-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.classAddr }</h3></li>
+									
+									
+								
+									
+									
 								</ul>
 						</div>
 
 							<!-- 사업자에게만 버튼 보이게 하기 -->
 							<div align="center">
-								<c:url var="cModify" value="bukkeClassModify.com">
-									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+								<c:url var="rModify" value="reviewModifyView.com">
+									<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
 								</c:url>
 								<!-- renameFilename 은 실제 저장된 파일 이름  -->
-								<c:url var="cDelete" value="bukkeClassDelete.com">
-									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
-									<c:param name="cRenameFilename" value="${bukkeClass.cRenameFilename }"></c:param>
+								<c:url var="rDelete" value="reviewDelete.com">
+									<c:param name="reviewNo" value="${bukkeClass.classNo }"></c:param>
+									<c:param name="rRenameFilename" value="${review.rRenameFilename }"></c:param>
 								</c:url>
-								<a href="${cModify }"><input class="btn btn-lg btn-warning" type="submit" value="수정"></a> 
-									<a href="${cDelete }"><input class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
+								<a href="${rModify }"><input class="btn btn-lg btn-warning" type="submit" value="수정"></a> 
+									<a href="${rDelete }"><input class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
 							</div>
 						</div>
 					</div>
 
-					<div class="ftco-animate">
+					<!-- <div class="ftco-animate">
 						<input type="submit" class="btn btn-lg btn-primary" value="예약하기">
 						<button class="btn btn-lg btn-primary" type="submit">선물하기</button>
 						<button class="btn btn-lg btn-primary" type="submit">채팅하기</button>
-					</div>
-					<br>
-					<br>
-					<div class="sidebar-box ftco-animate">
+					</div> -->
+					
+					<!-- <div class="sidebar-box ftco-animate">
 						<h3>Popular Articles</h3>
 						<div class="block-21 mb-4 d-flex">
 							<a class="blog-img mr-4"
@@ -216,10 +199,42 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
+					
+					
 				</div>
-			
+		</section>	
+	<div class="container">
 
+			<!-- <div class="container"> -->
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"></span>
+					<h2 class="mb-4">Comments</h2>
+				</div>
+			</div>	
+<!-- 댓글 등록 -->
+	<table class="col-md-8 card card-lg" align="center" border="1" cellspacing="0">
+		<tr>
+			<td><textarea class="form-control form-control-lg form-control-borderless" rows="1" cols="col-md-8 card card-lg" id="rContent"></textarea></td>
+			<td>
+				<button class="btn btn-lg btn-primary" id="rSubmit">등록하기</button>
+			</td>
+			
+		</tr>
+	</table>
+
+	<!-- 댓글 목록 -->
+	<table class="form-control form-control-lg form-control-borderless" align="center" border="1" cellspacing="0" id="rtb">
+		<thead>
+			<tr>
+				<!-- 댓글 갯수 -->
+				<td colspan="2"><b id="rCount"></b></td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	</section>
 			<br style="clear:both">
 	<h1 align="center">${review.reviewNo }번 글 상세보기</h1>
 	<br><br>

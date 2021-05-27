@@ -11,8 +11,11 @@
 		<result property="reviewStatus" column="REVIEW_STATUS"></result>
 		<result property="rOriginalFilename" column="R_ORIGINAL_FILENAME"></result>
 		<result property="rRenameFilename" column="R_RENAME_FILENAME"></result>
+		<result property="classNo" column="CLASS_NO"></result>
+		<result property="activityNo" column="ACTIVITY_NO"></result>
 		
-	</resultMap>
+		
+	</resultMap> 
 	
 	<select id="selectListCount" resultType="_int">
       SELECT COUNT(*) FROM REVIEW WHERE REVIEW_STATUS = 'Y'
@@ -28,7 +31,7 @@
 	
 	 
 	<insert id="insertReview" parameterType="Review">
-		INSERT INTO REVIEW VALUES(SEQ_REVIEWID.NEXTVAL,  #{memberId }, #{reviewTitle }, #{reviewContents }, SYSDATE, 'Y', #{rOriginalFilename },#{rRenameFilename })
+		INSERT INTO REVIEW VALUES(SEQ_REVIEWID.NEXTVAL,  #{memberId }, #{reviewTitle }, #{reviewContents }, SYSDATE, 'Y', #{rOriginalFilename },#{rRenameFilename },null,null)
 	</insert>
 	
 	

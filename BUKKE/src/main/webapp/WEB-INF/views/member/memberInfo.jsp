@@ -18,7 +18,8 @@
 
 
 </head>
-<body id="body-pd">
+<!-- <body id="body-pd"> -->
+<body id="">
 
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
@@ -36,12 +37,8 @@
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- fixed section END-->
-		<!-- ============================== 사이드바 ====================================== -->
-		<div class="col-sm-3">
-			<div class="row">
-	<div class="l-navbar" id="navbar">
+		
+			<div class="l-navbar" id="navbar">
         <nav class="nav">
             <div>
                 <div class="nav__brand">
@@ -101,22 +98,40 @@
             </div>
         </nav>
     </div>
-    </div>
-    </div>
-
-	<!-- ==================== 사이드 바 끝 ======================================= -->
+	</section>
+	<!-- fixed section END-->
 		
+		
+			
+
+   
+   
 		<!--===================== 회원 정보 관리 시작 =========== -->
-		<div class="col-sm-9">
-			<div class="row">
+	<section class="ftco-section">
+	<div class="container">
+	<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">BUKKE</small></span>
+					<h2 class="mb-4">(memberId)'S MY PAGE</h2>
+				</div>
+			</div>
+			
+			
+			
+	<div class="row">
+		<div class="row col-lg-12" style="align:center;">
 				<!-- <div class="col-lg-12 col-md-12 col-sm-12"> 
             <div class="service-heading-block">
                 <h2 class="text-center text-primary title">Our amazing Service features</h2>
                 <p class="text-center sub-title">Lorem ipsum dolor sit amet,<span class="text-primary">consectetur adipisicing</span> elit.<br/> Dolor alias provident excepturi eligendi, nam numquam iusto eum illum, ea quisquam.</p>
             </div>             
              </div>  -->
-				<div class="col-lg-3 col-md-6 col-sm-6" style="margin-left: 150px;">
-					<div class="text-center feature-block" style="width: 330px;">
+             <div class="col-lg-3"></div>
+				<div class="col-lg-3 col-md-6 col-sm-6" >
+					<div class="text-center feature-block"">
+<!-- 				<div class="col-lg-6 col-md-6 col-sm-6" style="margin-left: 150px;">
+					<div class="text-center feature-block" style="width: 330px;"> -->
 						<span class="fb-icon color-info"> 
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
@@ -126,7 +141,8 @@
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="text-center feature-block" style="width: 330px; margin-left: 130px"">
+					<!-- <div class="text-center feature-block" style="width: 330px; margin-left: 130px"> -->
+					<div class="text-center feature-block" style="width: 330px;">
 						<span class="fb-icon color-warning"> 
 							<i class="far fa-calendar-check " aria-hidden="true"></i>
 						</span>
@@ -135,6 +151,7 @@
 						<a href="javascript:void(0)" class="btn btn-warning btn-custom">Click here</a>
 					</div>
 				</div>
+				<div class="col-lg-3"></div>
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-sm-6" style="margin-left: 150px;">
@@ -159,10 +176,10 @@
 					</div>
 				</div>
 			</div>
+			</div>
 		</div>
-	</div>
-	</div>
 	
+	</section>
 <br>
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>

@@ -19,25 +19,41 @@
 		<result property="aOriginalFilename" column="A_ORIGINAL_FILENAME"></result> 
 		<result property="aRenameFilename" column="A_RENAME_FILENAME"></result> 
 	</resultMap>
-
+	
+	<!-- 액티비티 전체 수 -->
 	 <select id="selectListActivityCount" resultType="_int">
 		SELECT COUNT (*) FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y'
 	</select>
 
+	<!-- 액티비티 총 목록 -->
 	<select id="selectAllActivityList" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
 	</select>
+	
+	<!-- 액티비티 검색 -->
+	<select id="selectSearchActivity" resultMap="ActivityResultMap">
+		SELECT * FROM ACTIVITY WHERE 
+		SHOP_ID LIKE '%' || #{activityKeyword} ||'%' AND
+		ACTIVITY_NAME LIKE '%' || #{activityKeyword} ||'%' AND 
+		ACTIVITY_TYPE LIKE '%' || #{activityKeyword} ||'%' AND 
+		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' AND
+		ACTIVITY_INFO LIKE '%' || #{activityKeyword} ||'%'
+		ORDER BY ACTIVITY_ENROLL_DATE DESC
+	</select>
 
+	<!-- 액티비티 상세조회 -->
 	<select id="selectActivityOne" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE ACTIVITY_NO = #{activityNo} AND ACTIVITY_STATUS = 'Y'
 	</select>
-
+	
+	<!-- 액티비티 등록 -->
 	<insert id="insertActivity">
 		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, 'shoptest',
 		#{activityName},#{activityAddr}, #{activityType},NULL, #{activityInfo}, #{activityPrice}, #{activityCapacity},
 		 SYSDATE, #{activityStartdate}, #{activityEnddate},DEFAULT,#{aOriginalFilename}, #{aRenameFilename})
 	</insert>
 
+	<!-- 액티비티 수정 -->
 	<update id="updateActivity">
    		UPDATE ACTIVITY SET ACTIVITY_NAME = #{activityName }, ACTIVITY_ADDR = #{activityAddr }, 
    		ACTIVITY_TYPE = #{activityType }, ACTIVITY_TYPEDETAILS = NULL, ACTIVITY_INFO = #{activityInfo }, 
@@ -47,7 +63,7 @@
    		WHERE ACTIVITY_NO = #{activityNo } AND ACTIVITY_STATUS = 'Y'
    </update>
 	
-	<!-- 삭제인 것 처럼 보여지는 것! -->
+	<!-- 액티비티 삭제(인 것 처럼 보여지는 것) -->
 	<update id="deleteActivity" parameterType="_int">
 		UPDATE ACTIVITY SET ACTIVITY_STATUS = 'N' WHERE ACTIVITY_NO = #{activityNo}
 	</update>

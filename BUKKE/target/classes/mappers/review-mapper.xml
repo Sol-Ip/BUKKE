@@ -93,5 +93,10 @@
 		AND COMMENT_STATUS = 'Y'
 		ORDER BY COMMENT_NO DESC
 	</select>
+	
+	<!-- 클래스에서 리뷰 보여주기 -->
+   <select id="selectListToBclass" resultMap="reviewResultMap">
+      SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
+   </select> 
 
 </mapper>

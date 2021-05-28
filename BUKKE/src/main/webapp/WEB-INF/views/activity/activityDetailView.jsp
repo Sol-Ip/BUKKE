@@ -10,7 +10,18 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/activity-custom/activityDetailView.css">
 </head>
+<style>
 
+ 	 #bookmark {
+ 		color:green;
+ 	} 
+	
+ 	#bookmark:hover {
+ 			color : red;
+ 		}
+ 	
+ 	
+</style>
 <body>
 
 	<!-- fixed section -->
@@ -48,8 +59,7 @@
 					<h2 class="mb-4">ACTIVITY DETAILS</h2>
 				</div>
 			</div>
-			<!-- 	</div> -->
-
+			
 			<div class="row">
 				<!-- 클래스 분류 -->
 				<div class="col-lg-12 ftco-animate">
@@ -60,20 +70,12 @@
 						<li><h3 id="act-type">${activity.activityTypeDetails}</h3></li>
 						<li><h3 class="act-type">&nbsp;]</h3></li>
 					</ul>
-
-
-
-
 				</div>
 				<div class="col-lg-8 ftco-animate">
 					<p>
-						<img
-							src="resources/images/activityImageFiles/${activity.aRenameFilename}"
-							alt="" class="img-fluid">
+						<img src="resources/images/activityImageFiles/${activity.aRenameFilename}" alt="강좌이미지" class="img-fluid">
 					</p>
-					<!-- style="font-family: 'KOTRA_BOLD-Bold';" -->
-					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명
-						: ${activity.activityName }</h2>
+					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명: ${activity.activityName }</h2>
 					<hr>
 
 					<!-- <H6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -123,7 +125,8 @@
 						class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
 						<div class="sidebar-box ftco-animate">
 							<h2 align="center">
-								<i class="fas fa-list fa-lg"></i>&nbsp;Information
+								<i class="fas fa-list fa-lg"></i>&nbsp;Information&nbsp;
+								<span id="bookmark"><i class="fas fa-bookmark fa-md bookmark"></i></span>
 							</h2>
 							<hr>
 							<br>
@@ -193,17 +196,17 @@
 
 					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) ========== -->
 					<div class="sidebar-box ftco-animate">
-						
 						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
-						<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의 또 다른 강좌</h4>
+							<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의
+							또 다른 강좌
+						</h4>
 						<hr>
-						
-							<c:forEach items="${aList }" var="activity">
-						<div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(resources/images/activityImageFiles/${activity.aRenameFilename});"></a>
-							<div class="text">
-								
+						<c:forEach items="${aList }" var="activity">
+							<div class="block-21 mb-4 d-flex">
+								<a class="blog-img mr-4"
+									style="background-image: url(resources/images/activityImageFiles/${activity.aRenameFilename});"></a>
+								<div class="text">
+
 									<h3 id="top-actname" class="heading">
 										<c:url var="aDetail" value="activityDetail.com">
 											<c:param name="activityNo" value="${activity.activityNo }"></c:param>
@@ -211,73 +214,28 @@
 										<a href="${aDetail}">[${activity.activityType}]&nbsp;${activity.activityName}</a>
 									</h3>
 									<div class="meta">
-									<div>
-										<i class="far fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityStartdate}
-									</div>
-									<div>
-										<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityEnddate}
-									</div>
-									<div>
-										<i class="fas fa-arrow-circle-right fa-lg"></i>&nbsp;${activity.activityTypeDetails}
-									</div>
-								</div>
-							</div>
-						</div>
-						<hr>
-							</c:forEach>
-						<!-- <div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(resources/images/image_2.jpg);"></a>
-							<div class="text">
-								<h3 class="heading">
-									<a href="#">Even the all-powerful Pointing has no control
-										about the blind texts</a>
-								</h3>
-								<div class="meta">
-									<div>
-										<a href="#"><span class="icon-calendar"></span> Oct. 04,
-											2018</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-chat"></span> 19</a>
+										<div>
+											<i class="far fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityStartdate}
+										</div>
+										<div>
+											<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityEnddate}
+										</div>
+										<div>
+											<i class="fas fa-arrow-circle-right fa-lg"></i>&nbsp;${activity.activityTypeDetails}
+										</div>
 									</div>
 								</div>
 							</div>
-						</div> -->
-						
-						<!-- <div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(resources/images/image_3.jpg);"></a>
-							<div class="text">
-								<h3 class="heading">
-									<a href="#">Even the all-powerful Pointing has no control
-										about the blind texts</a>
-								</h3>
-								<div class="meta">
-									<div>
-										<a href="#"><span class="icon-calendar"></span> Oct. 04,
-											2018</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-chat"></span> 19</a>
-									</div>
-								</div>
-							</div>
-						</div> -->
-						
+							<hr>
+						</c:forEach>
 					</div>
+					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) END ========== -->
 				</div>
 			</div>
 		</div>
 		<!-- END COL -->
 
-				<!-- =============== side bar END =============== -->
+				<!-- =============== SIDE bar END =============== -->
 
 			
 		

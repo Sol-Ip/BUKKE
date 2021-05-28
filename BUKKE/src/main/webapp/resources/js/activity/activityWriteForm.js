@@ -49,8 +49,69 @@ $(document).ready(function() {
 		     // 확인
 		 		}
 	 		});
-});
 
+
+
+
+/*function activityType(e) {
+var activityTypeDetails_1 = ["등산 및 트래킹", "낚시"];
+var activityTypeDetails_2 = ["당일치기", "1박2일", "강습 및 렌탈권"];
+var activityTypeDetails_3 = ["익스트림 스포츠", "구기 스포츠", "라켓 스포츠"];
+var activityTypeDetails_4 = ["스노쿨링 및 다이빙", "낚시"];
+var target = document.getElementById("activityTypeDetails");
+
+
+if(e.value == "1") var d = activityTypeDetails_1;
+else if(e.value == "2") var d = activityTypeDetails_2;
+else if(e.value == "3") var d = activityTypeDetails_3;
+else if(e.value == "4") var d = activityTypeDetails_4;
+
+target.options.length = 0;
+
+for (x in d) {
+	var opt = document.createElement("option");
+	opt.value = d[x];
+	opt.innerHTML = d[x];
+	target.appendChild(opt);
+}
+
+
+}*/
+
+
+	$('#act-type').change(function () {
+		var selectType=$(this).val();
+		//alert(selectType);
+			$("#activityTypeDetails").html("");
+		 $.ajax({
+			type : "get",
+			url : "activityTypeDetails.com",
+			dataType : "json",
+			data : { "activityType" : selectType },
+			success : function(result) { //
+				for(var i in result) {
+					//console.log(result[i]);
+					//console.log(result[i].activityTypeDetails);
+					 $('#activityTypeDetails').append("<option value='"+result[i].activityTypeDetailCodes+"' >"+result[i].activityTypeDetails+"</option>'");
+				}
+//				$("#activityTypeDetails").html("");
+//				$('#activityTypeDetails').append('<option value="">상세분류를 선택해주세요</option>');	
+//				alert(result.membershipName);
+//				//alert(result.concurrentUsers);}
+//				var concurrentUsers = result.concurrentUsers;
+//				for(var i = 1 ; i<=concurrentUsers ; i++){
+//					$('#partyHeadCount').append("<option value="+i+">"+i+"명</option>");	
+//				}
+		 }
+		});//ajax 
+	})//첫번째 select 박스
+	$('#activityTypeDetails').change(function () {
+		//alert($('#partyHeadCount').val());
+		
+	})// 두번째 select 박스
+	
+	
+});
 function activityType(type , select) {
     
     $('#activityTypeDetails').empty();
@@ -95,56 +156,3 @@ function activityType(type , select) {
         $('#activityTypeDetails').val(select);
     }
 };
-
-/*function activityType(e) {
-var activityTypeDetails_1 = ["등산 및 트래킹", "낚시"];
-var activityTypeDetails_2 = ["당일치기", "1박2일", "강습 및 렌탈권"];
-var activityTypeDetails_3 = ["익스트림 스포츠", "구기 스포츠", "라켓 스포츠"];
-var activityTypeDetails_4 = ["스노쿨링 및 다이빙", "낚시"];
-var target = document.getElementById("activityTypeDetails");
-
-
-if(e.value == "1") var d = activityTypeDetails_1;
-else if(e.value == "2") var d = activityTypeDetails_2;
-else if(e.value == "3") var d = activityTypeDetails_3;
-else if(e.value == "4") var d = activityTypeDetails_4;
-
-target.options.length = 0;
-
-for (x in d) {
-	var opt = document.createElement("option");
-	opt.value = d[x];
-	opt.innerHTML = d[x];
-	target.appendChild(opt);
-}
-
-
-}*/
-
-/*$(document).ready(function () {
-	$('#activityType').change(function () {
-		var selectType=$(this).val();
-		//alert(selectType);
-		 $.ajax({
-			type : "get",
-			url : "activity/select.do",
-			dataType : "json",
-			data : "no="+ selectType,
-			success : function(result) {
-				$("#activityTypeDetails").html("");
-				$('#activityTypeDetails').append('<option value="">상세분류를 선택해주세요</option>');	
-				alert(result.membershipName);
-				//alert(result.concurrentUsers);}
-			var concurrentUsers = result.concurrentUsers;
-			for(var i = 1 ; i<=concurrentUsers ; i++){
-				$('#partyHeadCount').append("<option value="+i+">"+i+"명</option>");	
-			}
-		 }
-		});//ajax 
-	})//첫번째 select 박스
-	$('#partyHeadCount').change(function () {
-		//alert($('#partyHeadCount').val());
-		
-	})// 두번째 select 박스
-})*/
-

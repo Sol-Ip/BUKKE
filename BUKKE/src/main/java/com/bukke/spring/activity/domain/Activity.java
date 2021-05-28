@@ -10,6 +10,7 @@ public class Activity {
 	private String activityAddr; // 주소
 	private String activityType; // 분류
 	private String activityTypeDetails; // 상세분류
+	private String activityTypeDetailCodes; // 상세분류 분류코드
 	private String activityInfo; // 상세내용
 	private String activityPrice;// 액티비티 가격
 	private String activityCapacity; // 인원수
@@ -144,17 +145,28 @@ public class Activity {
 	public void setActivityStatus(String activityStatus) {
 		this.activityStatus = activityStatus;
 	}
+	
+	
+
+	public String getActivityTypeDetailCodes() {
+		return activityTypeDetailCodes;
+	}
+
+	public void setActivityTypeDetailCodes(String activityTypeDetailCodes) {
+		this.activityTypeDetailCodes = activityTypeDetailCodes;
+	}
 
 	@Override
 	public String toString() {
 		return "Activity [activityNo=" + activityNo + ", shopId=" + shopId + ", activityName=" + activityName
 				+ ", activityAddr=" + activityAddr + ", activityType=" + activityType + ", activityTypeDetails="
-				+ activityTypeDetails + ", activityInfo=" + activityInfo + ", activityPrice=" + activityPrice
-				+ ", activityCapacity=" + activityCapacity + ", aOriginalFilename=" + aOriginalFilename
-				+ ", aRenameFilename=" + aRenameFilename + ", activityEnrolldate=" + activityEnrolldate
-				+ ", activityStartdate=" + activityStartdate + ", activityEnddate=" + activityEnddate
-				+ ", activityStatus=" + activityStatus + "]";
+				+ activityTypeDetails + ", activityTypeDetailCodes=" + activityTypeDetailCodes + ", activityInfo="
+				+ activityInfo + ", activityPrice=" + activityPrice + ", activityCapacity=" + activityCapacity
+				+ ", aOriginalFilename=" + aOriginalFilename + ", aRenameFilename=" + aRenameFilename
+				+ ", activityEnrolldate=" + activityEnrolldate + ", activityStartdate=" + activityStartdate
+				+ ", activityEnddate=" + activityEnddate + ", activityStatus=" + activityStatus + "]";
 	}
 
+	
 	
 }

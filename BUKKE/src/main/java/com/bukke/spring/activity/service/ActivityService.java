@@ -24,4 +24,6 @@ public interface ActivityService {
 
 	public int removeActivity(int activityNo); // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
 
+	public ArrayList<Activity> printActivityType(String activityType); // 액티비티 (분류 선택 시) 상세분류 출력
+
 }

@@ -9,6 +9,7 @@
 		<result property="activityAddr" column="ACTIVITY_ADDR"></result> 
 		<result property="activityType" column="ACTIVITY_TYPE"></result> 
 		<result property="activityTypeDetails" column="ACTIVITY_TYPEDETAILS"></result> 
+		<result property="activityTypeDetailCodes" column="ACTIVITY_TYPEDETAIL_CODE"></result> 
 		<result property="activityInfo" column="ACTIVITY_INFO"></result> 
 		<result property="activityPrice" column="ACTIVITY_PRICE"></result>
 		<result property="activityCapacity" column="ACTIVITY_CAPACITY"></result> 
@@ -55,14 +56,19 @@
 	<!-- 액티비티 등록 -->
 	<insert id="insertActivity">
 		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, 'shoptest',
-		#{activityName},#{activityAddr}, #{activityType},NULL, #{activityInfo}, #{activityPrice}, #{activityCapacity},
+		#{activityName},#{activityAddr}, #{activityType},#{activityTypeDetails}, #{activityInfo}, #{activityPrice}, #{activityCapacity},
 		 SYSDATE, #{activityStartdate}, #{activityEnddate},DEFAULT,#{aOriginalFilename}, #{aRenameFilename})
 	</insert>
+	
+	<!-- 등록 할 시, 액티비티 (분류 선택 시) 상세분류 출력  -->
+	<select id="selectActivityType" resultMap="ActivityResultMap">
+		SELECT ACTIVITY_TYPEDETAILS, ACTIVITY_TYPEDETAIL_CODE FROM ACT_TYPE WHERE ACTIVITY_TYPE = #{activityType}
+	</select>
 
 	<!-- 액티비티 수정 -->
 	<update id="updateActivity">
    		UPDATE ACTIVITY SET ACTIVITY_NAME = #{activityName }, ACTIVITY_ADDR = #{activityAddr }, 
-   		ACTIVITY_TYPE = #{activityType }, ACTIVITY_TYPEDETAILS = NULL, ACTIVITY_INFO = #{activityInfo }, 
+   		ACTIVITY_TYPE = #{activityType }, ACTIVITY_TYPEDETAILS = #{activityTypeDetails}, ACTIVITY_INFO = #{activityInfo }, 
    		ACTIVITY_PRICE = #{activityPrice }, ACTIVITY_ENROLL_DATE = SYSDATE, 
    		ACTIVITY_START_DATE = #{activityStartdate }, ACTIVITY_END_DATE = #{activityEnddate }, 
    		A_ORIGINAL_FILENAME = #{aOriginalFilename }, A_RENAME_FILENAME = #{aRenameFilename }

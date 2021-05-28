@@ -67,7 +67,7 @@
 						<div class="col-md-6">
 							<!-- 분류 -->
 							<br> <label class="form-label" for="activityType">분류</label>
-							<select class="form-control" name="activityType" id="" required>
+							<select class="form-control" name="activityType" id="act-type" required>
 								
 								<!-- <option value="Outdoor">아웃도어</option>
 								<option value="surfing">서핑</option>
@@ -204,7 +204,6 @@
 
 
 </body>
-</html>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 <!-- 캘린더 -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -223,3 +222,4 @@
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 <script type="text/javascript" src="/resources/js/note-ready.js"></script>
+</html>

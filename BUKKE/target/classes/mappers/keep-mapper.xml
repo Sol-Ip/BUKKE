@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="keepMapper">
+
+	<resultMap type="Keep" id="KeepResultMap">
+		<id property="keepNo" column="KEEP_NO"></id>
+		<result property="memberId" column="MEMBER_ID"></result>
+		<result property="classNo" column="CLASS_NO"></result>
+		<result property="activityNo" column="ACTIVITY_NO"></result>
+		<result property="keepStatus" column="KEEP_STATUS"></result>
+	</resultMap>
+	
+	<!-- 액티비티 KEEP 등록 -->
+	<insert id="insertKeepActivity">
+		INSERT INTO KEEP VALUES (SEQ_KEEP_NO.NEXTVAL, #{memberId}, null, #{activityNo},'1');
+	</insert>
+	
+	<!-- 액티비티 KEEP 취소(UPDATE) -->
+	<update id="updateKeepActivity">
+		UPDATE KEEP SET KEEP_STATUS = 0 WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO = #{activityNo}
+	</update>
+	
+	<!-- 액티비티 KEEP한 글 조회 -->
+	<select id="selectKeepActivity" resultMap="KeepResultMap">
+		SELECT * FROM KEEP WHERE ACTIVITY_NO = #{activityNo} AND MEMBER_ID = #{memberId} 
+	</select>
+	
+	<!-- 액티비티 KEEP 여부(check) , keep 했으면 1, 안 했으면 0으로 IS_CHECK 에 뜸-->
+	<select id="checkKeepActivity" resultType="_int">
+		SELECT COUNT(*) AS IS_CHECK FROM KEEP WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO = #{activityNo}
+	</select>
+	
+	<!-- 액티비티 게시글 별 KEEP 총 갯수 -->
+	<select id="totalKeepActivity" resultType="_int">
+		SELECT COUNT(*) AS TOTALCOUNT, ACTIVITY_NO FROM KEEP GROUP BY ACTIVITY_NO
+	</select>
+	
+</mapper>

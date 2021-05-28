@@ -73,15 +73,13 @@
 							<br> <label class="form-label" for="activityType">분류</label>
 							<select class="form-control" name="activityType" id="activity-type" required>
 								
-								<!-- <option value="Outdoor">아웃도어</option>
-								<option value="surfing">서핑</option>
-								<option value="sports">스포츠</option>
-								<option value="leisure">수상레저</option> -->
-								<option value="" hidden="hidden">분류를 선택해주세요</option>
+								<!-- <option value="" hidden="hidden">분류를 선택해주세요</option>
 								<option value="아웃도어">아웃도어</option>
 								<option value="서핑">서핑</option>
 								<option value="스포츠">스포츠</option>
-								<option value="수상레저">수상레저</option>
+								<option value="수상레저">수상레저</option> -->
+								<option value="${activity.activityType }">${activity.activityType }</option>
+								
 							</select>
 							<hr>
 						</div>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,8 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.common.ActivityPagination;
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 
 @Controller
 public class ActivityController {
@@ -51,26 +54,9 @@ public class ActivityController {
 		return mv;
 	}
 	
-	//액티비티 상위3개 글 목록
-	@RequestMapping(value="activityTopThreeList.com", method=RequestMethod.GET)
-	public String activityTopThreeList(Model model) {
-		ArrayList<Activity> aList = aService.printAllActivity();
-		if(!aList.isEmpty()) {
-			model.addAttribute("aList", aList);
-			System.out.println("컨트롤러들어옴");
-			System.out.println("TOP3 list : " + aList);
-			return "activity/activityDetailView";
-		} else {
-			System.out.println("TOP3 list 없으면 : " + aList);
-			model.addAttribute("msg", "액티비티 TOP3 목록 조회 실패");
-			return "common/errorPage";
-		}
-	}
-											
-	
-	
 	
 	// 액티비티 상세정보 jsp 이동 (모든회원)
+	// 액티비티 상위3개 글 목록
 	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
 	public ModelAndView activityDetailView(ModelAndView mv,
 										Model model,
@@ -83,12 +69,12 @@ public class ActivityController {
 		ArrayList<Activity> aList = aService.printAllActivity();
 		if(activity != null && !aList.isEmpty()) {
 			model.addAttribute("aList", aList);
-			System.out.println("컨트롤러들어옴");
-			System.out.println("TOP3 list : " + aList);
+			//System.out.println("컨트롤러들어옴");
+			//System.out.println("TOP3 list : " + aList);
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
 			//System.out.println(activity.toString());
 		} else {
-			System.out.println("TOP3 list 없으면 : " + aList);
+			//System.out.println("TOP3 list 없으면 : " + aList);
 			mv.addObject("msg", "액티비티 상세조회 실패");
 			mv.setViewName("common/errorPage");
 		}
@@ -187,7 +173,18 @@ public class ActivityController {
 		return renameFileName;
 	}
 	
-	
+	// 분류 -> 상세분류 넘기기 
+	@ResponseBody
+	@RequestMapping(value="activityTypeDetails.com", method=RequestMethod.GET)
+	public void activityTypeDetails(@RequestParam("activityType") String activityType,
+									HttpServletResponse response) throws Exception {
+		ArrayList<Activity> aList = aService.printActivityType(activityType); // activityType을 가져옴
+		
+		response.setContentType("application/json"); // json 형태로 보내는 것
+		response.setCharacterEncoding("UTF-8");
+		Gson gson = new Gson();
+		gson.toJson(aList, response.getWriter());
+	}
 
 	// 액티비티 수정 jsp 이동 (업체회원)
 	@RequestMapping(value="activityUpdateForm.com", method = RequestMethod.GET) 

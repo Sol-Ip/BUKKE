@@ -49,6 +49,11 @@ public class ActivityStoreLogic implements ActivityStore {
 	public int insertActivity(Activity activity) { // 액티비티 등록 (업체회원-액티비티 등록 메뉴)
 		return sqlSession.insert("activityMapper.insertActivity", activity);
 	}
+	
+	@Override
+	public ArrayList<Activity> selectActivityType(String activityType) { // 액티비티 (분류 선택 시) 상세분류 출력
+		return (ArrayList)sqlSession.selectList("activityMapper.selectActivityType",activityType);
+	}
 
 	@Override
 	public int updateActivity(Activity activity) { // 액티비티 수정 (업체회원-액티비티 수정 메뉴)
@@ -59,6 +64,8 @@ public class ActivityStoreLogic implements ActivityStore {
 	public int deleteActivity(int activityNo) { // 액티비티 삭제 (업체회원-액티비티 삭제 메뉴)
 		return sqlSession.delete("activityMapper.deleteActivity", activityNo);
 	}
+
+	
 
 
 }

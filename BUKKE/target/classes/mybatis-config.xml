@@ -15,6 +15,7 @@
 	<typeAlias type="com.bukke.spring.bukkeclass.domain.BukkeClass" alias="BukkeClass"/>
 	<typeAlias type="com.bukke.spring.activity.domain.Activity" alias="Activity"/>
 	<typeAlias type="com.bukke.spring.shop.domain.Shop" alias="Shop"/>
+	<typeAlias type="com.bukke.spring.keep.domain.Keep" alias="Keep"/>
 </typeAliases> 
 
 	<mappers>
@@ -24,6 +25,7 @@
 		<mapper resource="mappers/bclass-mapper.xml"></mapper> 
 		<mapper resource="mappers/activity-mapper.xml"></mapper>
 		<mapper resource="mappers/shop-mapper.xml"></mapper> 
+		<mapper resource="mappers/keep-mapper.xml"></mapper> 
 	</mappers>
 
 </configuration>

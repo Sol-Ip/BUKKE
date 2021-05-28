@@ -22,7 +22,7 @@ public class Review {
 		return "Review [reviewNo=" + reviewNo + ", memberId=" + memberId + ", reviewTitle=" + reviewTitle
 				+ ", reviewContents=" + reviewContents + ", reviewDate=" + reviewDate + ", reviewStatus=" + reviewStatus
 				+ ", rOriginalFilename=" + rOriginalFilename + ", rRenameFilename=" + rRenameFilename + ", classNo="
-				+ classNo + ", activityNo=" + activityNo + ", reviewLikeCont=" + reviewLikeCnt + "]";
+				+ classNo + ", activityNo=" + activityNo + ", reviewLikeCnt=" + reviewLikeCnt + "]";
 	}
 	public int getReviewLikeCnt() {
 		return reviewLikeCnt;

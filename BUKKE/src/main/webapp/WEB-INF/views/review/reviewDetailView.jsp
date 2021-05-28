@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>후기 상세</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 </head>
 <body>
 	
@@ -86,14 +88,65 @@
 							<ul id="type-ul">
 									<li><h3 class="act-type">
 											<b>부캐명 : </b>&nbsp;&nbsp;${review.memberId }<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
+										</h3>
+									</li>
 									<li><h3 class="act-type">
 											<b>작성날짜 : </b>&nbsp;&nbsp;${review.reviewDate }<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									
-							
+										</h3>
+									</li>
 									<li><h3 class="act-type">
-											<b>좋아요 엉엉</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+											<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
+											<button id="heart" class=""name=""></button>
+									</li>
+											
+											
+<script>									
+    $(document).ready(function () {
+		
+        var heartval = ${heart};
+        /* var reviewNo = '${review.reviewNo }';
+        var memberId = '${loginMember.memberId}' */
+        if(heartval>0) {
+            console.log(heartval);
+            $("#heart").prop("class", "btn btn-danger fas fa-heart");
+            //$("#heart").prop('name',heartval)
+        }
+        else {
+            console.log(heartval);
+            $("#heart").prop("class", "btn btn-danger far fa-heart");
+            //$("#heart").prop('name',heartval)
+        }
+        
+        $("#heart").on("click", function () {
+        	console.log("여기까진잘나옴");
+            var that = $("#hearCnt");
+
+            var sendData = {'reviewNo' : '${review.reviewNo}','likeCheck' : heartval };
+            $.ajax({
+            	url : "heart.com",
+            	type : "post",
+            	data : sendData,
+            	success : function(data) {
+            		 that.text(data);
+                     if(data==1) {
+                         $('#heart').prop("class","btn btn-danger fas fa-heart");
+                     }
+                     else{
+                         $('#heart').prop("src","btn btn-danger far fa-heart");
+                     }
+            	}
+            });
+        });
+    });
+</script>
+											
+											
+											
+											<c:if test="${search.reviewCategory == 'all' }">selected
+											
+											</c:if>
+									
+									</button>
 										</h3></li>
 									
 								
@@ -229,12 +282,7 @@
 	<td colspan="2"><b id="rCount"></b></td>
 	<!-- 댓글 목록 -->
 	<table class="form-control form-control-lg form-control-borderless" align="center" border="1" cellspacing="0" id="rtb">
-		<thead>
-			<tr>
-				
-				
-			</tr>
-		</thead>
+		
 		<tbody></tbody>
 	</table>
 	</section>

@@ -114,17 +114,17 @@ public class ReviewStoreLogic implements ReviewStore {
 	@Override
 	public void insertReviewLike(ReviewLikes reviewLikes) {
 		// TODO Auto-generated method stub
-		session.insert("reviewMapper.createReviewLike");
+		session.insert("reviewMapper.createReviewLike",reviewLikes);
 		
 	}
 	@Override
 	public void deleteReviewLike(ReviewLikes reviewLikes) {
 		// TODO Auto-generated method stub
-		session.delete("reviewMapper.deleteReviewLike");
+		session.delete("reviewMapper.deleteReviewLike",reviewLikes);
 	}
 	@Override
 	public void updateReviewLike(int reviewNo) {
 		// TODO Auto-generated method stub
-		session.update("reviewMapper.updateReviewLike");
+		session.update("reviewMapper.updateReviewLike", reviewNo);
 	}
 }

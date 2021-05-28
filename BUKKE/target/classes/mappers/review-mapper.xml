@@ -109,7 +109,7 @@
 	
 	<insert id="createReviewLike">
 		INSERT INTO REVIEW_LIKES
-		VALUES (SEQ_REVIEW_LIKES.NEXTVAL, #{memberId},#{reviewNo},null)
+		VALUES (SEQ_REVIEW_LIKES.NEXTVAL, #{memberId},#{reviewNo},1)
 	</insert>
 
 	<delete id="deleteReviewLike">
@@ -118,12 +118,12 @@
 	</delete>
 	
 	<select id="updateReviewLike">
-		UPDATE REVIEW_LIKES
+		UPDATE REVIEW
 		SET
 		R_LIKE_COUNT = (SELECT COUNT(*)
 		FROM REVIEW_LIKES
-		WHERE reviewNo = #{reviewNo})
-		WHERE reviewNo = #{reviewNo}
+		WHERE REVIEW_NO = #{reviewNo})
+		WHERE REVIEW_NO = #{reviewNo}
 	</select>
 	
 	<select id="getReviewLike" resultType="int">

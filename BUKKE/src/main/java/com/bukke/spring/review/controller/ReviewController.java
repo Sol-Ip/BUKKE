@@ -74,10 +74,11 @@ public class ReviewController {
 		    reviewLikes.setReviewNo(reviewNo);
 		    reviewLikes.setMemberId(memberId);
 		    int rLikes = rService.getReviewLike(reviewLikes);
-		    System.out.println(rLikes);
-		    model.addAttribute("heart",rLikes);
+		    model.addAttribute("heart",rLikes);////////////////////////////////////////////////이게 자꾸 0으로간다
+		    System.out.println("좋아요 : "+ rLikes);
 		}
 	    
+		
 		if(review != null) {
 			model.addAttribute("review", review);
 			return "review/reviewDetailView";
@@ -275,7 +276,7 @@ public class ReviewController {
 			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); // 날짜 포맷 변경!
 			gson.toJson(rcList, response.getWriter());
 		}else {
-			System.out.println("데이터가 없습니다.");
+			System.out.println("댓글 데이터가 없습니다.");
 		}
 	}
 	
@@ -290,32 +291,28 @@ public class ReviewController {
 	
 	//좋아요 하트
 	@ResponseBody
-    @RequestMapping(value = "heart.com", method = RequestMethod.POST, produces = "application/json")
-    public int heart(HttpServletRequest request, HttpSession session) throws Exception {
+    @RequestMapping(value = "heart.com", method = RequestMethod.POST)
+    public String heart(@ModelAttribute  ReviewLikes reviewLikes, HttpSession session) throws Exception {
 
-        int heart = Integer.parseInt(request.getParameter("heart"));
-        int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+        int heart = Integer.parseInt(reviewLikes.getLikeCheck());
+        int reviewNo = reviewLikes.getReviewNo();
         Member loginMember = (Member)session.getAttribute("loginMember");
         String memberId = loginMember.getMemberId();
         
-        
-
-        ReviewLikes reviewLikes = new ReviewLikes();
-
         reviewLikes.setReviewNo(reviewNo);
         reviewLikes.setMemberId(memberId);
 
-        System.out.println(heart);
+        System.out.println(reviewLikes.getMemberId());
 
         if(heart >= 1) {
             rService.deleteReviewLike(reviewLikes);
-            heart=0;
+            heart=0; ////////////////////////////////////////db에서받아오는값으로해야함
         } else {
             rService.insertReviewLike(reviewLikes);
-            heart=1;
+            heart=1; ////////////////////////////////////////
         }
-
-        return heart;
+        System.out.println("heart는 :" +heart);
+        return heart+"";
 
     }
 	

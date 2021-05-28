@@ -94,11 +94,11 @@
 			</fieldset>
 			<br>
 			<fieldset id="submit-field">
-				<button id="searchBtn3" onclick="idSearchClick1()" type="button"
+				<button id="searchBtn3" onclick="idSearchClick3()" type="button"
 					class="ok">확인</button>
 			</fieldset>
 			<fieldset id="member-filed">
-				<button id="searchBtn4" onclick="idSearchClick2()" type="button"
+				<button id="searchBtn4" onclick="idSearchClick4()" type="button"
 					class="cancle">취소</button>
 			</fieldset>
 		</div>
@@ -149,12 +149,27 @@
 	         }
 		});
 		
-		var idV = "";
-		var memberName ='${member.memberName}';
-		var memberPhone ='${member.memberPhone}';
-			// 아이디 값 받고 출력하는 ajax
 		
 	}); 
+	 function idSearchClick3(){
+		console.log($('#memberId').val());
+		console.log($('#memberEmail').val());
+		$.ajax({
+			type:"POST",
+			url:"memberSearchId.com",
+			data : {
+				"memberName" : $('#memberName').val(),
+				"memberPhone" : $('#memberPhone').val()
+			},
+			success:function(data){
+				$('#idValue').text(data);
+				$('#backgroundModal').fadeIn();
+					// 아이디값 별도로 저장
+					//idV = data;
+			}
+		});
+	}
+	 
 	
 	   
 	 </script> 

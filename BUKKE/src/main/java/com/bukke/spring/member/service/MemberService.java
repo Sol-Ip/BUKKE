@@ -12,5 +12,6 @@ public interface MemberService {
 	public int modifyMember(Member member);
 	public int deleteMember(String memberId);
 	public Member searchMemberId(Member member);
+	public int searchMemberPw(Member member);
 
 }

@@ -200,6 +200,9 @@ public class NoticeController {
 		return "common/errorPage";
 	}
 	}
-	
+	@RequestMapping(value="test.com",method = RequestMethod.GET)
+	public String test() {
+		return "notice/test";
+	}
 }
 

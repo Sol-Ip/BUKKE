@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
 	<style>
 	
 	.backgroundModal{
@@ -70,7 +70,6 @@
 	 <div id="backgroundModal" class="backgroundModal">
 	 	<div class="modal-wrapper">
     <div class="head">
-      <a class="btn-close trigger" href="#">
       </a>
     </div>
     <div class="modalContents">
@@ -79,7 +78,7 @@
           <h1>당신의 아이디는!</h1>
           <br>
           <div class="page-wrapper">
-          		<h2 id="idValue">잠좀자자</h2>
+          		<h2 id="idValue">${member.memberId }</h2>
   				<button id="close">취소</button>
 			</div>
         </div>

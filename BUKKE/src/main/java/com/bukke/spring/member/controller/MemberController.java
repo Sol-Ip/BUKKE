@@ -132,18 +132,24 @@ public class MemberController {
 		if(memberSearch != null) {
 			return memberSearch.getMemberId();
 		}else {
-			return "Not Found";
+			return "No Id";
 		}
-	/*	if(result != null) {
-			System.out.println(result);
-			return "success";
-		}else {
-			System.out.println("값없음");
-			return "fail";
-		}
-	}*/
-		
-}
+	}
+	
+	//비밀번호 찾기
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping(value="memberSearchPw.com",method=RequestMethod.GET) public
+	 * String userPwSearch(@ModelAttribute Member member) { Member memPw = new
+	 * Member(member.getMemberId(),member.getMemberEmail()); Member memberSearchPw =
+	 * mService.searchMemberPw(memPw); if(memberSearchPw != null) { return
+	 * memberSearchPw.getMemberEmail(); }else { return "NO Id";
+	 * 
+	 * } }
+	 */
+	
+	
 	// 마이페이지 화면
 	@RequestMapping(value="memberMyPage.com", method=RequestMethod.GET)
 	public String myInfoView() {

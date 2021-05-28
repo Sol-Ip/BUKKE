@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="shopMapper">
+	
+	<resultMap type="Shop" id="shopResultMap">
+		<id property="shopId" column="SHOP_ID"></id>		
+		<result property="shopName" column="SHOP_NAME"></result>
+		<result property="ceoName" column="CEO_NAME"></result>
+		<result property="shopPw" column="SHOP_PW"></result>  
+		<result property="shopAddr" column="SHOP_ADDR"></result> 
+		<result property="shopPhone" column="SHOP_PHONE"></result> 
+		<result property="shopEmail" column="SHOP_EMAIL"></result>
+		<result property="crnNo" column="CRN_NO"></result>
+		<result property="crnOriginalFilename" column="CRN_ORIGINAL_FILENAME"></result>
+		<result property="crnRenameFilename" column="CRN_RENAME_FILENAME"></result>
+		<result property="shopApproval" column="SHOP_APPROVAL"></result>
+		<result property="shopRm" column="SHOP_RM"></result>
+	</resultMap>
+	
+</mapper>

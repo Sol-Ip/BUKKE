@@ -1,6 +1,10 @@
 package com.bukke.spring.member.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.member.service.MemberService;
@@ -125,13 +130,22 @@ public class MemberController {
 	//아이디 찾기
 	@ResponseBody
 	@RequestMapping(value="memberSearchId.com",method = RequestMethod.POST)
-	public String userIdSearch(@ModelAttribute Member member){
-		
-		int result = mService.searchMemberId(member);
-		if(result>0) {
+	public String userIdSearch(ModelAndView mv,@ModelAttribute Member member){
+		Member mem = new Member(member.getMemberName(),member.getMemberPhone());	
+		Member memberSearch = mService.searchMemberId(mem);
+			
+		if(memberSearch != null) {
+			return memberSearch.getMemberId();
+		}else {
+			return "Not Found";
+		}
+	/*	if(result != null) {
+			System.out.println(result);
 			return "success";
 		}else {
+			System.out.println("값없음");
 			return "fail";
 		}
-	}
+	}*/
+}
 }

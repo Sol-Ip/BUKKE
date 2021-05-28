@@ -9,6 +9,6 @@ public interface MemberStore {
 	public int insertMember(Member member);
 	public int updateMember(Member member);
 	public int deleteMember(String memberId);
-	public int checkIdmember(Member member);
+	public Member selectMemberId(Member member);
 
 }

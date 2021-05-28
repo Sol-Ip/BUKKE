@@ -21,9 +21,8 @@
 	</select>
 	
 	<select id="searchMemberId" parameterType="Member" resultMap="memberResultMap">
-			SELECT * FROM MEMBER WHERE MEMBER_NAME=#{memberName} AND MEMBER_PHONE=#{memberPhone}
+			SELECT * FROM MEMBER WHERE MEMBER_NAME=#{memberName} AND MEMBER_PHONE=#{memberPhone} 
 	</select>
-
 
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO MEMBER (MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_NICK, MEMBER_ADDR, MEMBER_PHONE, MEMBER_EMAIL) VALUES

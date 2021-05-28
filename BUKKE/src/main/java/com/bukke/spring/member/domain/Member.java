@@ -13,7 +13,13 @@ public class Member {
 	
 	public Member() {}
 
-	
+
+	public Member(String memberName, String memberPhone) {
+		super();
+		this.memberName = memberName;
+		this.memberPhone = memberPhone;
+	}
+
 
 	public String getMemberId() {
 		return memberId;

@@ -45,11 +45,10 @@ public class MemberStoreLogic implements MemberStore {
 	}
 
 	@Override
-	public int checkIdmember(Member member) {
-		int result =session.selectOne("memberMapper.searchMemberId", member);
-		return result;
+	public Member selectMemberId(Member member) {
+		return session.selectOne("memberMapper.searchMemberId",member);
 	}
-	
-	
+
+
 
 }

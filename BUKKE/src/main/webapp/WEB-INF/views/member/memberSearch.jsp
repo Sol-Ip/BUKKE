@@ -115,12 +115,29 @@
 			document.getElementById("searchP").style.display = "";
 		}
 	}
-	
+	function idSearchClick1(){
+		console.log($('#memberName').val());
+		console.log($('#memberPhone').val());
+		$.ajax({
+			type:"POST",
+			url:"memberSearchId.com",
+			data : {
+				"memberName" : $('#memberName').val(),
+				"memberPhone" : $('#memberPhone').val()
+			},
+			success:function(data){
+				$('#idValue').text(data);
+				$('#backgroundModal').fadeIn();
+					// 아이디값 별도로 저장
+					//idV = data;
+			}
+		});
+	}
 	 $(document).ready(function(){
-		$('#searchBtn1').click(function() {
+		/* $('#searchBtn1').click(function() {
 			$('#backgroundModal').fadeIn();
 			
-		});
+		}); */
 		// 2. 모달창 닫기 버튼
 		$('#close').on('click', function() {
 			$('#backgroundModal').fadeOut();
@@ -131,31 +148,15 @@
 	            $('#backgroundModal').hide();
 	         }
 		});
+		
+		var idV = "";
+		var memberName ='${member.memberName}';
+		var memberPhone ='${member.memberPhone}';
+			// 아이디 값 받고 출력하는 ajax
+		
 	}); 
 	
-	  var idV = "";
-	  var memberName =$("#memberName").val;
-	  var memberPhone =$("#memberPhone").val;
-		// 아이디 값 받고 출력하는 ajax
-		var idSearchClick1 = function(){
-			console.log($('#memberName').val());
-			console.log($('#memberPhone').val());
-			$.ajax({
-				type:"POST",
-				url:"memberSearchId.com",
-				dataType:'json',
-				data: {"memberName": memberName, "memberPhone" : memberPhone},
-				success:function(data){
-					if(data == 0){
-						$('#idValue').text("회원 정보를 확인해주세요!");
-					} else {
-						$('#idValue').text(data);
-						// 아이디값 별도로 저장
-						idV = data;
-					}
-				}
-			});
-		} 
+	   
 	 </script> 
 	
 	

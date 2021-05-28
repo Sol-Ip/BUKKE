@@ -1,5 +1,7 @@
 package com.bukke.spring.member.service.logic;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,10 +46,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int searchMemberId(Member member) {
-		int result =mStore.checkIdmember(member); 
-		return result;
+	public Member searchMemberId(Member member) {
+		return mStore.selectMemberId(member);
 	}
+
+	
 	
 	
 

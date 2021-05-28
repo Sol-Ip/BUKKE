@@ -1,5 +1,7 @@
 package com.bukke.spring.member.service;
 
+import java.util.HashMap;
+
 import com.bukke.spring.member.domain.Member;
 
 public interface MemberService {
@@ -9,6 +11,6 @@ public interface MemberService {
 	public int registerMember(Member member);
 	public int modifyMember(Member member);
 	public int deleteMember(String memberId);
-	public int searchMemberId(Member member);
+	public Member searchMemberId(Member member);
 
 }

@@ -11,6 +11,7 @@
 	<typeAlias type="com.bukke.spring.notice.domain.Notice" alias="Notice"/>
 	<typeAlias type="com.bukke.spring.review.domain.Review" alias="Review"/>
 	<typeAlias type="com.bukke.spring.review.domain.ReviewComment" alias="ReviewComment"/>
+	<typeAlias type="com.bukke.spring.review.domain.ReviewLikes" alias="ReviewLikes"/>
 	<typeAlias type="com.bukke.spring.bukkeclass.domain.BukkeClass" alias="BukkeClass"/>
 	<typeAlias type="com.bukke.spring.activity.domain.Activity" alias="Activity"/>
 </typeAliases> 

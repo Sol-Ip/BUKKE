@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewLikes;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.store.ReviewStore;
@@ -104,5 +105,26 @@ public class ReviewStoreLogic implements ReviewStore {
 	@Override
 	public ArrayList<Review> selectReviewToBclass() {
 		return (ArrayList)session.selectList("reviewMapper.selectListToBclass");
+	}
+	@Override
+	public int getReviewLike(ReviewLikes reviewLikes) {
+		// TODO Auto-generated method stub
+		return session.selectOne("reviewMapper.getReviewLike");
+	}
+	@Override
+	public void insertReviewLike(ReviewLikes reviewLikes) {
+		// TODO Auto-generated method stub
+		session.insert("reviewMapper.createReviewLike");
+		
+	}
+	@Override
+	public void deleteReviewLike(ReviewLikes reviewLikes) {
+		// TODO Auto-generated method stub
+		session.delete("reviewMapper.deleteReviewLike");
+	}
+	@Override
+	public void updateReviewLike(int reviewNo) {
+		// TODO Auto-generated method stub
+		session.update("reviewMapper.updateReviewLike");
 	}
 }

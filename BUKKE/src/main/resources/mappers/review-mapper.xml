@@ -13,6 +13,7 @@
 		<result property="rRenameFilename" column="R_RENAME_FILENAME"></result>
 		<result property="classNo" column="CLASS_NO"></result>
 		<result property="activityNo" column="ACTIVITY_NO"></result>
+		<result property="reviewLikeCnt" column="R_LIKE_COUNT"></result>
 		
 		
 	</resultMap> 
@@ -31,7 +32,7 @@
 	
 	 
 	<insert id="insertReview" parameterType="Review">
-		INSERT INTO REVIEW VALUES(SEQ_REVIEWID.NEXTVAL,  #{memberId }, #{reviewTitle }, #{reviewContents }, SYSDATE, 'Y', #{rOriginalFilename },#{rRenameFilename },null,null)
+		INSERT INTO REVIEW VALUES(SEQ_REVIEWID.NEXTVAL,  #{memberId }, #{reviewTitle }, #{reviewContents }, SYSDATE, 'Y', #{rOriginalFilename },#{rRenameFilename },null,null,0)
 	</insert>
 	
 	
@@ -98,5 +99,35 @@
    <select id="selectListToBclass" resultMap="reviewResultMap">
       SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
    </select> 
+
+	<resultMap type="reviewLikes" id="likeResultMap">
+		<id property="likesNo" column="LIKES_NO"/>
+		<result property="memberId" column="MEMBER_ID" />
+		<result property="reviewNo" column="REVIEW_NO" />
+		<result property="likeCheck" column="LIKE_CHECK" />
+	</resultMap>
+	
+	<insert id="createReviewLike">
+		INSERT INTO REVIEW_LIKES
+		VALUES (SEQ_REVIEW_LIKES.NEXTVAL, #{memberId},#{reviewNo},null)
+	</insert>
+
+	<delete id="deleteReviewLike">
+		DELETE FROM REVIEW_LIKES
+		WHERE REVIEW_NO = #{reviewNo} AND MEMBER_ID = #{memberId}
+	</delete>
+	
+	<select id="updateReviewLike">
+		UPDATE REVIEW_LIKES
+		SET
+		R_LIKE_COUNT = (SELECT COUNT(*)
+		FROM REVIEW_LIKES
+		WHERE reviewNo = #{reviewNo})
+		WHERE reviewNo = #{reviewNo}
+	</select>
+	
+	<select id="getReviewLike" resultType="int">
+		SELECT COUNT(LIKES_NO) FROM REVIEW_LIKES WHERE REVIEW_NO = #{reviewNo} AND MEMBER_ID = #{memberId}
+	</select>
 
 </mapper>

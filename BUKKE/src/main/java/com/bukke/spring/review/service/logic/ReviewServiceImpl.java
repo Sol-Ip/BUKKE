@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewLikes;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.service.ReviewService;
@@ -102,6 +103,24 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public ArrayList<Review> printReviewToBclass() {
 		return rStore.selectReviewToBclass();
+	}
+	@Override
+	public void insertReviewLike(ReviewLikes reviewLikes) {
+		// TODO Auto-generated method stub
+		rStore.insertReviewLike(reviewLikes);
+		rStore.updateReviewLike(reviewLikes.getReviewNo());
+		
+	}
+	@Override
+	public void deleteReviewLike(ReviewLikes reviewLikes) {
+		// TODO Auto-generated method stub
+		rStore.deleteReviewLike(reviewLikes);
+		rStore.updateReviewLike(reviewLikes.getReviewNo());
+	}
+	@Override
+	public int getReviewLike(ReviewLikes reviewLikes) {
+		// TODO Auto-generated method stub
+		return rStore.getReviewLike(reviewLikes);
 	}
 
 }

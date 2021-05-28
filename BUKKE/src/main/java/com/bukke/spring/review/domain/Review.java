@@ -13,6 +13,8 @@ public class Review {
 	private String rRenameFilename; // 변경파일이름
 	private int classNo; //클래스번호
 	private int activityNo;//액티비티번호
+	private int reviewLikeCnt;//좋아요갯수
+	
 	
 	
 	@Override
@@ -20,7 +22,13 @@ public class Review {
 		return "Review [reviewNo=" + reviewNo + ", memberId=" + memberId + ", reviewTitle=" + reviewTitle
 				+ ", reviewContents=" + reviewContents + ", reviewDate=" + reviewDate + ", reviewStatus=" + reviewStatus
 				+ ", rOriginalFilename=" + rOriginalFilename + ", rRenameFilename=" + rRenameFilename + ", classNo="
-				+ classNo + ", activityNo=" + activityNo + "]";
+				+ classNo + ", activityNo=" + activityNo + ", reviewLikeCont=" + reviewLikeCnt + "]";
+	}
+	public int getReviewLikeCnt() {
+		return reviewLikeCnt;
+	}
+	public void setReviewLikeCont(int reviewLikeCnt) {
+		this.reviewLikeCnt = reviewLikeCnt;
 	}
 	public int getReviewNo() {
 		return reviewNo;

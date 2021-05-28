@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewLikes;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 
@@ -48,6 +49,18 @@ public interface ReviewStore {
 
 	// 클래스에서 리뷰 보여주기
 	public ArrayList<Review> selectReviewToBclass();
-
+	
+	//좋아요갯수 표시
+	public int getReviewLike(ReviewLikes reviewLikes);
+	
+	//좋아요추가
+	public void insertReviewLike(ReviewLikes reviewLikes);
+	
+	//좋아요삭제
+	public void deleteReviewLike(ReviewLikes reviewLikes);
+	
+	//좋아요업데이트
+	public void updateReviewLike(int reviewNo);
+	
 	
 }

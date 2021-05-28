@@ -26,6 +26,7 @@ import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewLikes;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.service.ReviewService;
@@ -64,9 +65,19 @@ public class ReviewController {
 	
 	// 후기 상세 조회
 	@RequestMapping(value="reviewDetail.com", method=RequestMethod.GET)
-	public String reviewDetail(@RequestParam("reviewNo") int reviewNo, Model model) {
-		
+	public String reviewDetail(@RequestParam("reviewNo") int reviewNo, Model model,HttpServletRequest request,HttpServletResponse response, HttpSession session) {
 		Review review = rService.printOneReview(reviewNo);
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		if(loginMember !=null) {
+			String memberId = loginMember.getMemberId();
+		    ReviewLikes reviewLikes = new ReviewLikes();
+		    reviewLikes.setReviewNo(reviewNo);
+		    reviewLikes.setMemberId(memberId);
+		    int rLikes = rService.getReviewLike(reviewLikes);
+		    System.out.println(rLikes);
+		    model.addAttribute("heart",rLikes);
+		}
+	    
 		if(review != null) {
 			model.addAttribute("review", review);
 			return "review/reviewDetailView";
@@ -274,5 +285,38 @@ public class ReviewController {
 	public String commentUpdate() {
 		return null;
 	}
+	
+	
+	
+	//좋아요 하트
+	@ResponseBody
+    @RequestMapping(value = "heart.com", method = RequestMethod.POST, produces = "application/json")
+    public int heart(HttpServletRequest request, HttpSession session) throws Exception {
+
+        int heart = Integer.parseInt(request.getParameter("heart"));
+        int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+        Member loginMember = (Member)session.getAttribute("loginMember");
+        String memberId = loginMember.getMemberId();
+        
+        
+
+        ReviewLikes reviewLikes = new ReviewLikes();
+
+        reviewLikes.setReviewNo(reviewNo);
+        reviewLikes.setMemberId(memberId);
+
+        System.out.println(heart);
+
+        if(heart >= 1) {
+            rService.deleteReviewLike(reviewLikes);
+            heart=0;
+        } else {
+            rService.insertReviewLike(reviewLikes);
+            heart=1;
+        }
+
+        return heart;
+
+    }
 	
 }

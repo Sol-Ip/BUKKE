@@ -32,12 +32,12 @@
         	<hr>
             <div class="form-group">
                 <label for="memberId">아이디</label>
-                <input type="text" class="form-control" name="memberId" placeholder="아이디를 입력해주세요">
+                <input type="text" class="form-control" name="memberId" placeholder="아이디를 입력해주세요" required>
                 <div class="invalid-check invalid-id">필수 정보입니다.</div>
             </div>
             <div class="form-group">
                 <label for="memberPw">비밀번호</label>
-                <input type="password" class="form-control" name="memberPw" placeholder="비밀번호를 입력해주세요">
+                <input type="password" class="form-control" name="memberPw" placeholder="비밀번호를 입력해주세요" required>
                 <div class="invalid-check invalid-pw">필수 정보입니다.</div>
             </div>
             <div class="form-group">
@@ -48,18 +48,18 @@
             <hr>
             <div class="form-group">
                 <label for="memberName">이름</label>
-                <input type="text" class="form-control" name="memberName" placeholder="이름을 입력해주세요">
+                <input type="text" class="form-control" name="memberName" placeholder="이름을 입력해주세요" required>
                 <div class="invalid-check invalid-name">필수 정보입니다.</div>
             </div>
             <div class="form-group">
                 <label for="memberNick">부캐명</label>
-                <input type="text" class="form-control" name="memberNick" placeholder="당신의 부캐명을 입력해주세요">
+                <input type="text" class="form-control" name="memberNick" placeholder="당신의 부캐명을 입력해주세요" required>
                 <div class="invalid-check invalid-nick">필수 정보입니다.</div>
             </div>
             <hr>
             <div class="form-group">
                 <label for="memberAddr1">도로명주소   <button type="button" class="btn btn-default btn-sm" id="postSearch">주소찾기</button></label>
-                <input type="text" class="form-control postcodify_address" name="memberAddr1" readonly>
+                <input type="text" class="form-control postcodify_address" name="memberAddr1" readonly required>
                 <div class="invalid-check invalid-addr">필수 정보입니다.</div>
             </div>
             <div class="form-group">
@@ -69,12 +69,12 @@
             <hr>
             <div class="form-group">
                 <label for="memberPhone">전화번호</label>
-                <input type="text" class="form-control" name="memberPhone" placeholder="-를 제외한 전화번호를 입력해주세요">
+                <input type="text" class="form-control" name="memberPhone" placeholder="-를 제외한 전화번호를 입력해주세요" required>
                 <div class="invalid-check invalid-phone">필수 정보입니다.</div>
             </div>
             <div class="form-group">
                 <label for="memberEmail">이메일</label>
-                <input type="text" class="form-control" name="memberEmail" placeholder="이메일을 입력해주세요">
+                <input type="text" class="form-control" name="memberEmail" placeholder="이메일을 입력해주세요" required>
                 <div class="invalid-check invalid-email">필수 정보입니다.</div>
             </div>
             <div class="text-center">

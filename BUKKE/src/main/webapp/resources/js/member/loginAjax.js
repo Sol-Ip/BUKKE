@@ -5,7 +5,7 @@ $("g").click(function(){
 })
 // 말풍선 효과
 $("g").mouseover(function(){
-	$("#text-bubble").stop().fadeIn(550);
+	$("#text-bubble").stop().animate({opacity: 0},550);
 })
 $("g").mouseout(function(){
 	$("#text-bubble").stop().hide();
@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 // 로그인 ajax, 유효성 검사
 $("input[type=radio]").on("change", function() {
-	$("g").fadeOut(1000).fadeIn(1000);
+	$("g").animate({opacity: 0} , 1000).animate({opacity: 1} , 1000);
 	var type = $(this).val();
 	if (type == "typeMember") {
 		$(".member-field").show();

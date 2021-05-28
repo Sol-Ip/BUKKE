@@ -4,4 +4,18 @@
 			"box-shadow" : "0px 0px 5px #0033c"
 		})
 	})
-	
+
+	// 파일업로드 이름
+	$("#input-file").on("change", function() {
+		var fileName = $("#input-file").val();
+		// 파일 확장자를 extenstion 이라함.
+		var ext = fileName.substring(fileName.lastIndexOf("."),fileName.length).toLowerCase();
+		if(ext != ".jpg" && ext != ".jpeg" && ext != ".png" && ext != ".gif") {
+			alert(ext + "는 사진 파일이 아닙니다!!");
+		}
+		if(fileName != "") {
+			$("#filename").val(fileName.split("\\")[2]);
+		} else {
+			$("#filename").val("선택된 파일 없음");
+		}
+	})

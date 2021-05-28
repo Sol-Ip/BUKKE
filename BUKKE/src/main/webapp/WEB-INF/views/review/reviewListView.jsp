@@ -145,7 +145,7 @@
 						</div>
 						<a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
-						</a>>
+						</a>
 						
 					</div>
 					<br>

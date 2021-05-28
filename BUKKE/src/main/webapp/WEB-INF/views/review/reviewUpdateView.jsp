@@ -23,19 +23,38 @@
     </section>
 	<!-- fixed section END-->
 	
+	
 	<br style="clear:both">
-	<h1 align="center">게시글 수정하기</h1>
-	<br><br>
+	<div class="row justify-content-center mb-5">
+				<div class="col-md-6 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">REVIEW</small></span>
+					<h2 class="mb-2">UPDATE</h2>
+				</div>
+			</div>
 	<form action="reviewUpdate.com" method="post" enctype="multipart/form-data">
+	<div class="container">
 		<input type="hidden" name="reviewNo" value="${review.reviewNo }">
 		<input type="hidden" name="rOriginalFilename" value="${review.rOriginalFilename }">
 		<input type="hidden" name="rRenameFilename" value="${review.rRenameFilename }">
 		<table align="center" border="1">
-			<tr>
+			<input type="text" name="reviewTitle" class="form-control mt-4 mb-2"
+				placeholder="제목을 입력해주세요." required>
+				<input type="text" class="form-control" size="50" name="memberId" value="${loginMember.memberId }" readonly></td>
+				<textarea class="form-control" rows="10" name="reviewContents"
+					placeholder="내용을 입력해주세요" required></textarea>
+			<input type="file" class="form-control" name="reloadFile">
+					<c:if test="${ !empty review.rOriginalFilename  }">
+					이전 파일 : ${review.rOriginalFilename }
+					</c:if>
+			<input type="submit" class="float-center btn btn-lg btn-primary" value="수정하기">&nbsp;&nbsp;
+				<input type="reset" class="float-center btn btn-lg btn-outline-warning" value="취소">	
+					
+			<%-- <tr>
 				<td>제목</td>
 				<td><input type="text" size="50" name="reviewTitle" value="${review.reviewTitle }"></td>
-			</tr>
-			
+			</tr> --%>
+			<%-- 
 			<tr>
 				<td>작성자</td>
 				<td><input type="text" name="memberId" value="${review.memberId }" readonly></td>
@@ -43,21 +62,23 @@
 			<tr>
 				<td>내용</td>
 				<td><textarea rows="7" cols="50" name="reviewContents">${review.reviewContents }</textarea></td>
-			</tr>		
+			</tr>	 --%>	
 			<tr>
-				<td>첨부파일</td>
-				<td><input type="file" name="reloadFile">
+			<%-- 	<td>첨부파일</td>
+				<td><input type="file" class="form-control" name="reloadFile">
 					<c:if test="${ !empty review.rOriginalFilename  }">
 						${review.rOriginalFilename }
 					</c:if>
-				</td>
+				</td> --%>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>
+				
 					<input type="submit" value="수정하기">
 				</td>
-			</tr>							
+			</tr>	 -->						
 		</table>
+		</div>
 	</form>
 </body>
 </html>

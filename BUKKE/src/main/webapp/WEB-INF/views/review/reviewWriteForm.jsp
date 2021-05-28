@@ -22,24 +22,48 @@
     </section>
 	<!-- fixed section END-->
 	<br style="clear:both">
-	<h1 align="center">후기글 등록페이지</h1>
-	<br><br>
+	
+	<!-- <div class="container"> -->
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-6 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">REVIEW</small></span>
+					<h2 class="mb-2">WRITE</h2>
+				</div>
+			</div>
+	
 	<form action="reviewAdd.com" method="post" enctype="multipart/form-data">
+		<div class="container">
 		<table align="center" border="1" cellspacing="0">
-			<tr>
+			
+			<!-- <tr>
 				<td>제목</td>
 				<td><input type="text" size="50" name="reviewTitle"></td>
-			</tr>
+			</tr> -->
 			
-			<tr>
+			<%-- <tr>
 				<td>작성자</td>
 				<td><input type="text" size="50" name="memberId" value="${loginMember.memberId }" readonly></td>
-			</tr> 
-			<tr>
+			</tr> --%>
+			<div class="float-center form-group" align="center">
+			<input type="text" name="reviewTitle" class="form-control mt-4 mb-2"
+				placeholder="제목을 입력해주세요." required>
+			<input type="text" class="form-control" size="50" name="memberId" value="${loginMember.memberId }" readonly></td>
+				<textarea class="form-control" rows="10" name="reviewContents"
+					placeholder="내용을 입력해주세요" required></textarea>
+				<input type="file" class="form-control" size="50" name="uploadFile">
+				
+				<input type="submit" class="float-center btn btn-lg btn-primary" value="등록">&nbsp;&nbsp;
+				<input type="reset" class="float-center btn btn-lg btn-outline-warning" value="취소">	
+			</div>
+
+			<!-- <tr>
 				<td>내용</td>
 				<td><textarea rows="7" cols="50" name="reviewContents"></textarea></td>
-			</tr>
-			<tr>
+			</tr> -->
+			
+			
+			<!-- <tr>
 				<td>첨부파일</td>
 				<td><input type="file" size="50" name="uploadFile"></td>
 			</tr>
@@ -48,8 +72,9 @@
 					<input type="submit" value="등록">&nbsp;&nbsp;
 					<input type="reset" value="취소">
 				</td>
-			</tr>
+			</tr> -->
 		</table>
+		</div>
 	</form>	
 </body>
 </html>

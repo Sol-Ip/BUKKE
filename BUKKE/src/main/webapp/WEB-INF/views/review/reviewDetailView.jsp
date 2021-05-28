@@ -208,34 +208,37 @@
 
 			<!-- <div class="container"> -->
 			<div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-7 heading-section ftco-animate">
+				<div class="col-md-12 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"></span>
 					<h2 class="mb-4">Comments</h2>
 				</div>
 			</div>	
 <!-- 댓글 등록 -->
-	<table class="col-md-8 card card-lg" align="center" border="1" cellspacing="0">
-		<tr>
-			<td><textarea class="form-control form-control-lg form-control-borderless" rows="1" cols="col-md-8 card card-lg" id="rContent"></textarea></td>
-			<td>
-				<button class="btn btn-lg btn-primary" id="rSubmit">등록하기</button>
-			</td>
-			
-		</tr>
-	</table>
+	<table class="col-md-12 card card-lg" align="center" border="1" cellspacing="0">
+					<tr>
+						<div class="form-group">
+							<label for="reviewComment">댓글 등록</label> <input
+								type="text" class="form-control" id="rContent"
+								placeholder="댓글을 입력하세요.">
+								<button class="btn float-right btn-lg btn-primary " id="rSubmit">등록하기</button>
+						</div>
+					</tr>
+				</table>
 
+	<!-- 댓글 갯수 -->
+	<td colspan="2"><b id="rCount"></b></td>
 	<!-- 댓글 목록 -->
 	<table class="form-control form-control-lg form-control-borderless" align="center" border="1" cellspacing="0" id="rtb">
 		<thead>
 			<tr>
-				<!-- 댓글 갯수 -->
-				<td colspan="2"><b id="rCount"></b></td>
+				
+				
 			</tr>
 		</thead>
 		<tbody></tbody>
 	</table>
 	</section>
-			<br style="clear:both">
+			<%-- <br style="clear:both">
 	<h1 align="center">${review.reviewNo }번 글 상세보기</h1>
 	<br><br>
 	<table align="center" width="450" border="1">
@@ -301,7 +304,7 @@
 		</thead>
 		<tbody></tbody>
 	</table>
-	</section>
+	</section> --%>
 	<script>
 		$(function() {
 			getCommentList();
@@ -360,17 +363,19 @@
 							if (data.length > 0) {
 								for ( var i in data) {
 									$tr = $("<tr>");
-									$rWriter = $("<td width='100'>").text(
+									$rWriter = $("<td width='20%''>").text(
 											data[i].memberId);
-									$rContent = $("<td>").text(
+									$rContent = $("<td width='60%'>").text(
 											data[i].commentContents);
-									$rCreateDate = $("<td width='100'>").text(
+									$rCreateDate = $("<td width='13%'>").text(
 											data[i].commentDate);
 									$btnArea = $("<td>")
 									.append(
-											"<a href='#' onclick='modifyComment(this);'>수정 </a>")
+											"<a href='#' onclick='modifyComment(this);'>수정   </a>")
+											
+											
 									.append(
-											"<a href='#' onclick='removeComment("
+											"<a href='' onclick='removeComment("
 															+ reviewNo + ","
 															+ data[i].commentNo
 															+ ");'> 삭제</a>");
@@ -381,6 +386,8 @@
 									$tableBody.append($tr);
 								
 								}
+							}else{
+								
 							}
 						},
 						error:function(request,status,error){

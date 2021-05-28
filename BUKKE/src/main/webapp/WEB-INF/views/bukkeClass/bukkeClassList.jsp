@@ -143,10 +143,11 @@
 						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }" id="class-img" class="img-fluid"
 							alt="Colorlib Template">
 						<div class="text">
+						<span style="font-family: 'TmoneyRoundWindExtraBold';" >[ ${bukkeClass.classType} ]</span>
 						<c:url var="cDetail" value="bukkeClassDetailView.com">
                      		<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
                   		</c:url>
-							<h3>
+							<h3 style="font-family: 'TmoneyRoundWindExtraBold';">
 								<a href="${cDetail }">${bukkeClass.className }</a>
 							</h3>
 						</div>

@@ -63,5 +63,11 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 		return session.update("bclassMapper.deleteBclass", classNo);
 	}
 
+	// 클래스에서 TOP3 보여주기
+	@Override
+	public ArrayList<BukkeClass> selectTopThreeListBclass() {
+		return (ArrayList)session.selectList("bclassMapper.selectTopThreeList");
+	}
+
 
 }

@@ -57,15 +57,16 @@ public class BukkeClassController {
 	}
 	
 	
-	
-	// 클래스 상세정보 jsp 이동 (모든회원)
+	// 클래스 상세정보 jsp 이동
 	@RequestMapping(value="bukkeClassDetailView.com", method=RequestMethod.GET)
-	public ModelAndView bukkeClassDetailView(ModelAndView mv, 
+	public ModelAndView bukkeClassDetailView(ModelAndView mv,
 											@RequestParam("classNo") int classNo) {
 		BukkeClass bukkeClass = bService.printOneBclass(classNo);
+		ArrayList<BukkeClass> bList = bService.printTopThreeBclass();
 		ArrayList<Review> rList = rService.printReviewToBclass();
-		if(bukkeClass != null && !rList.isEmpty()) {
+		if(bukkeClass != null && !bList.isEmpty() && !rList.isEmpty()) {
 			mv.addObject("bukkeClass", bukkeClass);
+			mv.addObject("bList", bList);
 			mv.addObject("rList", rList);
 			System.out.println(rList);
 			mv.setViewName("bukkeClass/bukkeClassDetailView");

@@ -20,14 +20,13 @@
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					<h1 class="mb-2 bread">CLASS DETAILS</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Class Details <i
-							class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="home.com">Home 
+						<i class="ion-ios-arrow-forward"></i></a></span> 
+						<span>Class Details <i class="ion-ios-arrow-forward"></i></span>
 					</p>
 				</div>
 			</div>
@@ -40,7 +39,7 @@
 	<!-- ================ Class Detail ================ -->
 	<section class="ftco-section">
 		<div class="container">
-		<div class="row justify-content-center mb-5 pb-3">
+			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-white">BUKKE</small></span>
@@ -48,8 +47,8 @@
 				</div>
 			</div>
 			<div class="row">
-			<!-- 클래스 분류 -->
-				<div class="col-lg-12 ftco-animate"> 
+				<!-- 클래스 분류 -->
+				<div class="col-lg-12 ftco-animate">
 					<ul id="type-ul">
 						<li><h3 class="act-type">[&nbsp;</h3></li>
 						<li><h3 id="act-type">${bukkeClass.classType}</h3></li>
@@ -60,11 +59,13 @@
 				</div>
 				<div class="col-lg-8 ftco-animate">
 					<p>
-						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }" alt="class photo" class="img-fluid">
+						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }"
+							alt="class photo" class="img-fluid">
 					</p>
-					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명 : ${bukkeClass.className }</h2>
+					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명
+						: ${bukkeClass.className }</h2>
 					<hr>
-						
+
 					<div style="padding: 30px;">
 						<h5>${bukkeClass.classInfo }</h5>
 					</div>
@@ -89,7 +90,7 @@
 
 						</div>
 					</div>
-					
+
 				</div>
 
 				<!-- ================  Detail END================ -->
@@ -98,15 +99,16 @@
 				<!-- =============== side bar =============== -->
 
 				<div class="col-lg-4 sidebar ftco-animate">
-					<div class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
-					<div class="sidebar-box ftco-animate">
-					<h2 align="center">
-						<i class="fas fa-list fa-lg"></i>&nbsp;Information
-					</h2>
-					<hr>
-					<br>
-						<div class="block-21 mb-4 d-flex">
-							<ul id="type-ul">
+					<div
+						class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
+						<div class="sidebar-box ftco-animate">
+							<h2 align="center">
+								<i class="fas fa-list fa-lg"></i>&nbsp;Information
+							</h2>
+							<hr>
+							<br>
+							<div class="block-21 mb-4 d-flex">
+								<ul id="type-ul">
 									<li><h3 class="act-type">
 											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
@@ -148,7 +150,7 @@
 										</h3></li>
 									<li><h3 id="act-type">${bukkeClass.classAddr }</h3></li>
 								</ul>
-						</div>
+							</div>
 
 							<!-- 사업자에게만 버튼 보이게 하기 -->
 							<div align="center">
@@ -158,10 +160,12 @@
 								<!-- renameFilename 은 실제 저장된 파일 이름  -->
 								<c:url var="cDelete" value="bukkeClassDelete.com">
 									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
-									<c:param name="cRenameFilename" value="${bukkeClass.cRenameFilename }"></c:param>
+									<c:param name="cRenameFilename"
+										value="${bukkeClass.cRenameFilename }"></c:param>
 								</c:url>
-								<a href="${cModify }"><input class="btn btn-lg btn-warning" type="submit" value="수정"></a> 
-									<a href="${cDelete }"><input class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
+								<a href="${cModify }"><input class="btn btn-lg btn-warning"
+									type="submit" value="수정"></a> <a href="${cDelete }"><input
+									class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
 							</div>
 						</div>
 					</div>
@@ -171,74 +175,44 @@
 						<button class="btn btn-lg btn-primary" type="submit">선물하기</button>
 						<button class="btn btn-lg btn-primary" type="submit">채팅하기</button>
 					</div>
-					<br>
-					<br>
+					<br> <br>
+
+					<!--=========== 클래스 상위 TOP 3 (수업 종강일 최신기준) =========== -->
 					<div class="sidebar-box ftco-animate">
-						<h3>Popular Articles</h3>
-						<div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(resources/images/image_1.jpg);"></a>
-							<div class="text">
-								<h3 class="heading">
-									<a href="#">Even the all-powerful Pointing has no control
-										about the blind texts</a>
-								</h3>
-								<div class="meta">
-									<div>
-										<a href="#"><span class="icon-calendar"></span> Oct. 04,
-											2018</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-chat"></span> 19</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(resources/images/image_2.jpg);"></a>
-							<div class="text">
-								<h3 class="heading">
-									<a href="#">${review.reviewContents }</a>
-								</h3>
-								<div class="meta">
-									<div>
-										<a href="#"><span class="icon-calendar"></span>${review.reviewDate }</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-person"></span> ${review.memberId }</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-chat"></span> 19</a>
+
+						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
+							<i class="fas fa-tasks fa-lg"></i>&nbsp;${bukkeClass.shopId }&nbsp;의
+							또 다른 강좌
+						</h4>
+						<hr>
+
+						<c:forEach items="${bList }" var="bukkeClass">
+							<div class="block-21 mb-4 d-flex">
+								<a class="blog-img mr-4"
+									style="background-image: url(resources/bClassFiles/${bukkeClass.cRenameFilename});"></a>
+								<div class="text">
+
+									<h3 id="top-actname" class="heading">
+										<c:url var="cDetail" value="bukkeClassDetailView.com">
+											<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+										</c:url>
+										<a href="${cDetail}">[${bukkeClass.classType}]&nbsp;${bukkeClass.className}</a>
+									</h3>
+									<div class="meta">
+										<div>
+											<i class="far fa-calendar-alt fa-lg"></i>&nbsp;${bukkeClass.classStartDate}
+										</div>
+										<div>
+											<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;${bukkeClass.classEndDate}
+										</div>
+										<div>
+											<i class="fas fa-arrow-circle-right fa-lg"></i>&nbsp;${bukkeClass.classTypedetails}
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="block-21 mb-4 d-flex">
-							<a class="blog-img mr-4"
-								style="background-image: url(resources/images/image_3.jpg);"></a>
-							<div class="text">
-								<h3 class="heading">
-									<a href="#">Even the all-powerful Pointing has no control
-										about the blind texts</a>
-								</h3>
-								<div class="meta">
-									<div>
-										<a href="#"><span class="icon-calendar"></span> Oct. 04,
-											2018</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-person"></span> Dave Lewis</a>
-									</div>
-									<div>
-										<a href="#"><span class="icon-chat"></span> 19</a>
-									</div>
-								</div>
-							</div>
-						</div>
+							<hr>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

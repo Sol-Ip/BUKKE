@@ -30,6 +30,9 @@ public interface BukkeClassStore {
 	// 클래스 삭제 (업체회원-클래스 삭제 메뉴)
 	public int deleteBclass(int classNo);
 
+	// 클래스에서 TOP3 리스트 보여주기
+	public ArrayList<BukkeClass> selectTopThreeListBclass();
+
 
 	
 }

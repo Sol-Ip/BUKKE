@@ -59,5 +59,12 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return bStore.deleteBclass(classNo);
 	}
 
+	// 클래스 TOP3 리스트 보여주기
+	@Override
+	public ArrayList<BukkeClass> printTopThreeBclass() {
+		ArrayList<BukkeClass> bList = bStore.selectTopThreeListBclass();
+		return bList;
+	}
+
 
 }

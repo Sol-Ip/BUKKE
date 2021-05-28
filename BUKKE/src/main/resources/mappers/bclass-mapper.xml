@@ -33,6 +33,11 @@
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>
    
+   <!-- 클래스 TOP3 목록 -->
+   <select id="selectTopThreeList" resultMap="bClassResultMap">
+   	SELECT * FROM (SELECT * FROM CLASS ORDER BY CLASS_END_DATE DESC) WHERE ROWNUM &lt;= 3 AND CLASS_STATUS = 'Y'
+   </select>
+   
    <select id="selectSearchBclass" resultMap="bClassResultMap">
 		<!-- <if test="classCategory.toString() =='name'">WHERE CLASS_NAME LIKE '%' || #{classKeyword}||'%'</if> -->
 		<!-- <if test="classCategory.toString() =='info'">WHERE CLASS_CONTENTS LIKE '%' || #{classKeyword}||'%'</if> -->

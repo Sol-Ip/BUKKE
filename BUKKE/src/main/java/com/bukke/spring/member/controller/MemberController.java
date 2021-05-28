@@ -91,12 +91,7 @@ public class MemberController {
 		return "common/errorPage";
 	}
 
-	// 마이페이지 화면
-	@RequestMapping(value="memberMyPage.com", method=RequestMethod.GET)
-	public String myInfoView() {
-		return "member/memberInfo";
-		
-	}
+	
 
 	// @RequestMapping(value="", method=RequestMethod.POST)
 	public String modifyMember() {
@@ -147,5 +142,19 @@ public class MemberController {
 			return "fail";
 		}
 	}*/
+		
 }
+	// 마이페이지 화면
+	@RequestMapping(value="memberMyPage.com", method=RequestMethod.GET)
+	public String myInfoView() {
+		return "member/memberInfo";
+		
+	}
+	
+	// 마이페이지 스케쥴 관리(풀캘린더)
+		@RequestMapping(value="memberScheduleView.com", method=RequestMethod.GET)
+		public String scheduleView() {
+			return "member/schedule";
+			
+		}
 }

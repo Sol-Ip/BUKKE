@@ -158,8 +158,8 @@
                      <i class="fa fa-user" aria-hidden="true"></i>
                   </span>
                   <h4 class="color-info">내 정보</h4>
-                  <p class="">내 정보 수정을 할 수 있습니다.</p>
-                  <a href="javascript:void(0)" class="btn btn-info btn-custom">Click here</a>
+                  <br>
+                  <a href="javascript:void(0)" class="btn btn-info btn-custom">Click</a>
                </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -169,8 +169,8 @@
                      <i class="far fa-calendar-check " aria-hidden="true"></i>
                   </span>
                   <h4 class="color-warning">부캐 일정</h4>
-                  <p class="">클래스, 액티비티 일정 확인할 수 있습니다.</p>
-                  <a href="javascript:void(0)" class="btn btn-warning btn-custom">Click here</a>
+                  <br>
+                  <a href="javascript:void(0)" class="btn btn-warning btn-custom">Click</a>
                </div>
             </div>
             <div class="col-lg-3"></div>
@@ -182,8 +182,8 @@
                      <i class="fas fa-pen" aria-hidden="true"></i>
                   </span>
                   <h4 class="color-success">내 활동</h4>
-                  <p class="">작성한 게시글, 댓글을 확인할 수 있습니다.</p>
-                  <a href="javascript:void(0)" class="btn btn-success btn-custom">Click here</a>
+                  <br>
+                  <a href="javascript:void(0)" class="btn btn-success btn-custom">Click</a>
                </div>
             </div>
 
@@ -193,8 +193,8 @@
                      <i class="fas fa-user-slash" aria-hidden="true"></i>
                   </span>
                   <h4 class="color-danger">회원 탈퇴</h4>
-                  <p class="">사이트 회원 탈퇴를 할 수 있습니다.</p>
-                  <a href="javascript:void(0)" class="btn btn-danger btn-custom">Click here</a>
+                  <br>
+                  <a href="javascript:void(0)" class="btn btn-danger btn-custom">Click</a>
                </div>
             </div>
          </div>

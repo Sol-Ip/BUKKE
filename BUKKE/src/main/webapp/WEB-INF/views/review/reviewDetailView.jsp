@@ -98,7 +98,7 @@
 											<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
 											<button id="heart" class=""name=""></button>
 									</li>
-											
+											<!-- 좋아요 총 갯수가 새로고침해야 오르고 아직 버튼바뀐걸눌러도 감소하지않는다 -->
 											
 <script>									
     $(document).ready(function () {

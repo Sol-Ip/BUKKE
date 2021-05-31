@@ -3,17 +3,17 @@ package com.bukke.spring.review.domain;
 import java.sql.Date;
 
 public class Review {
-	private int reviewNo; // í›„ê¸°ë²ˆí˜¸
-	private String memberId; // íšŒì›ì•„ì´ë””
-	private String reviewTitle; // í›„ê¸°ê¸€ ì œëª©
-	private String reviewContents; // í›„ê¸°ê¸€ ë‚´ìš©
-	private Date reviewDate; // ë¦¬ë·°ì‘ì„±ì¼
-	private String reviewStatus; // ë¦¬ë·°(ì‚­ì œ)ì—¬ë¶€
-	private String rOriginalFilename; // ê¸°ì¡´íŒŒì¼ì´ë¦„
-	private String rRenameFilename; // ë³€ê²½íŒŒì¼ì´ë¦„
-	private int classNo; //í´ë˜ìŠ¤ë²ˆí˜¸
-	private int activityNo;//ì•¡í‹°ë¹„í‹°ë²ˆí˜¸
-	private int reviewLikeCnt;//ì¢‹ì•„ìš”ê°¯ìˆ˜
+	private int reviewNo; // ÈÄ±â¹øÈ£
+	private String memberId; // È¸¿ø¾ÆÀÌµğ
+	private String reviewTitle; // ÈÄ±â±Û Á¦¸ñ
+	private String reviewContents; // ÈÄ±â±Û ³»¿ë
+	private Date reviewDate; // ¸®ºäÀÛ¼ºÀÏ
+	private String reviewStatus; // ¸®ºä(»èÁ¦)¿©ºÎ
+	private String rOriginalFilename; // ±âÁ¸ÆÄÀÏÀÌ¸§
+	private String rRenameFilename; // º¯°æÆÄÀÏÀÌ¸§
+	private int classNo; //Å¬·¡½º¹øÈ£
+	private int activityNo;//¾×Æ¼ºñÆ¼¹øÈ£
+	private int reviewLikeCnt;//ÁÁ¾Æ¿ä°¹¼ö
 	
 	
 	

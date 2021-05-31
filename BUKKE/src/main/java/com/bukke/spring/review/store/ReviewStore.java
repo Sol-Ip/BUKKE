@@ -9,58 +9,60 @@ import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 
 public interface ReviewStore {
-	// í›„ê¸° ì „ì²´ ì¡°íšŒ
+	// ÈÄ±â ÀüÃ¼ Á¶È¸
 	public ArrayList<Review> selectReviewList(ReviewPageInfo pi);
 	
-	// í›„ê¸° ìƒì„¸ ì¡°íšŒ
+	// ÈÄ±â »ó¼¼ Á¶È¸
 	public Review selectOneReview(int rId);
 	
-	// í›„ê¸° ê²€ìƒ‰
+	// ÈÄ±â °Ë»ö
 	public ArrayList<Review> selectSearchList(ReviewSearch search);
 	
-	// í›„ê¸° ë“±ë¡
+	// ÈÄ±â µî·Ï
 	public int insertReview(Review review);
 	
-	// í›„ê¸° ìˆ˜ì •
+	// ÈÄ±â ¼öÁ¤
 	public int updateReview(Review review);
 	
-	// í›„ê¸° ì‚­ì œ
+	// ÈÄ±â »èÁ¦
 	public int deleteReview(int rId);
 	
-	// ëŒ“ê¸€ ì¡°íšŒ
+	// ´ñ±Û Á¶È¸
 	public ArrayList<ReviewComment> selectCommentList(int nId);
 	
-	// ëŒ“ê¸€ ë“±ë¡
+	// ´ñ±Û µî·Ï
 	public int insertComment(ReviewComment rComment);
 	
-	// ëŒ“ê¸€ ìˆ˜ì •
+	// ´ñ±Û ¼öÁ¤
 	public int updateComment(ReviewComment rComment);
 	
-	// ëŒ“ê¸€ ì‚­ì œ
+	// ´ñ±Û »èÁ¦
 	public int deleteComment(ReviewComment rComment);
 	
-	//ì¢‹ì•„ìš” ì˜¬ë¦¼
+	//ÁÁ¾Æ¿ä ¿Ã¸²
 	public int insertLikes(Review review);
 	
-	//ì¢‹ì•„ìš” ë‚´ë¦¼
+	//ÁÁ¾Æ¿ä ³»¸²
 	public int deleteLikes(Review review);
 
 	public int selectListCount();
 
-	// í´ë˜ìŠ¤ì—ì„œ ë¦¬ë·° ë³´ì—¬ì£¼ê¸°
+	// Å¬·¡½º¿¡¼­ ¸®ºä º¸¿©ÁÖ±â
 	public ArrayList<Review> selectReviewToBclass();
 	
-	//ì¢‹ì•„ìš”ê°¯ìˆ˜ í‘œì‹œ
-	public int getReviewLike(ReviewLikes reviewLikes);
+	//ÁÁ¾Æ¿ä°¹¼ö Ç¥½Ã
+	public int getReviewLike(int reviewNo);
 	
-	//ì¢‹ì•„ìš”ì¶”ê°€
+	//ÁÁ¾Æ¿äÃß°¡
 	public void insertReviewLike(ReviewLikes reviewLikes);
 	
-	//ì¢‹ì•„ìš”ì‚­ì œ
+	//ÁÁ¾Æ¿ä»èÁ¦
 	public void deleteReviewLike(ReviewLikes reviewLikes);
 	
-	//ì¢‹ì•„ìš”ì—…ë°ì´íŠ¸
+	//ÁÁ¾Æ¿ä¾÷µ¥ÀÌÆ®
 	public void updateReviewLike(int reviewNo);
+
+	public ReviewLikes selectOneReviewLikes(ReviewLikes review);
 	
 	
 }

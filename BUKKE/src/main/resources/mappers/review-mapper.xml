@@ -67,7 +67,7 @@
 		ORDER BY REVIEW_DATE DESC
 	</select>
 	
-	<!-- 댓글 관련 부분 -->
+	<!-- ?볤? 愿??遺遺?-->
 	<resultMap type="reviewComment" id="commentResultMap">
 		<id property="commentNo" column="COMMENT_NO"/>
 		<result property="memberId" column="MEMBER_ID" />
@@ -95,7 +95,7 @@
 		ORDER BY COMMENT_NO DESC
 	</select>
 	
-	<!-- 클래스에서 리뷰 보여주기 -->
+	<!-- ?대옒?ㅼ뿉??由щ럭 蹂댁뿬二쇨린 -->
    <select id="selectListToBclass" resultMap="reviewResultMap">
       SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
    </select> 
@@ -109,7 +109,7 @@
 	
 	<insert id="createReviewLike">
 		INSERT INTO REVIEW_LIKES
-		VALUES (SEQ_REVIEW_LIKES.NEXTVAL, #{memberId},#{reviewNo},1)
+		VALUES (SEQ_REVIEW_LIKES.NEXTVAL, #{memberId},#{reviewNo},'Y')
 	</insert>
 
 	<delete id="deleteReviewLike">
@@ -127,7 +127,11 @@
 	</select>
 	
 	<select id="getReviewLike" resultType="int">
-		SELECT COUNT(LIKES_NO) FROM REVIEW_LIKES WHERE REVIEW_NO = #{reviewNo} AND MEMBER_ID = #{memberId}
+		SELECT COUNT(LIKES_NO) FROM REVIEW_LIKES WHERE REVIEW_NO = #{reviewNo}
+	</select>
+	
+	<select id="seleceOneReviewLikes" resultMap="likeResultMap">
+		SELECT * FROM REVIEW_LIKES WHERE REVIEW_NO = #{reviewNo } AND MEMBER_ID = #{memberId }
 	</select>
 
 </mapper>

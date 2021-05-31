@@ -19,21 +19,21 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	private ReviewStore rStore;
 
-	// í›„ê¸° ì „ì²´ ì¡°íšŒ
+	// ÈÄ±â ÀüÃ¼ Á¶È¸
 	@Override
 	public ArrayList<Review> printAllReview(ReviewPageInfo pi) {
 		// TODO Auto-generated method stub
 		ArrayList<Review> rList = rStore.selectReviewList(pi);
 		return rList;
 	}
-	// í›„ê¸° ìƒì„¸ ì¡°íšŒ
+	// ÈÄ±â »ó¼¼ Á¶È¸
 	@Override
 	public Review printOneReview(int rId) {
 		// TODO Auto-generated method stub
 		Review review = rStore.selectOneReview(rId);
 		return review;
 	}
-	// í›„ê¸° ê²€ìƒ‰
+	// ÈÄ±â °Ë»ö
 	@Override
 	public ArrayList<Review> searchReview(ReviewSearch search) {
 		// TODO Auto-generated method stub
@@ -41,43 +41,43 @@ public class ReviewServiceImpl implements ReviewService {
 		return searchList;
 	}
 	
-	// í›„ê¸° ë“±ë¡
+	// ÈÄ±â µî·Ï
 	@Override
 	public int registerReview(Review review) {
 		// TODO Auto-generated method stub
 		return rStore.insertReview(review);
 	}
-	// í›„ê¸° ìˆ˜ì •
+	// ÈÄ±â ¼öÁ¤
 	@Override
 	public int modifyReview(Review review) {
 		// TODO Auto-generated method stub
 		return rStore.updateReview(review);
 	} 
-	// í›„ê¸° ì‚­ì œ
+	// ÈÄ±â »èÁ¦
 	@Override
 	public int removeReview(int reviewNo) {
 		// TODO Auto-generated method stub
 		return rStore.deleteReview(reviewNo);
 	}
-	// ëŒ“ê¸€ ì¡°íšŒ
+	// ´ñ±Û Á¶È¸
 	@Override
 	public ArrayList<ReviewComment> printCommentAll(int reviewNo) {
 		// TODO Auto-generated method stub
 		return rStore.selectCommentList(reviewNo);
 	}
-	// ëŒ“ê¸€ ë“±ë¡
+	// ´ñ±Û µî·Ï
 	@Override
 	public int registerComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
 		return rStore.insertComment(rComment);
 	}
-	// ëŒ“ê¸€ ìˆ˜ì •
+	// ´ñ±Û ¼öÁ¤
 	@Override
 	public int modifyComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	// ëŒ“ê¸€ ì‚­ì œ
+	// ´ñ±Û »èÁ¦
 	@Override
 	public int removeComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
@@ -99,7 +99,7 @@ public class ReviewServiceImpl implements ReviewService {
 		return rStore.selectListCount();
 	}
 	
-	// í´ë˜ìŠ¤ì—ì„œ í›„ê¸° ë³´ì—¬ì£¼ê¸°
+	// Å¬·¡½º¿¡¼­ ÈÄ±â º¸¿©ÁÖ±â
 	@Override
 	public ArrayList<Review> printReviewToBclass() {
 		return rStore.selectReviewToBclass();
@@ -118,9 +118,14 @@ public class ReviewServiceImpl implements ReviewService {
 		rStore.updateReviewLike(reviewLikes.getReviewNo());
 	}
 	@Override
-	public int getReviewLike(ReviewLikes reviewLikes) {
+	public int getReviewLike(int reviewNo) {
 		// TODO Auto-generated method stub
-		return rStore.getReviewLike(reviewLikes);
+		return rStore.getReviewLike(reviewNo);
+	}
+	@Override
+	public ReviewLikes printReviewLikes(ReviewLikes review) {
+		// TODO Auto-generated method stub
+		return rStore.selectOneReviewLikes(review);
 	}
 
 }

@@ -130,11 +130,11 @@
 		<div class="container">
 			<div class="row">
 			<c:forEach items="${rList }" var="review">
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="../resources/reviewFiles/${review.rRenameFilename }" id="class-img" class="img-fluid"
+				<div class="col-md-3 ftco-animate">
+					<div class="blog-entry">
+						<img src="../resources/reviewFiles/${review.rRenameFilename }" id="class-img" class="block-20"
 							alt="Colorlib Template">
-						<div class="text">
+						<div class="text d-flex py-4">
 						<c:url var="rDetail" value="reviewDetail.com">
                      		<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
                   		</c:url>

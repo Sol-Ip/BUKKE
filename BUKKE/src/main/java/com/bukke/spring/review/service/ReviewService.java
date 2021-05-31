@@ -9,40 +9,41 @@ import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 
 public interface ReviewService {
-	// í›„ê¸° ì „ì²´ ì¡°íšŒ
+	// ÈÄ±â ÀüÃ¼ Á¶È¸
 	public ArrayList<Review> printAllReview(ReviewPageInfo pi);
-	// í›„ê¸° ìƒì„¸ ì¡°íšŒ
+	// ÈÄ±â »ó¼¼ Á¶È¸
 	public Review printOneReview(int rId);
-	// í›„ê¸° ê²€ìƒ‰
+	// ÈÄ±â °Ë»ö
 	public ArrayList<Review> searchReview(ReviewSearch search);
-	// í›„ê¸° ë“±ë¡
+	// ÈÄ±â µî·Ï
 	public int registerReview(Review review);
-	// í›„ê¸° ìˆ˜ì •
+	// ÈÄ±â ¼öÁ¤
 	public int modifyReview(Review review);
-	// í›„ê¸° ì‚­ì œ
+	// ÈÄ±â »èÁ¦
 	public int removeReview(int rId);
-	// ëŒ“ê¸€ ì¡°íšŒ
+	// ´ñ±Û Á¶È¸
 	public ArrayList<ReviewComment> printCommentAll(int reviewNo);
-	// ëŒ“ê¸€ ë“±ë¡
+	// ´ñ±Û µî·Ï
 	public int registerComment(ReviewComment rComment);
-	// ëŒ“ê¸€ ìˆ˜ì •
+	// ´ñ±Û ¼öÁ¤
 	public int modifyComment(ReviewComment rComment);
-	// ëŒ“ê¸€ ì‚­ì œ
+	// ´ñ±Û »èÁ¦
 	public int removeComment(ReviewComment rComment);
-	//ì¢‹ì•„ìš” ì˜¬ë¦¼
+	//ÁÁ¾Æ¿ä ¿Ã¸²
 	public int addLikes(Review review);
-	//ì¢‹ì•„ìš” ë‚´ë¦¼
+	//ÁÁ¾Æ¿ä ³»¸²
 	public int removeLikes(Review review);
 	public int getListCount();
-	// í´ë˜ìŠ¤ì—ì„œ í›„ê¸° ë³´ì—¬ì£¼ê¸°
+	// Å¬·¡½º¿¡¼­ ÈÄ±â º¸¿©ÁÖ±â
 	public ArrayList<Review> printReviewToBclass();
 	
-	//ì¢‹ì•„ìš”ì¶”ê°€
+	//ÁÁ¾Æ¿äÃß°¡
 	public void insertReviewLike(ReviewLikes reviewLikes);
 	
-	//ì¢‹ì•„ìš”ì‚­ì œ
+	//ÁÁ¾Æ¿ä»èÁ¦
 	public void deleteReviewLike(ReviewLikes reviewLikes);
 	
-	//ì¢‹ì•„ìš”ì¡°íšŒ
-	public int getReviewLike(ReviewLikes reviewLikes);
+	//ÁÁ¾Æ¿äÁ¶È¸
+	public int getReviewLike(int reviewNo);
+	public ReviewLikes printReviewLikes(ReviewLikes review);
 }

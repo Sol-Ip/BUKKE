@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +42,7 @@ public class ReviewController {
 	@Autowired
 	private ReviewService rService;
 	
-	// í›„ê¸° ì „ì²´ ì¡°íšŒ
+	// ÈÄ±â ÀüÃ¼ Á¶È¸
 	@RequestMapping(value="reviewList.com", method=RequestMethod.GET)
 	public ModelAndView reviewListView(ModelAndView mv
 			,@RequestParam(value="page", required=false) Integer page) {
@@ -55,7 +56,7 @@ public class ReviewController {
 			mv.setViewName("review/reviewListView");
 			
 		}else {
-			mv.addObject("msg", "ê²Œì‹œê¸€ ì „ì²´ì¡°íšŒ ì‹¤íŒ¨");
+			mv.addObject("msg", "°Ô½Ã±Û ÀüÃ¼Á¶È¸ ½ÇÆĞ");
 			mv.setViewName("common/errorPage");
 			
 		}
@@ -63,19 +64,38 @@ public class ReviewController {
 		
 	}
 	
-	// í›„ê¸° ìƒì„¸ ì¡°íšŒ
+	// ÈÄ±â »ó¼¼ Á¶È¸
 	@RequestMapping(value="reviewDetail.com", method=RequestMethod.GET)
-	public String reviewDetail(@RequestParam("reviewNo") int reviewNo, Model model,HttpServletRequest request,HttpServletResponse response, HttpSession session) {
+	public String reviewDetail(@RequestParam("reviewNo") int reviewNo,  Model model, HttpServletRequest request,HttpServletResponse response, HttpSession session) {
 		Review review = rService.printOneReview(reviewNo);
 		Member loginMember = (Member)session.getAttribute("loginMember");
+		String memberId = loginMember.getMemberId();
+		ReviewLikes rvLike = new ReviewLikes();
+		rvLike.setReviewNo(reviewNo);
+		rvLike.setMemberId(memberId);
+		ReviewLikes reviewLikes = rService.printReviewLikes(rvLike);
+		model.addAttribute("memberId",memberId);
+	//	System.out.println(reviewLikes.getMemberId());
 		if(loginMember !=null) {
-			String memberId = loginMember.getMemberId();
-		    ReviewLikes reviewLikes = new ReviewLikes();
-		    reviewLikes.setReviewNo(reviewNo);
-		    reviewLikes.setMemberId(memberId);
-		    int rLikes = rService.getReviewLike(reviewLikes);
-		    model.addAttribute("heart",rLikes);////////////////////////////////////////////////ì´ê²Œ ìê¾¸ 0ìœ¼ë¡œê°„ë‹¤
-		    System.out.println("ì¢‹ì•„ìš” : "+ rLikes);
+			String heartYN = "";
+			if(reviewLikes != null && memberId==reviewLikes.getMemberId()) {
+				heartYN = "Y";
+				System.out.println("heartYN : "+ heartYN);
+				model.addAttribute("heartYN",heartYN);
+			}else {
+				 heartYN = "N";
+				 System.out.println("heartYN : "+ heartYN); 
+				 model.addAttribute("heartYN", heartYN); 
+				 
+				
+			}
+		//	String heartYN = reviewLikes.getLikeCheck();
+			
+			
+			// 1check?ÁÁ¾Æ¿ä ¿©ºÎ¸¦ Ã¼Å©ÇØÁà¼­ ½ºÆ®¸µÀ¸·Î º¸³»ÁØ´Ù
+		    int rLikes = rService.getReviewLike(reviewNo); // ¿©±â ´Ù reviewNo·Î µŞºÎºĞ ¼öÁ¤
+		    model.addAttribute("heart",rLikes);////////////////////////////////////////////////ÀÌ°Ô ÀÚ²Ù 0À¸·Î°£´Ù
+		    System.out.println("ÁÁ¾Æ¿ä : "+ rLikes);
 		}
 	    
 		
@@ -83,44 +103,44 @@ public class ReviewController {
 			model.addAttribute("review", review);
 			return "review/reviewDetailView";
 		}else {
-			model.addAttribute("msg", "ê³µì§€ì‚¬í•­ ìƒì„¸ì¡°íšŒ ì‹¤íŒ¨");
+			model.addAttribute("msg", "ÈÄ±â »ó¼¼Á¶È¸ ½ÇÆĞ");
 			return "common/errorPage";
 		}
 		
 	}
 	
-	// í›„ê¸° ê²€ìƒ‰ ê¸°ëŠ¥
+	// ÈÄ±â °Ë»ö ±â´É
 	@RequestMapping(value="reviewSearch.com", method=RequestMethod.GET)
 	public String reviewSearch(@ModelAttribute ReviewSearch search, Model model) {
 		
-		// 2ê°œì˜ ê°’ì„ í•˜ë‚˜ì— ë‹´ì•„ì„œ ë³´ë‚´ëŠ” ë°©ë²•
-		// 1. Domain(VO) í´ë˜ìŠ¤ ì´ìš©
-		// 2. HashMap ì‚¬ìš©í•˜ê¸°
+		// 2°³ÀÇ °ªÀ» ÇÏ³ª¿¡ ´ã¾Æ¼­ º¸³»´Â ¹æ¹ı
+		// 1. Domain(VO) Å¬·¡½º ÀÌ¿ë
+		// 2. HashMap »ç¿ëÇÏ±â
 		ArrayList<Review> searchList = rService.searchReview(search);
 		if(!searchList.isEmpty()) {
 			model.addAttribute("rList", searchList);
 			model.addAttribute("search", search);
 			return "review/reviewListView";
 		}else {
-			model.addAttribute("msg", "ê³µì§€ì‚¬í•­ ê²€ìƒ‰ ì‹¤íŒ¨");
+			model.addAttribute("msg", "°øÁö»çÇ× °Ë»ö ½ÇÆĞ");
 			return "common/errorPage";
 		}
 	}
 	
 	
 	
-	// í›„ê¸° ë“±ë¡ ë·°
+	// ÈÄ±â µî·Ï ºä
 	@RequestMapping(value="reviewWriteView.com", method=RequestMethod.GET)
 	public String reviewEnrollView() {
 		return "review/reviewWriteForm";
 	}
 	
-	// í›„ê¸° ë“±ë¡ ê¸°ëŠ¥
+	// ÈÄ±â µî·Ï ±â´É
 	@RequestMapping(value="reviewAdd.com", method=RequestMethod.POST)
 	public ModelAndView reviewRegister(ModelAndView mv, @ModelAttribute Review review,
 			@RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile,
 			HttpServletRequest request) {
-		// ì„œë²„ì— íŒŒì¼ì„ ì €ì¥í•˜ëŠ” ì‘ì—…
+		// ¼­¹ö¿¡ ÆÄÀÏÀ» ÀúÀåÇÏ´Â ÀÛ¾÷
 		if (!uploadFile.getOriginalFilename().equals("")) {
 			String renameFileName = saveFile(uploadFile, request);
 			if (renameFileName != null) {
@@ -128,39 +148,39 @@ public class ReviewController {
 				review.setrRenameFilename(renameFileName);
 			}
 		}
-		// ë””ë¹„ì— ë°ì´í„°ë¥¼ ì €ì¥í•˜ëŠ” ì‘ì—…
+		// µğºñ¿¡ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ÀÛ¾÷
 		int result = 0;
 		String path = "";
 		result = rService.registerReview(review);
 		if (result > 0) {
 			path = "redirect:reviewList.com";
 		} else {
-			mv.addObject("msg", "ê²Œì‹œê¸€ ë“±ë¡ ì‹¤íŒ¨");
+			mv.addObject("msg", "°Ô½Ã±Û µî·Ï ½ÇÆĞ");
 			path = "common/errorPage";
 		}
 		mv.setViewName(path);
 		return mv;
 	}
 
-	//í›„ê¸° íŒŒì¼ ì €ì¥
+	//ÈÄ±â ÆÄÀÏ ÀúÀå
 	public String saveFile(MultipartFile file, HttpServletRequest request) {
-		// íŒŒì¼ ì €ì¥ ê²½ë¡œ ì„¤ì •
+		// ÆÄÀÏ ÀúÀå °æ·Î ¼³Á¤
 		String root = request.getSession().getServletContext().getRealPath("resources");
 		String savePath = root + "\\reviewFiles";
-		// ì €ì¥ í´ë” ì„ íƒ
+		// ÀúÀå Æú´õ ¼±ÅÃ
 		File folder = new File(savePath);
-		// í´ë”ì—†ìœ¼ë©´ ìë™ ìƒì„±
+		// Æú´õ¾øÀ¸¸é ÀÚµ¿ »ı¼º
 		if(!folder.exists()) {
 			folder.mkdir();
 		}
-		// íŒŒì¼ëª… ë³€ê²½í•˜ê¸°
+		// ÆÄÀÏ¸í º¯°æÇÏ±â
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		String originalFileName = file.getOriginalFilename();
 		String renameFileName = sdf.format(new Date(System.currentTimeMillis())) 
 								+ "." + originalFileName.substring(originalFileName.lastIndexOf(".")+1);
 								// a.bc.jpg
 		String filePath = folder + "\\" + renameFileName;
-		// íŒŒì¼ì €ì¥
+		// ÆÄÀÏÀúÀå
 		try {
 			file.transferTo(new File(filePath));
 		} catch (IllegalStateException e) {
@@ -170,11 +190,11 @@ public class ReviewController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// ë¦¬í„´
+		// ¸®ÅÏ
 		return renameFileName;
 	}
 	
-	// í›„ê¸° ìˆ˜ì • ë·°
+	// ÈÄ±â ¼öÁ¤ ºä
 	@RequestMapping(value="reviewModifyView.com")
 	public ModelAndView reviewModifyView(ModelAndView mv, @RequestParam("reviewNo") int reviewNo) {
 
@@ -182,35 +202,35 @@ public class ReviewController {
 		if (review != null) {
 			mv.addObject("review", review).setViewName("review/reviewUpdateView");
 		} else {
-			mv.addObject("msg", "ê²Œì‹œê¸€ ìƒì„¸ ì¡°íšŒ ì‹¤íŒ¨").setViewName("common/errorPage");
+			mv.addObject("msg", "°Ô½Ã±Û »ó¼¼ Á¶È¸ ½ÇÆĞ").setViewName("common/errorPage");
 		}
 
 		return mv;
 	}
 	
-	// í›„ê¸° ìˆ˜ì • ê¸°ëŠ¥
+	// ÈÄ±â ¼öÁ¤ ±â´É
 	@RequestMapping(value="reviewUpdate.com", method=RequestMethod.POST)
 	public ModelAndView reviewUpdate(ModelAndView mv, HttpServletRequest request, @ModelAttribute Review review,
 			@RequestParam(value = "reloadFile", required = false) MultipartFile reloadFile) {
-			// íŒŒì¼ ì‚­ì œ í›„ ì—…ë¡œë“œ ( ìˆ˜ì • )
+			// ÆÄÀÏ »èÁ¦ ÈÄ ¾÷·Îµå ( ¼öÁ¤ )
 		if (reloadFile != null && !reloadFile.isEmpty()) {
-				// ê¸°ì¡´ íŒŒì¼ ì‚­ì œ
+				// ±âÁ¸ ÆÄÀÏ »èÁ¦
 			if (review.getrOriginalFilename() != "") {
 				deleteFile(review.getrRenameFilename(), request);
 			}
-				// ìƒˆ íŒŒì¼ ì—…ë¡œë“œ
+				// »õ ÆÄÀÏ ¾÷·Îµå
 			String renameFileName = saveFile(reloadFile, request);
 			if (renameFileName != null) {
 				review.setrOriginalFilename(reloadFile.getOriginalFilename());
 				review.setrRenameFilename(renameFileName);
 			}
 		}
-			// DB ìˆ˜ì •
+			// DB ¼öÁ¤
 		int result = rService.modifyReview(review);
 		if (result > 0) {
 			mv.setViewName("redirect:reviewList.com");
 		} else {
-			mv.addObject("msg", "ê²Œì‹œê¸€ ìˆ˜ì • ì‹¤íŒ¨").setViewName("common/errorPage");
+			mv.addObject("msg", "°Ô½Ã±Û ¼öÁ¤ ½ÇÆĞ").setViewName("common/errorPage");
 		}
 		return mv;
 	}
@@ -223,26 +243,26 @@ public class ReviewController {
 		}
 	}
 	
-	// ê²Œì‹œê¸€ ì‚­ì œ(ì‹¤ì œë¡œëŠ” ìƒíƒœ ì—…ë°ì´íŠ¸)
+	// °Ô½Ã±Û »èÁ¦(½ÇÁ¦·Î´Â »óÅÂ ¾÷µ¥ÀÌÆ®)
 	@RequestMapping(value = "reviewDelete.com", method = RequestMethod.GET)
 	public String reviewDelete(Model model, @RequestParam("reviewNo") int reviewNo,
 			@RequestParam("rRenameFilename") String rRenameFilename, HttpServletRequest request) {
-		// ì—…ë¡œë“œëœ íŒŒì¼ ì‚­ì œ
+		// ¾÷·ÎµåµÈ ÆÄÀÏ »èÁ¦
 		if (rRenameFilename != "") {
 			deleteFile(rRenameFilename, request);
 		}
 
-		// ë””ë¹„ì— ë°ì´í„° ì—…ë°ì´íŠ¸
+		// µğºñ¿¡ µ¥ÀÌÅÍ ¾÷µ¥ÀÌÆ®
 		int result = rService.removeReview(reviewNo);
 		if (result > 0) {
 			return "redirect:reviewList.com";
 		} else {
-			model.addAttribute("msg", "ê²Œì‹œê¸€ ì‚­ì œ ì‹¤íŒ¨");
+			model.addAttribute("msg", "°Ô½Ã±Û »èÁ¦ ½ÇÆĞ");
 			return "common/errorPage";
 		}
 	}
 		
-	//ëŒ“ê¸€ ë“±ë¡
+	//´ñ±Û µî·Ï
 	@ResponseBody
 	@RequestMapping(value="addComment.com", method=RequestMethod.POST)
 	public String addComment(@ModelAttribute ReviewComment rComment, HttpSession session) {
@@ -256,7 +276,7 @@ public class ReviewController {
 		}
 	}
 	
-	//ëŒ“ê¸€ ì‚­ì œ
+	//´ñ±Û »èÁ¦
 	@ResponseBody
 	@RequestMapping(value="deleteComment.com", method=RequestMethod.GET)
 	public String removeComment(@ModelAttribute ReviewComment rComment) {
@@ -268,52 +288,66 @@ public class ReviewController {
 		}
 	}
 	
-	//ëŒ“ê¸€ ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ
+	//´ñ±Û ¸®½ºÆ® Á¶È¸
 	@RequestMapping(value="commentList.com", method=RequestMethod.GET)
 	public void getCommentList(HttpServletResponse response, @RequestParam("reviewNo") int reviewNo) throws Exception {
 		ArrayList<ReviewComment> rcList = rService.printCommentAll(reviewNo);
 		if(!rcList.isEmpty()) {
-			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); // ë‚ ì§œ í¬ë§· ë³€ê²½!
+			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); // ³¯Â¥ Æ÷¸Ë º¯°æ!
 			gson.toJson(rcList, response.getWriter());
 		}else {
-			System.out.println("ëŒ“ê¸€ ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
+			System.out.println("´ñ±Û µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
 		}
 	}
 	
 	
 	
-	// ëŒ“ê¸€ ìˆ˜ì • ê¸°ëŠ¥
+	// ´ñ±Û ¼öÁ¤ ±â´É
 	public String commentUpdate() {
 		return null;
 	}
 	
 	
 	
-	//ì¢‹ì•„ìš” í•˜íŠ¸
-	@ResponseBody
+	//ÁÁ¾Æ¿ä ÇÏÆ®
     @RequestMapping(value = "heart.com", method = RequestMethod.POST)
-    public String heart(@ModelAttribute  ReviewLikes reviewLikes, HttpSession session) throws Exception {
+    public void heart(@ModelAttribute  ReviewLikes reviewLikes, HttpSession session, HttpServletResponse response) throws Exception {
 
-        int heart = Integer.parseInt(reviewLikes.getLikeCheck());
-        int reviewNo = reviewLikes.getReviewNo();
-        Member loginMember = (Member)session.getAttribute("loginMember");
-        String memberId = loginMember.getMemberId();
+        String heartYN = reviewLikes.getLikeCheck();
+        //int reviewNo = reviewLikes.getReviewNo();
+    //    Member loginMember = (Member)session.getAttribute("loginMember");
+        //String memberId = loginMember.getMemberId();
+        HashMap<String, Object> likeMap = new HashMap<String, Object>();
         
-        reviewLikes.setReviewNo(reviewNo);
-        reviewLikes.setMemberId(memberId);
-
-        System.out.println(reviewLikes.getMemberId());
-
-        if(heart >= 1) {
-            rService.deleteReviewLike(reviewLikes);
-            heart=0; ////////////////////////////////////////dbì—ì„œë°›ì•„ì˜¤ëŠ”ê°’ìœ¼ë¡œí•´ì•¼í•¨
-        } else {
-            rService.insertReviewLike(reviewLikes);
-            heart=1; ////////////////////////////////////////
+        //reviewLikes.setReviewNo(reviewNo);
+        //reviewLikes.setMemberId(memberId);
+        if(reviewLikes !=null) {
+        	System.out.println("reviewLikes ÇöÀç ³Î¾Æ´Ô");
+        	System.out.println("reviewLikes.likesNo Àº : "+ reviewLikes.getLikesNo());
         }
-        System.out.println("heartëŠ” :" +heart);
-        return heart+"";
-
+        if(heartYN.equals("Y")) {
+        	 rService.deleteReviewLike(reviewLikes);
+        	 heartYN="N";
+        } else {
+        	 rService.insertReviewLike(reviewLikes);
+        	 heartYN="Y";
+        }
+        int likeCount = rService.getReviewLike(reviewLikes.getReviewNo());
+        likeMap.put("likeCount",likeCount);
+        likeMap.put("heartYN", heartYN);
+        
+        System.out.println(reviewLikes.getMemberId());
+        
+		/*
+		 * if(heart >= 1) { rService.deleteReviewLike(reviewLikes); heart=0;
+		 * ////////////////////////////////////////db¿¡¼­¹Ş¾Æ¿À´Â°ªÀ¸·ÎÇØ¾ßÇÔ
+		 * 
+		 * } else { rService.insertReviewLike(reviewLikes); heart=1;
+		 * //////////////////////////////////////// }
+		 */
+        //heart=rService.getReviewLike(reviewLikes);
+        System.out.println("heart´Â :" +heartYN);
+        new Gson().toJson(likeMap, response.getWriter());
     }
 	
 }

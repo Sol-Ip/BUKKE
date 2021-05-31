@@ -96,7 +96,8 @@
 									</li>
 									<li><h3 class="act-type">
 											<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
-											<button id="heart" class=""name=""></button>
+											<button id="heart" class="" name=""></button>
+											<!-- 1체크여부에따라서 버튼 클래스를 바꿔준다 -->
 									</li>
 											<!-- 좋아요 총 갯수가 새로고침해야 오르고 아직 버튼바뀐걸눌러도 감소하지않는다 -->
 											
@@ -104,9 +105,11 @@
     $(document).ready(function () {
 		
         var heartval = ${heart};
-        /* var reviewNo = '${review.reviewNo }';
-        var memberId = '${loginMember.memberId}' */
-        if(heartval>0) {
+        var heartYN = "${heartYN}";
+        var memberId = "${memberId}";
+        //var reviewNo = '${review.reviewNo }';
+       // var memberId = '${loginMember.memberId}';
+        if(heartYN=="Y" && memberId =='${loginMember.memberId}') {
             console.log(heartval);
             $("#heart").prop("class", "btn btn-danger fas fa-heart");
             //$("#heart").prop('name',heartval)
@@ -119,21 +122,23 @@
         
         $("#heart").on("click", function () {
         	console.log("여기까진잘나옴");
-            var that = $("#hearCnt");
+            var heartSpan = $("#hearCnt");
 
-            var sendData = {'reviewNo' : '${review.reviewNo}','likeCheck' : heartval };
+            var sendData = {'reviewNo' : '${review.reviewNo}','likeCheck' : heartYN, 'memberId' : '${loginMember.memberId}' };
             $.ajax({
             	url : "heart.com",
             	type : "post",
             	data : sendData,
+            	dataType : "json",
             	success : function(data) {
-            		 that.text(data);
-                     if(data==1) {
-                         $('#heart').prop("class","btn btn-danger fas fa-heart");
+                     if(heartYN=='Y') {
+                         $('#heart').prop("class","btn btn-danger far fa-heart");
                      }
                      else{
-                         $('#heart').prop("src","btn btn-danger far fa-heart");
+                         $('#heart').prop("class","btn btn-danger fas fa-heart");
                      }
+                     heartYN = data.heartYN;
+            		 heartSpan.text(data.likeCount);
             	}
             });
         });

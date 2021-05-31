@@ -82,7 +82,7 @@
 								<a href="#" class="dropdown-item">회원메뉴 1</a>
 								<a href="memberLogout.com" id="memberLogout" class="dropdown-item">로그아웃</a>
 							</div>
-						</li>
+						</li> 
 						</c:if>
 						<c:if test="${ empty sessionScope.loginMember && !empty sessionScope.loginShopper}">
 						<li id="shop" class="nav-item dropdown">

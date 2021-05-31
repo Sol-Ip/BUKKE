@@ -33,22 +33,8 @@
 	<!-- fixed section END-->
 
 	<section class="ftco-section">
-		<div class="container" style="text-align:center;">
-		<h1>sample !! <- 여기는 width 꽉 채워지는 full - section</h1>
-		<br> <br>
-		<hr>
-		</div>
 		
-		<div class="container">
-			<br> <br>
-			<h1>sample !! <- 여기는 반응형 section</h1>
-			
-			<div class="row">
-				<h1>sample !! <- 여기는 row section</h1>
-			
-			</div>
-		</div>
-		<hr>
+	
 <!-- 	</section>
 
 	<section class="ftco-section bg-light"> -->
@@ -58,7 +44,6 @@
 		<!-- ========================= 검색란 =========================  -->
 
 		<div class="container ftco-animate">
-			<br />
 			<div class="row justify-content-center">
 				<div class="col-md-4 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
@@ -91,39 +76,9 @@
 		<!-- ========================= 검색란 END =========================  -->
 		
 		
-		
-		<!-- ========================= 액티비티 정보란 =========================  -->
-		<div class="container">
-
-			<div class="row justify-content-start mb-5 pb-2">
-				<div class="col-md-4 heading-section ftco-animate">
-					<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-light">BUKKE</small></span>
-					<h2 class="mb-4">ACTIVITY</h2>
-				</div>
-				<div class="col-md-8 pl-md-5 heading-section ftco-animate">
-					<div class="pl-md-4 border-line">
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.
-							Separated they live in. A small river named Duden flows by their
-							place and supplies it with the necessary regelialia. It is a
-							paradisematic country, in which roasted parts of sentences fly
-							into your mouth.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- ========================= 액티비티 정보란 END =========================  -->
-		
 		<!-- ========================= 액티비티 탭  =========================  -->
 		<div class="container">
 			<ul class="nav nav-tabs">
-				<li class="nav-item"><a class="nav-link active"
-					data-bs-toggle="tab" href="#home">Home</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
-					href="#profile">Profile</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-				</li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle show" data-bs-toggle="dropdown"
 					href="#" role="button" aria-haspopup="true" aria-expanded="true">Dropdown</a>
@@ -136,6 +91,10 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Separated link</a>
 					</div></li>
+				<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a></li>
 			</ul>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade active show" id="home">
@@ -178,9 +137,8 @@
 							<span><b>${activity.shopId }</b></span>
 						</div>
 						<a href="resources/images/activityImageFiles/${activity.aRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-						
+								<span class="icon-expand"></span>
+							</a>
 					</div>
 				</div>
 				</c:forEach>

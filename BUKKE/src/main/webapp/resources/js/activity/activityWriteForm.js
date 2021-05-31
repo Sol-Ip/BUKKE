@@ -83,28 +83,21 @@ for (x in d) {
 		var selectType=$(this).val();
 		//alert(selectType);
 			$("#activityTypeDetails").html("");
-		 $.ajax({
-			type : "get",
-			url : "activityTypeDetails.com",
-			dataType : "json",
-			data : { "activityType" : selectType },
-			success : function(result) { //
-				for(var i in result) {
-					//console.log(result[i]);
-					//console.log(result[i].activityTypeDetails);
-					 $('#activityTypeDetails').append("<option value='"+result[i].activityTypeDetailCodes+"' >"+result[i].activityTypeDetails+"</option>'");
-				}
-//				$("#activityTypeDetails").html("");
-//				$('#activityTypeDetails').append('<option value="">상세분류를 선택해주세요</option>');	
-//				alert(result.membershipName);
-//				//alert(result.concurrentUsers);}
-//				var concurrentUsers = result.concurrentUsers;
-//				for(var i = 1 ; i<=concurrentUsers ; i++){
-//					$('#partyHeadCount').append("<option value="+i+">"+i+"명</option>");	
-//				}
-		 }
-		});//ajax 
-	})//첫번째 select 박스
+				 $.ajax({
+					type : "get",
+					url : "activityTypeDetails.com",
+					dataType : "json",
+					data : { "activityType" : selectType },
+					success : function(result) { //
+						for(var i in result) {
+							//console.log(result[i]);
+							//console.log(result[i].activityTypeDetails);
+							 $('#activityTypeDetails').append("<option value='"+result[i].activityTypeDetailCodes+"' >"+result[i].activityTypeDetails+"</option>'");
+						}
+		
+				 }
+				});//ajax 
+			})//첫번째 select 박스
 	$('#activityTypeDetails').change(function () {
 		//alert($('#partyHeadCount').val());
 		

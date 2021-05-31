@@ -266,6 +266,12 @@ public class ActivityController {
 		}
 	}
 	
+	@RequestMapping(value="activityListTest.com", method=RequestMethod.GET)
+	public String test() {
+		
+		return "activity/activityListView2";
+	}
+	
 	
 	
 }

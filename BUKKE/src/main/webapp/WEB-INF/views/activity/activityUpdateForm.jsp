@@ -52,7 +52,7 @@
 				<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate">
           	<span class="subheading subheading-with-line"><small class="pr-2 bg-white">BUKKE</small></span>
-            <h2 class="mb-4">ACTIVITY REGISTERED</h2>
+            <h2 class="mb-4">ACTIVITY MODIFIED</h2>
           </div>
         </div>	
 		</div>
@@ -71,15 +71,12 @@
 						<div class="col-md-6">
 							<!-- 분류 -->
 							<br> <label class="form-label" for="activityType">분류</label>
-							<select class="form-control" name="activityType" id="activity-type" required>
-								
-								<!-- <option value="" hidden="hidden">분류를 선택해주세요</option>
-								<option value="아웃도어">아웃도어</option>
-								<option value="서핑">서핑</option>
-								<option value="스포츠">스포츠</option>
-								<option value="수상레저">수상레저</option> -->
-								<option value="${activity.activityType }">${activity.activityType }</option>
-								
+							<select class="form-control" name="activityType" id="act-type" required>
+								<option value="" hidden="hidden">분류를 선택해주세요</option>
+							    <option value="아웃도어" <c:if test="${activity.activityType eq '아웃도어' }">selected</c:if>>아웃도어</option>
+								<option value="서핑" <c:if test="${activity.activityType eq '서핑' }">selected</c:if>>서핑</option>
+								<option value="스포츠" <c:if test="${activity.activityType eq '스포츠' }">selected</c:if>>스포츠</option>
+								<option value="수상레저" <c:if test="${activity.activityType eq '수상레저' }">selected</c:if>>수상레저</option> 
 							</select>
 							<hr>
 						</div>
@@ -87,7 +84,7 @@
 						<div class="col-md-6">
 							<!-- 상세 분류 -->
 							<br> <label class="form-label" for="activityTypeDetails">상세분류</label>
-							<select class="form-control" name="activityTypeDetails" id="activityTypeDetails">
+							<select class="form-control" name="activityTypeDetails" id="activityTypeDetails" required>
 								<option value="" hidden="hidden">상세분류를 선택해주세요</option>
 							<!-- 	
 								<option value="test1">test1</option>
@@ -185,7 +182,7 @@
 
 							<hr>
 							<c:if test="${!empty activity.aOriginalFilename }">
-							<input type="file" class="form-control" name="reloadActivityFile" required>
+							<input type="file" class="form-control" name="reloadActivityFile">
 								기존 파일 : ${activity.aOriginalFilename}
 							</c:if>
 							<br>

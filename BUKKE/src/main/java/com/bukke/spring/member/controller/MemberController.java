@@ -31,8 +31,9 @@ public class MemberController {
 	@Autowired
 	private MemberService mService;
 	
-	@Autowired
-	private MailSender mailSender;
+	/*
+	 * @Autowired private MailSender mailSender;
+	 */
 
 	// 로그인 JSP 이동
 	@RequestMapping(value = "memberLoginForm.com", method = RequestMethod.GET)

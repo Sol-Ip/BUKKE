@@ -17,6 +17,7 @@
  	} 
 	
  	#bookmark:hover {
+ 			cursor : pointer;
  			color : red;
  		}
  	
@@ -185,7 +186,10 @@
 							</div>
 						</div>
 					</div>
-
+					<div class=ftco-animate>
+	
+					</div>
+					
 					<div class="ftco-animate">
 						<input type="submit" class="btn btn-lg btn-primary" value="버튼 1">
 						<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
@@ -193,7 +197,7 @@
 					</div>
 					<br>
 					<br>
-
+					
 					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) ========== -->
 					<div class="sidebar-box ftco-animate">
 						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">

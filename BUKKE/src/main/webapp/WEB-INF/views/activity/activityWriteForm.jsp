@@ -85,7 +85,7 @@
 						<div class="col-md-6">
 							<!-- 상세 분류 -->
 							<br> <label class="form-label" for="activityTypeDetails">상세분류</label>
-							<select class="form-control" name="activityTypeDetails" id="activityTypeDetails">
+							<select class="form-control" name="activityTypeDetails" id="activityTypeDetails" required>
 								<option value="" hidden="hidden">상세분류를 선택해주세요</option>
 							<!-- 	
 								<option value="test1">test1</option>

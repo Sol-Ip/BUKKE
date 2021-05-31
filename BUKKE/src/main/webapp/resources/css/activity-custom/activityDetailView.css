@@ -51,3 +51,9 @@ li {
 	font-family: 'KOTRA_BOLD-Bold';
 	text-align:left;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+* {
+  box-sizing: border-box;
+}

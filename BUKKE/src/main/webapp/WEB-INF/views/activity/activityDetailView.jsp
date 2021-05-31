@@ -17,11 +17,11 @@
  	 #top-icon {
  		color:grey;
  	} 
-	
+	 
  	#top-icon:hover {
  			cursor : pointer;
  			color : blue;
- 			
+ 		/* 	수정중 */
  	
  		}
  

@@ -155,7 +155,7 @@ user-select:none #reservation-btn {
 #reservation-btn:after {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 0;   
   z-index: -1;
   display: block;
   content: "";

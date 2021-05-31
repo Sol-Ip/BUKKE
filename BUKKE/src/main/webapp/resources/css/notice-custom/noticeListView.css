@@ -1,8 +1,0 @@
-@charset "UTF-8";
-.menu {
-			list-style:none;}
-	 .menu a{cursor:pointer;
-	 		font-size: 20px;
-	 		}
-    .menu .hide{display:none;
-    		}

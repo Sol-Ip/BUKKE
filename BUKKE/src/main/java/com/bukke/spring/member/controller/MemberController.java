@@ -147,44 +147,26 @@ public class MemberController {
 	
 	  //새 비밀번호 만들기
 	  
+		
 		/*
 		 * @ResponseBody
 		 * 
 		 * @RequestMapping(value="memberSearchPw.com",method=RequestMethod.GET) public
-		 * ModelAndView userPwSearch(@ModelAttribute Member
-		 * member, @RequestParam("memberId")String memberId,
+		 * ModelAndView userPwSearch(HttpSession session, HttpServletRequest request,
+		 * HttpServletRequest response,
 		 * 
-		 * @RequestParam("memberEamail")String memberEmail, HttpSession session,
-		 * HttpServletRequest request,ModelAndView mv) {
+		 * @RequestParam("memberId")String memberId, @RequestParam("memberEmail")String
+		 * MemberEmail){ Member member = mService.searchMemberPw(MemberEmail);
 		 * 
-		 * String password = mService.searchMemberPw(memberEmail);
-		 * 
-		 * if(password !=null) { Random r = new Random(); int num = r.nextInt(999999);
-		 * //랜덤 난수를 설정해주어야함
+		 * if(member !=null) { Random r = new Random(); int num = r.nextInt(999999);
 		 * 
 		 * if(member.getMemberId().equals(memberId)) {
 		 * session.setAttribute("memberEmail", member.getMemberEmail());
 		 * 
-		 * //Mail server 설정하기 String charset = "utf-8"; String hostSMTP
-		 * ="smtp.gmail.com"; String hostSMTPid = "dhthdud1111"; String hostSMTPpwd
-		 * ="cjfdl12!@";
+		 * String setfrom = "dlgywjd4878@gmail.com"; String tomail = MemberEmail; String
+		 * title = "이메일로 인증번호를 보냈습니다.";
 		 * 
-		 * //보내는 사람 try { String fromEmail = "dhthdud1111@naver.com"; String fromName =
-		 * "부캐";
-		 * 
-		 * //Email 전송하기
-		 * 
-		 * HtmlEmail mail = new HtmlEmail(); mail.setDebug(true);
-		 * mail.setCharset(charset); mail.setSSLOnConnect(true);
-		 * 
-		 * mail.setHostName(hostSMTP); mail.setSmtpPort(587);
-		 * 
-		 * mail.setAuthentication(hostSMTPid, hostSMTPpwd);
-		 * mail.setStartTLSRequired(true); mail.addTo(memberEmail);
-		 * mail.setFrom(fromEmail,fromName,charset); mail.send(); } catch (Exception e)
-		 * { e.printStackTrace(); }
-		 * 
-		 * } } return mv; }
+		 * } } return null; }
 		 */
 	 
 	  //이메일 전송하기
@@ -209,6 +191,12 @@ public class MemberController {
 		@RequestMapping(value="memberModifyView.com", method=RequestMethod.GET)
 		public String memberModifyView() {
 			return "member/memberModify";
+			
+		}
+	// 마이페이지 채팅 화면
+		@RequestMapping(value="chatView.com", method=RequestMethod.GET)
+		public String chatView() {
+			return "chat/chatting";
 			
 		}
 }

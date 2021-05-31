@@ -216,6 +216,7 @@ public class MemberController {
 	// 마이페이지 채팅 화면
 	@RequestMapping(value = "chatView.com", method = RequestMethod.GET)
 	public String chatView() {
+
 		return "chat/chatting";
 
 	}

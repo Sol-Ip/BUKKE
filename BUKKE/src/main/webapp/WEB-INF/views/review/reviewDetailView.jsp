@@ -106,16 +106,19 @@
 		
         var heartval = ${heart};
         var heartYN = "${heartYN}";
-        var memberId = "${memberId}";
+        
         //var reviewNo = '${review.reviewNo }';
        // var memberId = '${loginMember.memberId}';
-        if(heartYN=="Y" && memberId =='${loginMember.memberId}') {
-            console.log(heartval);
+       console.log(heartYN);
+       console.log('${reviewLikes.memberId}');
+       console.log('${loginMember.memberId}');
+        if(heartYN=="Y") {
+            
             $("#heart").prop("class", "btn btn-danger fas fa-heart");
             //$("#heart").prop('name',heartval)
         }
         else {
-            console.log(heartval);
+            
             $("#heart").prop("class", "btn btn-danger far fa-heart");
             //$("#heart").prop('name',heartval)
         }

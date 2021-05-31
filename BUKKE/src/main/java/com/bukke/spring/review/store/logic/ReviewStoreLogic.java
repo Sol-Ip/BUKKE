@@ -128,8 +128,8 @@ public class ReviewStoreLogic implements ReviewStore {
 		session.update("reviewMapper.updateReviewLike", reviewNo);
 	}
 	@Override
-	public ReviewLikes selectOneReviewLikes(ReviewLikes review) {
+	public ReviewLikes selectOneReviewLikes(ReviewLikes reviewLikes) {
 		// TODO Auto-generated method stub
-		return session.selectOne("reviewMapper.seleceOneReviewLikes",review);
+		return session.selectOne("reviewMapper.seleceOneReviewLikes",reviewLikes);
 	}
 }

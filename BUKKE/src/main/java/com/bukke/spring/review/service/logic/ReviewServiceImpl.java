@@ -123,9 +123,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return rStore.getReviewLike(reviewNo);
 	}
 	@Override
-	public ReviewLikes printReviewLikes(ReviewLikes review) {
+	public ReviewLikes printReviewLikes(ReviewLikes reviewLikes) {
 		// TODO Auto-generated method stub
-		return rStore.selectOneReviewLikes(review);
+		return rStore.selectOneReviewLikes(reviewLikes);
 	}
 
 }

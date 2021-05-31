@@ -62,7 +62,7 @@ public interface ReviewStore {
 	//좋아요업데이트
 	public void updateReviewLike(int reviewNo);
 
-	public ReviewLikes selectOneReviewLikes(ReviewLikes review);
+	public ReviewLikes selectOneReviewLikes(ReviewLikes reviewLikes);
 	
 	
 }

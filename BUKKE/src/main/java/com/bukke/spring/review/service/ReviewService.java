@@ -45,5 +45,5 @@ public interface ReviewService {
 	
 	//좋아요조회
 	public int getReviewLike(int reviewNo);
-	public ReviewLikes printReviewLikes(ReviewLikes review);
+	public ReviewLikes printReviewLikes(ReviewLikes reviewLikes);
 }

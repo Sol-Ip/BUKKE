@@ -78,7 +78,7 @@ public class ReviewController {
 	//	System.out.println(reviewLikes.getMemberId());
 		if(loginMember !=null) {
 			String heartYN = "";
-			if(reviewLikes != null && memberId==reviewLikes.getMemberId()) {
+			if(reviewLikes != null && memberId.equals(reviewLikes.getMemberId())) {
 				heartYN = "Y";
 				System.out.println("heartYN : "+ heartYN);
 				model.addAttribute("heartYN",heartYN);
@@ -314,6 +314,7 @@ public class ReviewController {
     public void heart(@ModelAttribute  ReviewLikes reviewLikes, HttpSession session, HttpServletResponse response) throws Exception {
 
         String heartYN = reviewLikes.getLikeCheck();
+        System.out.println("heart´Â :" +heartYN);
         //int reviewNo = reviewLikes.getReviewNo();
     //    Member loginMember = (Member)session.getAttribute("loginMember");
         //String memberId = loginMember.getMemberId();

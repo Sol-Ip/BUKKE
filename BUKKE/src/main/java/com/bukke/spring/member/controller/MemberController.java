@@ -2,12 +2,17 @@ package com.bukke.spring.member.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.HtmlEmail;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +30,9 @@ public class MemberController {
 
 	@Autowired
 	private MemberService mService;
+	
+	@Autowired
+	private MailSender mailSender;
 
 	// 로그인 JSP 이동
 	@RequestMapping(value = "memberLoginForm.com", method = RequestMethod.GET)
@@ -136,18 +144,47 @@ public class MemberController {
 		}
 	}
 	
-	//비밀번호 찾기
 	/*
+	 * //새 비밀번호 만들기
+	 * 
 	 * @ResponseBody
 	 * 
 	 * @RequestMapping(value="memberSearchPw.com",method=RequestMethod.GET) public
-	 * String userPwSearch(@ModelAttribute Member member) { Member memPw = new
-	 * Member(member.getMemberId(),member.getMemberEmail()); Member memberSearchPw =
-	 * mService.searchMemberPw(memPw); if(memberSearchPw != null) { return
-	 * memberSearchPw.getMemberEmail(); }else { return "NO Id";
+	 * ModelAndView userPwSearch(@ModelAttribute Member
+	 * member, @RequestParam("memberId")String memberId,
 	 * 
-	 * } }
+	 * @RequestParam("memberEamail")String memberEmail, HttpSession session,
+	 * HttpServletRequest request,ModelAndView mv) {
+	 * 
+	 * String password = mService.searchMemberPw(memberEmail);
+	 * 
+	 * if(password !=null) { Random r = new Random(); int num = r.nextInt(999999);
+	 * //랜덤 난수를 설정해주어야함
+	 * 
+	 * if(member.getMemberId().equals(memberId)) {
+	 * session.setAttribute("memberEmail", member.getMemberEmail());
+	 * 
+	 * //Mail server 설정하기 String charset = "utf-8"; String hostSMTP =
+	 * "smtp.naver.com"; String hostSMTPid = "dhthdud1111"; String hostSMTPpwd =
+	 * "cjfdl12!@";
+	 * 
+	 * //보내는 사람 String fromEmail = "dhthdud1111@naver.com"; String fromName = "부캐";
+	 * 
+	 * //Email 전송하기
+	 * 
+	 * HtmlEmail mail = new HtmlEmail(); mail.setDebug(true);
+	 * mail.setCharset(charset); mail.setSSLOnConnect(true);
+	 * 
+	 * mail.setHostName(hostSMTP); mail.setSmtpPort(587);
+	 * 
+	 * mail.setAuthentication(hostSMTPid, hostSMTPpwd);
+	 * mail.setStartTLSRequired(true); mail.addTo(email); mai
+	 * 
+	 * } } return mv; }
 	 */
+
+	  //이메일 전송하기
+	  
 	
 	
 	// 마이페이지 화면
@@ -161,6 +198,13 @@ public class MemberController {
 		@RequestMapping(value="memberScheduleView.com", method=RequestMethod.GET)
 		public String scheduleView() {
 			return "member/schedule";
+			
+		}
+	
+	// 마이페이지 회원 정보 수정
+		@RequestMapping(value="memberModifyView.com", method=RequestMethod.GET)
+		public String memberModifyView() {
+			return "member/memberModify";
 			
 		}
 }

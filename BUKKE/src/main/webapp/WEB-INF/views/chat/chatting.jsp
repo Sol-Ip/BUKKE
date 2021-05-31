@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+ 
 <title>My Page</title>
 <jsp:include page="../common/header.jsp"></jsp:include>
 <!-- 사이드바 -->

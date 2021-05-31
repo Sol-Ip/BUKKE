@@ -8,6 +8,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.common.ActivityPagination;
+import com.bukke.spring.member.domain.Member;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
@@ -60,11 +62,14 @@ public class ActivityController {
 	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
 	public ModelAndView activityDetailView(ModelAndView mv,
 										Model model,
+										HttpSession session,
 										@RequestParam("activityNo") int activityNo) {
 		//조회 수 증가
 		//aService.addReadCountActivity(activityNo);
 		
+		
 		//게시글 상세조회
+		Member loginMember = (Member)session.getAttribute("loginMember");
 		Activity activity = aService.printOneActivity(activityNo);
 		ArrayList<Activity> aList = aService.printAllActivity();
 		if(activity != null && !aList.isEmpty()) {

@@ -7,24 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>부캐, 새로운 나 ! - Activity</title>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=juwreae5tk"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=juwreae5tk&submodules=geocoder"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/activity-custom/activityDetailView.css">
 </head>
 <style>
 
- 	 #bookmark {
- 		color:green;
+ 	 #top-icon {
+ 		color:grey;
  	} 
 	
- 	#bookmark:hover {
+ 	#top-icon:hover {
  			cursor : pointer;
- 			color : red;
+ 			color : blue;
+ 			
+ 	
  		}
- 	
- 	
-</style>
-<body>
+ 
 
+</style>	
+<body>
+	
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/bg_1.jpg');"
@@ -64,6 +68,7 @@
 			<div class="row">
 				<!-- 클래스 분류 -->
 				<div class="col-lg-12 ftco-animate">
+				<div style="float:left">
 					<ul id="type-ul">
 						<li><h3 class="act-type">[&nbsp;</h3></li>
 						<li><h3 id="act-type">${activity.activityType}</h3></li>
@@ -72,27 +77,26 @@
 						<li><h3 class="act-type">&nbsp;]</h3></li>
 					</ul>
 				</div>
-				<div class="col-lg-8 ftco-animate">
+				<!-- URL 링크 -->
+				<div style="float:right" >
+				<a href="#"><span id="top-icon"><i class="far fa-paper-plane fa-2x"></i></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+				<!-- URL 링크 END -->
+				</div>
+				<div class="col-lg-7 ftco-animate">
 					<p>
 						<img src="resources/images/activityImageFiles/${activity.aRenameFilename}" alt="강좌이미지" class="img-fluid">
 					</p>
 					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명: ${activity.activityName }</h2>
 					<hr>
 
-					<!-- <H6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio
-						perferendis et doloribus unde architecto optio laboriosam porro
-						adipisci sapiente officiis nemo accusamus ad praesentium? Esse
-						minima nisi et. Dolore perferendis, enim praesentium omnis, iste
-						doloremque quia officia optio deserunt molestiae voluptates soluta
-						architecto tempora.</H6> -->
-
 					<div style="padding: 30px;">
 						<h5>${activity.activityInfo }</h5>
 					</div>
+					<div id="act-map" style="width:400px; height:400px;"></div>
 					<hr>
 
-					<div class="tag-widget post-tag-container mb-5 mt-5">
+					<!-- <div class="tag-widget post-tag-container mb-5 mt-5">
 						<div class="meta">
 							<div>
 								<button class="btn btn-outline-danger">
@@ -108,11 +112,10 @@
 
 								<span class="icon-eye-open"></span>
 							</div>
-
 						</div>
-					</div>
+					</div> -->
 
-
+				
 				</div>
 
 				<!-- ================ Activity Detail END================ -->
@@ -121,13 +124,13 @@
 				<!-- =============== SIDE bar =============== -->
 
 				<!-- 액티비티 정보 -->
-				<div class="col-lg-4 sidebar ftco-animate">
+				<div class="col-lg-5 sidebar ftco-animate">
 					<div
 						class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
 						<div class="sidebar-box ftco-animate">
 							<h2 align="center">
 								<i class="fas fa-list fa-lg"></i>&nbsp;Information&nbsp;
-								<span id="bookmark"><i class="fas fa-bookmark fa-md bookmark"></i></span>
+								
 							</h2>
 							<hr>
 							<br>
@@ -171,7 +174,18 @@
 
 							</div>
 
-							<!-- 사업자에게만 버튼 보이게 하기 -->
+						<!-- 사용자만 버튼 누를 시 기능 적용 -->	
+						<div class="event-btns">
+							
+							<button id="keep-btn" class="buy-button button--big"><i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기</button>
+							<button id="reservation-btn" class="buy-button button--big"><i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기</button>
+							
+							
+						<br><br>
+						</div>
+						
+						<!-- 사업자에게만 버튼 보이게 하기 -->
+						
 							<div align="center">
 								<c:url var="aModify" value="activityUpdateForm.com">
 									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
@@ -181,21 +195,14 @@
 									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
 									<c:param name="aRenameFilename" value="${activity.aRenameFilename }"></c:param>
 								</c:url>
+								<c:if test="${loginMember.memberId eq null }">
 								<a href="${aModify }"><input class="btn btn-lg btn-warning" type="button" value="수정"></a> 
-									<a href="${aDelete }"><input class="btn btn-lg btn-danger" id="delete-btn" type="button" value="삭제"></a>
+								<a href="${aDelete }"><input class="btn btn-lg btn-danger" id="delete-btn" type="button" value="삭제"></a>
+								</c:if>
 							</div>
 						</div>
 					</div>
-					<div class=ftco-animate>
-	
-					</div>
 					
-					<div class="ftco-animate">
-						<input type="submit" class="btn btn-lg btn-primary" value="버튼 1">
-						<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
-						<button class="btn btn-lg btn-primary" type="submit">버튼 1</button>
-					</div>
-					<br>
 					<br>
 					
 					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) ========== -->
@@ -241,10 +248,10 @@
 
 				<!-- =============== SIDE bar END =============== -->
 
-			
+	
+	
 		
 	</section>
-
 
 	<!-- Activity detail section END-->
 
@@ -261,9 +268,97 @@ $(document).ready(function() {
 		 		}
 	 		}); */
 
+	
+			/* var mapOptions = {
+			    center: new naver.maps.LatLng(37.3595704, 127.105399),
+			    zoom: 10
+			};
+			
+			var map = new naver.maps.Map('act-map', {
+			    center: new naver.maps.LatLng(37.3595704, 127.105399),
+			    zoom: 15
+			    mapTypeControl: true
+			});
+			
+			var marker = new naver.maps.Marker({
+			    position: new naver.maps.LatLng(37.3595704, 127.105399),
+			    map: map
+			});
+			
+			var infoWindow = new naver.maps.InfoWindow({
+			    anchorSkew: true
+			});
+			map.setCursor('pointer');
+			function searchCoordinateToAddress(latlng) {
+			    infoWindow.close();
+			    naver.maps.Service.reverseGeocode({
+			        coords: latlng,
+			        orders: [
+			            naver.maps.Service.OrderType.ADDR,
+			            naver.maps.Service.OrderType.ROAD_ADDR
+			        ].join(',')
+			    }, function(status, response) {
+//	 		        if (status === naver.maps.Service.Status.ERROR) {
+//	 		            return alert('Something Wrong!');
+//	 		        }
+			        var items = response.v2.results,
+			            address = '',
+			            htmlAddresses = [];
+			        for (var i=0, ii=items.length, item, addrType; i<ii; i++) {
+			            item = items[i];
+			            address = makeAddress(item) || '';
+			            addrType = item.name === 'roadaddr' ? '[도로명 주소]' : '[지번 주소]';
+			            htmlAddresses.push((i+1) +'. '+ addrType +' '+ address);
+			        }
+			        infoWindow.setContent([
+			            '<div style="padding:10px;min-width:200px;line-height:150%;">',
+			            '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
+			            htmlAddresses.join('<br />'),
+			            '</div>'
+			        ].join('\n'));
+			        infoWindow.open(map, latlng);
+			    });
+			}
+			function searchAddressToCoordinate(address) {
+			    naver.maps.Service.geocode({
+			        query: address
+			    }, function(status, response) {
+			        if (status === naver.maps.Service.Status.ERROR) {
+			            return alert('Something Wrong!');
+			        }
+			        if (response.v2.meta.totalCount === 0) {
+			            return alert('totalCount' + response.v2.meta.totalCount);
+			        }
+			        var htmlAddresses = [],
+			            item = response.v2.addresses[0],
+			            point = new naver.maps.Point(item.x, item.y);
+			        if (item.roadAddress) {
+			            htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
+			        }
+			        if (item.jibunAddress) {
+			            htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
+			        }
+			        if (item.englishAddress) {
+			            htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
+			        }
+			        infoWindow.setContent([
+			            '<div style="padding:10px;min-width:200px;line-height:150%;">',
+			            '<h4 style="margin-top:5px;">해당 장소 : '+ address +'</h4><br />',
+			            htmlAddresses.join('<br />'),
+			            '</div>'
+			        ].join('\n'));
+			        map.setCenter(point);
+			        infoWindow.open(map, point);
+			    });
+			} 		 */
+	 		
+	 		
 });
 </script>
+
+	
 </body>
+
 </html>
 
 <jsp:include page="../common/footer.jsp"></jsp:include>

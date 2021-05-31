@@ -57,3 +57,118 @@ li {
 * {
   box-sizing: border-box;
 }
+
+
+/* .wrapper-buy {
+  width: 250px;
+  margin: 150px auto;
+} */
+
+#keep-btn {
+/* .buy-button { */
+  border: none;
+  background: none;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+ /*  padding: 12px 32px; */
+  padding: 10px 10px;
+  height: auto;
+  /* width: auto; */
+  width:200px;
+  font-size: x-large;
+  /* font-size: 4rem; */
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #e48080;
+  background-color: #fff;
+  background-image: none;
+  border: 2px solid #e48080;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+user-select:none #keep-btn {
+  padding: 25px 86px;
+  font-size: 1.5625rem;
+}
+#keep-btn:after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
+  display: block;
+  content: "";
+  height: 22px;
+  width: 100%;
+  background: url("http://www.kikk.be/2015/files/templates/kikk2015/public/assets/images/floating-card-shadow.png") no-repeat;
+  background-size: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#keep-btn:hover, #keep-btn:focus {
+  color: #fff;
+  background-color: #e48080;
+  text-decoration: none;
+  outline: none;
+}
+
+
+/*예약하기 btn */
+
+#reservation-btn {
+/* .buy-button { */
+  border: none;
+  background: none;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+ /*  padding: 12px 32px; */
+  padding: 10px 10px;
+  height: auto;
+  /* width: auto; */
+  width:200px;
+  font-size: x-large;
+  /* font-size: 4rem; */
+  font-family: "Sofia Pro", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #000000;
+  background-color: #fff;
+  background-image: none;
+  border: 2px solid #000000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+user-select:none #reservation-btn {
+  padding: 25px 86px;
+  font-size: 1.5625rem;
+}
+#reservation-btn:after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: -1;
+  display: block;
+  content: "";
+  height: 22px;
+  width: 100%;
+  background: url("http://www.kikk.be/2015/files/templates/kikk2015/public/assets/images/floating-card-shadow.png") no-repeat;
+  background-size: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#reservation-btn:hover, #reservation-btn:focus {
+  color: #fff;
+  background-color: #000000;
+  text-decoration: none;
+  outline: none;
+} 	

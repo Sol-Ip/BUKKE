@@ -10,6 +10,40 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/activity-custom/activityListView.css">
 </head>
+<style>
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+
+
+</style>
 <body>
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
@@ -34,10 +68,6 @@
 
 	<section class="ftco-section">
 		
-	
-<!-- 	</section>
-
-	<section class="ftco-section bg-light"> -->
 		
 		<!-- ========================= 리스트 시작 =========================  -->
 		
@@ -69,49 +99,39 @@
 					</div>
 				</form>
 			</div>
-			<!--end of col-->
-			<hr>
 		</div>
+			<!--end of col-->
 	
 		<!-- ========================= 검색란 END =========================  -->
 		
+		<br><br>
 		
 		<!-- ========================= 액티비티 탭  =========================  -->
 		<div class="container">
 			<ul class="nav nav-tabs">
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle show" data-bs-toggle="dropdown"
-					href="#" role="button" aria-haspopup="true" aria-expanded="true">Dropdown</a>
-					<!-- div class = "dropdown-menu show" -->
-					<div class="dropdown-menu" data-popper-placement="bottom-start"
-						style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 43px);">
-						<a class="dropdown-item" href="#">Action</a> <a
-							class="dropdown-item" href="#">Another action</a> <a
-							class="dropdown-item" href="#">Something else here</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Separated link</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">Profile</a></li>
+				<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">아웃도어</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">서핑</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">스포츠</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">수상레저</a></li>
 			</ul>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade active show" id="home">
 					<h1>전체</h1>
 				</div>
-				<div class="tab-pane fade" id="profile">
+				<div class="tab-pane fade active show" id="profile">
 					<h1>분류탭1</h1>
 				</div>
-				<div class="tab-pane fade" id="dropdown1">
+				<div class="tab-pane fade active show" id="dropdown1">
 					<h1>분류탭2</h1>
 				</div>
-				<div class="tab-pane fade" id="dropdown2">
+				<div class="tab-pane fade active show" id="dropdown2">
 					<h1>분류탭3</h1>
 				</div>
 			</div>
+			
 		</div>
-		<hr>
+		
 		<!-- ========================= 액티비티 탭 END =========================  -->
 
 
@@ -200,7 +220,7 @@
 		<!-- =============== 페이징 처리 END =============== -->
 
 	</section>
-
+	
 
 
 </body>

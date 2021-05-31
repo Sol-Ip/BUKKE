@@ -22,7 +22,7 @@
     font-size: 14px;
   } 
 
-  #calendar {
+  #calendar { 
   	width : 1100px;
   	padding-top : 40px;
   	padding-bottom : 120px;

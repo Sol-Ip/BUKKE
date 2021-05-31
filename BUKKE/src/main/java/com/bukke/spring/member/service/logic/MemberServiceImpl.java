@@ -50,10 +50,6 @@ public class MemberServiceImpl implements MemberService {
 		return mStore.selectMemberId(member);
 	}
 
-	@Override
-	public int searchMemberPw(Member member) {
-		return mStore.selectMemberPw(member);
-	}
 
 	
 	

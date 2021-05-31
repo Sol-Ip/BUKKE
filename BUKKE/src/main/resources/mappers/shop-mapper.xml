@@ -17,4 +17,15 @@
 		<result property="shopRm" column="SHOP_RM"></result>
 	</resultMap>
 	
+	<select id="selectOneShop" parameterType="Shop" resultMap="shopResultMap">
+		SELECT * FROM SHOP WHERE SHOP_ID = #{ shopId } AND SHOP_PW = #{ shopPw }
+		AND SHOP_APPROVAL = 'Y' AND SHOP_RM = 'N'
+	</select>
+	
+	<insert id="insertShop" parameterType="Shop">
+		INSERT INTO SHOP (SHOP_ID, SHOP_PW, CEO_NAME, SHOP_NAME, SHOP_ADDR, SHOP_PHONE, SHOP_EMAIL, CRN_NO,
+		CRN_ORIGINAL_FILENAME, CRN_RENAME_FILENAME) VALUES
+		(#{shopId}, #{shopId}, #{shopPw}, #{ceoName}, #{shopName}, #{shopAddr}, #{shopPhone}, #{shopEmail},
+		#{crnNo}, #{crnOriginalFilename}, #{crnRenameFilename})
+	</insert>
 </mapper>

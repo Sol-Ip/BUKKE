@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.shop.domain.Shop;
 import com.bukke.spring.shop.service.ShopService;
 
@@ -29,13 +31,24 @@ public class ShopController {
 	// 업체회원 로그인(ajax)
 	@ResponseBody
 	@RequestMapping(value = "shopLogin.com", method = RequestMethod.POST)
-	public String shopLogin() {
-		return "";
+	public String shopLogin(
+			HttpServletRequest request, @ModelAttribute Shop shop) {
+		Shop loginShopper = sService.loginShop(shop);
+		if(loginShopper != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("loginShopper", loginShopper);
+			return "success"; // 로그인 성공
+		} else {
+			return "fail"; // 로그인 실패
+		}
 	}
 	
 	// 업체회원 로그아웃
-	public String shopLogout() {
-		return "";
+	public String shopLogout(
+			HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:home.com";
 	}
 	
 	// 업체회원 회원가입(jsp)
@@ -46,11 +59,15 @@ public class ShopController {
 
 	@RequestMapping(value = "shopRegister.com", method = RequestMethod.POST)
 	public ModelAndView shopRegister(HttpServletRequest request,
-			@ModelAttribute Shop shop,
+			@RequestParam("crnNumber") String crnNumber,
 			@RequestParam("shopAddr1") String shopAddr1,
 			@RequestParam("shopAddr2") String shopAddr2,
-			@RequestParam(value = "input-file", required = false) MultipartFile uploadFile,
-			ModelAndView mv) {
+			@RequestParam(value = "input-file") MultipartFile uploadFile,
+			ModelAndView mv,
+			@ModelAttribute Shop shop) {
+		// 사업자번호 오류 수정(임시방편) int를 받는 방법을 모르겠음!
+		int crnNo = Integer.parseInt(crnNumber);
+		shop.setCrnNo(crnNo);
 		// 주소 등록
 		String shopAddr = shopAddr1 + "," + shopAddr2;
 		shop.setShopAddr(shopAddr);
@@ -64,6 +81,8 @@ public class ShopController {
 				shop.setCrnRenameFilename(renameFileName);
 			}
 		}
+		// 데이터 확인
+		System.out.println(shop);
 		int result = sService.registerShop(shop);
 		if(result > 0) {
 			mv.addObject("msg","회원가입 성공");

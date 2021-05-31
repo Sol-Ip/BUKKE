@@ -13,6 +13,10 @@ public interface ShopStore {
 	 */
 	public int checkIdDup(String shopId);
 	/**
+	 * 업체회원 로그인
+	 */
+	public Shop loginShop(Shop shop);
+	/**
 	 * 업체 회원가입
 	 */
 	public int insertShop(Shop shop);

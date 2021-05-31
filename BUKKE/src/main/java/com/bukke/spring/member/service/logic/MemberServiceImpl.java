@@ -51,11 +51,15 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int searchMemberPw(Member member) {
+	public Member searchMemberPw(Member member) {
 		return mStore.selectMemberPw(member);
 	}
 
-	
+	@Override
+	public int modifyPw(Member member) {
+		int result = mStore.updatePw(member);
+		return result;
+	}
 	
 	
 

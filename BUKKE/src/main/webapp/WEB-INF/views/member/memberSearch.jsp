@@ -149,26 +149,26 @@
 	         }
 		});
 		
-		
 	}); 
 	 function idSearchClick3(){
-		console.log($('#memberId').val());
-		console.log($('#memberEmail').val());
-		$.ajax({
-			type:"POST",
-			url:"memberSearchId.com",
-			data : {
-				"memberName" : $('#memberName').val(),
-				"memberPhone" : $('#memberPhone').val()
-			},
-			success:function(data){
-				$('#idValue').text(data);
-				$('#backgroundModal').fadeIn();
-					// 아이디값 별도로 저장
-					//idV = data;
-			}
-		});
-	}
+			console.log($('#memberId').val());
+			console.log($('#memberEmail').val());
+			$.ajax({
+				type:"POST",
+				url:"memberSearchPw.com",
+				data : {
+					"memberId" : $('#memberId').val(),
+					"memberEmail" : $('#memberEmail').val()
+				},
+				success:function(data){
+					// if(data == "success")
+					$('#idValue').text(data);
+					$('#backgroundModal').fadeIn();
+						// 아이디값 별도로 저장
+						//idV = data;
+				}
+			});
+		}
 	 
 	
 	   

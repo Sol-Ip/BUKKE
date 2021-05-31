@@ -10,6 +10,7 @@ public interface MemberStore {
 	public int updateMember(Member member);
 	public int deleteMember(String memberId);
 	public Member selectMemberId(Member member);
-	public int selectMemberPw(Member member);
+	public Member selectMemberPw(Member member);
+	public int updatePw(Member member);
 
 }

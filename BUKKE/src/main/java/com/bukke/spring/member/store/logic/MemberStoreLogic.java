@@ -50,10 +50,16 @@ public class MemberStoreLogic implements MemberStore {
 	}
 
 	@Override
-	public int selectMemberPw(Member member) {
-		return session.update("memberMapper.searchMemberPw", member);
+	public Member selectMemberPw(Member member) {
+		return session.selectOne("memberMapper.searchMemberPw",member);
 	}
 
- 
+	@Override
+	public int updatePw(Member member) {
+		
+		int result = session.update("memberMapper.updatePw",member);
+		return result;
+	}
+
 
 }

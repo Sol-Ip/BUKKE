@@ -161,10 +161,10 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version>
 			<exclusions>
-				<exclusion>
+<!-- 				<exclusion>
 					<groupId>javax.mail</groupId>
 					<artifactId>mail</artifactId>
-				</exclusion>
+				</exclusion> -->
 				<exclusion>
 					<groupId>javax.jms</groupId>
 					<artifactId>jms</artifactId>
@@ -205,6 +205,43 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+	
+		<!-- mail -->
+		<dependency> <groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId> 
+		<version>${org.springframework-version}</version> 
+		</dependency>
+		
+		<dependency> <groupId>com.sun.mail</groupId> 
+		<artifactId>javax.mail</artifactId> 
+		<version>1.5.6</version> 
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.5</version>
+		</dependency>
+		
+		<!-- smtp -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.2.8.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
 		</dependency>
 	
 		<!-- Test -->

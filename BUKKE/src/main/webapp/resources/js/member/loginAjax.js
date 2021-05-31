@@ -21,9 +21,11 @@ $("input[type=radio]").on("change", function() {
 	$("g").animate({opacity: 0} , 1000).animate({opacity: 1} , 1000);
 	var type = $(this).val();
 	if (type == "typeMember") {
+		$(document).attr("title","부캐 - 로그인");
 		$(".member-field").show();
 		$(".shop-field").hide();
 	} else {
+		$(document).attr("title","업체 - 로그인");
 		$(".member-field").hide();
 		$(".shop-field").show();
 	}
@@ -91,7 +93,12 @@ $("#submit").click(
 						shopPw : $("#shopPw").val()
 					},
 					success : function(data) {
-						if (data == "success") {
+						if (data == "no_approval") {
+							alert("관리자 승인을 완료해주세요.");
+							location.href = "home.com"
+						} else if (data == "removed") {
+							alert("이미 탈퇴한 회원입니다.");
+						} else if (data == "success") {
 							//alert("로그인 성공!");
 							location.href = "home.com"
 						} else {

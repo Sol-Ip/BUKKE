@@ -35,9 +35,17 @@ public class ShopController {
 			HttpServletRequest request, @ModelAttribute Shop shop) {
 		Shop loginShopper = sService.loginShop(shop);
 		if(loginShopper != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("loginShopper", loginShopper);
-			return "success"; // 로그인 성공
+			if(loginShopper.getShopRm().equals("N")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("loginShopper", loginShopper);
+				if(loginShopper.getShopRm().equals("Y")) {
+					return "success"; // 로그인 성공
+				} else {
+					// 관리자 승인여부와 상관없이 일단 로그인은 허용
+					return "no_approval"; // 로그인 성공?
+				}
+			}
+			return "removed"; // 로그인 실패
 		} else {
 			return "fail"; // 로그인 실패
 		}
@@ -59,15 +67,12 @@ public class ShopController {
 
 	@RequestMapping(value = "shopRegister.com", method = RequestMethod.POST)
 	public ModelAndView shopRegister(HttpServletRequest request,
-			@RequestParam("crnNumber") String crnNumber,
+			@ModelAttribute Shop shop,
 			@RequestParam("shopAddr1") String shopAddr1,
 			@RequestParam("shopAddr2") String shopAddr2,
 			@RequestParam(value = "input-file") MultipartFile uploadFile,
-			ModelAndView mv,
-			@ModelAttribute Shop shop) {
-		// 사업자번호 오류 수정(임시방편) int를 받는 방법을 모르겠음!
-		int crnNo = Integer.parseInt(crnNumber);
-		shop.setCrnNo(crnNo);
+			ModelAndView mv
+			) {
 		// 주소 등록
 		String shopAddr = shopAddr1 + "," + shopAddr2;
 		shop.setShopAddr(shopAddr);
@@ -81,8 +86,6 @@ public class ShopController {
 				shop.setCrnRenameFilename(renameFileName);
 			}
 		}
-		// 데이터 확인
-		System.out.println(shop);
 		int result = sService.registerShop(shop);
 		if(result > 0) {
 			mv.addObject("msg","회원가입 성공");
@@ -100,6 +103,10 @@ public class ShopController {
 		String savePath = root + "crnImageFiles";
 		// 저장 폴더 선택
 		File folder = new File(savePath);
+		// 폴더없으면 자동 생성
+		if(!folder.exists()) {
+			folder.mkdir();
+		}
 		// 파일명 변경하기
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		String origianlFileName = file.getOriginalFilename();

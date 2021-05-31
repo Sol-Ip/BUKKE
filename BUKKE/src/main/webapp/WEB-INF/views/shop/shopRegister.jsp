@@ -85,10 +85,9 @@
                 <div class="invalid-check invalid-email">필수 정보입니다.</div>
             </div>
             <hr>
-            <!-- @ModelAttribute string → int 형변환이 안되서 임시로 다른 변수명을 붙였음 -->
             <div class="form-group">
-                <label for="crnNumber">사업자번호</label>
-                <input type="text" class="form-control" name="crnNumber" placeholder="사업자번호를 입력해주세요" required>
+                <label for="crnNo">사업자번호</label>
+                <input type="text" class="form-control" name="crnNo" placeholder="10자리의 사업자번호를 입력해주세요" required>
                 <div class="invalid-check invalid-crn">필수 정보입니다.</div>
             </div>
             <div class="form-group">

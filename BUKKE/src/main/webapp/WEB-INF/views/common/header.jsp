@@ -30,7 +30,24 @@
 <link rel="stylesheet" href="resources/css/flaticon.css">
 <link rel="stylesheet" href="resources/css/icomoon.css">
 <link rel="stylesheet" href="resources/css/style.css">
-
+<link rel="stylesheet" href="resources/css/header/custom-dropdown.css">
+<style>
+	.dropdown {
+		font-size: 14px;
+		color: rgb(0, 0, 0);
+		cursor: pointer;
+	}
+	.dropdown-toggle {
+		padding: 24px 20px;
+	}
+	.dropdown-menu {
+		border-radious: 0px;
+		margin: 0;
+	}
+	.dropdown-item:hover:after {
+		color: rgb(0, 51, 199);
+	}
+</style>
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
@@ -53,11 +70,30 @@
 						<li id="activity" class="nav-item"><a href="activityList.com" class="nav-link">액티비티</a></li>
 						<li id="review" class="nav-item"><a href="reviewList.com" class="nav-link">후기</a></li>
 						<li id="gift" class="nav-item"><a href="#" class="nav-link">선물하기</a></li>
-						<c:if test="${ empty sessionScope.loginMember }">
+						<c:if test="${ empty sessionScope.loginMember && empty sessionScope.loginShopper}">
 						<li id="login" class="nav-item"><a href="memberLoginForm.com" class="nav-link">로그인</a></li>
 						</c:if>
-						<c:if test="${ !empty sessionScope.loginMember }">
-						<li id="login" class="nav-item"><a href="memberLogout.com" id="memberLogout" class="nav-link" >로그아웃</a></li>
+						<c:if test="${ !empty sessionScope.loginMember && empty sessionScope.loginShopper}">
+						<li id="member" class="nav-item dropdown">
+							<div class="dropdown-toggle" data-toggle="dropdown">회원관리</div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a href="#" class="dropdown-item">공지사항</a>
+								<a href="#" class="dropdown-item">마이페이지</a>
+								<a href="#" class="dropdown-item">회원메뉴 1</a>
+								<a href="memberLogout.com" id="memberLogout" class="dropdown-item">로그아웃</a>
+							</div>
+						</li>
+						</c:if>
+						<c:if test="${ empty sessionScope.loginMember && !empty sessionScope.loginShopper}">
+						<li id="shop" class="nav-item dropdown">
+							<div class="dropdown-toggle" data-toggle="dropdown">회원관리</div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a href="#" class="dropdown-item">공지사항</a>
+								<a href="#" class="dropdown-item">마이페이지</a>
+								<a href="#" class="dropdown-item">예약관리</a>
+								<a href="shopLogout.com" id="shopLogout" class="dropdown-item">로그아웃</a>
+							</div>
+						</li>
 						</c:if>
 					</ul>
 				</div>

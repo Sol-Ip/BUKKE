@@ -11,28 +11,30 @@
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
 <!-- 풀캘린더 -->
-<link rel="stylesheet" href="../resources/css/calendar/schedule.css">
 <link rel="stylesheet" href="../resources/css/calendar/main.css">
 <link rel="stylesheet" href="../resources/css/calendar/core_main.css">
-<style>
-
+<style>  
+  
    body {
-    margin: 40px 10px;
+    /* margin: 40px 10px; */
     padding: 0;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
   } 
 
-  #calendar {
+  #calendar { 
   	width : 1100px;
-  	padding-top : 900px;
-  	padding-left : 200px;
+  	padding-top : 40px;
+  	padding-bottom : 120px;
+  	/* padding-left : 300px; */
+  	left : 80%;
+  	/* margin-left : 200px; */
     max-width: 900px;
     margin: 0 auto;
   }
 
 </style>
-</head>
+</head> 
 <!-- <body id="body-pd"> -->
 <body id="">
 
@@ -141,16 +143,26 @@
         </nav>
     </div>
    </section>
+   <br><br>
    <!-- ======================= 사이드 바 끝 =============================== -->
    
       <!--===================== 풀캘린더 시작 =========== -->
-      <div class="container">
-      	<div class="row">
-	      	<div class="col-sm-9">
-	      		<div id='calendar'></div>
+      <section>
+	      <div class="container">
+	      <div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">BUKKE</small></span>
+					<h2 class="mb-4">SCHEDULE</h2>
+				</div>
+			</div>
+	      	<div class="row">
+		      	<div class="col-sm-12">
+		      		<div id='calendar'></div>
+		      	</div>
 	      	</div>
-      	</div>
-      </div>
+	      </div>
+      </section>
       
       <!-- ======================= 풀캘린더 끝 ================= -->
 <!-- 마이페이지 사이드바 -->
@@ -241,4 +253,4 @@
 </script>
 </body>
 </html>
-<%-- <jsp:include page="../common/footer.jsp"></jsp:include> --%>
+<jsp:include page="../common/footer.jsp"></jsp:include> 

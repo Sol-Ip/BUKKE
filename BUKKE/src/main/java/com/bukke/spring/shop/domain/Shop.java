@@ -9,8 +9,8 @@ public class Shop {
 	private String shopPhone;// 업체 전화번호
 	private String shopEmail;// 업체이메일
 	private String shopApproval;// 업체 승인
-	private String shopRemoval;// 업체 승인
-	private int crnNo; // 사업자번호
+	private String shopRm;// 업체 승인
+	private String crnNo; // 사업자번호
 	private String crnOriginalFilename; // 기존 파일 이름
 	private String crnRenameFilename; // 변경된 파일 이름
 
@@ -72,11 +72,11 @@ public class Shop {
 		this.shopEmail = shopEmail;
 	}
 
-	public int getCrnNo() {
+	public String getCrnNo() {
 		return crnNo;
 	}
 
-	public void setCrnNo(int crnNo) {
+	public void setCrnNo(String crnNo) {
 		this.crnNo = crnNo;
 	}
 
@@ -104,19 +104,20 @@ public class Shop {
 		this.shopApproval = shopApproval;
 	}
 
-	public String getShopRemoval() {
-		return shopRemoval;
+	public String getShopRm() {
+		return shopRm;
 	}
 
-	public void setShopRemoval(String shopRemoval) {
-		this.shopRemoval = shopRemoval;
+	public void setShopRemoval(String shopRm) {
+		this.shopRm = shopRm;
 	}
 
 	@Override
 	public String toString() {
 		return "Shop [shopId=" + shopId + ", ceoName=" + ceoName + ", shopName=" + shopName + ", shopPw=" + shopPw
 				+ ", shopAddr=" + shopAddr + ", shopPhone=" + shopPhone + ", shopEmail=" + shopEmail + ", shopApproval="
-				+ shopApproval + ", shopRemoval=" + shopRemoval + ", crnNo=" + crnNo + ", crnOriginalFilename="
+				+ shopApproval + ", shopRm=" + shopRm + ", crnNo=" + crnNo + ", crnOriginalFilename="
 				+ crnOriginalFilename + ", crnRenameFilename=" + crnRenameFilename + "]";
 	}
+
 }

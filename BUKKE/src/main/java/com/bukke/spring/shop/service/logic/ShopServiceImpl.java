@@ -3,6 +3,7 @@ package com.bukke.spring.shop.service.logic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.shop.domain.Shop;
 import com.bukke.spring.shop.service.ShopService;
 import com.bukke.spring.shop.store.ShopStore;
@@ -25,10 +26,18 @@ public class ShopServiceImpl implements ShopService {
 		return 0;
 	}
 
+	// 업체 회원가입
 	@Override
 	public int registerShop(Shop shop) {
-		// 업체 회원가입
-		return 0;
+		int result = sStore.insertShop(shop);
+		return result;
+	}
+	
+	// 업체회원 로그인
+	@Override
+	public Shop loginShop(Shop shop) {
+		Shop loginShopper = sStore.loginShop(shop);
+		return loginShopper;
 	}
 
 	@Override

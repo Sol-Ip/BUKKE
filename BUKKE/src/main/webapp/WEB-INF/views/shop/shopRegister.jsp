@@ -35,10 +35,10 @@
 		<h2>회원가입</h2>
 	</div>
 	<div class="container">
-        <form action="shopRegister.com" method="post">
+        <form action="shopRegister.com" method="post" enctype="multipart/form-data">
         	<hr>
             <div class="form-group">
-                <label for="memberId">아이디</label>
+                <label for="shopId">아이디</label>
                 <input type="text" class="form-control" name="shopId" placeholder="아이디를 입력해주세요" required>
                 <div class="invalid-check invalid-id">필수 정보입니다.</div>
             </div>
@@ -87,7 +87,7 @@
             <hr>
             <div class="form-group">
                 <label for="crnNo">사업자번호</label>
-                <input type="text" class="form-control" name="crnNo" placeholder="사업자번호를 입력해주세요" required>
+                <input type="text" class="form-control" name="crnNo" placeholder="10자리의 사업자번호를 입력해주세요" required>
                 <div class="invalid-check invalid-crn">필수 정보입니다.</div>
             </div>
             <div class="form-group">
@@ -95,7 +95,7 @@
                 <div></div>
                 <input type="text" id="filename" class="form-control" readonly required>
                 <label for = "input-file" class="btn btn-default">업로드</label>
-                <input type="file" id="input-file">
+                <input type="file" id="input-file" name="input-file">
                 <div class="invalid-check invalid-file">필수 정보입니다.</div>
             </div>
             <div class="text-center">

@@ -5,15 +5,15 @@ $("g").click(function(){
 })
 // 말풍선 효과
 $("g").mouseover(function(){
-	$("#text-bubble").stop().animate({opacity: 0},550);
+	$("#text-bubble").stop().animate({opacity: 1},550);
 })
 $("g").mouseout(function(){
-	$("#text-bubble").stop().hide();
+	$("#text-bubble").stop().animate({opacity: 0},550);
 })
 
 $(document).ready(function(){
 	$(".shop-field").hide();
-	$("#text-bubble").hide();
+	$("#text-bubble").css({opacity: 0});
 })
 
 // 로그인 ajax, 유효성 검사
@@ -21,10 +21,11 @@ $("input[type=radio]").on("change", function() {
 	$("g").animate({opacity: 0} , 1000).animate({opacity: 1} , 1000);
 	var type = $(this).val();
 	if (type == "typeMember") {
+		$(document).attr("title","부캐 - 로그인");
 		$(".member-field").show();
 		$(".shop-field").hide();
 	} else {
-		
+		$(document).attr("title","업체 - 로그인");
 		$(".member-field").hide();
 		$(".shop-field").show();
 	}
@@ -37,7 +38,7 @@ $("#submit").click(
 			$(".invalid-check").eq(2).html("");
 			$(".invalid-check").eq(3).html("");
 
-			if ($("input[type=radio]").val() == "typeMember") {
+			if ($("input[type=radio]:checked").val() == "typeMember") {
 				// 유효성 검사
 				if ($("#memberId").val() == "") {
 					$("#memberId").focus();
@@ -84,6 +85,31 @@ $("#submit").click(
 					$(".invalid-check").eq(3).html("비밀번호를 입력해주세요.");
 					return;
 				}
+				$.ajax({
+					url : "shopLogin.com",
+					type : "POST",
+					data : {
+						shopId : $("#shopId").val(),
+						shopPw : $("#shopPw").val()
+					},
+					success : function(data) {
+						if (data == "no_approval") {
+							alert("관리자 승인을 완료해주세요.");
+							location.href = "home.com"
+						} else if (data == "removed") {
+							alert("이미 탈퇴한 회원입니다.");
+						} else if (data == "success") {
+							//alert("로그인 성공!");
+							location.href = "home.com"
+						} else {
+							$(".invalid-check").eq(3).html("아이디 혹은 비밀번호가 일치하지 않습니다.");
+						}
+					},
+					error : function(request, status, error) {
+						alert("code:" + request.status + "\n" + "message:"
+								+ request.responseText + "\n" + "error:" + error);
+					}
+				})
 			}
 			
 		})

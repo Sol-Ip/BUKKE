@@ -4,6 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.shop.domain.Shop;
 import com.bukke.spring.shop.store.ShopStore;
 
@@ -25,12 +26,20 @@ public class ShopStoreLogic implements ShopStore {
 		return 0;
 	}
 
+	// 업체 회원가입
 	@Override
 	public int insertShop(Shop shop) {
-		// 업체 회원가입
-		return 0;
+		int result = session.insert("shopMapper.insertShop",shop);
+		return result;
 	}
 
+	// 업체회원 로그인
+	@Override
+	public Shop loginShop(Shop shop) {
+		Shop loginShopper = session.selectOne("shopMapper.selectOneShop",shop);
+		return loginShopper;
+	}
+	
 	@Override
 	public int shopRegisterConfirm(String shopId) {
 		// 업체 회원가입 승인(관리자)

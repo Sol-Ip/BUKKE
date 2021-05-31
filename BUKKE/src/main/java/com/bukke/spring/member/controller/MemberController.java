@@ -31,9 +31,9 @@ public class MemberController {
 	@Autowired
 	private MemberService mService;
 	
-	/*
-	 * @Autowired private MailSender mailSender;
-	 */
+	
+	/* @Autowired private MailSender mailSender; */
+	 
 
 	// 로그인 JSP 이동
 	@RequestMapping(value = "memberLoginForm.com", method = RequestMethod.GET)
@@ -145,45 +145,48 @@ public class MemberController {
 		}
 	}
 	
-	/*
-	 * //새 비밀번호 만들기
-	 * 
-	 * @ResponseBody
-	 * 
-	 * @RequestMapping(value="memberSearchPw.com",method=RequestMethod.GET) public
-	 * ModelAndView userPwSearch(@ModelAttribute Member
-	 * member, @RequestParam("memberId")String memberId,
-	 * 
-	 * @RequestParam("memberEamail")String memberEmail, HttpSession session,
-	 * HttpServletRequest request,ModelAndView mv) {
-	 * 
-	 * String password = mService.searchMemberPw(memberEmail);
-	 * 
-	 * if(password !=null) { Random r = new Random(); int num = r.nextInt(999999);
-	 * //랜덤 난수를 설정해주어야함
-	 * 
-	 * if(member.getMemberId().equals(memberId)) {
-	 * session.setAttribute("memberEmail", member.getMemberEmail());
-	 * 
-	 * //Mail server 설정하기 String charset = "utf-8"; String hostSMTP =
-	 * "smtp.naver.com"; String hostSMTPid = "dhthdud1111"; String hostSMTPpwd =
-	 * "cjfdl12!@";
-	 * 
-	 * //보내는 사람 String fromEmail = "dhthdud1111@naver.com"; String fromName = "부캐";
-	 * 
-	 * //Email 전송하기
-	 * 
-	 * HtmlEmail mail = new HtmlEmail(); mail.setDebug(true);
-	 * mail.setCharset(charset); mail.setSSLOnConnect(true);
-	 * 
-	 * mail.setHostName(hostSMTP); mail.setSmtpPort(587);
-	 * 
-	 * mail.setAuthentication(hostSMTPid, hostSMTPpwd);
-	 * mail.setStartTLSRequired(true); mail.addTo(memberEmail);
-	 * mail.setFrom(fromEmail,fromName,charset); mail.setHtmlMsg(msg); mail.send();
-	 * 
-	 * } } return mv; }
-	 */
+	  //새 비밀번호 만들기
+	  
+		/*
+		 * @ResponseBody
+		 * 
+		 * @RequestMapping(value="memberSearchPw.com",method=RequestMethod.GET) public
+		 * ModelAndView userPwSearch(@ModelAttribute Member
+		 * member, @RequestParam("memberId")String memberId,
+		 * 
+		 * @RequestParam("memberEamail")String memberEmail, HttpSession session,
+		 * HttpServletRequest request,ModelAndView mv) {
+		 * 
+		 * String password = mService.searchMemberPw(memberEmail);
+		 * 
+		 * if(password !=null) { Random r = new Random(); int num = r.nextInt(999999);
+		 * //랜덤 난수를 설정해주어야함
+		 * 
+		 * if(member.getMemberId().equals(memberId)) {
+		 * session.setAttribute("memberEmail", member.getMemberEmail());
+		 * 
+		 * //Mail server 설정하기 String charset = "utf-8"; String hostSMTP
+		 * ="smtp.gmail.com"; String hostSMTPid = "dhthdud1111"; String hostSMTPpwd
+		 * ="cjfdl12!@";
+		 * 
+		 * //보내는 사람 try { String fromEmail = "dhthdud1111@naver.com"; String fromName =
+		 * "부캐";
+		 * 
+		 * //Email 전송하기
+		 * 
+		 * HtmlEmail mail = new HtmlEmail(); mail.setDebug(true);
+		 * mail.setCharset(charset); mail.setSSLOnConnect(true);
+		 * 
+		 * mail.setHostName(hostSMTP); mail.setSmtpPort(587);
+		 * 
+		 * mail.setAuthentication(hostSMTPid, hostSMTPpwd);
+		 * mail.setStartTLSRequired(true); mail.addTo(memberEmail);
+		 * mail.setFrom(fromEmail,fromName,charset); mail.send(); } catch (Exception e)
+		 * { e.printStackTrace(); }
+		 * 
+		 * } } return mv; }
+		 */
+	 
 	  //이메일 전송하기
 	  
 	

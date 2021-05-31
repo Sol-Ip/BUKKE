@@ -178,11 +178,11 @@ public class MemberController {
 	 * mail.setHostName(hostSMTP); mail.setSmtpPort(587);
 	 * 
 	 * mail.setAuthentication(hostSMTPid, hostSMTPpwd);
-	 * mail.setStartTLSRequired(true); mail.addTo(email); mai
+	 * mail.setStartTLSRequired(true); mail.addTo(memberEmail);
+	 * mail.setFrom(fromEmail,fromName,charset); mail.setHtmlMsg(msg); mail.send();
 	 * 
 	 * } } return mv; }
 	 */
-
 	  //이메일 전송하기
 	  
 	

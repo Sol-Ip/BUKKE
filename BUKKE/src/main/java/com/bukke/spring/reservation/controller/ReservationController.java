@@ -29,12 +29,13 @@ public class ReservationController {
 	// 예약 전체목록 jsp 이동
 		@RequestMapping(value="reservationList.com", method=RequestMethod.GET)
 		public ModelAndView reservationListView(ModelAndView mv, 
-												@ModelAttribute BukkeClass bukkeClass,
+												
 												@RequestParam(value="page", required=false) Integer page) {
 			int currentPage = (page != null) ? page : 1;
 			int listCount = reService.getListCount();
 			PageInfo pi = ReservationPagination.getPageInfo(currentPage, listCount);
 			
+			ArrayList<BukkeClass> bList = bService.printReservation();
 			ArrayList<Reservation> reservationList = reService.printAllReservation(pi);
 			if(!reservationList.isEmpty()) {
 				System.out.println(reservationList);

@@ -6,6 +6,7 @@
 		<id property="reservationNo" column="RESERVATION_NO"></id>
 		<result property="reservationId" column="RESERVATION_ID"></result>
 		<result property="classNo" column="CLASS_NO"></result>
+		<result property="className" column="CLASS_NAME"></result>
 		<result property="activityNo" column="ACTIVITY_NO"></result>
 		<result property="reservationDate" column="RESERVATION_DATE"></result>
 		<result property="reservationStatus" column="RESERVATION_STATUS"></result>
@@ -18,7 +19,7 @@
    </select>
    
    <select id="selectAllList" resultMap="reservationMap">
-      SELECT RESERVATION_NO, RESERVATION_ID, (SELECT CLASS_NAME FROM CLASS WHERE CLASS_NO = #{classNo }), RESERVATION_DATE FROM RESERVATION
+      SELECT RESERVATION_NO, RESERVATION_ID, (SELECT CLASS_NAME FROM CLASS WHERE CLASS_NO = #{classNo }) AS "CLASS_NAME", RESERVATION_DATE FROM RESERVATION
    </select>
    
    <!-- <select id="selectOneBclass" resultMap="bClassResultMap">

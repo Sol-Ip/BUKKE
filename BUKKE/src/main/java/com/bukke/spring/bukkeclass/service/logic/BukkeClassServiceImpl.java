@@ -66,5 +66,10 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return bList;
 	}
 
+	@Override
+	public ArrayList<BukkeClass> printReservation() {
+		return (ArrayList)bStore.selectReservation();
+	}
+
 
 }

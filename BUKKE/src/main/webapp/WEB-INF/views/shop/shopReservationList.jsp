@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../common/header.jsp?active=bclass"></jsp:include>
+<jsp:include page="../common/header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bukke Class</title> 
+<title>Reservation</title> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<link rel="stylesheet" href="resources/css/bClass-custom/bClassListView.css">
-<style>
+
+<!-- 사이드바 -->
+<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+<!-- <style>
 .form-control-borderless {
     border: none;
 }
@@ -19,7 +21,7 @@
     outline: none;
     box-shadow: none;
 }
-</style>
+</style> -->
 </head>
 <body>
 	<!-- fixed section -->
@@ -96,10 +98,100 @@
 			</div>
 		</div>
 		<!-- ========================= 클래스 정보란 END =========================  -->
-		
+		<!-- ======================= 사이드 바 시작 =============================== -->
+         <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">BUKKE</a>
+                </div>
+                <div class="nav__list">
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 정보</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">정보 수정</a>
+                        </ul>
+                    </div>
+                    
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">부캐 일정</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
+                            <a href="#" class="collapse__sublink">좋아요 목록</a>
+                            <a href="#" class="collapse__sublink">찜 목록</a>
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 활동</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">작성한 게시글</a>
+                            <a href="#" class="collapse__sublink">작성한 댓글</a>
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">선물 내역</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">받은 선물</a>
+                            <a href="#" class="collapse__sublink">보낸 선물</a>
+                        </ul>
+                    </div>
+                    
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">채팅</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">채팅 목록</a>
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">알림</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">예약 알림</a>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav__link">
+                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">Log out</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+   </section>
+   <!-- ======================= 사이드 바 끝 =============================== -->
 		
 		<!-- ========================= 클래스 탭  =========================  -->
+		<section class="ftco-section">
 		<div class="container">
+		<div class="row col-lg-12" style="align:center;">
 			<table class="table table-bordered">
 	        <thead>
 	            <tr>
@@ -120,8 +212,9 @@
 		                <td class="classType" id="typeClass">클래스</td>
 		                <td id="reservationNo" name="reservationNo">${reservation.reservationNo }</td>
 		                <td id="reservationId" name="reservationId">${reservation.reservationId }</td>
-		                <td id="className" name="className">${bukkeClass.className }</td>
+		                <td id="className" name="className">${reservation.className }</td>
 		                <td id="reservationDate" name="reservationDate">${reservation.reservationDate }</td>
+		                <td id="reservationStatus" name="reservationStatus">${reservation.reservationStatus }</td>
 		                <td>
 		                    <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
 		                    <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
@@ -174,9 +267,14 @@
             </div>
           </div>
         </div>
+        </div>
     	</div>
     </section>
 </body>
 </html>
 <br><br>
+<!-- 사이드바 -->
+<script src="../resources/js/member/mypageSidebar.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
 <jsp:include page="../common/footer.jsp"></jsp:include>

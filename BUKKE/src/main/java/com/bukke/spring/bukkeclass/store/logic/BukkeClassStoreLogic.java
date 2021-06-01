@@ -69,5 +69,10 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 		return (ArrayList)session.selectList("bclassMapper.selectTopThreeList");
 	}
 
+	@Override
+	public ArrayList selectReservation() {
+		return (ArrayList)session.selectList("reservationMapper.selectAllList");
+	}
+
 
 }

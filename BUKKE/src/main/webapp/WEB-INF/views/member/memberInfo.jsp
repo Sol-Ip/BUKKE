@@ -143,17 +143,9 @@
          
    <div class="row">
       <div class="row col-lg-12" style="align:center;">
-            <!-- <div class="col-lg-12 col-md-12 col-sm-12"> 
-            <div class="service-heading-block">
-                <h2 class="text-center text-primary title">Our amazing Service features</h2>
-                <p class="text-center sub-title">Lorem ipsum dolor sit amet,<span class="text-primary">consectetur adipisicing</span> elit.<br/> Dolor alias provident excepturi eligendi, nam numquam iusto eum illum, ea quisquam.</p>
-            </div>             
-             </div>  -->
              <div class="col-lg-3"></div>
             <div class="col-lg-3 col-md-6 col-sm-6" >
                <div class="text-center feature-block"">
-<!--             <div class="col-lg-6 col-md-6 col-sm-6" style="margin-left: 150px;">
-               <div class="text-center feature-block" style="width: 330px;"> -->
                   <span class="fb-icon color-info"> 
                      <i class="fa fa-user" aria-hidden="true"></i>
                   </span>

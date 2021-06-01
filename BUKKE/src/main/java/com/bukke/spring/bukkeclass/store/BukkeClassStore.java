@@ -33,6 +33,8 @@ public interface BukkeClassStore {
 	// 클래스에서 TOP3 리스트 보여주기
 	public ArrayList<BukkeClass> selectTopThreeListBclass();
 
+	public ArrayList selectReservation();
+
 
 	
 }

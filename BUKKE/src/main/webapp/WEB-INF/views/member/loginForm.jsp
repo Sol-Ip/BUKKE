@@ -89,7 +89,7 @@
   <fieldset class="member-field">
     <input type="button" name="kakao" id="kakao" value="카카오 로그인"/>
     <div class="enroll-and-findId">
-      <a href="memberId.com">ID/PW 찾기</a>
+      <a href="memberCheck.com">ID/PW 찾기</a>
       <a href="memberRegisterForm.com">회원가입</a>
     </div>
   </fieldset>

@@ -52,6 +52,7 @@ public class ShopController {
 	}
 	
 	// 업체회원 로그아웃
+	@RequestMapping(value = "shopLogout.com", method = RequestMethod.GET)
 	public String shopLogout(
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();

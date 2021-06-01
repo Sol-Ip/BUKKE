@@ -16,40 +16,47 @@ public class KeepServiceImpl implements KeepService {
 	@Autowired
 	private KeepStore kStore;
 	
+	/////////////// 클래스
+	
+	// 클래스 찜목록 조회
 	@Override
 	public ArrayList<BukkeClass> classKeepList(String memberId) {
-		// 클래스 찜목록 조회
 		return null;
 	}
 
-	@Override
-	public ArrayList<Activity> activityKeepList(String memberId) {
-		// 액티비티 찜목록 조회
-		return null;
-	}
-
+	// 클래스 찜 등록
 	@Override
 	public int addBukkeClasstoKeep(BukkeClass bClass) {
-		// 클래스 찜목록 추가
 		return 0;
 	}
 
-	@Override
-	public int addActivitytoKeep(Activity activity) {
-		// 액티비티 찜목록 추가
-		return 0;
-	}
-
+	// 클래스 찜 취소
 	@Override
 	public int removeBukkeClassfromKeep(int keepNo) {
-		// 클래스 찜목록 삭제
 		return 0;
 	}
-
+	
+	
+	/////////////// 액티비티
+	
+	
+	// 액티비티 찜목록 조회
 	@Override
-	public int removeActivityfromKeep(int keepNo) {
-		// 액티비티 찜목록 삭제
+	public ArrayList<Activity> activityKeepList(String memberId) {
+		return null;
+	}
+	
+	// 액티비티 찜 등록
+	@Override
+	public int insertActivitytoKeep(Activity activity) {
+		return 0;
+	}
+	
+	// 액티비티 찜 취소
+	@Override
+	public int updateActivityfromKeep(int keepNo) {
 		return 0;
 	}
 
+	
 }

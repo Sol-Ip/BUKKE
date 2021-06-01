@@ -21,8 +21,7 @@
  	#top-icon:hover {
  			cursor : pointer;
  			color : blue;
- 		/* 	수정중 */
- 	
+ 		
  		}
  
 
@@ -55,8 +54,6 @@
 	<!-- ================ Activity Detail ================ -->
 	<section class="ftco-section">
 		<div class="container">
-
-			<!-- <div class="container"> -->
 			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
@@ -174,18 +171,19 @@
 
 							</div>
 
-						<!-- 사용자만 버튼 누를 시 기능 적용 -->	
-						<div class="event-btns">
-							
-							<button id="keep-btn" class="buy-button button--big"><i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기</button>
-							<button id="reservation-btn" class="buy-button button--big"><i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기</button>
-							
-							
-						<br><br>
-						</div>
+						<!-- 사용자만 버튼 누를 시 기능 적용 -->
+						<c:if test="${empty loginShopper && !empty loginMember}">
+							<div class="event-btns">
+								<button id="keep-btn" class="buy-button button--big">
+									<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기</button>
+								<button id="reservation-btn" class="buy-button button--big">
+								<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기</button>
+								<br><br>
+							</div>
+						</c:if>
+						
 						
 						<!-- 사업자에게만 버튼 보이게 하기 -->
-						
 							<div align="center">
 								<c:url var="aModify" value="activityUpdateForm.com">
 									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
@@ -195,11 +193,11 @@
 									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
 									<c:param name="aRenameFilename" value="${activity.aRenameFilename }"></c:param>
 								</c:url>
-								<c:if test="${loginMember.memberId eq null }">
+								<c:if test="${empty loginMember}"> <!-- 사용자 아이디 x -->
 								<a href="${aModify }"><input class="btn btn-lg btn-warning" type="button" value="수정"></a> 
 								<a href="${aDelete }"><input class="btn btn-lg btn-danger" id="delete-btn" type="button" value="삭제"></a>
 								</c:if>
-							</div>
+							</div> 
 						</div>
 					</div>
 					
@@ -257,7 +255,13 @@
 
 <script>
 $(document).ready(function() {
-
+	
+	$("#keep-btn").on("click",function(){
+		alert("test");
+	}
+	
+	
+	
 	 $("#delete-btn").on("click",function(){
 		 consol.log("삭제완료");
 		/*  if (!confirm("삭제하시겠습니까?")) {

@@ -26,7 +26,10 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.common.ActivityPagination;
+import com.bukke.spring.keep.domain.Keep;
+import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
@@ -35,6 +38,9 @@ public class ActivityController {
 	
 	@Autowired
 	private ActivityService aService;
+	
+	@Autowired
+	private KeepService kService;
 	
 	// 액티비티 전체목록 jsp 이동 (관리자)
 	@RequestMapping(value="activityList.com", method=RequestMethod.GET)
@@ -63,23 +69,26 @@ public class ActivityController {
 	public ModelAndView activityDetailView(ModelAndView mv,
 										Model model,
 										HttpSession session,
+										HttpServletRequest request, HttpServletResponse response, 
 										@RequestParam("activityNo") int activityNo) {
 		//조회 수 증가
 		//aService.addReadCountActivity(activityNo);
 		
 		
 		//게시글 상세조회
-		Member loginMember = (Member)session.getAttribute("loginMember");
 		Activity activity = aService.printOneActivity(activityNo);
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		Shop loginShopper =(Shop)session.getAttribute("loginShopper");
+		String memberId = loginMember.getMemberId();
+		Keep keep = new Keep();
+		keep.setActivityNo(activityNo);
+		keep.setMemberId(memberId);
+		//Keep keep = kService.
 		ArrayList<Activity> aList = aService.printAllActivity();
 		if(activity != null && !aList.isEmpty()) {
 			model.addAttribute("aList", aList);
-			//System.out.println("컨트롤러들어옴");
-			//System.out.println("TOP3 list : " + aList);
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
-			//System.out.println(activity.toString());
 		} else {
-			//System.out.println("TOP3 list 없으면 : " + aList);
 			mv.addObject("msg", "액티비티 상세조회 실패");
 			mv.setViewName("common/errorPage");
 		}

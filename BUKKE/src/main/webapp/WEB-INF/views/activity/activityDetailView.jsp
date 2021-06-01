@@ -10,8 +10,14 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=juwreae5tk"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=juwreae5tk&submodules=geocoder"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="resources/css/activity-custom/activityDetailView.css">
+
 </head>
+
 <style>
 
  	 #top-icon {
@@ -25,9 +31,9 @@
  		}
  
 
-</style>	
+</style>
+
 <body>
-	
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/bg_1.jpg');"
@@ -61,37 +67,95 @@
 					<h2 class="mb-4">ACTIVITY DETAILS</h2>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<!-- 클래스 분류 -->
 				<div class="col-lg-12 ftco-animate">
-				<div style="float:left">
-					<ul id="type-ul">
-						<li><h3 class="act-type">[&nbsp;</h3></li>
-						<li><h3 id="act-type">${activity.activityType}</h3></li>
-						<li><h3 class="act-type">&nbsp;>&nbsp;</h3></li>
-						<li><h3 id="act-type">${activity.activityTypeDetails}</h3></li>
-						<li><h3 class="act-type">&nbsp;]</h3></li>
-					</ul>
-				</div>
-				<!-- URL 링크 -->
-				<div style="float:right" >
-				<a href="#"><span id="top-icon"><i class="far fa-paper-plane fa-2x"></i></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div style="float: left">
+						<ul id="type-ul">
+							<li><h3 class="act-type">[&nbsp;</h3></li>
+							<li><h3 id="act-type">${activity.activityType}</h3></li>
+							<li><h3 class="act-type">&nbsp;>&nbsp;</h3></li>
+							<li><h3 id="act-type">${activity.activityTypeDetails}</h3></li>
+							<li><h3 class="act-type">&nbsp;]</h3></li>
+						</ul>
+					</div>
+					<!-- URL 링크 -->
+					<div style="float: right">
+						<span id="top-icon"><i class="far fa-paper-plane fa-2x"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+
+					<script>
+				//(크롬에서) url복사하기
+				$(document).on("click", "#top-icon", function(e) { // 링크복사 시 화면 크기 고정 
+					$('html').find('meta[name=viewport]').attr('content', 
+									'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'); 
+					var html = "<input id='act_target' type='text' value='' style='position:absolute;top:-9999em;'/>"; //style을 주어 보이지 않게 설정
+																														
+					$(this).append(html); //공유하기 버튼이 클릭될 때 화면에 보이게 함.
+					
+					var input_clip = document.getElementById("act_target"); 
+						//현재 url 가져오기 
+						var _url = $(location).attr('href'); 
+					$("#act_target").val(_url); //input태그에 복사가 되어 질 url값을 넣는다.
+						
+					if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) { //해당 기기에서 열릴 때 설정
+						var editable = input_clip.contentEditable; 
+						var readOnly = input_clip.readOnly; 
+						
+						input_clip.contentEditable = true; 
+						input_clip.readOnly = false; 
+						
+						var range = document.createRange(); 
+						range.selectNodeContents(input_clip); 
+						
+						var selection = window.getSelection(); 
+						selection.removeAllRanges(); 
+						selection.addRange(range); 
+						input_clip.setSelectionRange(0, 999999); 
+						
+						input_clip.contentEditable = editable; 
+						input_clip.readOnly = readOnly; 
+					} else { 									
+						input_clip.select(); 	// 해당 태그의 text를 선택(select).
+					} 
+					
+					try { 
+						var successful = document.execCommand('copy'); //copy 라는 명령어로 선택되어진 택스트를 복사
+						input_clip.blur(); // 다시 input 태그를 화면에 보이지 않게 처리.
+						if (successful) { 				
+							swal("URL이 복사 되었습니다. \n원하시는 곳에 붙여넣기 해 주세요!🌺");
+							// 링크복사 시 화면 크기 고정 
+							$('html').find('meta[name=viewport]').attr('content', 
+										'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes'); 
+						} else { 				
+							swal("URL이 복사에 실패했습니다. \n이 브라우저는 지원하지 않습니다.💦");
+							} 
+						} catch (err) { 
+							swal("URL이 복사에 실패했습니다. \n이 브라우저는 지원하지 않습니다.💦");
+							} 
+						}); // 클립보드 복사 기능 끝
+				
+				</script>
 				</div>
 				<!-- URL 링크 END -->
-				</div>
+
+
+
 				<div class="col-lg-7 ftco-animate">
 					<p>
-						<img src="resources/images/activityImageFiles/${activity.aRenameFilename}" alt="강좌이미지" class="img-fluid">
+						<img
+							src="resources/images/activityImageFiles/${activity.aRenameFilename}"
+							alt="강좌이미지" class="img-fluid">
 					</p>
-					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명: ${activity.activityName }</h2>
+					<h2 class="mb-3 mt-5" style="font-family: 'KOTRA_BOLD-Bold';">강좌명:
+						${activity.activityName }</h2>
 					<hr>
 
-					<div style="padding: 30px;">
+					<div style="padding: 30px; height: 500px;">
 						<h5>${activity.activityInfo }</h5>
 					</div>
-					<div id="act-map" style="width:400px; height:400px;"></div>
-					<hr>
+
 
 					<!-- <div class="tag-widget post-tag-container mb-5 mt-5">
 						<div class="meta">
@@ -112,7 +176,7 @@
 						</div>
 					</div> -->
 
-				
+
 				</div>
 
 				<!-- ================ Activity Detail END================ -->
@@ -127,7 +191,7 @@
 						<div class="sidebar-box ftco-animate">
 							<h2 align="center">
 								<i class="fas fa-list fa-lg"></i>&nbsp;Information&nbsp;
-								
+
 							</h2>
 							<hr>
 							<br>
@@ -171,19 +235,41 @@
 
 							</div>
 
-						<!-- 사용자만 버튼 누를 시 기능 적용 -->
-						<c:if test="${empty loginShopper && !empty loginMember}">
-							<div class="event-btns">
-								<button id="keep-btn" class="buy-button button--big">
-									<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기</button>
-								<button id="reservation-btn" class="buy-button button--big">
-								<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기</button>
-								<br><br>
-							</div>
-						</c:if>
-						
-						
-						<!-- 사업자에게만 버튼 보이게 하기 -->
+							<!-- 사용자만 버튼 누를 시 기능 적용 -->
+							<c:if test="${empty loginShopper && !empty loginMember}">
+								<!-- 사용자 로그인 할 때 -->
+								<div class="event-btns">
+									<button id="keep-btn1" class="buy-button button--big"
+										onclick="keep()">
+										<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기
+									</button>
+									<button id="reservation-btn1" class="buy-button button--big">
+										<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
+									</button>
+									<br>
+									<br>
+								</div>
+							</c:if>
+
+
+							<c:if test="${empty loginShopper && empty loginMember}">
+								<!-- 사용자 로그인 안 할 때 -->
+								<div class="event-btns">
+									<button id="keep-btn2" class="buy-button button--big"
+										onclick="alert('로그인 후 이용 가능합니다.')">
+										<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기
+									</button>
+									<button id="reservation-btn2" class="buy-button button--big"
+										onclick="alert('로그인 후 이용 가능합니다.')">
+										<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
+									</button>
+									<br>
+									<br>
+								</div>
+							</c:if>
+
+
+							<!-- 사업자에게만 버튼 보이게 하기 -->
 							<div align="center">
 								<c:url var="aModify" value="activityUpdateForm.com">
 									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
@@ -191,24 +277,26 @@
 								<!-- renameFilename 은 실제 저장된 파일 이름  -->
 								<c:url var="aDelete" value="activityDelete.com">
 									<c:param name="activityNo" value="${activity.activityNo }"></c:param>
-									<c:param name="aRenameFilename" value="${activity.aRenameFilename }"></c:param>
+									<c:param name="aRenameFilename"
+										value="${activity.aRenameFilename }"></c:param>
 								</c:url>
-								<c:if test="${empty loginMember}"> <!-- 사용자 아이디 x -->
-								<a href="${aModify }"><input class="btn btn-lg btn-warning" type="button" value="수정"></a> 
-								<a href="${aDelete }"><input class="btn btn-lg btn-danger" id="delete-btn" type="button" value="삭제"></a>
+								<c:if test="${!empty loginShopper}">
+									<!-- 사용자 아이디 x -->
+									<a href="${aModify }"><input class="btn btn-lg btn-warning"
+										type="button" value="수정"></a>
+									<a href="${aDelete }"><input class="btn btn-lg btn-danger"
+										id="delete-btn" type="button" value="삭제"></a>
 								</c:if>
-							</div> 
+							</div>
 						</div>
 					</div>
-					
+
 					<br>
-					
+
 					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) ========== -->
 					<div class="sidebar-box ftco-animate">
 						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
-							<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의
-							또 다른 강좌
-						</h4>
+							<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의 또 다른 강좌</h4>
 						<hr>
 						<c:forEach items="${aList }" var="activity">
 							<div class="block-21 mb-4 d-flex">
@@ -242,127 +330,100 @@
 				</div>
 			</div>
 		</div>
-		<!-- END COL -->
-
-				<!-- =============== SIDE bar END =============== -->
-
-	
-	
-		
+		<!-- =============== SIDE bar END =============== -->
+				
 	</section>
-
 	<!-- Activity detail section END-->
 
-<script>
-$(document).ready(function() {
-	
-	$("#keep-btn").on("click",function(){
-		alert("test");
-	}
-	
-	
-	
-	 $("#delete-btn").on("click",function(){
-		 consol.log("삭제완료");
-		/*  if (!confirm("삭제하시겠습니까?")) {
-			 // 취소
-					return false;
-		 		} else {
-		     // 확인
-		 		}
-	 		}); */
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-3">
+			<div class="col-md-7 heading-section ftco-animate">
+				<span class="subheading subheading-with-line"><small
+					class="pr-2 bg-white">BUKKE</small></span>
+				<h2 class="mb-4">ACTIVITY ADDRESS</h2>
+			</div>
+		</div>
+	</div>
 
-	
-			/* var mapOptions = {
-			    center: new naver.maps.LatLng(37.3595704, 127.105399),
-			    zoom: 10
-			};
-			
-			var map = new naver.maps.Map('act-map', {
-			    center: new naver.maps.LatLng(37.3595704, 127.105399),
-			    zoom: 15
-			    mapTypeControl: true
-			});
-			
-			var marker = new naver.maps.Marker({
-			    position: new naver.maps.LatLng(37.3595704, 127.105399),
-			    map: map
-			});
-			
-			var infoWindow = new naver.maps.InfoWindow({
-			    anchorSkew: true
-			});
-			map.setCursor('pointer');
-			function searchCoordinateToAddress(latlng) {
-			    infoWindow.close();
-			    naver.maps.Service.reverseGeocode({
-			        coords: latlng,
-			        orders: [
-			            naver.maps.Service.OrderType.ADDR,
-			            naver.maps.Service.OrderType.ROAD_ADDR
-			        ].join(',')
-			    }, function(status, response) {
-//	 		        if (status === naver.maps.Service.Status.ERROR) {
-//	 		            return alert('Something Wrong!');
-//	 		        }
-			        var items = response.v2.results,
-			            address = '',
-			            htmlAddresses = [];
-			        for (var i=0, ii=items.length, item, addrType; i<ii; i++) {
-			            item = items[i];
-			            address = makeAddress(item) || '';
-			            addrType = item.name === 'roadaddr' ? '[도로명 주소]' : '[지번 주소]';
-			            htmlAddresses.push((i+1) +'. '+ addrType +' '+ address);
-			        }
-			        infoWindow.setContent([
-			            '<div style="padding:10px;min-width:200px;line-height:150%;">',
-			            '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
-			            htmlAddresses.join('<br />'),
-			            '</div>'
-			        ].join('\n'));
-			        infoWindow.open(map, latlng);
-			    });
-			}
-			function searchAddressToCoordinate(address) {
-			    naver.maps.Service.geocode({
-			        query: address
-			    }, function(status, response) {
-			        if (status === naver.maps.Service.Status.ERROR) {
-			            return alert('Something Wrong!');
-			        }
-			        if (response.v2.meta.totalCount === 0) {
-			            return alert('totalCount' + response.v2.meta.totalCount);
-			        }
-			        var htmlAddresses = [],
-			            item = response.v2.addresses[0],
-			            point = new naver.maps.Point(item.x, item.y);
-			        if (item.roadAddress) {
-			            htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
-			        }
-			        if (item.jibunAddress) {
-			            htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
-			        }
-			        if (item.englishAddress) {
-			            htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
-			        }
-			        infoWindow.setContent([
-			            '<div style="padding:10px;min-width:200px;line-height:150%;">',
-			            '<h4 style="margin-top:5px;">해당 장소 : '+ address +'</h4><br />',
-			            htmlAddresses.join('<br />'),
-			            '</div>'
-			        ].join('\n'));
-			        map.setCenter(point);
-			        infoWindow.open(map, point);
-			    });
-			} 		 */
-	 		
-	 		
-});
-</script>
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<!-- ========== 액티비티 주소 지도로 표시 ========== -->
+			<div id="act-map" class="ftco-animate"
+				style="width: 100%; height: 550px;"></div>
 
-	
+			<script type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ea547584290f909f07a0c6b761312f2d&libraries=services"></script>
+			<script>
+						var mapContainer = document.getElementById('act-map'), // 지도를 표시할 div 
+						mapOption = {
+							center : new kakao.maps.LatLng(33.450701,
+									126.570667), // 지도의 중심좌표
+							level : 3
+						// 지도의 확대 레벨
+						};
+
+						// 지도를 생성합니다    
+						var map = new kakao.maps.Map(mapContainer, mapOption);
+
+						// 주소-좌표 변환 객체를 생성합니다
+						var geocoder = new kakao.maps.services.Geocoder();
+
+						// 주소로 좌표를 검색합니다
+						geocoder
+								.addressSearch(
+										'${ activity.activityAddr }',
+										function(result, status) {
+
+											// 정상적으로 검색이 완료됐으면 
+											if (status === kakao.maps.services.Status.OK) {
+
+												var coords = new kakao.maps.LatLng(
+														result[0].y,
+														result[0].x);
+
+												// 결과값으로 받은 위치를 마커로 표시합니다
+												var marker = new kakao.maps.Marker(
+														{
+															map : map,
+															position : coords
+														});
+
+												// 인포윈도우로 장소에 대한 설명을 표시합니다
+												var infowindow = new kakao.maps.InfoWindow(
+														{
+															content : '<div style="width:150px;text-align:center;padding:6px 0;">${ activity.activityName}</div>'
+														});
+												infowindow.open(map, marker);
+
+												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+												map.setCenter(coords);
+
+											}
+										});
+			</script>
+		</div>
+	</section>
+	<!-- 액티비티 주소 지도로 표시 END -->
+
+	<section class="ftco-section">
+		<div class="container">
+		<div class="row justify-content-center mb-5 pb-3">
+			<div class="col-md-7 heading-section ftco-animate">
+				<span class="subheading subheading-with-line"><small
+					class="pr-2 bg-white">BUKKE</small></span>
+				<h2 class="mb-4">ACTIVITY REVIEW</h2>
+			</div>
+		</div>
+		
+		</div>
+	</section>
+
+
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 </body>
 
 </html>
-
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> -->
+<script type="text/javascript" src="../resources/js/activity/activityDetailView.js"></script>
 <jsp:include page="../common/footer.jsp"></jsp:include>

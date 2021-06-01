@@ -18,6 +18,12 @@
 
 
 </head>
+<style>
+
+ .info {
+ padding:35px;
+ }
+</style>
 <!-- <body id="body-pd"> -->
 <body id="">
 
@@ -129,72 +135,85 @@
    <!-- ======================= 사이드 바 끝 =============================== -->
    
       <!--===================== 회원 정보 관리 시작 =========== -->
-   <section class="ftco-section">
-   <div class="container">
-   <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section ftco-animate">
-               <span class="subheading subheading-with-line"><small
-                  class="pr-2 bg-white">BUKKE</small></span>
-               <h2 class="mb-4">(memberId)'S MY PAGE</h2>
-            </div>
-         </div>
-         
-         
-         
-   <div class="row">
-      <div class="row col-lg-12" style="align:center;">
-             <div class="col-lg-3"></div>
-            <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="text-center feature-block"">
-                  <span class="fb-icon color-info"> 
-                     <i class="fa fa-user" aria-hidden="true"></i>
-                  </span>
-                  <h4 class="color-info">내 정보</h4>
-                  <br>
-                  <a href="javascript:void(0)" class="btn btn-info btn-custom">Click</a>
-               </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-               <!-- <div class="text-center feature-block" style="width: 330px; margin-left: 130px"> -->
-               <div class="text-center feature-block" style="width: 330px;">
-                  <span class="fb-icon color-warning"> 
-                     <i class="far fa-calendar-check " aria-hidden="true"></i>
-                  </span>
-                  <h4 class="color-warning">부캐 일정</h4>
-                  <br>
-                  <a href="javascript:void(0)" class="btn btn-warning btn-custom">Click</a>
-               </div>
-            </div>
-            <div class="col-lg-3"></div>
-         </div>
-         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left: 150px;">
-               <div class="text-center feature-block" style="width: 330px;">
-                  <span class="fb-icon color-success"> 
-                     <i class="fas fa-pen" aria-hidden="true"></i>
-                  </span>
-                  <h4 class="color-success">내 활동</h4>
-                  <br>
-                  <a href="javascript:void(0)" class="btn btn-success btn-custom">Click</a>
-               </div>
-            </div>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">BUKKE</small></span>
+					<h2 class="mb-4">${loginMember.memberNick }'S BUKKE PAGE</h2>
+				</div>
+			</div>
 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-               <div class="text-center feature-block" style="width: 330px; margin-left: 130px">
-                  <span class="fb-icon color-danger"> 
-                     <i class="fas fa-user-slash" aria-hidden="true"></i>
-                  </span>
-                  <h4 class="color-danger">회원 탈퇴</h4>
-                  <br>
-                  <a href="javascript:void(0)" class="btn btn-danger btn-custom">Click</a>
-               </div>
-            </div>
-         </div>
-         </div>
-      </div>
-   
-   </section>
-<br>
+			<div class="row">
+				<div class="row col-lg-12" style="align: center;">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-4 col-md-6 col-sm-6 info">
+						<div class="text-center feature-block">
+							<span class="fb-icon color-info"> <i class="fa fa-user"
+								aria-hidden="true"></i>
+							</span>
+							<h4 class="color-info">
+								<b>내 정보</b>
+							</h4>
+							<br> <a href="javascript:void(0)"
+								class="btn btn-info btn-custom">Click</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6 info">
+						<!-- <div class="text-center feature-block" style="width: 330px; margin-left: 130px"> -->
+						<div class="text-center feature-block">
+							<span class="fb-icon color-warning"> <i
+								class="far fa-calendar-check " aria-hidden="true"></i>
+							</span>
+							<h4 class="color-warning">
+								<b>부캐 일정</b>
+							</h4>
+							<br> <a href="javascript:void(0)"
+								class="btn btn-warning btn-custom">Click</a>
+						</div>
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+
+
+				<div class="row col-lg-12" style="align: center;">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-4 col-md-6 col-sm-6 info">
+						<div class="text-center feature-block">
+							<span class="fb-icon color-success"> <i class="fas fa-pen"
+								aria-hidden="true"></i>
+							</span>
+							<h4 class="color-success">
+								<b>내 활동</b>
+							</h4>
+							<br> <a href="javascript:void(0)"
+								class="btn btn-success btn-custom">Click</a>
+						</div>
+					</div>
+
+
+
+					<div class="col-lg-4 col-md-6 col-sm-6 info">
+						<div class="text-center feature-block">
+							<span class="fb-icon color-danger"> <i
+								class="fas fa-user-slash" aria-hidden="true"></i>
+							</span>
+							<h4 class="color-danger">
+								<b>회원 탈퇴</b>
+							</h4>
+							<br> <a href="javascript:void(0)"
+								class="btn btn-danger btn-custom">Click</a>
+						</div>
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+	<br>
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>

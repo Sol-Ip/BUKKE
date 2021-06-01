@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.keep.domain.Keep;
 import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.keep.store.KeepStore;
 
@@ -48,8 +49,8 @@ public class KeepServiceImpl implements KeepService {
 	
 	// 액티비티 찜 등록
 	@Override
-	public int insertActivitytoKeep(Activity activity) {
-		return 0;
+	public int insertActivitytoKeep(Keep keep) {
+		return kStore.insertActivitytoKeep(keep);
 	}
 	
 	// 액티비티 찜 취소

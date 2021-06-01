@@ -26,7 +26,6 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.common.ActivityPagination;
-import com.bukke.spring.keep.domain.Keep;
 import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.shop.domain.Shop;
@@ -68,8 +67,7 @@ public class ActivityController {
 	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
 	public ModelAndView activityDetailView(ModelAndView mv,
 										Model model,
-										HttpSession session,
-										HttpServletRequest request, HttpServletResponse response, 
+										HttpServletRequest request,//HttpSession session,
 										@RequestParam("activityNo") int activityNo) {
 		//조회 수 증가
 		//aService.addReadCountActivity(activityNo);
@@ -77,13 +75,13 @@ public class ActivityController {
 		
 		//게시글 상세조회
 		Activity activity = aService.printOneActivity(activityNo);
-		Member loginMember = (Member)session.getAttribute("loginMember");
-		Shop loginShopper =(Shop)session.getAttribute("loginShopper");
-		String memberId = loginMember.getMemberId();
-		Keep keep = new Keep();
-		keep.setActivityNo(activityNo);
-		keep.setMemberId(memberId);
-		//Keep keep = kService.
+		/*
+		 * Shop loginShopper =(Shop)session.getAttribute("loginShopper"); 
+		 * String memberId = loginMember.getMemberId(); 
+		 *
+		 * keep.setActivityNo(activityNo); keep.setMemberId(memberId);
+		 */
+	
 		ArrayList<Activity> aList = aService.printAllActivity();
 		if(activity != null && !aList.isEmpty()) {
 			model.addAttribute("aList", aList);

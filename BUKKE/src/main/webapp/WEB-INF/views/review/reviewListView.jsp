@@ -26,60 +26,7 @@
 	
 	
 	
-	<%--여기 게시판형태였던거 주석처리해놈 --%>
-	<%-- <section class="ftco-section">
-			<div class="container">
-			
-			<h1 align="center">Review</h1>
-			
-	 <div align="center">
-		<button onclick="location.href='reviewWriteView.com'">글쓰기</button>
-	</div>
-	<br style="clear:both">
-	
-	<table align="center" width="600" border="1" cellspacing="0" style="clear:right;">
-		<tr>
-			<th>번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>올린날짜</th>
-			
-		</tr>
-		<c:forEach items="${rList }" var="review">
-			<tr>
-				<td align="center">${review.reviewNo }</td>
-				<td align="center">
-					<c:url var="rDetail" value="reviewDetail.com">
-						<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
-					</c:url>
-					
-					<a href="${rDetail }">${review.reviewTitle }</a>
-				</td>
-				<td align="center">${review.memberId }</td>
-				<td align="center">${review.reviewDate }</td>
-				
-			</tr>
-		</c:forEach>
-	</table>
-				</div>
-			</div> 
-		</section> --%>
-		
-	<!-- 검색기능 -->
-<%-- 	<!-- 이쁘지않은 검색기능완료 -->
-	<div align="center">
-		<form action="reviewSearch.com" method="get">
-			<select name="reviewCategory">
-				<option value="all" <c:if test="${search.reviewCategory == 'all' }">selected</c:if>>전체</option>
-				<option value="writer" <c:if test="${search.reviewCategory == 'writer' }">selected</c:if>>작성자</option>
-				<option value="title" <c:if test="${search.reviewCategory == 'title' }">selected</c:if>>제목</option>
-				<option value="content" <c:if test="${search.reviewCategory == 'content' }">selected</c:if>>내용</option>
-			</select>
-			<input type="text" name="reviewKeyword" value="${search.reviewKeyword }">
-			<input type="submit" value="검색">
-		</form>
-	</div> --%>
-	<!-- 검색기능 -->
+
 	
 	<div class="container ftco-animate">
 			<br />
@@ -127,21 +74,22 @@
 		</div>	
 	<br>	
 	<!-- 클래스 전체 수업 이미지 목록 -->
+	
 		<div class="container">
 			<div class="row">
 			<c:forEach items="${rList }" var="review">
-				<div class="col-md-3 ftco-animate">
+				<div class="col-sm-4 ftco-animate">
 					<div class="blog-entry">
 						<img src="../resources/reviewFiles/${review.rRenameFilename }" id="class-img" class="block-20"
 							alt="Colorlib Template">
-						<div class="text d-flex py-4">
+						<div class="text d-flex">
 						<c:url var="rDetail" value="reviewDetail.com">
                      		<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
                   		</c:url>
 							<h3>
 								<a href="${rDetail }">${review.reviewTitle }</a>
 							</h3>
-							<br>
+							
 						</div>
 						<a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
@@ -153,7 +101,7 @@
 			</c:forEach>
 			</div>
 		</div>	
-		
+	
 		
 	<!-- 글쓰기 버튼 -->
 		

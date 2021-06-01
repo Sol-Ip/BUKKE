@@ -2,23 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="reservationMapper">
-	<resultMap type="BukkeClass" id="bClassResultMap">
-		<id property="classNo" column="CLASS_NO"></id>
-		<result property="shopId" column="SHOP_ID"></result>
-		<result property="className" column="CLASS_NAME"></result>
-		<result property="classAddr" column="CLASS_ADDR"></result>
+	<resultMap type="Reservation" id="reservationMap">
+		<id property="reservationNo" column="RESERVATION_NO"></id>
+		<result property="reservationId" column="RESERVATION_ID"></result>
+		<result property="classNo" column="CLASS_NO"></result>
+		<result property="activityNo" column="ACTIVITY_NO"></result>
+		<result property="reservationDate" column="RESERVATION_DATE"></result>
+		<result property="reservationStatus" column="RESERVATION_STATUS"></result>
 	</resultMap>
+	
 	 
 	<!-- 게시물 리스트 -->
-   <!-- <select id="selectListCount" resultType="_int">
-      SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = 'Y'
+   <select id="selectListCount" resultType="_int">
+      SELECT COUNT(*) FROM RESERVATION
    </select>
    
-   <select id="selectAllList" resultMap="bClassResultMap">
-      SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' ORDER BY CLASS_NO DESC
+   <select id="selectAllList" resultMap="reservationMap">
+      SELECT RESERVATION_NO, RESERVATION_ID, (SELECT CLASS_NAME FROM CLASS WHERE CLASS_NO = #{classNo }), RESERVATION_DATE FROM RESERVATION
    </select>
    
-   <select id="selectOneBclass" resultMap="bClassResultMap">
+   <!-- <select id="selectOneBclass" resultMap="bClassResultMap">
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>
    

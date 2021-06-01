@@ -28,8 +28,7 @@
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					<h1 class="mb-2 bread">RESERVATION</h1>
 					<p class="breadcrumbs">
@@ -102,50 +101,34 @@
 		<!-- ========================= 클래스 탭  =========================  -->
 		<div class="container">
 			<table class="table table-bordered">
-        <thead>
-            <tr>
-                <!-- 체크박스 빼도 됨 / 메뉴선택에 필요한 컬럼 넣거나 빼도 됨 -->
-                <th><input type="checkbox"></th>
-                <th>구분</th>
-                <th>예약번호</th>
-                <th>회원명</th>
-                <th>클래스/액티비티명</th>
-                <th>예약일</th>
-                <th>메뉴선택</th>
-                <th>메뉴선택</th>
-                <th>승인여부</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td id="check_"><input type="checkbox"></td>
-                <td class="classType" id="typeClass">클래스</td>
-                <td id="reservationNo" name="reservationNo">1</td>
-                <td id="reservationId" name="reservationId">user1</td>
-                <td id="className" name="className">수공예 시간</td>
-                <td id="reservationDate" name="reservationDate">21.05.31</td>
-                <td id="example" id="example">(null)</td>
-                <td id="example" id="example">(null)</td>
-                <td>
-                    <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
-                    <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
-                </td>
-            </tr>
-            <tr>
-                <td id="check_"><input type="checkbox"></td>
-                <td class="classType" id="typeActivity">액티비티</td>
-                <td id="reservationNo" name="reservationNo">2</td>
-                <td id="reservationId" name="reservationId">user1</td>
-                <td id="activityName" name="activityName">초보를 위한 서핑강습</td>
-                <td id="reservationDate" name="reservationDate">21.06.01</td>
-                <td id="example" id="example">(null)</td>
-                <td id="example" id="example">(null)</td>
-                <td>
-                    <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
-                    <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
-                </td>
-            </tr>
-        </tbody>
+	        <thead>
+	            <tr>
+	                <!-- 체크박스 빼도 됨 / 메뉴선택에 필요한 컬럼 넣거나 빼도 됨 -->
+	                <th><input type="checkbox"></th>
+	                <th>구분</th>
+	                <th>예약 번호</th>
+	                <th>회원 명</th>
+	                <th>클래스 / 액티비티 명</th>
+	                <th>예약 일</th> 
+	                <th>승인여부</th>
+	            </tr>
+	        </thead>
+	        <c:forEach items="${reservationList }" var="reservation">
+		        <tbody>
+		            <tr> <!-- 클래스랑 액티비티 셀렉박스로 구분 지어서 할지 고민 중 (일단 클래스만 해보는 중) -->
+		                <td id="check_"><input type="checkbox"></td>
+		                <td class="classType" id="typeClass">클래스</td>
+		                <td id="reservationNo" name="reservationNo">${reservation.reservationNo }</td>
+		                <td id="reservationId" name="reservationId">${reservation.reservationId }</td>
+		                <td id="className" name="className">${bukkeClass.className }</td>
+		                <td id="reservationDate" name="reservationDate">${reservation.reservationDate }</td>
+		                <td>
+		                    <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
+		                    <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
+		                </td>
+		            </tr>
+		        </tbody>
+        </c:forEach>
     </table>
 		</div>
 		

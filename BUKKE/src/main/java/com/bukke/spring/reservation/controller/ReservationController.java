@@ -4,11 +4,14 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.ReservationPagination;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
@@ -19,10 +22,14 @@ public class ReservationController {
 	
 	@Autowired
 	private ReservationService reService;
+	
+	@Autowired
+	private BukkeClassService bService;
 
 	// 예약 전체목록 jsp 이동
 		@RequestMapping(value="reservationList.com", method=RequestMethod.GET)
-		public ModelAndView reservationListView(ModelAndView mv,
+		public ModelAndView reservationListView(ModelAndView mv, 
+												@ModelAttribute BukkeClass bukkeClass,
 												@RequestParam(value="page", required=false) Integer page) {
 			int currentPage = (page != null) ? page : 1;
 			int listCount = reService.getListCount();
@@ -30,9 +37,10 @@ public class ReservationController {
 			
 			ArrayList<Reservation> reservationList = reService.printAllReservation(pi);
 			if(!reservationList.isEmpty()) {
+				System.out.println(reservationList);
 				mv.addObject("reservationList", reservationList);
 				mv.addObject("pi", pi);
-				mv.setViewName("shop/shopReservation");
+				mv.setViewName("shop/shopReservationList");
 			}else {
 				mv.addObject("msg", "예약 관리 조회 실패");
 				mv.setViewName("common/errorPage");

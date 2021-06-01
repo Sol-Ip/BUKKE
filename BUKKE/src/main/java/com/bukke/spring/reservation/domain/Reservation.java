@@ -6,9 +6,9 @@ public class Reservation {
 	private int reservationNo; // 예약번호
 	private int classNo; // 클래스번호
 	private int activityNo; // 액티비티 번호
-	private int reservationId; // 예약자
+	private String reservationId; // 예약자
 	private Date reservationDate; // 예약일
-	private String reservationApproval; // 예약 승인여부
+	private String reservationStatus; // 예약 승인여부
 	
 	public Reservation() {}
 
@@ -30,10 +30,10 @@ public class Reservation {
 	public void setActivityNo(int activityNo) {
 		this.activityNo = activityNo;
 	}
-	public int getReservationId() {
+	public String getReservationId() {
 		return reservationId;
 	}
-	public void setReservationId(int reservationId) {
+	public void setReservationId(String reservationId) {
 		this.reservationId = reservationId;
 	}
 	public Date getReservationDate() {
@@ -42,18 +42,18 @@ public class Reservation {
 	public void setReservationDate(Date reservationDate) {
 		this.reservationDate = reservationDate;
 	}
-	public String getReservationApproval() {
-		return reservationApproval;
+	public String getReservationStatus() {
+		return reservationStatus;
 	}
-	public void setReservationApproval(String reservationApproval) {
-		this.reservationApproval = reservationApproval;
+	public void setReservationStatus(String reservationStatus) {
+		this.reservationStatus = reservationStatus;
 	}
 
 	@Override
 	public String toString() {
 		return "Reservation [reservationNo=" + reservationNo + ", classNo=" + classNo + ", activityNo=" + activityNo
-				+ ", reservationId=" + reservationId + ", reservationDate=" + reservationDate + ", reservationApproval="
-				+ reservationApproval + "]";
+				+ ", reservationId=" + reservationId + ", reservationDate=" + reservationDate + ", reservationStatus="
+				+ reservationStatus + "]";
 	}
 	
 }

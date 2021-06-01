@@ -2,6 +2,7 @@ package com.bukke.spring.reservation.store;
 
 import java.util.ArrayList;
 
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 

@@ -169,8 +169,22 @@ input[type=button] {
 #submit {
   background-color: #56baed;
   color: #fff;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  border: 1px solid #56baed;
 }
-
+#submit:hover {
+	--background-color: #3a9dd8;
+	background-color: #fff;
+	color: #56baed;
+}
 #kakao {
-	background-color: #eed95b;
+	background-color: #eedb00;
+	transition: all 0.3s;
+	box-sizing: border-box;
+	border: 1px solid #eedb00;
+}
+#kakao:hover {
+	--background-color: #baab00;
+	background-color: #fff;
 }

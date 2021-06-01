@@ -131,7 +131,7 @@
       <!-- ===================== 페이지 내용 기입란 (페이지 상황 맞춰서 section/div 사용하기) ===================== -->
 	<section class="ftco-section">
 		<div class="container">
-			<div class="row justify-content-center mb-5 pb-3">
+			<div class="row justify-content-center ">
 				<div class="col-md-7 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-white">BUKKE</small></span>
@@ -140,6 +140,8 @@
 			</div>
 			
 
+			<div class="row">
+				<div class="row col-lg-12" style="align: center;">
 				<!-- 채팅시작 -->
 					<div class="row">
 				<div class="col-sm-12">
@@ -391,7 +393,7 @@
 										</div>
 									</div>
 								</form>
-
+							</div>
 							</div>
 						</div>
 					</div>

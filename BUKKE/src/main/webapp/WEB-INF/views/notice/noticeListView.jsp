@@ -20,7 +20,7 @@
 
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
+	<section class="hero-wrap hero-wrap-2" 
 		style="background-image: url('resources/images/bg_1.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
@@ -40,15 +40,23 @@
 		</div>
 	</section>
 	<!-- fixed section END-->
-	
-	<section class="ftco-section">
-  
-		<form class="col-md-4 card card-lg" style="margin-left: 10px"
+	<section class="ftco-section" style="margin-top: -10%;">
+  		  <section class="ftco-section"   >        
+            <div class="sidebar-box" style="float: right; width: 25%;" >
+              <form action="#" class="search-form">
+                <div class="form-group" >
+                  <span class="icon icon-search"></span>
+                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                </div>
+              </form>
+            </div>
+            </section>
+		<%-- <form class="col-md-5 card card-lg" style="margin-left: 10px"
 						action="noticeSearch.com" method="get" >
 					<div class="card-body row no-gutters align-items-center">
-						<div class="col-auto">
+						<!-- <div class="col-auto">
 							<i class="fas fa-search h4 text-body"></i>
-						</div>
+						</div> -->
 						<!--end of col-->
 						<div class="col-auto">
 							<select class="form-control" name="noticeCategory" id="" style="width: 100px;">
@@ -67,10 +75,13 @@
 						</div>
 						<!--end of col-->
 					</div>
-				</form>
+				</form> --%>
+				
 		<!-- 공지사항 리스트 -->
+		
 		<div class="container-fluid py-4">
-			<div class="row">
+			<div class="row" >
+				
 				<div class="col-12">
 					<div class="card mb-4">
 						<div class="card-header pb-0 text-center">

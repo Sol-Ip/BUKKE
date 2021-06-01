@@ -7,50 +7,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!-- 폰트 -->
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
+<!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> 
-<!-- <link rel="stylesheet" href="resources/css/theme/bootstrap.css">
-<link rel="stylesheet" href="resources/css/theme/bootstrap.min.css">  -->
-<link rel="stylesheet" href="resources/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/animate.css">
 
+<!-- 애니메이션 효과 -->
+<link rel="stylesheet" href="resources/css/animate.css">
 <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
 <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+<!-- 이미지 클릭시 팝업 띄우는 css -->
 <link rel="stylesheet" href="resources/css/magnific-popup.css">
 
-<!-- <link rel="stylesheet" href="resources/css/aos.css"> -->
-
-<link rel="stylesheet" href="resources/css/ionicons.min.css">
-
+<!-- 캘린더 -->
 <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
 <link rel="stylesheet" href="resources/css/jquery.timepicker.css">
 
-
+<!-- 아이콘 -->
+<link rel="stylesheet" href="resources/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/ionicons.min.css">
 <link rel="stylesheet" href="resources/css/flaticon.css">
 <link rel="stylesheet" href="resources/css/icomoon.css">
+
+<!-- css테마 -->
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="stylesheet" href="resources/css/header/custom-dropdown.css">
-<style>
-	.dropdown {
-		font-size: 14px;
-		color: rgb(0, 0, 0);
-		cursor: pointer;
-	}
-	.dropdown-toggle {
-		padding: 24px 20px;
-	}
-	.dropdown-menu {
-		border-radious: 0px;
-		margin: 0;
-	}
-	.dropdown-item:hover:after {
-		color: rgb(0, 51, 199);
-	}
-</style>
 
+<!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
 </head>
 <body>
 	<header id="header">
@@ -75,8 +60,8 @@
 						</c:if>
 						<c:if test="${ !empty sessionScope.loginMember && empty sessionScope.loginShopper}">
 						<li id="member" class="nav-item dropdown">
-							<div class="dropdown-toggle" data-toggle="dropdown">회원관리</div>
-							<div class="dropdown-menu dropdown-menu-right">
+							<div class="dropdown-toggle nav-link" data-toggle="dropdown">회원관리</div>
+							<div class="dropdown-menu dropdown-menu-left">
 								<a href="#" class="dropdown-item">공지사항</a>
 								<a href="#" class="dropdown-item">마이페이지</a>
 								<a href="#" class="dropdown-item">회원메뉴 1</a>
@@ -86,8 +71,8 @@
 						</c:if>
 						<c:if test="${ empty sessionScope.loginMember && !empty sessionScope.loginShopper}">
 						<li id="shop" class="nav-item dropdown">
-							<div class="dropdown-toggle" data-toggle="dropdown">회원관리</div>
-							<div class="dropdown-menu dropdown-menu-right">
+							<div class="dropdown-toggle nav-link" data-toggle="dropdown">회원관리</div>
+							<div class="dropdown-menu dropdown-menu-left">
 								<a href="#" class="dropdown-item">공지사항</a>
 								<a href="#" class="dropdown-item">마이페이지</a>
 								<a href="#" class="dropdown-item">예약관리</a>
@@ -105,7 +90,6 @@
 // common/header.jsp?active=home
 // url으로 get방식을 따라해서 url을 설계하면 JSTL을 이용해서 받을 수 있다.
 // param은 파라미터값으로 넘어온 데이터를, active는 데이터의 이름을 의미한다.
-// ajax보다 백배는 간단!
 	var activePage = "${param.active}";
 	switch(activePage) {
 	case "home":

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Reservation</title> 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="resources/css/activity-custom/activityListView.css">
 
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
@@ -42,6 +43,8 @@
   background-color: #428bca;
   padding : 5px 15px;
 }
+
+
 
 </style>
 </head>
@@ -213,9 +216,9 @@
 		<!-- 예약 목록 탭 -->
 		<div class="container">
 			<ul class="nav nav-tabs">
-				<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile" style="float:right;">액티비티</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile" style="float:right;">클래스</a></li>
+				<li class="nav-item" style="width:100px;"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
+				<li class="nav-item" style="width:100px; float:right;"><a class="nav-link" data-bs-toggle="tab" href="#profile">액티비티</a></li>
+				<li class="nav-item" style="width:100px; float:right;"><a class="nav-link" data-bs-toggle="tab" href="#profile">클래스</a></li>
 			</ul>
 			<!-- <div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade active show" id="home">

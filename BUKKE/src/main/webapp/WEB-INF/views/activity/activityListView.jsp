@@ -111,7 +111,7 @@
 				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">서핑</a></li>
 				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">스포츠</a></li>
 				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">수상레저</a></li>
-			</ul>
+			</ul> 
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade active show" id="home">
 					<h1>전체</h1>

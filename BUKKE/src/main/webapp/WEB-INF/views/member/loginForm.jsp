@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="/resources/css/member/loginForm.css">
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<!-- 카카오 로그인 API -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 <form action="memberLogin.com" method="POST">
@@ -87,7 +89,7 @@
   </fieldset>
   <!-- 일반회원 -->
   <fieldset class="member-field">
-    <input type="button" name="kakao" id="kakao" value="카카오 로그인"/>
+    <button type="button" name="kakao" id="kakao" ><img src="resources/images/member/kakao_symbol.png">카카오 로그인</button>
     <div class="enroll-and-findId">
       <a href="memberCheck.com">ID/PW 찾기</a>
       <a href="memberRegisterForm.com">회원가입</a>

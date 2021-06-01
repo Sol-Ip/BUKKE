@@ -36,6 +36,9 @@
 
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<!-- 카카오 로그인 API -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 	<header id="header">

@@ -1,5 +1,6 @@
 package com.bukke.spring.member.controller;
 
+import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -85,10 +87,10 @@ public class MemberController {
 	}
 
 	// 카카오 로그인 매핑을 위한 페이지
-	@RequestMapping(value = "kakao/memberLogin.com", method = RequestMethod.GET)
-	public String kakaoLogin(Model model) {
-		model.addAttribute("msg", "카카오 로그인 리다이렉트 페이지입니다.");
-		return "common/errorPage";
+	@RequestMapping(value = "kakao/memberLogin.com", method = RequestMethod.POST)
+	public String kakaoLogin(Model model, @RequestBody Map<String, Object> param) {
+		System.out.println(param);
+		return "success";
 	}
 
 	// @RequestMapping(value="", method=RequestMethod.POST)

@@ -113,9 +113,47 @@ $("#submit").click(
 			}
 			
 		})
-// 카카오 소셜로그인
+
 $("#kakao").click(function(){
-	location.href = "kakao/memberLogin.com";
+	// 카카오 로그인 API호출
+	if(!Kakao.isInitialized()) {
+		Kakao.init('7529109358ed25ccbfd1fe197826cb87');
+	}
+	Kakao.Auth.login({
+		  success: function(response) {
+		    //사용자 정보 가져오기
+			  Kakao.API.request({
+				  url: '/v2/user/me', // 계정 정보를 가져오는 request url
+				  success: function(response) {
+					  var user = response.kakao_account; // 카카오 계정 정보
+					  user.host = 'kakao'; //추가정보 기입을 할 수 있다.
+					  // 로그인 후 세션 받아오기
+					  $.ajax({
+						  url: 'kakao/memberLogin.com',
+						  type: 'POST',
+						  data: JSON.stringify(user), // 계정정보를 JSON으로 변환
+						  dataType : 'application/json',
+						  success: function(data) {
+							  if (data == "success") {
+								  	//alert("로그인 성공!");
+									location.href = "home.com"
+							  }
+						  },
+						  fail: function(error) {
+							  console.log(error);
+						  }
+					  })
+				  },
+				  fail: function(error) {
+					  console.log(error)
+				  },
+			  })
+		  },
+		  fail: function(error) {
+		    console.log(error);
+		  },
+		});
+	//location.href = "kakao/memberLogin.com";
 })
 // 텍스트 클릭시 초기화
 $("#memberId").on("focus", function() {

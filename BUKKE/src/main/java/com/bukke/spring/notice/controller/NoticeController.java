@@ -200,9 +200,12 @@ public class NoticeController {
 		return "common/errorPage";
 	}
 	}
-	@RequestMapping(value="test.com",method = RequestMethod.GET)
-	public String test() {
-		return "notice/test";
+	
+	
+	//마이페이지-채팅 임시페이지
+	@RequestMapping(value="mypageChat.com")
+	public String mypageChat() {
+		return "chat/myPageChat";
 	}
 }
 

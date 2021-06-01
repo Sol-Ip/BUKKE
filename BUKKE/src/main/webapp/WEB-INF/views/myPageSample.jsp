@@ -33,8 +33,8 @@
          </div>
       </div>
       
-      <!-- ======================= 사이드 바 시작 =============================== -->
-         <div class="l-navbar" id="navbar">
+     <!-- ======================= 사이드 바 시작 =============================== -->
+         <div class="l-navbar" id="navbar" style="height : 830px;">
         <nav class="nav">
             <div>
                 <div class="nav__brand">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="nav__list">
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">내 정보</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -54,44 +54,43 @@
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">부캐 일정</span>
+                        <ion-icon name="calendar-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 일정</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
-                            <a href="#" class="collapse__sublink">좋아요 목록</a>
-                            <a href="#" class="collapse__sublink">찜 목록</a>
+                            <a href="#" class="collapse__sublink">수업 목록</a>
                         </ul>
                     </div>
 
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="bicycle-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">내 활동</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">작성한 게시글</a>
+                            <a href="#" class="collapse__sublink">등록한 액티비티</a>
+                            <a href="#" class="collapse__sublink">등록한 클래스</a>
                             <a href="#" class="collapse__sublink">작성한 댓글</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">선물 내역</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">받은 선물</a>
-                            <a href="#" class="collapse__sublink">보낸 선물</a>
                         </ul>
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="close-circle-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">업체 탈퇴</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">탈퇴 신청</a>
+                        </ul>
+                    </div>
+
+                    
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">채팅</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -102,13 +101,13 @@
                     </div>
 
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">알림</span>
+                        <ion-icon name="alarm-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">예약 관리</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">예약 알림</a>
+                            <a href="#" class="collapse__sublink">예약 목록</a>
                         </ul>
                     </div>
                 </div>

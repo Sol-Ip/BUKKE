@@ -2,10 +2,12 @@ package com.bukke.spring.reservation.store.logic;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.store.ReservationStore;
 
@@ -15,10 +17,18 @@ public class ReservationStoreLogic implements ReservationStore {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	// 예약 전체수 조회수
 	@Override
-	public ArrayList<Reservation> selectAllReservationList() { // 예약 전체목록 조회  
-		// TODO Auto-generated method stub
-		return null;
+	public int selectLsitCount() {
+		return sqlSession.selectOne("reservationMapper.selectListCount");
+	}
+
+	// 예약 목록 전체보기
+	@Override
+	public ArrayList<Reservation> selectAllListReservation(PageInfo pi) {
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectAllList", null, rowBounds);
 	}
 
 	@Override
@@ -56,7 +66,5 @@ public class ReservationStoreLogic implements ReservationStore {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	
 
 }

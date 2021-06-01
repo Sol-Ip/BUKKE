@@ -7,10 +7,26 @@
 <head>
 <meta charset="UTF-8">
 <title>부캐, 새로운 나 ! - Class</title>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=juwreae5tk"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=juwreae5tk&submodules=geocoder"></script>
 <link rel="stylesheet" href="resources/css/bClass-custom/bClassListView.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/bClass-custom/bClassDetailView.css">
+<style>
+
+ 	 #top-icon {
+ 		color:grey;
+ 	} 
+	 
+ 	#top-icon:hover {
+ 			cursor : pointer;
+ 			color : blue;
+ 		/* 	수정중 */
+ 	
+ 		}
+ 
+
+</style>
 </head>
 
 <body>
@@ -57,7 +73,13 @@
 						<li><h3 class="act-type">&nbsp;]</h3></li>
 					</ul>
 				</div>
-				<div class="col-lg-8 ftco-animate">
+				
+				<!-- URL 링크 -->
+				<!-- <div style="float:right" >
+				<a href="#"><span id="top-icon"><i class="far fa-paper-plane fa-2x"></i></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div> -->
+				
+				<div class="col-lg-7 ftco-animate">
 					<p>
 						<img src="../resources/bClassFiles/${bukkeClass.cRenameFilename }"
 							alt="class photo" class="img-fluid">
@@ -151,7 +173,17 @@
 									<li><h3 id="act-type">${bukkeClass.classAddr }</h3></li>
 								</ul>
 							</div>
-
+							
+						<!-- 사용자만 버튼 누를 시 기능 적용 -->	
+						<!-- <div class="event-btns">
+							
+							<button id="keep-btn" class="buy-button button--big"><i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기</button>
+							<button id="reservation-btn" class="buy-button button--big"><i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기</button>
+							
+							
+						<br><br>
+						</div>  -->
+						
 							<!-- 사업자에게만 버튼 보이게 하기 -->
 							<div align="center">
 								<c:url var="cModify" value="bukkeClassModify.com">

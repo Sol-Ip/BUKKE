@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.reservation.store.ReservationStore;
@@ -13,13 +14,18 @@ import com.bukke.spring.reservation.store.ReservationStore;
 public class ReservationServiceImpl implements ReservationService{
 
 	@Autowired
-	private ReservationStore rStore;
+	private ReservationStore reStore;
+	
+	// 예약 게시물 전체수 조회수
+	@Override
+	public int getListCount() {
+		return reStore.selectLsitCount();
+	}
 	
 	// 예약 전체 목록 보기
 	@Override
-	public ArrayList<Reservation> printAllReservation() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Reservation> printAllReservation(PageInfo pi) {
+		return reStore.selectAllListReservation(pi);
 	}
 
 	// 예약 상세 보기
@@ -63,6 +69,7 @@ public class ReservationServiceImpl implements ReservationService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 	
 }

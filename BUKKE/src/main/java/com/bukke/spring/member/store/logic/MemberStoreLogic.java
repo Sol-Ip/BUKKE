@@ -19,6 +19,19 @@ public class MemberStoreLogic implements MemberStore {
 		Member loginMember = session.selectOne("memberMapper.selectOneMember",member);
 		return loginMember;
 	}
+	
+	// 카카오 계정 존재여부 확인
+	@Override
+	public int loginKakao(Member member) {
+		int result = session.selectOne("memberMapper.kakaoLogin",member);
+		return result;
+	}
+	// 카카오 계정 회원가입
+	@Override
+	public int registerKakao(Member member) {
+		int result = session.insert("memberMapper.kakaoRegister",member);
+		return result;
+	}
 
 	@Override
 	public int checkIdDup(String memberId) {
@@ -60,6 +73,5 @@ public class MemberStoreLogic implements MemberStore {
 		int result = session.update("memberMapper.updatePw",member);
 		return result;
 	}
-
 
 }

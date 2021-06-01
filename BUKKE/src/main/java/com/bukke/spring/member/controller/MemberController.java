@@ -86,12 +86,39 @@ public class MemberController {
 
 	}
 
-	// 카카오 로그인 매핑을 위한 페이지
+	// 카카오 로그인 기능
+	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@RequestMapping(value = "kakao/memberLogin.com", method = RequestMethod.POST)
-	public String kakaoLogin(@RequestBody Map<String, Object> param) {
-		System.out.println(param);
-		return "success";
+	public String kakaoLogin(HttpServletRequest request, @RequestBody Map<String, Object> param) {
+		if(param == null) {
+			return "error"; // 로그인 실패
+		}
+		Map<String, Object> profile = (Map<String, Object>) param.get("profile");
+		String nickname = (String) profile.get("nickname");
+		String email = (String) param.get("email");
+		// 맴버 변수에 값을 할당
+		Member loginMember = new Member();
+		loginMember.setMemberId("카카오ID회원"); // 혹시 당장 꼬일까봐 임시로 넣어놓은 ID
+		loginMember.setMemberName(nickname);
+		loginMember.setMemberNick(nickname);
+		loginMember.setMemberEmail(email);
+		int result = mService.loginKakao(loginMember);
+		if(result > 0) {
+			// 등록된 회원인 경우 세션 활성화
+				HttpSession session = request.getSession();
+				session.setAttribute("loginMember", loginMember);
+				return "success"; // 로그인 성공
+		} else {
+			// 등록되지 않은 회원인 경우, 회원가입을 시도하고 세션 활성화
+			int registerResult = mService.registerKakao(loginMember);
+			if(registerResult > 0) {
+				HttpSession session = request.getSession();
+				session.setAttribute("loginMember", loginMember);
+				return "success"; // 로그인 성공
+			}
+			return "error"; // 로그인 실패
+		}
 	}
 
 	// @RequestMapping(value="", method=RequestMethod.POST)

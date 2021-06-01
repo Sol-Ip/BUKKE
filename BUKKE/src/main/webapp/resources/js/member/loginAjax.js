@@ -132,14 +132,14 @@ $("#kakao").click(function(){
 						  url: 'kakao/memberLogin.com',
 						  type: 'POST',
 						  data: JSON.stringify(user), // 계정정보를 JSON으로 변환
-						  dataType : 'application/json',
+						  dataType : 'application/json; charset=utf-8',
 						  success: function(data) {
 							  if (data == "success") {
 								  	//alert("로그인 성공!");
 									location.href = "home.com"
 							  }
 						  },
-						  fail: function(error) {
+						  error: function(error) {
 							  console.log(error);
 						  }
 					  })

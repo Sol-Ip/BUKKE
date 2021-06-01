@@ -87,8 +87,9 @@ public class MemberController {
 	}
 
 	// 카카오 로그인 매핑을 위한 페이지
+	@ResponseBody
 	@RequestMapping(value = "kakao/memberLogin.com", method = RequestMethod.POST)
-	public String kakaoLogin(Model model, @RequestBody Map<String, Object> param) {
+	public String kakaoLogin(@RequestBody Map<String, Object> param) {
 		System.out.println(param);
 		return "success";
 	}

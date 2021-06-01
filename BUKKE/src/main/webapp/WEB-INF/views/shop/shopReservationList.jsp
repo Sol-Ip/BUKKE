@@ -11,17 +11,39 @@
 
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
-<!-- <style>
-.form-control-borderless {
-    border: none;
+
+<style>
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
 }
 
-.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;   
+  padding : 5px 15px;
 }
-</style> -->
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+</style>
 </head>
 <body>
 	<!-- fixed section -->
@@ -134,12 +156,6 @@
 	<!-- fixed section END-->
 		
 	
-	
-	
-	
-	
-	
-	
 	<!-- ========================= 리스트 시작 =========================  -->
 	
 	<!-- ========================= 검색창 =========================  -->
@@ -194,7 +210,30 @@
 					</div>
 				</div>
 		<!-- ========================= 클래스 정보란 END =========================  -->
-		
+		<!-- 예약 목록 탭 -->
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile" style="float:right;">액티비티</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile" style="float:right;">클래스</a></li>
+			</ul>
+			<!-- <div id="myTabContent" class="tab-content">
+				<div class="tab-pane fade active show" id="home">
+					<h1>전체</h1>
+				</div>
+				<div class="tab-pane fade active show" id="profile">
+					<h1>분류탭1</h1>
+				</div>
+				<div class="tab-pane fade active show" id="dropdown1">
+					<h1>분류탭2</h1>
+				</div>
+				<div class="tab-pane fade active show" id="dropdown2">
+					<h1>분류탭3</h1>
+				</div>
+			</div> -->
+			
+		</div>
+		<!-- 예약 목록 탭 끝 -->
 		<!-- ========================= 클래스 탭  =========================  -->
 		<div class="container">
 		<div class="row col-lg-12" style="align:center;">

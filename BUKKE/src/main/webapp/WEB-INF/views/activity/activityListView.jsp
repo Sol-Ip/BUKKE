@@ -40,9 +40,6 @@
   background-color: #428bca;
   padding : 5px 15px;
 }
-
-
-
 </style>
 <body>
 	<!-- fixed section -->

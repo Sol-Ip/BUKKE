@@ -124,8 +124,9 @@ public class ShopController {
 	}
 	
 	// 업체회원 마이페이지 연결
+	@RequestMapping(value="shopMypage.com")
 	public String shopInfoView() {
-		return "";
+		return "shop/shopMypage";
 	}
 	
 	public String modifyShop() {

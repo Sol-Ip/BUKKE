@@ -12,7 +12,8 @@
 
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
-
+<!-- tab -->
+<link rel="stylesheet" href="../resources/css/mypage/tab.css"> 
 <style>
 #exTab1 .tab-content {
   color : white;
@@ -24,6 +25,11 @@
   color : white;
   background-color: #428bca;   
   padding : 5px 15px;
+  }
+  
+  .retable {
+  max-width : 1400px;
+  }
 }
 
 /* remove border radius for the tab */
@@ -214,33 +220,76 @@
 				</div>
 		<!-- ========================= 클래스 정보란 END =========================  -->
 		<!-- 예약 목록 탭 -->
-		<div class="container">
-			<ul class="nav nav-tabs">
-				<li class="nav-item" style="width:100px;"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
-				<li class="nav-item" style="width:100px; float:right;"><a class="nav-link" data-bs-toggle="tab" href="#profile">액티비티</a></li>
-				<li class="nav-item" style="width:100px; float:right;"><a class="nav-link" data-bs-toggle="tab" href="#profile">클래스</a></li>
-			</ul>
-			<!-- <div id="myTabContent" class="tab-content">
-				<div class="tab-pane fade active show" id="home">
-					<h1>전체</h1>
-				</div>
-				<div class="tab-pane fade active show" id="profile">
-					<h1>분류탭1</h1>
-				</div>
-				<div class="tab-pane fade active show" id="dropdown1">
-					<h1>분류탭2</h1>
-				</div>
-				<div class="tab-pane fade active show" id="dropdown2">
-					<h1>분류탭3</h1>
-				</div>
-			</div> -->
-			
-		</div>
+		
+	  <section class="ftco-animate"> 
+	  <div class="container">
+		<div class="tabset retable"> 
+  
+  <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+  <label for="tab1">전체</label>
+  
+  <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+  <label for="tab2">액티비티</label>
+  
+  <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
+  <label for="tab3">클래스</label>
+  
+ <div class="tab-panels"> 
+     <section id="marzen" class="tab-panel"> 
+<!--     <div class="row col-lg-12" style="align:center;"> -->
+    <table class="table table-hover" >
+  <thead>
+    <tr>
+      <th scope="col"><input type="checkbox"></th>
+      <th scope="col">구분</th>
+      <th scope="col">예약 번호</th>
+      <th scope="col">회원명</th>
+      <th scope="col">클래스/액티비티 명</th>
+      <th scope="col">예약일</th>
+      <th scope="col">승인여부</th>
+      <th scope="col">승인/거절</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><input type="checkbox"></th>
+      <td>asd</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+      <td>@mdo</td>
+    </tr>
+    
+  </tbody>
+</table>
+</section>
+    <section id="rauchbier" class="tab-panel">
+      <h2>6B. Rauchbier</h2>
+      <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
+      <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
+  </section> 
+   
+    <section id="dunkles" class="tab-panel">
+      <h2>6C. Dunkles Bock</h2>
+      <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
+      <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
+    </section>
+ </div>
+
+ 
+  </div> 
+</div> 
+</section>
+
+<p>&nbsp;</p>
 		<!-- 예약 목록 탭 끝 -->
-		<!-- ========================= 클래스 탭  =========================  -->
+		<!-- ========================= 예약관리 테이블  =========================  -->
+		
 		<div class="container">
 		<div class="row col-lg-12" style="align:center;">
-			<table class="table table-bordered">
+		<%-- 	<table class="table table-bordered">
 	        <thead>
 	            <tr>
 	                <!-- 체크박스 빼도 됨 / 메뉴선택에 필요한 컬럼 넣거나 빼도 됨 -->
@@ -270,9 +319,12 @@
 		            </tr>
 		        </tbody>
         </c:forEach>
-    </table>
-		</div>
+    </table> --%>
 		
+	
+
+    
+		</div>
 		<!-- 페이징 처리 -->
 		<div class="container">
     	<div class="row no-gutters mt-5">	
@@ -324,5 +376,6 @@
 <!-- 사이드바 -->
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
 
 <jsp:include page="../common/footer.jsp"></jsp:include>

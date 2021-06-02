@@ -5,8 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Page</title>
-<jsp:include page="../common/header.jsp"></jsp:include>
-
+<jsp:include page="common/header.jsp"></jsp:include>
+<!-- 탭 -->
+<link rel="stylesheet" href="../resources/css/mypage/tab.css">
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -14,6 +15,7 @@
 
 </head>
 <!-- <body id="body-pd"> -->
+
 <body id="">
 
    <!-- ============================================== MyPage fixed Section ==============================================-->
@@ -135,25 +137,22 @@
 					<h2 class="mb-4">페이지 메뉴 기입</h2>
 				</div>
 			</div>
-
-
-
-			<div class="row">
-				<div class="row col-lg-12" style="align: center;"></div>
-
-
-
-
-
-			</div>
-		</div>
-
-	</section>
-	<!-- ===================== 페이지 내용 기입란 END ===================== -->
-   
+				<!-- tab 시작 -->
+				
+				
+				
+				
+	
 <br>
+</div>
+</section>
+
+
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
+<!-- tab -->
+<script src="../resources/js/mypage/tab.js"></script>
 </body>
 </html>
-<jsp:include page="../common/footer.jsp"></jsp:include>
+<jsp:include page="common/footer.jsp"></jsp:include>

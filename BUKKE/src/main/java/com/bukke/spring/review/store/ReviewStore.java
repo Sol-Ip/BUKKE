@@ -9,60 +9,64 @@ import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 
 public interface ReviewStore {
-	// ÈÄ±â ÀüÃ¼ Á¶È¸
+	// ï¿½Ä±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸
 	public ArrayList<Review> selectReviewList(ReviewPageInfo pi);
 	
-	// ÈÄ±â »ó¼¼ Á¶È¸
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½È¸
 	public Review selectOneReview(int rId);
 	
-	// ÈÄ±â °Ë»ö
+	// ï¿½Ä±ï¿½ ï¿½Ë»ï¿½
 	public ArrayList<Review> selectSearchList(ReviewSearch search);
 	
-	// ÈÄ±â µî·Ï
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½
 	public int insertReview(Review review);
 	
-	// ÈÄ±â ¼öÁ¤
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int updateReview(Review review);
 	
-	// ÈÄ±â »èÁ¦
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int deleteReview(int rId);
 	
-	// ´ñ±Û Á¶È¸
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	public ArrayList<ReviewComment> selectCommentList(int nId);
 	
-	// ´ñ±Û µî·Ï
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public int insertComment(ReviewComment rComment);
 	
-	// ´ñ±Û ¼öÁ¤
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int updateComment(ReviewComment rComment);
 	
-	// ´ñ±Û »èÁ¦
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int deleteComment(ReviewComment rComment);
 	
-	//ÁÁ¾Æ¿ä ¿Ã¸²
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½Ã¸ï¿½
 	public int insertLikes(Review review);
 	
-	//ÁÁ¾Æ¿ä ³»¸²
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int deleteLikes(Review review);
 
 	public int selectListCount();
 
-	// Å¬·¡½º¿¡¼­ ¸®ºä º¸¿©ÁÖ±â
+	// Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 	public ArrayList<Review> selectReviewToBclass();
 	
-	//ÁÁ¾Æ¿ä°¹¼ö Ç¥½Ã
+	//ï¿½ï¿½ï¿½Æ¿ä°¹ï¿½ï¿½ Ç¥ï¿½ï¿½
 	public int getReviewLike(int reviewNo);
 	
-	//ÁÁ¾Æ¿äÃß°¡
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ß°ï¿½
 	public void insertReviewLike(ReviewLikes reviewLikes);
 	
-	//ÁÁ¾Æ¿ä»èÁ¦
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ï¿½
 	public void deleteReviewLike(ReviewLikes reviewLikes);
 	
-	//ÁÁ¾Æ¿ä¾÷µ¥ÀÌÆ®
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	public void updateReviewLike(int reviewNo);
 
 	public ReviewLikes selectOneReviewLikes(ReviewLikes reviewLikes);
+
+	public int selectLikeListCount(String memberId);
+
+	public ArrayList<Review> selectLikeReviewList(ReviewPageInfo pi, String memberId);
 	
 	
 }

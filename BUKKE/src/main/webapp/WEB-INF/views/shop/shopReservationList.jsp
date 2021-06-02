@@ -259,7 +259,11 @@
       <td>@mdo</td>
       <td>@mdo</td>
       <td>@mdo</td>
-      <td>@mdo</td>
+       <td>
+		  <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
+		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
+	  </td>
+      
     </tr>
     
   </tbody>

@@ -156,4 +156,16 @@ public class ReviewStoreLogic implements ReviewStore {
 	    RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		return  (ArrayList)session.selectList("reviewMapper.selectReviewListbyId",memberId,rowBounds);
 	}
+	@Override
+	public int selectCommentListCountbyId(String memberId) {
+		// TODO Auto-generated method stub
+		return session.selectOne("reviewMapper.selectCommentListCountbyId",memberId);
+	}
+	@Override
+	public ArrayList<Review> selectCommentListbyId(ReviewPageInfo pi, String memberId) {
+		// TODO Auto-generated method stub
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)session.selectList("reviewMapper.selectCommentListbyId",memberId,rowBounds);
+	}
 }

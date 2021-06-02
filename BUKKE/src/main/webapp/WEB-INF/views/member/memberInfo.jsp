@@ -84,7 +84,7 @@
 
                         <ul class="collapse__menu">
                             <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
-                            <a href="#" class="collapse__sublink">작성한 댓글</a>
+                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
                             <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
                             <a href="#" class="collapse__sublink">찜 목록</a>
                         </ul>

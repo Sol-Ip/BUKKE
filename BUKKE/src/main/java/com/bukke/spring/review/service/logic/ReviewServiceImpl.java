@@ -147,5 +147,15 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return rStore.selectReviewListbyId(pi, memberId);
 	}
+	@Override
+	public int getCommentListCountById(String memberId) {
+		// TODO Auto-generated method stub
+		return rStore.selectCommentListCountbyId(memberId);
+	}
+	@Override
+	public ArrayList<Review> printAllCommentbyId(ReviewPageInfo pi, String memberId) {
+		// TODO Auto-generated method stub
+		return rStore.selectCommentListbyId(pi,memberId);
+	}
 
 }

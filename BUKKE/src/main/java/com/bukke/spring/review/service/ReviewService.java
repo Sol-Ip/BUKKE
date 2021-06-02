@@ -50,4 +50,6 @@ public interface ReviewService {
 	public ArrayList<Review> printLikeReview(ReviewPageInfo pi, String memberId);
 	public int getReviewListCountById(String memberId);
 	public ArrayList<Review> printAllReviewbyId(ReviewPageInfo pi, String memberId);
+	public int getCommentListCountById(String memberId);
+	public ArrayList<Review> printAllCommentbyId(ReviewPageInfo pi, String memberId);
 }

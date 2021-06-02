@@ -20,7 +20,7 @@ public class MemberStoreLogic implements MemberStore {
 		return loginMember;
 	}
 	
-	// 카카오 계정 존재여부 확인
+	// 카카오 계정 존재여부 확인(이메일 중복확인도 가능)
 	@Override
 	public int loginKakao(Member member) {
 		int result = session.selectOne("memberMapper.kakaoLogin",member);
@@ -33,10 +33,11 @@ public class MemberStoreLogic implements MemberStore {
 		return result;
 	}
 
+	// 아이디 중복확인
 	@Override
 	public int checkIdDup(String memberId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = session.selectOne("memberMapper.checkIdDup",memberId);
+		return result;
 	}
 
 	@Override

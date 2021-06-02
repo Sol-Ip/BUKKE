@@ -85,11 +85,9 @@ public class MemberController {
 		member.setMemberAddr(memberAddr);
 		int result = mService.registerMember(member);
 		if (result > 0) {
-			model.addAttribute("msg", "회원가입성공~");
-			return "redirect:home.com";
+			return "member/registerComplete";
 		} else {
-			model.addAttribute("msg", "회원가입실패!");
-			return "common/errorPage";
+			return "redirect:home.com";
 		}
 
 	}
@@ -107,11 +105,25 @@ public class MemberController {
 		String email = (String) param.get("email");
 		// 맴버 변수에 값을 할당
 		Member loginMember = new Member();
-		loginMember.setMemberId("카카오ID회원"); // 혹시 당장 꼬일까봐 임시로 넣어놓은 ID
+		// 무작위 ID 생성
+		String kakaoId = "kakao";
+		Random rand = new Random();
+		for(int i = 0; i < 6; i++) {
+			String ran = Integer.toString(rand.nextInt(10));
+			kakaoId += ran;
+		}
+		// 무작위 PW 생성
+		String pwd = "";
+		String pwdSt[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+		for(int i=1; i<=6; i++) {
+			pwd+=pwdSt[rand.nextInt(26)];
+		}
+		loginMember.setMemberId(kakaoId);
+		loginMember.setMemberPw(pwd);
 		loginMember.setMemberName(nickname);
 		loginMember.setMemberNick(nickname);
 		loginMember.setMemberEmail(email);
-		int result = mService.loginKakao(loginMember);
+		int result = mService.loginKakao(loginMember); // 이메일 중복검사
 		if(result > 0) {
 			// 등록된 회원인 경우 세션 활성화
 				HttpSession session = request.getSession();
@@ -141,10 +153,14 @@ public class MemberController {
 
 	}
 
-	// @ResponseBody
-	// @RequestMapping(value="", method=RequestMethod.GET)
-	public String idDuplicateCheck(@RequestParam("userId") String userId) {
-		return "";
+	@ResponseBody
+	@RequestMapping(value="memberCheckIdDup.com", method=RequestMethod.GET)
+	public String idDuplicateCheck(@RequestParam("memberId") String memberId) {
+		int result = mService.checkIdDup(memberId); // 이메일 중복검사
+		if(result > 0) {
+			return "yes"; // 아이디 중복있음
+		}
+		return "no"; // 아이디 중복없음
 
 	}
 

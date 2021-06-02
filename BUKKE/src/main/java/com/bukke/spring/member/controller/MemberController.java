@@ -276,7 +276,7 @@ public class MemberController {
 			mv.setViewName("member/memberLikeListView");
 			
 		}else {
-			mv.addObject("msg", "�Խñ� ��ü��ȸ ����");
+			mv.addObject("msg", "좋아요한 글이 없습니다");
 			mv.setViewName("common/errorPage");
 			
 		}
@@ -300,7 +300,31 @@ public class MemberController {
 			mv.setViewName("member/memberReviewListView");
 
 		} else {
-			mv.addObject("msg", "�Խñ� ��ü��ȸ ����");
+			mv.addObject("msg", "작성한 후기가 없습니다");
+			mv.setViewName("common/errorPage");
+
+		}
+		return mv;
+	}
+	
+	// 마이페이지 내가쓴 댓글 목록
+	@RequestMapping(value = "commentListbyId.com", method = RequestMethod.GET)
+	public ModelAndView rListViewbyId(ModelAndView mv,
+			@RequestParam(value = "page", required = false) Integer page, HttpSession session) {
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		String memberId = loginMember.getMemberId();
+		int currentPage = (page != null) ? page : 1;
+
+		int listCount = rService.getCommentListCountById(memberId);
+		ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
+		ArrayList<Review> rcList = rService.printAllCommentbyId(pi, memberId);
+		if (!rcList.isEmpty()) {
+			mv.addObject("rcList", rcList);
+			mv.addObject("pi", pi);
+			mv.setViewName("member/memberCommentListView");
+
+		} else {
+			mv.addObject("msg", "작성한 댓글이 없습니다");
 			mv.setViewName("common/errorPage");
 
 		}

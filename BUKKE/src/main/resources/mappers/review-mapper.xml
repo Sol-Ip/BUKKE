@@ -158,5 +158,14 @@
 		SELECT * FROM REVIEW WHERE MEMBER_ID= #{memberId } ORDER BY REVIEW_NO DESC
 	</select>
 	<!-- 멤버 마이페이지 내가 쓴 후기글 전체조회 관련 기능 끝!-->
-
+	
+	<!-- 멤버 마이페이지 내가 쓴 댓글 전체조회 관련 기능 -->
+	<select id="selectCommentListCountbyId" resultType="_int">
+		SELECT COUNT(*) FROM REVIEW_COMMENT WHERE COMMENT_STATUS = 'Y' AND MEMBER_ID = #{memberId }
+	</select>
+	
+	<select id="selectCommentListbyId" resultMap="reviewResultMap">
+		SELECT * FROM REVIEW WHERE REVIEW_NO IN (SELECT REVIEW_NO FROM REVIEW_COMMENT WHERE COMMENT_STATUS = 'Y' AND MEMBER_ID = #{memberId })
+	</select>
+	
 </mapper>

@@ -207,5 +207,11 @@ public class NoticeController {
 	public String mypageChat() {
 		return "chat/myPageChat";
 	}
+	
+	//임시 테스트용 페이지
+	@RequestMapping(value="test.com")
+	public String testPage() {
+		return "test";
+	}
 }
 

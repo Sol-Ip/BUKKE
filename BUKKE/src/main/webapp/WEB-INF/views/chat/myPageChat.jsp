@@ -402,7 +402,9 @@
 		
 	</section>
 	<!-- ===================== 페이지 내용 기입란 END ===================== -->
-   
+	
+	<!-- 탭 쓰기 -->
+	
 <br>
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>

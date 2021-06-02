@@ -140,68 +140,8 @@
 			</div>
 
 			<div class="row">
-				<div class="row col-lg-12" style="align: center;">
-					<div class="col-lg-2"></div>
-					<div class="col-lg-4 col-md-6 col-sm-6 info">
-						<div class="text-center feature-block">
-							<span class="fb-icon color-info"> <i class="fa fa-user"
-								aria-hidden="true"></i>
-							</span>
-							<h4 class="color-info">
-								<b>내 정보</b>
-							</h4>
-							<br> <a href="javascript:void(0)"
-								class="btn btn-info btn-custom">Click</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6 info">
-						<!-- <div class="text-center feature-block" style="width: 330px; margin-left: 130px"> -->
-						<div class="text-center feature-block">
-							<span class="fb-icon color-warning"> <i
-								class="far fa-calendar-check " aria-hidden="true"></i>
-							</span>
-							<h4 class="color-warning">
-								<b>부캐 일정</b>
-							</h4>
-							<br> <a href="javascript:void(0)"
-								class="btn btn-warning btn-custom">Click</a>
-						</div>
-					</div>
-					<div class="col-lg-2"></div>
-				</div>
-
-
-				<div class="row col-lg-12" style="align: center;">
-					<div class="col-lg-2"></div>
-					<div class="col-lg-4 col-md-6 col-sm-6 info">
-						<div class="text-center feature-block">
-							<span class="fb-icon color-success"> <i class="fas fa-pen"
-								aria-hidden="true"></i>
-							</span>
-							<h4 class="color-success">
-								<b>내 활동</b>
-							</h4>
-							<br> <a href="javascript:void(0)"
-								class="btn btn-success btn-custom">Click</a>
-						</div>
-					</div>
-
-
-
-					<div class="col-lg-4 col-md-6 col-sm-6 info">
-						<div class="text-center feature-block">
-							<span class="fb-icon color-danger"> <i
-								class="fas fa-user-slash" aria-hidden="true"></i>
-							</span>
-							<h4 class="color-danger">
-								<b>회원 탈퇴</b>
-							</h4>
-							<br> <a href="javascript:void(0)"
-								class="btn btn-danger btn-custom">Click</a>
-						</div>
-					</div>
-					<div class="col-lg-2"></div>
-				</div>
+				
+				
 
 			</div>
 		</div>
@@ -211,5 +151,5 @@
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
-</html>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+</html>

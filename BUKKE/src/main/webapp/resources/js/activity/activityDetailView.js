@@ -5,6 +5,15 @@ $(document).ready(function() {
 	$('#keep-btn1').click(function(){
 		location.href='activityKeep.com?activityNo=' + activityNo;
 		alert('찜 목록에 추가되었습니다!');
+		
+	});
+	
+	// 찜 하기 취소
+	var activityNo = $("#activityNo").val();
+	$('#keep-btn2').click(function(){
+		location.href='updateActivityKeep.com?activityNo=' + activityNo;
+		alert('찜하기가 취소되었습니다!');
+		
 	});
 	
 	

@@ -40,6 +40,13 @@ public class KeepStoreLogic implements KeepStore {
 	public ArrayList<Activity> selectActivityKeep(String memberId) {
 		return null;
 	}
+	
+	// 액티비티 찜 상세
+	@Override
+	public Keep selectOneActivityKeep(Keep keep) {
+		return sqlSession.selectOne("keepMapper.selectOneKeepActivity", keep);
+	}
+
 
 	// 액티비티 찜목록 추가
 	@Override
@@ -49,8 +56,9 @@ public class KeepStoreLogic implements KeepStore {
 
 	// 액티비티 찜목록 삭제
 	@Override
-	public int deleteActivityfromKeep(int keepNo) {
-		return sqlSession.delete("keepMapper.updateKeepActivity", keepNo);
+	public int deleteActivityfromKeep(Keep keep) {
+		return sqlSession.delete("keepMapper.updateKeepActivity", keep);
 	}
 
+	
 }

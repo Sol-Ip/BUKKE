@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -59,22 +60,30 @@ public class KeepController {
 	
 	// *찜목록 삭제기능 메소드 --액티비티
 	@RequestMapping(value="updateActivityKeep.com")
-	public String updateActivityKeep(@RequestParam("keepNo") int keepNo,
+	public String updateActivityKeep(@RequestParam("activityNo") int activityNo,
 									Model model,
 									HttpSession session) {
 		Member loginMember = (Member)session.getAttribute("loginMember"); 
+		String memberId = loginMember.getMemberId();
 		Keep keep = new Keep();
+		keep.setActivityNo(activityNo);
+		keep.setMemberId(memberId);
 		
-		keep.setKeepNo(keepNo);
-		keep.setMemberId(loginMember.getMemberId());
-		
-		int result = kService.updateActivityfromKeep(keepNo);
+		int result = kService.updateActivityfromKeep(keep);
+		System.out.println("null?? " + keep.toString());
 		if(result > 0) {
-			return "redirect:activityDetail.com?keepNo="  + keepNo;
+			//return "redirect:activityDetail.com?activityNo='" + activityNo + "', loginMember='" + loginMember;
+			return "redirect:activityDetail.com?activityNo=" + activityNo;
 		} else {
 			model.addAttribute("msg", "액티비티 찜하기 취소 실패");
 			return "common/errorPage";
 		}
 		
+	}
+	
+	@RequestMapping(value="KeepListbyId.com")
+	public String keepMypage() {
+		
+		return "member/memberKeep";
 	}
 }

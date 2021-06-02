@@ -68,25 +68,39 @@ public class ActivityController {
 	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
 	public ModelAndView activityDetailView(ModelAndView mv,
 										Model model,
-										HttpServletRequest request,//HttpSession session,
+										HttpServletRequest request,
+										HttpSession session,
+										//@ModelAttribute Keep keep,
 										@RequestParam("activityNo") int activityNo) {
 		//조회 수 증가
 		//aService.addReadCountActivity(activityNo);
 		
 		
 		//게시글 상세조회
-		Activity activity = aService.printOneActivity(activityNo);
-		/*
-		 * Shop loginShopper =(Shop)session.getAttribute("loginShopper"); 
-		 * String memberId = loginMember.getMemberId(); 
-		 *
-		 * keep.setActivityNo(activityNo); keep.setMemberId(memberId);
-		 */
-	
-		ArrayList<Activity> aList = aService.printAllActivity();
+		Member loginMember = (Member)session.getAttribute("loginMember"); 
+		if (loginMember != null) {
+
+			String memberId = loginMember.getMemberId();
+			// 찜하기
+			Keep keep = new Keep();
+			keep.setActivityNo(activityNo);
+			keep.setMemberId(memberId);
+			Keep actKeep = kService.printActivityKeep(keep);
+			model.addAttribute("memberId", memberId);
+			if (actKeep != null && memberId.equals(actKeep.getMemberId())) {
+				keep.setKeepStatus("Y");
+			} else {
+				keep.setKeepStatus("N");
+			}
+			model.addAttribute("keep", keep);
+		}
+		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회
+		ArrayList<Activity> aList = aService.printAllActivity(); // 상위 top3 용도
 		if(activity != null && !aList.isEmpty()) {
+			
 			model.addAttribute("aList", aList);
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
+		
 		} else {
 			mv.addObject("msg", "액티비티 상세조회 실패");
 			mv.setViewName("common/errorPage");

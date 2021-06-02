@@ -47,6 +47,12 @@ public class KeepServiceImpl implements KeepService {
 		return null;
 	}
 	
+	// 액티비티 찜 상세
+	@Override
+	public Keep printActivityKeep(Keep keep) {
+		return kStore.selectOneActivityKeep(keep);
+	}
+	
 	// 액티비티 찜 등록
 	@Override
 	public int insertActivitytoKeep(Keep keep) {
@@ -55,9 +61,11 @@ public class KeepServiceImpl implements KeepService {
 	
 	// 액티비티 찜 취소
 	@Override
-	public int updateActivityfromKeep(int keepNo) {
-		return kStore.deleteActivityfromKeep(keepNo);
+	public int updateActivityfromKeep(Keep keep) {
+		return kStore.deleteActivityfromKeep(keep);
 	}
+
+	
 
 	
 }

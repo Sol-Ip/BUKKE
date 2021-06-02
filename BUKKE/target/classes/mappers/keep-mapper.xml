@@ -12,17 +12,17 @@
 	
 	<!-- 액티비티 KEEP 등록 -->
 	<insert id="insertKeepActivity">
-		INSERT INTO KEEP VALUES (SEQ_KEEP_NO.NEXTVAL, #{memberId}, null, #{activityNo},'1')
+		INSERT INTO KEEP VALUES (SEQ_KEEP_NO.NEXTVAL, #{memberId}, null, #{activityNo},'Y')
 	</insert>
 	
 	<!-- 액티비티 KEEP 취소(UPDATE) -->
 	<update id="updateKeepActivity">
-		UPDATE KEEP SET KEEP_STATUS = 0 WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO = #{activityNo}
+		UPDATE KEEP SET KEEP_STATUS = 'N' WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO = #{activityNo}
 	</update>
 	
 	<!-- 액티비티 KEEP한 글 조회 -->
-	<select id="selectKeepActivity" resultMap="KeepResultMap">
-		SELECT * FROM KEEP WHERE ACTIVITY_NO = #{activityNo} AND MEMBER_ID = #{memberId} 
+	<select id="selectOneKeepActivity" resultMap="KeepResultMap">
+		SELECT * FROM KEEP WHERE ACTIVITY_NO = #{activityNo} AND MEMBER_ID = #{memberId} AND KEEP_STATUS = 'Y' 
 	</select>
 	
 	<!-- 액티비티 KEEP 여부(check) , keep 했으면 1, 안 했으면 0으로 IS_CHECK 에 뜸-->

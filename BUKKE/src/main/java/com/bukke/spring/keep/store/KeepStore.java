@@ -12,24 +12,38 @@ public interface KeepStore {
 	 * 클래스 찜목록 조회
 	 */
 	public ArrayList<BukkeClass> selectClassKeep(String memberId);
-	/**
-	 * 액티비티 찜목록 조회
-	 */
-	public ArrayList<Activity> selectActivityKeep(String memberId);
+	
 	/**
 	 * 클래스 찜목록 추가
 	 */
 	public int insertBukkeClasstoKeep(BukkeClass bClass);
-	/**
-	 * 액티비티 찜목록 추가
-	 */
-	public int insertActivitytoKeep(Keep keep);
+	
 	/**
 	 * 클래스 찜목록 삭제
 	 */
 	public int deleteBukkeClassfromKeep(int keepNo);
+	
+	//////////////////////////////////// 
+	
+	/**
+	 * 액티비티 찜목록 조회
+	 */
+	public ArrayList<Activity> selectActivityKeep(String memberId);
+	
+	/**
+	 * 액티비티 찜 상세
+	 */
+	public Keep selectOneActivityKeep(Keep keep);
+	
+	
+	/**
+	 * 액티비티 찜목록 추가
+	 */
+	public int insertActivitytoKeep(Keep keep);
+	
 	/**
 	 * 액티비티 찜목록 삭제
 	 */
-	public int deleteActivityfromKeep(int keepNo);
+	public int deleteActivityfromKeep(Keep keep);
+	
 }

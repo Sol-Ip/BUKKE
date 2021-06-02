@@ -35,6 +35,11 @@ public interface KeepService {
 	public ArrayList<Activity> activityKeepList(String memberId);
 	
 	/**
+	 * 액티비티 찜 조회
+	 */
+	public Keep printActivityKeep(Keep keep);
+	
+	/**
 	 * 액티비티 찜 등록
 	 */
 	public int insertActivitytoKeep(Keep keep);
@@ -42,10 +47,7 @@ public interface KeepService {
 	/**
 	 * 액티비티 찜 취소
 	 */
-	public int updateActivityfromKeep(int keepNo);
+	public int updateActivityfromKeep(Keep keep);
 	
-	/**
-	 * 액티비티 찜목록 삭제
-	 */
 	
 }

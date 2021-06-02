@@ -216,9 +216,9 @@
 		<!-- 예약 목록 탭 -->
 		<div class="container">
 			<ul class="nav nav-tabs">
-				<li class="nav-item" style="width:100px;"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
-				<li class="nav-item" style="width:100px; float:right;"><a class="nav-link" data-bs-toggle="tab" href="#profile">액티비티</a></li>
-				<li class="nav-item" style="width:100px; float:right;"><a class="nav-link" data-bs-toggle="tab" href="#profile">클래스</a></li>
+				<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
+				<li class="nav-item" style="float:left;"><a class="nav-link" data-bs-toggle="tab" href="#profile">액티비티</a></li>
+				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">클래스</a></li>
 			</ul>
 			<!-- <div id="myTabContent" class="tab-content">
 				<div class="tab-pane fade active show" id="home">

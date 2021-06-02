@@ -123,14 +123,16 @@ public class ShopController {
 		return renameFileName;
 	}
 	
-	// 업체회원 마이페이지 연결
+	// 업체회원 마이페이지 메인 화면
 	@RequestMapping(value="shopMypage.com")
 	public String shopInfoView() {
 		return "shop/shopMypage";
 	}
 	
+	// 업체 회원 마이페이지 액티비티 등록 게시글 리스트 뷰
+	@RequestMapping(value="shopActivity.com")
 	public String modifyShop() {
-		return "";
+		return "shop/shopActivity";
 	}
 	
 	public String shopRegisterConfirm() {

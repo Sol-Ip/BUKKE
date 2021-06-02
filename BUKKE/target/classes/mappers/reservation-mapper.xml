@@ -35,11 +35,18 @@
    <select id="selectListCount" resultType="_int">
       SELECT COUNT(*) FROM RESERVATION
    </select>
+  
    
+   <!-- 
    <select id="selectAllList" resultMap="reservationMap">
       SELECT RESERVATION_NO, RESERVATION_ID, RESERVATION_STATUS, (SELECT CLASS_NAME FROM CLASS WHERE CLASS_NO = #{classNo }) AS "CLASS_NAME", RESERVATION_DATE FROM RESERVATION
    </select>
-   
+    -->
+      <select id="selectAllList" resultMap="reservationMap">
+         SELECT RESERVATION.RESERVATION_NO, RESERVATION.RESERVATION_ID, RESERVATION.RESERVATION_STATUS, CLASS.CLASS_NAME, RESERVATION.RESERVATION_DATE
+       FROM RESERVATION, CLASS
+       WHERE RESERVATION.CLASS_NO = CLASS.CLASS_NO
+   </select>
    <!-- <select id="selectOneBclass" resultMap="bClassResultMap">
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>

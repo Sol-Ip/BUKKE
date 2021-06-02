@@ -138,9 +138,9 @@
 	</select>
 	
 	
-	<!-- 멤버 좋아오 묙록을 위한 기능들 -->
+	<!-- 멤버 좋아요 묙록을 위한 기능들 -->
 	<select id="selectLikeListCount" resultType="_int">
-      SELECT COUNT(*) FROM (SELECT * FROM REVIEW WHERE REVIEW_NO IN (select REVIEW_NO FROM REVIEW_LIKES WHERE MEMBER_ID = #{memberId })) WHERE REVIEW_STATUS = 'Y'
+      SELECT COUNT(*) FROM (SELECT * FROM REVIEW WHERE REVIEW_NO IN (SELECT REVIEW_NO FROM REVIEW_LIKES WHERE MEMBER_ID = #{memberId })) WHERE REVIEW_STATUS = 'Y'
    </select>
 	
 	

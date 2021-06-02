@@ -2,6 +2,8 @@ package com.bukke.spring.reservation.domain;
 
 import java.sql.Date;
 
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+
 public class Reservation {
 	private int reservationNo; // 예약번호
 	private int classNo; // 클래스번호
@@ -10,7 +12,23 @@ public class Reservation {
 	private Date reservationDate; // 예약일
 	private String reservationStatus; // 예약 승인여부
 	
+	private BukkeClass bukkeClass;
+	
 	public Reservation() {}
+	
+
+	public Reservation(int reservationNo, int classNo, int activityNo, String reservationId, Date reservationDate,
+			String reservationStatus, BukkeClass bukkeClass) {
+		super();
+		this.reservationNo = reservationNo;
+		this.classNo = classNo;
+		this.activityNo = activityNo;
+		this.reservationId = reservationId;
+		this.reservationDate = reservationDate;
+		this.reservationStatus = reservationStatus;
+		this.bukkeClass = bukkeClass;
+	}
+
 
 	public int getReservationNo() {
 		return reservationNo;
@@ -50,11 +68,20 @@ public class Reservation {
 		this.reservationStatus = reservationStatus;
 	}
 
+	public BukkeClass getBukkeClass() {
+		return bukkeClass;
+	}
+
+	public void setBukkeClass(BukkeClass bukkeClass) {
+		this.bukkeClass = bukkeClass;
+	}
+
 	@Override
 	public String toString() {
 		return "Reservation [reservationNo=" + reservationNo + ", classNo=" + classNo + ", activityNo=" + activityNo
 				+ ", reservationId=" + reservationId + ", reservationDate=" + reservationDate + ", reservationStatus="
-				+ reservationStatus + "]";
+				+ reservationStatus + ", bukkeClass=" + bukkeClass + "]";
 	}
+
 	
 }

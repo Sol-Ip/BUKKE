@@ -9,6 +9,7 @@
 		<result property="activityNo" column="ACTIVITY_NO"></result>
 		<result property="reservationDate" column="RESERVATION_DATE"></result>
 		<result property="reservationStatus" column="RESERVATION_STATUS"></result>
+		<collection property="bukkeClass" resultMap="bClassResultMap" />
 	</resultMap>
 	
 	<resultMap type="BukkeClass" id="bClassResultMap">

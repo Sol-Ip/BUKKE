@@ -258,7 +258,7 @@
       <td>클래스</td>
       <td>${reservation.reservationNo }</td>
       <td>${reservation.reservationId }</td>
-      <td>${bukkeClass.className }</td>
+      <td>${reservation.bukkeClass.className }</td>
       <td>${reservation.reservationDate }</td>
       <td>${reservation.reservationStatus }</td>
        <td>

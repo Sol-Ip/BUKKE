@@ -23,6 +23,7 @@ public class BukkeClass {
 	private Date classEndDate; // 종강일
 	private String classStatus; // 클래스(삭제)여부
 	
+	
 	// 생성자
 	public BukkeClass() {}
 	

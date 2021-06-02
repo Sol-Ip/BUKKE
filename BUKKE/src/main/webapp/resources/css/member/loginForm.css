@@ -160,6 +160,7 @@ input[type=radio]:checked + label .spread-underline:after {
   left: 0; 
 }
 
+/* 로그인 버튼 */
 input[type=button] {
 	border-radius: 3px;
 	padding: 13px;
@@ -187,6 +188,8 @@ input[type=button] {
 	color: rgba(0,0,0,0.85);
 	font-size: 1.1rem;
 	width: 100%;
+	
+	/* 백그라운드 모달 */
 	height: 52px;
 	cursor: Pointer;
 }

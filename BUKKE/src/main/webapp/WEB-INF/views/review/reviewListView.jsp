@@ -79,7 +79,7 @@
 			<div class="row">
 			<c:forEach items="${rList }" var="review">
 				<div class="col-sm-4 ftco-animate">
-					<div class="blog-entry">
+					<div class="project">
 						<img src="../resources/reviewFiles/${review.rRenameFilename }" id="class-img" class="block-20"
 							alt="Colorlib Template">
 						<div class="text d-flex">
@@ -91,9 +91,9 @@
 							</h3>
 							
 						</div>
-						<a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
+						<%-- <a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
-						</a>
+						</a> --%>
 						
 					</div>
 					<br>

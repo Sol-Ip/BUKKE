@@ -12,6 +12,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
+<div class="backgroundModal"></div>
 <form action="memberLogin.com" method="POST">
   <div id="text-bubble">홈 바로가기</div>
   <svg width="200px" height="200px" viewBox="0 0 200 200" aria-labelledby="svg-title svg-desc">

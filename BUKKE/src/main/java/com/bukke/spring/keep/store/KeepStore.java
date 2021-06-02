@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.keep.domain.Keep;
 
 public interface KeepStore {
 
@@ -22,7 +23,7 @@ public interface KeepStore {
 	/**
 	 * 액티비티 찜목록 추가
 	 */
-	public int insertActivitytoKeep(Activity activity);
+	public int insertActivitytoKeep(Keep keep);
 	/**
 	 * 클래스 찜목록 삭제
 	 */

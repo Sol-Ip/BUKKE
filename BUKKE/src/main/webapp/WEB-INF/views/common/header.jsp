@@ -66,7 +66,7 @@
 							<div class="dropdown-toggle nav-link" data-toggle="dropdown">회원관리</div>
 							<div class="dropdown-menu dropdown-menu-left">
 								<a href="#" class="dropdown-item">공지사항</a>
-								<a href="#" class="dropdown-item">마이페이지</a>
+								<a href="memberMyPage.com" class="dropdown-item">마이페이지</a>
 								<a href="#" class="dropdown-item">회원메뉴 1</a>
 								<a href="memberLogout.com" id="memberLogout" class="dropdown-item">로그아웃</a>
 							</div>
@@ -77,7 +77,7 @@
 							<div class="dropdown-toggle nav-link" data-toggle="dropdown">회원관리</div>
 							<div class="dropdown-menu dropdown-menu-left">
 								<a href="#" class="dropdown-item">공지사항</a>
-								<a href="#" class="dropdown-item">마이페이지</a>
+								<a href="memberMyPage.com" class="dropdown-item">마이페이지</a>
 								<a href="#" class="dropdown-item">예약관리</a>
 								<a href="shopLogout.com" id="shopLogout" class="dropdown-item">로그아웃</a>
 							</div>

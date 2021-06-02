@@ -20,6 +20,20 @@ public class MemberServiceImpl implements MemberService {
 		Member loginMember = mStore.selectOneMember(member);
 		return loginMember;
 	}
+	
+	// 카카오 계정 존재여부 확인
+	@Override
+	public int loginKakao(Member member) {
+		int result = mStore.loginKakao(member);
+		return result;
+	}
+	
+	// 카카오 계정 회원가입
+	@Override
+	public int registerKakao(Member member) {
+		int result = mStore.registerKakao(member);
+		return result;
+	}
 
 	@Override
 	public int checkIdDup(String memberId) {

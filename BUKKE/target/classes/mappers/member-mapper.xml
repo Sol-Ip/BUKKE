@@ -28,6 +28,14 @@
 			SELECT * FROM MEMBER WHERE MEMBER_ID = #{memberId} AND MEMBER_EMAIL =#{memberEmail}
 	</select>
 
+	<select id="kakaoLogin"  parameterType="Member" resultType="_int">
+			SELECT COUNT(*) FROM MEMBER WHERE MEMBER_EMAIL = #{memberEmail}
+	</select>
+	
+	<insert id="kakaoRegister" parameterType="Member">
+			INSERT INTO MEMBER (MEMBER_NAME, MEMBER_NICK, MEMBER_EMAIL) VALUES (#{memberName}, #{memberNick}, #{memberEmail})
+	</insert>
+
 	<insert id="insertMember" parameterType="Member">
 		INSERT INTO MEMBER (MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_NICK, MEMBER_ADDR, MEMBER_PHONE, MEMBER_EMAIL) VALUES
 		(#{memberId}, #{memberPw}, #{memberName}, #{memberNick}, #{memberAddr}, #{memberPhone}, #{memberEmail})

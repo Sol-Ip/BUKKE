@@ -64,7 +64,7 @@ li {
   margin: 150px auto;
 } */
 
-#keep-btn {
+#keep-btn1, #keep-btn2 {
 /* .buy-button { */
   border: none;
   background: none;
@@ -92,11 +92,11 @@ li {
   -moz-user-select: none;
   -ms-user-select: none;
 }
-user-select:none #keep-btn {
+user-select:none #keep-btn1, user-select:none #keep-btn2 {
   padding: 25px 86px;
   font-size: 1.5625rem;
 }
-#keep-btn:after {
+#keep-btn1:after, #keep-btn2:after {
   position: absolute;
   top: 100%;
   left: 0;
@@ -110,7 +110,7 @@ user-select:none #keep-btn {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-#keep-btn:hover, #keep-btn:focus {
+#keep-btn1:hover, #keep-btn1:focus, #keep-btn2:hover, #keep-btn2:focus {
   color: #fff;
   background-color: #e48080;
   text-decoration: none;
@@ -120,7 +120,7 @@ user-select:none #keep-btn {
 
 /*예약하기 btn */
 
-#reservation-btn {
+#reservation-btn1, #reservation-btn2 {
 /* .buy-button { */
   border: none;
   background: none;
@@ -148,11 +148,11 @@ user-select:none #keep-btn {
   -moz-user-select: none;
   -ms-user-select: none;
 }
-user-select:none #reservation-btn {
+user-select:none #reservation-btn1, user-select:none #reservation-btn2 {
   padding: 25px 86px;
   font-size: 1.5625rem;
 }
-#reservation-btn:after {
+#reservation-btn1:after, #reservation-btn2:after {
   position: absolute;
   top: 100%;
   left: 0;   
@@ -166,7 +166,7 @@ user-select:none #reservation-btn {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-#reservation-btn:hover, #reservation-btn:focus {
+#reservation-btn1:hover, #reservation-btn1:focus, #reservation-btn2:hover, #reservation-btn2:focus {
   color: #fff;
   background-color: #000000;
   text-decoration: none;

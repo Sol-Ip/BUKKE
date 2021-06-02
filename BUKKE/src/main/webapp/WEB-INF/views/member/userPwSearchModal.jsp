@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +12,7 @@
 <title>Insert title here</title>
 	<style>
 	
-	.backgroundModal{
+	.backgroundModal2{
 		position: fixed;
 		background-color: white;
 		width: 30%;
@@ -40,7 +44,7 @@
 		  position: relative;
 		   z-index: 1000; 
 	}
-	#close{
+	#close2{
 		width: 150px;
 		  height: 30px;
 		  box-sizing: border-box;
@@ -71,7 +75,7 @@
 
 
 <body>
-	 <div id="backgroundModal" class="backgroundModal">
+	 <div id="backgroundModal2" class="backgroundModal2">
 	 	<div class="modal-wrapper">
     <div class="head">
       </a>
@@ -79,10 +83,10 @@
     <div class="modalContents">
         <div class="good-job">
           <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-          <h1>회원님의 아이디는</h1>
+          <h1>회원님의 비밀번호는</h1>
           <div class="page-wrapper">
-          		<h2 id="idValue"></h2>
-  				<button id="close">취소</button>
+          		<h2 id="pwValue"></h2>
+  				<button id="close2">취소</button>
 			</div>
         </div>
     </div>

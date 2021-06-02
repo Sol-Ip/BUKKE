@@ -1,5 +1,7 @@
 package com.bukke.spring.member.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
@@ -193,6 +195,8 @@ public class MemberController {
 		mem.setMemberId(memberId);
 		mem.setMemberEmail(memberEmail);
 		Member member = mService.searchMemberPw(mem);
+		
+		
 		String pwd = "";
 		String pwdSt[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 		if (member != null) {
@@ -231,7 +235,7 @@ public class MemberController {
 			}
 			return "success";
 		} else {
-			return "fail";
+			return "회원님의 아이디가 조회되지 않습니다.";
 		}
 	}
 	

@@ -40,17 +40,23 @@
 		</div>
 	</section>
 	<!-- fixed section END-->
+	
+	<!-- 검색창  -->
 	<section class="ftco-section" style="margin-top: -10%;">
   		  <section class="ftco-section"   >        
             <div class="sidebar-box" style="float: right; width: 25%;" >
-              <form action="#" class="search-form">
+              <form action="noticeSearch.com" class="search-form">
                 <div class="form-group" >
                   <span class="icon icon-search"></span>
-                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                  <input type="search" class="form-control" name="noticeKeyword"  value="${noticeSearch.noticeKeyword }" placeholder="검색어 입력 후 엔터를 치세요">
+                  
                 </div>
               </form>
             </div>
             </section>
+            
+            
+            
 		<%-- <form class="col-md-5 card card-lg" style="margin-left: 10px"
 						action="noticeSearch.com" method="get" >
 					<div class="card-body row no-gutters align-items-center">

@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>아이디/비밀번호 찾기</title>
 <link rel="stylesheet" href="/resources/css/member/memberSearch.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 <jsp:include page="userIdSearchModal.jsp"></jsp:include>
+<jsp:include page="userPwSearchModal.jsp"></jsp:include>
 	<form action="#" method="POST">
 		<svg width="200px" height="0px" viewBox="0 0 200 200"
 			aria-labelledby="svg-title svg-desc">
@@ -142,10 +143,18 @@
 		$('#close').on('click', function() {
 			$('#backgroundModal').fadeOut();
 		});
+		$('#close2').on('click', function() {
+			$('#backgroundModal2').fadeOut();
+		});
 		// 3. 모달창 윈도우 클릭 시 닫기
 		$(window).on('click', function() {
 			if (event.target == $('#backgroundModal').get(0)) {
 	            $('#backgroundModal').hide();
+	         }
+		});
+		$(window).on('click', function() {
+			if (event.target == $('#backgroundModal2').get(0)) {
+	            $('#backgroundModal2').hide();
 	         }
 		});
 		
@@ -153,17 +162,19 @@
 	 function idSearchClick3(){
 			console.log($('#memberId').val());
 			console.log($('#memberEmail').val());
+			
 			$.ajax({
 				type:"POST",
 				url:"memberSearchPw.com",
+				contentType : "application/text; charset:UTF-8",
 				data : {
 					"memberId" : $('#memberId').val(),
 					"memberEmail" : $('#memberEmail').val()
 				},
 				success:function(data){
 					// if(data == "success")
-					$('#idValue').text(data);
-					$('#backgroundModal').fadeIn();
+					$('#pwValue').text(data);
+					$('#backgroundModal2').fadeIn();
 						// 아이디값 별도로 저장
 						//idV = data;
 				}

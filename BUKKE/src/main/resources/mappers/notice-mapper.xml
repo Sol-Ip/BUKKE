@@ -27,9 +27,10 @@
 		</select>
 		
 		<select id="selectSearchList" resultMap="noticeResultMap">
-			SELECT * FROM NOTICE
-			<if test="noticeCategory.toString() =='title'">WHERE NOTICE_TITLE LIKE '%' || #{noticeKeyword}||'%'</if>
-			<if test="noticeCategory.toString() =='contents'">WHERE NOTICE_CONTENTS LIKE '%' || #{noticeKeyword}||'%'</if>
+			SELECT * FROM NOTICE 
+			WHERE
+			NOTICE_TITLE LIKE '%' || #{noticeKeyword} || '%' OR
+			NOTICE_CONTENTS LIKE '%' || #{noticeKeyword} || '%'
 			ORDER BY NOTICE_DATE DESC
 		</select>
 		

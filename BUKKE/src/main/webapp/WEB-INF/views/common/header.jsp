@@ -57,7 +57,7 @@
 						<li id="bclass" class="nav-item"><a href="bukkeClassList.com" class="nav-link">클래스</a></li>
 						<li id="activity" class="nav-item"><a href="activityList.com" class="nav-link">액티비티</a></li>
 						<li id="review" class="nav-item"><a href="reviewList.com" class="nav-link">후기</a></li>
-						<li id="gift" class="nav-item"><a href="#" class="nav-link">선물하기</a></li>
+						<li id="gift" class="nav-item"><a href="giftFirstPageView.com" class="nav-link">선물하기</a></li>
 						<c:if test="${ empty sessionScope.loginMember && empty sessionScope.loginShopper}">
 						<li id="login" class="nav-item"><a href="memberLoginForm.com" class="nav-link">로그인</a></li>
 						</c:if>

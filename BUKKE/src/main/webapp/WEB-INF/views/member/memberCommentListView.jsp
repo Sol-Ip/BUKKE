@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../common/header.jsp?active=review"></jsp:include>
+<jsp:include page="../common/header.jsp?active=login"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +42,7 @@
 				<div class="col-12">
 					<div class="card mb-4">
 						<div class="card-header pb-0 text-center">
-							<h5>자주 묻는 게시판</h5>
+							<h5>내가 댓글 남긴 후기 글 목록</h5>
 						</div>
 						<div class="card-body px-0 pt-0 pb-2">
 							<div class="table-responsive p-0">

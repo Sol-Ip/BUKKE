@@ -10,6 +10,7 @@
 		<result property="reservationDate" column="RESERVATION_DATE"></result>
 		<result property="reservationStatus" column="RESERVATION_STATUS"></result>
 		<collection property="bukkeClass" resultMap="bClassResultMap" />
+		<collection property="activity" resultMap="ActivityResultMap" />
 	</resultMap>
 	
 	<resultMap type="BukkeClass" id="bClassResultMap">
@@ -30,6 +31,25 @@
 		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
 	</resultMap>
 	
+	<resultMap type="Activity" id="ActivityResultMap">
+		<id property="activityNo" column="ACTIVITY_NO"></id>
+		<result property="shopId" column="SHOP_ID"></result> 
+		<result property="activityName" column="ACTIVITY_NAME"></result> 
+		<result property="activityAddr" column="ACTIVITY_ADDR"></result> 
+		<result property="activityType" column="ACTIVITY_TYPE"></result> 
+		<result property="activityTypeDetails" column="ACTIVITY_TYPEDETAILS"></result> 
+		<result property="activityTypeDetailCodes" column="ACTIVITY_TYPEDETAIL_CODE"></result> 
+		<result property="activityInfo" column="ACTIVITY_INFO"></result> 
+		<result property="activityPrice" column="ACTIVITY_PRICE"></result>
+		<result property="activityCapacity" column="ACTIVITY_CAPACITY"></result> 
+		<result property="activityEnrolldate" column="ACTIVITY_ENROLL_DATE"></result> 
+		<result property="activityStartdate" column="ACTIVITY_START_DATE"></result> 
+		<result property="activityEnddate" column="ACTIVITY_END_DATE"></result> 
+		<result property="activityStatus" column="ACTIVITY_STATUS"></result> 
+		<result property="aOriginalFilename" column="A_ORIGINAL_FILENAME"></result> 
+		<result property="aRenameFilename" column="A_RENAME_FILENAME"></result> 
+	</resultMap>
+	
 	 
 	<!-- 게시물 리스트 -->
    <select id="selectListCount" resultType="_int">
@@ -43,10 +63,17 @@
    </select>
     -->
       <select id="selectAllList" resultMap="reservationMap">
-         SELECT RESERVATION.RESERVATION_NO, RESERVATION.RESERVATION_ID, RESERVATION.RESERVATION_STATUS, CLASS.CLASS_NAME, RESERVATION.RESERVATION_DATE
-       FROM RESERVATION, CLASS
-       WHERE RESERVATION.CLASS_NO = CLASS.CLASS_NO
-   </select>
+      SELECT RESERVATION.RESERVATION_NO,RESERVATION.CLASS_NO,null as ACTIVITY_NO, RESERVATION.RESERVATION_ID, RESERVATION.RESERVATION_STATUS, CLASS.CLASS_NAME, null as ACTIVITY_NAME, RESERVATION.RESERVATION_DATE
+          FROM RESERVATION,  CLASS
+          WHERE (RESERVATION.CLASS_NO = CLASS.CLASS_NO)
+		UNION
+	  SELECT RESERVATION.RESERVATION_NO,null as CLASS_NO,RESERVATION.ACTIVITY_NO, RESERVATION.RESERVATION_ID, RESERVATION.RESERVATION_STATUS,null as_CLASS_NAME, ACTIVITY.ACTIVITY_NAME, RESERVATION.RESERVATION_DATE 
+		          FROM RESERVATION, ACTIVITY
+		          WHERE (RESERVATION.ACTIVITY_NO = ACTIVITY.ACTIVITY_NO)
+   	  </select>
+         <!-- SELECT RESERVATION.RESERVATION_NO, RESERVATION.RESERVATION_ID, RESERVATION.RESERVATION_STATUS, CLASS.CLASS_NAME, ACTIVITY.ACTIVITY_NAME, RESERVATION.RESERVATION_DATE
+	       FROM RESERVATION, CLASS, ACTIVITY
+	       WHERE RESERVATION.CLASS_NO = CLASS.CLASS_NO, RESERVATION.ACTIVITY_NO = ACTIVITY.ACTIVITY_NO -->
    <!-- <select id="selectOneBclass" resultMap="bClassResultMap">
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>

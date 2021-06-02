@@ -255,10 +255,32 @@
   <tbody>
     <tr>
       <th scope="row"><input type="checkbox"></th>
-      <td>클래스</td>
+      <%-- <td>
+      <c:if test="${reservation.bukkeClass.className != null && reservation.activity.activityName == null }">
+      	<td>클래스</td>
+      </c:if>
+      <c:if test="${reservation.activity.activityName != null && reservation.bukkeClass.className == null }">
+      	<td>액티비티</td>
+      </c:if>
+      </td> --%>
+      <td>
+      <c:choose>
+      	<c:when test="${reservation.classNo != 0 }">
+			클래스
+		</c:when>
+		<c:when test="${reservation.activityNo != 0}">
+			액티비티
+		</c:when>      	
+		</c:choose>
+		</td>
       <td>${reservation.reservationNo }</td>
       <td>${reservation.reservationId }</td>
+      <c:if test="${reservation.classNo != 0 && reservation.activityNo == 0 }">
       <td>${reservation.bukkeClass.className }</td>
+      </c:if>
+      <c:if test="${reservation.activityNo != 0 && reservation.classNo == 0 }">
+      <td>${reservation.activity.activityName }</td>
+      </c:if>
       <td>${reservation.reservationDate }</td>
       <td>${reservation.reservationStatus }</td>
        <td>

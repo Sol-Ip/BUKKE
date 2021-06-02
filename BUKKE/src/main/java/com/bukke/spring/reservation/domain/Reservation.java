@@ -2,6 +2,7 @@ package com.bukke.spring.reservation.domain;
 
 import java.sql.Date;
 
+import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 
 public class Reservation {
@@ -13,6 +14,8 @@ public class Reservation {
 	private String reservationStatus; // 예약 승인여부
 	
 	private BukkeClass bukkeClass;
+	
+	private Activity activity;
 	
 	public Reservation() {}
 	
@@ -27,6 +30,21 @@ public class Reservation {
 		this.reservationDate = reservationDate;
 		this.reservationStatus = reservationStatus;
 		this.bukkeClass = bukkeClass;
+	}
+
+	
+
+	public Reservation(int reservationNo, int classNo, int activityNo, String reservationId, Date reservationDate,
+			String reservationStatus, BukkeClass bukkeClass, Activity activity) {
+		super();
+		this.reservationNo = reservationNo;
+		this.classNo = classNo;
+		this.activityNo = activityNo;
+		this.reservationId = reservationId;
+		this.reservationDate = reservationDate;
+		this.reservationStatus = reservationStatus;
+		this.bukkeClass = bukkeClass;
+		this.activity = activity;
 	}
 
 
@@ -75,13 +93,28 @@ public class Reservation {
 	public void setBukkeClass(BukkeClass bukkeClass) {
 		this.bukkeClass = bukkeClass;
 	}
+	
+	
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Reservation [reservationNo=" + reservationNo + ", classNo=" + classNo + ", activityNo=" + activityNo
 				+ ", reservationId=" + reservationId + ", reservationDate=" + reservationDate + ", reservationStatus="
-				+ reservationStatus + ", bukkeClass=" + bukkeClass + "]";
+				+ reservationStatus + ", bukkeClass=" + bukkeClass + ", activity=" + activity + "]";
 	}
 
 	
+
+	
 }
+

@@ -29,7 +29,6 @@ public class ReservationController {
 	// 예약 전체목록 jsp 이동
 		@RequestMapping(value="reservationList.com", method=RequestMethod.GET)
 		public ModelAndView reservationListView(ModelAndView mv, 
-												
 												@RequestParam(value="page", required=false) Integer page) {
 			int currentPage = (page != null) ? page : 1;
 			int listCount = reService.getListCount();

@@ -321,35 +321,7 @@
         </c:forEach>
     </table> --%>
 		
-	<!-- 	
-     	 <table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col"><input type="checkbox"></th>
-      <th scope="col">구분</th>
-      <th scope="col">예약 번호</th>
-      <th scope="col">회원명</th>
-      <th scope="col">클래스/액티비티 명</th>
-      <th scope="col">예약일</th>
-      <th scope="col">승인여부</th>
-      <th scope="col">승인/거절</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><input type="checkbox"></th>
-      <td>asd</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    
-  </tbody>
-</table> 
-  -->
+	
 
     
 		</div>

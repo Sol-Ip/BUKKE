@@ -100,6 +100,7 @@
 
                         <ul class="collapse__menu">
                             <a href="#" class="collapse__sublink">수업 목록</a>
+                            <a href="#" class="collapse__sublink">수업 일정</a>
                         </ul>
                     </div>
 
@@ -250,15 +251,16 @@
       <th scope="col">승인/거절</th>
     </tr>
   </thead>
+  <c:forEach items="${reservationList }" var="reservation">
   <tbody>
     <tr>
       <th scope="row"><input type="checkbox"></th>
-      <td>asd</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
+      <td>클래스</td>
+      <td>${reservation.reservationNo }</td>
+      <td>${reservation.reservationId }</td>
+      <td>${bukkeClass.className }</td>
+      <td>${reservation.reservationDate }</td>
+      <td>${reservation.reservationStatus }</td>
        <td>
 		  <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
 		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
@@ -267,6 +269,7 @@
     </tr>
     
   </tbody>
+  </c:forEach>
 </table>
 </section>
     <section id="rauchbier" class="tab-panel">

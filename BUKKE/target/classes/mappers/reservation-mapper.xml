@@ -6,10 +6,27 @@
 		<id property="reservationNo" column="RESERVATION_NO"></id>
 		<result property="reservationId" column="RESERVATION_ID"></result>
 		<result property="classNo" column="CLASS_NO"></result>
-		<result property="className" column="CLASS_NAME"></result>
 		<result property="activityNo" column="ACTIVITY_NO"></result>
 		<result property="reservationDate" column="RESERVATION_DATE"></result>
 		<result property="reservationStatus" column="RESERVATION_STATUS"></result>
+	</resultMap>
+	
+	<resultMap type="BukkeClass" id="bClassResultMap">
+		<id property="classNo" column="CLASS_NO"></id>
+		<result property="shopId" column="SHOP_ID"></result>
+		<result property="className" column="CLASS_NAME"></result>
+		<result property="classAddr" column="CLASS_ADDR"></result>
+		<result property="classType" column="CLASS_TYPE"></result>
+		<result property="classTypedetails" column="CLASS_TYPEDETAILS"></result>
+		<result property="classInfo" column="CLASS_INFO"></result>
+		<result property="classPrice" column="CLASS_PRICE"></result>
+		<result property="classCapacity" column="CLASS_CAPACITY"></result>
+		<result property="classEnrollDate" column="CLASS_ENROLL_DATE"></result>  
+		<result property="classStartDate" column="CLASS_START_DATE"></result>
+		<result property="classEndDate" column="CLASS_END_DATE"></result>
+		<result property="classStatus" column="CLASS_STATUS"></result>
+		<result property="cOriginalFilename" column="C_ORIGINAL_FILENAME"></result>
+		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
 	</resultMap>
 	
 	 
@@ -19,7 +36,7 @@
    </select>
    
    <select id="selectAllList" resultMap="reservationMap">
-      SELECT RESERVATION_NO, RESERVATION_ID, (SELECT CLASS_NAME FROM CLASS WHERE CLASS_NO = #{classNo }) AS "CLASS_NAME", RESERVATION_DATE FROM RESERVATION
+      SELECT RESERVATION_NO, RESERVATION_ID, RESERVATION_STATUS, (SELECT CLASS_NAME FROM CLASS WHERE CLASS_NO = #{classNo }) AS "CLASS_NAME", RESERVATION_DATE FROM RESERVATION
    </select>
    
    <!-- <select id="selectOneBclass" resultMap="bClassResultMap">

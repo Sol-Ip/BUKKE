@@ -5,7 +5,6 @@ import java.sql.Date;
 public class Reservation {
 	private int reservationNo; // 예약번호
 	private int classNo; // 클래스번호
-	private String className; // 클래스 이름
 	private int activityNo; // 액티비티 번호
 	private String reservationId; // 예약자
 	private Date reservationDate; // 예약일
@@ -26,14 +25,6 @@ public class Reservation {
 		this.classNo = classNo;
 	}
 	
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
 	public int getActivityNo() {
 		return activityNo;
 	}

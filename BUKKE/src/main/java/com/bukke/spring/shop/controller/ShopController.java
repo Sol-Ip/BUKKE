@@ -129,12 +129,12 @@ public class ShopController {
 		return "shop/shopMypage";
 	}
 	
-	// 업체 회원 마이페이지 액티비티 등록 게시글 리스트 뷰
-	@RequestMapping(value="shopActivity.com")
+	
 	public String modifyShop() {
-		return "shop/shopActivity";
+		return "";
 	}
 	
+	@RequestMapping(value="")
 	public String shopRegisterConfirm() {
 		return "";
 	}
@@ -146,4 +146,16 @@ public class ShopController {
 	public String idDuplicateCheck() {
 		return "";
 	}
+	
+		// 업체 회원 마이페이지 수업 목록
+		@RequestMapping(value="shopClassList.com")
+		public String shopClassListView() {
+			return "shop/bukkeClassList";
+		}
+		
+		// 업체 회원 마이페이지 수업 목록
+		@RequestMapping(value="shopSchedule.com")
+		public String shopScheduleView() {
+			return "shop/shopSchedule";
+		}
 }

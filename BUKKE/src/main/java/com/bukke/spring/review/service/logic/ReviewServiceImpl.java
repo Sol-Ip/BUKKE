@@ -19,21 +19,21 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	private ReviewStore rStore;
 
-	// ÈÄ±â ÀüÃ¼ Á¶È¸
+	// ï¿½Ä±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸
 	@Override
 	public ArrayList<Review> printAllReview(ReviewPageInfo pi) {
 		// TODO Auto-generated method stub
 		ArrayList<Review> rList = rStore.selectReviewList(pi);
 		return rList;
 	}
-	// ÈÄ±â »ó¼¼ Á¶È¸
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½È¸
 	@Override
 	public Review printOneReview(int rId) {
 		// TODO Auto-generated method stub
 		Review review = rStore.selectOneReview(rId);
 		return review;
 	}
-	// ÈÄ±â °Ë»ö
+	// ï¿½Ä±ï¿½ ï¿½Ë»ï¿½
 	@Override
 	public ArrayList<Review> searchReview(ReviewSearch search) {
 		// TODO Auto-generated method stub
@@ -41,43 +41,43 @@ public class ReviewServiceImpl implements ReviewService {
 		return searchList;
 	}
 	
-	// ÈÄ±â µî·Ï
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½
 	@Override
 	public int registerReview(Review review) {
 		// TODO Auto-generated method stub
 		return rStore.insertReview(review);
 	}
-	// ÈÄ±â ¼öÁ¤
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int modifyReview(Review review) {
 		// TODO Auto-generated method stub
 		return rStore.updateReview(review);
 	} 
-	// ÈÄ±â »èÁ¦
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int removeReview(int reviewNo) {
 		// TODO Auto-generated method stub
 		return rStore.deleteReview(reviewNo);
 	}
-	// ´ñ±Û Á¶È¸
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	@Override
 	public ArrayList<ReviewComment> printCommentAll(int reviewNo) {
 		// TODO Auto-generated method stub
 		return rStore.selectCommentList(reviewNo);
 	}
-	// ´ñ±Û µî·Ï
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@Override
 	public int registerComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
 		return rStore.insertComment(rComment);
 	}
-	// ´ñ±Û ¼öÁ¤
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int modifyComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	// ´ñ±Û »èÁ¦
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int removeComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
@@ -99,7 +99,7 @@ public class ReviewServiceImpl implements ReviewService {
 		return rStore.selectListCount();
 	}
 	
-	// Å¬·¡½º¿¡¼­ ÈÄ±â º¸¿©ÁÖ±â
+	// Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 	@Override
 	public ArrayList<Review> printReviewToBclass() {
 		return rStore.selectReviewToBclass();
@@ -126,6 +126,16 @@ public class ReviewServiceImpl implements ReviewService {
 	public ReviewLikes printReviewLikes(ReviewLikes reviewLikes) {
 		// TODO Auto-generated method stub
 		return rStore.selectOneReviewLikes(reviewLikes);
+	}
+	@Override
+	public int getListCountById(String memberId) {
+		// TODO Auto-generated method stub
+		return rStore.selectLikeListCount(memberId);
+	}
+	@Override
+	public ArrayList<Review> printLikeReview(ReviewPageInfo pi, String memberId) {
+		// TODO Auto-generated method stub
+		return rStore.selectLikeReviewList(pi, memberId);
 	}
 
 }

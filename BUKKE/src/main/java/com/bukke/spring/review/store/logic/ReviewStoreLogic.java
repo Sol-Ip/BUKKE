@@ -20,7 +20,7 @@ public class ReviewStoreLogic implements ReviewStore {
 	@Autowired
 	private SqlSessionTemplate session;
 	
-	// ÈÄ±â ÀüÃ¼ Á¶È¸(¸®½ºÆ®)
+	// ï¿½Ä±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸(ï¿½ï¿½ï¿½ï¿½Æ®)
 	@Override
 	public ArrayList<Review> selectReviewList(ReviewPageInfo pi) {
 		// TODO Auto-generated method stub
@@ -29,7 +29,7 @@ public class ReviewStoreLogic implements ReviewStore {
 		return (ArrayList)session.selectList("reviewMapper.selectReviewList",null,rowBounds);
 		
 	}
-	// ÈÄ±â »ó¼¼ Á¶È¸
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½È¸
 	@Override
 	public Review selectOneReview(int rId) {
 		// TODO Auto-generated method stub
@@ -37,50 +37,50 @@ public class ReviewStoreLogic implements ReviewStore {
 		return review;
 	}
 	
-	// ÈÄ±â °Ë»ö
+	// ï¿½Ä±ï¿½ ï¿½Ë»ï¿½
 	@Override
 	public ArrayList<Review> selectSearchList(ReviewSearch search) {
 		// TODO Auto-generated method stub
 		return (ArrayList)session.selectList("reviewMapper.selectSearchList", search);
 	}
 	
-	//ÈÄ±â µî·Ï
+	//ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½
 	@Override
 	public int insertReview(Review review) {
 		// TODO Auto-generated method stub
 		return session.insert("reviewMapper.insertReview", review);
 	}
-	//ÈÄ±â ¼öÁ¤
+	//ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int updateReview(Review review) {
 		// TODO Auto-generated method stub
 		return session.update("reviewMapper.updateReview", review);
 	}
-	//ÈÄ±â »èÁ¦
+	//ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int deleteReview(int reviewNo) {
 		// TODO Auto-generated method stub
 		return session.update("reviewMapper.deleteReview", reviewNo);
 	}
-	// ´ñ±Û Á¶È¸
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	@Override
 	public ArrayList<ReviewComment> selectCommentList(int reviewNo) {
 		// TODO Auto-generated method stub
 		return (ArrayList)session.selectList("reviewMapper.selectCommentList", reviewNo);
 	}
-	// ´ñ±Û µî·Ï
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@Override
 	public int insertComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
 		return session.insert("reviewMapper.insertComment", rComment);
 	}
-	// ´ñ±Û ¼öÁ¤
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int updateComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	// ´ñ±Û »èÁ¦
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int deleteComment(ReviewComment rComment) {
 		// TODO Auto-generated method stub
@@ -101,7 +101,7 @@ public class ReviewStoreLogic implements ReviewStore {
 		return session.selectOne("reviewMapper.selectListCount");
 	}
 	
-	// Å¬·¡½º¿¡¼­ ÈÄ±â º¸¿©ÁÖ±â
+	// Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 	@Override
 	public ArrayList<Review> selectReviewToBclass() {
 		return (ArrayList)session.selectList("reviewMapper.selectListToBclass");
@@ -131,5 +131,17 @@ public class ReviewStoreLogic implements ReviewStore {
 	public ReviewLikes selectOneReviewLikes(ReviewLikes reviewLikes) {
 		// TODO Auto-generated method stub
 		return session.selectOne("reviewMapper.seleceOneReviewLikes",reviewLikes);
+	}
+	@Override
+	public int selectLikeListCount(String memberId) {
+		// TODO Auto-generated method stub
+		return session.selectOne("reviewMapper.selectLikeListCount", memberId);
+	}
+	@Override
+	public ArrayList<Review> selectLikeReviewList(ReviewPageInfo pi, String memberId) {
+		// TODO Auto-generated method stub
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)session.selectList("reviewMapper.selectLikeList",memberId,rowBounds);
 	}
 }

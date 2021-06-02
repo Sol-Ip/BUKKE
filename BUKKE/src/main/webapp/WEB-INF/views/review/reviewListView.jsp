@@ -91,6 +91,7 @@
 							</h3>
 							
 						</div>
+						<div class="col-sm text-info"  align="right">글쓴이 : ${review.memberId }</div>
 						<%-- <a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
 						</a> --%>

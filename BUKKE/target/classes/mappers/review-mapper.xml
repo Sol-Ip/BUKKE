@@ -18,6 +18,8 @@
 		
 	</resultMap> 
 	
+	
+	
 	<select id="selectListCount" resultType="_int">
       SELECT COUNT(*) FROM REVIEW WHERE REVIEW_STATUS = 'Y'
    </select>
@@ -25,6 +27,7 @@
 	<select id="selectReviewList" resultMap="reviewResultMap">
 		SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
 	</select>
+	
 	
 	<select id="selectOne" resultMap="reviewResultMap">
 		SELECT * FROM REVIEW WHERE REVIEW_NO = #{reviewNo }
@@ -133,5 +136,18 @@
 	<select id="seleceOneReviewLikes" resultMap="likeResultMap">
 		SELECT * FROM REVIEW_LIKES WHERE REVIEW_NO = #{reviewNo } AND MEMBER_ID = #{memberId }
 	</select>
+	
+	
+	<!-- 멤버 좋아오 묙록을 위한 기능들 -->
+	<select id="selectLikeListCount" resultType="_int">
+      SELECT COUNT(*) FROM (SELECT * FROM REVIEW WHERE REVIEW_NO IN (select REVIEW_NO FROM REVIEW_LIKES WHERE MEMBER_ID = #{memberId })) WHERE REVIEW_STATUS = 'Y'
+   </select>
+	
+	
+	<select id="selectLikeList" resultMap="reviewResultMap">
+		SELECT * FROM REVIEW WHERE REVIEW_NO IN (select REVIEW_NO FROM REVIEW_LIKES WHERE MEMBER_ID = #{memberId }) ORDER BY REVIEW_NO DESC
+	</select>
+	
+	
 
 </mapper>

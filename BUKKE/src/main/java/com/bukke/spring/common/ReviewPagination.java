@@ -8,7 +8,7 @@ public class ReviewPagination {
 		public static ReviewPageInfo getPageInfo(int currentPage, int listCount) { 
 			ReviewPageInfo pi = null;
 			int pageLimit = 10; // 한 페이지에서 보여줄 네비게이션 수
-			int boardLimit = 12; // 한 페이지에서 보여줄 게시글의 갯수 
+			int boardLimit = 9; // 한 페이지에서 보여줄 게시글의 갯수 
 			int maxPage;		// 전체 페이지 중 가장 마지막 페이지
 			int startPage;		// 현재 페이지에서 시작하는 첫번째 페이지
 			int endPage;		// 현재 페이지에서 끝나는 마지막 페이지

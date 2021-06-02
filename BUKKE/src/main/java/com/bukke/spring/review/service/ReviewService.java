@@ -9,41 +9,43 @@ import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 
 public interface ReviewService {
-	// ÈÄ±â ÀüÃ¼ Á¶È¸
+	// ï¿½Ä±ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸
 	public ArrayList<Review> printAllReview(ReviewPageInfo pi);
-	// ÈÄ±â »ó¼¼ Á¶È¸
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½È¸
 	public Review printOneReview(int rId);
-	// ÈÄ±â °Ë»ö
+	// ï¿½Ä±ï¿½ ï¿½Ë»ï¿½
 	public ArrayList<Review> searchReview(ReviewSearch search);
-	// ÈÄ±â µî·Ï
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½
 	public int registerReview(Review review);
-	// ÈÄ±â ¼öÁ¤
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int modifyReview(Review review);
-	// ÈÄ±â »èÁ¦
+	// ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int removeReview(int rId);
-	// ´ñ±Û Á¶È¸
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	public ArrayList<ReviewComment> printCommentAll(int reviewNo);
-	// ´ñ±Û µî·Ï
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public int registerComment(ReviewComment rComment);
-	// ´ñ±Û ¼öÁ¤
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int modifyComment(ReviewComment rComment);
-	// ´ñ±Û »èÁ¦
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int removeComment(ReviewComment rComment);
-	//ÁÁ¾Æ¿ä ¿Ã¸²
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½Ã¸ï¿½
 	public int addLikes(Review review);
-	//ÁÁ¾Æ¿ä ³»¸²
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int removeLikes(Review review);
 	public int getListCount();
-	// Å¬·¡½º¿¡¼­ ÈÄ±â º¸¿©ÁÖ±â
+	// Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 	public ArrayList<Review> printReviewToBclass();
 	
-	//ÁÁ¾Æ¿äÃß°¡
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ß°ï¿½
 	public void insertReviewLike(ReviewLikes reviewLikes);
 	
-	//ÁÁ¾Æ¿ä»èÁ¦
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ï¿½
 	public void deleteReviewLike(ReviewLikes reviewLikes);
 	
-	//ÁÁ¾Æ¿äÁ¶È¸
+	//ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½È¸
 	public int getReviewLike(int reviewNo);
 	public ReviewLikes printReviewLikes(ReviewLikes reviewLikes);
+	public int getListCountById(String memberId);
+	public ArrayList<Review> printLikeReview(ReviewPageInfo pi, String memberId);
 }

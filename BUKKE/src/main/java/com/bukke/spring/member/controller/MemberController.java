@@ -1,5 +1,6 @@
 package com.bukke.spring.member.controller;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
@@ -19,8 +20,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.member.service.MemberService;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewPageInfo;
+import com.bukke.spring.review.service.ReviewService;
 
 @Controller
 public class MemberController {
@@ -30,6 +35,9 @@ public class MemberController {
 
 	@Autowired
 	private MailSender mailSender;
+	
+	@Autowired
+	private ReviewService rService;
 
 	// 로그인 JSP 이동
 	@RequestMapping(value = "memberLoginForm.com", method = RequestMethod.GET)
@@ -249,5 +257,30 @@ public class MemberController {
 
 		return "chat/chatting";
 
+	}
+	
+	
+	//마이페이지 좋아요 목록
+	@RequestMapping(value="reviewLikeList.com", method=RequestMethod.GET)
+	public ModelAndView reviewListView(ModelAndView mv
+			,@RequestParam(value="page", required=false) Integer page,  HttpSession session) {
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		String memberId = loginMember.getMemberId();
+		int currentPage = (page != null) ? page : 1;
+		int listCount = rService.getListCountById(memberId);
+		ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
+		ArrayList<Review> rlList = rService.printLikeReview(pi, memberId);
+		if(!rlList.isEmpty()) {
+			mv.addObject("rlList", rlList);
+			mv.addObject("pi", pi);
+			mv.setViewName("member/memberLikeListView");
+			
+		}else {
+			mv.addObject("msg", "�Խñ� ��ü��ȸ ����");
+			mv.setViewName("common/errorPage");
+			
+		}
+		return mv;
+		
 	}
 }

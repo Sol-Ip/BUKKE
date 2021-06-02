@@ -69,29 +69,25 @@ public class ReviewController {
 	public String reviewDetail(@RequestParam("reviewNo") int reviewNo,  Model model, HttpServletRequest request,HttpServletResponse response, HttpSession session) {
 		Review review = rService.printOneReview(reviewNo);
 		Member loginMember = (Member)session.getAttribute("loginMember");
-		String memberId = loginMember.getMemberId();
-		ReviewLikes rvLike = new ReviewLikes();
-		rvLike.setReviewNo(reviewNo);
-		rvLike.setMemberId(memberId);
-		ReviewLikes reviewLikes = rService.printReviewLikes(rvLike);
-		model.addAttribute("memberId",memberId);
-	//	System.out.println(reviewLikes.getMemberId());
-		if(loginMember !=null) {
-			String heartYN = "";
-			if(reviewLikes != null && memberId.equals(reviewLikes.getMemberId())) {
-				heartYN = "Y";
-				System.out.println("heartYN : "+ heartYN);
-				model.addAttribute("heartYN",heartYN);
-			}else {
-				 heartYN = "N";
-				 System.out.println("heartYN : "+ heartYN); 
-				 model.addAttribute("heartYN", heartYN); 
-				 
-				
-			}
-		//	String heartYN = reviewLikes.getLikeCheck();
-			
-			
+		if(loginMember != null) {
+			String memberId = loginMember.getMemberId();
+			ReviewLikes rvLike = new ReviewLikes();
+			rvLike.setReviewNo(reviewNo);
+			rvLike.setMemberId(memberId);
+			ReviewLikes reviewLikes = rService.printReviewLikes(rvLike);
+			model.addAttribute("memberId",memberId);
+			if(loginMember !=null) {
+				String heartYN = "";
+				if(reviewLikes != null && memberId.equals(reviewLikes.getMemberId())) {
+					heartYN = "Y";
+					System.out.println("heartYN : "+ heartYN);
+					model.addAttribute("heartYN",heartYN);
+				}else {
+					 heartYN = "N";
+					 System.out.println("heartYN : "+ heartYN); 
+					 model.addAttribute("heartYN", heartYN); 
+				}
+		}
 			// 1check?���ƿ� ���θ� üũ���༭ ��Ʈ������ �����ش�
 		    int rLikes = rService.getReviewLike(reviewNo); // ���� �� reviewNo�� �޺κ� ����
 		    model.addAttribute("heart",rLikes);////////////////////////////////////////////////�̰� �ڲ� 0���ΰ���

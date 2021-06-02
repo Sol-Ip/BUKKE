@@ -12,7 +12,7 @@
 	
 	<!-- 액티비티 KEEP 등록 -->
 	<insert id="insertKeepActivity">
-		INSERT INTO KEEP VALUES (SEQ_KEEP_NO.NEXTVAL, #{memberId}, null, #{activityNo},'1');
+		INSERT INTO KEEP VALUES (SEQ_KEEP_NO.NEXTVAL, #{memberId}, null, #{activityNo},'1')
 	</insert>
 	
 	<!-- 액티비티 KEEP 취소(UPDATE) -->

@@ -236,6 +236,7 @@
 							</div>
 
 							<!-- 사용자만 버튼 누를 시 기능 적용 -->
+							<input type="hidden" id="activityNo" name="activityNo" value="${activity.activityNo }">
 							<c:if test="${empty loginShopper && !empty loginMember}">
 								<!-- 사용자 로그인 할 때 -->
 								<div class="event-btns">
@@ -351,7 +352,7 @@
 			<div id="act-map" class="ftco-animate"
 				style="width: 100%; height: 550px;"></div>
 
-			<script type="text/javascript"
+		<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ea547584290f909f07a0c6b761312f2d&libraries=services"></script>
 			<script>
 						var mapContainer = document.getElementById('act-map'), // 지도를 표시할 div 
@@ -391,7 +392,7 @@
 												// 인포윈도우로 장소에 대한 설명을 표시합니다
 												var infowindow = new kakao.maps.InfoWindow(
 														{
-															content : '<div style="width:150px;text-align:center;padding:6px 0;">${ activity.activityName}</div>'
+															content : '<div style="width:250px;text-align:center;padding:6px 0;"><b>${ activity.activityName}</b></div>'
 														});
 												infowindow.open(map, marker);
 
@@ -400,7 +401,7 @@
 
 											}
 										});
-			</script>
+			</script> 
 		</div>
 	</section>
 	<!-- 액티비티 주소 지도로 표시 END -->
@@ -419,11 +420,11 @@
 	</section>
 
 
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
 </body>
 
-</html>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> -->
 <script type="text/javascript" src="../resources/js/activity/activityDetailView.js"></script>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+</html>

@@ -26,9 +26,16 @@ public class KeepController {
 	public String AddBukkeClasstoKeep() {
 		return null;
 	}
+	
+	// *찜목록 삭제기능 메소드 --클래스
+		public String RemoveBukkeClassfromKeep() {
+			return null;
+		}
+		
+		
 	// *찜목록 추가기능 메소드 --액티비티
 	@RequestMapping(value="activityKeep.com")
-	public String AddActivitytoKeep(@RequestParam("activityNo") int activityNo,
+	public String insertActivityKeep(@RequestParam("activityNo") int activityNo,
 									Model model,
 									HttpSession session) {
 		
@@ -41,7 +48,7 @@ public class KeepController {
 		int result = kService.insertActivitytoKeep(keep);
 		
 		if(result > 0) {
-			System.out.println("찜한 액티비티 글번호 : " + result);
+			//System.out.println("찜한 액티비티 결과 : " + result);
 			return "redirect:activityDetail.com?activityNo="  + activityNo;
 		} else {
 			model.addAttribute("msg", "액티비티 찜하기 실패");
@@ -49,12 +56,25 @@ public class KeepController {
 		}
 		
 	}
-	// *찜목록 삭제기능 메소드 --클래스
-	public String RemoveBukkeClassfromKeep() {
-		return null;
-	}
+	
 	// *찜목록 삭제기능 메소드 --액티비티
-	public String RemoveActivityfromKeep() {
-		return null;
+	@RequestMapping(value="updateActivityKeep.com")
+	public String updateActivityKeep(@RequestParam("keepNo") int keepNo,
+									Model model,
+									HttpSession session) {
+		Member loginMember = (Member)session.getAttribute("loginMember"); 
+		Keep keep = new Keep();
+		
+		keep.setKeepNo(keepNo);
+		keep.setMemberId(loginMember.getMemberId());
+		
+		int result = kService.updateActivityfromKeep(keepNo);
+		if(result > 0) {
+			return "redirect:activityDetail.com?keepNo="  + keepNo;
+		} else {
+			model.addAttribute("msg", "액티비티 찜하기 취소 실패");
+			return "common/errorPage";
+		}
+		
 	}
 }

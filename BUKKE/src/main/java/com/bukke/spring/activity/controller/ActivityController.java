@@ -26,6 +26,7 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.common.ActivityPagination;
+import com.bukke.spring.keep.domain.Keep;
 import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.shop.domain.Shop;

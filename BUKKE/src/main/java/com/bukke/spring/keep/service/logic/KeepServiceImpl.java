@@ -56,7 +56,7 @@ public class KeepServiceImpl implements KeepService {
 	// 액티비티 찜 취소
 	@Override
 	public int updateActivityfromKeep(int keepNo) {
-		return 0;
+		return kStore.deleteActivityfromKeep(keepNo);
 	}
 
 	

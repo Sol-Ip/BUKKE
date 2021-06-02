@@ -50,7 +50,7 @@ public class KeepStoreLogic implements KeepStore {
 	// 액티비티 찜목록 삭제
 	@Override
 	public int deleteActivityfromKeep(int keepNo) {
-		return 0;
+		return sqlSession.delete("keepMapper.updateKeepActivity", keepNo);
 	}
 
 }

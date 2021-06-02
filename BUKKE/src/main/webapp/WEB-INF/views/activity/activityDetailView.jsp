@@ -237,8 +237,9 @@
 
 							<!-- 사용자만 버튼 누를 시 기능 적용 -->
 							<input type="hidden" id="activityNo" name="activityNo" value="${activity.activityNo }">
-							<c:if test="${empty loginShopper && !empty loginMember}">
 								<!-- 사용자 로그인 할 때 -->
+							<c:if test="${empty loginShopper && !empty loginMember}">
+								<%-- <c:if test="${keep.keepStatus == null }"> --%>
 								<div class="event-btns">
 									<button id="keep-btn1" class="buy-button button--big"
 										onclick="keep()">
@@ -250,8 +251,21 @@
 									<br>
 									<br>
 								</div>
+								<%-- </c:if> --%>
+								<%-- <c:if test="${keep.keepStatus == '1' }"> 
+								<div class="event-btns">
+									<button id="keep-btn1" class="buy-button button--big"
+										onclick="keep()">
+										<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기취소
+									</button>
+									<button id="reservation-btn1" class="buy-button button--big">
+										<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
+									</button>
+									<br>
+									<br>
+								</div>
+							 </c:if> --%>
 							</c:if>
-
 
 							<c:if test="${empty loginShopper && empty loginMember}">
 								<!-- 사용자 로그인 안 할 때 -->

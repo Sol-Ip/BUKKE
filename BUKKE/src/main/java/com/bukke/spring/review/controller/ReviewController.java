@@ -56,7 +56,7 @@ public class ReviewController {
 			mv.setViewName("review/reviewListView");
 			
 		}else {
-			mv.addObject("msg", "�Խñ� ��ü��ȸ ����");
+			mv.addObject("msg", "리스트가 없습니다");
 			mv.setViewName("common/errorPage");
 			
 		}

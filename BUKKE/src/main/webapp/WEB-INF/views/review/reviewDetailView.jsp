@@ -100,8 +100,7 @@
 										;
 										var heartYN = "${heartYN}";
 
-										//var reviewNo = '${review.reviewNo }';
-										// var memberId = '${loginMember.memberId}';
+								
 										console.log(heartYN);
 										console.log('${reviewLikes.memberId}');
 										console.log('${loginMember.memberId}');

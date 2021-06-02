@@ -13,11 +13,21 @@ public class GiftController {
 	@Autowired
 	private GiftService gService;
 	
-	
+	//선물하기 처음 페이지
 	@RequestMapping(value="giftFirstPageView.com", method=RequestMethod.GET)
 	public String GiftFirstView() {
 		return "gift/giftFirstPickPage";
 	}
+	//선물하기 처음->클래스 페이지
+	@RequestMapping(value="giftBukkeClass.com", method=RequestMethod.GET)
+	public String GiftBukkeClassView() {
+		return "gift/giftBukkeClass";
+	}
+	//선물하기 처음->액티비티 페이지
+		@RequestMapping(value="giftActivity.com", method=RequestMethod.GET)
+		public String GiftActivityView() {
+			return "gift/giftActivity";
+		}
 	// 선물하기 전체 보기
 	public String GiftListView() {
 		return null;

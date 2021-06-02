@@ -5,15 +5,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- 폰트 -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+<!-- css -->
+<link rel="stylesheet" href="resources/css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 주소검색 api -->
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <title>부캐 - 회원가입</title>
 </head>
 <style>
+	.container {
+		margin-bottom: 50px;
+	}
     @media (min-width: 650px) {
         .container {
+        	border: 1px solid rgb(204, 204, 204);
             width: 650px;
         }
     }
@@ -23,14 +34,31 @@
     	display: none;
         color: #f00;
     }
-      
+    .title {
+    	font-family: 'Poppins', Arial, sans-serif;
+    	font-size: 30px;
+    	font-weight: 900;
+    	cursor: Pointer;
+    }
+    .signUp {
+    	padding: 6px 24px;
+    	margin-bottom: 13px;
+    }
+    /* ajax 기다리는 동안 로딩아이콘 표시 */
+    #ajax_indicator {
+    	width: 2rem;
+    	height: 2rem;
+    	display: none;
+    }
 </style>
 <body>
-	<div class="py-5 text-center">
-		<h2>회원가입</h2>
-	</div>
+	<div class="py-5 title text-center">BUKKE</div>
 	<div class="container">
-        <form action="memberRegister.com" method="post">
+		<div class="text-left">
+			<h3>회원가입</h3>
+			<div id="ajax_indicator"><img src="/resources/images/ajax-loader_circle.gif"></div>
+		</div>
+        <form action="memberRegister.com" id="registerform" method="post">
         	<hr>
             <div class="form-group">
                 <label for="memberId">아이디</label>
@@ -80,14 +108,18 @@
                 <div class="invalid-email invalid-check">필수 정보입니다.</div>
             </div>
             <div class="text-center">
-                <button type="button" id="form-submit" class="btn btn-large">가입하기</button>
+                <button type="button" id="form-submit" class="btn btn-dark signUp">가입하기</button>
             </div>
         </form>
     </div>
 </body>
 <!-- 유효성 + 주소검색 -->
-<script src="/resources/js/shop/shopRegister.js"></script>
+<jsp:include page="../common/registerFooter.jsp"></jsp:include>
 <script>
+	// bukke 클릭시 홈으로 이동
+	$(".title").click(function(){
+		location.href='home.com';
+	})
 	// css 속성 (fucus상태에서 테두리)
 	$(".form-control").focus(function(){
 		$(this).css({
@@ -105,11 +137,11 @@
 	// 전송 시 유효성 검사
 	$("#form-submit").click(function(e){
 		var check_ok = false;
-		check_ok = (check_ok || invalidId());
 		$.ajax({
 			url: "memberCheckIdDup.com",
-			type: "GET",
+			type: "POST",
 			data: { memberId : $("#memberId").val() },
+			async: false,
 			success: function(data) {
 				if (data == "yes") {
 					$("#memberId").focus();
@@ -123,8 +155,17 @@
 				$(".invalid-id").html("서버 연결 상태가 좋지 않습니다.");
 				$(".invalid-id").show();
 				check_ok = true;
+			},
+			beforeSend: function() {
+				//통신을 시작할때 처리
+				$('#ajax_indicator').show();
+			},
+			complete: function() {
+				//통신이 완료된 후 처리
+				$('#ajax_indicator').fadeOut();
 			}
 		});
+		check_ok = (check_ok || invalidId());
 		check_ok = (check_ok || invalidPw());
 		check_ok = (check_ok || invalidPw_re());
 		check_ok = (check_ok || invalidName());
@@ -133,7 +174,7 @@
 		check_ok = (check_ok || invalidPhone());
 		check_ok = (check_ok || invaildEmail());
 		if(!check_ok) {
-			$("form").submit();
+			$("#registerform").submit();
 		}
 	})
 	function invalidId() {

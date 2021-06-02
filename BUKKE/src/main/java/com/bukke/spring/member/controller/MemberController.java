@@ -154,7 +154,7 @@ public class MemberController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value="memberCheckIdDup.com", method=RequestMethod.GET)
+	@RequestMapping(value="memberCheckIdDup.com", method=RequestMethod.POST)
 	public String idDuplicateCheck(@RequestParam("memberId") String memberId) {
 		int result = mService.checkIdDup(memberId); // 이메일 중복검사
 		if(result > 0) {

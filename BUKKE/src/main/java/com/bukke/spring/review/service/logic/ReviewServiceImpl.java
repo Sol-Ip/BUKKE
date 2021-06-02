@@ -137,5 +137,15 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return rStore.selectLikeReviewList(pi, memberId);
 	}
+	@Override
+	public int getReviewListCountById(String memberId) {
+		// TODO Auto-generated method stub
+		return rStore.selectReviewListCount(memberId);
+	}
+	@Override
+	public ArrayList<Review> printAllReviewbyId(ReviewPageInfo pi, String memberId) {
+		// TODO Auto-generated method stub
+		return rStore.selectReviewListbyId(pi, memberId);
+	}
 
 }

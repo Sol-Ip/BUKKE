@@ -280,7 +280,30 @@ public class MemberController {
 			mv.setViewName("common/errorPage");
 			
 		}
-		return mv;
+		return mv;	
+	}
+	
+	// 마이페이지 내가쓴 후기글 목록
+	@RequestMapping(value = "reviewListbyId.com", method = RequestMethod.GET)
+	public ModelAndView reviewListViewbyId(ModelAndView mv, @RequestParam(value = "page", required = false) Integer page,
+			HttpSession session) {
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		String memberId = loginMember.getMemberId();
+		int currentPage = (page != null) ? page : 1;
 		
+		int listCount = rService.getReviewListCountById(memberId);
+		ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
+		ArrayList<Review> rList = rService.printAllReviewbyId(pi, memberId);
+		if (!rList.isEmpty()) {
+			mv.addObject("rList", rList);
+			mv.addObject("pi", pi);
+			mv.setViewName("member/memberReviewListView");
+
+		} else {
+			mv.addObject("msg", "�Խñ� ��ü��ȸ ����");
+			mv.setViewName("common/errorPage");
+
+		}
+		return mv;
 	}
 }

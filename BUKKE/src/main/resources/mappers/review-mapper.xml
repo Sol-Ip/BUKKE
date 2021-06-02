@@ -147,7 +147,16 @@
 	<select id="selectLikeList" resultMap="reviewResultMap">
 		SELECT * FROM REVIEW WHERE REVIEW_NO IN (select REVIEW_NO FROM REVIEW_LIKES WHERE MEMBER_ID = #{memberId }) ORDER BY REVIEW_NO DESC
 	</select>
+	<!-- 멤버 좋아요 목록위한 기능 요기까지 -->
 	
+	<!-- 멤버 마이페이지 내가 쓴 후기글 전체조회 관련 기능들 -->
+	<select id="selectReviewListCountbyId" resultType="_int">
+		SELECT COUNT(*) FROM REVIEW WHERE REVIEW_STATUS = 'Y' AND MEMBER_ID = #{memberId } 
+	</select>
 	
+	<select id="selectReviewListbyId" resultMap="reviewResultMap">
+		SELECT * FROM REVIEW WHERE MEMBER_ID= #{memberId } ORDER BY REVIEW_NO DESC
+	</select>
+	<!-- 멤버 마이페이지 내가 쓴 후기글 전체조회 관련 기능 끝!-->
 
 </mapper>

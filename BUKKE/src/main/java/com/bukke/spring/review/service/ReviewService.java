@@ -48,4 +48,6 @@ public interface ReviewService {
 	public ReviewLikes printReviewLikes(ReviewLikes reviewLikes);
 	public int getListCountById(String memberId);
 	public ArrayList<Review> printLikeReview(ReviewPageInfo pi, String memberId);
+	public int getReviewListCountById(String memberId);
+	public ArrayList<Review> printAllReviewbyId(ReviewPageInfo pi, String memberId);
 }

@@ -76,9 +76,19 @@ public class ReservationController {
 		public String reservationRemove() {
 			return null;
 		}
-		// 예약 승인
-		public String confirmReservation() {
-			return null;
+		// 예약 여부
+		@RequestMapping(value="reservationconfirm.com", method = RequestMethod.GET)
+		public String confirmReservation(@ModelAttribute Reservation reservation) {
+			int confirm = reService.confirmReservaion(reservation);
+			int reject = reService.cancleReservation(reservation);
+			
+			String rStatus = "";
+			if(confirm >0) {
+				/* rStatus = reservation.getReservationStatus(); */
+				return "";
+			}else {
+				return "common/errorPage";
+			}
 		}
 		// 예약 거절
 		public String cancleReservation() {

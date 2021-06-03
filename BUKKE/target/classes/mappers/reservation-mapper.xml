@@ -78,6 +78,9 @@
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>
    
+   
+   
+   
    클래스 TOP3 목록
    <select id="selectTopThreeList" resultMap="bClassResultMap">
    	SELECT * FROM (SELECT * FROM CLASS ORDER BY CLASS_END_DATE DESC) WHERE ROWNUM &lt;= 3 AND CLASS_STATUS = 'Y'
@@ -110,5 +113,18 @@
    </update> -->
    
    
+   <!-- 예약 승인 -->
+   <update id="confirmReservation">
+   UPDATE RESERVATION SET
+   RESERVATION_STATUS = 'Y' 
+   WHERE RESERVATION_NO = #{reservationNo}
+   </update>
+   
+   <!-- 예약 거절 -->
+   <update id="rejectReservation">
+   UPDATE RESERVATION SET
+   RESERVATION_STATUS = 'N' 
+   WHERE RESERVATION_NO = #{reservationNo}
+   </update>
    
 </mapper>

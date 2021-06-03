@@ -282,9 +282,9 @@
       <td>${reservation.activity.activityName }</td>
       </c:if>
       <td>${reservation.reservationDate }</td>
-      <td>${reservation.reservationStatus }</td>
+      <td><span id="rStatus">${reservation.reservationStatus } </span>&nbsp;&nbsp;</td>
        <td>
-		  <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
+		  <button id="confirm" onclick="confirm(${reservation.reservationNo})" class="btn btn-primary">승인</button>
 		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
 	  </td>
       
@@ -399,6 +399,28 @@
         </div>
     	</div>
     </section>
+<script>
+		
+		function confirm(reservationNo) {
+			var rSpan = $("#rStatus");
+			
+			$.ajax({
+			type:"GET",
+			url:"reservationconfirm.com",
+			data : {
+				"reservationNo" : reservationNo
+			},
+			success:function(data){
+				if (data == "success") {
+					rSpan.text(data.rStatus);
+				} else {
+					alert("실패!");
+				}
+			}
+		});
+			};
+		
+</script>    
 </body>
 </html>
 

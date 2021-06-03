@@ -104,7 +104,7 @@ public class ReservationController {
 				System.out.println("성공?");
 				int reservationNo = reservationNumber;
 				reservationStatus= "Y";
-				likeMap.put("revStatus",reservationStatus);
+				String revStatus = reservationStatus;
 				
 				return "success";
 			}else {

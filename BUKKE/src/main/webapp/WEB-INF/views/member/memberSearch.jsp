@@ -8,6 +8,12 @@
 <title>아이디/비밀번호 찾기</title>
 <link rel="stylesheet" href="/resources/css/member/memberSearch.css">
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+	.invalid-check{
+		display: none;
+	}
+	
+</style>
 </head>
 <body>
 <jsp:include page="userIdSearchModal.jsp"></jsp:include>
@@ -49,7 +55,7 @@
 					<input type="text" name="memberName" id="memberName" />
 					<div class="placeholder">USER NAME</div>
 				</div>
-				<div class="invalid-check"></div>
+				<div class="invalid-check" id="nameC">이름을 입력해 주세요</div>
 			</fieldset>
 			<fieldset class="member-filed with-placeholder">
 				<legend>휴대폰 번호</legend>
@@ -59,7 +65,7 @@
 						spellcheck="false" />
 					<div class="placeholder">-없이 입력해주세요</div>
 				</div>
-				<div class="invalid-check"></div>
+				<div class="invalid-check" id="phoneC">휴대폰 번호를 입력해 주세요</div>
 			</fieldset>
 			<br>
 			<fieldset id="submit-field">
@@ -81,7 +87,7 @@
 					<input type="text" name="memberId" id="memberId" />
 					<div class="placeholder">USER ID</div>
 				</div>
-				<div class="invalid-check"></div>
+				<div class="invalid-check" id="idC">아이디를 입력해 주세요</div>
 			</fieldset>
 			<fieldset class="member-filed with-placeholder">
 				<legend>이메일</legend>
@@ -91,7 +97,7 @@
 						spellcheck="false"/>
 					<div class="placeholder">Email@gmail.com</div>
 				</div>
-				<div class="invalid-check"></div>
+				<div class="invalid-check" id="emailC">이메일 입력해 주세요</div>
 			</fieldset>
 			<br>
 			<fieldset id="submit-field">
@@ -117,22 +123,29 @@
 		}
 	}
 	function idSearchClick1(){
-		console.log($('#memberName').val());
-		console.log($('#memberPhone').val());
-		$.ajax({
-			type:"POST",
-			url:"memberSearchId.com",
-			data : {
-				"memberName" : $('#memberName').val(),
-				"memberPhone" : $('#memberPhone').val()
-			},
-			success:function(data){
-				$('#idValue').text(data);
-				$('#backgroundModal').fadeIn();
-					// 아이디값 별도로 저장
-					//idV = data;
-			}
-		});
+		if($("#memberName").val() == ""){
+			$("#nameC").show();
+		}
+		if($("#memberPhone").val() == ""){
+			$("#phoneC").show();
+		}
+		if($("#memberName").val() != "" && $("#memberPhone").val() != ""){
+			$.ajax({
+				type:"POST",
+				url:"memberSearchId.com",
+				data : {
+					"memberName" : $('#memberName').val(),
+					"memberPhone" : $('#memberPhone').val()
+				},
+				success:function(data){
+					$('#idValue').text(data);
+					$('#backgroundModal').fadeIn();
+						// 아이디값 별도로 저장
+						//idV = data;
+				}
+			});
+		}	
+		
 	}
 	 $(document).ready(function(){
 		/* $('#searchBtn1').click(function() {
@@ -160,29 +173,30 @@
 		
 	}); 
 	 function idSearchClick3(){
-			console.log($('#memberId').val());
-			console.log($('#memberEmail').val());
-			
-			$.ajax({
-				type:"POST",
-				url:"memberSearchPw.com",
-				contentType : "application/text; charset:UTF-8",
-				data : {
-					"memberId" : $('#memberId').val(),
-					"memberEmail" : $('#memberEmail').val()
-				},
-				success:function(data){
-					// if(data == "success")
-					$('#pwValue').text(data);
-					$('#backgroundModal2').fadeIn();
-						// 아이디값 별도로 저장
-						//idV = data;
-				}
-			});
-		}
-	 
-	
-	   
+		       if($("#memberId").val() == ""){
+		            $("#idC").show();
+		         }
+		         if($("#memberEmail").val() == ""){
+		            $("#emailC").show();
+		         }
+		         if($("#memberId").val() != "" && $("#memberEmail").val() != ""){
+		         $.ajax({
+		            type:"POST",
+		            url:"memberSearchPw.com",
+		            data : {
+		               "memberId" : $('#memberId').val(),
+		               "memberEmail" : $('#memberEmail').val()
+		            },
+		            success:function(data){
+		               // if(data == "success")
+		               $('#pwValue').text(data);
+		               $('#backgroundModal2').fadeIn();
+		                  // 아이디값 별도로 저장
+		                  //idV = data;
+		            }
+		         });
+		      }   
+		   }
 	 </script> 
 	
 	

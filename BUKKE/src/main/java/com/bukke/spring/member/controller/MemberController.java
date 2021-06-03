@@ -6,12 +6,24 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.mail.Multipart;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
 
+import org.aspectj.bridge.MessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +32,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.common.ReviewPagination;
@@ -28,6 +42,7 @@ import com.bukke.spring.member.service.MemberService;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.service.ReviewService;
+import com.sun.mail.util.logging.MailHandler;
 
 @Controller
 public class MemberController {
@@ -35,8 +50,13 @@ public class MemberController {
 	@Autowired
 	private MemberService mService;
 
+	/*
+	 * @Autowired private MailSender mailSender;
+	 */
+	
+	
 	@Autowired
-	private MailSender mailSender;
+	private JavaMailSender javaMailSender;
 	
 	@Autowired
 	private ReviewService rService;
@@ -190,7 +210,8 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping(value = "memberSearchPw.com", method = RequestMethod.POST)
 	public String userPwSearch(HttpSession session, HttpServletRequest request, HttpServletRequest response,
-			@RequestParam("memberId") String memberId, @RequestParam("memberEmail") String memberEmail) {
+			@RequestParam("memberId") String memberId, @RequestParam("memberEmail") String memberEmail 
+				) {
 		Member mem = new Member();
 		mem.setMemberId(memberId);
 		mem.setMemberEmail(memberEmail);
@@ -209,23 +230,31 @@ public class MemberController {
 				session.setAttribute("memberEmail", member.getMemberEmail());
 
 				String setfrom = "dlgywjd4878@gmail.com";
-				String tomail = memberEmail;
-				String title = "안녕하세요 부케입니다. 임시 비밀번호를 이메일로 보냈습니다.";
-				String content = "임시 비밀번호는 " + pwd + "입니다.";
+				String tomail = member.getMemberEmail();
+				String title = "안녕하세요 부캐입니다. 임시 비밀번호를 이메일로 보냈습니다.";
+				String content = "";
+					content += "<div align='center' style='border:1px solid black;'>";
+					content += "<h3>안녕하세요 부캐입니다! 회원님의 임시 비밀번호입니다. 마이페이지에서 비밀번호를 변경해주세요</h3>";
+					content += "<p>임시비밀번호는 " + pwd + "입니다<p></div>";
+				    String filename="C:\\Users\\gywjd\\Desktop\\부캐\\introduce1.jpg";
+					//첨부파일 경로
 
-//		  	MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "utf-8");
-//		  	
-//		  	messageHelper.setFrom(setfrom);
-//		  	messageHelper.setTo(tomail);
-//		  	messageHelper.setSubject(title);
-//		  	messageHelper.setText(content);
-
+				MimeMessage message = javaMailSender.createMimeMessage();
 				try {
-					SimpleMailMessage message = new SimpleMailMessage();
-					message.setTo(member.getMemberEmail());
-					message.setSubject(title);
-					message.setText(content);
-					this.mailSender.send(message);
+					MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+					
+					messageHelper.setFrom(setfrom);
+					messageHelper.setTo(member.getMemberEmail());
+					messageHelper.setSubject(title);
+					messageHelper.setText(content,true);
+					
+					//파일 첨부
+					 FileSystemResource fsr = new FileSystemResource(filename);
+				     messageHelper.addAttachment("test2.txt", fsr);
+					
+					//메일전송
+				    this.javaMailSender.send(message);
+					
 					
 					//비밀번호 update하기
 					mem.setMemberPw(pwd);

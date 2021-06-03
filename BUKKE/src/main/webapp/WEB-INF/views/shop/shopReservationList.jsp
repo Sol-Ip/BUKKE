@@ -415,7 +415,7 @@
          success:function(data){
             if (data.resultYn=="success") {
                rSpan.parent().prev().text(data.resultStatus);
-               console.log(rSpan);
+               alert(data.resultStatus);
             } else {
                alert("실패!");
             }
@@ -439,7 +439,6 @@
             success:function(data){
                if (data.resultYn=="success") {
                   rSpan.parent().prev().text(data.resultStatus);
-                  console.log(rSpan);
                } else {
                   alert("실패!");
                }

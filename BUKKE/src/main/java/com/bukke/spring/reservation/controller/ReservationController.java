@@ -95,14 +95,18 @@ public class ReservationController {
             int confirm =0;
             int reject =0;
          if(reservation.getReservationStatus().equals("Y")) {
+        	 // 예약상태를 꺼내와서 Y랑 일치하면
             confirm = reService.confirmReservaion(reservation);
+            // 예약승인 로직으로
          }else {
             reject = reService.cancleReservation(reservation);
+            //Y가 아닐 경우에는 예약 거절 로직으로
          }
          
          //int reservationNumber = reservation.getReservationNo();
          
          HashMap<String, Object> likeMap = new HashMap<String, Object>();
+         
          // 02, 서울 
          // 031, 경기도
          // resultYn, "success"

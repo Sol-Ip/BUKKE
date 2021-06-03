@@ -431,7 +431,7 @@
 </script>    
 </body>
 </html>
-
+<!-- 효정님 이거 보이십니까 -->
 <!-- 사이드바 -->
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>

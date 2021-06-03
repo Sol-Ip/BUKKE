@@ -51,6 +51,12 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 		return session.insert("bclassMapper.insertBclass", bClass);
 	}
 
+	// 클래스 등록 폼 상세분류 출력
+	@Override
+	public ArrayList<BukkeClass> selectClassType(String classType) {
+		return (ArrayList)session.selectList("bclassMapper.selectClassType", classType);
+	}
+	
 	// 클래스 수정 (업체회원-클래스 수정 메뉴)
 	@Override
 	public int updateBclass(BukkeClass bClass) {

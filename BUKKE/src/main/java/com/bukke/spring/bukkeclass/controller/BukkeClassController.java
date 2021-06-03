@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +28,8 @@ import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.BukkeClassPagination;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.service.ReviewService;
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 
 @Controller
 public class BukkeClassController {
@@ -156,6 +160,19 @@ public class BukkeClassController {
 			e.printStackTrace();
 		}
 		return cRenameFilename;
+	}
+	
+	// 분류 -> 상세 분류 넘기기
+	@ResponseBody
+	@RequestMapping(value="classTypedetails.com", method=RequestMethod.GET)
+	public void classTypedetails(@RequestParam("classType") String classType,
+								HttpServletResponse response) throws JsonIOException, IOException {
+		ArrayList<BukkeClass> bList = bService.printClassType(classType); // classType 가져오기
+		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		Gson gson = new Gson();
+		gson.toJson(bList, response.getWriter());
 	}
 	
 	// 클래스 수정 jsp 이동 (업체회원)

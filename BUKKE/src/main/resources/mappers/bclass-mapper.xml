@@ -9,12 +9,15 @@
 		<result property="classAddr" column="CLASS_ADDR"></result>
 		<result property="classType" column="CLASS_TYPE"></result>
 		<result property="classTypedetails" column="CLASS_TYPEDETAILS"></result>
+		<result property="classTypedetailCode" column="CLASS_TYPE_DETAIL_CODE"></result>
 		<result property="classInfo" column="CLASS_INFO"></result>
 		<result property="classPrice" column="CLASS_PRICE"></result>
 		<result property="classCapacity" column="CLASS_CAPACITY"></result>
 		<result property="classEnrollDate" column="CLASS_ENROLL_DATE"></result>  
 		<result property="classStartDate" column="CLASS_START_DATE"></result>
 		<result property="classEndDate" column="CLASS_END_DATE"></result>
+		<result property="classStartTime" column="CLASS_START_TIME"></result>
+		<result property="classEndTime" column="CLASS_END_TIME"></result>
 		<result property="classStatus" column="CLASS_STATUS"></result>
 		<result property="cOriginalFilename" column="C_ORIGINAL_FILENAME"></result>
 		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
@@ -48,13 +51,18 @@
    
    <insert id="insertBclass" parameterType="BukkeClass">
    	  INSERT INTO CLASS 
-   	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename })
-   </insert>  
+   	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename }, #{classStartTime }, #{classEndTime })
+   </insert>
+   
+   <!-- 클래스 등록 시 상세분류 출력 -->
+   <select id="selectClassType" resultMap="bClassResultMap">  
+   		SELECT CLASS_TYPEDETAILS, CLASS_TYPE_DETAIL_CODE FROM CLASS_TYPE WHERE CLASS_TYPE = #{classType }
+   </select>
     
    <update id="updateBclass">
    		UPDATE CLASS
    		SET CLASS_NAME = #{className }, CLASS_ADDR = #{classAddr }, CLASS_TYPE = #{classType }, CLASS_TYPEDETAILS = #{classTypedetails }, 
-   		CLASS_INFO = #{classInfo }, CLASS_PRICE = #{classPrice }, CLASS_START_DATE = #{classStartDate }, CLASS_END_DATE = #{classEndDate }, C_ORIGINAL_FILENAME = #{cOriginalFilename }, C_RENAME_FILENAME = #{cRenameFilename }
+   		CLASS_INFO = #{classInfo }, CLASS_PRICE = #{classPrice }, CLASS_START_DATE = #{classStartDate }, CLASS_END_DATE = #{classEndDate }, CLASS_START_TIME = #{classStartTime }, CLASS_END_TIME = #{classEndTime}, C_ORIGINAL_FILENAME = #{cOriginalFilename }, C_RENAME_FILENAME = #{cRenameFilename }
    		WHERE CLASS_NO = #{classNo }
    </update>
    

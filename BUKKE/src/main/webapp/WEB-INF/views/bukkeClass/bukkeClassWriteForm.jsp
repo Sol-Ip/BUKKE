@@ -18,6 +18,48 @@
 <!-- 캘린더 -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="../resources/css/bClass-custom/calendar.css">
+
+<!-- 타임피커 -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<link href="${pageContext.servletContext.contextPath}/resources/jquery/jquery-ui.css?version=1.3" rel="stylesheet" type="text/css" media="screen">
+<script src="${pageContext.servletContext.contextPath}/resources/js//jquery-1.8.3.min.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/jquery/jquery-ui.js?version=1.3"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<!-- <script>
+$(document).ready(function() {
+	 /* $("#write-btn").on("click",function(){
+		 if (!confirm("글을 등록하시겠습니까?")) {
+			 // 취소
+					return false;
+		 		} else {
+		     // 확인
+		 		}
+	 		}); */
+
+	$('#class-type').change(function () {
+		var selectType=$(this).val();
+		alert(selectType);
+			/*$("#classTypedetails").html("");
+				 $.ajax({
+					type : "get",
+					url : "classTypedetails.com",
+					dataType : "json",
+					data : { "classType" : selectType },
+					success : function(result) { 
+						for(var i in result) {
+							 $('#classTypedetails').append("<option value='"+result[i].classTypedetailCode+"' >"+result[i].classTypedetails+"</option>'");
+						}
+				 }
+				});//ajax 
+			})//첫번째 select 박스
+	$('#classTypedetails').change(function () {
+		//alert($('#partyHeadCount').val());
+		
+	})// 두번째 select 박스*/
+});
+
+};
+</script> -->
 <!-- 주소 검색 -->
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -98,14 +140,13 @@ function findAddr(){
 						<div class="col-md-6">
 							<!-- 분류 -->
 							<br> <label class="form-label" for="classType">분류</label>
-							<select class="form-control" name="classType" id="" required>
+							<select class="form-control" name="classType" id="class-type" required>
 								<option value="" hidden="hidden">분류를 선택해주세요</option>
-								<option value="플라워" <c:if test="${bukkeClass.classType == '플라워' }">selected </c:if>>플라워</option>
-								<option value="미술" <c:if test="${bukkeClass.classType == '미술' }">selected </c:if>>미술</option>
-								<option value="수공예" <c:if test="${bukkeClass.classType == '수공예' }">selected </c:if>>수공예</option>
-								<option value="뷰티" <c:if test="${bukkeClass.classType == '뷰티' }">selected </c:if>>뷰티</option>
-								<option value="음악" <c:if test="${bukkeClass.classType == '음악' }">selected </c:if>>음악</option>
-								<option value="요리" <c:if test="${bukkeClass.classType == '요리' }">selected </c:if>>요리</option>
+								<option value="플라워">플라워</option>
+								<option value="미술">미술</option>
+								<option value="수공예">뷰티</option>
+								<option value="뷰티">음악</option>
+								<option value="음악">사진</option>
 							</select>
 							<hr>
 						</div>
@@ -113,10 +154,10 @@ function findAddr(){
 						<div class="col-md-6">
 							<!-- 상세 분류 -->
 							<br> <label class="form-label" for="classTypedetails">상세분류</label>
-							<select class="form-control" name="classTypedetails" id="classTypedetails">
+							<select class="form-control" name="classTypedetails" id="classTypedetails" required>
 								<option value="" hidden="hidden">상세분류를 선택해주세요</option>
-								<option value="대면">대면</option>
-								<option value="비대면">비대면</option>
+								<!-- <option value="대면">대면</option>
+								<option value="비대면">비대면</option> -->
 							</select>
 							<hr>
 						</div>
@@ -161,6 +202,25 @@ function findAddr(){
 							</div>
 						</div>
 						
+						<hr>
+							<!-- 타임피커 이용해서 시작일 종료일 선택하기 -->
+							<!-- <input type="text" name="time" class="timepicker"> -->
+							<div class="row col-md-12" style="align:center;">
+							<div class="col-md-4">
+							<div class="startTime">
+									<label class="form-label" for="">시작 시간</label>
+									<br> 
+									<input type="text" class="timepicker" name="classStartTime" style="width:240px;" placeholder="시작 시간" required>
+							</div>
+							</div>
+							<div class="col-md-4">
+							<div class="endTime">
+									<label class="form-label" for="">종료 시간</label>
+									<br> 
+									<input type="text" class="timepicker" name="classEndTime" style="width:240px;" placeholder="종료 시간" required>
+							</div>
+							</div>
+							</div>
 						<hr>
 						<label class="form-label" for="classAddr">클래스 주소</label>&nbsp;&nbsp;&nbsp;
 							<input type="button" id="class-post" class="btn btn btn-dark btn-md" value="주소찾기" onclick="findAddr()">
@@ -220,18 +280,36 @@ $(document).ready(function() {
 			
 });
 
+
 /* $(function() {
 	$("#postcodify_search_button").postcodifyPopUp();
 }); */
 
 </script>
-
+<!-- 타임피커 -->
+<script>
+$('.timepicker').timepicker({
+    timeFormat: 'p h:mm',
+    interval: 60,
+    minTime: '09',
+    maxTime: '11:00pm',
+    defaultTime: '14',
+    startTime: '00:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+</script>
 </body>
-</html>
+
 <jsp:include page="../common/footer.jsp"></jsp:include>
+<!-- <script type="text/javascript" src="../resources/js/bclass/classWriteForm.js"></script> -->
 <!-- 섬머노트 -->
 <script src="/resources/note/summernote-lite.js"></script>
 <script src="/resources/note//lang/summernote-ko-KR.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-<script type="text/javascript" src="/resources/js/note-ready.js"></script>
+ <script type="text/javascript" src="/resources/js/note-ready.js"></script>
+</html>
+
+

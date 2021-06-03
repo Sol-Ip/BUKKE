@@ -33,7 +33,11 @@ public interface BukkeClassStore {
 	// 클래스에서 TOP3 리스트 보여주기
 	public ArrayList<BukkeClass> selectTopThreeListBclass();
 
+	// 예약에 클래스명 출력
 	public ArrayList selectReservation();
+
+	// 클래스 등록 시 상세분류 출력
+	public ArrayList<BukkeClass> selectClassType(String classType);
 
 
 	

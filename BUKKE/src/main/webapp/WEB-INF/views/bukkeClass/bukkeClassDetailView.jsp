@@ -144,6 +144,12 @@
 									<br>
 									<br>
 									<li><h3 class="act-type">
+											<b>시간</b>&nbsp;&nbsp;<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classStartTime } - ${bukkeClass.classEndTime }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
 											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
 									<li><h3 id="act-type">${bukkeClass.shopId }</h3></li>

@@ -13,6 +13,7 @@ public class BukkeClass {
 	private String classAddr; // 주소
 	private String classType; // 분류
 	private String classTypedetails; // 상세분류
+	private String classTypedetailCode; // 상세분류 코드
 	private String classInfo; // 상세내용
 	private String classPrice;// 클래스 가격
 	private String classCapacity; // 인원수
@@ -21,6 +22,8 @@ public class BukkeClass {
 	private Date classEnrollDate; // 등록일
 	private Date classStartDate; // 개강일
 	private Date classEndDate; // 종강일
+	private String classStartTime; // 클래스 시작 시간
+	private String classEndTime; // 클래스 종료 시간
 	private String classStatus; // 클래스(삭제)여부
 	
 	
@@ -63,6 +66,15 @@ public class BukkeClass {
 	public void setClassTypedetails(String classTypedetails) {
 		this.classTypedetails = classTypedetails;
 	}
+	
+	public String getClassTypedetailCode() {
+		return classTypedetailCode;
+	}
+
+	public void setClassTypedetailCode(String classTypedetailCode) {
+		this.classTypedetailCode = classTypedetailCode;
+	}
+
 	public String getClassInfo() {
 		return classInfo;
 	}
@@ -111,12 +123,29 @@ public class BukkeClass {
 	public void setClassEndDate(Date classEndDate) {
 		this.classEndDate = classEndDate;
 	}
+	
+	public String getClassStartTime() {
+		return classStartTime;
+	}
+
+	public void setClassStartTime(String classStartTime) {
+		this.classStartTime = classStartTime;
+	}
+
+	public String getClassEndTime() {
+		return classEndTime;
+	}
+
+	public void setClassEndTime(String classEndTime) {
+		this.classEndTime = classEndTime;
+	}
+
 	public String getClassStatus() {
 		return classStatus;
 	}
 	public void setClassStatus(String classStatus) {
 		this.classStatus = classStatus;
-	} 
+	}
 
 	@Override
 	public String toString() {
@@ -124,8 +153,10 @@ public class BukkeClass {
 				+ classAddr + ", classType=" + classType + ", classTypedetails=" + classTypedetails + ", classInfo="
 				+ classInfo + ", classPrice=" + classPrice + ", classCapacity=" + classCapacity + ", cOriginalFilename="
 				+ cOriginalFilename + ", cRenameFilename=" + cRenameFilename + ", classEnrollDate=" + classEnrollDate
-				+ ", classStartDate=" + classStartDate + ", classEndDate=" + classEndDate + ", classStatus="
-				+ classStatus + "]";
-	}
+				+ ", classStartDate=" + classStartDate + ", classEndDate=" + classEndDate + ", classStartTime="
+				+ classStartTime + ", classEndTime=" + classEndTime + ", classStatus=" + classStatus + "]";
+	} 
 
+
+	
 }

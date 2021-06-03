@@ -252,7 +252,7 @@
     </tr>
   </thead>
   <c:forEach items="${reservationList }" var="reservation">
-  <tbody>
+  <tbody> 
     <tr>
       <th scope="row"><input type="checkbox"></th>
       <%-- <td>

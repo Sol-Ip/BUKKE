@@ -44,7 +44,9 @@
 		<result property="activityCapacity" column="ACTIVITY_CAPACITY"></result> 
 		<result property="activityEnrolldate" column="ACTIVITY_ENROLL_DATE"></result> 
 		<result property="activityStartdate" column="ACTIVITY_START_DATE"></result> 
-		<result property="activityEnddate" column="ACTIVITY_END_DATE"></result> 
+		<result property="activityEnddate" column="ACTIVITY_END_DATE"></result>
+		<result property="classStartTime" column="CLASS_START_TIME"></result>
+     	<result property="classEndTime" column="CLASS_END_TIME"></result> 
 		<result property="activityStatus" column="ACTIVITY_STATUS"></result> 
 		<result property="aOriginalFilename" column="A_ORIGINAL_FILENAME"></result> 
 		<result property="aRenameFilename" column="A_RENAME_FILENAME"></result> 

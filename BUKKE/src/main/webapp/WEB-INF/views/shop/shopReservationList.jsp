@@ -419,7 +419,7 @@
 				console.log("이거나옴22??");
 				if (data=="success") {
 					console.log("이거나옴22??");
-					rSpan.text(reservationStatus);
+					rSpan.text("Y");
 					
 					console.log(rSpan);
 				} else {

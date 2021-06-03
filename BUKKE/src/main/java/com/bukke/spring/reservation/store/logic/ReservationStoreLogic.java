@@ -57,15 +57,13 @@ public class ReservationStoreLogic implements ReservationStore {
 	}
 
 	@Override
-	public int confirmReservaion() { // 예약 승인
-		// TODO Auto-generated method stub
-		return 0;
+	public int confirmReservaion(Reservation reservation) { // 예약 승인
+		return sqlSession.update("reservationMapper.confirmReservation", reservation);
 	}
 
 	@Override
-	public int cancleReservation() { // 예약 거절
-		// TODO Auto-generated method stub
-		return 0;
+	public int cancleReservation(Reservation reservation) { // 예약 거절
+		return sqlSession.update("reservationMapper.rejectReservation", reservation);
 	}
 
 }

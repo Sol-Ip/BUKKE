@@ -252,7 +252,7 @@
     </tr>
   </thead>
   <c:forEach items="${reservationList }" var="reservation">
-  <tbody>
+  <tbody> 
     <tr>
       <th scope="row"><input type="checkbox"></th>
       <%-- <td>
@@ -282,12 +282,12 @@
       <td>${reservation.activity.activityName }</td>
       </c:if>
       <td>${reservation.reservationDate }</td>
-      <td>${reservation.reservationStatus }</td>
+      <td><span id="rStatus">${reservation.reservationStatus } </span>&nbsp;&nbsp;</td>
        <td>
-		  <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
+		  <button id="confirm" onclick="confirm(${reservation.reservationNo},'${reservation.reservationStatus }')" class="btn btn-primary">승인</button>
 		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
 	  </td>
-      
+       
     </tr>
     
   </tbody>
@@ -399,9 +399,39 @@
         </div>
     	</div>
     </section>
+<script>
+		
+		function confirm(reservationNo,reservationStatus ) {
+			var rSpan = $("#rStatus");
+			
+			console.log("이거나옴??");
+			console.log($("#rStatus"));
+			var sendData = {
+					'reservationNo' : reservationNo,
+					'reservationStatus' : reservationStatus
+				};
+			$.ajax({
+			type:"GET",
+			url:"reservationconfirm.com",
+			data : sendData,
+			success:function(data){
+				console.log("이거나옴22??");
+				if (data=="success") {
+					console.log("이거나옴22??");
+					rSpan.text("Y");
+					console.log(rSpan);
+				} else {
+					alert("실패!");
+				}
+			}
+			
+		});
+			};
+		
+</script>    
 </body>
 </html>
-
+<!-- 효정님 이거 보이십니까 -->
 <!-- 사이드바 -->
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>

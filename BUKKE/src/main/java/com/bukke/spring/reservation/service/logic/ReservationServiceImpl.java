@@ -59,17 +59,16 @@ public class ReservationServiceImpl implements ReservationService{
 
 	// 예약 승인
 	@Override
-	public int confirmReservaion() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int confirmReservaion(Reservation reservation) {
+		return reStore.confirmReservaion(reservation);
 	}
 
 	 // 예약 거절
 	@Override
-	public int cancleReservation() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int cancleReservation(Reservation reservation) {
+		return reStore.cancleReservation(reservation);
 	}
+
 
 
 	

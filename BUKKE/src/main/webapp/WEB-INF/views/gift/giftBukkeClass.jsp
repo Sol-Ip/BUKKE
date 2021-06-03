@@ -33,7 +33,48 @@
 	<section class="container">
 		<div class="container ftco-animate" align="center">
 			
-			플라워 미술 수공예 뷰티 음악 요리 버튼만들기 ajax?
+			
+			
+			<br>
+			<br>
+			<br>
+			<h1>어떤 클래스를 원하시나요?</h1>
+			
+			<br>
+			<br>
+			<div align="center">
+
+				<c:url var="flower" value="">
+				</c:url>
+				<c:url var="art" value="">
+				</c:url>
+				<c:url var="handicraft" value="">
+				</c:url>
+
+				<c:url var="beauty" value="">
+				</c:url>
+				<c:url var="music" value="">
+				</c:url>
+				<c:url var="cook" value="">
+				</c:url>
+
+				<div>
+					<a href="${flower }"><input class="btn btn-lg btn-primary" type="submit" value="플라워"></a> &nbsp;
+					<a href="${art }"><input class="btn btn-lg btn-secondary" type="submit" value="미술"></a>&nbsp;
+					<a href="${cook }"><input class="btn btn-lg btn-info" type="submit" value="요리"></a>
+				</div>
+				<br>
+				<div>
+					<a href="${handicraft }"><input class="btn btn-lg btn-success" type="submit" value="수공예"></a> &nbsp;
+					<a href="${beauty }"><input class="btn btn-lg btn-danger" type="submit" value="뷰티"></a> &nbsp;
+					<a href="${music }"><input class="btn btn-lg btn-warning" type="submit" value="음악"></a>
+				</div>
+
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
 			
 			
 		</div>

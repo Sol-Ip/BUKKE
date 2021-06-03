@@ -1,13 +1,16 @@
 package com.bukke.spring.reservation.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
@@ -76,9 +79,38 @@ public class ReservationController {
 		public String reservationRemove() {
 			return null;
 		}
-		// 예약 승인
-		public String confirmReservation() {
-			return null;
+		// 예약 여부
+		@ResponseBody 
+		@RequestMapping(value="reservationconfirm.com", method = RequestMethod.GET)
+		public String confirmReservation(@ModelAttribute Reservation reservation) {
+			
+			System.out.println(reservation.getReservationNo());
+			
+			int confirm = reService.confirmReservaion(reservation);
+			
+			
+			
+			System.out.println("confirm은 : " +confirm);
+			System.out.println(reservation.toString());
+			
+			String reservationStatus = "";
+			int reservationNumber = reservation.getReservationNo();
+			
+			reservation.setReservationStatus("Y");
+			HashMap<String, Object> likeMap = new HashMap<String, Object>();
+			
+			if(confirm >0) {
+				/* rStatus = reservation.getReservationStatus(); */
+				System.out.println("성공?");
+				int reservationNo = reservationNumber;
+				reservationStatus= "Y";
+				likeMap.put("revStatus",reservationStatus);
+				
+				return "success";
+			}else {
+				System.out.println("실패?");
+				return "common/errorPage";
+			}
 		}
 		// 예약 거절
 		public String cancleReservation() {

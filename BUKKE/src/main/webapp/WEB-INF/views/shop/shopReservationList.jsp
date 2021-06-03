@@ -282,7 +282,7 @@
       <td>${reservation.activity.activityName }</td>
       </c:if>
       <td>${reservation.reservationDate }</td>
-      <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
+      <td name="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
 		  <button id="confirm" onclick="confirm(${reservation.reservationNo},'${reservation.reservationStatus }')" class="btn btn-primary">승인</button>
 		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
@@ -402,29 +402,35 @@
 <script>
 		
 		function confirm(reservationNo,reservationStatus ) {
-			var rSpan = $("#rStatus");
+			var rSpan = $(".rStatus");
+			
 			
 			console.log("이거나옴??");
-			console.log($("#rStatus"));
+			console.log($(".rStatus"));
 			var sendData = {
 					'reservationNo' : reservationNo,
-					'reservationStatus' : reservationStatus
+					'reservationStatus' : reservationStatus					
 				};
 			$.ajax({
 			type:"GET",
 			url:"reservationconfirm.com",
 			data : sendData,
-			
+			dataType: "json",
 			success:function(data){
 				console.log("이거나옴22??");
-				if (data=="success") {
+				console.log(reservationNo+reservationStatus);
+				if (reservationStatus ==  "N") {
 					console.log("이거나옴22??");
-					rSpan.text("Y");
+					rSpan.parent().prev().text(data.reservationStatus);
+				//	rSpan.prop('name',"Y")
+				//	rSpan.text("Y");
+					rSpan.val("");
 					
-					console.log(rSpan);
 				} else {
 					alert("실패!");
 				}
+				reservationStatus = data.reservationStatus;
+				
 			}
 			
 		});

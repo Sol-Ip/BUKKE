@@ -55,24 +55,24 @@
 </style>
 </head>
 <body>
-	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">RESERVATION</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Reservation <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	<!-- ======================= 사이드 바 시작 =============================== -->
+   <!-- fixed section -->
+   <section class="hero-wrap hero-wrap-2"
+      style="background-image: url('resources/resources/images/bg_1.jpg');"
+      data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+         <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+               <h1 class="mb-2 bread">RESERVATION</h1>
+               <p class="breadcrumbs">
+                  <span class="mr-2"><a href="home.com">Home <i
+                        class="ion-ios-arrow-forward"></i></a></span> <span>Reservation <i
+                     class="ion-ios-arrow-forward"></i></span>
+               </p>
+            </div>
+         </div>
+      </div>
+   <!-- ======================= 사이드 바 시작 =============================== -->
          <div class="l-navbar" id="navbar" style="height : 830px;">
         <nav class="nav">
             <div>
@@ -161,70 +161,70 @@
     </div>
    </section>
    <!-- ======================= 사이드 바 끝 =============================== -->
-				
-		
-	<!-- fixed section END-->
-		
-	
-	<!-- ========================= 리스트 시작 =========================  -->
-	
-	<!-- ========================= 검색창 =========================  -->
-	<section class="ftco-section">
-		<div class="container ftco-animate">
-				<br>
-				<div class="row justify-content-center">
-					<div class="col-md-4 heading-section ftco-animate">
-						<span class="subheading subheading-with-line"><small
-							class="pr-2 bg-light">Reservation</small></span>
-						<h2 class="mb-4">SEARCH</h2>
-					</div>
-					
-					<form class="col-md-8 card card-lg" action="#" method="get">
-						<div class="card-body row no-gutters align-items-center">
-							<div class="col-auto">
-								<i class="fas fa-search h4 text-body"></i>
-							</div>
-							<!--end of col-->
-							<div class="col">
-								<input class="form-control form-control-lg form-control-borderless" type="search" name="classKeyword" value="${search.classKeyword }" placeholder="검색어를 입력해주세요">
-							</div>
-							<!--end of col-->
-							<div class="col-auto">
-								<button class="btn btn-lg btn-primary" type="submit">Search</button>
-							</div>
-							<!--end of col-->
-						</div>
-					</form>
-				</div>
-				<!--end of col-->
-				<hr>
-			</div>
-		<!-- ========================= 클래스 정보란 =========================  -->
-				<div class="container">
-					<div class="row justify-content-start mb-5 pb-2">
-						<div class="col-md-4 heading-section ftco-animate">
-							<span class="subheading subheading-with-line"><small
-								class="pr-2 bg-light">BUKKE</small></span>
-							<h2 class="mb-4">RESERVATION</h2>
-						</div>
-						<div class="col-md-8 pl-md-5 heading-section ftco-animate">
-							<div class="pl-md-4 border-line">
-								<!-- <p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.
-									Separated they live in. A small river named Duden flows by their
-									place and supplies it with the necessary regelialia. It is a
-									paradisematic country, in which roasted parts of sentences fly
-									into your mouth.</p> -->
-							</div>
-						</div>
-					</div>
-				</div>
-		<!-- ========================= 클래스 정보란 END =========================  -->
-		<!-- 예약 목록 탭 -->
-		
-	  <section class="ftco-animate"> 
-	  <div class="container">
-		<div class="tabset retable"> 
+            
+      
+   <!-- fixed section END-->
+      
+   
+   <!-- ========================= 리스트 시작 =========================  -->
+   
+   <!-- ========================= 검색창 =========================  -->
+   <section class="ftco-section">
+      <div class="container ftco-animate">
+            <br>
+            <div class="row justify-content-center">
+               <div class="col-md-4 heading-section ftco-animate">
+                  <span class="subheading subheading-with-line"><small
+                     class="pr-2 bg-light">Reservation</small></span>
+                  <h2 class="mb-4">SEARCH</h2>
+               </div>
+               
+               <form class="col-md-8 card card-lg" action="#" method="get">
+                  <div class="card-body row no-gutters align-items-center">
+                     <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                     </div>
+                     <!--end of col-->
+                     <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" name="classKeyword" value="${search.classKeyword }" placeholder="검색어를 입력해주세요">
+                     </div>
+                     <!--end of col-->
+                     <div class="col-auto">
+                        <button class="btn btn-lg btn-primary" type="submit">Search</button>
+                     </div>
+                     <!--end of col-->
+                  </div>
+               </form>
+            </div>
+            <!--end of col-->
+            <hr>
+         </div>
+      <!-- ========================= 클래스 정보란 =========================  -->
+            <div class="container">
+               <div class="row justify-content-start mb-5 pb-2">
+                  <div class="col-md-4 heading-section ftco-animate">
+                     <span class="subheading subheading-with-line"><small
+                        class="pr-2 bg-light">BUKKE</small></span>
+                     <h2 class="mb-4">RESERVATION</h2>
+                  </div>
+                  <div class="col-md-8 pl-md-5 heading-section ftco-animate">
+                     <div class="pl-md-4 border-line">
+                        <!-- <p>Far far away, behind the word mountains, far from the
+                           countries Vokalia and Consonantia, there live the blind texts.
+                           Separated they live in. A small river named Duden flows by their
+                           place and supplies it with the necessary regelialia. It is a
+                           paradisematic country, in which roasted parts of sentences fly
+                           into your mouth.</p> -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+      <!-- ========================= 클래스 정보란 END =========================  -->
+      <!-- 예약 목록 탭 -->
+      
+     <section class="ftco-animate"> 
+     <div class="container">
+      <div class="tabset retable"> 
   
   <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
   <label for="tab1">전체</label>
@@ -257,22 +257,22 @@
       <th scope="row"><input type="checkbox"></th>
       <%-- <td>
       <c:if test="${reservation.bukkeClass.className != null && reservation.activity.activityName == null }">
-      	<td>클래스</td>
+         <td>클래스</td>
       </c:if>
       <c:if test="${reservation.activity.activityName != null && reservation.bukkeClass.className == null }">
-      	<td>액티비티</td>
+         <td>액티비티</td>
       </c:if>
       </td> --%>
       <td>
       <c:choose>
-      	<c:when test="${reservation.classNo != 0 }">
-			클래스
-		</c:when>
-		<c:when test="${reservation.activityNo != 0}">
-			액티비티
-		</c:when>      	
-		</c:choose>
-		</td>
+         <c:when test="${reservation.classNo != 0 }">
+         클래스
+      </c:when>
+      <c:when test="${reservation.activityNo != 0}">
+         액티비티
+      </c:when>         
+      </c:choose>
+      </td>
       <td>${reservation.reservationNo }</td>
       <td>${reservation.reservationId }</td>
       <c:if test="${reservation.classNo != 0 && reservation.activityNo == 0 }">
@@ -282,11 +282,11 @@
       <td>${reservation.activity.activityName }</td>
       </c:if>
       <td>${reservation.reservationDate }</td>
-      <td name="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
+      <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
-		  <button id="confirm" onclick="confirm(${reservation.reservationNo},'${reservation.reservationStatus }')" class="btn btn-primary">승인</button>
-		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
-	  </td>
+        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'Y')" class="btn btn-primary">승인</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'N')" class="btn btn-danger">거절</button>
+     </td>
        
     </tr>
     
@@ -313,129 +313,140 @@
 </section>
 
 <p>&nbsp;</p>
-		<!-- 예약 목록 탭 끝 -->
-		<!-- ========================= 예약관리 테이블  =========================  -->
-		
-		<div class="container">
-		<div class="row col-lg-12" style="align:center;">
-		<%-- 	<table class="table table-bordered">
-	        <thead>
-	            <tr>
-	                <!-- 체크박스 빼도 됨 / 메뉴선택에 필요한 컬럼 넣거나 빼도 됨 -->
-	                <th><input type="checkbox"></th>
-	                <th>구분</th>
-	                <th>예약 번호</th>
-	                <th>회원 명</th>
-	                <th>클래스 / 액티비티 명</th>
-	                <th>예약 일</th> 
-	                <th>승인여부</th>
-	            </tr>
-	        </thead>
-	        <c:forEach items="${reservationList }" var="reservation">
-		        <tbody>
-		            <tr> <!-- 클래스랑 액티비티 셀렉박스로 구분 지어서 할지 고민 중 (일단 클래스만 해보는 중) -->
-		                <td id="check_"><input type="checkbox"></td>
-		                <td class="classType" id="typeClass">클래스</td>
-		                <td id="reservationNo" name="reservationNo">${reservation.reservationNo }</td>
-		                <td id="reservationId" name="reservationId">${reservation.reservationId }</td>
-		                <td id="className" name="className">${reservation.className }</td>
-		                <td id="reservationDate" name="reservationDate">${reservation.reservationDate }</td>
-		                <td id="reservationStatus" name="reservationStatus">${reservation.reservationStatus }</td>
-		                <td>
-		                    <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
-		                    <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
-		                </td>
-		            </tr>
-		        </tbody>
+      <!-- 예약 목록 탭 끝 -->
+      <!-- ========================= 예약관리 테이블  =========================  -->
+      
+      <div class="container">
+      <div class="row col-lg-12" style="align:center;">
+      <%--    <table class="table table-bordered">
+           <thead>
+               <tr>
+                   <!-- 체크박스 빼도 됨 / 메뉴선택에 필요한 컬럼 넣거나 빼도 됨 -->
+                   <th><input type="checkbox"></th>
+                   <th>구분</th>
+                   <th>예약 번호</th>
+                   <th>회원 명</th>
+                   <th>클래스 / 액티비티 명</th>
+                   <th>예약 일</th> 
+                   <th>승인여부</th>
+               </tr>
+           </thead>
+           <c:forEach items="${reservationList }" var="reservation">
+              <tbody>
+                  <tr> <!-- 클래스랑 액티비티 셀렉박스로 구분 지어서 할지 고민 중 (일단 클래스만 해보는 중) -->
+                      <td id="check_"><input type="checkbox"></td>
+                      <td class="classType" id="typeClass">클래스</td>
+                      <td id="reservationNo" name="reservationNo">${reservation.reservationNo }</td>
+                      <td id="reservationId" name="reservationId">${reservation.reservationId }</td>
+                      <td id="className" name="className">${reservation.className }</td>
+                      <td id="reservationDate" name="reservationDate">${reservation.reservationDate }</td>
+                      <td id="reservationStatus" name="reservationStatus">${reservation.reservationStatus }</td>
+                      <td>
+                          <button id="confirm" onclick="confirm(reservationNo)" class="btn btn-primary">승인</button>
+                          <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
+                      </td>
+                  </tr>
+              </tbody>
         </c:forEach>
     </table> --%>
-		
-	
+      
+   
 
     
-		</div>
-		<!-- 페이징 처리 -->
-		<div class="container">
-    	<div class="row no-gutters mt-5">	
+      </div>
+      <!-- 페이징 처리 -->
+      <div class="container">
+       <div class="row no-gutters mt-5">   
           <div class="col text-center">
             <div class="block-27">
               <!-- 이전 --> 
               <ul>
-	            <c:url var="before" value="reservationList.com">
-	               <c:param name="page" value="${pi.currentPage - 1 }"></c:param>
-	            </c:url>
-	            <c:if test="${pi.currentPage <= 1 }">
-	               <li><a href="#" onclick="firstPage()">&lt;</a></li>
-	            </c:if>
-	            <c:if test="${pi.currentPage > 1 }">
-	               <li><a href="${before }">&lt;</a></li>
-	            </c:if>
-	            <!-- 페이지 -->
+               <c:url var="before" value="reservationList.com">
+                  <c:param name="page" value="${pi.currentPage - 1 }"></c:param>
+               </c:url>
+               <c:if test="${pi.currentPage <= 1 }">
+                  <li><a href="#" onclick="firstPage()">&lt;</a></li>
+               </c:if>
+               <c:if test="${pi.currentPage > 1 }">
+                  <li><a href="${before }">&lt;</a></li>
+               </c:if>
+               <!-- 페이지 -->
                 <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage }">
-	               <c:url var="pagination" value="reservationList.com">
-	                  <c:param name="page" value="${p }"></c:param>
-	               </c:url>
-	               <c:if test="${p eq pi.currentPage }">
-						<li class="active"><span>${p }</span></li>
-					</c:if>
-	               <c:if test="${p ne pi.currentPage }">
-	                  <li><a href="${pagination }">${p }</a></li>
-	               </c:if>
-            	</c:forEach>
-            	<!-- 다음 -->
-	            <c:url var="after" value="reservationList.com">
-	               <c:param name="page" value="${pi.currentPage + 1 }"></c:param>
-	            </c:url>
-	            <c:if test="${pi.currentPage >= pi.maxPage }">
-	               <li><a href="#" onclick="lastPage()">&gt;</a></li>
-	            </c:if>
-	            <c:if test="${pi.currentPage < pi.maxPage }">
-	               <li><a href="${after }">&gt;</a></li>
-	            </c:if>
+                  <c:url var="pagination" value="reservationList.com">
+                     <c:param name="page" value="${p }"></c:param>
+                  </c:url>
+                  <c:if test="${p eq pi.currentPage }">
+                  <li class="active"><span>${p }</span></li>
+               </c:if>
+                  <c:if test="${p ne pi.currentPage }">
+                     <li><a href="${pagination }">${p }</a></li>
+                  </c:if>
+               </c:forEach>
+               <!-- 다음 -->
+               <c:url var="after" value="reservationList.com">
+                  <c:param name="page" value="${pi.currentPage + 1 }"></c:param>
+               </c:url>
+               <c:if test="${pi.currentPage >= pi.maxPage }">
+                  <li><a href="#" onclick="lastPage()">&gt;</a></li>
+               </c:if>
+               <c:if test="${pi.currentPage < pi.maxPage }">
+                  <li><a href="${after }">&gt;</a></li>
+               </c:if>
               </ul>
             </div>
           </div>
         </div>
         </div>
-    	</div>
+       </div>
     </section>
 <script>
-		
-		function confirm(reservationNo,reservationStatus ) {
-			var rSpan = $(".rStatus");
-			
-			
-			console.log("이거나옴??");
-			console.log($(".rStatus"));
-			var sendData = {
-					'reservationNo' : reservationNo,
-					'reservationStatus' : reservationStatus					
-				};
-			$.ajax({
-			type:"GET",
-			url:"reservationconfirm.com",
-			data : sendData,
-			dataType: "json",
-			success:function(data){
-				console.log("이거나옴22??");
-				console.log(reservationNo+reservationStatus);
-				if (reservationStatus ==  "N") {
-					console.log("이거나옴22??");
-					rSpan.parent().prev().text(data.reservationStatus);
-				//	rSpan.prop('name',"Y")
-				//	rSpan.text("Y");
-					rSpan.val("");
-					
-				} else {
-					alert("실패!");
-				}
-				reservationStatus = data.reservationStatus;
-				
-			}
-			
-		});
-			};
-		
+      
+      function confirm(obj, reservationNo,reservationStatus) {
+         var rSpan = $(obj);
+         var sendData = {
+               'reservationNo' : reservationNo,
+               'reservationStatus' : reservationStatus
+            };
+         $.ajax({
+         type:"GET",
+         url:"reservationconfirm.com",
+         data : sendData,
+         dataType : "json",
+         success:function(data){
+            if (data.resultYn=="success") {
+               rSpan.parent().prev().text(data.resultStatus);
+               console.log(rSpan);
+            } else {
+               alert("실패!");
+            }
+         }
+         
+      });
+         };
+      
+         
+          function reject(obj, reservationNo,reservationStatus) {
+            var rSpan = $(obj);
+            var sendData = {
+                  'reservationNo' : reservationNo,
+                  'reservationStatus' : reservationStatus
+               };
+            $.ajax({
+            type:"GET",
+            url:"reservationconfirm.com",
+            data : sendData,
+            dataType : "json",
+            success:function(data){
+               if (data.resultYn=="success") {
+                  rSpan.parent().prev().text(data.resultStatus);
+                  console.log(rSpan);
+               } else {
+                  alert("실패!");
+               }
+            }
+            
+         });
+            };    
 </script>    
 </body>
 </html>

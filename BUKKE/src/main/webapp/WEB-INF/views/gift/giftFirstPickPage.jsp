@@ -47,11 +47,11 @@
 				<c:url var="bukkeClass" value="giftBukkeClass.com">
 					
 				</c:url>
-				<!-- renameFilename 은 실제 저장된 파일 이름  -->
+		
 				<c:url var="activity" value="giftActivity.com">
 					
 				</c:url>
-				<a href="${bukkeClass }"><input class="btn btn-lg btn-danger" type="submit" value="클래스"></a> 
+				<a href="${bukkeClass }"><input class="btn btn-lg btn-danger" type="submit" value="클래스"></a> &nbsp;&nbsp;
 				<a href="${activity }"><input class="btn btn-lg btn-primary r" type="submit" value="액티비티"></a>
 			</div>
 			<br>

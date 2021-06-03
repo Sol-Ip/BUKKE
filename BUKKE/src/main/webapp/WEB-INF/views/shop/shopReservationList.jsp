@@ -284,7 +284,7 @@
       <td>${reservation.reservationDate }</td>
       <td><span id="rStatus">${reservation.reservationStatus } </span>&nbsp;&nbsp;</td>
        <td>
-		  <button id="confirm" onclick="confirm(${reservation.reservationNo})" class="btn btn-primary">승인</button>
+		  <button id="confirm" onclick="confirm(${reservation.reservationNo},'${reservation.reservationStatus }')" class="btn btn-primary">승인</button>
 		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
 	  </td>
       
@@ -401,22 +401,30 @@
     </section>
 <script>
 		
-		function confirm(reservationNo) {
+		function confirm(reservationNo,reservationStatus ) {
 			var rSpan = $("#rStatus");
 			
+			console.log("이거나옴??");
+			console.log($("#rStatus"));
+			var sendData = {
+					'reservationNo' : reservationNo,
+					'reservationStatus' : reservationStatus
+				};
 			$.ajax({
 			type:"GET",
 			url:"reservationconfirm.com",
-			data : {
-				"reservationNo" : reservationNo
-			},
+			data : sendData,
 			success:function(data){
-				if (data == "success") {
-					rSpan.text(data.rStatus);
+				console.log("이거나옴22??");
+				if (data=="success") {
+					console.log("이거나옴22??");
+					rSpan.text("Y");
+					console.log(rSpan);
 				} else {
 					alert("실패!");
 				}
 			}
+			
 		});
 			};
 		

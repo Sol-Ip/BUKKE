@@ -282,7 +282,7 @@
       <td>${reservation.activity.activityName }</td>
       </c:if>
       <td>${reservation.reservationDate }</td>
-      <td><span id="rStatus">${reservation.reservationStatus } </span>&nbsp;&nbsp;</td>
+      <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
 		  <button id="confirm" onclick="confirm(${reservation.reservationNo},'${reservation.reservationStatus }')" class="btn btn-primary">승인</button>
 		  <button id="reject" onclick="reject(reservationNo)" class="btn btn-danger">거절</button>
@@ -414,11 +414,13 @@
 			type:"GET",
 			url:"reservationconfirm.com",
 			data : sendData,
+			
 			success:function(data){
 				console.log("이거나옴22??");
 				if (data=="success") {
 					console.log("이거나옴22??");
-					rSpan.text("Y");
+					rSpan.text(reservationStatus);
+					
 					console.log(rSpan);
 				} else {
 					alert("실패!");

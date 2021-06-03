@@ -257,8 +257,75 @@
 		</div>
 		<!-- END COL -->
 
-				<!-- =============== side bar END =============== -->
 	</section>
+	
+	<!-- ========= 클래스 주소 지도로 표시 -->
+	
+	<section class="ftco-section bg-light">
+		<div class="container">
+		<div class="row justify-content-center mb-5 pb-3">
+			<div class="col-md-7 heading-section ftco-animate">
+				<span class="subheading subheading-with-line"><small
+					class="pr-2 bg-white">BUKKE</small></span>
+				<h2 class="mb-4">CLASS ADDRESS</h2>
+			</div>
+		</div>
+			<div id="class-map" class="ftco-animate"
+				style="width: 100%; height: 550px;"></div>
+
+		<script type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ea547584290f909f07a0c6b761312f2d&libraries=services"></script>
+			<script>
+						var mapContainer = document.getElementById('class-map'), // 지도를 표시할 div 
+						mapOption = {
+							center : new kakao.maps.LatLng(33.450701,
+									126.570667), // 지도의 중심좌표
+							level : 3
+						// 지도의 확대 레벨
+						};
+
+						// 지도를 생성합니다    
+						var map = new kakao.maps.Map(mapContainer, mapOption);
+
+						// 주소-좌표 변환 객체를 생성합니다
+						var geocoder = new kakao.maps.services.Geocoder();
+
+						// 주소로 좌표를 검색합니다
+						geocoder
+								.addressSearch(
+										'${ bukkeClass.classAddr }',
+										function(result, status) {
+
+											// 정상적으로 검색이 완료됐으면 
+											if (status === kakao.maps.services.Status.OK) {
+
+												var coords = new kakao.maps.LatLng(
+														result[0].y,
+														result[0].x);
+
+												// 결과값으로 받은 위치를 마커로 표시합니다
+												var marker = new kakao.maps.Marker(
+														{
+															map : map,
+															position : coords
+														});
+
+												// 인포윈도우로 장소에 대한 설명을 표시합니다
+												var infowindow = new kakao.maps.InfoWindow(
+														{
+															content : '<div style="width:250px;text-align:center;padding:6px 0;"><b>${ bukkeClass.className}</b></div>'
+														});
+												infowindow.open(map, marker);
+
+												// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+												map.setCenter(coords);
+
+											}
+										});
+			</script> 
+		</div>
+	</section>
+	<!-- 클래스 주소 지도로 표시 END -->
 	
 	<!-- 후기 보기 -->
 	<section class="ftco-section testimony-section bg-light">

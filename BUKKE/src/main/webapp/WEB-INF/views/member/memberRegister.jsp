@@ -49,6 +49,7 @@
     	width: 2rem;
     	height: 2rem;
     	display: none;
+    	margin-left: 10px;
     }
 </style>
 <body>
@@ -56,12 +57,11 @@
 	<div class="container">
 		<div class="text-left">
 			<h3>회원가입</h3>
-			<div id="ajax_indicator"><img src="/resources/images/ajax-loader_circle.gif"></div>
 		</div>
         <form action="memberRegister.com" id="registerform" method="post">
         	<hr>
             <div class="form-group">
-                <label for="memberId">아이디</label>
+                <label for="memberId">아이디</label><span id="ajax_indicator"><img src="/resources/images/ajax-loader_circle.gif"></span>
                 <input type="text" class="form-control" id="memberId" name="memberId" placeholder="아이디를 입력해주세요">
                 <div class="invalid-id invalid-check">필수 정보입니다.</div>
             </div>
@@ -113,8 +113,8 @@
         </form>
     </div>
 </body>
-<!-- 유효성 + 주소검색 -->
 <jsp:include page="../common/registerFooter.jsp"></jsp:include>
+<!-- 유효성 ajax + 주소검색 -->
 <script>
 	// bukke 클릭시 홈으로 이동
 	$(".title").click(function(){

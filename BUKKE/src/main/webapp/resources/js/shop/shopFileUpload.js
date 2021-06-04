@@ -10,12 +10,18 @@
 		var fileName = $("#input-file").val();
 		// 파일 확장자를 extenstion 이라함.
 		var ext = fileName.substring(fileName.lastIndexOf("."),fileName.length).toLowerCase();
-		if(ext != ".jpg" && ext != ".jpeg" && ext != ".png" && ext != ".gif") {
+		if(ext != ".jpg" && ext != ".jpeg" && ext != ".png" && ext != ".gif" && ext != "") {
 			alert(ext + "는 사진 파일이 아닙니다!!");
+			$("#input-file").val("");
 		}
 		if(fileName != "") {
 			$("#filename").val(fileName.split("\\")[2]);
+			var url = window.URL.createObjectURL($(this).get(0).files[0]);
+			$("#file-image").attr('src',url);
+			$(".img-wrap").slideDown();
+			
 		} else {
 			$("#filename").val("선택된 파일 없음");
+			$(".img-wrap").hide();
 		}
 	})

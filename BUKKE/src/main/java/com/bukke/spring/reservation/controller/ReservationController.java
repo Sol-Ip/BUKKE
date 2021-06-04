@@ -94,7 +94,7 @@ public class ReservationController {
          System.out.println(reservation.getReservationStatus());
             int confirm =0;
             int reject =0;
-         if(reservation.getReservationStatus().equals("Y")) {
+         if(reservation.getReservationStatus().equals("승인")) {
         	 // 예약상태를 꺼내와서 Y랑 일치하면
             confirm = reService.confirmReservaion(reservation);
             // 예약승인 로직으로
@@ -115,11 +115,11 @@ public class ReservationController {
          if(confirm >0) {
             /* rStatus = reservation.getReservationStatus(); */
             likeMap.put("resultYn", "success");
-            likeMap.put("resultStatus", "Y");
+            likeMap.put("resultStatus", "승인");
             
          }if(reject >0) {
             likeMap.put("resultYn", "success");
-            likeMap.put("resultStatus", "N");
+            likeMap.put("resultStatus", "거절");
          }
          
          
@@ -129,4 +129,6 @@ public class ReservationController {
       public String cancleReservation() {
          return null;
       }
+      
+      
 }

@@ -118,14 +118,14 @@
    <!-- 예약 승인 -->
    <update id="confirmReservation">
    UPDATE RESERVATION SET
-   RESERVATION_STATUS = 'Y' 
+   RESERVATION_STATUS = '승인' 
    WHERE RESERVATION_NO = #{reservationNo}
    </update>
    
    <!-- 예약 거절 -->
    <update id="rejectReservation">
    UPDATE RESERVATION SET
-   RESERVATION_STATUS = 'N' 
+   RESERVATION_STATUS = '거절' 
    WHERE RESERVATION_NO = #{reservationNo}
    </update>
    

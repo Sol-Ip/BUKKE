@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,33 @@
 <link rel="stylesheet"
 	href="resources/css/notice-custom/noticeListView.css">
 <jsp:include page="../common/header.jsp"></jsp:include>
+<style type="text/css">
+.ftco-section{
+	    padding: 4em 0;
+	    
+}
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Chosunilbo_myungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#font2{
+  font-family: 'Chosunilbo_myungjo';
+}
+#font3{
+  font-family: 'Chosunilbo_myungjo';
+  font-size: 13px;
+}
+</style>
 </head>
+
 <body>
 
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -42,8 +69,7 @@
 	<!-- fixed section END-->
 	
 	<!-- 검색창  -->
-	<section class="ftco-section" style="margin-top: -10%;">
-  		  <section class="ftco-section"   >        
+			<section class="ftco-section">
             <div class="sidebar-box" style="float: right; width: 25%;" >
               <form action="noticeSearch.com" class="search-form">
                 <div class="form-group" >
@@ -54,7 +80,9 @@
               </form>
             </div>
             </section>
-            
+	<section class="ftco-section" style="margin-top: -25px;">
+  		  <!-- <section class="ftco-section">  -->       
+            <!-- </section>  -->
             
             
 		<%-- <form class="col-md-5 card card-lg" style="margin-left: 10px"
@@ -91,7 +119,7 @@
 				<div class="col-12">
 					<div class="card mb-4">
 						<div class="card-header pb-0 text-center">
-							<h5>자주 묻는 게시판</h5>
+							<h5 style="font-family: 'KOTRA_BOLD-Bold';font-size: 40px;">자주 묻는 게시판</h5>
 						</div>
 						<div class="card-body px-0 pt-0 pb-2">
 							<div class="table-responsive p-0">
@@ -99,18 +127,19 @@
 									<thead>
 										<tr>
 											<th
-												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-1" style="width: 50px;"></th>
+												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-1" style="width: 50px; font-family: 'Chosunilbo_myungjo';"></th>
 											<th
-												class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center">제목</th>
+												class="text-uppercase text-secondary font-weight-bolder opacity-7 text-center" style="font-size: 20px;" id="font2" >제목</th>
 											<th
-												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7"></th>
+												class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7"></th>
+											
 											<th
-												class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7" style="text-align: right">작성자</th>
+												class="text-uppercase text-secondary font-weight-bolder opacity-7 text-center" style="text-align: right; font-size: 20px;" id="font2">작성자</th>
 											<th
-												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">날짜</th>
+												class="text-center text-uppercase text-secondary font-weight-bolder opacity-7" style="font-size: 20px;" id="font2">날짜</th>
 											 <c:if test="${loginMember.memberId=='admin' }"> 
 											<th
-												class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">상태</th>
+												class="text-center text-uppercase text-secondary font-weight-bolder opacity-7" style="font-size: 20px;" id="font2">상태</th>
 											 	</c:if> 	
 										</tr>
 									</thead>
@@ -122,7 +151,7 @@
 												<td style="">
 													<p class="text-xs font-weight-bold mb-0">
 														<ul class="notice1">
-															<li class="menu"><a>${notice.noticeTitle }</a>
+															<li class="menu" id="font3"><a>${notice.noticeTitle }</a>
 																<ul class="hide">
 																	<li>${notice.noticeContents } 
 																	<c:if test="${!empty notice.nOriginalFilename }">
@@ -136,10 +165,10 @@
 												</td>
 												<td class="align-middle text-center text-sm"><span
 													class="badge badge-sm bg-gradient-success"></span></td>
-												<td class="align-middle text-right"><span
-													class="text-secondary text-xs font-weight-bold">${notice.memberId }</span></td>
+												<td class="align-middle text-right text-center"><span
+													class="text-secondary font-weight-bold" id="font3">${notice.memberId }</span></td>
 												<td class="align-middle text-center"><span
-													class="text-secondary text-xs font-weight-bold">${notice.noticeDate }</span>
+													class="text-secondary font-weight-bold" id="font3">${notice.noticeDate }</span>
 												</td>
 												 <c:if test="${loginMember.memberId=='admin' }"> 
 												<td class="align-middle text-center"><span
@@ -151,8 +180,8 @@
 															<c:param name="noticeNo" value="${notice.noticeNo }"></c:param>
 															<c:param name="nRenameFilename" value="${notice.nRenameFilename }"></c:param>
 														</c:url>
-																<a href="${nDetail}">수정 /</a> 
-																<a href="${nDelete}">삭제</a>
+																<a href="${nDetail}" id="font3">수정 /</a> 
+																<a href="${nDelete}" id="font3">삭제</a>
 													</span>
 												</td>
 											 	</c:if> 

@@ -50,7 +50,7 @@
   padding : 5px 15px;
 }
 
-
+ 
 
 </style>
 </head>
@@ -227,13 +227,13 @@
       <div class="tabset retable"> 
   
   <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
-  <label for="tab1">전체</label>
+  <label for="tab1"><h3>전체</h3></label>
   
   <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
-  <label for="tab2">액티비티</label>
+  <label for="tab2"><h3>액티비티</h3></label>
   
   <input type="radio" name="tabset" id="tab3" aria-controls="dunkles">
-  <label for="tab3">클래스</label>
+  <label for="tab3"><h3>클래스</h3></label>
   
  <div class="tab-panels"> 
      <section id="marzen" class="tab-panel"> 
@@ -241,9 +241,10 @@
     <table class="table table-hover" >
   <thead>
     <tr>
-      <th scope="col"><input type="checkbox"></th>
-      <th scope="col">구분</th>
+      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb1" >
+      </th>
       <th scope="col">예약 번호</th>
+      <th scope="col">구분</th>
       <th scope="col">회원명</th>
       <th scope="col">클래스/액티비티 명</th>
       <th scope="col">예약일</th>
@@ -255,14 +256,7 @@
   <tbody> 
     <tr>
       <th scope="row"><input type="checkbox"></th>
-      <%-- <td>
-      <c:if test="${reservation.bukkeClass.className != null && reservation.activity.activityName == null }">
-         <td>클래스</td>
-      </c:if>
-      <c:if test="${reservation.activity.activityName != null && reservation.bukkeClass.className == null }">
-         <td>액티비티</td>
-      </c:if>
-      </td> --%>
+      <td>${reservation.reservationNo }</td>
       <td>
       <c:choose>
          <c:when test="${reservation.classNo != 0 }">
@@ -273,7 +267,6 @@
       </c:when>         
       </c:choose>
       </td>
-      <td>${reservation.reservationNo }</td>
       <td>${reservation.reservationId }</td>
       <c:if test="${reservation.classNo != 0 && reservation.activityNo == 0 }">
       <td>${reservation.bukkeClass.className }</td>
@@ -284,8 +277,8 @@
       <td>${reservation.reservationDate }</td>
       <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
-        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'Y')" class="btn btn-primary">승인</button>
-        <button id="reject" onclick="reject(this,${reservation.reservationNo},'N')" class="btn btn-danger">거절</button>
+        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary">승인</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger">거절</button>
      </td>
        
     </tr>
@@ -294,20 +287,123 @@
   </c:forEach>
 </table>
 </section>
+
+		<!-- 액티비티만 불러오기 -->
     <section id="rauchbier" class="tab-panel">
-      <h2>6B. Rauchbier</h2>
-      <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
-      <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
+    <table class="table table-hover" >
+  <thead>
+    <tr>
+      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb1"></th>
+      <th scope="col">예약 번호</th>
+      <th scope="col">구분</th>
+      <th scope="col">회원명</th>
+      <th scope="col">클래스/액티비티 명</th>
+      <th scope="col">예약일</th>
+      <th scope="col">승인여부</th>
+      <th scope="col">승인/거절</th>
+    </tr>
+  </thead>
+  <c:forEach items="${reservationList }" var="reservation">
+  <tbody> 
+  
+  
+  
+  	<c:if test="${reservation.activityNo != 0  }">
+    <tr>
+      <th scope="row"><input type="checkbox"></th>
+      <td>${reservation.reservationNo }</td>
+      <td>
+      <c:choose>
+         <c:when test="${reservation.classNo != 0 }">
+         클래스
+      </c:when>
+      <c:when test="${reservation.activityNo != 0}">
+         액티비티
+      </c:when>         
+      </c:choose>
+      </td>
+      <td>${reservation.reservationId }</td>
+      <c:if test="${reservation.classNo != 0 && reservation.activityNo == 0 }">
+      <td>${reservation.bukkeClass.className }</td>
+      </c:if>
+      <c:if test="${reservation.activityNo != 0 && reservation.classNo == 0 }">
+      <td>${reservation.activity.activityName }</td>
+      </c:if>
+      <td>${reservation.reservationDate }</td>
+      <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
+       <td>
+        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary">승인</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger">거절</button>
+     </td>
+       
+    </tr>
+    </c:if>
+  </tbody>
+  </c:forEach>
+</table>
+
   </section> 
    
     <section id="dunkles" class="tab-panel">
-      <h2>6C. Dunkles Bock</h2>
-      <p><strong>Overall Impression:</strong> A dark, strong, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.</p>
-      <p><strong>History:</strong> Originated in the Northern German city of Einbeck, which was a brewing center and popular exporter in the days of the Hanseatic League (14th to 17th century). Recreated in Munich starting in the 17th century. The name “bock” is based on a corruption of the name “Einbeck” in the Bavarian dialect, and was thus only used after the beer came to Munich. “Bock” also means “Ram” in German, and is often used in logos and advertisements.</p>
+    <table class="table table-hover" >
+  <thead>
+    <tr>
+      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb2"></th>
+      <th scope="col">예약 번호</th>
+      <th scope="col">구분</th>
+      <th scope="col">회원명</th>
+      <th scope="col">클래스/액티비티 명</th>
+      <th scope="col">예약일</th>
+      <th scope="col">승인여부</th>
+      <th scope="col">승인/거절</th>
+    </tr>
+  </thead>
+  <c:forEach items="${reservationList }" var="reservation">
+  <tbody> 
+  
+  
+  
+  	<c:if test="${reservation.classNo != 0  }">
+    <tr>
+      <th scope="row"><input type="checkbox"></th>
+      <td>${reservation.reservationNo }</td>
+      <td>
+      <c:choose>
+         <c:when test="${reservation.classNo != 0 }">
+         클래스
+      </c:when>
+      <c:when test="${reservation.activityNo != 0}">
+         액티비티
+      </c:when>         
+      </c:choose>
+      </td>
+      <td>${reservation.reservationId }</td>
+      <c:if test="${reservation.classNo != 0 && reservation.activityNo == 0 }">
+      <td>${reservation.bukkeClass.className }</td>
+      </c:if>
+      <c:if test="${reservation.activityNo != 0 && reservation.classNo == 0 }">
+      <td>${reservation.activity.activityName }</td>
+      </c:if>
+      <td>${reservation.reservationDate }</td>
+      <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
+       <td>
+        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary">승인</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger">거절</button>
+     </td>
+       
+    </tr>
+    </c:if>
+  </tbody>
+  </c:forEach>
+</table>
+	<!-- 체크박스 여부 -->
     </section>
+    <b></b>
+      <div style="float: right;">
+      	<button type="button">승인</button>
+      	<button type="button">거절</button>
+      </div>
  </div>
-
- 
   </div> 
 </div> 
 </section>
@@ -376,7 +472,7 @@
                      <c:param name="page" value="${p }"></c:param>
                   </c:url>
                   <c:if test="${p eq pi.currentPage }">
-                  <li class="active"><span>${p }</span></li>
+                  <li class="active" style="background-color: #ffffff;"><span>${p }</span></li>
                </c:if>
                   <c:if test="${p ne pi.currentPage }">
                      <li><a href="${pagination }">${p }</a></li>
@@ -399,59 +495,16 @@
         </div>
        </div>
     </section>
+
 <script>
-      
-      function confirm(obj, reservationNo,reservationStatus) {
-         var rSpan = $(obj);
-         var sendData = {
-               'reservationNo' : reservationNo,
-               'reservationStatus' : reservationStatus
-            };
-         $.ajax({
-         type:"GET",
-         url:"reservationconfirm.com",
-         data : sendData,
-         dataType : "json",
-         success:function(data){
-            if (data.resultYn=="success") {
-               rSpan.parent().prev().text(data.resultStatus);
-               alert(data.resultStatus);
-            } else {
-               alert("실패!");
-            }
-         }
-         
-      });
-         };
-      
-         
-          function reject(obj, reservationNo,reservationStatus) {
-            var rSpan = $(obj);
-            var sendData = {
-                  'reservationNo' : reservationNo,
-                  'reservationStatus' : reservationStatus
-               };
-            $.ajax({
-            type:"GET",
-            url:"reservationconfirm.com",
-            data : sendData,
-            dataType : "json",
-            success:function(data){
-               if (data.resultYn=="success") {
-                  rSpan.parent().prev().text(data.resultStatus);
-               } else {
-                  alert("실패!");
-               }
-            }
-            
-         });
-            };    
-</script>    
+	$('input:checkbox[name=checkBtn1]').length;
+</script>
 </body>
 </html>
 <!-- 효정님 이거 보이십니까 -->
 <!-- 사이드바 -->
 <script src="../resources/js/member/mypageSidebar.js"></script>
+<script src="../resources/js/reservation/reservation.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 

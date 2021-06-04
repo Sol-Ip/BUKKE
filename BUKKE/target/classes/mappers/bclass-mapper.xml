@@ -72,6 +72,11 @@
    		WHERE CLASS_NO = #{classNo }
    </update>
    
+   <!-- 선물하기 클래스 리스트 by 분류+ 상세분류 -->
+   <select id="selectGiftList" resultMap="bClassResultMap">
+      select * from class where class_type = #{classType } AND class_typedetails = #{classTypedetails }
+   </select>
+   
    
    
 </mapper>

@@ -78,6 +78,12 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return (ArrayList)bStore.selectReservation();
 	}
 
+	@Override
+	public ArrayList<BukkeClass> printGiftBclass(BukkeClass bClass) {
+		// TODO Auto-generated method stub
+		return bStore.selectGiftListBclass(bClass);
+	}
+
 
 
 }

@@ -51,7 +51,7 @@
 				<c:url var="activity" value="giftActivity.com">
 					
 				</c:url>
-				<a href="${bukkeClass }"><input class="btn btn-lg btn-danger" type="submit" value="클래스"></a> &nbsp;&nbsp;
+				<a href="${bukkeClass }"><input class="btn btn-lg btn-danger" type="submit" value="선물하기"></a> &nbsp;&nbsp;
 				<a href="${activity }"><input class="btn btn-lg btn-primary r" type="submit" value="액티비티"></a>
 			</div>
 			<br>

@@ -38,6 +38,8 @@ public interface BukkeClassService {
 
 	// 클래스 분류 시 상세 분류 출력
 	public ArrayList<BukkeClass> printClassType(String classType);
+	//선물하기 클래스 분류+상세분류로 출력
+	public ArrayList<BukkeClass> printGiftBclass(BukkeClass bClass);
 
 
 

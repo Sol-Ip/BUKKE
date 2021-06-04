@@ -1,10 +1,20 @@
 package com.bukke.spring.gift.controller;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.gift.service.GiftService;
 
 @Controller
@@ -12,6 +22,9 @@ public class GiftController {
 	
 	@Autowired
 	private GiftService gService;
+	
+	@Autowired
+	private BukkeClassService bService;
 	
 	//선물하기 처음 페이지
 	@RequestMapping(value="giftFirstPageView.com", method=RequestMethod.GET)
@@ -23,11 +36,47 @@ public class GiftController {
 	public String GiftBukkeClassView() {
 		return "gift/giftBukkeClass";
 	}
-	//선물하기 처음->액티비티 페이지
-		@RequestMapping(value="giftActivity.com", method=RequestMethod.GET)
-		public String GiftActivityView() {
-			return "gift/giftActivity";
-		}
+
+	// 선물하기 처음->액티비티 페이지
+	@RequestMapping(value = "giftActivity.com", method = RequestMethod.GET)
+	public String GiftActivityView() {
+		return "gift/giftActivity";
+	}
+
+	@RequestMapping(value = "giftType.com", method = RequestMethod.GET)
+	public String GiftType(@RequestParam("classType") String classType, Model model, HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) {
+
+		return "gift/giftTypeView";
+
+	}
+	
+	
+	@RequestMapping(value = "giftList.com", method = RequestMethod.GET)
+	public String GiftList(@RequestParam("classType") String classType, 
+			@RequestParam("classTypedetails") String classTypedetails, 
+			Model model, HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) {
+		
+		BukkeClass bukkeClass = new BukkeClass();
+		bukkeClass.setClassType(classType);
+		bukkeClass.setClassTypedetails(classTypedetails);
+
+		ArrayList<BukkeClass> bList = bService.printGiftBclass(bukkeClass);
+		
+		System.out.println("bList "+ bList.toString());
+		
+		model.addAttribute("bList",bList);
+		
+		
+		
+		
+		return "gift/giftListView";
+
+	}
+	
+	
+
 	// 선물하기 전체 보기
 	public String GiftListView() {
 		return null;

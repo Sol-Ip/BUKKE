@@ -80,5 +80,11 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 		return (ArrayList)session.selectList("reservationMapper.selectAllList");
 	}
 
+	@Override
+	public ArrayList<BukkeClass> selectGiftListBclass(BukkeClass bClass) {
+		// TODO Auto-generated method stub
+		return (ArrayList)session.selectList("bclassMapper.selectGiftList", bClass);
+	}
+
 
 }

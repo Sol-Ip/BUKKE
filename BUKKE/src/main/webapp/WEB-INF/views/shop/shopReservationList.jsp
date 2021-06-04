@@ -310,7 +310,7 @@
   
   	<c:if test="${reservation.activityNo != 0  }">
     <tr>
-      <th scope="row"><input type="checkbox"></th>
+      <th scope="row"><input type="checkbox" name="chkbox2"></th>
       <td>${reservation.reservationNo }</td>
       <td>
       <c:choose>
@@ -365,7 +365,7 @@
   
   	<c:if test="${reservation.classNo != 0  }">
     <tr>
-      <th scope="row"><input type="checkbox"></th>
+      <th scope="row"><input type="checkbox" name="chkbox3"></th>
       <td>${reservation.reservationNo }</td>
       <td>
       <c:choose>

@@ -104,6 +104,66 @@ $('#rejectAll').click(function(){
 	}
 }); 
 
+$('#confirmAll').click(function(){
+	var checkedList = [];
+  $("input[name=chkbox2]:checked").each(function(){
+    checkedList.push($(this).val());
+    confirm($('#confirm'), $(this).val(),'거절');
+  })
+  	console.log(checkedList);
+  	
+	var checked = $('#cb2').is(':checked');
+	
+	if(checked){
+		console.log("WOW");
+	}
+}); 
+
+$('#rejectAll').click(function(){
+	var checkedList = [];
+  $("input[name=chkbox2]:checked").each(function(){
+    checkedList.push($(this).val());
+    reject($('#reject'), $(this).val(),'거절');
+  })
+  	console.log(checkedList);
+  	
+	var checked = $('#cb2').is(':checked');
+	
+	if(checked){
+		console.log("WOW");
+	}
+});
+
+
+$('#confirmAll').click(function(){
+	var checkedList = [];
+  $("input[name=chkbox3]:checked").each(function(){
+    checkedList.push($(this).val());
+    confirm($('#confirm'), $(this).val(),'거절');
+  })
+  	console.log(checkedList);
+  	
+	var checked = $('#cb3').is(':checked');
+	
+	if(checked){
+		console.log("WOW");
+	}
+}); 
+
+$('#rejectAll').click(function(){
+	var checkedList = [];
+  $("input[name=chkbox3]:checked").each(function(){
+    checkedList.push($(this).val());
+    reject($('#reject'), $(this).val(),'거절');
+  })
+  	console.log(checkedList);
+  	
+	var checked = $('#cb3').is(':checked');
+	
+	if(checked){
+		console.log("WOW");
+	}
+});  
 
 
  });

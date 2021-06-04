@@ -10,7 +10,7 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 @Component
-public class SocketHandler extends TextWebSocketHandler {
+public class MySocketHandler extends TextWebSocketHandler {
 	
 	// 웹 소켓 세션을 담아 둘 맵
 	HashMap<String, WebSocketSession> sessionMap = new HashMap<>();

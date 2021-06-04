@@ -13,7 +13,7 @@ public class ChatController {
 	@RequestMapping(value = "chatView.com", method = RequestMethod.GET)
 	public ModelAndView chatView() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("chat/chatting");
+		mv.setViewName("chat/testChat");
 		return mv;
 
 	}

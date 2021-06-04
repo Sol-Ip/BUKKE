@@ -38,7 +38,7 @@
 			<br>
 			<br>
 			<br>
-			<h1>꽃에 관심이 있으시군요</h1>
+			<h1>사진에 관심이 있으시군요</h1>
 			<h2>관심있는 장르가 있으신가요?</h2>
 			<br>
 			<br>
@@ -46,34 +46,29 @@
 
 				
 				
-						<c:url var="flower" value="giftList.com">
-							<c:param name="classType" value="플라워"></c:param>
-                     		<c:param name="classTypedetails" value="가드닝"></c:param>
+						<c:url var="photo" value="giftList.com">
+							<c:param name="classType" value="사진"></c:param>
+                     		<c:param name="classTypedetails" value="사진"></c:param>
                   		</c:url>
 							<h3>
-								<a href="${flower }"><input class="btn btn-lg btn-primary" type="submit" value="가드닝"></a>&nbsp;
+								<a href="${photo }"><input class="btn btn-lg btn-primary" type="submit" value="사진"></a>&nbsp;
 							</h3>
-						<c:url var="flower2" value="giftList.com">
-							<c:param name="classType" value="플라워"></c:param>
-                     		<c:param name="classTypedetails" value="꽃 바구니"></c:param>
+						<c:url var="photo2" value="giftList.com">
+							<c:param name="classType" value="사진"></c:param>
+                     		<c:param name="classTypedetails" value="영상제작"></c:param>
                   		</c:url>
 							<h3>
-								<a href="${flower2 }"><input class="btn btn-lg btn-primary" type="submit" value="꽃 바구니"></a>&nbsp;
+								<a href="${photo2 }"><input class="btn btn-lg btn-primary" type="submit" value="영상제작"></a>&nbsp;
 							</h3>	
-						<c:url var="flower3" value="giftList.com">
-							<c:param name="classType" value="플라워"></c:param>
-                     		<c:param name="classTypedetails" value="꽃다발 및 부케"></c:param>
+						
+						<c:url var="photo3" value="giftList.com">
+							<c:param name="classType" value="사진"></c:param>
+                     		<c:param name="classTypedetails" value="포토샵"></c:param>
                   		</c:url>
 							<h3>
-								<a href="${flower3 }"><input class="btn btn-lg btn-primary" type="submit" value="꽃다발 및 부케"></a>&nbsp;
+								<a href="${photo3 }"><input class="btn btn-lg btn-primary" type="submit" value="포토샵"></a>&nbsp;
 							</h3>
-						<c:url var="flower4" value="giftList.com">
-							<c:param name="classType" value="플라워"></c:param>
-                     		<c:param name="classTypedetails" value="플라워리스, 테이블리스"></c:param>
-                  		</c:url>
-							<h3>
-								<a href="${flower4 }"><input class="btn btn-lg btn-primary" type="submit" value="플라워리스, 테이블리스"></a>&nbsp;
-							</h3>			
+													
 			
 			<br>
 			<br>

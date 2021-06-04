@@ -54,7 +54,14 @@ public class GiftController {
 		}
 		else if(classType.equals("미술")){
 			return "gift/giftArtView";
-		}else {
+		}else if(classType.equals("뷰티")){
+			return "gift/giftBeautyView";
+		}else if(classType.equals("음악")){
+			return "gift/giftMusicView";
+		}else if(classType.equals("사진")){
+			return "gift/giftPhotoView";
+		}			
+		else {
 			return "common/errorPage";
 		}
 		

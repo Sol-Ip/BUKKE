@@ -38,8 +38,8 @@
 			<br>
 			<br>
 			<br>
-			<h1>어떤 클래스를 원하시나요?</h1>
-			
+			<h1>미술에 관심이 있으시군요</h1>
+			<h2>관심있는 장르가 있으신가요?</h2>
 			<br>
 			<br>
 			<div align="center">
@@ -73,7 +73,21 @@
                   		</c:url>
 							<h3>
 								<a href="${art4 }"><input class="btn btn-lg btn-primary" type="submit" value="동양화, 만화"></a>&nbsp;
-							</h3>			
+							</h3>
+						<c:url var="art5" value="giftList.com">
+							<c:param name="classType" value="미술"></c:param>
+                     		<c:param name="classTypedetails" value="캘리스라피, 서예"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${art5 }"><input class="btn btn-lg btn-primary" type="submit" value="캘리스라피, 서예"></a>&nbsp;
+							</h3>
+						<c:url var="art6" value="giftList.com">
+							<c:param name="classType" value="미술"></c:param>
+                     		<c:param name="classTypedetails" value="디지털 드로잉"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${art6 }"><input class="btn btn-lg btn-primary" type="submit" value="디지털 드로잉"></a>&nbsp;
+							</h3>							
 			
 			<br>
 			<br>

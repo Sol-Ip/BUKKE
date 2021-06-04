@@ -82,6 +82,24 @@
 							<h3>
 								<a href="${art }"><input class="btn btn-lg btn-primary" type="submit" value="미술"></a>&nbsp;
 							</h3>
+						<c:url var="beauty" value="giftType.com">
+                     		<c:param name="classType" value="뷰티"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${beauty }"><input class="btn btn-lg btn-primary" type="submit" value="뷰티"></a>&nbsp;
+							</h3>
+						<c:url var="music" value="giftType.com">
+                     		<c:param name="classType" value="음악"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${music }"><input class="btn btn-lg btn-primary" type="submit" value="음악"></a>&nbsp;
+							</h3>
+						<c:url var="photo" value="giftType.com">
+                     		<c:param name="classType" value="사진"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${photo }"><input class="btn btn-lg btn-primary" type="submit" value="사진"></a>&nbsp;
+							</h3>
 			<br>
 			<br>
 			<br>

@@ -255,7 +255,7 @@
   <c:forEach items="${reservationList }" var="reservation">
   <tbody> 
     <tr>
-      <th scope="row"><input type="checkbox"></th>
+      <th scope="row"><input type="checkbox" name="chkbox" value="${reservation.reservationNo}"></th>
       <td>${reservation.reservationNo }</td>
       <td>
       <c:choose>
@@ -293,7 +293,7 @@
     <table class="table table-hover" >
   <thead>
     <tr>
-      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb1"></th>
+      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb2"></th>
       <th scope="col">예약 번호</th>
       <th scope="col">구분</th>
       <th scope="col">회원명</th>
@@ -348,7 +348,7 @@
     <table class="table table-hover" >
   <thead>
     <tr>
-      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb2"></th>
+      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb3"></th>
       <th scope="col">예약 번호</th>
       <th scope="col">구분</th>
       <th scope="col">회원명</th>
@@ -400,7 +400,7 @@
     </section>
     <b></b>
       <div style="float: right;">
-      	<button type="button">승인</button>
+      	<button type="button" id="confirmAll">승인</button>
       	<button type="button">거절</button>
       </div>
  </div>
@@ -497,7 +497,7 @@
     </section>
 
 <script>
-	$('input:checkbox[name=checkBtn1]').length;
+
 </script>
 </body>
 </html>

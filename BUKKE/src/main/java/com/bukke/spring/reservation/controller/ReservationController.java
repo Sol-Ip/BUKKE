@@ -91,7 +91,7 @@ public class ReservationController {
             @ModelAttribute Reservation reservation, 
             HttpServletResponse response) throws Exception {
             
-         System.out.println(reservation.getReservationStatus());
+        // System.out.println(reservation.getReservationStatus());
             int confirm =0;
             int reject =0;
          if(reservation.getReservationStatus().equals("승인")) {

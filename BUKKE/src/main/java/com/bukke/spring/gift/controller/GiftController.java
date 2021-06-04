@@ -12,10 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.gift.service.GiftService;
+import com.bukke.spring.review.domain.ReviewPageInfo;
 
 @Controller
 public class GiftController {
@@ -46,36 +49,50 @@ public class GiftController {
 	@RequestMapping(value = "giftType.com", method = RequestMethod.GET)
 	public String GiftType(@RequestParam("classType") String classType, Model model, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
-
-		return "gift/giftTypeView";
-
-	}
-	
-	
-	@RequestMapping(value = "giftList.com", method = RequestMethod.GET)
-	public String GiftList(@RequestParam("classType") String classType, 
-			@RequestParam("classTypedetails") String classTypedetails, 
-			Model model, HttpServletRequest request,
-			HttpServletResponse response, HttpSession session) {
-		
-		BukkeClass bukkeClass = new BukkeClass();
-		bukkeClass.setClassType(classType);
-		bukkeClass.setClassTypedetails(classTypedetails);
-
-		ArrayList<BukkeClass> bList = bService.printGiftBclass(bukkeClass);
-		
-		System.out.println("bList "+ bList.toString());
-		
-		model.addAttribute("bList",bList);
+		if(classType.equals("플라워")) {
+			return "gift/giftFlowerView";	
+		}
+		else if(classType.equals("미술")){
+			return "gift/giftArtView";
+		}else {
+			return "common/errorPage";
+		}
 		
 		
-		
-		
-		return "gift/giftListView";
 
 	}
 	
 	
+	  //선물 리스트 by 상세+ 상세분류
+	  
+	  @RequestMapping(value = "giftList.com", method = RequestMethod.GET) public
+	  String GiftList(@RequestParam("classType") String classType,
+	  
+	  @RequestParam("classTypedetails") String classTypedetails, Model model,
+	  HttpServletRequest request, HttpServletResponse response, HttpSession
+	  session) {
+	  
+	  BukkeClass bukkeClass = new BukkeClass(); bukkeClass.setClassType(classType);
+	  bukkeClass.setClassTypedetails(classTypedetails);
+	  
+	  ArrayList<BukkeClass> bList = bService.printGiftBclass(bukkeClass);
+	  
+	  System.out.println("bList "+ bList.toString());
+	  
+	  model.addAttribute("bList",bList);
+	  
+	  
+	  if(!bList.isEmpty()) {
+		  return "gift/giftListView";   
+	  }
+	  else {
+		  model.addAttribute("msg","해당 항목이 없습니다");
+		  return "common/errorPage";
+	  }
+	  
+	  
+	  }
+	 
 
 	// 선물하기 전체 보기
 	public String GiftListView() {

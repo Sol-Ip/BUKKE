@@ -43,45 +43,38 @@
 			<br>
 			<br>
 			<div align="center">
-<%-- 
-				<c:url var="flower" value="">
-				</c:url>
-				<c:url var="art" value="">
-				</c:url>
-				<c:url var="handicraft" value="">
-				</c:url>
 
-				<c:url var="beauty" value="">
-				</c:url>
-				<c:url var="music" value="">
-				</c:url>
-				<c:url var="cook" value="">
-				</c:url>
-
-				<div>
-					<a href="${flower }"><input class="btn btn-lg btn-primary" type="submit" value="플라워"></a> &nbsp;
-					<a href="${art }"><input class="btn btn-lg btn-secondary" type="submit" value="미술"></a>&nbsp;
-					<a href="${cook }"><input class="btn btn-lg btn-info" type="submit" value="요리"></a>
-				</div>
-				<br>
-				<div>
-					<a href="${handicraft }"><input class="btn btn-lg btn-success" type="submit" value="수공예"></a> &nbsp;
-					<a href="${beauty }"><input class="btn btn-lg btn-danger" type="submit" value="뷰티"></a> &nbsp;
-					<a href="${music }"><input class="btn btn-lg btn-warning" type="submit" value="음악"></a>
-				</div>
-					 --%>
-						<c:url var="flower" value="giftType.com">
-                     		<c:param name="classType" value="플라워"></c:param>
+				
+				
+						<c:url var="art" value="giftList.com">
+							<c:param name="classType" value="미술"></c:param>
+                     		<c:param name="classTypedetails" value="수채화"></c:param>
                   		</c:url>
 							<h3>
-								<a href="${flower }"><input class="btn btn-lg btn-primary" type="submit" value="플라워"></a>&nbsp;
+								<a href="${art }"><input class="btn btn-lg btn-primary" type="submit" value="수채화"></a>&nbsp;
 							</h3>
-						<c:url var="art" value="giftType.com">
-                     		<c:param name="classType" value="미술"></c:param>
+						<c:url var="art2" value="giftList.com">
+							<c:param name="classType" value="미술"></c:param>
+                     		<c:param name="classTypedetails" value="오일 파스텔"></c:param>
                   		</c:url>
 							<h3>
-								<a href="${art }"><input class="btn btn-lg btn-primary" type="submit" value="미술"></a>&nbsp;
+								<a href="${art2 }"><input class="btn btn-lg btn-primary" type="submit" value="오일 파스텔"></a>&nbsp;
+							</h3>	
+						<c:url var="art3" value="giftList.com">
+							<c:param name="classType" value="미술"></c:param>
+                     		<c:param name="classTypedetails" value="드로잉"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${art3 }"><input class="btn btn-lg btn-primary" type="submit" value="드로잉"></a>&nbsp;
 							</h3>
+						<c:url var="art4" value="giftList.com">
+							<c:param name="classType" value="미술"></c:param>
+                     		<c:param name="classTypedetails" value="동양화, 만화"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${art4 }"><input class="btn btn-lg btn-primary" type="submit" value="동양화, 만화"></a>&nbsp;
+							</h3>			
+			
 			<br>
 			<br>
 			<br>

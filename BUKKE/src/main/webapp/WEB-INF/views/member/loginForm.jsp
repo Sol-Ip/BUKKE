@@ -8,11 +8,12 @@
 <link rel="stylesheet" href="/resources/css/member/loginForm.css">
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <!-- 카카오 로그인 API -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
-<div class="backgroundModal"></div>
 <form action="memberLogin.com" method="POST">
   <div id="text-bubble">홈 바로가기</div>
   <svg width="200px" height="200px" viewBox="0 0 200 200" aria-labelledby="svg-title svg-desc">
@@ -105,7 +106,7 @@
   </fieldset>
 </form>
  <!-- JS -->
-  <script src="/resources/js/member/loginForm.js"></script>
+  <script src="/resources/js/member/ghostForm.js"></script>
   <script src="/resources/js/member/loginAjax.js"></script>
 </body>
 </html>

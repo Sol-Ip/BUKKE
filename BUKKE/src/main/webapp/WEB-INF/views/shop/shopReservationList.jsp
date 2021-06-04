@@ -277,8 +277,8 @@
       <td>${reservation.reservationDate }</td>
       <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
-        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary">승인</button>
-        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger">거절</button>
+        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary confirm">승인</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger reject">거절</button>
      </td>
        
     </tr>

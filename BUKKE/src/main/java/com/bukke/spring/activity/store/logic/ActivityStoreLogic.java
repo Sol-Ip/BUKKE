@@ -65,6 +65,11 @@ public class ActivityStoreLogic implements ActivityStore {
 		return sqlSession.delete("activityMapper.deleteActivity", activityNo);
 	}
 
+	@Override
+	public ArrayList selectKeepActivity() { // 찜 목록에 액티비티 출력
+		return (ArrayList)sqlSession.selectList("keepMapper.selectAllKeepList");
+	}
+
 	
 
 

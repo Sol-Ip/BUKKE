@@ -26,5 +26,7 @@ public interface ActivityStore {
 
 	public ArrayList<Activity> selectActivityType(String activityType); // // 액티비티 (분류 선택 시) 상세분류 출력
 
+	public ArrayList selectKeepActivity(); // 찜 목록에 액티비티 출력
+
 
 }

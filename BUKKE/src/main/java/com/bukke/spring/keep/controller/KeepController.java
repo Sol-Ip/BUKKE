@@ -1,5 +1,8 @@
 package com.bukke.spring.keep.controller;
 
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.common.KeepPagination;
 import com.bukke.spring.keep.domain.Keep;
+import com.bukke.spring.keep.domain.KeepPageInfo;
 import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.member.domain.Member;
 
@@ -18,6 +26,9 @@ public class KeepController {
 
 	@Autowired
 	private KeepService kService;
+	
+	@Autowired
+	private ActivityService aService;
 	
 	// 찜목록 jsp이동 (일반회원)
 	public String KeepListView() {
@@ -81,9 +92,31 @@ public class KeepController {
 		
 	}
 	
+	// 찜 목록 전체보기 
 	@RequestMapping(value="KeepListbyId.com")
-	public String keepMypage() {
+	public ModelAndView keepMypage(ModelAndView mv,
+									HttpSession session,
+									@RequestParam(value="page", required=false) Integer page) {
 		
-		return "member/memberKeep";
+		//Keep keep = new Keep();
+		Member loginMember = (Member)session.getAttribute("loginMember"); 
+		String memberId = loginMember.getMemberId();
+		
+		int currentPage = (page != null) ? page : 1;
+		int listCount = kService.getKeepListCount(memberId); // keep 전체 갯수
+		KeepPageInfo pi = KeepPagination.getPageInfo(currentPage, listCount);
+		
+		//ArrayList<Activity> aList = aService.printKeepActivity(); // keep 목록 중 액티비티
+		ArrayList<Keep> kList = kService.printAllKeepList(pi, memberId); 
+		System.out.println("keepList : "+ kList);
+		if(!kList.isEmpty()) {
+			mv.addObject("kList", kList);
+			mv.addObject("pi", pi);
+			mv.setViewName("member/memberKeep");
+		} else {
+			mv.addObject("msg", "찜 목록 전체조회 실패");
+			mv.setViewName("common/errorPage");
+		}
+		return mv;
 	}
 }

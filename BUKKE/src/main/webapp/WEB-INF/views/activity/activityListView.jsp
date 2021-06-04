@@ -221,6 +221,6 @@
 
 
 </body>
-</html>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+</html>
 <script type="text/javascript" src="../resources/js/activity/activityListView.js"></script>

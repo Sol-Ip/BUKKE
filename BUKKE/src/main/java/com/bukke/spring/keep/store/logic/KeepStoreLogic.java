@@ -2,6 +2,7 @@ package com.bukke.spring.keep.store.logic;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.keep.domain.Keep;
+import com.bukke.spring.keep.domain.KeepPageInfo;
 import com.bukke.spring.keep.store.KeepStore;
 
 @Repository
@@ -58,6 +60,20 @@ public class KeepStoreLogic implements KeepStore {
 	@Override
 	public int deleteActivityfromKeep(Keep keep) {
 		return sqlSession.delete("keepMapper.updateKeepActivity", keep);
+	}
+
+	// 찜 모든 갯수 
+	@Override
+	public int selectKeepListCount(String memberId) {
+		return sqlSession.selectOne("keepMapper.totalKeepCount");
+	}
+
+	// 찜 모든 목록
+	@Override
+	public ArrayList<Keep> selectAllKeepList(KeepPageInfo pi,String memberId) {
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)sqlSession.selectList("keepMapper.selectAllKeepList",memberId, rowBounds);
 	}
 
 	

@@ -64,6 +64,11 @@ public class ActivityServiceImpl implements ActivityService {
 		return aStore.deleteActivity(activityNo);
 	}
 
+	@Override
+	public ArrayList<Activity> printKeepActivity() { // 찜 목록에 액티비티 출력
+		return (ArrayList)aStore.selectKeepActivity();
+	}
+
 	
 
 

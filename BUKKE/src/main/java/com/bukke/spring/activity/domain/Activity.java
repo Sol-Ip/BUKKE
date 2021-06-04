@@ -2,6 +2,8 @@ package com.bukke.spring.activity.domain;
 
 import java.sql.Date;
 
+import com.bukke.spring.member.domain.Member;
+
 public class Activity {
 	
 	private int activityNo; // 클래스번호
@@ -20,6 +22,8 @@ public class Activity {
 	private Date activityStartdate; // 개강일
 	private Date activityEnddate; // 종강일
 	private String activityStatus; //액티비티(삭제)여부
+	
+	private Member member;
 	
 	// 생성자
 	public Activity() {

@@ -19,6 +19,8 @@
 		<result property="activityStatus" column="ACTIVITY_STATUS"></result> 
 		<result property="aOriginalFilename" column="A_ORIGINAL_FILENAME"></result> 
 		<result property="aRenameFilename" column="A_RENAME_FILENAME"></result> 
+		<result property="activityStartTime" column="ACTIVITY_START_TIME"></result>
+		<result property="activityEndTime" column="ACTIVITY_END_TIME"></result>
 	</resultMap>
 	
 	<!-- 액티비티 전체 수 -->
@@ -57,7 +59,7 @@
 	<insert id="insertActivity">
 		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, 'shoptest',
 		#{activityName},#{activityAddr}, #{activityType},#{activityTypeDetails}, #{activityInfo}, #{activityPrice}, #{activityCapacity},
-		 SYSDATE, #{activityStartdate}, #{activityEnddate},DEFAULT,#{aOriginalFilename}, #{aRenameFilename})
+		 SYSDATE, #{activityStartdate}, #{activityEnddate},DEFAULT,#{aOriginalFilename}, #{aRenameFilename}, #{activityStartTime }, #{activityEndTime })
 	</insert>
 	
 	<!-- 등록 할 시, 액티비티 (분류 선택 시) 상세분류 출력  -->
@@ -71,7 +73,8 @@
    		ACTIVITY_TYPE = #{activityType }, ACTIVITY_TYPEDETAILS = #{activityTypeDetails}, ACTIVITY_INFO = #{activityInfo }, 
    		ACTIVITY_PRICE = #{activityPrice }, ACTIVITY_ENROLL_DATE = SYSDATE, 
    		ACTIVITY_START_DATE = #{activityStartdate }, ACTIVITY_END_DATE = #{activityEnddate }, 
-   		A_ORIGINAL_FILENAME = #{aOriginalFilename }, A_RENAME_FILENAME = #{aRenameFilename }
+   		A_ORIGINAL_FILENAME = #{aOriginalFilename }, A_RENAME_FILENAME = #{aRenameFilename },
+   		ACTIVITY_START_TIME = #{activityStartTime }, ACTIVITY_END_TIME = #{activityEndTime }, 
    		WHERE ACTIVITY_NO = #{activityNo } AND ACTIVITY_STATUS = 'Y'
    </update>
 	

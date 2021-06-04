@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.keep.domain.Keep;
+import com.bukke.spring.keep.domain.KeepPageInfo;
 
 public interface KeepService {
 	
@@ -48,6 +49,15 @@ public interface KeepService {
 	 * 액티비티 찜 취소
 	 */
 	public int updateActivityfromKeep(Keep keep);
+
+	/**
+	 * 액티비티 찜 리스트 갯수(페이징)
+	 */
+	public int getKeepListCount(String memberId);
+	/**
+	 * 액티비티 찜 총 리스트 
+	 */
+	public ArrayList<Keep> printAllKeepList(KeepPageInfo pi, String memberId);
 	
 	
 }

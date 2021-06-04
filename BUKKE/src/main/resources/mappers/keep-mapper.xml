@@ -8,6 +8,50 @@
 		<result property="classNo" column="CLASS_NO"></result>
 		<result property="activityNo" column="ACTIVITY_NO"></result>
 		<result property="keepStatus" column="KEEP_STATUS"></result>
+		<collection property="bukkeClass" resultMap="bClassResultMap" />
+		<collection property="activity" resultMap="ActivityResultMap" />
+	</resultMap>
+	
+	<resultMap type="BukkeClass" id="bClassResultMap">
+		<id property="classNo" column="CLASS_NO"></id>
+		<result property="shopId" column="SHOP_ID"></result>
+		<result property="className" column="CLASS_NAME"></result>
+		<result property="classAddr" column="CLASS_ADDR"></result>
+		<result property="classType" column="CLASS_TYPE"></result>
+		<result property="classTypedetails" column="CLASS_TYPEDETAILS"></result>
+		<result property="classTypedetailCode" column="CLASS_TYPE_DETAIL_CODE"></result>
+		<result property="classInfo" column="CLASS_INFO"></result>
+		<result property="classPrice" column="CLASS_PRICE"></result>
+		<result property="classCapacity" column="CLASS_CAPACITY"></result>
+		<result property="classEnrollDate" column="CLASS_ENROLL_DATE"></result>  
+		<result property="classStartDate" column="CLASS_START_DATE"></result>
+		<result property="classEndDate" column="CLASS_END_DATE"></result>
+		<result property="classStartTime" column="CLASS_START_TIME"></result>
+		<result property="classEndTime" column="CLASS_END_TIME"></result>
+		<result property="classStatus" column="CLASS_STATUS"></result>
+		<result property="cOriginalFilename" column="C_ORIGINAL_FILENAME"></result>
+		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
+	</resultMap>
+	
+	<resultMap type="Activity" id="ActivityResultMap">
+		<id property="activityNo" column="ACTIVITY_NO"></id>
+		<result property="shopId" column="SHOP_ID"></result> 
+		<result property="activityName" column="ACTIVITY_NAME"></result> 
+		<result property="activityAddr" column="ACTIVITY_ADDR"></result> 
+		<result property="activityType" column="ACTIVITY_TYPE"></result> 
+		<result property="activityTypeDetails" column="ACTIVITY_TYPEDETAILS"></result> 
+		<result property="activityTypeDetailCodes" column="ACTIVITY_TYPEDETAIL_CODE"></result> 
+		<result property="activityInfo" column="ACTIVITY_INFO"></result> 
+		<result property="activityPrice" column="ACTIVITY_PRICE"></result>
+		<result property="activityCapacity" column="ACTIVITY_CAPACITY"></result> 
+		<result property="activityEnrolldate" column="ACTIVITY_ENROLL_DATE"></result> 
+		<result property="activityStartdate" column="ACTIVITY_START_DATE"></result> 
+		<result property="activityEnddate" column="ACTIVITY_END_DATE"></result> 
+		<result property="activityStatus" column="ACTIVITY_STATUS"></result> 
+		<result property="aOriginalFilename" column="A_ORIGINAL_FILENAME"></result> 
+		<result property="aRenameFilename" column="A_RENAME_FILENAME"></result> 
+		<result property="activityStartTime" column="ACTIVITY_START_TIME"></result>
+		<result property="activityEndTime" column="ACTIVITY_END_TIME"></result>
 	</resultMap>
 	
 	<!-- 액티비티 KEEP 등록 -->
@@ -15,24 +59,55 @@
 		INSERT INTO KEEP VALUES (SEQ_KEEP_NO.NEXTVAL, #{memberId}, null, #{activityNo},'Y')
 	</insert>
 	
+	<!-- 클래스 KEEP 등록 -->
+	<insert id="insertKeepClass">
+		INSERT INTO KEEP VALUES (SEQ_KEEP_NO.NEXTVAL, #{memberId}, #{classNo}, null, 'Y')
+	</insert>
+	
 	<!-- 액티비티 KEEP 취소(UPDATE) -->
 	<update id="updateKeepActivity">
 		UPDATE KEEP SET KEEP_STATUS = 'N' WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO = #{activityNo}
 	</update>
 	
+	<!-- 클래스 KEEP 취소(UPDATE) -->
+	<update id="updateKeepClass">
+		UPDATE KEEP SET KEEP_STATUS = 'N' WHERE MEMBER_ID = #{memberId} AND CLASS_NO = #{classNo}
+	</update>
+	
+	<!-- KEEP한 모든 글 조회 -->
+	<select id="selectAllKeepList" resultMap="KeepResultMap">
+		SELECT ROW_NUMBER() OVER (ORDER BY KEEP_NO DESC) AS NUM, KEEP_NO, SHOP_ID, CLASS_NO ,NULL AS ACTIVITY_NO, CLASS_NAME, NULL AS ACTIVITY_NAME, CLASS_TYPE, NULL AS ACTIVITY_TYPE, C_RENAME_FILENAME, NULL AS A_RENAME_FILENAME, KEEP.MEMBER_ID FROM KEEP JOIN CLASS USING (CLASS_NO) WHERE KEEP.MEMBER_ID = #{memberId}
+		UNION
+		SELECT ROW_NUMBER() OVER (ORDER BY KEEP_NO DESC) AS NUM, KEEP_NO, SHOP_ID, NULL AS CLASS_NO, ACTIVITY_NO, NULL AS CLASS_NAME, ACTIVITY_NAME, NULL AS CLASS_TYPE, ACTIVITY_TYPE, NULL AS C_RENAME_FILENAME, A_RENAME_FILENAME, KEEP.MEMBER_ID FROM KEEP JOIN ACTIVITY USING (ACTIVITY_NO) WHERE KEEP.MEMBER_ID = #{memberId} ORDER BY KEEP_NO DESC
+	</select>
 	<!-- 액티비티 KEEP한 글 조회 -->
 	<select id="selectOneKeepActivity" resultMap="KeepResultMap">
 		SELECT * FROM KEEP WHERE ACTIVITY_NO = #{activityNo} AND MEMBER_ID = #{memberId} AND KEEP_STATUS = 'Y' 
 	</select>
 	
-	<!-- 액티비티 KEEP 여부(check) , keep 했으면 1, 안 했으면 0으로 IS_CHECK 에 뜸-->
-	<select id="checkKeepActivity" resultType="_int">
-		SELECT COUNT(*) AS IS_CHECK FROM KEEP WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO = #{activityNo}
+	<!-- 클래스 KEEP한 글 조회 -->
+	<select id="selectOneKeepClass" resultMap="KeepResultMap">
+		SELECT * FROM KEEP WHERE CLASS_NO = #{classNo} AND MEMBER_ID = #{memberId} AND KEEP_STATUS = 'Y' 
 	</select>
 	
-	<!-- 액티비티 게시글 별 KEEP 총 갯수 -->
-	<select id="totalKeepActivity" resultType="_int">
-		SELECT COUNT(*) AS TOTALCOUNT, ACTIVITY_NO FROM KEEP GROUP BY ACTIVITY_NO
+	<!-- 액티비티 KEEP 여부(check) , keep 했으면 1, 안 했으면 0으로 IS_CHECK 에 뜸
+	<select id="checkKeepActivity" resultType="_int">
+		SELECT COUNT(*) AS IS_CHECK FROM KEEP WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO = #{activityNo}
+	</select>-->
+	
+	<!-- 모든 KEEP 총 갯수 -->
+	<select id="totalKeepCount" resultType="_int">
+		SELECT COUNT(*) AS KEEP_TOTAL_COUNT FROM KEEP WHERE KEEP_STATUS = 'Y'
+	</select>
+	
+	<!--  액티비티 KEEP 총 갯수 -->
+	<select id="actKeepCount" resultType="_int">
+		SELECT COUNT (*) AS ACT_COUNT FROM KEEP WHERE MEMBER_ID = #{memberId} AND ACTIVITY_NO IS NOT NULL AND KEEP_STATUS='Y'
+	</select>
+	
+	<!--  클래스 KEEP 총 갯수 -->
+	<select id="classKeepCount" resultType="_int">
+		SELECT COUNT (*) AS CLASS_COUNT FROM KEEP WHERE MEMBER_ID = #{memberId} AND CLASS_NO IS NOT NULL AND KEEP_STATUS='Y'
 	</select>
 	
 </mapper>

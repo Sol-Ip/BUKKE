@@ -26,4 +26,6 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printActivityType(String activityType); // 액티비티 (분류 선택 시) 상세분류 출력
 
+	public ArrayList<Activity> printKeepActivity(); // 찜 목록에 액티비티 출력
+
 }

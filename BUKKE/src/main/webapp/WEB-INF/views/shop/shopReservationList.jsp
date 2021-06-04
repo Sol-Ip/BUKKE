@@ -401,7 +401,7 @@
     <b></b>
       <div style="float: right;">
       	<button type="button" id="confirmAll">승인</button>
-      	<button type="button">거절</button>
+      	<button type="button" id="rejectAll">거절</button>
       </div>
  </div>
   </div> 

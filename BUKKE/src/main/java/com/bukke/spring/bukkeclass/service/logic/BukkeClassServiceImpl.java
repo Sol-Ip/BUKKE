@@ -47,11 +47,6 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return bStore.insertBclass(bClass);
 	}
 
-	// 클래스 상세분류 출력
-	@Override
-	public ArrayList<BukkeClass> printClassType(String classType) {
-		return bStore.selectClassType(classType);
-	}
 	
 	// 클래스 수정 (업체회원-클래스 수정 메뉴)
 	@Override

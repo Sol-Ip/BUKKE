@@ -36,8 +36,6 @@ public interface BukkeClassStore {
 	// 예약에 클래스명 출력
 	public ArrayList selectReservation();
 
-	// 클래스 등록 시 상세분류 출력
-	public ArrayList<BukkeClass> selectClassType(String classType);
 	//클래스 선물 분류+상세분류로 리스트 출력
 	public ArrayList<BukkeClass> selectGiftListBclass(BukkeClass bClass);
 

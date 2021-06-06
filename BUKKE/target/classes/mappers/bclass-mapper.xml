@@ -9,7 +9,6 @@
 		<result property="classAddr" column="CLASS_ADDR"></result>
 		<result property="classType" column="CLASS_TYPE"></result>
 		<result property="classTypedetails" column="CLASS_TYPEDETAILS"></result>
-		<result property="classTypedetailCode" column="CLASS_TYPE_DETAIL_CODE"></result>
 		<result property="classInfo" column="CLASS_INFO"></result>
 		<result property="classPrice" column="CLASS_PRICE"></result>
 		<result property="classCapacity" column="CLASS_CAPACITY"></result>
@@ -54,10 +53,6 @@
    	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename }, #{classStartTime }, #{classEndTime })
    </insert>
    
-   <!-- 클래스 등록 시 상세분류 출력 -->
-   <select id="selectClassType" resultMap="bClassResultMap">  
-   		SELECT CLASS_TYPEDETAILS, CLASS_TYPE_DETAIL_CODE FROM CLASS_TYPE WHERE CLASS_TYPE = #{classType }
-   </select>
     
    <update id="updateBclass">
    		UPDATE CLASS

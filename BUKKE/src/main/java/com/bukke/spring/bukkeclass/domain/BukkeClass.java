@@ -13,7 +13,6 @@ public class BukkeClass {
 	private String classAddr; // 주소
 	private String classType; // 분류
 	private String classTypedetails; // 상세분류
-	private String classTypedetailCode; // 상세분류 코드
 	private String classInfo; // 상세내용
 	private String classPrice;// 클래스 가격
 	private String classCapacity; // 인원수
@@ -67,13 +66,6 @@ public class BukkeClass {
 		this.classTypedetails = classTypedetails;
 	}
 	
-	public String getClassTypedetailCode() {
-		return classTypedetailCode;
-	}
-
-	public void setClassTypedetailCode(String classTypedetailCode) {
-		this.classTypedetailCode = classTypedetailCode;
-	}
 
 	public String getClassInfo() {
 		return classInfo;

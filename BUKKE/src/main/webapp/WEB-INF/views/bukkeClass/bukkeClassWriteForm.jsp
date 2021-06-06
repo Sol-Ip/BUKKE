@@ -25,7 +25,11 @@
 <script src="${pageContext.servletContext.contextPath}/resources/js//jquery-1.8.3.min.js"></script>
 <script src="${pageContext.servletContext.contextPath}/resources/jquery/jquery-ui.js?version=1.3"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<!-- <script>
+
+<!-- 주소 검색 -->
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
 $(document).ready(function() {
 	 /* $("#write-btn").on("click",function(){
 		 if (!confirm("글을 등록하시겠습니까?")) {
@@ -38,32 +42,41 @@ $(document).ready(function() {
 
 	$('#class-type').change(function () {
 		var selectType=$(this).val();
-		alert(selectType);
-			/*$("#classTypedetails").html("");
-				 $.ajax({
-					type : "get",
-					url : "classTypedetails.com",
-					dataType : "json",
-					data : { "classType" : selectType },
-					success : function(result) { 
-						for(var i in result) {
-							 $('#classTypedetails').append("<option value='"+result[i].classTypedetailCode+"' >"+result[i].classTypedetails+"</option>'");
-						}
-				 }
-				});//ajax 
-			})//첫번째 select 박스
-	$('#classTypedetails').change(function () {
-		//alert($('#partyHeadCount').val());
-		
-	})// 두번째 select 박스*/
+		classTypeList(selectType); 	
+			});//첫번째 select 박스
 });
 
-};
-</script> -->
-<!-- 주소 검색 -->
-<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+function classTypeList(result) {
+	$('#classTypedetails').html("");
+	if(result == '플라워') { 
+		$('#classTypedetails').append("<option value='11' >꽃다발 및 부케</option>");
+		$('#classTypedetails').append("<option value='12' >꽃바구니</option>");
+		$('#classTypedetails').append("<option value='13' >가드닝</option>");
+       $('#classTypedetails').append("<option value='14' >플라워리스 및 테이블리스</option>");
+    } else if (result == '뷰티') {  
+        $('#classTypedetails').append("<option value='21' >헤어</option>");
+        $('#classTypedetails').append("<option value='22' >메이크업 및 퍼스널컬러</option>");
+        $('#classTypedetails').append("<option value='23' >네일 및 속눈썹 연장</option>");
+    } else if (result == '음악') {  
+        $('#classTypedetails').append("<option value='31' >피아노</option>");
+        $('#classTypedetails').append("<option value='32' >전통악기</option>");
+        $('#classTypedetails').append("<option value='33' >보컬 및 작사 작곡</option>");
+        $('#classTypedetails').append("<option value='34' >드럼</option>");
+        $('#classTypedetails').append("<option value='35' >기타 및 우클렐레</option>");
+    } else if (result == '사진') { 
+    	 $('#classTypedetails').append("<option value='41' >포토샵</option>");
+         $('#classTypedetails').append("<option value='42' >영상제작</option>");
+         $('#classTypedetails').append("<option value='43' >사진</option>");
+    }else if (result == '미술') { 
+	   	 $('#classTypedetails').append("<option value='51' >캘리그라피 및 서예</option>");
+	     $('#classTypedetails').append("<option value='52' >오일 파스텔</option>");
+	     $('#classTypedetails').append("<option value='53' >수채화</option>");
+	     $('#classTypedetails').append("<option value='54' >디지털 드로잉</option>");
+	     $('#classTypedetails').append("<option value='55' >드로잉</option>");
+	}
+}
 
+</script> 
 <script>
 function findAddr(){
 	new daum.Postcode({
@@ -144,9 +157,9 @@ function findAddr(){
 								<option value="" hidden="hidden">분류를 선택해주세요</option>
 								<option value="플라워">플라워</option>
 								<option value="미술">미술</option>
-								<option value="수공예">뷰티</option>
-								<option value="뷰티">음악</option>
-								<option value="음악">사진</option>
+								<option value="뷰티">뷰티</option>
+								<option value="음악">음악</option>
+								<option value="사진">사진</option>
 							</select>
 							<hr>
 						</div>
@@ -156,8 +169,6 @@ function findAddr(){
 							<br> <label class="form-label" for="classTypedetails">상세분류</label>
 							<select class="form-control" name="classTypedetails" id="classTypedetails" required>
 								<option value="" hidden="hidden">상세분류를 선택해주세요</option>
-								<!-- <option value="대면">대면</option>
-								<option value="비대면">비대면</option> -->
 							</select>
 							<hr>
 						</div>
@@ -303,6 +314,7 @@ $('.timepicker').timepicker({
 </body>
 
 <jsp:include page="../common/footer.jsp"></jsp:include>
+
 <!-- <script type="text/javascript" src="../resources/js/bclass/classWriteForm.js"></script> -->
 <!-- 섬머노트 -->
 <script src="/resources/note/summernote-lite.js"></script>

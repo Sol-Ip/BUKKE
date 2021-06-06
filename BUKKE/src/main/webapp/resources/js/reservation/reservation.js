@@ -77,7 +77,9 @@ $('#confirmAll').click(function(){
 	var checkedList = [];
   $("input[name=chkbox]:checked").each(function(){
     checkedList.push($(this).val());
-    confirm($('.confirm'), $(this).val(),'승인');
+    
+    confirm($('#confirm'), $(this).val(),'승인');
+    
   })
   	console.log(checkedList);
   	
@@ -133,7 +135,7 @@ $('#rejectAll').click(function(){
 		console.log("WOW");
 	}
 });
-
+ 
 
 $('#confirmAll').click(function(){
 	var checkedList = [];

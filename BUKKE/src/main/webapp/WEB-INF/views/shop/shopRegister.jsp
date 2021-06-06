@@ -340,13 +340,13 @@
 		var regexp = /^[0-9]{10}$/;
 		if(CrnNo == "") {
 			$("#crnNo").focus();
-			$(".invalid-phone").html("필수 정보입니다.");
-			$(".invalid-phone").show();
+			$(".invalid-crn").html("필수 정보입니다.");
+			$(".invalid-crn").show();
 			return true;
 		} else if(!regexp.test(CrnNo)) {
 			$("#crnNo").focus();
-			$(".invalid-phone").html("사업자 번호는 10자리의 숫자여야 합니다.");
-			$(".invalid-phone").show();
+			$(".invalid-crn").html("사업자 번호는 10자리의 숫자여야 합니다.");
+			$(".invalid-crn").show();
 			return true;
 		}
 		return false;

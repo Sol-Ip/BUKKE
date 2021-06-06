@@ -103,9 +103,9 @@
 		location.href="moveChatting.com?roomName="+name+"&"+"roomNumber="+number;
 	}
 
-	/* function createChattingRoom(res){
+	function createChattingRoom(res){
 		console.log("createChattingRoom 실행");
-		console.log("방번호 :" + res.roomName);
+		console.log(res);
 		if(res != null){
 			var tag = "<tr><th class='num'>순서</th><th class='room'>방 이름</th><th class='go'></th></tr>";
 			res.forEach(function(d, idx){
@@ -116,13 +116,13 @@
 							"<td class='num'>"+(idx+1)+"</td>"+
 							"<td class='room'>"+ rn +"</td>"+
 							"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-						"</tr>";	
+						"</tr>";
 			});
 			$("#roomList").empty().append(tag);
 		}
-	} */
+	}
 	
-	function createChattingRoom(res){
+	/* function createChattingRoom(res){
 		var obj = JSON.parse(res);
 	      console.log("결과값" + obj);
 	      if(obj != null){
@@ -140,7 +140,7 @@
 	         }
 	         $("#roomList").empty().append(tag);
 	      }
-	}
+	} */
 	    
 
 	

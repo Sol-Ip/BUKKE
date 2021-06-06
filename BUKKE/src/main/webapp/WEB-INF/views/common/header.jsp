@@ -84,17 +84,13 @@
 							<c:when
 								test="${ !empty sessionScope.loginMember && loginMember.memberId eq 'admin'}">
 								<li id="member" class="nav-item dropdown">
-									<!-- 창 너비에 따라 다르게 표시 -->
-									<div class="dropdown-toggle nav-link d-none d-lg-block" data-toggle="dropdown">
-										<i class="fas fa-cog"></i>
-									</div>
-									<div class="dropdown-toggle nav-link d-block d-lg-none" data-toggle="dropdown">
-										관리자
+									<div class="dropdown-toggle nav-link" data-toggle="dropdown">
+										<i class="fas fa-cog"></i>관리자
 									</div>
 									<div class="dropdown-menu dropdown-menu-left">
-										<a href="#" class="dropdown-item">대시보드</a> <a href="#"
-											class="dropdown-item">회원관리</a> <a href="#"
-											class="dropdown-item">클래스관리</a> <a href="#" id="memberLogout"
+										<a href="adminPage.com" class="dropdown-item">관리자메뉴</a>
+										<hr class="dropdown-divider">
+										<a href="memberLogout.com" id="memberLogout"
 											class="dropdown-item">로그아웃</a>
 									</div>
 								</li>
@@ -102,12 +98,15 @@
 							<c:when
 								test="${ !empty sessionScope.loginMember && empty sessionScope.loginShopper}">
 								<li id="member" class="nav-item dropdown">
-									<div class="dropdown-toggle nav-link" data-toggle="dropdown">회원정보</div>
+									<div class="dropdown-toggle nav-link" data-toggle="dropdown">
+										<i class="fas fa-user fa-fw"></i>회원정보
+									</div>
 									<div class="dropdown-menu dropdown-menu-left">
-										<a href="#" class="dropdown-item">공지사항</a> <a
-											href="memberMyPage.com" class="dropdown-item">마이페이지</a> <a
-											href="#" class="dropdown-item">회원메뉴 1</a> <a
-											href="memberLogout.com" id="memberLogout"
+										<a href="#" class="dropdown-item">공지사항</a>
+										<hr class="dropdown-divider">
+										<a href="memberMyPage.com" class="dropdown-item">마이페이지</a>
+										<hr class="dropdown-divider">
+										<a href="memberLogout.com" id="memberLogout"
 											class="dropdown-item">로그아웃</a>
 									</div>
 								</li>
@@ -115,12 +114,18 @@
 							<c:when
 								test="${ empty sessionScope.loginMember && !empty sessionScope.loginShopper}">
 								<li id="shop" class="nav-item dropdown">
-									<div class="dropdown-toggle nav-link" data-toggle="dropdown">회원정보</div>
+									<div class="dropdown-toggle nav-link" data-toggle="dropdown">
+										<i class="fas fa-user fa-fw"></i>회원정보
+									</div>
 									<div class="dropdown-menu dropdown-menu-left">
-										<a href="#" class="dropdown-item">공지사항</a> <a
-											href="memberMyPage.com" class="dropdown-item">마이페이지</a> <a
-											href="#" class="dropdown-item">예약관리</a> <a
-											href="shopLogout.com" id="shopLogout" class="dropdown-item">로그아웃</a>
+										<a href="#" class="dropdown-item">공지사항</a>
+										<hr class="dropdown-divider">
+										<a href="memberMyPage.com" class="dropdown-item">마이페이지</a>
+										<hr class="dropdown-divider">
+										<a href="#" class="dropdown-item">예약관리</a>
+										<hr class="dropdown-divider">
+										<a href="shopLogout.com" id="shopLogout" 
+											class="dropdown-item">로그아웃</a>
 									</div>
 								</li>
 							</c:when>

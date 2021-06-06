@@ -1,28 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-	body * {
-		font-family: 'KOTRA_BOLD-Bold', Arial, sans-serif;
-	}
-	a {
-		text-decoration: none;
-		color: #0033c7;
-	}
-	a:visited {
-		color: #0033c7;
-	}
-</style>
-<meta charset="UTF-8">
-<title>회원가입 성공</title>
-</head>
-<body>
-	<h1>부캐 회원가입에 성공하셨습니다!</h1>
-	<h3><a href="home.com">홈으로 이동</a></h3>
-</body>
-</html>
-<script>
-	setTimeout( location.href='home.com', 5000);
-</script>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8" />
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+			<meta name="description" content="" />
+			<meta name="author" content="" />
+			<title>회원가입 성공</title>
+			<link href="/resources/css/style.css" rel="stylesheet" />
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+		</head>
+		<body>
+			<div id="layoutError">
+				<div id="layoutError_content">
+					<main>
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-lg-6">
+									<div class="text-center mt-4">
+										<p class="lead">회원가입 성공</p>
+										<p>부캐의 일원이 되신것을 환영합니다!</p>
+										<a href="home.com">
+											<i class="fas fa-arrow-left me-1"></i>
+											홈으로 이동
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+		</body>
+	</html>

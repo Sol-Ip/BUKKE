@@ -44,8 +44,10 @@
     	padding: 6px 24px;
     	margin-bottom: 13px;
     }
-    #file-img {
+    #file-image {
     	width: 100%;
+    	max-width: 600px ;
+    	height: auto;
     }
     #filename {
     	width: 230px;

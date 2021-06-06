@@ -91,3 +91,120 @@
   text-decoration: none;
   text-transform: uppercase;
 }
+
+ .btn-warning:hover {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
+    }
+
+    
+    	.my-summary-wrap {
+    padding: 50px 10%;
+    background: none;
+    overflow: hidden;
+}
+.profile-wrap {
+    float: left;
+    width: 34%;
+    padding-left: 137px;
+    min-height: 120px;
+    position: relative;
+}
+.profile-thumb-wrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 120px 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.thumb-profile {
+    width: 100%;
+}
+.profile-info-wrap {
+    padding: 14px 0 0;
+    font-size: 18px;
+    color: #a1a4a8;
+}
+.my-info-wrap {
+    float: right;
+    width: 65%;
+    margin: 30px 0 0;
+}
+.my-info-list {
+    overflow: hidden;
+}
+.my-info {
+    width: 25%;
+    margin: 0;
+    padding: 7px 0;
+    background: #FFFFFF;
+    border-right: 1px solid #eaeaea;
+    text-align: center;
+    float: left;
+}
+.my-info-tit {
+    height: auto;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    display: block;
+}
+.my-info-txt {
+    margin: 2px 0 0;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    display: block;
+    color: #2f3338;
+    font-weight: bold;
+}
+.btn-profile-thumb {
+    width: 103px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 26px;
+    letter-spacing: -0.6px;
+    display: block;
+    margin: 6px 0 0;
+    color: #b7b7b7;
+    border: 1px solid #DFDFDF;
+    text-align: center;
+}
+@font-face {
+     font-family: 'DungGeunMo';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+    font-family: 'NeoDunggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#mypage{
+	   font-family:'NeoDunggeunmo';
+	  font-size: 50px;
+}
+#sub1{
+	  font-family: 'DungGeunMo';
+	  font-size: 22px;
+}
+.profile-name {
+    font-size: 24px;
+    color: #3d4248;
+    font-weight: bold;
+    }
+.profile-info-wrap {
+    padding: 14px 0 0;
+    font-size: 18px;
+    font-family: 'DungGeunMo';    
+    }
+    @font-face {
+    font-family: 'Chosunilbo_myungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

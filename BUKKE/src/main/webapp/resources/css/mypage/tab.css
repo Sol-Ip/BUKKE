@@ -1,4 +1,11 @@
 
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .tabset > input[type="radio"] {
   position: absolute;
   left: -200vw;
@@ -21,7 +28,7 @@
  Styling
 */
 body {
-  font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+ /font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif; 
   color: #333;
   font-weight: 300;
 }

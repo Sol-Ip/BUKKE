@@ -18,34 +18,60 @@ public class KeepServiceImpl implements KeepService {
 	@Autowired
 	private KeepStore kStore;
 	
+	/////////////// 전체
+	
+	// 찜 전체 갯수
+	@Override
+	public int getKeepListCount(String memberId) {
+		return kStore.selectKeepListCount(memberId);
+	}
+
+	// 찜 전체 목록
+	@Override
+	public ArrayList<Keep> printAllKeepList(KeepPageInfo pi, String memberId) {
+		return kStore.selectAllKeepList(pi, memberId);
+	}
+
+	
 	/////////////// 클래스
+	
+	// 클래스 전체 갯수
+	@Override
+	public int getClassKeepListCount(String memberId) {
+		return kStore.selectClassKeepListCount(memberId);
+	}
 	
 	// 클래스 찜목록 조회
 	@Override
-	public ArrayList<BukkeClass> classKeepList(String memberId) {
-		return null;
+	public ArrayList<Keep> printClassKeepList(KeepPageInfo piCla, String memberId) {
+		return kStore.selectAllBukkeClassKeep(piCla, memberId);
 	}
 
 	// 클래스 찜 등록
 	@Override
-	public int addBukkeClasstoKeep(BukkeClass bClass) {
-		return 0;
+	public int insertBukkeClasstoKeep(Keep keep) {
+		return kStore.insertBukkeClasstoKeep(keep);
 	}
 
 	// 클래스 찜 취소
 	@Override
-	public int removeBukkeClassfromKeep(int keepNo) {
-		return 0;
+	public int updateBukkeClassfromKeep(Keep keep) {
+		return kStore.deleteBukkeClassfromKeep(keep);
 	}
 	
 	
 	/////////////// 액티비티
 	
+	// 액티비티 전체 갯수
+	@Override
+	public int getActKeepListCount(String memberId) {
+		return kStore.selectActivityKeepListCount(memberId);
+	}
 	
 	// 액티비티 찜목록 조회
 	@Override
-	public ArrayList<Activity> activityKeepList(String memberId) {
-		return null;
+	public ArrayList<Keep> printActivityKeepList(KeepPageInfo piAct, String memberId) {
+		return kStore.selectAllActivityKeep(piAct, memberId);
 	}
 	
 	// 액티비티 찜 상세
@@ -66,19 +92,4 @@ public class KeepServiceImpl implements KeepService {
 		return kStore.deleteActivityfromKeep(keep);
 	}
 
-	// 찜 갯수
-	@Override
-	public int getKeepListCount(String memberId) {
-		return kStore.selectKeepListCount(memberId);
-	}
-
-	// 찜 목록
-	@Override
-	public ArrayList<Keep> printAllKeepList(KeepPageInfo pi, String memberId) {
-		return kStore.selectAllKeepList(pi, memberId);
-	}
-
-	
-
-	
 }

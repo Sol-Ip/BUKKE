@@ -30,7 +30,7 @@
 	;
 
 body {
-	font-family: 'Source Sans Pro', sans-serif;
+	/* font-family: 'Source Sans Pro', sans-serif; */
 	line-height: 1.5;
 	color: #323232;
 	font-size: 15px;
@@ -56,10 +56,16 @@ body {
 /* .icon-box-tabs .nav-pills {
     display: inline-block;
 } */
-.nav {
+
+#nav {
 	flex-direction: inherit;
 	justify-content: space-evenly;
 }
+
+/* .keepnav {
+	flex-direction: inherit;
+	justify-content: space-evenly;
+} */
 
 .icon-box-tabs .nav-pills>li>a {
 	border-radius: 0;
@@ -217,6 +223,10 @@ body {
 }
 
 .active {
+	background-color: #0c5df4;
+}
+
+#active {
 	background-color: #fff;
 }
 
@@ -253,7 +263,7 @@ body {
 			</div>
 		</div>
 
-		      <!-- ======================= 사이드 바 시작 =============================== -->
+		          <!-- ======================= 사이드 바 시작 =============================== -->
          <div class="l-navbar" id="navbar">
         <nav class="nav">
             <div>
@@ -263,7 +273,8 @@ body {
                 </div>
                 <div class="nav__list">
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
+                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
                         <span class="nav_name">내 정보</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -274,7 +285,7 @@ body {
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">부캐 일정</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -312,7 +323,7 @@ body {
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">채팅</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -323,7 +334,7 @@ body {
                     </div>
 
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">알림</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -343,7 +354,7 @@ body {
     </div>
    </section>
    <!-- ======================= 사이드 바 끝 =============================== -->
-
+   
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
@@ -362,12 +373,11 @@ body {
                         <div class="col-md-12">
                             <!--tabs square start-->
                             <section class="icon-box-tabs ">
-                                <ul class="nav nav-pills">
+                                <ul id ="nav" class="nav nav-pills">
                                 	<!-- li class="active" -->
-                                    <li class="">
+                                    <li id= "active" class="active">
                                         <a data-toggle="tab" href="#tab-15" aria-expanded="true">
-                                          <i class="fas fa-border-all fa-2x"></i>
-                                        </a>
+                                          <i class="fas fa-border-all fa-2x"></i></a>
                                     </li> 
                                     <!--  <li class="">
                                         <a data-toggle="tab" href="#tab-16" aria-expanded="false">
@@ -381,16 +391,12 @@ body {
                                     </li>  -->
                                     <li class="">
                                         <a data-toggle="tab" href="#tab-18" aria-expanded="false">
-                                          <i class="fas fa-hand-spock fa-2x"></i>
-                                        </a>
+                                          <i class="fas fa-hand-spock fa-2x"></i></a>
                                     </li>
-
                                     <li class="">
                                         <a data-toggle="tab" href="#tab-19" aria-expanded="false">
-                                           <i class="far fa-hand-spock fa-2x"></i>
-                                        </a>
+                                           <i class="far fa-hand-spock fa-2x"></i></a>
                                     </li>
-
                                 </ul>
                                 <div class="panel-body ftco-animate">
                                     <div class="tab-content">
@@ -422,30 +428,28 @@ body {
 														<div class="col-md-4">
 															<div class="item">
 																<div class="testimony-wrap p-4 pb-5">
-																	<%-- <c:if
+																	 <c:if
 																		test="${keep.classNo == 0 && keep.activityNo != 0 }">
 																		<c:url var="aDetail" value="activityDetail.com">
 																			<c:param name="activityNo"
 																				value="${keep.activity.activityNo }"></c:param>
 																		</c:url>
-																		<a href="${aDetail }"><div class="user-img mb-5"
-																				id="keep-img"
+																		<a href="${aDetail }"><div class="user-img mb-5" id="keep-img"
 																				style="background-image: url(../resources/images/activityImageFiles/${keep.activity.aRenameFilename})">
 																			</div></a>
-																	</c:if> --%>
+																	</c:if> 
 																	<c:if
 																		test="${keep.classNo != 0 && keep.activityNo == 0 }">
 																		<c:url var="cDetail" value="bukkeClassDetailView.com">
 																			<c:param name="classNo"
 																				value="${keep.bukkeClass.classNo }"></c:param>
 																		</c:url>
-																		<a href="${cDetail }"><div class="user-img mb-5"
-																				id="keep-img"
+																		<a href="${cDetail }"><div class="user-img mb-5" id="keep-img"
 																				style="background-image: url(../resources/bClassFiles/${keep.bukkeClass.cRenameFilename })">
 																			</div></a>
 																	</c:if>
 
-																<%-- 	<c:if
+																 	<c:if
 																		test="${keep.classNo == 0 && keep.activityNo != 0 }">
 																		<div class="text">
 																			<div class="pl-5">
@@ -458,7 +462,7 @@ body {
 																			</p>
 																		</div>
 																		<br>
-																	</c:if> --%>
+																	</c:if> 
 
 																	<c:if
 																		test="${keep.classNo != 0 && keep.activityNo == 0 }">
@@ -481,7 +485,6 @@ body {
 												</div>
 											</div>
 										</div>
-
 
 
 										<!-- =============== 페이징 처리 =============== -->
@@ -553,20 +556,31 @@ body {
                                         </div> -->
                                         <div id="tab-18" class="tab-pane">
                                             <div class="heading-title-alt">
-                                                <span class="heading-sub-title-alt text-uppercase theme-color-">탭4</span>
+                                                <!-- <span class="heading-sub-title-alt text-uppercase theme-color-">탭4</span> -->
                                                 <h1 class="text-uppercase"><b>CLASS</b></h1>
                                             </div>
-                                            <c:if test="${kList.size() > 0 }">
+									<!-- ======================== 북마크 리스트 전체 ======================== -->
+									<c:if test="${claList.size() == 0 }">
+										<section class="ftco-section">
+											<div class="container">
+												<!-- 찜 목록이 없는 경우 -->
+												<h1>클래스 찜 목록이 없습니다.</h1>
+											</div>
+										</section>
+									</c:if>
+
+									<!-- 찜 목록이 있는 경우 (클래스) -->
+									<c:if test="${claList.size() > 0 }">
 										<div class="container">
 											<input type="hidden" class="keepNo" value="${ keep.keepNo }"
 												name="keepNo">
 											<div class="row ftco-animate">
 												<div class="row col-md-12">
-													<c:forEach items="${kList }" var="keep">
+													<c:forEach items="${claList }" var="claKeep">
 														<div class="col-md-4">
 															<div class="item">
 																<div class="testimony-wrap p-4 pb-5">
-																	<c:if
+																	<%-- <c:if
 																		test="${keep.classNo == 0 && keep.activityNo != 0 }">
 																		<c:url var="aDetail" value="activityDetail.com">
 																			<c:param name="activityNo"
@@ -576,20 +590,18 @@ body {
 																				id="keep-img"
 																				style="background-image: url(../resources/images/activityImageFiles/${keep.activity.aRenameFilename})">
 																			</div></a>
-																	</c:if>
-																	<c:if
-																		test="${keep.classNo != 0 && keep.activityNo == 0 }">
+																	</c:if> --%>
+																	
 																		<c:url var="cDetail" value="bukkeClassDetailView.com">
 																			<c:param name="classNo"
-																				value="${keep.bukkeClass.classNo }"></c:param>
+																				value="${claKeep.bukkeClass.classNo }"></c:param>
 																		</c:url>
-																		<a href="${cDetail }"><div class="user-img mb-5"
-																				id="keep-img"
-																				style="background-image: url(../resources/bClassFiles/${keep.bukkeClass.cRenameFilename })">
+																		<a href="${cDetail }"><div class="user-img mb-5" id="keep-img"
+																				style="background-image: url(../resources/bClassFiles/${claKeep.bukkeClass.cRenameFilename })">
 																			</div></a>
-																	</c:if>
+																
 
-																	<c:if
+																<%-- 	<c:if
 																		test="${keep.classNo == 0 && keep.activityNo != 0 }">
 																		<div class="text">
 																			<div class="pl-5">
@@ -602,22 +614,140 @@ body {
 																			</p>
 																		</div>
 																		<br>
-																	</c:if>
+																	</c:if> --%>
 
-																	<c:if
-																		test="${keep.classNo != 0 && keep.activityNo == 0 }">
 																		<div class="text">
 																			<div class="pl-5">
-																				<p class="name">${keep.bukkeClass.classType }</p>
-																				<span class="position">${keep.bukkeClass.shopId }</span>
+																				<p class="name">${claKeep.bukkeClass.classType }</p>
+																				<span class="position">${claKeep.bukkeClass.shopId }</span>
 																			</div>
 																			<br>
 																			<p class="mb-5 pl-4 line">
-																				<b>${keep.bukkeClass.className}</b>
+																				<b>${claKeep.bukkeClass.className}</b>
 																			</p>
 																		</div>
 																		<br>
-																	</c:if>
+																	
+																</div>
+															</div>
+														</div>
+													</c:forEach>
+												</div>
+											</div>
+										</div>
+
+
+										<!-- =============== 페이징 처리 =============== -->
+										<div class="container">
+											<div class="row no-gutters mt-5 ftco-animate">
+												<div class="col text-center">
+													<div class="block-27">
+														<!-- 이전 -->
+														<ul>
+															<c:url var="before" value="KeepListbyId.com">
+																<c:param name="page" value="${piCla.currentPage - 1 }"></c:param>
+																<!-- controller의 param value값 -->
+															</c:url>
+															<c:if test="${piCla.currentPage <= 1 }">
+																<li><a href="#" onclick="firstPage()">&lt;</a></li>
+															</c:if>
+															<c:if test="${piCla.currentPage > 1 }">
+																<li><a href="${before}">&lt;</a></li>
+															</c:if>
+
+															<!-- 페이지 -->
+															<c:forEach var="cla" begin="${piCla.startPage }"
+																end="${piCla.endPage }">
+																<c:url var="pagination" value="KeepListbyId.com">
+																	<c:param name="page" value="${cla}"></c:param>
+																</c:url>
+																<c:if test="${cla eq piCla.currentPage }">
+																	<li class="active"><span>${cla}</span></li>
+																</c:if>
+																<c:if test="${cla ne piCla.currentPage }">
+																	<!-- ne : not equal -->
+																	<li><a href="${pagination}">${cla }</a></li>
+																</c:if>
+															</c:forEach>
+
+															<!-- 다음 -->
+															<c:url var="after" value="KeepListbyId.com">
+																<c:param name="page" value="${piCla.currentPage + 1}"></c:param>
+															</c:url>
+															<c:if test="${piCla.currentPage >= piCla.maxPage }">
+																<li><a href="#" onclick="lastPage()">&gt;</a></li>
+															</c:if>
+															<c:if test="${piCla.currentPage < piCla.maxPage }">
+																<li><a href="${after}">&gt;</a></li>
+															</c:if>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</c:if>
+									<!-- =============== 페이징 처리 END =============== -->
+									<!-- ======================== 북마크 리스트 클래스 ======================== -->
+									<br><br>
+                                        </div>
+                                        <div id="tab-19" class="tab-pane">
+                                            <div class="heading-title-alt">
+                                                <!-- <span class="heading-sub-title-alt text-uppercase theme-color-">탭5</span> -->
+                                                <h1 class="text-uppercase"><b>ACTIVITY</b></h1>
+                                            </div>
+									<!-- ======================== 북마크 리스트 전체 ======================== -->
+									<c:if test="${actList.size() == 0 }">
+										<section class="ftco-section">
+											<div class="container">
+												<!-- 찜 목록이 없는 경우 -->
+												<h1>찜 목록이 없습니다.</h1>
+											</div>
+										</section>
+									</c:if>
+
+									<c:if test="${actList.size() > 0 }">
+										<div class="container">
+											<input type="hidden" class="keepNo" value="${ keep.keepNo }"
+												name="keepNo">
+											<div class="row ftco-animate">
+												<div class="row col-md-12">
+													<c:forEach items="${actList }" var="actKeep">
+														<div class="col-md-4">
+															<div class="item">
+																<div class="testimony-wrap p-4 pb-5">
+																		<c:url var="aDetail" value="activityDetail.com">
+																			<c:param name="activityNo"
+																				value="${keep.activity.activityNo }"></c:param>
+																		</c:url>
+																		<a href="${aDetail }"><div class="user-img mb-5"
+																				id="keep-img"
+																				style="background-image: url(../resources/images/activityImageFiles/${actKeep.activity.aRenameFilename})">
+																			</div></a>
+																	
+																	<%-- <c:if
+																		test="${keep.classNo != 0 && keep.activityNo == 0 }">
+																		<c:url var="cDetail" value="bukkeClassDetailView.com">
+																			<c:param name="classNo"
+																				value="${keep.bukkeClass.classNo }"></c:param>
+																		</c:url>
+																		<a href="${cDetail }"><div class="user-img mb-5"
+																				id="keep-img"
+																				style="background-image: url(../resources/bClassFiles/${keep.bukkeClass.cRenameFilename })">
+																			</div></a>
+																	</c:if>--%>
+
+																 	
+																		<div class="text">
+																			<div class="pl-5">
+																				<p class="name">${actKeep.activity.activityType }</p>
+																				<span class="position">${actKeep.activity.shopId }</span>
+																			</div>
+																			<br>
+																			<p class="mb-5 pl-4 line">
+																				<b>${actKeep.activity.activityName}</b>
+																			</p>
+																		</div>
+																		<br>
 																</div>
 															</div>
 														</div>
@@ -636,39 +766,39 @@ body {
 														<!-- 이전 -->
 														<ul>
 															<c:url var="before" value="KeepListbyId.com">
-																<c:param name="page" value="${pi.currentPage - 1 }"></c:param>
+																<c:param name="page" value="${piAct.currentPage - 1 }"></c:param>
 																<!-- controller의 param value값 -->
 															</c:url>
-															<c:if test="${pi.currentPage <= 1 }">
+															<c:if test="${piAct.currentPage <= 1 }">
 																<li><a href="#" onclick="firstPage()">&lt;</a></li>
 															</c:if>
-															<c:if test="${pi.currentPage > 1 }">
+															<c:if test="${piAct.currentPage > 1 }">
 																<li><a href="${before}">&lt;</a></li>
 															</c:if>
 
 															<!-- 페이지 -->
-															<c:forEach var="p" begin="${pi.startPage }"
-																end="${pi.endPage }">
+															<c:forEach var="p" begin="${piAct.startPage }"
+																end="${piAct.endPage }">
 																<c:url var="pagination" value="KeepListbyId.com">
-																	<c:param name="page" value="${p}"></c:param>
+																	<c:param name="page" value="${act}"></c:param>
 																</c:url>
-																<c:if test="${p eq pi.currentPage }">
-																	<li class="active"><span>${p }</span></li>
+																<c:if test="${act eq piAct.currentPage }">
+																	<li class="active"><span>${act}</span></li>
 																</c:if>
-																<c:if test="${p ne pi.currentPage }">
+																<c:if test="${act ne piAct.currentPage }">
 																	<!-- ne : not equal -->
-																	<li><a href="${pagination}">${p }</a></li>
+																	<li><a href="${pagination}">${act }</a></li>
 																</c:if>
 															</c:forEach>
 
 															<!-- 다음 -->
 															<c:url var="after" value="KeepListbyId.com">
-																<c:param name="page" value="${pi.currentPage + 1}"></c:param>
+																<c:param name="page" value="${piAct.currentPage + 1}"></c:param>
 															</c:url>
-															<c:if test="${pi.currentPage >= pi.maxPage }">
+															<c:if test="${piAct.currentPage >= piAct.maxPage }">
 																<li><a href="#" onclick="lastPage()">&gt;</a></li>
 															</c:if>
-															<c:if test="${pi.currentPage < pi.maxPage }">
+															<c:if test="${piAct.currentPage < piAct.maxPage }">
 																<li><a href="${after}">&gt;</a></li>
 															</c:if>
 														</ul>
@@ -678,15 +808,8 @@ body {
 										</div>
 									</c:if>
 									<!-- =============== 페이징 처리 END =============== -->
-									<!-- ======================== 북마크 리스트 전체 ======================== -->
+									<!-- ======================== 북마크 리스트 액티비티 ======================== -->
 									<br><br>
-                                        </div>
-                                        <div id="tab-19" class="tab-pane">
-                                            <div class="heading-title-alt">
-                                                <span class="heading-sub-title-alt text-uppercase theme-color-">탭5</span>
-                                                <h1 class="text-uppercase"><b>ACTIVITY</b></h1>
-                                            </div>
-                                            Kusto ut scelerisque mattis, leo quam aliquet diam, congue laoreet elit metus eget diam. Proin ac metus diam. In quis scelerisque velit. Proin pellentesque neque ut scelerisque dapibus. Praesent elementum feugiat dignissim. Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut scelerisque mattis, leo quam aliquet diam, congue laoreet elit metus eget diam. Proin ac metus diam. In quis scelerisque velit. Proin pellentesque neque ut scelerisque dapibus. Praesent elementum feugiat dignissim. Nunc placerat mi id nisi interdum mollis.
                                         </div>
 
                                     </div>

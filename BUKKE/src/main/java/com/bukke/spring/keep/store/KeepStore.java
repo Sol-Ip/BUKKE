@@ -8,34 +8,62 @@ import com.bukke.spring.keep.domain.Keep;
 import com.bukke.spring.keep.domain.KeepPageInfo;
 
 public interface KeepStore {
+	
+	//////////////////////////////////// 전체
 
+	/**
+	 * 전체 찜 갯수
+	 */
+	public int selectKeepListCount(String memberId);
+
+	/**
+	 * 전체 찜 목록
+	 */
+	public ArrayList<Keep> selectAllKeepList(KeepPageInfo pi, String memberId);
+	
+	//////////////////////////////////// 클래스
+	
+	/**
+	 * 클래스 찜 갯수
+	 */
+	public int selectClassKeepListCount(String memberId);
+	
 	/**
 	 * 클래스 찜목록 조회
 	 */
-	public ArrayList<BukkeClass> selectClassKeep(String memberId);
+	public ArrayList<Keep> selectAllBukkeClassKeep(KeepPageInfo piCla, String memberId);
+	
+	/**
+	 * 클래스 찜 상세
+	 */
+	public Keep selectOneBukkeClassKeep(Keep keep);
 	
 	/**
 	 * 클래스 찜목록 추가
 	 */
-	public int insertBukkeClasstoKeep(BukkeClass bClass);
+	public int insertBukkeClasstoKeep(Keep keep);
 	
 	/**
 	 * 클래스 찜목록 삭제
 	 */
-	public int deleteBukkeClassfromKeep(int keepNo);
+	public int deleteBukkeClassfromKeep(Keep keep);
 	
-	//////////////////////////////////// 
+	//////////////////////////////////// 액티비티
+	
+	/**
+	 * 액티비티 찜 갯수
+	 */
+	public int selectActivityKeepListCount(String memberId);
 	
 	/**
 	 * 액티비티 찜목록 조회
 	 */
-	public ArrayList<Activity> selectActivityKeep(String memberId);
+	public ArrayList<Keep> selectAllActivityKeep(KeepPageInfo piAct,String memberId);
 	
 	/**
 	 * 액티비티 찜 상세
 	 */
 	public Keep selectOneActivityKeep(Keep keep);
-	
 	
 	/**
 	 * 액티비티 찜목록 추가
@@ -47,14 +75,5 @@ public interface KeepStore {
 	 */
 	public int deleteActivityfromKeep(Keep keep);
 	
-	/**
-	 * 찜 갯수
-	 */
-	public int selectKeepListCount(String memberId);
-
-	/**
-	 * 찜 목록
-	 */
-	public ArrayList<Keep> selectAllKeepList(KeepPageInfo pi, String memberId);
 	
 }

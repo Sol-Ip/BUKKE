@@ -35,7 +35,7 @@
          </div>
       </div>
       
-     <!-- ======================= 사이드 바 시작 =============================== -->
+          <!-- ======================= 사이드 바 시작 =============================== -->
          <div class="l-navbar" id="navbar">
         <nav class="nav">
             <div>
@@ -45,7 +45,8 @@
                 </div>
                 <div class="nav__list">
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
+                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
                         <span class="nav_name">내 정보</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -56,7 +57,7 @@
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">부캐 일정</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -74,10 +75,10 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">작성한 후기</a>
-                            <a href="#" class="collapse__sublink">작성한 댓글</a>
+                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
+                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
                             <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
-                            <a href="#" class="collapse__sublink">찜 목록</a>
+                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
                         </ul>
                     </div>
 
@@ -94,7 +95,7 @@
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">채팅</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -105,7 +106,7 @@
                     </div>
 
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">알림</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>

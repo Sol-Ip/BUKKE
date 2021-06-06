@@ -54,7 +54,8 @@
                 </div>
                 <div class="nav__list">
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
+                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
                         <span class="nav_name">내 정보</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -65,7 +66,7 @@
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">부캐 일정</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -103,7 +104,7 @@
                     </div>
                     
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">채팅</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -114,7 +115,7 @@
                     </div>
 
                     <div href="#" class="nav__link collapse1">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">알림</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>

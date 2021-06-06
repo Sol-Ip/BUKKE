@@ -104,14 +104,24 @@ public class KeepController {
 		
 		int currentPage = (page != null) ? page : 1;
 		int listCount = kService.getKeepListCount(memberId); // keep 전체 갯수
-		KeepPageInfo pi = KeepPagination.getPageInfo(currentPage, listCount);
+		int listCountCla = kService.getClassKeepListCount(memberId); // keep 클래스 갯수
+		int listCountAct = kService.getActKeepListCount(memberId); // keep 액티비티 갯수
 		
-		//ArrayList<Activity> aList = aService.printKeepActivity(); // keep 목록 중 액티비티
-		ArrayList<Keep> kList = kService.printAllKeepList(pi, memberId); 
+		KeepPageInfo pi = KeepPagination.getPageInfo(currentPage, listCount);
+		KeepPageInfo piCla = KeepPagination.getPageInfo(currentPage, listCountCla); 
+		KeepPageInfo piAct = KeepPagination.getPageInfo(currentPage, listCountAct);
+		
+		ArrayList<Keep> kList = kService.printAllKeepList(pi, memberId); // keep 목록 전체 
+		ArrayList<Keep> claList = kService.printClassKeepList(piCla, memberId); // keep 목록 중 클래스
+		ArrayList<Keep> actList = kService.printActivityKeepList(piAct, memberId); // keep 목록 중 액티비티
 		System.out.println("keepList : "+ kList);
 		if(!kList.isEmpty()) {
+			mv.addObject("claList", claList);
+			mv.addObject("actList", actList);
 			mv.addObject("kList", kList);
 			mv.addObject("pi", pi);
+			mv.addObject("piCla", piCla);
+			mv.addObject("piAct", piAct);
 			mv.setViewName("member/memberKeep");
 		} else {
 			mv.addObject("msg", "찜 목록 전체조회 실패");

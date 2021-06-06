@@ -13,12 +13,14 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.aspectj.bridge.MessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpRequest;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -195,14 +197,14 @@ public class MemberController {
 	// 아이디 찾기
 	@ResponseBody
 	@RequestMapping(value = "memberSearchId.com", method = RequestMethod.POST)
-	public String userIdSearch(ModelAndView mv, @ModelAttribute Member member) {
+	public String userIdSearch(ModelAndView mv, @ModelAttribute Member member,HttpServletResponse response, HttpServletRequest request) {
+		response.setCharacterEncoding("UTF-8");
 		Member mem = new Member(member.getMemberName(), member.getMemberPhone());
 		Member memberSearch = mService.searchMemberId(mem);
-
 		if (memberSearch != null) {
 			return memberSearch.getMemberId();
 		} else {
-			return "No Id";
+			return "아이디를 조회할 수 없습니다.";
 		}
 	}
 

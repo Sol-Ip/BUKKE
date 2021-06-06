@@ -133,7 +133,7 @@ $('#rejectAll').click(function(){
 		console.log("WOW");
 	}
 });
-
+ 
 
 $('#confirmAll').click(function(){
 	var checkedList = [];

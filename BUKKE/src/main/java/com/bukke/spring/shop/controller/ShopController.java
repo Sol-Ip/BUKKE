@@ -89,11 +89,9 @@ public class ShopController {
 		}
 		int result = sService.registerShop(shop);
 		if(result > 0) {
-			mv.addObject("msg","회원가입 성공");
-			mv.setViewName("redirect:home.com");
+			mv.setViewName("member/registerComplete");
 		} else {
-			mv.addObject("msg","업체 회원가입 실패");
-			mv.setViewName("common/errorPage");
+			mv.setViewName("redirect:home.com");
 		}
 		return mv;
 	}

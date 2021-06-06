@@ -45,9 +45,9 @@ public class ChatController {
 	 * @param params
 	 * @return
 	 */
-	
-	@RequestMapping(value="/createRoom.com", method=RequestMethod.POST)
-	public @ResponseBody String createRoom(@RequestParam HashMap<Object, Object> params) {
+	@ResponseBody
+	@RequestMapping(value="/createRoom.com")
+	public String createRoom(@RequestParam HashMap<Object, Object> params) {
 		String roomName = (String) params.get("roomName");
 		if(roomName != null && !roomName.trim().equals("")) {
 			System.out.println("작동 됨....");

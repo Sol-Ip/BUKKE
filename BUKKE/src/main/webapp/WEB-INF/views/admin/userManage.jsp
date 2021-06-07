@@ -63,8 +63,19 @@
 											<th>이메일</th>
 										</tr>
 									</thead>
-							<c:forEach items="${mList }" var="member">
-									<tbody>
+									<tfoot>
+										<tr>
+											<th>아이디</th>
+											<th>비밀번호</th>
+											<th>이름</th>
+											<th>부캐명</th>
+											<th>주소</th>
+											<th>연락처</th>
+											<th>이메일</th>
+										</tr>
+									</tfoot>
+								<tbody>
+									<c:forEach items="${mList }" var="member">
 										<tr>
 											<td>${member.memberId }</td>
 											<td>${member.memberPw }</td>
@@ -74,13 +85,13 @@
 											<td>${member.memberPhone }</td>
 											<td>${member.memberEmail }</td>
 										</tr>
-										</tbody>
-							</c:forEach>
-										
+									</c:forEach>
+								</tbody>
 
 
 
-							<!-- <tbody>
+
+								<!-- <tbody>
 								<tr>
 									<td>user</td>
 									<td>김송이</td>

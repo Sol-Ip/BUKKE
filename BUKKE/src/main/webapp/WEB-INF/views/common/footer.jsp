@@ -36,7 +36,7 @@
            <div class="col-md">
              <div class="ftco-footer-widget mb-4">
                <h2 class="ftco-heading-2">Any Questions?</h2>
-               <form action="#" class="subscribe-form">
+               <form action="noticeList.com" class="subscribe-form">
                  <div class="form-group">
                    <input type="submit" value="문의하기" class="form-control submit px-3">
                  </div>

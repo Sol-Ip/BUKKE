@@ -102,7 +102,7 @@
 										<i class="fas fa-user fa-fw"></i>회원정보
 									</div>
 									<div class="dropdown-menu dropdown-menu-left">
-										<a href="#" class="dropdown-item">공지사항</a>
+										<a href="noticeList.com" class="dropdown-item">공지사항</a>
 										<hr class="dropdown-divider">
 										<a href="memberMyPage.com" class="dropdown-item">마이페이지</a>
 										<hr class="dropdown-divider">
@@ -118,7 +118,7 @@
 										<i class="fas fa-user fa-fw"></i>회원정보
 									</div>
 									<div class="dropdown-menu dropdown-menu-left">
-										<a href="#" class="dropdown-item">공지사항</a>
+										<a href="noticeList.com" class="dropdown-item">공지사항</a>
 										<hr class="dropdown-divider">
 										<a href="memberMyPage.com" class="dropdown-item">마이페이지</a>
 										<hr class="dropdown-divider">

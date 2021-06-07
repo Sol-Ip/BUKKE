@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../common/headerDashBoard.jsp"></jsp:include>
+<jsp:include page="../common/header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,12 +136,13 @@
 	</div>
 	<script>
 	 function confirm(obj, shopId,shopApproval) {
-		 console.log("컨펌버튼누르긴한듯")
+		 console.log("컨펌버튼누르긴한듯");
          var rSpan = $(obj);
          var sendData = {
                'shopId' : shopId,
                'shopApproval' : shopApproval
             };
+         console.log("컨펌버튼누르긴한듯2");
          $.ajax({
          type:"GET",
          url:"registConfirm.com",
@@ -159,7 +160,8 @@
  };
       
          
-  function reject(obj, shopId,reservationStatus) {
+  function reject(obj, shopId,shopApproval) {
+	  console.log("리젝버튼누르긴한듯");
     var rSpan = $(obj);
     var sendData = {
           'shopId' : shopId,
@@ -202,4 +204,4 @@
 	
 </body>
 </html>
-<jsp:include page="../common/footerDashBoard.jsp"></jsp:include>
+<jsp:include page="../common/footer.jsp"></jsp:include>

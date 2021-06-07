@@ -89,6 +89,7 @@ public class AdminController {
     
           int confirm =0;
           int reject =0;
+          
        if(shopApproval.equals("Y")) {
       	 // 예약상태를 꺼내와서 Y랑 일치하면
           confirm = sService.confirmRegister(shopId);

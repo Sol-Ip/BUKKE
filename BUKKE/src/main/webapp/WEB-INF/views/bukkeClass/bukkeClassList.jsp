@@ -18,8 +18,74 @@
     border: none;
     outline: none;
     box-shadow: none;
-    
+}
 
+/* .project:hover:after, .project:focus:after {
+	boder-radius : 30px;
+} */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.wrapper_tab{
+  text-align:center;
+  margin:50px auto;
+}
+
+.tabs{
+  margin-top:50px;
+  font-size:20px;
+  padding:0px;
+  width : 900px;
+  height: 80px;
+  list-style:none;
+  background:#fff;
+  box-shadow:0px 5px 20px rgba(0,0,0,0.1);
+  display:inline-block;
+  border-radius:50px;
+  position:relative;
+}
+
+/* .selector {
+	width : 150px;
+} */
+
+.tabs a{
+  width :130px; 
+  height : 80px;
+  text-decoration:none;
+  color: #777;
+  text-transform:uppercase;
+  padding:20px 20px;
+  display:inline-block;
+  position:relative;
+  z-index:1;
+  transition-duration:0.6s;
+}
+
+.tabs a.active{
+  color:#fff;
+}
+
+.tabs a i{
+  margin-right:20px;
+}
+
+.tabs .selector{
+  width :300px;
+  height:100%;
+  display:inline-block;
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:1;
+  border-radius:50px;
+  transition-duration:0.6s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  background: #05abe0;
+  background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+  background: -webkit-linear-gradient(45deg, #05abe0 0%,#8200f4 100%);
+  background: linear-gradient(45deg, #05abe0 0%,#8200f4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4',GradientType=1 );
 }
 </style>
 </head>
@@ -79,21 +145,15 @@
 		</div>
 		<!-- ========================= 클래스 정보란 =========================  -->
 		<div class="container">
-
 			<div class="row justify-content-start mb-5 pb-2">
 				<div class="col-md-4 heading-section ftco-animate">
-					<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-light">BUKKE</small></span>
+					<span class="subheading subheading-with-line">
+					<small class="pr-2 bg-light">BUKKE</small></span>
 					<h2 class="mb-4">CLASS</h2>
 				</div>
 				<div class="col-md-8 pl-md-5 heading-section ftco-animate">
 					<div class="pl-md-4 border-line">
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.
-							Separated they live in. A small river named Duden flows by their
-							place and supplies it with the necessary regelialia. It is a
-							paradisematic country, in which roasted parts of sentences fly
-							into your mouth.</p>
+						<p>부캐의 클래스들을 한 눈에 볼 수 있어요 !</p>
 					</div>
 				</div>
 			</div>
@@ -103,35 +163,22 @@
 		
 		<!-- ========================= 클래스 탭  =========================  -->
 		<div class="container">
-		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active" href="#">Active</a>
-			</li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div></li>
-				<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
-				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div></li>
-			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-			<li class="nav-item"><a class="nav-link disabled" href="#"
-				tabindex="-1" aria-disabled="true">Disabled</a></li>
-		</ul>
+			<div class="row">
+				<div class="wrapper_tab">
+				  <nav class="tabs">
+				    <div class="selector" style="width:200px;"></div>
+				    <!-- ================= 부캐 클래스 전체 보기 ==================== -->
+				    <a href="#" class="active"><i class="fas fa-border-all"></i> 전체</a>
+				    <a href="#"><i class="fas fa-leaf"></i>  플라워</a>
+				    <a href="#"><i class="fas fa-palette"></i>  미술</a>
+				    <a href="#"><i class="fas fa-air-freshener"></i>  뷰티</a>
+				    <a href="#"><i class="fas fa-music"></i>  음악</a>
+				    <a href="#"><i class="fas fa-camera"></i>  사진</a>
+				  </nav>
+				</div>
+			</div>
 		</div>
-		<!-- ========================= 클래스 탭 END =========================  -->
+	<!-- ========================= 클래스 탭 END =========================  -->
 		
 		
 		<!-- 클래스 전체 수업 이미지 목록 -->
@@ -212,6 +259,31 @@
     	</div>
     </section>
 </body>
+
+<!-- 리스트 탭을 위한 js -->
+<script>
+var tabs = $('.tabs');
+var selector = $('.tabs').find('a').length;
+//var selector = $(".tabs").find(".selector");
+var activeItem = tabs.find('.active');
+var activeWidth = activeItem.innerWidth();
+$(".selector").css({
+  "left": activeItem.position.left + "px", 
+  "width": activeWidth + "px"
+});
+
+$(".tabs").on("click","a",function(e){
+  e.preventDefault();
+  $('.tabs a').removeClass("active");
+  $(this).addClass('active');
+  var activeWidth = $(this).innerWidth();
+  var itemPos = $(this).position();
+  $(".selector").css({
+    "left":itemPos.left + "px", 
+    "width": activeWidth + "px"
+  });
+});
+</script>
 </html>
 <br><br>
 <jsp:include page="../common/footer.jsp"></jsp:include>

@@ -24,6 +24,12 @@
  		/* 	수정중 */
  	
  		}
+ 		
+ 	/* 리뷰 이미지 */	
+ 	.testimony-wrap .user-img {
+ 		width : 180px;
+ 		height:180px;
+ 	}
  
 
 </style>
@@ -343,7 +349,7 @@
             <c:forEach items="${rList }" var="review">
 	              <div class="item">
 	                <div class="testimony-wrap p-4 pb-5">
-	                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)"><!-- 리뷰 사진 넣을 예정 -->
+	                  <div class="user-img mb-5" style="background-image: url(../resources/reviewFiles/${review.rRenameFilename })"><!-- 리뷰 사진 넣을 예정 -->
 	                    <span class="quote d-flex align-items-center justify-content-center">
 	                      <i class="icon-quote-left"></i>
 	                    </span>

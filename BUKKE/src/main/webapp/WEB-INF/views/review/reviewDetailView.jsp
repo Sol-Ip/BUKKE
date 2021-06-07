@@ -30,6 +30,7 @@
 								class="ion-ios-arrow-forward"></i></a></span> <span>Review <i
 							class="ion-ios-arrow-forward"></i></span> <span>DETAILS <i
 							class="ion-ios-arrow-forward"></i></span>
+							
 					</p>
 				</div>
 			</div>
@@ -84,39 +85,45 @@
 		</div>
 		</div>
 		</div>
+		
 		<div class="container">
 			<h3 class="act-type" align="right">
 				<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
-				<button id="heart" class="" name=""></button>
-				<script>
+			<%-- 	<c:set var="heartYN" value="${review.reviewStatus }"/>
+				<c:choose>
+					<c:when test="${heartYN eq 'Y'}">
+					<button id="heart" class="btn btn-danger fas fa-heart" ></button>
+					</c:when>
+					<c:otherwise>
+					<button id="heart" class="btn btn-danger far fa-heart"></button>
+					</c:otherwise>
+				</c:choose> --%>	
+				
+				<button id=heart class="btn btn-danger">
+					<i id="heart2" class=""></i>
+				</button>
+				 <script>
 					$(document)
 							.ready(
 									function() {
 
-										var heartval = $
-										{
-											heart
-										}
-										;
+									
 										var heartYN = "${heartYN}";
 
 								
 										console.log(heartYN);
-										console.log('${reviewLikes.memberId}');
-										console.log('${loginMember.memberId}');
-										if (heartYN == "Y") {
+ 										console.log('${reviewLikes.memberId}');
+ 										console.log('${loginMember.memberId}');
+ 										if (heartYN == "Y") {
 
-											$("#heart")
-													.prop("class",
-															"btn btn-danger fas fa-heart");
-											//$("#heart").prop('name',heartval)
-										} else {
+ 											$('#heart2').prop("class", "fas fa-heart");
+ 										
+ 										} else {
 
-											$("#heart")
-													.prop("class",
-															"btn btn-danger far fa-heart");
-											//$("#heart").prop('name',heartval)
-										}
+ 											$('#heart2').prop("class", "far fa-heart");
+											console.log("여기나옴ddd!!!!!??");
+											
+ 										} 
 
 										$("#heart")
 												.on(
@@ -139,18 +146,13 @@
 																		dataType : "json",
 																		success : function(
 																				data) {
+																			$('#heart2').prop("class", "");
 																			if (heartYN == 'Y') {
-																				$(
-																						'#heart')
-																						.prop(
-																								"class",
-																								"btn btn-danger far fa-heart");
+																				$('#heart2').prop("class", "far fa-heart");
+																				console.log("ajax먹히나요1?");
 																			} else {
-																				$(
-																						'#heart')
-																						.prop(
-																								"class",
-																								"btn btn-danger fas fa-heart");
+																				$('#heart2').prop("class","fas fa-heart");
+																				console.log("ajax먹히나요2?");
 																			}
 																			heartYN = data.heartYN;
 																			heartSpan
@@ -159,7 +161,7 @@
 																	});
 														});
 									});
-				</script>
+				</script> 
 				<!-- 사업자에게만 버튼 보이게 하기 -->
 				<div align="right">
 					<c:url var="rModify" value="reviewModifyView.com">

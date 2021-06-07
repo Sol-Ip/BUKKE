@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="../common/header.jsp?active=review"></jsp:include>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,6 +18,20 @@
 	rel="stylesheet">
 </head>
 <body class="sb-nav-fixed">
+	<!-- fixed section -->
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Admin</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Admin <i class="ion-ios-arrow-forward"></i></a></span> <span>DashBoard <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+	<!-- fixed section END-->
+	
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-fancy">
 		<a class="navbar-brand ps-3" href="home.com">BUKKE</a>
 		<!-- 사이드바 -->
@@ -630,3 +646,4 @@
 	<script src="/resources/admin/js/datatables-simple-demo.js"></script>
 </body>
 </html>
+<jsp:include page="../common/footer.jsp"></jsp:include>

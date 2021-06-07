@@ -91,7 +91,7 @@ public class ReviewController {
 			// 1check?���ƿ� ���θ� üũ���༭ ��Ʈ������ �����ش�
 		    int rLikes = rService.getReviewLike(reviewNo); // ���� �� reviewNo�� �޺κ� ����
 		    model.addAttribute("heart",rLikes);////////////////////////////////////////////////�̰� �ڲ� 0���ΰ���
-		    System.out.println("���ƿ� : "+ rLikes);
+		    System.out.println("좋아요몇개? "+ rLikes);
 		}
 	    
 		
@@ -360,7 +360,7 @@ public class ReviewController {
 		 * } else { rService.insertReviewLike(reviewLikes); heart=1;
 		 * //////////////////////////////////////// }
 		 */
-        //heart=rService.getReviewLike(reviewLikes);
+        //heart=rService.getReviewLike(reviewLikes);	
         System.out.println("heart�� :" +heartYN);
         new Gson().toJson(likeMap, response.getWriter());
     }

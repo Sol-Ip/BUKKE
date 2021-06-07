@@ -1,5 +1,7 @@
 package com.bukke.spring.member.store;
 
+import java.util.ArrayList;
+
 import com.bukke.spring.member.domain.Member;
 
 public interface MemberStore {
@@ -14,5 +16,7 @@ public interface MemberStore {
 	public Member selectMemberId(Member member);
 	public Member selectMemberPw(Member member);
 	public int updatePw(Member member);
+	public int selectMemberListCount();
+	public ArrayList<Member> selectMemberList();
 
 }

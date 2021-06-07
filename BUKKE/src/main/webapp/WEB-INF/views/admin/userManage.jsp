@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -38,6 +39,7 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
+			
 			<div class="container-fluid px-4">
 				<h1 class="mt-4">일반회원관리</h1>
 				<ol class="breadcrumb mb-4">
@@ -47,19 +49,38 @@
 					<div class="card-header">
 						<i class="fas fa-table me-1"></i> DataTable Example
 					</div>
-					<div class="card-body">
-						<table id="datatablesSimple">
-							<thead>
-								<tr>
-									<th>아이디</th>
-									<th>대표자명</th>
-									<th>업체명</th>
-									<th></th>
-									<th></th>
-									<th>관리</th>
-								</tr>
-							</thead>
-							<tbody>
+
+						<div class="card-body">
+								<table id="datatablesSimple">
+									<thead>
+										<tr>
+											<th>아이디</th>
+											<th>비밀번호</th>
+											<th>이름</th>
+											<th>부캐명</th>
+											<th>주소</th>
+											<th>연락처</th>
+											<th>이메일</th>
+										</tr>
+									</thead>
+							<c:forEach items="${mList }" var="member">
+									<tbody>
+										<tr>
+											<td>${member.memberId }</td>
+											<td>${member.memberPw }</td>
+											<td>${member.memberName }</td>
+											<td>${member.memberNick }</td>
+											<td>${member.memberAddr }</td>
+											<td>${member.memberPhone }</td>
+											<td>${member.memberEmail }</td>
+										</tr>
+										</tbody>
+							</c:forEach>
+										
+
+
+
+							<!-- <tbody>
 								<tr>
 									<td>user</td>
 									<td>김송이</td>
@@ -68,10 +89,29 @@
 									<td></td>
 									<td><button>탈퇴</button></td>
 								</tr>
-							</tbody>
-						</table>
+							</tbody> -->
+							</table>
+							<%-- <div class="container">
+								<div class="row">
+									<c:forEach items="${mList }" var="member">
+										<tbody>
+											<tr>
+
+												<td>${member.memberId }</td>
+
+												<td>${member.memberPw }</td>
+
+												<td>${member.memberName }</td>
+												<td>${member.memberNick }</td>
+												<td>${member.memberAddr }</td>
+												<td>${member.memberPhone }</td>
+												<td>${member.memberEmail }</td>
+									</c:forEach>
+								</div>
+							</div> --%>
+
+						</div>
 					</div>
-				</div>
 			</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">

@@ -1,5 +1,7 @@
 package com.bukke.spring.member.store.logic;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.member.store.MemberStore;
+import com.bukke.spring.review.domain.Review;
 
 @Repository
 public class MemberStoreLogic implements MemberStore {
@@ -75,4 +78,17 @@ public class MemberStoreLogic implements MemberStore {
 		return result;
 	}
 
+	@Override
+	public int selectMemberListCount() {
+		// TODO Auto-generated method stub
+		return session.selectOne("memberMapper.selectMemberListCount");
+	}
+
+	@Override
+	public ArrayList<Member> selectMemberList() {
+		// TODO Auto-generated method stub
+		return (ArrayList)session.selectList("memberMapper.selectUserList");
+	}
+	
+	
 }

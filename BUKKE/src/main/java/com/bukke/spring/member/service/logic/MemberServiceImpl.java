@@ -1,5 +1,6 @@
 package com.bukke.spring.member.service.logic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,18 @@ public class MemberServiceImpl implements MemberService {
 	public int modifyPw(Member member) {
 		int result = mStore.updatePw(member);
 		return result;
+	}
+
+	@Override
+	public int getListCount() {
+		// TODO Auto-generated method stub
+		return mStore.selectMemberListCount();
+	}
+
+	@Override
+	public ArrayList<Member> printAllMember() {
+		// TODO Auto-generated method stub
+		return mStore.selectMemberList();
 	}
 	
 	

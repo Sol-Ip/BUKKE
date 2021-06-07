@@ -1,5 +1,6 @@
 package com.bukke.spring.member.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.bukke.spring.member.domain.Member;
@@ -16,4 +17,6 @@ public interface MemberService {
 	public Member searchMemberId(Member member);
 	public Member searchMemberPw(Member member);
 	public int modifyPw(Member member);
+	public int getListCount();
+	public ArrayList<Member> printAllMember();
 }

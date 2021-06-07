@@ -56,4 +56,12 @@
 		<!-- DELETE FROM MEMBER WHERE USER_ID = #{userId} -->
 	</delete>
 	
+	<select id="selectMemberListCount" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
+	
+	<select id="selectUserList" resultMap="memberResultMap">
+		SELECT * FROM MEMBER 
+	</select>
+	
 </mapper>

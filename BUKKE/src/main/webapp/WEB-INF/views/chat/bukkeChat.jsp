@@ -13,6 +13,98 @@
 <!-- 채팅 -->
 <link rel="stylesheet" href="../resources/css/chat/chat.css">
 </head>
+<script type="text/javascript">
+	var ws;
+	window.onload = function(){
+		getRoom();
+		createRoom();
+	}
+
+	function getRoom(){
+		commonAjax('/getRoom.com', "", 'post', function(result){
+			createChattingRoom(result);
+		});
+	}
+	
+	function createRoom(){
+		$("#createRoom").click(function(){
+			var msg = {	roomName : $('#roomName').val()	};
+
+			commonAjax('/createRoom.com', msg, 'post', function(result){
+				console.log("스프링에서 받아온 값 : " + result.toString());
+				createChattingRoom(result);
+			});
+
+			$("#roomName").val("");
+		});
+	}
+
+	function goRoom(number, name){
+		location.href="/moveChatting.com?roomName="+name+"&"+"roomNumber="+number;
+		console.log(number, name);
+	}
+
+	function createChattingRoom(res){
+		console.log("createChattingRoom 실행");
+		console.log(res);
+		//var resJson = JSON.parse(res);
+		if(res != null){
+			var tag = "<tr><th class='num'>순서</th><th class='room'>방 이름</th><th class='go'></th></tr>";
+			res.forEach(function(d, idx){
+				console.log(d, idx)
+				var rn = d.roomName.trim();
+				var roomNumber = d.roomNumber;
+				console.log("roomNumber" + roomNumber);
+				tag += "<tr>"+
+							"<td class='num'>"+(idx+1)+"</td>"+
+							"<td class='room'>"+ rn +"</td>"+
+							"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+						"</tr>";
+			});
+			$("#roomList").empty().append(tag);
+		}
+	}
+	
+	/* function createChattingRoom(res){
+		var obj = JSON.parse(res);
+	      console.log("결과값" + obj);
+	      if(obj != null){
+	         var tag = "<tr><th class='num'>순서</th><th class='room'>방 이름</th><th class='go'></th></tr>";
+	         console.log(obj.length);
+	         for(var i = 0; i < obj.size; i++) {
+	            var rn = obj[i].roomName;
+	            var roomNumber = obj[i].roomNumber;
+	            console.log("roomNumber: " + roomNumber);
+	            tag += "<tr>"+
+	                     "<td class='num'>"+(i+1)+"</td>"+
+	                     "<td class='room'>"+ rn +"</td>"+
+	                     "<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+	                  "</tr>";  
+	         }
+	         $("#roomList").empty().append(tag);
+	      }
+	} */
+	    
+
+	
+	function commonAjax(url, parameter, type, calbak, contentType){
+		$.ajax({
+			url: url,
+			data: parameter,
+			type: type,
+			contentType : contentType!=null?contentType:'application/x-www-form-urlencoded; charset=utf-8',
+			dataType : "json",
+			success: function (res) {
+				console.log(res);
+				calbak(res);
+			},
+			error : function(err){
+				console.log('error');
+				calbak(err);
+			}
+		});
+	}
+</script>
 <!-- <body id="body-pd"> -->
 <body id="">
 
@@ -134,163 +226,40 @@
 				</div>
 			</div>
 			<!-- ================== 채팅 시작 ======================= -->
+			<!-- ================== 채팅 목록 시작 =================== -->
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="container py-5 px-4">
 						<!-- For demo purpose-->
-
 						<div class="row rounded-lg overflow-hidden shadow">
 							<!-- Users box-->
 							<div class="col-5 px-0">
 								<div class="bg-white">
-
 									<div class="bg-gray px-4 py-2 bg-light">
-										<p class="h5 mb-0 py-1">Recent</p>
+										<p class="h5 mb-0 py-1">채팅 목록</p>
 									</div>
-
 									<div class="messages-box">
 										<div class="list-group rounded-0">
-											<a
-												class="list-group-item list-group-item-action active text-white rounded-0">
+											<a class="list-group-item list-group-item-action active text-white rounded-0">
 												<div class="media">
-													<img
+													<!-- <img
 														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
+														alt="user" width="50" class="rounded-circle"> -->
 													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-1">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">25 Dec</small>
+														<div class="d-flex align-items-center justify-content-between mb-1">
+															<!-- <h6 class="mb-0">찬희</h6> 채팅한 멤버 아이디
+															<small class="small font-weight-bold">[채팅 날짜]</small> -->
+															<table id="roomList" class="roomList"></table>
 														</div>
-														<p class="font-italic mb-0 text-small">Lorem ipsum
-															dolor sit amet, consectetur adipisicing elit, sed do
-															eiusmod tempor incididunt ut labore.</p>
+														<p class="font-italic mb-0 text-small"> 뭘 넣지..?</p>
 													</div>
 												</div>
-											</a> <a href="#"
-												class="list-group-item list-group-item-action list-group-item-light rounded-0">
-												<div class="media">
-													<img
-														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
-													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-1">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">14 Dec</small>
-														</div>
-														<p class="font-italic text-muted mb-0 text-small">Lorem
-															ipsum dolor sit amet, consectetur. incididunt ut labore.</p>
-													</div>
-												</div>
-											</a> <a href="#"
-												class="list-group-item list-group-item-action list-group-item-light rounded-0">
-												<div class="media">
-													<img
-														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
-													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-1">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">9 Nov</small>
-														</div>
-														<p class="font-italic text-muted mb-0 text-small">consectetur
-															adipisicing elit, sed do eiusmod tempor incididunt ut
-															labore.</p>
-													</div>
-												</div>
-											</a> <a href="#"
-												class="list-group-item list-group-item-action list-group-item-light rounded-0">
-												<div class="media">
-													<img
-														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
-													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-1">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">18 Oct</small>
-														</div>
-														<p class="font-italic text-muted mb-0 text-small">Lorem
-															ipsum dolor sit amet, consectetur adipisicing elit, sed
-															do eiusmod tempor incididunt ut labore.</p>
-													</div>
-												</div>
-											</a> <a href="#"
-												class="list-group-item list-group-item-action list-group-item-light rounded-0">
-												<div class="media">
-													<img
-														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
-													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-1">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">17 Oct</small>
-														</div>
-														<p class="font-italic text-muted mb-0 text-small">consectetur
-															adipisicing elit, sed do eiusmod tempor incididunt ut
-															labore.</p>
-													</div>
-												</div>
-											</a> <a href="#"
-												class="list-group-item list-group-item-action list-group-item-light rounded-0">
-												<div class="media">
-													<img
-														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
-													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-1">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">2 Sep</small>
-														</div>
-														<p class="font-italic text-muted mb-0 text-small">Quis
-															nostrud exercitation ullamco laboris nisi ut aliquip ex
-															ea commodo consequat.</p>
-													</div>
-												</div>
-											</a> <a href="#"
-												class="list-group-item list-group-item-action list-group-item-light rounded-0">
-												<div class="media">
-													<img
-														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
-													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-1">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">30 Aug</small>
-														</div>
-														<p class="font-italic text-muted mb-0 text-small">Lorem
-															ipsum dolor sit amet, consectetur adipisicing elit, sed
-															do eiusmod tempor incididunt ut labore.</p>
-													</div>
-												</div>
-											</a> <a href="#"
-												class="list-group-item list-group-item-action list-group-item-light rounded-0">
-												<div class="media">
-													<img
-														src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg"
-														alt="user" width="50" class="rounded-circle">
-													<div class="media-body ml-4">
-														<div
-															class="d-flex align-items-center justify-content-between mb-3">
-															<h6 class="mb-0">Jason Doe</h6>
-															<small class="small font-weight-bold">21 Aug</small>
-														</div>
-														<p class="font-italic text-muted mb-0 text-small">Lorem
-															ipsum dolor sit amet, consectetur adipisicing elit, sed
-															do eiusmod tempor incididunt ut labore.</p>
-													</div>
-												</div>
-											</a>
-
+											</a> 
 										</div>
 									</div>
 								</div>
 							</div>
+							<!-- ====================== 채팅 목록 끝 ==================== -->
 							<!-- Chat Box-->
 							<div class="col-7 px-0">
 								<div class="px-4 py-5 chat-box bg-white">

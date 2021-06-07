@@ -18,30 +18,29 @@
          }
          
       });
-         };
+ };
       
          
-          function reject(obj, reservationNo,reservationStatus) {
-            var rSpan = $(obj);
-            var sendData = {
-                  'reservationNo' : reservationNo,
-                  'reservationStatus' : reservationStatus
-               };
-            $.ajax({
-            type:"GET",
-            url:"reservationconfirm.com",
-            data : sendData,
-            dataType : "json",
-            success:function(data){
-               if (data.resultYn=="success") {
-                  rSpan.parent().prev().text(data.resultStatus);
-               } else {
-                  alert("실패!");
-               }
-            }
-            
-         });
-            };    
+  function reject(obj, reservationNo,reservationStatus) {
+    var rSpan = $(obj);
+    var sendData = {
+          'reservationNo' : reservationNo,
+          'reservationStatus' : reservationStatus
+       };
+    $.ajax({
+		type:"GET",
+		url:"reservationconfirm.com",
+		data : sendData,
+		dataType : "json",
+		success:function(data){
+		   if (data.resultYn=="success") {
+		      rSpan.parent().prev().text(data.resultStatus);
+		   } else {
+		      alert("실패!");
+		   }
+		}
+ 	});
+};    
             
             
  $(document).ready(function(){
@@ -75,10 +74,10 @@ $('#cb3').click(function(){
 
 $('#confirmAll').click(function(){
 	var checkedList = [];
-  $("input[name=chkbox]:checked").each(function(){
+  $("input[name=chkbox]:checked").each(function(index, item){
     checkedList.push($(this).val());
-    
-    confirm($('#confirm'), $(this).val(),'승인');
+    var index = $(item).attr("checknum");
+    confirm($('.confirm'+index), $(this).val(),'승인');
     
   })
   	console.log(checkedList);

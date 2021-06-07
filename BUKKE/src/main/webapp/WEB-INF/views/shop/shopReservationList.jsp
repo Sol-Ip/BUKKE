@@ -277,9 +277,8 @@
       <td>${reservation.reservationDate }</td>
       <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
-       	${status.index }
         <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary confirm${status.index }">승인</button>
-        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger reject">거절</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger reject${status.index }">거절</button>
      </td>
        
     </tr>
@@ -304,14 +303,14 @@
       <th scope="col">승인/거절</th>
     </tr>
   </thead>
-  <c:forEach items="${reservationList }" var="reservation">
+  <c:forEach items="${reservationList }" var="reservation" varStatus="status">
   <tbody> 
   
   
   
   	<c:if test="${reservation.activityNo != 0  }">
     <tr>
-      <th scope="row"><input type="checkbox" name="chkbox2"></th>
+      <th scope="row"><input type="checkbox" name="chkbox2" value="${reservation.reservationNo }" checknum="${status.index }"> </th>
       <td>${reservation.reservationNo }</td>
       <td>
       <c:choose>
@@ -333,8 +332,8 @@
       <td>${reservation.reservationDate }</td>
       <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
-        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary">승인</button>
-        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger">거절</button>
+        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary confirm${status.index }">승인</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger reject${status.index }">거절</button>
      </td>
        
     </tr>
@@ -359,14 +358,14 @@
       <th scope="col">승인/거절</th>
     </tr>
   </thead>
-  <c:forEach items="${reservationList }" var="reservation">
+  <c:forEach items="${reservationList }" var="reservation" varStatus="status">
   <tbody> 
   
   
   
   	<c:if test="${reservation.classNo != 0  }">
     <tr>
-      <th scope="row"><input type="checkbox" name="chkbox3"></th>
+      <th scope="row"><input type="checkbox" name="chkbox3" value="${reservation.reservationNo }" checknum="${status.index }"></th>
       <td>${reservation.reservationNo }</td>
       <td>
       <c:choose>
@@ -388,8 +387,8 @@
       <td>${reservation.reservationDate }</td>
       <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
        <td>
-        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary">승인</button>
-        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger">거절</button>
+        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary confirm${status.index }">승인</button>
+        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger reject${status.index }">거절</button>
      </td>
        
     </tr>

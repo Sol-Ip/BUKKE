@@ -11,6 +11,28 @@
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+	<link rel="stylesheet" href="../resources/css/mypage/reviewComment.css">
+	
+<style type="text/css">
+	#comment1{
+	font-size: 30px;
+	   font-family: 'MaruBuri-Regular';
+	}
+	
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 </head>
 <body>
 	<!-- fixed section -->
@@ -29,17 +51,160 @@
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
 				</div>
+				
 			</div>
 		</div>
-	</section>
-	<!-- fixed section END-->
+		
+	
+	<!-- ======================= 사이드 바 시작 =============================== -->
+         
+         <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">BUKKE</a>
+                </div>
+                <div class="nav__list">
+                    <div href="#" class="nav__link collapse1">
+                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
+                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
+                        <span class="nav_name">내 정보</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">정보 수정</a>
+                        </ul>
+                    </div>
+                    
+                    <div href="#" class="nav__link collapse1">
+                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
+                        <span class="nav_name">부캐 일정</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
+                            
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 활동</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
+                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
+                            <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
+                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">선물 내역</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">받은 선물</a>
+                            <a href="#" class="collapse__sublink">보낸 선물</a>
+                        </ul>
+                    </div>
+                    
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
+                        <span class="nav_name">채팅</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">채팅 목록</a>
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
+                        <span class="nav_name">알림</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">예약 알림</a>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav__link">
+                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">Log out</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+   </section>
+   <!-- ======================= 사이드 바 끝 =============================== -->
+	<div class="container ftco-animate">
+		<div class="row justify-content-center">
+			<div class="col-md-8 heading-section ftco-animate">
+				<span class="subheading subheading-with-line"><small
+					class="pr-2 bg-light">REVIEW</small></span>
+				<h2>comment</h2>
+				
+			</div>
+		</div>
+	</div>
 	
 	<!-- 공지사항 리스트 -->
 		
-		<div class="container-fluid py-4">
-			<div class="row" >
-				
-				<div class="col-12">
+		<br><br><br>
+		<section class="ftco-section">
+		<div class="container">
+				<div class="row">
+				  <div id="admin" class="col s12">
+				    <div class="card material-table">
+				      <div class="table-header" style="background-color:#50BCDF">
+				        <span class="table-title" style="font-size: 35px;font-family: 'Cafe24SsurroundAir';">내가 쓴 댓글</span>
+				        <div class="actions">
+				          <a class="modal-trigger waves-effect btn-flat nopadding" style="font-family:font-family: 'MaruBuri-Regular';"><i class="material-icons">BUKKE</i></a>
+				        </div>
+				      </div>
+				      <table id="datatable">
+				        <thead>
+				          <tr>
+				            <th style="text-align:center ;font-size: 30px;">내용</th>
+				            <th></th>
+				            <th></th>
+				            <th style="font-size: 30px; ">작성자</th>
+				            <th style="font-size: 30px;">날짜</th>
+				            <th style="font-size: 30px;">삭제</th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				        <c:forEach items="${rcList }" var="reviewComment">
+				          <tr>
+				            <td style="text-align: center;" id="comment1">${reviewComment.commentContents }</td>
+				            <td></td>
+				            <td></td>
+				            <td id="comment1">${reviewComment.memberId }</td>
+				            <td id="comment1">${reviewComment.commentDate }</td>
+				            <td style="font-size: 30px;font-family: 'Cafe24SsurroundAir';">
+				            	<button class="btn btn-primary">삭제</button>
+				            </td>
+				          </tr>
+				         </c:forEach>
+				        </tbody>
+				      </table>
+				      
+				    </div>
+				  </div>
+				</div>
+				   </section>
+				<%-- <div class="col-12">
 					<div class="card mb-4">
 						<div class="card-header pb-0 text-center">
 							<h5>내가 댓글 남긴 후기 글 목록</h5>
@@ -88,7 +253,8 @@
 													class="text-secondary text-xs font-weight-bold">${review.memberId }</span></td>
 												<td class="align-middle text-center"><span
 													class="text-secondary text-xs font-weight-bold">${review.reviewDate }</span>
-												</td><%-- 
+												</td>
+												
 												 <c:if test="${loginMember.memberId=='admin' }"> 
 												<td class="align-middle text-center"><span
 													class="text-secondary text-xs font-weight-bold">
@@ -104,7 +270,8 @@
 													</span>
 												</td>
 											 	</c:if> 
-											 --%></tr>
+											</tr>
+											 
 										</c:forEach>
 
 									</tbody>
@@ -112,9 +279,10 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 			</div>
 		</div>
+		
 		 <%-- <c:if test="${loginMember.memberId=='admin' }"> 
 		<div>
 			<button type="button" class="btn btn-outline-secondary"
@@ -168,16 +336,7 @@
           </div>
         </div>
         </div>
-        </section>
-
-	<script>
-		$(document).ready(function() {
-			$(".menu>a").click(function() {
-				$(this).next("ul").toggleClass("hide");
-			});
-		});
-	</script>
-	
+<script src="../resources/js/member/mypageSidebar.js"></script>
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

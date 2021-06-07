@@ -42,6 +42,7 @@ import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.member.service.MemberService;
 import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.service.ReviewService;
 import com.sun.mail.util.logging.MailHandler;
@@ -362,7 +363,7 @@ public class MemberController {
 
 		int listCount = rService.getCommentListCountById(memberId);
 		ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
-		ArrayList<Review> rcList = rService.printAllCommentbyId(pi, memberId);
+		ArrayList<ReviewComment> rcList = rService.printAllCommentbyId(pi, memberId);
 		if (!rcList.isEmpty()) {
 			mv.addObject("rcList", rcList);
 			mv.addObject("pi", pi);

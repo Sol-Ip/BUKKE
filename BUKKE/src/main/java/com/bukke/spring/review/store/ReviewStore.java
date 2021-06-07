@@ -74,7 +74,7 @@ public interface ReviewStore {
 
 	public int selectCommentListCountbyId(String memberId);
 
-	public ArrayList<Review> selectCommentListbyId(ReviewPageInfo pi, String memberId);
+	public ArrayList<ReviewComment> selectCommentListbyId(ReviewPageInfo pi, String memberId);
 	
 	
 }

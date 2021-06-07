@@ -92,9 +92,10 @@ $('#confirmAll').click(function(){
 
 $('#rejectAll').click(function(){
 	var checkedList = [];
-  $("input[name=chkbox]:checked").each(function(){
+  $("input[name=chkbox]:checked").each(function(index,item){
     checkedList.push($(this).val());
-    reject($('#reject'), $(this).val(),'거절');
+      var index = $(item).attr("checknum");
+    reject($('.reject'+index), $(this).val(),'거절');
   })
   	console.log(checkedList);
   	
@@ -107,9 +108,10 @@ $('#rejectAll').click(function(){
 
 $('#confirmAll').click(function(){
 	var checkedList = [];
-  $("input[name=chkbox2]:checked").each(function(){
+  $("input[name=chkbox2]:checked").each(function(index,item){
     checkedList.push($(this).val());
-    confirm($('#confirm'), $(this).val(),'거절');
+    var index = $(item).attr("checknum");
+    confirm($('.confirm'+index), $(this).val(),'승인');
   })
   	console.log(checkedList);
   	
@@ -122,9 +124,10 @@ $('#confirmAll').click(function(){
 
 $('#rejectAll').click(function(){
 	var checkedList = [];
-  $("input[name=chkbox2]:checked").each(function(){
+  $("input[name=chkbox2]:checked").each(function(index,item){
     checkedList.push($(this).val());
-    reject($('#reject'), $(this).val(),'거절');
+    var index = $(item).attr("checknum");
+    reject($('.reject'+index), $(this).val(),'거절');
   })
   	console.log(checkedList);
   	
@@ -138,9 +141,10 @@ $('#rejectAll').click(function(){
 
 $('#confirmAll').click(function(){
 	var checkedList = [];
-  $("input[name=chkbox3]:checked").each(function(){
+  $("input[name=chkbox3]:checked").each(function(index,item){
     checkedList.push($(this).val());
-    confirm($('#confirm'), $(this).val(),'거절');
+    var index = $(item).attr("checknum");
+    confirm($('.confirm'+index), $(this).val(),'승인');
   })
   	console.log(checkedList);
   	
@@ -153,9 +157,10 @@ $('#confirmAll').click(function(){
 
 $('#rejectAll').click(function(){
 	var checkedList = [];
-  $("input[name=chkbox3]:checked").each(function(){
+  $("input[name=chkbox3]:checked").each(function(index,item){
     checkedList.push($(this).val());
-    reject($('#reject'), $(this).val(),'거절');
+    var index = $(item).attr("checknum");
+    reject($('.reject'+index), $(this).val(),'거절');
   })
   	console.log(checkedList);
   	

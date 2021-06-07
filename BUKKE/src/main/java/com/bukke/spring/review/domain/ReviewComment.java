@@ -3,6 +3,7 @@ package com.bukke.spring.review.domain;
 import java.sql.Date;
 
 public class ReviewComment {
+	
 
 	private int commentNo; // 댓글번호
 	private String memberId; // 회원아이디
@@ -10,6 +11,7 @@ public class ReviewComment {
 	private String commentContents; // 댓글내용
 	private Date commentDate; // 댓글작성일
 	private String commentStatus; // 댓글(삭제)여부
+	
 	
 	public ReviewComment() {}
 

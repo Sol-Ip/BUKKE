@@ -167,17 +167,17 @@
 							<li class="my-info"><span class="my-info-tit" id="sub1">내 액티비티<a
 									title="보기" class="view-grade"
 									onclick="showPopup2();"></a></span> <strong
-								class="my-info-txt my-level" id="sub1">0 개</strong></li>
+								class="my-info-txt my-level" id="sub1">개</strong></li>
 							<li class="my-info"><span class="my-info-tit" id="sub1">내 클래스</span> <a
-								><strong class="my-info-txt my-class" id="sub1">2 개</strong></a>
+								><strong class="my-info-txt my-class" id="sub1">개</strong></a>
 							</li>
 							<li class="my-info"><span class="my-info-tit" id="sub1">내가 쓴 후기</span> <a><strong
 									class="my-info-txt cut-txt my-point"
-									id="sub1">2 개</strong></a>
+									id="sub1"> 개</strong></a>
 							</li>
 							<li class="my-info"><span class="my-info-tit" id="sub1">내가 쓴 댓글</span> <a
 								><strong class="my-info-txt my-coupon"
-									id="sub1">5 개</strong></a>
+									id="sub1">개</strong></a>
 							</li>
 						</ul>
 					</div>

@@ -5,12 +5,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+	<link rel="stylesheet" href="../resources/css/mypage/mypageReview.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
 <meta charset="UTF-8">
 <title>좋아요 목록</title>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
+	<style type="text/css">
+    
+	</style>
 </head>
 <body>
 	<!-- fixed section -->
@@ -31,26 +37,132 @@
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- fixed section END-->
+	
+	<!-- ======================= 사이드 바 시작 =============================== -->
+         
+         <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">BUKKE</a>
+                </div>
+                <div class="nav__list">
+                    <div href="#" class="nav__link collapse1">
+                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
+                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
+                        <span class="nav_name">내 정보</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">정보 수정</a>
+                        </ul>
+                    </div>
+                    
+                    <div href="#" class="nav__link collapse1">
+                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
+                        <span class="nav_name">부캐 일정</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
+                            
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 활동</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
+                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
+                            <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
+                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">선물 내역</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">받은 선물</a>
+                            <a href="#" class="collapse__sublink">보낸 선물</a>
+                        </ul>
+                    </div>
+                    
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
+                        <span class="nav_name">채팅</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">채팅 목록</a>
+                        </ul>
+                    </div>
+
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
+                        <span class="nav_name">알림</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">예약 알림</a>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="#" class="nav__link">
+                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">Log out</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+   </section>
+   <!-- ======================= 사이드 바 끝 =============================== -->
 	<div class="container ftco-animate">
 		<div class="row justify-content-center">
 			<div class="col-md-8 heading-section ftco-animate">
 				<span class="subheading subheading-with-line"><small
 					class="pr-2 bg-light">REVIEW</small></span>
-				<h2>My Review</h2>
-				
+				<h2>comment</h2>
+
 			</div>
 		</div>
-		
-		
-		<h3 align="right">내가 쓴 후기 글 &nbsp;&nbsp;<i class="fas fa-pen-square"></i></h3>
-		
-	
 	</div>
-	<div class="container">
-		<div class="row">
-			<c:forEach items="${rList }" var="review">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<ul class="list">
+					<c:forEach items="${rList }" var="review">
+						<li class="list-item">
+							<div class="list-content">
+								<c:url var="rDetail" value="reviewDetail.com">
+									<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
+								</c:url>
+								<h3>
+									<i class="fas fa-stream" style="color: blue"></i>
+									<a href="${rDetail }" id="title1">${review.reviewTitle }</a>
+								</h3>
+								<img src="../resources/reviewFiles/${review.rRenameFilename }"
+									id="class-img" class="block-20" alt="Colorlib Template" />
+								<p>${review.reviewContents }</p>
+								<a href="${rDetail }">Click</a>
+							</div>
+						</li>
+					</c:forEach>
+				</ul>
+				<%-- <c:forEach items="${rList }" var="review">
 	
 				<div class="col-sm-4 ftco-animate">
 					<div class="project">
@@ -66,20 +178,16 @@
 							
 			
 						</div>
-						
-						
-						<div class="col-sm text-info"  align="right">글쓴이 : ${review.memberId }</div>
-						
-						
-
+											
 
 					</div>
 					<br>
 				</div>
-			</c:forEach>
+			</c:forEach> --%>
+
+			</div>
 		</div>
-	</div>
-	
+	</section>
 	<!-- 페이징 처리 -->
 		<div class="container">
     	<div class="row no-gutters mt-5">	
@@ -123,7 +231,7 @@
           </div>
         </div>
     	</div>
-	
+<script src="../resources/js/member/mypageSidebar.js"></script>	
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

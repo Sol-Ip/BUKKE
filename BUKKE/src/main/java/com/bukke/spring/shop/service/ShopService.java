@@ -35,4 +35,6 @@ public interface ShopService {
 	 */
 	public int deleteShop(String shopId);
 	public ArrayList<Shop> printAllShop();
+	public int confirmRegister(String shopId);
+	public int cancelRegister(String shopId);
 }

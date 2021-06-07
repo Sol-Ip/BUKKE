@@ -66,4 +66,16 @@ public class ShopStoreLogic implements ShopStore {
 		return (ArrayList)session.selectList("shopMapper.selectShopList");
 	}
 
+	@Override
+	public int confirmRegister(String shopId) {
+		// TODO Auto-generated method stub
+		return session.update("shopMapper.confirmRegister", shopId);
+	}
+
+	@Override
+	public int cancelRegister(String shopId) {
+		// TODO Auto-generated method stub
+		return session.update("shopMapper.rejectRegister", shopId);
+	}
+
 }

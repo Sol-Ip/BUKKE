@@ -35,5 +35,7 @@ public interface ShopStore {
 	 */
 	public int deleteShop(String shopId);
 	public ArrayList<Shop> selectShopList();
+	public int confirmRegister(String shopId);
+	public int cancelRegister(String shopId);
 
 }

@@ -31,4 +31,20 @@
 	<select id="selectShopList" resultMap="shopResultMap">
 		SELECT * FROM SHOP
 	</select>
+	
+	<!-- 승인 -->
+   <update id="confirmRegister">
+   UPDATE SHOP SET
+   SHOP_APPROVAL = '승인' 
+   WHERE SHOP_ID = #{shopId}
+   </update>
+   
+   <!--  거절 -->
+   <update id="rejectRegister">
+   UPDATE SHOP SET
+   SHOP_APPROVAL = '거절' 
+   WHERE SHOP_ID = #{shopId}
+   </update>
+   
+	
 </mapper>

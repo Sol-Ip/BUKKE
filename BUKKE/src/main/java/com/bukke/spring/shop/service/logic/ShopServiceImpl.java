@@ -65,4 +65,16 @@ public class ShopServiceImpl implements ShopService {
 		// TODO Auto-generated method stub
 		return sStore.selectShopList();
 	}
+
+	@Override
+	public int confirmRegister(String shopId) {
+		// TODO Auto-generated method stub
+		return sStore.confirmRegister(shopId);
+	}
+
+	@Override
+	public int cancelRegister(String shopId) {
+		// TODO Auto-generated method stub
+		return sStore.cancelRegister(shopId);
+	}
 }

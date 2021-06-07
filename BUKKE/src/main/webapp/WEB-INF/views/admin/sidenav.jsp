@@ -21,8 +21,8 @@
 	<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
 		data-bs-parent="#sidenavAccordion">
 		<nav class="sb-sidenav-menu-nested nav">
-			<a class="nav-link" href="#">일반회원관리</a>
-			<a class="nav-link" href="adminshopManage.com">업체회원관리</a>
+			<a class="nav-link" href="adminUserManage.com">일반회원관리</a>
+			<a class="nav-link" href="adminShopManage.com">업체회원관리</a>
 		</nav>
 	</div>
 	<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"

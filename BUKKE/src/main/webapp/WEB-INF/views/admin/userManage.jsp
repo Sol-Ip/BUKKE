@@ -6,7 +6,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>관리자 - 업체회원관리s</title>
+<title>관리자 - 일반회원관리</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link href="/resources/admin/css/styles.css" rel="stylesheet" />
 <script
@@ -39,9 +39,9 @@
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid px-4">
-				<h1 class="mt-4">업체회원관리</h1>
+				<h1 class="mt-4">일반회원관리</h1>
 				<ol class="breadcrumb mb-4">
-					<li class="breadcrumb-item active">Shop Management</li>
+					<li class="breadcrumb-item active">User Management</li>
 				</ol>
 				<div class="card mb-4">
 					<div class="card-header">
@@ -54,9 +54,9 @@
 									<th>아이디</th>
 									<th>대표자명</th>
 									<th>업체명</th>
-									<th>사업자번호</th>
-									<th>사업자등록증</th>
-									<th>상태</th>
+									<th></th>
+									<th></th>
+									<th>관리</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -64,9 +64,9 @@
 									<td>user</td>
 									<td>김송이</td>
 									<td>송이송이</td>
-									<td>0133344520</td>
-									<td><button>이미지</button></td>
-									<td>승인됨</td>
+									<td></td>
+									<td></td>
+									<td><button>탈퇴</button></td>
 								</tr>
 							</tbody>
 						</table>

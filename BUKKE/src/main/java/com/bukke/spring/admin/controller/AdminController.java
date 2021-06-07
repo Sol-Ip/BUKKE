@@ -14,8 +14,14 @@ public class AdminController {
 	}
 
 	// 업체회원관리 메뉴
-	@RequestMapping(value="adminshopManage.com", method=RequestMethod.GET)
+	@RequestMapping(value="adminShopManage.com", method=RequestMethod.GET)
 	public String adminshopManage() {
 		return "admin/shopManage";
+	}
+	
+	// 일반회원관리 메뉴
+	@RequestMapping(value="adminUserManage.com", method=RequestMethod.GET)
+	public String adminuserManage() {
+		return "admin/userManage";
 	}
 }

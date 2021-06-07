@@ -81,7 +81,7 @@
 	}
 
 	function getRoom(){
-		commonAjax('getRoom', "", 'post', function(result){
+		commonAjax('/getRoom.com', "", 'post', function(result){
 			createChattingRoom(result);
 		});
 	}
@@ -100,15 +100,16 @@
 	}
 
 	function goRoom(number, name){
-		location.href="moveChatting.com?roomName="+name+"&"+"roomNumber="+number;
+		location.href="/moveChatting.com?roomName="+name+"&"+"roomNumber="+number;
 	}
 
 	function createChattingRoom(res){
 		console.log("createChattingRoom 실행");
 		console.log(res);
+		var resJson = JSON.parse(res);
 		if(res != null){
 			var tag = "<tr><th class='num'>순서</th><th class='room'>방 이름</th><th class='go'></th></tr>";
-			res.forEach(function(d, idx){
+			resJson.forEach(function(d, idx){
 				var rn = d.roomName.trim();
 				var roomNumber = d.roomNumber;
 				console.log("roomNumber" + roomNumber);
@@ -151,6 +152,7 @@
 			type: type,
 			contentType : contentType!=null?contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 			success: function (res) {
+				console.log(res);
 				calbak(res);
 			},
 			error : function(err){

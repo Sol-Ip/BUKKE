@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +35,7 @@ public class ChatController {
 	 * 방 페이지
 	 * @return
 	 */
-	@RequestMapping(value="chatRoom.com")
+	@RequestMapping(value="/chatRoom.com")
 	public ModelAndView room() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("chat/chatRoom");
@@ -46,20 +48,22 @@ public class ChatController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value="/createRoom.com")
-	public String createRoom(@RequestParam HashMap<Object, Object> params) {
+	@RequestMapping("/createRoom.com")
+	public String createRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) {
 		String roomName = (String) params.get("roomName");
 		if(roomName != null && !roomName.trim().equals("")) {
 			System.out.println("작동 됨....");
+			response.setCharacterEncoding("UTF-8");
 			Room room = new Room();
 			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
 			System.out.println(room.getRoomNumber());
 			roomList.add(room);
 			System.out.println("roomList : "+ roomList.toString());
+//			Gson gson = new GsonBuilder().create();
+//			String result = gson.toJson(roomList);
 		}
-		Gson gson = new GsonBuilder().create();
-		String result = gson.toJson(roomList);
+		String result = new Gson().toJson(roomList);
 		return result;
 	}
 	
@@ -69,16 +73,18 @@ public class ChatController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "getRoom.com")
-	public List<Room> getRoom(@RequestParam HashMap<Object, Object> params) {
-		return roomList;
+	@RequestMapping(value = "/getRoom.com", method=RequestMethod.POST)
+	public String getRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) {
+		response.setCharacterEncoding("UTF-8");
+		String roomListObj = new Gson().toJson(roomList);
+		return roomListObj;
 	}
 	
 	/**
 	 * 채팅방 안에 들어가는거
 	 * @return
 	 */
-	@RequestMapping(value="moveChatting.com")
+	@RequestMapping(value="/moveChatting.com")
 	public ModelAndView chatting(@RequestParam HashMap<Object, Object> params) {
 		ModelAndView mv = new ModelAndView();
 		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
@@ -96,3 +102,4 @@ public class ChatController {
 	
 
 }
+

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.chat.domain.Room;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
 
 @Controller
 public class ChatController {
@@ -46,38 +46,39 @@ public class ChatController {
 	 * 방 생성하기
 	 * @param params
 	 * @return
+	 * @throws Exception 
+	 * @throws JsonIOException 
 	 */
 	@ResponseBody
-	@RequestMapping("/createRoom.com")
-	public String createRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) {
+	@RequestMapping(value="/createRoom.com", method=RequestMethod.POST)
+	public void createRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
 		String roomName = (String) params.get("roomName");
+		System.out.println("채팅방 이름 : " + roomName);
 		if(roomName != null && !roomName.trim().equals("")) {
 			System.out.println("작동 됨....");
-			response.setCharacterEncoding("UTF-8");
 			Room room = new Room();
 			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
 			System.out.println(room.getRoomNumber());
 			roomList.add(room);
 			System.out.println("roomList : "+ roomList.toString());
-//			Gson gson = new GsonBuilder().create();
-//			String result = gson.toJson(roomList);
 		}
-		String result = new Gson().toJson(roomList);
-		return result;
+		new Gson().toJson(roomList,response.getWriter());
+		//return result;
 	}
 	
 	/**
 	 * 방 정보가져오기
 	 * @param params
 	 * @return
+	 * @throws Exception 
+	 * @throws JsonIOException 
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/getRoom.com", method=RequestMethod.POST)
-	public String getRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) {
-		response.setCharacterEncoding("UTF-8");
-		String roomListObj = new Gson().toJson(roomList);
-		return roomListObj;
+	public void getRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
+		new Gson().toJson(roomList, response.getWriter());
+		//return roomListObj;
 	}
 	
 	/**

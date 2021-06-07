@@ -5,7 +5,7 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta charset="UTF-8">
-	<title>Chating</title>
+	<title>Chatting</title>
 	<style>
 		*{
 			margin:0;
@@ -23,17 +23,17 @@
 			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
 		}
-		.chating{
+		.chatting{
 			background-color: #000;
 			width: 500px;
 			height: 500px;
 			overflow: auto;
 		}
-		.chating .me{
+		.chatting .me{
 			color: #F6F6F6;
 			text-align: right;
 		}
-		.chating .others{
+		.chatting .others{
 			color: #FFE400;
 			text-align: left;
 		}
@@ -51,7 +51,9 @@
 	var ws;
 
 	function wsOpen(){
-		ws = new WebSocket("ws://" + location.host + "/chatting.com");
+		console.log($("#roomNumber").val());
+		// 웹 소켓 전송 시 현재 방의 번호를 넘겨서 보냄
+		ws = new WebSocket("ws://" + location.host + "/chatting/" + $("#roomNumber").val() + ".com");
 		wsEvt();
 	}
 		
@@ -61,9 +63,11 @@
 		}
 		
 		ws.onmessage = function(data) {
+			console.log(data);
 			//메시지를 받으면 동작
 			var msg = data.data;
 			if(msg != null && msg.trim() != ''){
+				console.log(msg);
 				var d = JSON.parse(msg);  // 서버에서도 데이터응 JSON 형태로 전달해주기 때문에 JSON.parse 메소드 활용
 				if(d.type == "getId"){ // type 값을 확인하여 sessionId 값 세팅
 					var si = d.sessionId != null ? d.sessionId : "";
@@ -72,9 +76,9 @@
 					}
 				}else if(d.type == "message"){
 					if(d.sessionId == $("#sessionId").val()){ // sessionId 값을 비교해서 같으면 내가 발신한 메세지이므로 오른쪽으로 정렬
-						$("#chating").append("<p class='me'>나 :" + d.msg + "</p>");	
+						$("#chatting").append("<p class='me'>나 :" + d.msg + "</p>");	
 					}else{ // 아니면 상대방 발신 메세지이므로 왼쪽 정렬
-						$("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
+						$("#chatting").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
 					}
 						
 				}else{
@@ -103,22 +107,25 @@
 	}
 
 	function send() {
+		alert("send 작동됨..")
 		var option ={
-			type: "message",
+			type : "message",
+			roomNumber : $('#roomNumber').val(),
 			sessionId : $("#sessionId").val(),
 			userName : $("#userName").val(),
-			msg : $("#chatting").val()
+			msg : $("#chatting2").val()
 		}
-		ws.send(JSON.stringify(option))
-		$('#chatting').val("");
+		ws.send(JSON.stringify(option));
+		$('#chatting2').val("");
 	}
 </script>
 <body>
 	<div id="container" class="container">
-		<h1>채팅</h1>
+		<h1>${roomName }의 채팅</h1>
 		<input type="hidden" id="sessionId" value="">
+		<input type="hidden" id="roomNumber" value="${roomNumber }">
 		
-		<div id="chating" class="chating">
+		<div id="chatting" class="chatting">
 		</div>
 		
 		<div id="yourName">
@@ -134,7 +141,7 @@
 			<table class="inputTable">
 				<tr>
 					<th>메시지</th>
-					<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
+					<th><input id="chatting2" placeholder="보내실 메시지를 입력하세요."></th>
 					<th><button onclick="send()" id="sendBtn">보내기</button></th>
 				</tr>
 			</table>

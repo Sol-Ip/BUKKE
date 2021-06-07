@@ -101,15 +101,17 @@
 
 	function goRoom(number, name){
 		location.href="/moveChatting.com?roomName="+name+"&"+"roomNumber="+number;
+		console.log(number, name);
 	}
 
 	function createChattingRoom(res){
 		console.log("createChattingRoom 실행");
 		console.log(res);
-		var resJson = JSON.parse(res);
+		//var resJson = JSON.parse(res);
 		if(res != null){
 			var tag = "<tr><th class='num'>순서</th><th class='room'>방 이름</th><th class='go'></th></tr>";
-			resJson.forEach(function(d, idx){
+			res.forEach(function(d, idx){
+				console.log(d, idx)
 				var rn = d.roomName.trim();
 				var roomNumber = d.roomNumber;
 				console.log("roomNumber" + roomNumber);
@@ -150,7 +152,8 @@
 			url: url,
 			data: parameter,
 			type: type,
-			contentType : contentType!=null?contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+			contentType : contentType!=null?contentType:'application/x-www-form-urlencoded; charset=utf-8',
+			dataType : "json",
 			success: function (res) {
 				console.log(res);
 				calbak(res);

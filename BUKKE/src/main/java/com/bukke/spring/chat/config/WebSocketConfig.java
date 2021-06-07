@@ -18,7 +18,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(mySocketHandler, "/chatting.com");
+		registry.addHandler(mySocketHandler, "/chatting/{roomNumber}");
 	}
 
 }

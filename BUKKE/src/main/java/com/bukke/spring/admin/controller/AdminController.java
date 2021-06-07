@@ -12,4 +12,10 @@ public class AdminController {
 	public String adminPage() {
 		return "admin/index";
 	}
+
+	// 업체회원관리 메뉴
+	@RequestMapping(value="adminshopManage.com", method=RequestMethod.GET)
+	public String adminshopManage() {
+		return "admin/shopManage";
+	}
 }

@@ -88,7 +88,7 @@
 										<i class="fas fa-cog"></i>관리자
 									</div>
 									<div class="dropdown-menu dropdown-menu-left">
-										<a href="adminPage.com" class="dropdown-item">관리자메뉴</a>
+										<a href="adminPage.com" class="dropdown-item">관리자페이지</a>
 										<hr class="dropdown-divider">
 										<a href="memberLogout.com" id="memberLogout"
 											class="dropdown-item">로그아웃</a>

@@ -27,6 +27,7 @@
 		<ul class="navbar-nav ms-auto">
 		</ul>
 	</nav>
+
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-fancy"
@@ -39,9 +40,9 @@
 		<div id="layoutSidenav_content">
 			<main>
 			<div class="container-fluid px-4">
-				<h1 class="mt-4">Dashboard</h1>
+				<h1 class="mt-4">업체회원관리</h1>
 				<ol class="breadcrumb mb-4">
-					<li class="breadcrumb-item active">Dashboard</li>
+					<li class="breadcrumb-item active">Shop Management</li>
 				</ol>
 				<div class="card mb-4">
 					<div class="card-header">
@@ -51,12 +52,12 @@
 						<table id="datatablesSimple">
 							<thead>
 								<tr>
-									<th>Name</th>
-									<th>Position</th>
-									<th>Office</th>
-									<th>Age</th>
-									<th>Start date</th>
-									<th>Salary</th>
+									<th>아이디</th>
+									<th>대표자명</th>
+									<th>업체명</th>
+									<th>사업자번호</th>
+									<th>사업자등록증</th>
+									<th>상태</th>
 								</tr>
 							</thead>
 							<tfoot>
@@ -70,6 +71,14 @@
 								</tr>
 							</tfoot>
 							<tbody>
+								<tr>
+									<td>안녕</td>
+									<td>안녕</td>
+									<td>안녕</td>
+									<td>안녕</td>
+									<td>안녕</td>
+									<td>안녕</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>

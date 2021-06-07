@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>후기 상세</title>
+<link rel="stylesheet" href="../resources/css/review/review.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
@@ -194,7 +195,7 @@
 				</div>
 			</div>
 			<!-- 댓글 등록 -->
-			<table class="col-md-12 card card-lg" align="center" border="1"
+			<!-- <table class="col-md-12 card card-lg" align="center" border="1"
 				cellspacing="0">
 				<tr>
 					<div class="form-group">
@@ -203,7 +204,21 @@
 						<button class="btn float-right btn-lg btn-primary " id="rSubmit">등록하기</button>
 					</div>
 				</tr>
-			</table>
+			</table> -->
+			
+			<div class="comment-form">
+
+				<div class="form" name="form">
+					<div class="form-row">
+						<textarea class="input"
+							placeholder="댓글을 등록해 주세요" id="rContent" required style="position: relative;right: 60px;"></textarea>
+					</div>
+					<div class="form-row">
+						<button type="button" id="rSubmit" class="textbox1">댓글 등록</button>
+					</div>
+				</div>
+			</div>
+			
 
 			<!-- 댓글 갯수 -->
 			<td colspan="2"><b id="rCount"></b></td>

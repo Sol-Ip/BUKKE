@@ -19,6 +19,8 @@ import com.bukke.spring.member.service.MemberService;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewPageInfo;
+import com.bukke.spring.shop.domain.Shop;
+import com.bukke.spring.shop.service.ShopService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -27,6 +29,9 @@ public class AdminController {
 	
 	@Autowired
 	private MemberService mService;
+	
+	@Autowired
+	private ShopService sService;
 
 	// 관리자페이지 이동
 	@RequestMapping(value="adminPage.com", method=RequestMethod.GET)
@@ -34,11 +39,12 @@ public class AdminController {
 		return "admin/index";
 	}
 
-	// 업체회원관리 메뉴
-	@RequestMapping(value="adminShopManage.com", method=RequestMethod.GET)
-	public String adminshopManage() {
-		return "admin/shopManage";
-	}
+	/*
+	 * // 업체회원관리 메뉴
+	 * 
+	 * @RequestMapping(value="adminShopManage.com", method=RequestMethod.GET) public
+	 * String adminshopManage() { return "admin/shopManage"; }
+	 */
 	
 	/*
 	 * // 일반회원관리 메뉴
@@ -53,10 +59,23 @@ public class AdminController {
 		ArrayList<Member> mList = mService.printAllMember();
 		if(!mList.isEmpty()) {
 			model.addAttribute("mList",mList);
-			System.out.println(mList.toString());
 			return "admin/userManage";
 		}else {
 			model.addAttribute("msg", "일반회원이없습니다");
+			return "common/errorPage";
+		}
+	}
+	
+	//업체회원 리스트
+	@RequestMapping(value="adminShopManage.com", method=RequestMethod.GET)
+	public String getShopList(Model model) {
+		ArrayList<Shop> sList = sService.printAllShop();
+		if(!sList.isEmpty()) {
+			model.addAttribute("sList",sList);
+			System.out.println(sList.toString());
+			return "admin/shopManage";
+		}else {
+			model.addAttribute("msg", "업체회원이없습니다");
 			return "common/errorPage";
 		}
 	}

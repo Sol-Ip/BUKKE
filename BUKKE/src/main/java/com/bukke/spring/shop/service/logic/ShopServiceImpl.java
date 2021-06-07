@@ -1,5 +1,7 @@
 package com.bukke.spring.shop.service.logic;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,5 +58,11 @@ public class ShopServiceImpl implements ShopService {
 	public int deleteShop(String shopId) {
 		// 업체 회원탈퇴
 		return 0;
+	}
+
+	@Override
+	public ArrayList<Shop> printAllShop() {
+		// TODO Auto-generated method stub
+		return sStore.selectShopList();
 	}
 }

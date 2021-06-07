@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -87,40 +87,7 @@
 										</tr>
 									</c:forEach>
 								</tbody>
-
-
-
-
-								<!-- <tbody>
-								<tr>
-									<td>user</td>
-									<td>김송이</td>
-									<td>송이송이</td>
-									<td></td>
-									<td></td>
-									<td><button>탈퇴</button></td>
-								</tr>
-							</tbody> -->
 							</table>
-							<%-- <div class="container">
-								<div class="row">
-									<c:forEach items="${mList }" var="member">
-										<tbody>
-											<tr>
-
-												<td>${member.memberId }</td>
-
-												<td>${member.memberPw }</td>
-
-												<td>${member.memberName }</td>
-												<td>${member.memberNick }</td>
-												<td>${member.memberAddr }</td>
-												<td>${member.memberPhone }</td>
-												<td>${member.memberEmail }</td>
-									</c:forEach>
-								</div>
-							</div> --%>
-
 						</div>
 					</div>
 			</div>

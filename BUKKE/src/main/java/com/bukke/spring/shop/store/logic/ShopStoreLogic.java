@@ -1,5 +1,7 @@
 package com.bukke.spring.shop.store.logic;
 
+import java.util.ArrayList;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -56,6 +58,12 @@ public class ShopStoreLogic implements ShopStore {
 	public int deleteShop(String shopId) {
 		// 업체 회원탈퇴
 		return 0;
+	}
+
+	@Override
+	public ArrayList<Shop> selectShopList() {
+		// TODO Auto-generated method stub
+		return (ArrayList)session.selectList("shopMapper.selectShopList");
 	}
 
 }

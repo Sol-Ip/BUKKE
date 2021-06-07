@@ -27,4 +27,8 @@
 		(#{shopId}, #{shopPw}, #{ceoName}, #{shopName}, #{shopAddr}, #{shopPhone}, #{shopEmail},
 		#{crnNo}, #{crnOriginalFilename}, #{crnRenameFilename})
 	</insert>
+	
+	<select id="selectShopList" resultMap="shopResultMap">
+		SELECT * FROM SHOP
+	</select>
 </mapper>

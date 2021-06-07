@@ -1,5 +1,7 @@
 package com.bukke.spring.shop.service;
 
+import java.util.ArrayList;
+
 import com.bukke.spring.shop.domain.Shop;
 
 public interface ShopService {
@@ -32,4 +34,5 @@ public interface ShopService {
 	 * 업체 회원탈퇴
 	 */
 	public int deleteShop(String shopId);
+	public ArrayList<Shop> printAllShop();
 }

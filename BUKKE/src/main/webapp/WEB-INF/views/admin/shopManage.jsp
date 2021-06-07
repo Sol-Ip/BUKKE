@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -50,24 +51,42 @@
 					<div class="card-body">
 						<table id="datatablesSimple">
 							<thead>
-								<tr>
-									<th>아이디</th>
-									<th>대표자명</th>
-									<th>업체명</th>
-									<th>사업자번호</th>
-									<th>사업자등록증</th>
-									<th>상태</th>
-								</tr>
-							</thead>
+										<tr>
+											<th>아이디</th>
+											<th>대표이름</th>
+											<th>업체명</th>
+											<th>주소</th>
+											<th>연락처</th>
+											<th>이메일</th>
+											<th>사업자번호</th>
+											<th>승인여부</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>아이디</th>
+											<th>대표이름</th>
+											<th>업체명</th>
+											<th>주소</th>
+											<th>연락처</th>
+											<th>이메일</th>
+											<th>사업자번호</th>
+											<th>승인여부</th>
+										</tr>
+									</tfoot>
 							<tbody>
-								<tr>
-									<td>user</td>
-									<td>김송이</td>
-									<td>송이송이</td>
-									<td>0133344520</td>
-									<td><button>이미지</button></td>
-									<td>승인됨</td>
-								</tr>
+								<c:forEach items="${sList }" var="shop">
+										<tr>
+											<td>${shop.shopId }</td>
+											<td>${shop.ceoName}</td>
+											<td>${shop.shopName }</td>
+											<td>${shop.shopAddr }</td>
+											<td>${shop.shopPhone }</td>
+											<td>${shop.shopEmail }</td>
+											<td>${shop.crnNo }</td>
+											<td>${shop.shopApproval}</td>
+										</tr>
+									</c:forEach>
 							</tbody>
 						</table>
 					</div>

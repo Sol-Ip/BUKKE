@@ -29,13 +29,13 @@
 	</select>
 
 	<!-- 액티비티 총 목록 -->
-	<select id="selectAllActivityList" resultMap="ActivityResultMap">
+	 <select id="selectAllActivityList" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
 	</select>
 	
 	
 	<!-- 액티비티 검색 -->
-	<select id="selectSearchActivity" resultMap="ActivityResultMap">
+	<!-- <select id="selectSearchAllList" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE 
 		SHOP_ID LIKE '%' || #{activityKeyword} ||'%' OR
 		ACTIVITY_NAME LIKE '%' || #{activityKeyword} ||'%' OR 
@@ -43,6 +43,31 @@
 		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' OR
 		ACTIVITY_INFO LIKE '%' || #{activityKeyword} ||'%'
 		ORDER BY ACTIVITY_ENROLL_DATE DESC
+	</select> -->
+	
+	<!-- 액티비티 검색(21.06.07) -->
+	<select id="" resultMap="ActivityResultMap">
+	SELECT ACTIVITY_NO, SHOP_ID, ACTIVITY_NAME, ACTIVITY_ADDR,
+            ACTIVITY_TYPE, ACTIVITY_TYPEDETAILS,
+            ACTIVITY_INFO, ACTIVITY_PRICE,  
+            ACTIVITY_ENROLL_DATE,ACTIVITY_START_DATE, ACTIVITY_END_DATE, 
+            ACTIVITY_STATUS, A_ORIGINAL_FILENAME, A_RENAME_FILENAME, 
+            ACTIVITY_START_TIME, ACTIVITY_END_TIME
+        FROM (SELECT ROW_NUMBER() 
+        OVER(PARTITION BY ACTIVITY_NO ORDER BY ACTIVITY_NO DESC) 
+        AS A_NUM, ACTIVITY_NO, SHOP_ID, ACTIVITY_NAME, ACTIVITY_ADDR,
+            ACTIVITY_TYPE, ACTIVITY_TYPEDETAILS,
+            ACTIVITY_INFO, ACTIVITY_PRICE,  
+            ACTIVITY_ENROLL_DATE,ACTIVITY_START_DATE, ACTIVITY_END_DATE, 
+            ACTIVITY_STATUS, A_ORIGINAL_FILENAME, A_RENAME_FILENAME, 
+            ACTIVITY_START_TIME, ACTIVITY_END_TIME
+        FROM ACTIVITY) 
+        WHERE A_NUM = 1 AND ACTIVITY_STATUS = 'Y' 
+    AND (SHOP_ID LIKE '%' || #{activityKeyword} ||'%' OR
+		ACTIVITY_NAME LIKE '%' || #{activityKeyword} ||'%' OR 
+		ACTIVITY_TYPE LIKE '%' || #{activityKeyword} ||'%' OR 
+		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' OR
+		ACTIVITY_INFO LIKE '%' || #{activityKeyword} ||'%') ORDER BY ACTIVITY_NO DESC
 	</select>
 	
 	<!-- 액티비티 TOP3 목록 ()-->
@@ -53,6 +78,11 @@
 	<!-- 액티비티 상세조회 -->
 	<select id="selectActivityOne" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE ACTIVITY_NO = #{activityNo} AND ACTIVITY_STATUS = 'Y'
+	</select>
+	
+	<!-- 액티비티 타입에 따른 리스트 출력 -->
+	<select id="selectActivityTypeList" resultMap="ActivityResultMap">
+		SELECT * FROM ACTIVITY WHERE ACTIVITY_TYPE = #{activityType} AND ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
 	</select>
 	
 	<!-- 액티비티 등록 -->
@@ -66,7 +96,7 @@
 	<select id="selectActivityType" resultMap="ActivityResultMap">
 		SELECT ACTIVITY_TYPEDETAILS, ACTIVITY_TYPEDETAIL_CODE FROM ACT_TYPE WHERE ACTIVITY_TYPE = #{activityType}
 	</select>
-
+ 
 	<!-- 액티비티 수정 -->
 	<update id="updateActivity">
    		UPDATE ACTIVITY SET ACTIVITY_NAME = #{activityName }, ACTIVITY_ADDR = #{activityAddr }, 
@@ -82,6 +112,23 @@
 	<update id="deleteActivity" parameterType="_int">
 		UPDATE ACTIVITY SET ACTIVITY_STATUS = 'N' WHERE ACTIVITY_NO = #{activityNo}
 	</update>
+	
+	<!-- 액티비티 선택 시 리스트 출력 -->
+	<!--<select id="selectChoiceList" resultMap="ActivityResultMap">
+	 SELECT ACTIVITY_NO, SHOP_ID, ACTIVITY_NAME, ACTIVITY_ADDR,
+            ACTIVITY_TYPE, ACTIVITY_TYPEDETAILS, ACTIVITY_INFO, ACTIVITY_PRICE,  
+            ACTIVITY_ENROLL_DATE,ACTIVITY_START_DATE, ACTIVITY_END_DATE,  ACTIVITY_STATUS, A_ORIGINAL_FILENAME, A_RENAME_FILENAME, 
+            ACTIVITY_START_TIME, ACTIVITY_END_TIME
+        FROM (SELECT ROW_NUMBER() OVER(PARTITION BY ACTIVITY_NO ORDER BY ACTIVITY_NO DESC) 
+        AS A_NUM, ACTIVITY_NO, SHOP_ID, ACTIVITY_NAME, ACTIVITY_ADDR,
+            ACTIVITY_TYPE, ACTIVITY_TYPEDETAILS, ACTIVITY_INFO, ACTIVITY_PRICE,  
+            ACTIVITY_ENROLL_DATE,ACTIVITY_START_DATE, ACTIVITY_END_DATE, 
+            ACTIVITY_STATUS, A_ORIGINAL_FILENAME, A_RENAME_FILENAME, ACTIVITY_START_TIME, ACTIVITY_END_TIME
+        FROM ACTIVITY) WHERE A_NUM = 1 AND ACTIVITY_STATUS = 'Y' 
+        AND (ACTIVITY_TYPE = (#{activityType}) 
+        AND ACTIVITY_TYPEDETAILS = (#{activityTypeDetails})) ORDER BY ACTIVITY_NO DESC 
+        SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' AND ACTIVITY_TYPE = #{activityType} ORDER BY ACTIVITY_NO DESC
+	</select>-->
 	
 	<!-- 조회 수
 	<update id="updateActivityCount">

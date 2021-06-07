@@ -69,7 +69,7 @@
 							class="nav-link">소개</a></li>
 						<li id="bclass" class="nav-item"><a href="bukkeClassList.com"
 							class="nav-link">클래스</a></li>
-						<li id="activity" class="nav-item"><a href="activityList.com"
+						<li id="activity" class="nav-item"><a href="activityListView.com"
 							class="nav-link">액티비티</a></li>
 						<li id="review" class="nav-item"><a href="reviewList.com"
 							class="nav-link">후기</a></li>

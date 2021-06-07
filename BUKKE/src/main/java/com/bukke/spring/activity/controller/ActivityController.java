@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +32,7 @@ import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 
 @Controller
@@ -42,25 +44,114 @@ public class ActivityController {
 	@Autowired
 	private KeepService kService;
 	
-	// 액티비티 전체목록 jsp 이동 (관리자)
-	@RequestMapping(value="activityList.com", method=RequestMethod.GET)
+	// 분류별로 필터링 할 때 해쉬맵 이용해서 밸류값 넘겨줄 것 
+	// 에이젝스로 수정하기 
+	
+	// 액티비티 jsp 이동 및 전체 리스트 출력 
+	@RequestMapping(value="activityListView.com", method=RequestMethod.GET)
 	public ModelAndView activityListView(ModelAndView mv,
-										@RequestParam(value="page", required=false) Integer page) {
-		
+										HttpServletRequest request, 
+										@RequestParam(value="type", required = false) String typeValue,
+										@RequestParam(value="detail", required = false) String detailValue, 
+										@RequestParam(value="page", required=false) Integer page ) {
+										
+		String type = (typeValue != null) ? typeValue : "0";
+		String detail = (detailValue != null) ? detailValue : "0";
 		int currentPage = (page != null) ? page : 1;
 		int listCount = aService.getListCount(); // 게시글 전체 갯수
 		ActivityPageInfo pi = ActivityPagination.getPageInfo(currentPage, listCount);
 		ArrayList<Activity> aList = aService.printAllActivity(pi);
+		HttpSession session = request.getSession();
+		session.setAttribute("act", "activity");
+		
+		// 전체 리스트 출력하기 (jsp에 있는 for-each문 주석 풀고!)
 		if(!aList.isEmpty()) {
 			mv.addObject("aList", aList);
 			mv.addObject("pi", pi); // 화면을 구성하는데에 사용
-			mv.setViewName("activity/activityListView");
+			mv.addObject("type", type).addObject("detail", detail).setViewName("activity/activityListView");
+			//mv.setViewName("activity/activityListView");
 		} else {
 			mv.addObject("msg", "액티비티 전체조회 실패");
 			mv.setViewName("common/errorPage");
 		}
 		return mv;
+	
+	// return mv;
+	}		
+	
+	// 액티비티 리스트 출력 
+	@RequestMapping(value="activityList.com")
+	public void getActivityList (HttpServletResponse response) throws Exception {
+			ArrayList<Activity> aList = aService.printAllActivity();
+			if(!aList.isEmpty()) {
+				Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+				gson.toJson(aList, response.getWriter());
+			}else {
+				System.out.println("리스트 aList : " + aList.toString());
+			}
+		}
+	
+	// 액티비티 분류 별 select 
+	@ResponseBody
+	@RequestMapping(value="activitySelect.com")
+	public void getActivitySelectList(HttpServletResponse response,
+									@RequestParam("activityType") String activityType) throws Exception {
+		ArrayList<Activity> atList = aService.printActivityType(activityType);
+		ArrayList<Activity> aList = aService.printActivityTypeList(activityType);
+		HashMap<String, Object> actMap =  new HashMap<String, Object>();
+		actMap.put("atList", atList);
+		actMap.put("aList", aList);
+		if(!atList.isEmpty()) {
+			Gson gson = new Gson();
+			gson.toJson(actMap, response.getWriter());
+		}
 	}
+	
+	// 액티비티 상세분류 별 select 
+	@RequestMapping(value="activityDetailSelect.com")
+	public void getActivityDetailSelectList(HttpServletResponse response,
+											@RequestParam("activityType") String activityType) throws Exception {
+		
+		ArrayList<Activity> detailList = aService.printActivityType(activityType);
+		if(!detailList.isEmpty()) {
+			Gson gson = new Gson();
+			gson.toJson(detailList, response.getWriter());
+			System.out.println("detailList : " + detailList.toString());
+		}
+		
+	}
+			
+	// 액티비티 검색 페이지 이동 및 출력
+	@RequestMapping(value = "activitySearch.com",method=RequestMethod.GET)
+	public ModelAndView activitySearchView(ModelAndView mv, 
+										@RequestParam("activitySearch") String activitySearch,
+										HttpServletRequest session) {
+		//session.setAttribute("act", "activity");
+		ArrayList<Activity> aSearchList = aService.printSearchAllList(activitySearch);
+		if (!aSearchList.isEmpty()) {
+			mv.addObject("aSearchList", aSearchList).setViewName("activity/activitySearchView");
+		} else {
+			mv.addObject("aSearchList", null).addObject("activitySearch", activitySearch).setViewName("activity/activitySearchView");
+		}
+		return mv;
+	}	
+			
+	
+	// *액티비티 검색기능 메소드
+//	@RequestMapping(value="activitySearch.com", method=RequestMethod.GET) 
+//	public String activitySearch(@ModelAttribute ActivitySearch activitySearch, Model model) {
+//		ArrayList<Activity> aSearchList = aService.searchActivity(activitySearch);
+//		if(!aSearchList.isEmpty()) {
+//			model.addAttribute("aList", aSearchList);
+//			model.addAttribute("activitySearch", activitySearch);
+//			System.out.println("aList :" + aSearchList);
+//			return "activity/activityListView";
+//		} else {
+//			System.out.println("aList  :" + aSearchList);
+//			model.addAttribute("msg", "액티비티 검색결과 없음");
+//			return "activity/activityNonSearch";
+//		}
+//	}
 	
 	
 	// 액티비티 상세정보 jsp 이동 (모든회원)
@@ -95,7 +186,7 @@ public class ActivityController {
 			model.addAttribute("keep", keep);
 		}
 		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회
-		ArrayList<Activity> aList = aService.printAllActivity(); // 상위 top3 용도
+		ArrayList<Activity> aList = aService.printTopThreeActivity(); // 상위 top3 용도
 		if(activity != null && !aList.isEmpty()) {
 			
 			model.addAttribute("aList", aList);
@@ -107,23 +198,6 @@ public class ActivityController {
 		}
 		return mv;
 		
-	}
-	
-	
-	// *액티비티 검색기능 메소드
-	@RequestMapping(value="activitySearch.com", method=RequestMethod.GET) 
-	public String activitySearch(@ModelAttribute ActivitySearch activitySearch, Model model) {
-		ArrayList<Activity> aSearchList = aService.searchActivity(activitySearch);
-		if(!aSearchList.isEmpty()) {
-			model.addAttribute("aList", aSearchList);
-			model.addAttribute("activitySearch", activitySearch);
-			System.out.println("aList :" + aSearchList);
-			return "activity/activityListView";
-		} else {
-			System.out.println("aList  :" + aSearchList);
-			model.addAttribute("msg", "액티비티 검색결과 없음");
-			return "activity/activityNonSearch";
-		}
 	}
 	
 	
@@ -291,12 +365,6 @@ public class ActivityController {
 			model.addAttribute("msg", "액티비티 삭제 실패");
 			return "common/errorPage";
 		}
-	}
-	
-	@RequestMapping(value="activityListTest.com", method=RequestMethod.GET)
-	public String test() {
-		
-		return "activity/activityListView2";
 	}
 	
 	

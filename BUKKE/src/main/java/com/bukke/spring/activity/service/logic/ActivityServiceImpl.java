@@ -1,6 +1,7 @@
 package com.bukke.spring.activity.service.logic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,16 +34,22 @@ public class ActivityServiceImpl implements ActivityService {
 		ArrayList<Activity> aList = aStore.selectAllActivityList();
 		return aList;
 	}
+	
+	@Override
+	public ArrayList<Activity> printTopThreeActivity() { // 액티비티 Top3
+		ArrayList<Activity> aList = aStore.selectTopThreeActivityList();
+		return aList;
+	}
 
 	@Override
 	public Activity printOneActivity(int activityNo) { // 액티비티 상세정보
 		return aStore.selectOneActivity(activityNo);
 	}
 
-	@Override
-	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
-		return aStore.searchActivityList(activitySearch);
-	}
+//	@Override
+//	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
+//		return aStore.searchActivityList(activitySearch);
+//	}
 
 	@Override
 	public int registerActivity(Activity activity) { // 액티비티 등록 (업체회원-액티비티 등록 메뉴)
@@ -67,6 +74,22 @@ public class ActivityServiceImpl implements ActivityService {
 	@Override
 	public ArrayList<Activity> printKeepActivity() { // 찜 목록에 액티비티 출력
 		return (ArrayList)aStore.selectKeepActivity();
+	}
+
+	@Override
+	public ArrayList<Activity> printSearchAllList(String activitySearch) { //액티비티 검색(21.06.07)
+		return aStore.selectSearchAllList(activitySearch);
+	}
+
+	@Override
+	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Activity> printActivityTypeList(String activityType) { // 액티비티 타입에 따른 리스트 출력
+		return aStore.selectActivityTypeList(activityType);
 	}
 
 	

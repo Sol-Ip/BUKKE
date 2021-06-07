@@ -11,7 +11,14 @@
 <link rel="stylesheet" href="resources/css/activity-custom/activityListView.css">
 </head>
 <style>
-#exTab1 .tab-content {
+
+.button-group {
+	padding : 30px;
+ }	
+ .btn {
+display: inline-block;
+}
+/* #exTab1 .tab-content {
   color : white;
   background-color: #428bca;
   padding : 5px 15px;
@@ -25,12 +32,12 @@
 
 /* remove border radius for the tab */
 
-#exTab1 .nav-pills > li > a {
+/* #exTab1 .nav-pills > li > a {
   border-radius: 0;
-}
+} */
 
 /* change border radius for the tab , apply corners on top*/
-
+/* 
 #exTab3 .nav-pills > li > a {
   border-radius: 4px 4px 0 0 ;
 }
@@ -38,7 +45,7 @@
 #exTab3 .tab-content {
   color : white;
   background-color: #428bca;
-  padding : 5px 15px;
+  padding : 5px 15px; */ */
 }
 </style>
 <body>
@@ -63,11 +70,156 @@
 	</section>
 	<!-- fixed section END-->
 
-	<section class="ftco-section">
 		
 		
 		<!-- ========================= 리스트 시작 =========================  -->
 		
+	<section class="ftco-section">
+				<!-- ========================= 액티비티 탭  =========================  -->
+		<section class="ftco-services">
+<%-- 			<c:if test="${type eq '0' }"> --%>
+<!-- 			<input type="hidden" id="type-choice" value="0"> -->
+<%-- 		</c:if> --%>
+<%-- 		<c:if test="${type ne '0' }"> --%>
+<%-- 		<input type="hidden" id="type-choice" value="${type }"> --%>
+<%-- 		</c:if> --%>
+<%-- 		<c:if test="${detail eq '0' }"> --%>
+<!-- 			<input type="hidden" id="detail-choice" value="0"> -->
+<%-- 		</c:if> --%>
+<%-- 		<c:if test="${detail ne '0' }"> --%>
+<%-- 		<input type="hidden" id="detail-choice" value="${detail }"> --%>
+<%-- 		</c:if> --%>
+			<div class="container">
+					<!-- TYPE -->
+				<div class="row type-form" id="type-form">
+					<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+						<div class="media block-6 services d-block">
+							<div class="icon d-flex justify-content-center align-items-center">
+								<span class="flaticon-idea"></span>
+							</div>
+							<div class="media-body p-2 mt-3">
+								<h2 class="mb-4">ACTIVITY</h2>
+							</div> 
+						</div>
+					</div>
+					<div class="col-md-8 d-flex align-self-stretch ftco-animate" >
+						<div class="button-group btn-group-toggle" data-toggle="buttons">
+							<button class="btn btn-secondary btn-lg" onclick="resetSelect()"><i class="fas fa-redo-alt fa-lg"></i></button>&nbsp;&nbsp;
+							<label class="btn btn-primary btn-lg <c:if test="${type eq '1' }">active</c:if>" for="acti-type1" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-type" id="acti-type1" value="아웃도어"> 아웃도어
+							</label>&nbsp;&nbsp; 
+							<label class="btn btn-primary btn-lg <c:if test="${type eq '2' }">active</c:if>" for="acti-type2" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-type" id="acti-type2" value="서핑"> 서핑
+							</label>&nbsp;&nbsp; 
+							<label class="btn btn-primary btn-lg <c:if test="${type eq '3' }">active</c:if>" for="acti-type3" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-type" id="acti-type3" value="스포츠"> 스포츠
+							</label>&nbsp;&nbsp; 
+							<label class="btn btn-primary btn-lg <c:if test="${type eq '4' }">active</c:if>" for="acti-type4" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-type" id="acti-type4" value="수상레저"> 수상레저
+							</label>
+						</div>
+					</div>
+				</div>
+				
+				<br>
+
+				<div class="row"  id="detail-form">
+<!-- 				<div class="col-md-4 d-flex align-self-stretch ftco-animate"> -->
+<!-- 						<div class="media block-6 services d-block"> -->
+<!-- 							<div class="icon d-flex justify-content-center align-items-center"> -->
+<!-- 								<span class="flaticon-compass-symbol"></span> -->
+<!-- 							</div> -->
+<!-- 							 <div class="media-body p-2 mt-3"> -->
+<!-- 								<h2 class="mb-4">DETAILS</h2> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-8 d-flex align-self-stretch ftco-animate"> -->
+<!-- 					<div class="button-group btn-group-toggle" data-toggle="buttons"> -->
+<!-- 							<label -->
+<%-- 								class="btn btn-primary btn-lg <c:if test="${detail eq '1' }">active</c:if>" --%>
+<!-- 								for="acti-detail1" onclick="getActivitySelectList(this)">  -->
+<!-- 								<input type="radio" name="acti-detail" id="acti-detail1" value="1"> 등산 및 트래킹 -->
+<!-- 							</label>&nbsp;&nbsp;  -->
+<!-- 							<label -->
+<%-- 								class="btn btn-primary btn-lg <c:if test="${detail eq '2' }">active</c:if>" --%>
+<!-- 								for="acti-detail2" onclick="getActivitySelectList(this)">  -->
+<!-- 								<input type="radio" name="acti-detail" id="acti-detail2" value="2"> 낚시 -->
+<!-- 							</label>&nbsp;&nbsp; -->
+<!-- 					</div> -->
+				 	<!-- DETAIL TYPE -->
+<%-- 					 <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+						<div class="media block-6 services d-block">
+							<div class="icon d-flex justify-content-center align-items-center">
+								<span class="flaticon-compass-symbol"></span>
+							</div>
+							 <div class="media-body p-2 mt-3">
+								<h2 class="mb-4">DETAILS</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 d-flex align-self-stretch ftco-animate">
+					<div class="button-group btn-group-toggle" data-toggle="buttons">
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '1' }">active</c:if>"
+								for="acti-detail1" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail1" value="1"> 등산 및 트래킹
+							</label>&nbsp;&nbsp; 
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '2' }">active</c:if>"
+								for="acti-detail2" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail2" value="2"> 낚시
+							</label>&nbsp;&nbsp;
+							 <label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '3' }">active</c:if>"
+								for="acti-detail3" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail3" value="3"> 당일치기
+							</label>&nbsp;&nbsp; 
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '4' }">active</c:if>"
+								for="acti-detail4" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail4" value="4"> 1박2일
+							</label>
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '5' }">active</c:if>"
+								for="acti-detail5" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail5" value="5"> 강습 및 렌탈권
+							</label>
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '6' }">active</c:if>"
+								for="acti-detail6" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail6" value="6"> 익스트림 스포츠
+							</label>
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '7' }">active</c:if>"
+								for="acti-detail7" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail7" value="7"> 구기 스포츠
+							</label>
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '8' }">active</c:if>"
+								for="acti-detail8" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail8" value="8"> 라켓 스포츠
+							</label>
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '9' }">active</c:if>"
+								for="acti-detail9" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail9" value="9"> 스노쿨링 및 다이빙
+							</label>
+							<label
+								class="btn btn-primary btn-lg <c:if test="${detail eq '10' }">active</c:if>"
+								for="acti-detail10" onclick="getActivitySelectList(this)"> 
+								<input type="radio" name="acti-detail" id="acti-detail10" value="10"> 낚시
+							</label> 
+						</div>
+					</div> --%>
+					</div>
+				</div>
+			
+			
+		</section>
+		
+		<!-- ========================= 액티비티 탭 END =========================  -->
+
 		<!-- ========================= 검색란 =========================  -->
 
 		<div class="container ftco-animate">
@@ -75,7 +227,8 @@
 				<div class="col-md-4 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-light">BUKKE</small></span>
-					<h2 class="mb-4">SEARCH</h2>
+					<h2 class="mb-4">SEARCH</h2><br>
+					검색결과 <span id="act-count">0</span>건
 				</div>
 			
 				<form class="col-md-8 card card-lg" action="activitySearch.com" method="get">
@@ -85,7 +238,7 @@
 						</div>
 						<!--end of col-->
 						<div class="col">
-							<input class="form-control form-control-lg form-control-borderless"
+							<input class="form-control form-control-borderless"
 								type="search" name="activityKeyword" value="${activitySearch.activityKeyword }" placeholder="검색어를 입력해주세요">
 						</div>
 						<!--end of col-->
@@ -94,6 +247,7 @@
 						</div>
 						<!--end of col-->
 					</div>
+					
 				</form>
 			</div>
 		</div>
@@ -101,41 +255,15 @@
 	
 		<!-- ========================= 검색란 END =========================  -->
 		
-		<br><br>
-		
-		<!-- ========================= 액티비티 탭  =========================  -->
-		<div class="container">
-			<ul class="nav nav-tabs">
-				<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#home"><b>전체</b></a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">아웃도어</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">서핑</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">스포츠</a></li>
-				<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#profile">수상레저</a></li>
-			</ul> 
-			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane fade active show" id="home">
-					<h1>전체</h1>
-				</div>
-				<div class="tab-pane fade active show" id="profile">
-					<h1>분류탭1</h1>
-				</div>
-				<div class="tab-pane fade active show" id="dropdown1">
-					<h1>분류탭2</h1>
-				</div>
-				<div class="tab-pane fade active show" id="dropdown2">
-					<h1>분류탭3</h1>
-				</div>
-			</div>
-			
-		</div>
-		
-		<!-- ========================= 액티비티 탭 END =========================  -->
-
-
 
 		<!-- 액티비티 전체 수업 이미지 목록 -->
 		<div class="container">
-			<div class="row">
+		<br><hr>
+		<div class="row" id="acti-list">
+		<div id="no-list"></div>
+		
+		
+			
 				<!-- ============ 수업 이미지 목록 for-each문 ============ -->
 				<c:forEach items="${aList}" var="activity">
 				<div class="col-md-6 col-lg-3 ftco-animate">
@@ -160,6 +288,7 @@
 				</div>
 				</c:forEach>
 				<!-- ============ 수업 이미지 목록 for-each문 END============ -->
+			</div> 
 			</div>
 			<br>
 			<!-- 사업자용 등록 버튼 -->
@@ -167,9 +296,8 @@
 				<a href="activityWriteView.com"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
 			</div>
 			
-		</div>
 		
-		<!-- =============== 페이징 처리 =============== -->
+	 <!-- =============== 페이징 처리 =============== -->
 		<div class="container">
 		<div class="row no-gutters mt-5 ftco-animate">
           <div class="col text-center">
@@ -220,7 +348,7 @@
 	
 
 
-</body>
 <jsp:include page="../common/footer.jsp"></jsp:include>
-</html>
+</body>
 <script type="text/javascript" src="../resources/js/activity/activityListView.js"></script>
+</html>

@@ -1,6 +1,7 @@
 package com.bukke.spring.activity.store.logic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -32,18 +33,22 @@ public class ActivityStoreLogic implements ActivityStore {
 
 	@Override
 	public ArrayList<Activity> selectAllActivityList() { // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
-		return (ArrayList)sqlSession.selectList("activityMapper.selectThreeActivityList");
+		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityList");
 	}
 
+	public ArrayList<Activity> selectTopThreeActivityList() {
+		return (ArrayList)sqlSession.selectList("activityMapper.selectThreeActivityList");
+	}
+	
 	@Override
 	public Activity selectOneActivity(int activityNo) { // 액티비티 상세정보
 		return sqlSession.selectOne("activityMapper.selectActivityOne", activityNo);
 	}
 
-	@Override
-	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
-		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchActivity", activitySearch);
-	}
+//	@Override
+//	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
+//		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchActivity", activitySearch);
+//	}
 
 	@Override
 	public int insertActivity(Activity activity) { // 액티비티 등록 (업체회원-액티비티 등록 메뉴)
@@ -69,6 +74,22 @@ public class ActivityStoreLogic implements ActivityStore {
 	public ArrayList selectKeepActivity() { // 찜 목록에 액티비티 출력
 		return (ArrayList)sqlSession.selectList("keepMapper.selectAllKeepList");
 	}
+
+	@Override
+	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<Activity> selectSearchAllList(String activitySearch) { //액티비티 검색(21.06.07)
+		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchAllList", activitySearch);
+	}
+
+	@Override
+	public ArrayList<Activity> selectActivityTypeList(String activityType) { // 액티비티 타입에 따른 리스트 출력
+		return (ArrayList)sqlSession.selectList("activityMapper.selectActivityTypeList", activityType);
+	}
+
 
 	
 

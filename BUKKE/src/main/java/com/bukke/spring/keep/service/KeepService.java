@@ -55,7 +55,7 @@ public interface KeepService {
 	public ArrayList<Keep> printActivityKeepList(KeepPageInfo pi, String memberId);
 	
 	/**
-	 * 액티비티 찜 조회
+	 * 액티비티 찜 상세
 	 */
 	public Keep printActivityKeep(Keep keep);
 	

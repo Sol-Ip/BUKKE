@@ -48,7 +48,7 @@ public class KeepStoreLogic implements KeepStore {
 		return (ArrayList) sqlSession.selectList("keepMapper.selectAllClassKeepList", memberId, rowBounds);
 	}
 
-	// 클래스 찜 상세
+//	// 클래스 찜 상세
 	public Keep selectOneBukkeClassKeep(Keep keep) {
 		return sqlSession.selectOne("keepMapper.selectOneKeepClass", keep);
 	}
@@ -80,7 +80,7 @@ public class KeepStoreLogic implements KeepStore {
 	}
 
 	// 액티비티 찜 상세
-	@Override
+//	@Override
 	public Keep selectOneActivityKeep(Keep keep) {
 		return sqlSession.selectOne("keepMapper.selectOneKeepActivity", keep);
 	}

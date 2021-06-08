@@ -36,8 +36,6 @@
 		</div>
 	</section>
 	<!-- fixed section END-->
-	
-			
 			<section class="ftco-section">
 			<div class="container">
 			<br> <br>

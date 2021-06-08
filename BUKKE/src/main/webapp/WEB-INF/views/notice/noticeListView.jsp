@@ -203,6 +203,7 @@
 		</div>
 	 	</c:if> 
 		
+					<h1>${notice}</h1>
 		
 		<!-- 페이징처리 -->
 		<div class="container">
@@ -220,7 +221,6 @@
 				<c:if test="${pi.currentPage > 1 }">
 					<li><a href="${before}">&lt;</a></li>
 				</c:if>
-				
 				<!-- 페이지 -->
 				<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage }">
 					<c:url var="pagination" value="noticeList.com">

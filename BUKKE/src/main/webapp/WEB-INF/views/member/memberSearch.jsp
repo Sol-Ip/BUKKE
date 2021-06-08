@@ -137,11 +137,14 @@
 			$.ajax({
 				type:"POST",
 				url:"memberSearchId.com",
+				contentType: "charset=UTF-8",
+				dataType: "text",
 				data : {
 					"memberName" : $('#memberName').val(),
 					"memberPhone" : $('#memberPhone').val()
 				},
 				success:function(data){
+					console.log(data);
 					$('#idValue').text(data);
 					$('#backgroundModal').fadeIn();
 						// 아이디값 별도로 저장

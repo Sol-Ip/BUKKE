@@ -13,6 +13,8 @@
 	crossorigin="anonymous">
 	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
 	<link rel="stylesheet" href="../resources/css/mypage/reviewComment.css">
+		<link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
+	
 	
 <style type="text/css">
 	#comment1{
@@ -51,7 +53,6 @@
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
 				</div>
-				
 			</div>
 		</div>
 		
@@ -153,8 +154,14 @@
 			<div class="col-md-8 heading-section ftco-animate">
 				<span class="subheading subheading-with-line"><small
 					class="pr-2 bg-light">REVIEW</small></span>
-				<h2>comment</h2>
-				
+					<br><br><br><br><br><br>
+				<section class="text1">
+				<h3 class="h3Class" style="align-self: center;">Hey everyone look at this</h3>
+						<h1 class="h1Class">
+							<span class="fontawesome-star star" style="position: absolute; right: 500px;"></span> <span>COMMENT LIST</span> <span
+								class="fontawesome-star star"></span>
+						</h1>	
+				</section>		
 			</div>
 		</div>
 	</div>
@@ -162,7 +169,6 @@
 	<!-- 공지사항 리스트 -->
 		
 		<br><br><br>
-		<section class="ftco-section">
 		<div class="container">
 				<div class="row">
 				  <div id="admin" class="col s12">
@@ -337,6 +343,7 @@
         </div>
         </div>
 <script src="../resources/js/member/mypageSidebar.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

@@ -7,6 +7,7 @@
 <head>
 	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
 	<link rel="stylesheet" href="../resources/css/mypage/mypageReview.css">
+	<link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
 <meta charset="UTF-8">
 <title>좋아요 목록</title>
@@ -135,8 +136,15 @@
 			<div class="col-md-8 heading-section ftco-animate">
 				<span class="subheading subheading-with-line"><small
 					class="pr-2 bg-light">REVIEW</small></span>
-				<h2>comment</h2>
-
+					<br><br><br><br><br><br><br>
+				<section class="text1">
+					<h3 class="h3Class" style="align-self: center;">Hey everyone
+						look at this</h3>
+					<h1 class="h1Class">
+						<span class="fontawesome-star star"
+							style="position: absolute; right: 500px;"></span> <span>REVIEW LIST</span> <span class="fontawesome-star star"></span>
+					</h1>
+				</section>
 			</div>
 		</div>
 	</div>
@@ -232,6 +240,7 @@
         </div>
     	</div>
 <script src="../resources/js/member/mypageSidebar.js"></script>	
+	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

@@ -7,12 +7,33 @@
 <head>
 <meta charset="UTF-8">
 <title>후기 상세</title>
-<link rel="stylesheet" href="../resources/css/review/review.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
-
+<link rel="stylesheet" href="../resources/css/review/review.css">
+<style type="text/css">
+	.textbox1{
+		background-color: #555f77;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 15%);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    outline: none;
+    padding: 6px 15px;
+    -webkit-transition: 350ms box-shadow;
+    -moz-transition: 350ms box-shadow;
+    -ms-transition: 350ms box-shadow;
+    -o-transition: 350ms box-shadow;
+    transition: 350ms box-shadow;
+    position: relative;
+    right: 60px;
+}
+	}
+</style>
 </head>
 <body>
 
@@ -31,7 +52,6 @@
 								class="ion-ios-arrow-forward"></i></a></span> <span>Review <i
 							class="ion-ios-arrow-forward"></i></span> <span>DETAILS <i
 							class="ion-ios-arrow-forward"></i></span>
-							
 					</p>
 				</div>
 			</div>
@@ -86,45 +106,39 @@
 		</div>
 		</div>
 		</div>
-		
 		<div class="container">
 			<h3 class="act-type" align="right">
 				<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
-			<%-- 	<c:set var="heartYN" value="${review.reviewStatus }"/>
-				<c:choose>
-					<c:when test="${heartYN eq 'Y'}">
-					<button id="heart" class="btn btn-danger fas fa-heart" ></button>
-					</c:when>
-					<c:otherwise>
-					<button id="heart" class="btn btn-danger far fa-heart"></button>
-					</c:otherwise>
-				</c:choose> --%>	
-				
-				<button id=heart class="btn btn-danger">
-					<i id="heart2" class=""></i>
-				</button>
-				 <script>
+				<button id="heart" class="" name=""></button>
+				<script>
 					$(document)
 							.ready(
 									function() {
 
-									
+										var heartval = $
+										{
+											heart
+										}
+										;
 										var heartYN = "${heartYN}";
 
 								
 										console.log(heartYN);
- 										console.log('${reviewLikes.memberId}');
- 										console.log('${loginMember.memberId}');
- 										if (heartYN == "Y") {
+										console.log('${reviewLikes.memberId}');
+										console.log('${loginMember.memberId}');
+										if (heartYN == "Y") {
 
- 											$('#heart2').prop("class", "fas fa-heart");
- 										
- 										} else {
+											$("#heart")
+													.prop("class",
+															"btn btn-danger fas fa-heart");
+											//$("#heart").prop('name',heartval)
+										} else {
 
- 											$('#heart2').prop("class", "far fa-heart");
-											console.log("여기나옴ddd!!!!!??");
-											
- 										} 
+											$("#heart")
+													.prop("class",
+															"btn btn-danger far fa-heart");
+											//$("#heart").prop('name',heartval)
+										}
 
 										$("#heart")
 												.on(
@@ -147,13 +161,18 @@
 																		dataType : "json",
 																		success : function(
 																				data) {
-																			$('#heart2').prop("class", "");
 																			if (heartYN == 'Y') {
-																				$('#heart2').prop("class", "far fa-heart");
-																				console.log("ajax먹히나요1?");
+																				$(
+																						'#heart')
+																						.prop(
+																								"class",
+																								"btn btn-danger far fa-heart");
 																			} else {
-																				$('#heart2').prop("class","fas fa-heart");
-																				console.log("ajax먹히나요2?");
+																				$(
+																						'#heart')
+																						.prop(
+																								"class",
+																								"btn btn-danger fas fa-heart");
 																			}
 																			heartYN = data.heartYN;
 																			heartSpan
@@ -162,7 +181,7 @@
 																	});
 														});
 									});
-				</script> 
+				</script>
 				<!-- 사업자에게만 버튼 보이게 하기 -->
 				<div align="right">
 					<c:url var="rModify" value="reviewModifyView.com">
@@ -204,9 +223,10 @@
 						<button class="btn float-right btn-lg btn-primary " id="rSubmit">등록하기</button>
 					</div>
 				</tr>
+				
 			</table> -->
-			
-			<div class="comment-form">
+			<!-- 댓글 등록2 -->
+			 <div class="comment-form">
 
 				<div class="form" name="form">
 					<div class="form-row">
@@ -218,23 +238,27 @@
 					</div>
 				</div>
 			</div>
-			
 
 			<!-- 댓글 갯수 -->
 			<td colspan="2"><b id="rCount"></b></td>
 			<!-- 댓글 목록 -->
-			<table class="form-control-borderless"
+			 <table class="form-control-borderless"
 				align="center" border="1" cellspacing="0" id="rtb">
 
 				<tbody class="form-control-borderless"></tbody>
-			</table>
-
+			</table> 
+			
+			<!-- 댓글 목록 -->
+			<!-- <table id="rtb">
+				<tbody></tbody>
+			</table> -->
+			
+			
 		</div>
 		<script>
 			$(function() {
 				getCommentList();
 				$("#rSubmit").on("click", function() {
-
 					var reviewNo = '${review.reviewNo }';
 					var rContent = $("#rContent").val();
 					$.ajax({
@@ -262,7 +286,72 @@
 				});
 			});
 
-			function getCommentList() {
+		 	 function getCommentList() {
+
+				var reviewNo = '${review.reviewNo }';
+
+				$
+						.ajax({
+							url : "commentList.com",
+							type : "get",
+							data : {
+								"reviewNo" : reviewNo
+							},
+							dataType : "json",
+							success : function(data) {
+								// db에 있는 데이터를 json형태로 가져와서
+								// 댓글 목록 테이블의 tbody에 넣어주어야 함.
+								//console.log(data);
+								// tbody에 필요한 tr, td 태그를 만들면서
+								// 데이터를 tbody에 꽂아줄 것임.
+								var $tableBody = $("#rtb tbody");
+								$tableBody.html(""); // 비워주기
+								var $tr;
+								var $rWriter;
+								var $rContent;
+								var $rCreateDate;
+								var $btnArea;
+								
+								var $div;
+								var $ul;
+								var $li;
+								var p;
+								$("#rCount").text("댓글 (" + data.length + ")"); // 댓글 갯수 표시
+								if (data.length > 0) {
+									for ( var i in data) {
+										$tr = $("<li>");
+										$rWriter = $("").text(
+												data[i].memberId);
+										$rContent = $("").text(
+												data[i].commentContents);
+										$rCreateDate = $("")
+												.text(data[i].commentDate);
+										$btnArea = $("")
+												.append(
+														"<a href='#' onclick='modifyComment(this);'>수정   </a>")
+												.append(
+														"<a href='' onclick='removeComment("
+																+ reviewNo
+																+ ","
+																+ data[i].commentNo
+																+ ");'> 삭제</a>");
+										$tr.append($rWriter);
+										$tr.append($rContent);
+										$tr.append($rCreateDate);
+										$tr.append($btnArea);
+										$tableBody.append($tr);
+
+									}
+								} else {
+
+								}
+							},
+							error : function(request, status, error) {
+								// alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+							}
+						});
+			} 
+			 /* function getCommentList() {
 
 				var reviewNo = '${review.reviewNo }';
 
@@ -322,7 +411,8 @@
 								// alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
 							}
 						});
-			}
+			} 
+			 */
 			function modifyComment(obj) {
 				$trModify = $("<tr>");
 				$trModify

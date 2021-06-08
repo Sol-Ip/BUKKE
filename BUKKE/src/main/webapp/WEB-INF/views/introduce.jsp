@@ -8,7 +8,8 @@
 <title>부캐에 오신것을 환영합니다</title>
 <style>
 	.banner {
-		background-color: rgb(0, 0, 0);
+		background-color: #FF3CAC;
+		background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);;
 	}
 	.banner * {
 		color: white;

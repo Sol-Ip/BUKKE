@@ -9,8 +9,12 @@
 		<result property="activityNo" column="ACTIVITY_NO"></result>
 		<result property="reservationDate" column="RESERVATION_DATE"></result>
 		<result property="reservationStatus" column="RESERVATION_STATUS"></result>
+		<result property="reviewStatus" column="REVIEW_STATUS"></result>
+		<result property="commentStatus" column="COMMENT_STATUS"></result>
+		
 		<collection property="bukkeClass" resultMap="bClassResultMap" />
 		<collection property="activity" resultMap="ActivityResultMap" />
+		
 	</resultMap>
 	
 	<resultMap type="BukkeClass" id="bClassResultMap">
@@ -47,7 +51,7 @@
 		<result property="activityEnrolldate" column="ACTIVITY_ENROLL_DATE"></result> 
 		<result property="activityStartdate" column="ACTIVITY_START_DATE"></result> 
 		<result property="activityEnddate" column="ACTIVITY_END_DATE"></result>
-		<result property="activityStatus" column="ACTIVITY_STATUS"></result> 
+		<result property="`" column="ACTIVITY_STATUS"></result> 
 		<result property="aOriginalFilename" column="A_ORIGINAL_FILENAME"></result> 
 		<result property="aRenameFilename" column="A_RENAME_FILENAME"></result> 
 	</resultMap>
@@ -128,5 +132,17 @@
    RESERVATION_STATUS = '거절' 
    WHERE RESERVATION_NO = #{reservationNo}
    </update>
+   
+   <!-- 클래스 카운트 -->
+  <!--  <select id="classCountReservation" resultType="_int">
+   SELECT COUNT (*) AS ACT_RES_COUNT FROM RESERVATION WHERE RESERVATION_ID = #{reservationId} AND CLASS_NO IS NOT NULL AND RESERVATION_STATUS='승인'
+   </select> -->
+   
+   <!-- 액티비티 카운트 -->
+  <!--  <select id="actCountReservation" resultType="_int">
+    SELECT COUNT (*) AS ACT_RES_COUNT FROM RESERVATION WHERE RESERVATION_ID = #{reservationId} AND ACTIVITY_NO IS NOT NULL AND RESERVATION_STATUS='승인'
+   </select> -->
+   
+   
    
 </mapper>

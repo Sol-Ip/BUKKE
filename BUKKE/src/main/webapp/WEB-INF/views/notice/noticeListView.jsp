@@ -203,7 +203,6 @@
 		</div>
 	 	</c:if> 
 		
-					<h1>${notice}</h1>
 		
 		<!-- 페이징처리 -->
 		<div class="container">

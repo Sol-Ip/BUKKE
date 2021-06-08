@@ -168,4 +168,8 @@
 		SELECT * FROM REVIEW_COMMENT WHERE REVIEW_NO IN (SELECT REVIEW_NO FROM REVIEW_COMMENT WHERE COMMENT_STATUS = 'Y' AND MEMBER_ID = #{memberId })
 	</select>
 	
+	
+	<select id="selectReviewCount" resultType="_int">
+		SELECT COUNT(*) FROM REVIEW WHERE MEMBER_ID = #{memberId} AND REVIEW_STATUS = 'Y'
+	</select>
 </mapper>

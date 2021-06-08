@@ -37,5 +37,7 @@ public interface ActivityService {
 	public ArrayList<Activity> printSearchAllList(String search); //액티비티 검색(21.06.07)
 
 	public ArrayList<Activity> printActivityTypeList(String activityType); // 액티비티 타입에 따른 리스트 출력
+	
+	public int getMyactivityCount(String memberId); //my 액티비티 카운트
 
 }

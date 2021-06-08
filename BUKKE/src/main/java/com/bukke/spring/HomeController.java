@@ -42,4 +42,9 @@ public class HomeController {
 		return "sample";
 	}
 	
+	@RequestMapping(value="paytest.com", method=RequestMethod.GET)
+	public String paytest() {
+		
+		return "common/payment";
+	}
 }

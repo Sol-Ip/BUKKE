@@ -38,7 +38,7 @@ public class ShopController {
 			if(loginShopper.getShopRm().equals("N")) {
 				HttpSession session = request.getSession();
 				session.setAttribute("loginShopper", loginShopper);
-				if(loginShopper.getShopRm().equals("Y")) {
+				if(loginShopper.getShopApproval().equals("Y")) {
 					return "success"; // 로그인 성공
 				} else {
 					// 관리자 승인여부와 상관없이 일단 로그인은 허용

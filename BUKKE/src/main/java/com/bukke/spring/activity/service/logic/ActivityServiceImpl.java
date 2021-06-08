@@ -12,6 +12,7 @@ import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.activity.store.ActivityStore;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
+import com.bukke.spring.member.domain.MemberPageInfo;
 
 @Service
 public class ActivityServiceImpl implements ActivityService {
@@ -90,6 +91,18 @@ public class ActivityServiceImpl implements ActivityService {
 	@Override
 	public ArrayList<Activity> printActivityTypeList(String activityType) { // 액티비티 타입에 따른 리스트 출력
 		return aStore.selectActivityTypeList(activityType);
+	}
+
+	@Override
+	public int getListCountbyId(String memberId) {
+		// TODO Auto-generated method stub
+		return aStore.selectListCountbyId(memberId);
+	}
+
+	@Override
+	public ArrayList<Activity> printAllActivityById(MemberPageInfo actPi, String memberId) {
+		// TODO Auto-generated method stub
+		return aStore.selectAllActivityListbyId(actPi,memberId);
 	}
 
 	

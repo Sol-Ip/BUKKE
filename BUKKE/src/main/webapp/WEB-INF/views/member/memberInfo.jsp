@@ -69,7 +69,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
+                            <a href="memberCAList.com" class="collapse__sublink">부캐 일정보기</a>
                             
                         </ul>
                     </div>

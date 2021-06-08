@@ -113,6 +113,13 @@
       select * from class where class_type = #{classType } AND class_typedetails = #{classTypedetails }
    </select>
    
+   <select id="selectListCountbyId" resultType="_int">
+      SELECT COUNT(*) from class where class_no in (select class_no from reservation where pay_status = 'Y' and reservation_status ='승인' and reservation_id = #{memberId})
+   </select>
    
+   <!-- 클래스 리스트 출력 by memberId -->
+   <select id="selectAllListbyId" resultMap="bClassResultMap">
+      SELECT * from class where class_no in (select class_no from reservation where pay_status = 'Y' and reservation_status ='승인' and reservation_id = #{memberId})  ORDER BY CLASS_NO DESC
+   </select>
    
 </mapper>

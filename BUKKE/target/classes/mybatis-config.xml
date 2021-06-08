@@ -30,7 +30,7 @@
 		<mapper resource="mappers/shop-mapper.xml"></mapper> 
 		<mapper resource="mappers/keep-mapper.xml"></mapper> 
 		<mapper resource="mappers/reservation-mapper.xml"></mapper> 
-		<mapper resource="mappers/chat-mapper.xml"></mapper> 
+		<!-- <mapper resource="mappers/chat-mapper.xml"></mapper>  -->
 	</mappers>
 
 </configuration>

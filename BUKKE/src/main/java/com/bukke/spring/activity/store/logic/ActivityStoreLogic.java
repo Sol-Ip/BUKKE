@@ -12,6 +12,7 @@ import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.store.ActivityStore;
+import com.bukke.spring.member.domain.MemberPageInfo;
 
 @Repository
 public class ActivityStoreLogic implements ActivityStore {
@@ -88,6 +89,19 @@ public class ActivityStoreLogic implements ActivityStore {
 	@Override
 	public ArrayList<Activity> selectActivityTypeList(String activityType) { // 액티비티 타입에 따른 리스트 출력
 		return (ArrayList)sqlSession.selectList("activityMapper.selectActivityTypeList", activityType);
+	}
+
+	@Override
+	public int selectListCountbyId(String memberId) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("activityMapper.selectListActivityCountbyId", memberId);
+	}
+
+	@Override
+	public ArrayList<Activity> selectAllActivityListbyId(MemberPageInfo actPi, String memberId) {
+		int offset = (actPi.getCurrentPage() - 1) * actPi.getBoardLimit();
+		RowBounds rowBounds = new RowBounds(offset, actPi.getBoardLimit());
+		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityListbyId", memberId, rowBounds);
 	}
 
 

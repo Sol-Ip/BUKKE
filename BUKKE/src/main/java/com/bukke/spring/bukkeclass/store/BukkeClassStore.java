@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.review.domain.Review;
 
 public interface BukkeClassStore {
@@ -58,5 +59,9 @@ public interface BukkeClassStore {
 
 	//클래스 선물 분류+상세분류로 리스트 출력
 	public ArrayList<BukkeClass> selectGiftListBclass(BukkeClass bClass);
+
+	public int selectListCountbyId(String memberId);
+
+	public ArrayList<BukkeClass> selectAllListBclassbyId(MemberPageInfo classPi, String memberId);
 
 }

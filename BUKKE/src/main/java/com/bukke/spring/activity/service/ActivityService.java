@@ -7,6 +7,7 @@ import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.keep.domain.KeepPageInfo;
+import com.bukke.spring.member.domain.MemberPageInfo;
 
 public interface ActivityService {
 	
@@ -37,6 +38,10 @@ public interface ActivityService {
 	public ArrayList<Activity> printSearchAllList(String search); //액티비티 검색(21.06.07)
 
 	public ArrayList<Activity> printActivityTypeList(String activityType); // 액티비티 타입에 따른 리스트 출력
+
+	public int getListCountbyId(String memberId);
+
+	public ArrayList<Activity> printAllActivityById(MemberPageInfo actPi, String memberId);
 	
 	
 	

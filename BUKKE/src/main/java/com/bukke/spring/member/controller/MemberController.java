@@ -38,17 +38,26 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.common.ActivityPagination;
+import com.bukke.spring.common.MemberPagination;
+import com.bukke.spring.common.ReservationPagination;
 import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.member.service.MemberService;
+import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.service.ReviewService;
+import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
 import com.sun.mail.util.logging.MailHandler;
 
@@ -59,10 +68,14 @@ public class MemberController {
 	private MemberService mService;
 	
 	@Autowired
-	
 	private ReservationService reService;
 	@Autowired
 	private ReviewService rService; 
+	@Autowired
+	private BukkeClassService bService;
+	@Autowired
+	private ActivityService aService;
+	
 	/*
 	 * @Autowired private MailSender mailSender;
 	 */
@@ -408,4 +421,36 @@ public class MemberController {
 		}
 		return mv;
 	}
+	
+	//내가들은 클래스 및 액티비티 리스트
+    @RequestMapping(value="memberCAList.com", method=RequestMethod.GET)
+    public ModelAndView memberCAListView(ModelAndView mv, 
+                                  @RequestParam(value="page", required=false) Integer page,HttpSession session) {
+       int currentPage = (page != null) ? page : 1;
+       Member loginMember = (Member)session.getAttribute("loginMember");
+       String memberId = loginMember.getMemberId();
+       int actListCountbyId = aService.getListCountbyId(memberId);
+       int classListCountbyId = bService.getListCountbyId(memberId);
+
+       MemberPageInfo actPi = MemberPagination.getPageInfo(currentPage, actListCountbyId);
+       MemberPageInfo classPi = MemberPagination.getPageInfo(currentPage,classListCountbyId);
+       
+       ArrayList<Activity> aList = aService.printAllActivityById(actPi,memberId);
+       ArrayList<BukkeClass> bList = bService.printAllbClassById(classPi,memberId);
+       
+       
+       if(aList.isEmpty() && bList.isEmpty() ) {
+    	   mv.addObject("msg", "내가 들은 목록 조회 실패");
+           mv.setViewName("common/errorPage");
+          
+       }else {
+    	   mv.addObject("aList", aList);
+           mv.addObject("actPi", actPi);
+           mv.addObject("bList", bList);
+           mv.addObject("classPi", classPi);
+           mv.setViewName("member/memberCAList");
+       }
+       return mv;
+    }
+	
 }

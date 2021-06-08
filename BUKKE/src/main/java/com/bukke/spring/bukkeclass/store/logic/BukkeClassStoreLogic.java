@@ -11,6 +11,7 @@ import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.review.domain.Review;
 
 @Repository
@@ -138,6 +139,19 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	public ArrayList<BukkeClass> selectGiftListBclass(BukkeClass bClass) {
 		// TODO Auto-generated method stub
 		return (ArrayList)session.selectList("bclassMapper.selectGiftList", bClass);
+	}
+
+	@Override
+	public int selectListCountbyId(String memberId) {
+		// TODO Auto-generated method stub
+		return session.selectOne("bclassMapper.selectListCountbyId",memberId);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectAllListBclassbyId(MemberPageInfo classPi, String memberId) {
+		int offset = (classPi.getCurrentPage() - 1) * classPi.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, classPi.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllListbyId", memberId, rowBounds);
 	}
 
 }

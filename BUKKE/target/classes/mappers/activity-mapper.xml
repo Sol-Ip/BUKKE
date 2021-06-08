@@ -135,4 +135,14 @@
 		UPDATE ACTIVITY SET ACTIVITY_COUNT = ACTIVITY_COUNT + 1 WHERE ACTIVITY_NO = #{activityNo }
 	</update> -->
 	
+	<!-- 액티비티 전체 수by memberId -->
+	 <select id="selectListActivityCountbyId" resultType="_int">
+		SELECT COUNT (*) from activity where activity_no in (select activity_no from reservation where pay_status = 'Y' and reservation_status ='승인' and reservation_id = #{memberId })
+	</select>
+	
+	<!-- 액티비티 총 목록 by memberId-->
+	 <select id="selectAllActivityListbyId" resultMap="ActivityResultMap">
+		SELECT * from activity where activity_no in (select activity_no from reservation where pay_status = 'Y' and reservation_status ='승인' and reservation_id = #{memberId }) ORDER BY ACTIVITY_NO DESC
+	</select>
+	
 </mapper>

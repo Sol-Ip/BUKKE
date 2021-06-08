@@ -10,6 +10,7 @@ import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.review.domain.Review;
 
 @Service
@@ -127,6 +128,18 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	public ArrayList<BukkeClass> printGiftBclass(BukkeClass bClass) {
 		// TODO Auto-generated method stub
 		return bStore.selectGiftListBclass(bClass);
+	}
+
+	@Override
+	public int getListCountbyId(String memberId) {
+		// TODO Auto-generated method stub
+		return bStore.selectListCountbyId(memberId);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> printAllbClassById(MemberPageInfo classPi, String memberId) {
+		// TODO Auto-generated method stub
+		return bStore.selectAllListBclassbyId(classPi,memberId);
 	}
 
 	

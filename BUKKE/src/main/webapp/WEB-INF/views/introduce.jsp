@@ -1,32 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="./common/header.jsp?active=introduce"></jsp:include>
-<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Introduce</title>
+<title>부캐에 오신것을 환영합니다</title>
+<style>
+	.banner {
+		background-color: rgb(0, 0, 0);
+	}
+	.banner * {
+		color: white;
+	}
+</style>
 </head>
 <body>
-<p style="margin-top:-12px">
-    <em class="link">
-        <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
-        </a>
-    </em>
-</p>
- <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
+<jsp:include page="./common/header.jsp">
+	<jsp:param name="active" value="introduce" />
+</jsp:include>
+
+<section class="banner hero-wrap hero-wrap-2">
+    <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">about</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
-          </div>
+			<div class="col-md-9 ftco-animate text-center">
+				<h1 class="mb-2 bread">introduce</h1>
+				<h3 class="mr-2">본업에 지친 본캐들을 위한<br>취미생활 클래스</h3>
+			</div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 		
 		<section class="ftco-section">
 			<div class="container">

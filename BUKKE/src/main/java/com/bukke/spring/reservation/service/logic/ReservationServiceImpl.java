@@ -25,8 +25,8 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	// 예약 전체 목록 보기
 	@Override
-	public ArrayList<Reservation> printAllReservation(PageInfo pi) {
-		return reStore.selectAllListReservation(pi);
+	public ArrayList<Reservation> printAllReservation(PageInfo pi,String shopId) {
+		return reStore.selectAllListReservation(pi,shopId);
 	}
 
 	// 예약 상세 보기

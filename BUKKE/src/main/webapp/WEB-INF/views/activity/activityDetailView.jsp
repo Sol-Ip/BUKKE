@@ -152,7 +152,7 @@
 						${activity.activityName }</h2>
 					<hr>
 
-					<div style="padding: 30px; height: 800px;">
+					<div style="padding: 30px; height: 100%;">
 						<h5>${activity.activityInfo }</h5>
 					</div>
 

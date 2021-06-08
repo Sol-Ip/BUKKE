@@ -28,6 +28,8 @@ function getActList(){
       if(data.length > 0){
         var str = "";
         for(var i in data){
+          str+='<div class="container">';
+          str+='<div class="row">';
           str+='<div class="col-md-6 col-lg-3 ftco-animate" onclick="location.href=\'activityDetail.com?activityNo='+data[i].activityNo+'\'">';
           str+='<div class="project">';
           str+='<img src="resources/images/activityImageFiles/'+ data[i].aRenameFilename+ ' class="img-fluid" alt="Colorlib Template">';
@@ -36,7 +38,7 @@ function getActList(){
           str+='<h3 style="font-family: TmoneyRoundWindExtraBold;">'+data[i].activityName + '</h3>';
           str+='<br><span><b>' + data[i].shopId + '</b></span>';
           str+='<a href="resources/images/activityImageFiles/' + data[i].aRenameFilename + ' class="icon image-popup d-flex justify-content-center align-items-center"><span class="icon-expand"></span></a>';
-          str+='</div></div>';
+          str+='</div></div></div></div>';
           
         }
         $("#acti-list").append(str);
@@ -92,7 +94,10 @@ function getActivitySelectList(obj){
 				str+='<label class="btn btn-primary btn-lg" for="acti-detail1" onclick="getAllSelectList(this)"><input type="radio" name="acti-detail" id="acti-detail1" value="1">'
 						+data.atList[i].activityTypeDetails+'</label>&nbsp;&nbsp;';				
 			}
+        	console.log(data.atList[i].activityTypeDetails);
         	for(var j in data.aList) {
+        	aStr+='<div class="container">';
+            aStr+='<div class="row">';
         	aStr+='<div class="col-md-6 col-lg-3" onclick="location.href=\'activityDetail.com?activityNo='+data.aList[j].activityNo+'\'">';
         	aStr+='<div class="project">';
         	aStr+='<img src="resources/images/activityImageFiles'+ data.aList[j].aRenameFilename+'/class="img-fluid" alt="Colorlib Template">';
@@ -101,7 +106,7 @@ function getActivitySelectList(obj){
         	aStr+='<h3 style="font-family: '+'TmoneyRoundWindExtraBold;'+'">'+data.aList[j].activityName + '</h3>';
         	aStr+='<br><span><b>' + data.aList[j].shopId + '</b></span>';
         	aStr+='<a href="resources/images/activityImageFiles' + data.aList[j].aRenameFilename + '/class="icon image-popup d-flex justify-content-center align-items-center"><span class="icon-expand"></span></a>';
-        	aStr+='</div></div>';
+        	aStr+='</div></div></div></div>';
     		}
     	}else{
         str='<div style="margin: 0 auto;"><h4><b>검색 결과가 없습니다.</b></h4></div>';
@@ -147,6 +152,8 @@ function getActDetailList(activityType) {
 								+data[i].activityTypeDetails+'</label>&nbsp;&nbsp;';				
 					}
 		        	for(var j in data.detailList) {
+		        	aStr+='<div class="container">';
+		            aStr+='<div class="row">';
 		        	aStr+='<div class="col-md-6 col-lg-3 ftco-animate" onclick="location.href=\'activityDetail.com?activityNo='+data.detailList[j].activityNo+'\'">';
 		        	aStr+='<div class="project">';
 		        	aStr+='<img src="resources/images/activityImageFiles'+ data.detailList[j].aRenameFilename+'/class="img-fluid" alt="Colorlib Template">';
@@ -155,8 +162,11 @@ function getActDetailList(activityType) {
 		        	aStr+='<h3 style="font-family: '+'TmoneyRoundWindExtraBold;'+'">'+data.detailList[j].activityName + '</h3>';
 		        	aStr+='<br><span><b>' + data.detailList[j].shopId + '</b></span>';
 		        	aStr+='<a href="resources/images/activityImageFiles' + data.detailList[j].aRenameFilename + '/class="icon image-popup d-flex justify-content-center align-items-center"><span class="icon-expand"></span></a>';
-		        	aStr+='</div></div>';
-		    		}
+		        	aStr+='</div></div></div></div>';
+		        	}
+//		    		} else {
+//		    		      aStr='<div style="margin: 0 auto;"><h4><b>검색 결과가 없습니다.</b></h4></div>';
+//		    		}
 		    	}
 		}
 	});

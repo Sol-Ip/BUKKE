@@ -228,7 +228,7 @@ display: inline-block;
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-light">BUKKE</small></span>
 					<h2 class="mb-4">SEARCH</h2><br>
-					검색결과 <span id="act-count">0</span>건
+					<!-- 검색결과 <span id="act-count">0</span>건 -->
 				</div>
 			
 				<form class="col-md-8 card card-lg" action="activitySearch.com" method="get">
@@ -247,9 +247,9 @@ display: inline-block;
 						</div>
 						<!--end of col-->
 					</div>
-					
 				</form>
 			</div>
+			
 		</div>
 			<!--end of col-->
 	
@@ -260,7 +260,7 @@ display: inline-block;
 		<div class="container">
 		<br><hr>
 		<div class="row" id="acti-list">
-		<div id="no-list"></div>
+		<!-- <div id="no-list"></div> -->
 		
 		
 			

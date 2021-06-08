@@ -26,7 +26,12 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
 </head>
+<style>
+.note-modal-backdrop {
+    position: inherit;
+}
 
+</style>
 <body>
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
@@ -183,7 +188,8 @@
 							</div> 
 							<hr>
 							<br>
-							<textarea id="summernote" name="activityInfo" required></textarea>
+							<textarea id="summernote" class="form-control" name="activityInfo" cols="30" rows="1"  required></textarea>
+							
 
 							<hr>
 
@@ -205,6 +211,58 @@
 			</div>
 	
 	</section>
+	 <script>
+   $(function(){
+      
+$('#summernote').summernote({
+    placeholder: '여기에 내용 입력하세요~ 그림파일 용량은 2MB까지입니다~',
+    tabsize: 2,
+    height: 500, // 에디터 높이
+    defaultFontName: '바탕체',
+    toolbar: [
+['style', ['style']],
+['fontname', ['fontname']],
+['fontsize', ['fontsize']],
+['font style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+['color', ['forecolor','color']],
+['para', ['ul', 'ol', 'paragraph']],
+['table', ['table']],
+['insert', ['link', 'picture', 'video']],
+['view', ['fullscreen', 'codeview', 'help']],
+],
+defaultFontName:'바탕',
+fontNames: ['Arial', 'Comic Sans MS','맑은 고딕','궁서','굴림','돋음체','바탕'],
+fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+maximumImageFileSize:2097152,
+
+popover: {
+              image: [
+                ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']]
+              ],
+              link: [
+                ['link', ['linkDialogShow', 'unlink']]
+              ],
+              table: [
+                ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+                ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+              ],
+              air: [
+                ['color', ['color']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['para', ['ul', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture']]
+              ]
+            }
+  });
+$('.dropdown-toggle').dropdown()
+   });
+
+
+</script>
+	
 <!-- 타임피커 -->
 <script>
 $('.timepicker').timepicker({

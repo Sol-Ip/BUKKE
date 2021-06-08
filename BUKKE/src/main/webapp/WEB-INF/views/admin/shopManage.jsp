@@ -102,9 +102,9 @@
 											<td>${shop.shopEmail }</td>
 											<td>${shop.crnNo }</td>
 											<td id="sStatus">${shop.shopApproval}</td>
-											<td>
-											<button id="confirm" onclick="confirm(this,${shop.shopId},'Y')" class="btn btn-primary confirm${status.index }"></button>
-											<button  id="reject" onclick="reject(this,${shop.shopId},'N')" class="btn btn-danger reject${status.index }"></button>
+											<td style="display: none;">
+												<button style="display: none;" id="confirm" onclick="confirm(this,${shop.shopId},'Y')" class="btn btn-primary confirm${status.index }"></button>
+												<button style="display: none;" id="reject" onclick="reject(this,${shop.shopId},'N')" class="btn btn-danger reject${status.index }"></button>
 											</td>
        										
 										</tr>
@@ -113,8 +113,8 @@
 							</table>
 							<!-- 승인 거절 버튼 -->
 							<div style="float: right;">
-								<button type="button" id="confirmAll">승인</button>
-								<button type="button" id="rejectAll">거절</button>
+								<button type="button" id="confirmAll" class="btn btn-primary">승인</button>
+								<button type="button" id="rejectAll" class="btn btn-danger">거절</button>
 							</div>
 						</div>
 					</div>
@@ -136,13 +136,11 @@
 	</div>
 	<script>
 	 function confirm(obj, shopId,shopApproval) {
-		 console.log("컨펌버튼누르긴한듯");
          var rSpan = $(obj);
          var sendData = {
                'shopId' : shopId,
                'shopApproval' : shopApproval
             };
-         console.log("컨펌버튼누르긴한듯2");
          $.ajax({
          type:"GET",
          url:"registConfirm.com",
@@ -161,7 +159,6 @@
       
          
   function reject(obj, shopId,shopApproval) {
-	  console.log("리젝버튼누르긴한듯");
     var rSpan = $(obj);
     var sendData = {
           'shopId' : shopId,
@@ -193,6 +190,41 @@
 				$('input:checkbox').prop('checked',false);
 			}
 		});
+		 $('#confirmAll').click(function(){
+				var checkedList = [];
+			  $("input[name=chkbox]:checked").each(function(index, item){
+			    checkedList.push($(this).val());
+			    var index = $(item).attr("checknum");
+			    confirm($('.confirm'+index), $(this).val(),'Y');
+			    
+			  })
+			  	console.log(checkedList);
+			  	
+
+				var checked = $('#cb1').is(':checked');
+				
+				if(checked){
+					console.log("WOW");
+				}
+			}); 
+
+			$('#rejectAll').click(function(){
+				var checkedList = [];
+			  $("input[name=chkbox]:checked").each(function(index,item){
+			    checkedList.push($(this).val());
+			      var index = $(item).attr("checknum");
+			    reject($('.reject'+index), $(this).val(),'N');
+			  })
+			  	console.log(checkedList);
+			  	
+				var checked = $('#cb1').is(':checked');
+				
+				if(checked){
+					console.log("WOW");
+				}
+			}); 
+	 
+		 
 	 });
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>

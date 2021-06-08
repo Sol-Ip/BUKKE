@@ -83,10 +83,7 @@ public class AdminController {
     public void confirmRegister(
     		@RequestParam("shopId") String shopId,
     		@RequestParam("shopApproval") String shopApproval,
-          HttpServletResponse response) throws Exception {
-          System.out.println("haha");
-          System.out.println(shopId);
-    
+          HttpServletResponse response) throws Exception {   
           int confirm =0;
           int reject =0;
           
@@ -102,7 +99,6 @@ public class AdminController {
        if(confirm >0) {
           likeMap.put("resultYn", "success");
           likeMap.put("resultStatus", "Y");
-          
        }if(reject >0) {
           likeMap.put("resultYn", "success");
           likeMap.put("resultStatus", "N");

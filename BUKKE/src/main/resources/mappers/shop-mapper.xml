@@ -35,14 +35,14 @@
 	<!-- 승인 -->
    <update id="confirmRegister">
    UPDATE SHOP SET
-   SHOP_APPROVAL = '승인' 
+   SHOP_APPROVAL = 'Y' 
    WHERE SHOP_ID = #{shopId}
    </update>
    
    <!--  거절 -->
    <update id="rejectRegister">
    UPDATE SHOP SET
-   SHOP_APPROVAL = '거절' 
+   SHOP_APPROVAL = 'N' 
    WHERE SHOP_ID = #{shopId}
    </update>
    

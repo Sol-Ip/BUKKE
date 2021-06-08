@@ -18,6 +18,13 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="../resources/css/bClass-custom/calendar.css">
 
+<!-- 타임피커 -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<link href="${pageContext.servletContext.contextPath}/resources/jquery/jquery-ui.css?version=1.3" rel="stylesheet" type="text/css" media="screen">
+<script src="${pageContext.servletContext.contextPath}/resources/js//jquery-1.8.3.min.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/jquery/jquery-ui.js?version=1.3"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
 </head>
 
 <body>
@@ -133,22 +140,25 @@
 							</div>
 						</div>
 						
-<!-- 							<div class="col-md-8">
-								<div class="calendar">
-									<label class="form-label" for="">시작일</label> <input type="date"
-										name="activityStartdate" placeholder="시작일">&nbsp;&nbsp;
-									<label class="form-label" for="">종료일</label> <input type="date"
-										name="activityEnddate" placeholder="종료일">
-								</div>
-							</div>
-
+						<hr>
+							<!-- 타임피커 이용해서 시작일 종료일 선택하기 -->
+							<!-- <input type="text" name="time" class="timepicker"> -->
+							<div class="row col-md-12" style="align:center;">
 							<div class="col-md-4">
-								<br> <label for="activityCapacity" class="form-label">수강인원</label>
-								<div class="form-group">
-									<input type="number" min="1" max="10" class="form-control"
-										id="activityCapacity" name="activityCapacity">
-								</div>
-							</div> -->
+							<div class="startTime">
+									<label class="form-label" for="">시작 시간</label>
+									<br> 
+									<input type="text" class="timepicker" name="activityStartTime" style="width:240px;" placeholder="시작 시간" required>
+							</div>
+							</div>
+							<div class="col-md-4">
+							<div class="endTime">
+									<label class="form-label" for="">종료 시간</label>
+									<br> 
+									<input type="text" class="timepicker" name="activityEndTime" style="width:240px;" placeholder="종료 시간" required>
+							</div>
+							</div>
+							</div>
 						
 
 
@@ -195,7 +205,20 @@
 			</div>
 	
 	</section>
-
+<!-- 타임피커 -->
+<script>
+$('.timepicker').timepicker({
+    timeFormat: 'p h:mm',
+    interval: 60,
+    minTime: '09',
+    maxTime: '11:00pm',
+    defaultTime: '00',
+    startTime: '00:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+</script>
 
 </body>
 <jsp:include page="../common/footer.jsp"></jsp:include>

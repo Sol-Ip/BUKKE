@@ -50,7 +50,6 @@ public class ActivityController {
 	// 액티비티 jsp 이동 및 전체 리스트 출력 
 	@RequestMapping(value="activityListView.com", method=RequestMethod.GET)
 	public ModelAndView activityListView(ModelAndView mv,
-										HttpServletRequest request, 
 										@RequestParam(value="type", required = false) String typeValue,
 										@RequestParam(value="detail", required = false) String detailValue, 
 										@RequestParam(value="page", required=false) Integer page ) {
@@ -61,8 +60,6 @@ public class ActivityController {
 		int listCount = aService.getListCount(); // 게시글 전체 갯수
 		ActivityPageInfo pi = ActivityPagination.getPageInfo(currentPage, listCount);
 		ArrayList<Activity> aList = aService.printAllActivity(pi);
-		HttpSession session = request.getSession();
-		session.setAttribute("act", "activity");
 		
 		// 전체 리스트 출력하기 (jsp에 있는 for-each문 주석 풀고!)
 		if(!aList.isEmpty()) {
@@ -96,12 +93,12 @@ public class ActivityController {
 	@RequestMapping(value="activitySelect.com")
 	public void getActivitySelectList(HttpServletResponse response,
 									@RequestParam("activityType") String activityType) throws Exception {
-		ArrayList<Activity> atList = aService.printActivityType(activityType);
-		ArrayList<Activity> aList = aService.printActivityTypeList(activityType);
+		ArrayList<Activity> atList = aService.printActivityType(activityType); // 분류 출력과
+		ArrayList<Activity> aList = aService.printActivityTypeList(activityType); // 전체 리스트 뿌려주기 
 		HashMap<String, Object> actMap =  new HashMap<String, Object>();
 		actMap.put("atList", atList);
 		actMap.put("aList", aList);
-		if(!atList.isEmpty()) {
+		if(!atList.isEmpty() && !aList.isEmpty()) {
 			Gson gson = new Gson();
 			gson.toJson(actMap, response.getWriter());
 		}
@@ -110,13 +107,14 @@ public class ActivityController {
 	// 액티비티 상세분류 별 select 
 	@RequestMapping(value="activityDetailSelect.com")
 	public void getActivityDetailSelectList(HttpServletResponse response,
+											@RequestParam("activityTypeDetails") String activityTypeDetails,
 											@RequestParam("activityType") String activityType) throws Exception {
 		
 		ArrayList<Activity> detailList = aService.printActivityType(activityType);
 		if(!detailList.isEmpty()) {
 			Gson gson = new Gson();
 			gson.toJson(detailList, response.getWriter());
-			System.out.println("detailList : " + detailList.toString());
+			System.out.println("detailList : " + detailList);
 		}
 		
 	}

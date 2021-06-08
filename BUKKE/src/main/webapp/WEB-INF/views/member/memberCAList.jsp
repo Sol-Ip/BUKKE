@@ -154,7 +154,7 @@
     <table class="table table-hover" >
   <thead>
     <tr>
-      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb2"></th>
+     
       <th scope="col">액티비티명</th>
       <th scope="col">분류</th>
       <th scope="col">상세분류</th>
@@ -162,12 +162,12 @@
       
     </tr>
   </thead>
-  <c:forEach items="${aList }" var="activity" varStatus="status">
+  <c:forEach items="${aList }" var="activity">
   <tbody> 
   
   	<c:if test="${activity.activityNo != 0  }">
     <tr>
-      <th scope="row"><input type="checkbox" name="chkbox2" checknum="${status.index }"> </th>
+      
       <td>${activity.activityName }</td>
       <td>${activity.activityType}</td>
       <td>${activity.activityTypeDetails }</td>

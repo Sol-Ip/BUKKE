@@ -120,7 +120,7 @@
 									<div class="dropdown-menu dropdown-menu-left">
 										<a href="noticeList.com" class="dropdown-item">공지사항</a>
 										<hr class="dropdown-divider">
-										<a href="memberMyPage.com" class="dropdown-item">마이페이지</a>
+										<a href="shopMypage.com" class="dropdown-item">마이페이지</a>
 										<hr class="dropdown-divider">
 										<a href="#" class="dropdown-item">예약관리</a>
 										<hr class="dropdown-divider">

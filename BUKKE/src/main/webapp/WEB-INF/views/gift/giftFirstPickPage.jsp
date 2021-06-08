@@ -1,35 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../common/header.jsp?active=gift"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>선물하기</title>
+<title>부캐 - 선물하기</title>
+<style>
+	.hero-wrap {
+		content: '';
+		background-image: url('/resources/images/bg-gift-center.png');
+		opacity: 0.7;
+		z-index: 1;
+	}
+	.banner {
+		background-color: rgb(255, 81, 114);
+	}
+</style>
 </head>
 <body>
+<jsp:include page="../common/header.jsp">
+	<jsp:param name="active" value="gift" />
+</jsp:include>
 
-	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Gift</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Gift <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
+<section class="banner hero-wrap hero-wrap-2">
+	<div class="container">
+		<div class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="col-md-9 ftco-animate text-center">
+				<h1 class="mb-2 bread">gift</h1>
 			</div>
 		</div>
-	</section>
-	<!-- fixed section END-->
+	</div>
+</section>
+	
 	<section class="container">
 		<div class="container ftco-animate" align="center">
 			<br>

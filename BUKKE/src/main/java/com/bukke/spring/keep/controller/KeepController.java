@@ -77,10 +77,13 @@ public class KeepController {
 		Member loginMember = (Member)session.getAttribute("loginMember"); 
 		String memberId = loginMember.getMemberId();
 		Keep keep = new Keep();
+		
 		keep.setActivityNo(activityNo);
 		keep.setMemberId(memberId);
-		
-		int result = kService.updateActivityfromKeep(keep);
+		Keep actKeep = kService.printActivityKeep(keep);
+		model.addAttribute("keepNo", actKeep.getKeepNo());
+		System.out.println("actKeep : " + actKeep.toString());
+		int result = kService.updateActivityfromKeep(actKeep);
 		System.out.println("null?? " + result);
 		if(result > 0) {
 			//return "redirect:activityDetail.com?activityNo='" + activityNo + "', loginMember='" + loginMember;

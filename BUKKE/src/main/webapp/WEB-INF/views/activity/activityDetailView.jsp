@@ -253,7 +253,7 @@
 							<!-- 사용자만 버튼 누를 시 기능 적용 -->
 							<input type="hidden" id="activityNo" name="activityNo" value="${activity.activityNo }">
 							
-							<input type="hidden" id="keepNo" name="keepNo" value="${keep.keepNo }">
+							
 								<!-- 사용자 로그인 할 때 -->
 									<c:if test="${keep.keepStatus == null || keep.keepStatus eq 'N' }">
 										<div class="event-btns">
@@ -268,6 +268,7 @@
 										</div>
 									</c:if>
 									<c:if test="${keep.keepStatus eq 'Y' }">
+									<input type="hidden" id="keepNo" name="keepNo" value="${keep.keepNo }">
 										<div class="event-btns">
 											<button id="keep-btn2" class="buy-button button--big"
 												onclick="keep()">

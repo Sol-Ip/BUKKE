@@ -69,7 +69,6 @@ public interface KeepService {
 	 */
 	public int updateActivityfromKeep(Keep keep);
 	
-
 	
 	
 }

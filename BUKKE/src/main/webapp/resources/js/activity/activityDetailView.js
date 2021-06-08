@@ -9,8 +9,11 @@ $(document).ready(function() {
 	});
 	
 	// 찜 하기 취소
-	var activityNo = $("#activityNo").val();
+	//var activityNo = $("#activityNo").val();
+	//var keepNo = $("#keepNo").val();
+	console.log("keepNo1 : " + keepNo);
 	$('#keep-btn2').click(function(){
+		console.log("keepNo2 : " + keepNo);
 		location.href='updateActivityKeep.com?activityNo=' + activityNo;
 		alert('찜하기가 취소되었습니다!');
 		

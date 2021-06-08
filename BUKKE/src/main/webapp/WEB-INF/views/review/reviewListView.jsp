@@ -1,32 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../common/header.jsp?active=review"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>후기</title>
+<title>취미생활 플랫폼, 부캐</title>
+<style>
+	.banner {
+		background-color: rgb(68, 201, 244);
+	}
+	.banner * {
+		color: white;
+	}
+</style>
 </head>
 <body>
-	
-	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Review</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Review <i class="ion-ios-arrow-forward"></i></span></p>
-          </div>
-        </div>
-      </div>
-    </section>
-	<!-- fixed section END-->
-	
-	
-	
+<jsp:include page="../common/header.jsp">
+	<jsp:param name="active" value="review" />
+</jsp:include>
 
+<section class="banner hero-wrap hero-wrap-2">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="col-md-9 ftco-animate text-center">
+				<h1 class="mb-2 bread">Review</h1>
+				<p class="mr-2">부캐들이 남긴 활동 후기♡</p>
+			</div>
+        </div>
+    </div>
+</section>
 	
 	<div class="container ftco-animate">
 			<br />

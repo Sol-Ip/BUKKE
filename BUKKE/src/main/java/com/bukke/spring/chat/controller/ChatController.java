@@ -1,27 +1,37 @@
 package com.bukke.spring.chat.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.chat.domain.Chat;
 import com.bukke.spring.chat.domain.Room;
+import com.bukke.spring.chat.service.ChatService;
 import com.bukke.spring.member.domain.Member;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 
 @Controller
 public class ChatController {
+	
+	@Autowired
+	private ChatService chatService;
 	
 	List<Room> roomList = new ArrayList<Room>();
 	static int roomNumber = 0;
@@ -55,8 +65,7 @@ public class ChatController {
 	 * @return
 	 */
 	@RequestMapping(value="/chatRoom.com")
-	public ModelAndView room(ModelAndView mv, HttpSession session) {
-		Member loginUser = (Member)session.getAttribute("loginUser");
+	public ModelAndView room(ModelAndView mv) {
 		mv.setViewName("chat/chatRoom");
 		return mv;
 	}
@@ -72,15 +81,15 @@ public class ChatController {
 	@RequestMapping(value="/createRoom.com", method=RequestMethod.POST)
 	public void createRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
 		String roomName = (String) params.get("roomName");
-		System.out.println("채팅방 이름 : " + roomName);
 		if(roomName != null && !roomName.trim().equals("")) {
-			System.out.println("작동 됨....");
 			Room room = new Room();
 			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
-			System.out.println(room.getRoomNumber());
 			roomList.add(room);
-			System.out.println("roomList : "+ roomList.toString());
+			int result = chatService.registerChatRoom(room);
+			if(result > 0) {
+				roomList = chatService.printChatRoom();
+			}
 		}
 		new Gson().toJson(roomList,response.getWriter());
 		//return result;
@@ -96,6 +105,7 @@ public class ChatController {
 	@ResponseBody
 	@RequestMapping(value = "/getRoom.com", method=RequestMethod.POST)
 	public void getRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
+		roomList = chatService.printChatRoom();
 		new Gson().toJson(roomList, response.getWriter());
 	}
 	
@@ -104,12 +114,15 @@ public class ChatController {
 	 * @return
 	 */
 	@RequestMapping(value="/moveChatting.com")
-	public ModelAndView chatting(@RequestParam HashMap<Object, Object> params) {
+	public ModelAndView chatting(@RequestParam HashMap<Object, Object> params, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
-		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("loginUser");
 		
-		List<Room> new_list = roomList.parallelStream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
+		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
+		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 		if(new_list != null && new_list.size() > 0) {
+			mv.addObject("memberId", params.get("memberId"));
 			mv.addObject("roomName", params.get("roomName"));
 			mv.addObject("roomNumber", params.get("roomNumber"));
 			mv.setViewName("chat/testChat");
@@ -119,6 +132,23 @@ public class ChatController {
 		return mv;
 	}
 	
-
+	// 채팅 등록
+	@RequestMapping(value="/register.com")
+	public String registerChat(@ModelAttribute Chat chat) {
+		int result = chatService.registerChat(chat);
+		return "";
+	}
+	
+	// 채팅 내역 리스트 가져와서 날짜 출력
+	@RequestMapping(value="/chatDate.com")
+	public void chatDate(@RequestParam("roomNumber") int roomNumber, HttpServletResponse response) throws JsonIOException, IOException {
+		ArrayList<Chat> chatList = chatService.printChat(roomNumber);
+		if(!chatList.isEmpty()) {
+			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+			gson.toJson(chatList, response.getWriter());
+		}else {
+			System.out.println("채팅 내역 리스트 가져오기 실패");
+		}
+	}
 }
 

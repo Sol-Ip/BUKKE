@@ -15,4 +15,6 @@ public interface ReservationStore {
 	public int deleteReservation(); // 예약 삭제
 	public int confirmReservaion(Reservation reservation); // 예약 승인
 	public int cancleReservation(Reservation reservation); // 예약 거절
+	public int classCountReservation(String reservationId); //클래스 카운트
+	public int actCountReservation(String reservationId); //액티비티 카운트
 }

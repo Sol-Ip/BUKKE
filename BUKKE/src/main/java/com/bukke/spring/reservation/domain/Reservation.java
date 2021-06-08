@@ -12,6 +12,9 @@ public class Reservation {
 	private String reservationId; // 예약자
 	private Date reservationDate; // 예약일
 	private String reservationStatus; // 예약 승인여부
+	// 추가 getter/setter
+	private String reviewStatus; // 리뷰 상태
+	private String commentStatus; // 댓글(삭제)여부
 	
 	private BukkeClass bukkeClass;
 	
@@ -85,6 +88,23 @@ public class Reservation {
 	public void setReservationStatus(String reservationStatus) {
 		this.reservationStatus = reservationStatus;
 	}
+	
+	public String getReviewStatus() {
+		return reviewStatus;
+	}
+
+	public void setReviewStatus(String reviewStatus) {
+		this.reviewStatus = reviewStatus;
+	}
+
+	public String getCommentStatus() {
+		return commentStatus;
+	}
+
+	public void setCommentStatus(String commentStatus) {
+		this.commentStatus = commentStatus;
+	}
+
 
 	public BukkeClass getBukkeClass() {
 		return bukkeClass;

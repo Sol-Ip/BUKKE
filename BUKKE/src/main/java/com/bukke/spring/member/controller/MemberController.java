@@ -38,9 +38,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.member.service.MemberService;
+import com.bukke.spring.reservation.domain.Reservation;
+import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewPageInfo;
@@ -52,7 +56,12 @@ public class MemberController {
 
 	@Autowired
 	private MemberService mService;
-
+	
+	@Autowired
+	
+	private ReservationService reService;
+	@Autowired
+	private ReviewService rService; 
 	/*
 	 * @Autowired private MailSender mailSender;
 	 */
@@ -61,8 +70,6 @@ public class MemberController {
 	@Autowired
 	private JavaMailSender javaMailSender;
 	
-	@Autowired
-	private ReviewService rService;
 
 	// 로그인 JSP 이동
 	@RequestMapping(value = "memberLoginForm.com", method = RequestMethod.GET)
@@ -285,9 +292,24 @@ public class MemberController {
 	// 마이페이지 화면
 	@RequestMapping(value = "memberMyPage.com", method = RequestMethod.GET)
 	public String myInfoView() {
+			//(ModelAndView mv,@RequestParam("reservationId")String reservationId) {
+		
+		
+//		int classCount = reService.printclassCount(reservationId); //필요x 아까 액티비티 믈래스 
+//		int actCount = reService.printActCount(reservationId);
+//		int myCommnetCount = rService.printcommnetCount(reservationId);
+//		int myReviewCount = rService.printReviewCount(reservationId);
+		
+		/*
+		 * mv.addObject("reservationStatus",reservationStatus);
+		 * mv.addObject("reviewStatus",reviewStatus); mv.addObject("cpmmnet",cpmmnet);
+		 */
+		
+		
+		
 		return "member/memberInfo";
-
 	}
+	
 
 	// 마이페이지 스케쥴 관리(풀캘린더)
 	@RequestMapping(value = "memberScheduleView.com", method = RequestMethod.GET)

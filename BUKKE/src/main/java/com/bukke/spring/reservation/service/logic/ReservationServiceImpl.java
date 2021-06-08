@@ -68,6 +68,20 @@ public class ReservationServiceImpl implements ReservationService{
 	public int cancleReservation(Reservation reservation) {
 		return reStore.cancleReservation(reservation);
 	}
+	//클래스 카운트
+	@Override
+	public int printclassCount(String reservationId) {
+		return reStore.classCountReservation(reservationId);
+	}
+	//액티비티 카운트
+	@Override
+	public int printActCount(String reservationId) {
+		return reStore.actCountReservation(reservationId);
+	}
+	
+	
+
+
 
 
 

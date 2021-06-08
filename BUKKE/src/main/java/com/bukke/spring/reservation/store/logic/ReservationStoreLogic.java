@@ -66,4 +66,16 @@ public class ReservationStoreLogic implements ReservationStore {
 		return sqlSession.update("reservationMapper.rejectReservation", reservation);
 	}
 
+	@Override
+	public int classCountReservation(String reservationId) { //클래스 카운트
+		return sqlSession.selectOne("reservationMapper.classCountReservation", reservationId);
+	}
+
+	@Override
+	public int actCountReservation(String reservationId) { //액티비티 카운트
+		return sqlSession.selectOne("reservationMapper.actCountReservation", reservationId);
+	}
+
+
+
 }

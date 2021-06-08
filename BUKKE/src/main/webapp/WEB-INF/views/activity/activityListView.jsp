@@ -291,11 +291,13 @@ display: inline-block;
 			</div> 
 			</div>
 			<br>
+			
+			<c:if test="${ !empty sessionScope.loginShopper && empty sessionScope.loginMember }">
 			<!-- 사업자용 등록 버튼 -->
 			<div style="float: right" class="ftco-animate">
 				<a href="activityWriteView.com"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
 			</div>
-			
+			</c:if>
 		
 	 <!-- =============== 페이징 처리 =============== -->
 		<div class="container">

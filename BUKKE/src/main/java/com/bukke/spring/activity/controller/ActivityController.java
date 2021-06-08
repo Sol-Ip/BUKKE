@@ -214,6 +214,7 @@ public class ActivityController {
 										@ModelAttribute Activity activity,
 										@RequestParam("activityAddr1") String activityAddr1, // 기본주소
 										@RequestParam("activityAddr2") String activityAddr2, // 상세주소
+										HttpSession session,
 										@RequestParam(value = "uploadActivityFile", required = false) MultipartFile uploadActivityFile,
 										HttpServletRequest request) {
 		// 1. 첨부파일을 서버(workspace)에 저장, 서버에 파일을 저장하는 작업
@@ -228,6 +229,10 @@ public class ActivityController {
 		// 디비에 데이터를 저장하는 작업
 		int result = 0;
 		String path = "";
+		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+		String shopId = loginShopper.getShopId();
+		
+		activity.setShopId(shopId);
 		activity.setActivityAddr(activityAddr1 + ","+ activityAddr2);
 		result = aService.registerActivity(activity);
 		if (result > 0) {

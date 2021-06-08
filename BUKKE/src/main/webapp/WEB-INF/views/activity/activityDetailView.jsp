@@ -313,7 +313,8 @@
 									<c:param name="aRenameFilename"
 										value="${activity.aRenameFilename }"></c:param>
 								</c:url>
-								<c:if test="${!empty loginShopper}">
+								<%-- <c:if test="${sessionScope.loginShopper eq activity.shopId }"> --%>
+								<c:if test="${loginShopper.shopId eq activity.shopId }">
 									<!-- 사용자 아이디 x -->
 									<a href="${aModify }"><input class="btn btn-lg btn-warning"
 										type="button" value="수정"></a>

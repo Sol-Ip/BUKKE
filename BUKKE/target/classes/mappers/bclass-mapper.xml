@@ -22,13 +22,54 @@
 		<result property="cRenameFilename" column="C_RENAME_FILENAME"></result>
 	</resultMap>
 	 
-	<!-- 게시물 리스트 -->
+	<!-- 게시물 리스트 카운트 -->
    <select id="selectListCount" resultType="_int">
       SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = 'Y'
    </select>
    
+   <select id="selectFlowerListCount" resultType="_int">
+      SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%플라워%'
+   </select>
+   
+   <select id="selectArtListCount" resultType="_int">
+      SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%미술%'
+   </select>
+   
+   <select id="selectBeautyListCount" resultType="_int">
+      SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%뷰티%'
+   </select>
+   
+   <select id="selectMusicListCount" resultType="_int">
+      SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%음악%'
+   </select>
+   
+   <select id="selectPhotoListCount" resultType="_int">
+      SELECT COUNT(*) FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%사진%'
+   </select>
+   
+   <!-- 클래스 리스트 출력 -->
    <select id="selectAllList" resultMap="bClassResultMap">
       SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' ORDER BY CLASS_NO DESC
+   </select>
+   
+   <select id="selectAllFlowerList" resultMap="bClassResultMap">
+      SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%플라워%' ORDER BY CLASS_NO DESC
+   </select>
+   
+   <select id="selectAllArtList" resultMap="bClassResultMap">
+      SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%미술%' ORDER BY CLASS_NO DESC
+   </select>
+   
+   <select id="selectAllBeautyList" resultMap="bClassResultMap">
+      SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%뷰티%' ORDER BY CLASS_NO DESC
+   </select>
+   
+   <select id="selectAllMusicList" resultMap="bClassResultMap">
+      SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%음악%' ORDER BY CLASS_NO DESC
+   </select>
+   
+   <select id="selectAllPhotoList" resultMap="bClassResultMap">
+      SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' AND CLASS_TYPE LIKE '%사진%' ORDER BY CLASS_NO DESC
    </select>
    
    <select id="selectOneBclass" resultMap="bClassResultMap">

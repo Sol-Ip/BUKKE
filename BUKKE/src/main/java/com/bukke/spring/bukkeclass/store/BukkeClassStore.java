@@ -12,8 +12,28 @@ public interface BukkeClassStore {
 	// 클래스 전체 조회 수
 	public int selectListCount();
 	
+	public int selectFlowerListCount();
+
+	public int selectArtListCount();
+
+	public int selectBeautyListCount();
+
+	public int selectMusicListCount();
+
+	public int selectPhotoListCount();
+	
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	public ArrayList<BukkeClass> selectAllListBclass(PageInfo pi);
+	
+	public ArrayList<BukkeClass> selectFlowerBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> selectArtBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> selectBeautyBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> selectMusicBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> selectPhotoBclass(PageInfo pi);
 	
 	// 클래스 상세정보
 	public BukkeClass selectOneBclass(int classNo);
@@ -39,6 +59,4 @@ public interface BukkeClassStore {
 	//클래스 선물 분류+상세분류로 리스트 출력
 	public ArrayList<BukkeClass> selectGiftListBclass(BukkeClass bClass);
 
-
-	
 }

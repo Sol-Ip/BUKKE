@@ -15,6 +15,26 @@ public interface BukkeClassService {
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	public ArrayList<BukkeClass> printAllBclass(PageInfo pi);
 	
+	public int getClassFlowerListCount();
+
+	public int getClassArtListCount();
+
+	public int getBeautyListCount();
+
+	public int getMusicListCount();
+
+	public int getPhotoListCount();
+
+	public ArrayList<BukkeClass> printFlowerBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> printArtBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> printBeautyBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> printMusicBclass(PageInfo pi);
+
+	public ArrayList<BukkeClass> printPhotoBclass(PageInfo pi);
+	
 	// 클래스 상세 정보
 	public BukkeClass printOneBclass(int classNo);
 
@@ -38,7 +58,5 @@ public interface BukkeClassService {
 
 	//선물하기 클래스 분류+상세분류로 출력
 	public ArrayList<BukkeClass> printGiftBclass(BukkeClass bClass);
-
-
 
 }

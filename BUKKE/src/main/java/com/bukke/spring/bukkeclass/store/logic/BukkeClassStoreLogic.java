@@ -25,12 +25,72 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 		return session.selectOne("bclassMapper.selectListCount");
 	}
 	
+	@Override
+	public int selectFlowerListCount() {
+		return session.selectOne("bclassMapper.selectFlowerListCount");
+	}
+
+	@Override
+	public int selectArtListCount() {
+		return session.selectOne("bclassMapper.selectArtListCount");
+	}
+
+	@Override
+	public int selectBeautyListCount() {
+		return session.selectOne("bclassMapper.selectBeautyListCount");
+	}
+
+	@Override
+	public int selectMusicListCount() {
+		return session.selectOne("bclassMapper.selectMusicListCount");
+	}
+
+	@Override
+	public int selectPhotoListCount() {
+		return session.selectOne("bclassMapper.selectPhotoListCount");
+	}
+	
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	@Override
 	public ArrayList<BukkeClass> selectAllListBclass(PageInfo pi) {
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 	    RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 	    return (ArrayList)session.selectList("bclassMapper.selectAllList", null, rowBounds);
+	}
+	
+	@Override
+	public ArrayList<BukkeClass> selectFlowerBclass(PageInfo piFlower) {
+		int offset = (piFlower.getCurrentPage() - 1) * piFlower.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, piFlower.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllFlowerList", null, rowBounds);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectArtBclass(PageInfo piArt) {
+		int offset = (piArt.getCurrentPage() - 1) * piArt.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, piArt.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllArtList", null, rowBounds);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectBeautyBclass(PageInfo piBeauty) {
+		int offset = (piBeauty.getCurrentPage() - 1) * piBeauty.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, piBeauty.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllBeautyList", null, rowBounds);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectMusicBclass(PageInfo piMusic) {
+		int offset = (piMusic.getCurrentPage() - 1) * piMusic.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, piMusic.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllMusicList", null, rowBounds);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectPhotoBclass(PageInfo piPhoto) {
+		int offset = (piPhoto.getCurrentPage() - 1) * piPhoto.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, piPhoto.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllPhotoList", null, rowBounds);
 	}
 
 	// 클래스 상세정보
@@ -79,6 +139,5 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 		// TODO Auto-generated method stub
 		return (ArrayList)session.selectList("bclassMapper.selectGiftList", bClass);
 	}
-
 
 }

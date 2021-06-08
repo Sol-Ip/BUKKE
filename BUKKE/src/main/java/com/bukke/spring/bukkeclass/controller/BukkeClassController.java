@@ -46,12 +46,40 @@ public class BukkeClassController {
 											@RequestParam(value="page", required=false) Integer page) {
 		int currentPage = (page != null) ? page : 1; // page가 null 이 아니면 page 사용 null이면 1
 	    int listCount = bService.getListCount();
+	    int listCountFlower = bService.getClassFlowerListCount();
+	    int listCountArt = bService.getClassArtListCount();
+	    int listCountBeauty = bService.getBeautyListCount();
+	    int listCountMusic = bService.getMusicListCount();
+	    int listCountPhoto = bService.getPhotoListCount();
+	    
 	    PageInfo pi = BukkeClassPagination.getPageInfo(currentPage, listCount);
+	    PageInfo piFlower = BukkeClassPagination.getPageInfo(currentPage, listCount);
+	    PageInfo piArt = BukkeClassPagination.getPageInfo(currentPage, listCount);
+	    PageInfo piBeauty = BukkeClassPagination.getPageInfo(currentPage, listCount);
+	    PageInfo piMusic = BukkeClassPagination.getPageInfo(currentPage, listCount);
+	    PageInfo piPhoto = BukkeClassPagination.getPageInfo(currentPage, listCount);
 	    
 		ArrayList<BukkeClass> bList = bService.printAllBclass(pi);
+		ArrayList<BukkeClass> flowerList = bService.printFlowerBclass(pi);
+		ArrayList<BukkeClass> artList = bService.printArtBclass(pi);
+		ArrayList<BukkeClass> beautyList = bService.printBeautyBclass(pi);
+		ArrayList<BukkeClass> musicList = bService.printMusicBclass(pi);
+		ArrayList<BukkeClass> photoList = bService.printPhotoBclass(pi);
+		
+		
 		if(!bList.isEmpty()) {
 			mv.addObject("bList", bList);
+			mv.addObject("flowerList", flowerList);
+			mv.addObject("artList", artList);
+			mv.addObject("beautyList", beautyList);
+			mv.addObject("musicList", musicList);
+			mv.addObject("photoList", photoList);
 			mv.addObject("pi", pi);
+			mv.addObject("piFlower", piFlower);
+			mv.addObject("piArt", piArt);
+			mv.addObject("piBeauty", piBeauty);
+			mv.addObject("piMusic", piMusic);
+			mv.addObject("piPhoto", piPhoto);
 			mv.setViewName("bukkeClass/bukkeClassList");
 		}else {
 			mv.addObject("msg", "클래스 전체 조회 실패");

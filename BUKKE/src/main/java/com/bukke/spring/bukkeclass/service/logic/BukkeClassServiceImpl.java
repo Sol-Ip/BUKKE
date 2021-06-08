@@ -23,10 +23,60 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return bStore.selectListCount();
 	}
 	
+	@Override
+	public int getClassFlowerListCount() {
+		return bStore.selectFlowerListCount();
+	}
+
+	@Override
+	public int getClassArtListCount() {
+		return bStore.selectArtListCount();
+	}
+
+	@Override
+	public int getBeautyListCount() {
+		return bStore.selectBeautyListCount();
+	}
+
+	@Override
+	public int getMusicListCount() {
+		return bStore.selectMusicListCount();
+	}
+
+	@Override
+	public int getPhotoListCount() {
+		return bStore.selectPhotoListCount();
+	}
+	
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	@Override
 	public ArrayList<BukkeClass> printAllBclass(PageInfo pi) {
 		return bStore.selectAllListBclass(pi);
+	}
+	
+	@Override
+	public ArrayList<BukkeClass> printFlowerBclass(PageInfo pi) {
+		return bStore.selectFlowerBclass(pi);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> printArtBclass(PageInfo pi) {
+		return bStore.selectArtBclass(pi);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> printBeautyBclass(PageInfo pi) {
+		return bStore.selectBeautyBclass(pi);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> printMusicBclass(PageInfo pi) {
+		return bStore.selectMusicBclass(pi);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> printPhotoBclass(PageInfo pi) {
+		return bStore.selectPhotoBclass(pi);
 	}
 
 	// 클래스 상세정보
@@ -78,6 +128,8 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		// TODO Auto-generated method stub
 		return bStore.selectGiftListBclass(bClass);
 	}
+
+	
 
 
 

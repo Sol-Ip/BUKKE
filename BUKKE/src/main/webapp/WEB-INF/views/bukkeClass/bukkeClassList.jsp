@@ -70,6 +70,11 @@
   margin-right:20px;
 }
 
+.tabs ul li {
+	display:  inline-block;
+	float:left;
+}
+
 .tabs .selector{
   width :300px;
   height:100%;
@@ -166,14 +171,16 @@
 			<div class="row">
 				<div class="wrapper_tab">
 				  <nav class="tabs">
-				    <div class="selector" style="width:200px;"></div>
+				  <ul style="list-style:none;">
+				    <div class="selector"></div>
 				    <!-- ================= 부캐 클래스 전체 보기 ==================== -->
-				    <a href="#" class="active"><i class="fas fa-border-all"></i> 전체</a>
-				    <a href="#"><i class="fas fa-leaf"></i>  플라워</a>
-				    <a href="#"><i class="fas fa-palette"></i>  미술</a>
-				    <a href="#"><i class="fas fa-air-freshener"></i>  뷰티</a>
-				    <a href="#"><i class="fas fa-music"></i>  음악</a>
-				    <a href="#"><i class="fas fa-camera"></i>  사진</a>
+				    <li><a href="#" class="active"><i class="fas fa-border-all"></i>전체</a></li>
+				    <li><a data-toggle="tab" href="#" aria-expanded="true"><i class="fas fa-leaf"></i>플라워</a></li>
+				    <li><a href="#"><i class="fas fa-palette"></i>미술</a></li>
+				    <li><a href="#"><i class="fas fa-air-freshener"></i>뷰티</a></li>
+				    <li><a href="#"><i class="fas fa-music"></i>음악</a></li>
+				    <li><a href="#"><i class="fas fa-camera"></i>사진</a></li>
+				    </ul>
 				  </nav>
 				</div>
 			</div>

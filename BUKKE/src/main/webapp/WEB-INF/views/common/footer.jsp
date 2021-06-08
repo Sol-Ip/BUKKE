@@ -8,8 +8,7 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Bukke</h2>
-              <p>우리는 부캐를 이용하는 사람들을 위해<br>다양한 일을 하고 있습니다.<br>
-                당신이 원할 때에 언제나 어디서나<br>즐길 수 있도록 열심히 노력하고 있습니다.</p>
+              <p>많은 사람들이 부캐를 통해<br>좋아하는 일을 찾을 수 있도록<br>노력하겠습니다.</p>
             </div>
           </div>
           <div class="col-md">

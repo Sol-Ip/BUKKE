@@ -210,6 +210,19 @@
 									<br>
 									<br>
 									<li><h3 class="act-type">
+											<b>시작시간</b>&nbsp;&nbsp;<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${activity.activityStartTime }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>종료시간</b>&nbsp;&nbsp;<i class="fas fa-clock fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${activity.activityEndTime }</h3></li>
+									<br>
+									
+									<br>
+									<li><h3 class="act-type">
 											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
 									<li><h3 id="act-type">${activity.shopId }</h3></li>

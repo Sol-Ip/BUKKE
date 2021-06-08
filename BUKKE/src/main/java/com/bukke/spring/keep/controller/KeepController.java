@@ -81,7 +81,7 @@ public class KeepController {
 		keep.setMemberId(memberId);
 		
 		int result = kService.updateActivityfromKeep(keep);
-		System.out.println("null?? " + keep.toString());
+		System.out.println("null?? " + result);
 		if(result > 0) {
 			//return "redirect:activityDetail.com?activityNo='" + activityNo + "', loginMember='" + loginMember;
 			return "redirect:activityDetail.com?activityNo=" + activityNo;

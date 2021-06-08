@@ -87,8 +87,8 @@
 	
 	<!-- 액티비티 등록 -->
 	<insert id="insertActivity">
-		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, 'shoptest',
-		#{activityName},#{activityAddr}, #{activityType},#{activityTypeDetails}, #{activityPrice}, #{activityCapacity},
+		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, #{shopId},
+		#{activityName},#{activityAddr}, #{activityType}, #{activityTypeDetails}, #{activityPrice}, #{activityCapacity},
 		 SYSDATE, #{activityStartdate}, #{activityEnddate},DEFAULT,#{aOriginalFilename}, #{aRenameFilename}, #{activityStartTime }, #{activityEndTime }, #{activityInfo})
 	</insert>
 	

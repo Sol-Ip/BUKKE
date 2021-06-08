@@ -104,6 +104,8 @@ for (x in d) {
 	})// 두번째 select 박스
 	
 	
+	
+	
 });
 function activityType(type , select) {
     

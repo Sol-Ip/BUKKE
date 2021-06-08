@@ -18,6 +18,8 @@ public class Activity {
 	private String activityCapacity; // 인원수
 	private String aOriginalFilename; // 기존 파일 이름
 	private String aRenameFilename; // 변경된 파일 이름
+	private String activityStartTime; // 시작시간
+	private String activityEndTime; // 종료시간
 	private Date activityEnrolldate; // 등록일
 	private Date activityStartdate; // 개강일
 	private Date activityEnddate; // 종강일
@@ -159,6 +161,32 @@ public class Activity {
 	public void setActivityTypeDetailCodes(String activityTypeDetailCodes) {
 		this.activityTypeDetailCodes = activityTypeDetailCodes;
 	}
+	
+	
+
+	public String getActivityStartTime() {
+		return activityStartTime;
+	}
+
+	public void setActivityStartTime(String activityStartTime) {
+		this.activityStartTime = activityStartTime;
+	}
+
+	public String getActivityEndTime() {
+		return activityEndTime;
+	}
+
+	public void setActivityEndTime(String activityEndTime) {
+		this.activityEndTime = activityEndTime;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
 
 	@Override
 	public String toString() {
@@ -167,8 +195,10 @@ public class Activity {
 				+ activityTypeDetails + ", activityTypeDetailCodes=" + activityTypeDetailCodes + ", activityInfo="
 				+ activityInfo + ", activityPrice=" + activityPrice + ", activityCapacity=" + activityCapacity
 				+ ", aOriginalFilename=" + aOriginalFilename + ", aRenameFilename=" + aRenameFilename
+				+ ", activityStartTime=" + activityStartTime + ", activityEndTime=" + activityEndTime
 				+ ", activityEnrolldate=" + activityEnrolldate + ", activityStartdate=" + activityStartdate
-				+ ", activityEnddate=" + activityEnddate + ", activityStatus=" + activityStatus + "]";
+				+ ", activityEnddate=" + activityEnddate + ", activityStatus=" + activityStatus + ", member=" + member
+				+ "]";
 	}
 
 	

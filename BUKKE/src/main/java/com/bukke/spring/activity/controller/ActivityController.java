@@ -231,7 +231,7 @@ public class ActivityController {
 		activity.setActivityAddr(activityAddr1 + ","+ activityAddr2);
 		result = aService.registerActivity(activity);
 		if (result > 0) {
-			path = "redirect:activityList.com";
+			path = "redirect:activityListView.com";
 		} else {
 			mv.addObject("msg", "게시글 등록 실패");
 			path = "common/errorPage";

@@ -8,9 +8,9 @@
 <title>ACTIVITY 등록하기</title>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-<!-- 섬머노트 -->
-<script src="/resources/note/summernote-lite.js"></script>
-<script src="/resources/note//lang/summernote-ko-KR.js"></script>
+ <!-- 섬머노트 -->
+<!-- <script src="/resources/note/summernote-lite.js"></script>
+<script src="/resources/note//lang/summernote-ko-KR.js"></script> -->
 <link rel="stylesheet" href="/resources/note/summernote-lite.css">
 
 
@@ -198,7 +198,7 @@
 						<br><br>
 						<div class="button-set text-center">
 							 <input type="submit" value="등록" id="write-btn" class="btn btn-lg btn-primary"> 
-							 <a href="activityList.com"><input type="button" value="취소" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
+							 <a href="activityListView.com"><input type="button" value="취소" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
 							 <br>
 						</div>
 				</form>
@@ -233,10 +233,10 @@ $('.timepicker').timepicker({
 <!-- 주소찾기 -->
 
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<!-- 섬머노트  -->
+ <!-- 섬머노트  -->
 <script src="/resources/note/summernote-lite.js"></script>
 <script src="/resources/note//lang/summernote-ko-KR.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-<script type="text/javascript" src="/resources/js/note-ready.js"></script>
+<script type="text/javascript" src="/resources/js/note-ready.js"></script> 
 </html>

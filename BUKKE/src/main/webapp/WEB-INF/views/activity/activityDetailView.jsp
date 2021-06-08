@@ -152,7 +152,7 @@
 						${activity.activityName }</h2>
 					<hr>
 
-					<div style="padding: 30px; height: 500px;">
+					<div style="padding: 30px; height: 800px;">
 						<h5>${activity.activityInfo }</h5>
 					</div>
 
@@ -354,7 +354,7 @@
 				
 	</section>
 	<!-- Activity detail section END-->
-
+	<section class="ftco-section bg-light">
 	<div class="container">
 		<div class="row justify-content-center mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate">
@@ -365,7 +365,7 @@
 		</div>
 	</div>
 
-	<section class="ftco-section bg-light">
+
 		<div class="container">
 			<!-- ========== 액티비티 주소 지도로 표시 ========== -->
 			<div id="act-map" class="ftco-animate"

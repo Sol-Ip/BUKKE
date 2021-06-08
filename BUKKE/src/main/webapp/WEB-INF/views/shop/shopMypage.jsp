@@ -76,7 +76,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">등록한 액티비티</a>
+                            <a href="ActivityListbyId.com" class="collapse__sublink">등록한 액티비티</a>
                             <a href="#" class="collapse__sublink">등록한 클래스</a>
                             <a href="#" class="collapse__sublink">작성한 댓글</a>
                         </ul>
@@ -112,7 +112,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">예약 목록</a>
+                            <a href="reservationList.com" class="collapse__sublink">예약 목록</a>
                         </ul>
                     </div>
                 </div>

@@ -26,10 +26,10 @@ public class ReservationStoreLogic implements ReservationStore {
 
 	// 예약 목록 전체보기
 	@Override
-	public ArrayList<Reservation> selectAllListReservation(PageInfo pi) {
+	public ArrayList<Reservation> selectAllListReservation(PageInfo pi,String shopId) {
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
-		return (ArrayList)sqlSession.selectList("reservationMapper.selectAllList", null, rowBounds);
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectAllList", shopId, rowBounds);
 	}
 
 	@Override

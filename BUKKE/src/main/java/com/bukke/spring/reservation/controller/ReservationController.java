@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ import com.bukke.spring.common.ReservationPagination;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
+import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
@@ -37,13 +39,15 @@ public class ReservationController {
    // 예약 전체목록 jsp 이동
       @RequestMapping(value="reservationList.com", method=RequestMethod.GET)
       public ModelAndView reservationListView(ModelAndView mv, 
-                                    @RequestParam(value="page", required=false) Integer page) {
+                                    @RequestParam(value="page", required=false) Integer page,HttpSession session) {
          int currentPage = (page != null) ? page : 1;
          int listCount = reService.getListCount();
          PageInfo pi = ReservationPagination.getPageInfo(currentPage, listCount);
-         
+         Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+         String shopId = loginShopper.getShopId();
          ArrayList<BukkeClass> bList = bService.printReservation();
-         ArrayList<Reservation> reservationList = reService.printAllReservation(pi);
+         ArrayList<Reservation> reservationList = reService.printAllReservation(pi,shopId);
+         
          if(!reservationList.isEmpty()) {
             System.out.println(reservationList);
             mv.addObject("reservationList", reservationList);

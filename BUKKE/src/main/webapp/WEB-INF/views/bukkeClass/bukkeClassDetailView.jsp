@@ -217,7 +217,7 @@
 					<div class="ftco-animate">
 						<input type="submit" class="btn btn-lg btn-primary" value="예약하기">
 						<button class="btn btn-lg btn-primary" type="submit">선물하기</button>
-						<button class="btn btn-lg btn-primary" type="submit">채팅하기</button>
+						<a href="#" onclick="window.open('chatViewTest.com', '_blank', 'width=600 height=600')"><button class="btn btn-lg btn-primary" type="submit">채팅하기</button></a>
 					</div>
 					<br> <br>
 

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.chat.domain.Room;
+import com.bukke.spring.member.domain.Member;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
@@ -24,10 +26,27 @@ public class ChatController {
 	List<Room> roomList = new ArrayList<Room>();
 	static int roomNumber = 0;
 	
-	@RequestMapping(value = "chatView.com", method = RequestMethod.GET)
+	// 이거는 기능 되는거니까 건들면 죽음 뿐
+//	@RequestMapping(value = "chatTest.com", method = RequestMethod.GET)
+//	public ModelAndView chatTest() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("chat/testChat");
+//		return mv;
+//	}
+	
+	// 채팅 방 테스트
+	@RequestMapping(value = "chatRoomTest.com", method = RequestMethod.GET)
+	public ModelAndView chatRoomTest() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("chat/chatRoomTest");
+		return mv;
+	}
+	
+	// 채팅 테스트
+	@RequestMapping(value = "chatViewTest.com", method = RequestMethod.GET)
 	public ModelAndView chatView() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("chat/testChat");
+		mv.setViewName("chat/chatTest");
 		return mv;
 	}
 	
@@ -36,8 +55,8 @@ public class ChatController {
 	 * @return
 	 */
 	@RequestMapping(value="/chatRoom.com")
-	public ModelAndView room() {
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView room(ModelAndView mv, HttpSession session) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
 		mv.setViewName("chat/chatRoom");
 		return mv;
 	}
@@ -78,7 +97,6 @@ public class ChatController {
 	@RequestMapping(value = "/getRoom.com", method=RequestMethod.POST)
 	public void getRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
 		new Gson().toJson(roomList, response.getWriter());
-		//return roomListObj;
 	}
 	
 	/**

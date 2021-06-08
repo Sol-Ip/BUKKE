@@ -2,8 +2,11 @@ package com.bukke.spring.chat.domain;
 
 public class Room {
 	
-	int roomNumber;
-	String roomName;
+	private int roomNumber;
+	private String roomName;
+	private String memberId;
+	private String shopId;
+	
 	public int getRoomNumber() {
 		return roomNumber;
 	}
@@ -16,11 +19,21 @@ public class Room {
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+	public String getShopId() {
+		return shopId;
+	}
+	public void setShopId(String shopId) {
+		this.shopId = shopId;
+	}
 	@Override
 	public String toString() {
-		return "chatRoom [roomNumber=" + roomNumber + ", roomName=" + roomName + "]";
+		return "Room [roomNumber=" + roomNumber + ", roomName=" + roomName + ", memberId=" + memberId + ", shopId="
+				+ shopId + "]";
 	}
-	
-	
-
 }

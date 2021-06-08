@@ -16,8 +16,8 @@ public interface ReservationService {
 	public int confirmReservaion(Reservation reservation); // 예약 승인
 	public int cancleReservation(Reservation reservation); // 예약 거절
 	
-	public int printclassCount(String reservationId); //클래스 카운트
-	public int printActCount(String reservationId); //액티비티 카운트
+	public int printclassCount(String memberId); //클래스 카운트
+	public int printActCount(String memberId); //액티비티 카운트
 	
 	
 }

@@ -49,6 +49,7 @@ import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.service.ReviewService;
+import com.google.gson.Gson;
 import com.sun.mail.util.logging.MailHandler;
 
 @Controller
@@ -205,15 +206,17 @@ public class MemberController {
 	// 아이디 찾기
 	@ResponseBody
 	@RequestMapping(value = "memberSearchId.com", method = RequestMethod.POST)
-	public String userIdSearch(ModelAndView mv, @ModelAttribute Member member,HttpServletResponse response, HttpServletRequest request) {
+	public void userIdSearch(ModelAndView mv, @ModelAttribute Member member,HttpServletResponse response, HttpServletRequest request) throws Exception {
 		response.setCharacterEncoding("UTF-8");
 		Member mem = new Member(member.getMemberName(), member.getMemberPhone());
 		Member memberSearch = mService.searchMemberId(mem);
+		String result = "";
 		if (memberSearch != null) {
-			return memberSearch.getMemberId();
+			result =  memberSearch.getMemberId();
 		} else {
-			return "아이디를 조회할 수 없습니다.";
+			result =  "별짓 다해봤는데";
 		}
+		new Gson().toJson(result, response.getWriter());
 	}
 
 	// 새 비밀번호 만들기
@@ -291,23 +294,30 @@ public class MemberController {
 
 	// 마이페이지 화면
 	@RequestMapping(value = "memberMyPage.com", method = RequestMethod.GET)
-	public String myInfoView() {
-			//(ModelAndView mv,@RequestParam("reservationId")String reservationId) {
+	public ModelAndView myInfoView(ModelAndView mv, HttpSession session) {
+		
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		String memberId = loginMember.getMemberId();
 		
 		
-//		int classCount = reService.printclassCount(reservationId); //필요x 아까 액티비티 믈래스 
-//		int actCount = reService.printActCount(reservationId);
-//		int myCommnetCount = rService.printcommnetCount(reservationId);
-//		int myReviewCount = rService.printReviewCount(reservationId);
+		int listCount = rService.getReviewListCountById(memberId);
+		int colistCount = rService.getReviewListCountById(memberId);
+		int myClassCount = reService.printclassCount(memberId);
+		int myActCount = reService.printActCount(memberId);
+		mv.addObject("listCount",listCount);
+		mv.addObject("colistCount",colistCount);
+		mv.addObject("myClassCount",myClassCount);
+		mv.addObject("myActCount",myActCount);
+		
 		
 		/*
 		 * mv.addObject("reservationStatus",reservationStatus);
 		 * mv.addObject("reviewStatus",reviewStatus); mv.addObject("cpmmnet",cpmmnet);
 		 */
 		
+		mv.setViewName("member/memberInfo");
 		
-		
-		return "member/memberInfo";
+		return mv;
 	}
 	
 

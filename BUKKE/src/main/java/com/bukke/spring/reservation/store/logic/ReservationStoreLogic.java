@@ -67,13 +67,13 @@ public class ReservationStoreLogic implements ReservationStore {
 	}
 
 	@Override
-	public int classCountReservation(String reservationId) { //클래스 카운트
-		return sqlSession.selectOne("reservationMapper.classCountReservation", reservationId);
+	public int classCountReservation(String memberId) { //클래스 카운트
+		return sqlSession.selectOne("reservationMapper.classCountReservation", memberId);
 	}
 
 	@Override
-	public int actCountReservation(String reservationId) { //액티비티 카운트
-		return sqlSession.selectOne("reservationMapper.actCountReservation", reservationId);
+	public int actCountReservation(String memberId) { //액티비티 카운트
+		return sqlSession.selectOne("reservationMapper.actCountReservation", memberId);
 	}
 
 

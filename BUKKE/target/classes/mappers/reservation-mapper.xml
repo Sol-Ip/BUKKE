@@ -134,14 +134,14 @@
    </update>
    
    <!-- 클래스 카운트 -->
-  <!--  <select id="classCountReservation" resultType="_int">
-   SELECT COUNT (*) AS ACT_RES_COUNT FROM RESERVATION WHERE RESERVATION_ID = #{reservationId} AND CLASS_NO IS NOT NULL AND RESERVATION_STATUS='승인'
-   </select> -->
+    <select id="classCountReservation" resultType="_int">
+   SELECT COUNT (*) AS ACT_RES_COUNT FROM RESERVATION WHERE RESERVATION_ID = #{memberId} AND CLASS_NO IS NOT NULL AND RESERVATION_STATUS='승인'
+   </select> 
    
    <!-- 액티비티 카운트 -->
-  <!--  <select id="actCountReservation" resultType="_int">
-    SELECT COUNT (*) AS ACT_RES_COUNT FROM RESERVATION WHERE RESERVATION_ID = #{reservationId} AND ACTIVITY_NO IS NOT NULL AND RESERVATION_STATUS='승인'
-   </select> -->
+    <select id="actCountReservation" resultType="_int">
+    SELECT COUNT (*) AS ACT_RES_COUNT FROM RESERVATION WHERE RESERVATION_ID = #{memberId} AND ACTIVITY_NO IS NOT NULL AND RESERVATION_STATUS='승인'
+   </select> 
    
    
    

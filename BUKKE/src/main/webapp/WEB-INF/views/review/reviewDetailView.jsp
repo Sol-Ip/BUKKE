@@ -238,15 +238,22 @@
 					</div>
 				</div>
 			</div>
-
+			<section>
+				 <div class="pt-5 mt-5">
+              <h3 class="mb-5 h4 font-weight-bold" id="commentsNum">0 Comments</h3>
+              <ul class="comment-list" id="comment-list">
+                
+              </ul>
+			</section>
 			<!-- 댓글 갯수 -->
 			<td colspan="2"><b id="rCount"></b></td>
 			<!-- 댓글 목록 -->
-			 <table class="form-control-borderless"
-				align="center" border="1" cellspacing="0" id="rtb">
+			
+<!-- 			 <table class="form-control-borderless" -->
+<!-- 				align="center" border="1" cellspacing="0" id="rtb"> -->
 
-				<tbody class="form-control-borderless"></tbody>
-			</table> 
+<!-- 				<tbody class="form-control-borderless"></tbody> -->
+<!-- 			</table>  -->
 			
 			<!-- 댓글 목록 -->
 			<!-- <table id="rtb">
@@ -286,12 +293,10 @@
 				});
 			});
 
-		 	 function getCommentList() {
-
+		 
+			 function getCommentList() {
 				var reviewNo = '${review.reviewNo }';
-
-				$
-						.ajax({
+				$.ajax({
 							url : "commentList.com",
 							type : "get",
 							data : {
@@ -299,83 +304,18 @@
 							},
 							dataType : "json",
 							success : function(data) {
+								("#commentsNum").val
 								// db에 있는 데이터를 json형태로 가져와서
 								// 댓글 목록 테이블의 tbody에 넣어주어야 함.
 								//console.log(data);
 								// tbody에 필요한 tr, td 태그를 만들면서
 								// 데이터를 tbody에 꽂아줄 것임.
-								var $tableBody = $("#rtb tbody");
+								var $commentList = $("#comment-list");
 								$tableBody.html(""); // 비워주기
-								var $tr;
-								var $rWriter;
-								var $rContent;
-								var $rCreateDate;
-								var $btnArea;
-								
-								var $div;
-								var $ul;
 								var $li;
-								var p;
-								$("#rCount").text("댓글 (" + data.length + ")"); // 댓글 갯수 표시
-								if (data.length > 0) {
-									for ( var i in data) {
-										$tr = $("<li>");
-										$rWriter = $("").text(
-												data[i].memberId);
-										$rContent = $("").text(
-												data[i].commentContents);
-										$rCreateDate = $("")
-												.text(data[i].commentDate);
-										$btnArea = $("")
-												.append(
-														"<a href='#' onclick='modifyComment(this);'>수정   </a>")
-												.append(
-														"<a href='' onclick='removeComment("
-																+ reviewNo
-																+ ","
-																+ data[i].commentNo
-																+ ");'> 삭제</a>");
-										$tr.append($rWriter);
-										$tr.append($rContent);
-										$tr.append($rCreateDate);
-										$tr.append($btnArea);
-										$tableBody.append($tr);
-
-									}
-								} else {
-
-								}
-							},
-							error : function(request, status, error) {
-								// alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
-							}
-						});
-			} 
-			 /* function getCommentList() {
-
-				var reviewNo = '${review.reviewNo }';
-
-				$
-						.ajax({
-							url : "commentList.com",
-							type : "get",
-							data : {
-								"reviewNo" : reviewNo
-							},
-							dataType : "json",
-							success : function(data) {
-								// db에 있는 데이터를 json형태로 가져와서
-								// 댓글 목록 테이블의 tbody에 넣어주어야 함.
-								//console.log(data);
-								// tbody에 필요한 tr, td 태그를 만들면서
-								// 데이터를 tbody에 꽂아줄 것임.
-								var $tableBody = $("#rtb tbody");
-								$tableBody.html(""); // 비워주기
-								var $tr;
-								var $rWriter;
-								var $rContent;
-								var $rCreateDate;
-								var $btnArea;
+								var $div;
+								var $cBody;
+								var $cDateDiv;
 								$("#rCount").text("댓글 (" + data.length + ")"); // 댓글 갯수 표시
 								if (data.length > 0) {
 									for ( var i in data) {
@@ -399,7 +339,6 @@
 										$tr.append($rWriter);
 										$tr.append($rContent);
 										$tr.append($rCreateDate);
-										$tr.append($btnArea);
 										$tableBody.append($tr);
 
 									}
@@ -412,7 +351,7 @@
 							}
 						});
 			} 
-			 */
+			 
 			function modifyComment(obj) {
 				$trModify = $("<tr>");
 				$trModify
@@ -448,7 +387,7 @@
 		</script>
 	</section>
 
+	<jsp:include page="../common/footer.jsp"></jsp:include>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>
-<jsp:include page="../common/footer.jsp"></jsp:include>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -61,7 +61,8 @@ public class ReservationController {
       }
       
       // 예약 상세정보 jsp 이동 (모든회원)
-      public String reservationDetailView() {
+      @RequestMapping(value="reservationDetail.com", method =RequestMethod.GET )
+      public String reservationDetailView(@RequestParam("reservationId")String reservationId,HttpSession session) {
          return null;
       }
       // *예약 검색기능 메소드

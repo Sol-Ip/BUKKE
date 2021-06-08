@@ -70,13 +70,13 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 	//클래스 카운트
 	@Override
-	public int printclassCount(String reservationId) {
-		return reStore.classCountReservation(reservationId);
+	public int printclassCount(String memberId) {
+		return reStore.classCountReservation(memberId);
 	}
 	//액티비티 카운트
 	@Override
-	public int printActCount(String reservationId) {
-		return reStore.actCountReservation(reservationId);
+	public int printActCount(String memberId) {
+		return reStore.actCountReservation(memberId);
 	}
 	
 	

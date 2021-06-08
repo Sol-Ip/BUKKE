@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../common/header.jsp?active=review"></jsp:include>
 <!DOCTYPE html>
 <html>
@@ -48,7 +49,9 @@
 			<div class="float-center form-group" align="center">
 			<input type="text" name="reviewTitle" class="form-control mt-4 mb-2"
 				placeholder="제목을 입력해주세요." required>
-			<input type="text" class="form-control" size="50" name="memberId" value="${loginMember.memberId }" readonly></td>
+			
+				<input type="text" class="form-control" size="50" name="memberId" value="${loginMember.memberId }" readonly></td>
+				
 				<textarea class="form-control" rows="10" name="reviewContents"
 					placeholder="내용을 입력해주세요" required></textarea>
 				<input type="file" class="form-control" size="50" name="uploadFile">

@@ -195,12 +195,8 @@ public class ActivityController {
 				keep.setKeepStatus("N");
 			}
 			
-//			if (actRes != null && memberId.equals(actRes.getReservationId())) {
-//				reservation.
-//			}
-			
-			model.addAttribute("keep", keep);
-			model.addAttribute("reservation", reservation);
+			model.addAttribute("keep", actKeep);
+			model.addAttribute("reservation", actRes);
 		}
 		
 		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회

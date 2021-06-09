@@ -88,9 +88,9 @@
 		WHERE KEEP.MEMBER_ID = #{memberId} ORDER BY KEEP_NO DESC
 	</select>
 	
-	<!-- 액티비티 KEEP한 글 조회 -->
+	<!-- 액티비티 상세view에서 KEEP 조회 -->
 	<select id="selectOneKeepActivity" resultMap="KeepResultMap">
-		SELECT * FROM KEEP WHERE ACTIVITY_NO = #{activityNo} AND MEMBER_ID = #{memberId} AND KEEP_STATUS = 'Y' 
+		SELECT * FROM KEEP WHERE ACTIVITY_NO = #{activityNo} AND MEMBER_ID = #{memberId} AND KEEP_STATUS = 'Y'  
 	</select>
 	
 	<!-- 클래스 KEEP한 글 목록 -->

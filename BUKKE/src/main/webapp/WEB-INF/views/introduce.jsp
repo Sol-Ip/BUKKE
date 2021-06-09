@@ -45,6 +45,12 @@
     overflow: hidden;
     position: relative;
     right: -20px;
+    position: relative; left: 40px;
+}
+#imgflow{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 *::before, *::after {
     box-sizing: border-box;
@@ -232,11 +238,10 @@ button.learn-more:active::before {
 				<div class="row">
           <div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block">
-              <!-- <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-idea"></span>
-              </div> -->
+               <div class="icon d-flex justify-content-center align-items-center" style="background-color: white;">
+              </div> 
+              		<div id="flow"><img src="https://cdn.pixabay.com/photo/2015/03/28/09/17/men-695653_960_720.jpg" id="imgflow"></div>
               <div class="media-body p-2 mt-3"  style="text-align: center" >
-              		<div id="flow"><img src="http://www.dynews.co.kr/news/photo/201911/478753_138996_1339.jpg"></div>
                 <h3 class="heading" id="ptH3" style="background-color: #8A2BE2;color: white;"> Perfectly Design</h3>
                 <p id="ptg">부캐를 이용하는 여러분들의 취미를 위해 다양한 크리에이티브를 가진 문화/예술 분야의 작가님들이 함께하고 있습니다.</p>
               </div>
@@ -244,9 +249,9 @@ button.learn-more:active::before {
           </div>
           <div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block">
-              <!-- <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-compass-symbol"></span>
-              </div> -->
+               <div class="icon d-flex justify-content-center align-items-center" style="background-color: white;">
+              </div> 
+              	<div id="flow"><img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTJfMjg2/MDAxNDkyMDAyMTgzOTQ1.byIzpTp_oGbA10vOHeycjfMACCnGXHhU3bvrTG5JwNsg.eU_Q3wtsQXRbX1llPUkOX4u8USmc8GOpxg8r4Zkm63Qg.JPEG.candle_room/17_%EB%B3%B5%EC%82%AC.jpg?type=w2" id="imgflow"></div>
               <div class="media-body p-2 mt-3" style="text-align: center">
                 <h3 class="heading" id="ptH3" style="background-color: #8A2BE2;color: white;">Beautiful Life</h3>
                 <p id="ptg">부캐는 일상을 아름답게 할 수 있습니다. '취미로 살맛나는 세상'을 만들겠습니다. 우리의 취미가 즐거운 삶을 만들어 갈 수 있도록 노력하고 있습니다.</p>
@@ -255,9 +260,9 @@ button.learn-more:active::before {
           </div>
           <div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block">
-             <!--  <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-layers"></span>
-              </div> -->
+               <div class="icon d-flex justify-content-center align-items-center" style="background-color: white;">
+              </div> 
+              <div id="flow"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/02_%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0_%EC%8B%A4%EC%82%AC01.png/1280px-02_%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0_%EC%8B%A4%EC%82%AC01.png" id="imgflow"></div>
               <div class="media-body p-2 mt-3" style="text-align: center">
                 <h3 class="heading" id="ptH3" style="background-color: #8A2BE2;color: white;">Accurate review</h3>
                 <p id="ptg">부캐는 일회성이 아닌 일상의 변화시키는 취미생활을 응원합니다. 후기 게시판에서 여러분들의 후기를 맘껏 자랑하고 소개해주세요. </p>

@@ -4,11 +4,11 @@ $(document).ready(function(){
 
 $("#iamport").click(function(e){
     IMP.request_pay({
-        pg : 'kakaopay',
+        pg : 'html5_inicis',
         pay_method : 'card',
         merchant_uid : 'merchant_' + new Date().getTime(),
         name : '클래스예약: 미술시간',
-        amount : 1,
+        amount : 10,
         buyer_email : 'user@gmail.com',
         buyer_name : '홍찬희',
         buyer_tel : '010-1111-2222',

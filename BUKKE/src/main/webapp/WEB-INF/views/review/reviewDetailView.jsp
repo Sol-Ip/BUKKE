@@ -239,26 +239,12 @@
 				</div>
 			</div>
 			<section>
-				 <div class="pt-5 mt-5">
-              <h3 class="mb-5 h4 font-weight-bold" id="commentsNum">0 Comments</h3>
-              <ul class="comment-list" id="comment-list">
-                
-              </ul>
+			<h3 class="mb-5 h4 font-weight-bold" id="comment1"></h3>
+			 <table id="commentGo">
+				<tbody></tbody>
+			</table>
 			</section>
 			<!-- 댓글 갯수 -->
-			<td colspan="2"><b id="rCount"></b></td>
-			<!-- 댓글 목록 -->
-			
-<!-- 			 <table class="form-control-borderless" -->
-<!-- 				align="center" border="1" cellspacing="0" id="rtb"> -->
-
-<!-- 				<tbody class="form-control-borderless"></tbody> -->
-<!-- 			</table>  -->
-			
-			<!-- 댓글 목록 -->
-			<!-- <table id="rtb">
-				<tbody></tbody>
-			</table> -->
 			
 			
 		</div>
@@ -293,10 +279,12 @@
 				});
 			});
 
-		 
-			 function getCommentList() {
+			  function getCommentList() {
+
 				var reviewNo = '${review.reviewNo }';
-				$.ajax({
+
+				$
+						.ajax({
 							url : "commentList.com",
 							type : "get",
 							data : {
@@ -304,44 +292,35 @@
 							},
 							dataType : "json",
 							success : function(data) {
-								("#commentsNum").val
 								// db에 있는 데이터를 json형태로 가져와서
 								// 댓글 목록 테이블의 tbody에 넣어주어야 함.
 								//console.log(data);
 								// tbody에 필요한 tr, td 태그를 만들면서
 								// 데이터를 tbody에 꽂아줄 것임.
-								var $commentList = $("#comment-list");
+								var $tableBody = $("#commentGo");
 								$tableBody.html(""); // 비워주기
-								var $li;
-								var $div;
-								var $cBody;
-								var $cDateDiv;
-								$("#rCount").text("댓글 (" + data.length + ")"); // 댓글 갯수 표시
+								var comments ="";
+								$("#comment1").text("COMMENT (" + data.length + ")"); // 댓글 갯수 표시
 								if (data.length > 0) {
 									for ( var i in data) {
-										$tr = $("<tr>");
-										$rWriter = $("<td width='20%'>").text(
-												data[i].memberId);
-										$rContent = $("<td width='60%'>").text(
-												data[i].commentContents);
-										$rCreateDate = $("<td width='13%'>")
-												.text(data[i].commentDate);
-										$btnArea = $("<td>")
-												.append(
-														"<a href='#' onclick='modifyComment(this);'>수정   </a>")
-
-												.append(
-														"<a href='' onclick='removeComment("
-																+ reviewNo
-																+ ","
-																+ data[i].commentNo
-																+ ");'> 삭제</a>");
-										$tr.append($rWriter);
-										$tr.append($rContent);
-										$tr.append($rCreateDate);
-										$tableBody.append($tr);
-
+											comments +='<div class="pt-3 mt-3">';
+											comments +='<ul class="comment-list" id="commentGo">';
+											comments +='<li class="comment">';
+											comments +='<div class="vcard bio">';
+											comments +='<img src="resources/images/review/sms.png">';
+											comments +='</div>';
+											comments +='<div class="comment-body">';
+											comments +='<h3>'+data[i].memberId;
+											comments +='</h3>';
+											comments +='<div class="meta mb-2">'+data[i].commentDate+'</div>';
+											comments +='<p>'+data[i].commentContents+'</p>';
+											comments +='<p><a href="#" class="reply">delete</a></p>';
+											comments +='</div>';
+											comments +='</li>';
+											comments +='</ul>';
+											comments +='</div>';	
 									}
+									$("#commentGo").html(comments);
 								} else {
 
 								}
@@ -387,7 +366,7 @@
 		</script>
 	</section>
 
-	<jsp:include page="../common/footer.jsp"></jsp:include>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>
+<jsp:include page="../common/footer.jsp"></jsp:include>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>

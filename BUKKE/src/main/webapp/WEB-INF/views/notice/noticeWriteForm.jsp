@@ -12,8 +12,13 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script></head>
-  
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<style type="text/css">
+		.btn-outline-warning {
+		background-color: #ffc107;
+		color: white;
+	</style>  
+  </head>
 <body>
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
@@ -37,7 +42,13 @@
 	<!-- fixed section END-->
 
 	<section class="ftco-section">
-
+			<div class="row justify-content-center mb-5" style="position: relative; right: 90px;">
+				<div class="col-md-6 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">REVIEW</small></span>
+					<h2 class="mb-2">WRITE</h2>
+				</div>
+			</div>
 		<div class="container">
 			<br> <br>
 			<form action="noticeInsert.com" method="post" enctype="multipart/form-data">
@@ -46,17 +57,16 @@
 						placeholder="Q. 질문을 입력하세요">
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" name="memberId"
-						placeholder="작성자">
+					<input type="text" class="form-control" name="memberId" value="${loginMember.memberId }"
+						readonly>
 				</div>
 				<textarea id="summernote" name="noticeContents" class="summernote"></textarea>
 				<div class="form-group">
-					<input type="file" class="form-control" name="uploadFile"
-						>
+					<input type="file" class="form-control" name="uploadFile">
 				</div>
 				<div>
-					<input type="submit" id="subBtn" value="글 작성" style="float: right;" />&nbsp;
-					<input type="reset" id="subBtn" value="취소" style="float: right;" />
+					<input type="reset" id="subBtn" value="취소" class="float-center btn btn-lg btn-outline-warning" style="float: right;" />
+					<input type="submit" id="subBtn" value="글 작성" class="float-center btn btn-lg btn-primary" style="float: right;" />&nbsp;
 				</div>
 			</form>
 

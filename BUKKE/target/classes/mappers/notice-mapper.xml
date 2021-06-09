@@ -6,11 +6,11 @@
 		<id property="noticeNo" column="NOTICE_NO"></id>
 		<result property="memberId" column="MEMBER_ID"></result>
 		<result property="noticeTitle" column="NOTICE_TITLE"></result>
-		<result property="noticeContents" column="NOTICE_CONTENTS"></result>
 		<result property="noticeDate" column="NOTICE_DATE"></result>
 		<result property="noticeStatus" column="NOTICE_STATUS"></result>
 		<result property="nOriginalFilename" column="N_ORIGINAL_FILENAME"></result>
 		<result property="nRenameFilename" column="N_RENAME_FILENAME"></result>
+		<result property="noticeContents" column="NOTICE_CONTENTS"></result>
 	</resultMap>
 	
 		<select id="selectListNoticeCount" resultType="_int">
@@ -33,10 +33,15 @@
 			NOTICE_CONTENTS LIKE '%' || #{noticeKeyword} || '%'
 			ORDER BY NOTICE_DATE DESC
 		</select>
+		<!-- 파일 전송 insert  -->
+		<!-- <insert id="insertNotice" parameterType="Notice">
+			INSERT INTO NOTICE 
+				VALUES (SEQ_NOTICE_NO.NEXTVAL,'관리자', #{noticeTitle},SYSDATE,'Y',#{nOriginalFilename},#{nRenameFilename},#{noticeContents})
+		</insert> -->
 		
 		<insert id="insertNotice" parameterType="Notice">
 			INSERT INTO NOTICE 
-				VALUES (SEQ_NOTICE_NO.NEXTVAL,'관리자', #{noticeTitle}, #{noticeContents},SYSDATE,'Y',#{nOriginalFilename},#{nRenameFilename})
+				VALUES (SEQ_NOTICE_NO.NEXTVAL,'관리자', #{noticeTitle},SYSDATE,'Y','nn','mm',#{noticeContents})
 		</insert>
 		
 		 <update id="updateNotice" parameterType="Notice">

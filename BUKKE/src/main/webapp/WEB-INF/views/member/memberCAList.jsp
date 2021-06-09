@@ -138,7 +138,7 @@
       <!-- 예약 목록 탭 -->
       
      <section class="ftco-animate"> 
-     <div class="container">
+     <div class="container"> 
       <div class="tabset retable"> 
   
   <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier" checked>
@@ -207,7 +207,7 @@
                </c:forEach>
                <!-- 다음 -->
                <c:url var="after" value="memberCAList.com">
-                  <c:param name="page" value="${pi.currentPage + 1 }"></c:param>
+                  <c:param name="page" value="${actPi.currentPage + 1 }"></c:param>
                </c:url>
                <c:if test="${actPi.currentPage >= actPi.maxPage }">
                   <li><a href="#" onclick="lastPage()">&gt;</a></li>
@@ -220,71 +220,99 @@
           </div>
         </div>
         </div>
-       </div>
-  </section> 
-   
-   <%--  <section id="dunkles" class="tab-panel">
+       </section>
+       
+        <%-- <section id="dunkles" class="tab-panel">
     <table class="table table-hover" >
   <thead>
     <tr>
-      <th scope="col"><input type="checkbox" name="reservationBtn" id="cb3"></th>
-      <th scope="col">예약 번호</th>
-      <th scope="col">구분</th>
-      <th scope="col">회원명</th>
-      <th scope="col">클래스/액티비티 명</th>
-      <th scope="col">예약일</th>
-      <th scope="col">승인여부</th>
-      <th scope="col">승인/거절</th>
+     
+      <th scope="col">클래스명</th>
+      <th scope="col">분류</th>
+      <th scope="col">상세분류</th>
+      <th scope="col">개강일</th>
+      
     </tr>
   </thead>
- <c:forEach items="${reservationList }" var="reservation" varStatus="status">
+  <c:forEach items="${bList }" var="bClass">
   <tbody> 
   
-  
-  
-  <c:if test="${reservation.classNo != 0  }">
+  	<c:if test="${bClass.classNo != 0  }">
     <tr>
-      <th scope="row"><input type="checkbox" name="chkbox3" value="${reservation.reservationNo }" checknum="${status.index }"></th>
-      <td>${reservation.reservationNo }</td>
-      <td>
-      <c:choose>
-         <c:when test="${reservation.classNo != 0 }">
-         클래스
-      </c:when>
-      <c:when test="${reservation.activityNo != 0}">
-         액티비티
-      </c:when>         
-      </c:choose>
-      </td>
-      <td>${reservation.reservationId }</td>
-      <c:if test="${reservation.classNo != 0 && reservation.activityNo == 0 }">
-      <td>${reservation.bukkeClass.className }</td>
-      </c:if>
-      <c:if test="${reservation.activityNo != 0 && reservation.classNo == 0 }">
-      <td>${reservation.activity.activityName }</td>
-      </c:if>
-      <td>${reservation.reservationDate }</td>
-      <td id="rStatus">${reservation.reservationStatus }&nbsp;&nbsp;</td>
-       <td>
-        <button id="confirm" onclick="confirm(this,${reservation.reservationNo},'승인')" class="btn btn-primary confirm${status.index }">승인</button>
-        <button id="reject" onclick="reject(this,${reservation.reservationNo},'거절')" class="btn btn-danger reject${status.index }">거절</button>
-     </td>
-       
+      
+      <td>${bClass.className }</td>
+      <td>${bClass.classType}</td>
+      <td>${bClass.classTypedetails }</td>
+      <td>${bClass.classStartdate }</td>
     </tr>
     </c:if>
   </tbody>
   </c:forEach>
 </table>
-	<!-- 체크박스 여부 -->
+<!-- 페이징 처리 -->
+      <div class="container">
+       <div class="row no-gutters mt-5">   
+          <div class="col text-center">
+            <div class="block-27">
+              <!-- 이전 --> 
+              <ul>
+               <c:url var="before" value="memberCAList.com">
+                  <c:param name="page" value="${classPi.currentPage - 1 }"></c:param>
+               </c:url>
+               <c:if test="${classPi.currentPage <= 1 }">
+                  <li><a href="#" onclick="firstPage()">&lt;</a></li>
+               </c:if>
+               <c:if test="${classPi.currentPage > 1 }">
+                  <li><a href="${before }">&lt;</a></li>
+               </c:if>
+               <!-- 페이지 -->
+                <c:forEach var="p" begin="${classPi.startPage }" end="${classPi.endPage }">
+                  <c:url var="pagination" value="memberCAList.com">
+                     <c:param name="page" value="${p }"></c:param>
+                  </c:url>
+                  <c:if test="${p eq classPi.currentPage }">
+                  <li class="active" style="background-color: #ffffff;"><span>${p }</span></li>
+               </c:if>
+                  <c:if test="${p ne classPi.currentPage }">
+                     <li><a href="${pagination }">${p }</a></li>
+                  </c:if>
+               </c:forEach>
+               <!-- 다음 -->
+               <c:url var="after" value="memberCAList.com">
+                  <c:param name="page" value="${classpi.currentPage + 1 }"></c:param>
+               </c:url>
+               <c:if test="${classPi.currentPage >= classPi.maxPage }">
+                  <li><a href="#" onclick="lastPage()">&gt;</a></li>
+               </c:if>
+               <c:if test="${classPi.currentPage < classPi.maxPage }">
+                  <li><a href="${after }">&gt;</a></li>
+               </c:if>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+       </section>
+       </div>
+       </div>
+       </div>
+  </section>  --%>
+   
+   <%--  <section id="dunkles" class="tab-panel">
+     
+  
+  
+  
+  
+     
+    
     </section> --%>
     <b></b>
-      <!-- <div style="float: right;">
-      	<button type="button" id="confirmAll">승인</button>
-      	<button type="button" id="rejectAll">거절</button>
-      </div> -->
+     
  </div>
   </div> 
 </div> 
+
 </section>
 
 <p>&nbsp;</p>

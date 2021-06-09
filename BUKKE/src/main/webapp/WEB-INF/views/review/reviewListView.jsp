@@ -6,6 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>취미생활 플랫폼, 부캐</title>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+	crossorigin="anonymous">
 <style>
 	.banner {
 		background-color: rgb(68, 201, 244);

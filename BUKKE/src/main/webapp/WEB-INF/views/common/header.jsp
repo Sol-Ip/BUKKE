@@ -35,9 +35,11 @@
 <link rel="stylesheet" href="resources/css/ionicons.min.css">
 <link rel="stylesheet" href="resources/css/flaticon.css">
 <link rel="stylesheet" href="resources/css/icomoon.css">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-	crossorigin="anonymous"></script>
+
+<link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+crossorigin="anonymous">
 
 <!-- css테마 -->
 <link rel="stylesheet" href="resources/css/style.css">

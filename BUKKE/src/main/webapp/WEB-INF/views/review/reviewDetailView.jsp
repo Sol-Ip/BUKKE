@@ -31,7 +31,6 @@
     transition: 350ms box-shadow;
     position: relative;
     right: 60px;
-}
 	}
 </style>
 </head>
@@ -111,76 +110,53 @@
 				<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
 				<button id="heart" class="" name=""></button>
 				<script>
-					$(document)
-							.ready(
-									function() {
-
-										var heartval = $
-										{
-											heart
-										}
-										;
-										var heartYN = "${heartYN}";
-
-								
-										console.log(heartYN);
-										console.log('${reviewLikes.memberId}');
-										console.log('${loginMember.memberId}');
-										if (heartYN == "Y") {
-
-											$("#heart")
-													.prop("class",
-															"btn btn-danger fas fa-heart");
-											//$("#heart").prop('name',heartval)
-										} else {
-
-											$("#heart")
-													.prop("class",
-															"btn btn-danger far fa-heart");
-											//$("#heart").prop('name',heartval)
-										}
-
-										$("#heart")
-												.on(
-														"click",
-														function() {
-															console
-																	.log("여기까진잘나옴");
-															var heartSpan = $("#hearCnt");
-
-															var sendData = {
-																'reviewNo' : '${review.reviewNo}',
-																'likeCheck' : heartYN,
-																'memberId' : '${loginMember.memberId}'
-															};
-															$
-																	.ajax({
-																		url : "heart.com",
-																		type : "post",
-																		data : sendData,
-																		dataType : "json",
-																		success : function(
-																				data) {
-																			if (heartYN == 'Y') {
-																				$(
-																						'#heart')
-																						.prop(
-																								"class",
-																								"btn btn-danger far fa-heart");
-																			} else {
-																				$(
-																						'#heart')
-																						.prop(
-																								"class",
-																								"btn btn-danger fas fa-heart");
-																			}
-																			heartYN = data.heartYN;
-																			heartSpan
-																					.text(data.likeCount);
-																		}
-																	});
-														});
-									});
+					$(document).ready(function() {
+						var heartYN = "${heartYN}";
+						if (heartYN == "Y") {
+							$("#heart")
+									.prop("class",
+											"btn btn-danger fas fa-heart");
+							//$("#heart").prop('name',heartval)
+						} else {
+							$("#heart")
+									.prop("class",
+											"btn btn-danger far fa-heart");
+							//$("#heart").prop('name',heartval)
+						}
+						$("#heart").on("click", function() {
+							var heartSpan = $("#hearCnt");
+							var sendData = {
+								'reviewNo' : '${review.reviewNo}',
+								'likeCheck' : heartYN,
+								'memberId' : '${loginMember.memberId}'
+							};
+							$.ajax({
+								url : "heart.com",
+								type : "post",
+								data : sendData,
+								dataType : "json",
+								success : function(
+										data) {
+									if (heartYN == 'Y') {
+										$(
+												'#heart')
+												.prop(
+														"class",
+														"btn btn-danger far fa-heart");
+									} else {
+										$(
+												'#heart')
+												.prop(
+														"class",
+														"btn btn-danger fas fa-heart");
+									}
+									heartYN = data.heartYN;
+									heartSpan
+											.text(data.likeCount);
+								}
+							});
+						});
+					});
 				</script>
 				<!-- 사업자에게만 버튼 보이게 하기 -->
 				<div align="right">

@@ -180,22 +180,25 @@ public class ActivityController {
 			keep.setActivityNo(activityNo);
 			keep.setMemberId(memberId);
 			
+			// 예약하기
 			Reservation reservation = new Reservation();
 			reservation.setActivityNo(activityNo);
 			reservation.setReservationId(memberId);
-			reservation.setReservationStatus("대기");
 			
 			Reservation actRes = reService.printOneActivityReservation(reservation);
 			Keep actKeep = kService.printActivityKeep(keep);
 			
 			model.addAttribute("memberId", memberId);
-			if (actKeep != null && memberId.equals(actKeep.getMemberId()) 
-					|| actRes != null && memberId.equals(actRes.getReservationId())) {
+			if (actKeep != null && memberId.equals(actKeep.getMemberId())) {
 				keep.setKeepStatus("Y");
-				reservation.setReservationStatus("대기");
 			} else {
 				keep.setKeepStatus("N");
 			}
+			
+//			if (actRes != null && memberId.equals(actRes.getReservationId())) {
+//				reservation.
+//			}
+			
 			model.addAttribute("keep", keep);
 			model.addAttribute("reservation", reservation);
 		}

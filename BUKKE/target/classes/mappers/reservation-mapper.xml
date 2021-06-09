@@ -91,7 +91,7 @@
    
    <!-- 액티비티 예약 확인 -->
    <select id="selectOneReservation" resultMap="reservationMap">
-   SELECT * FROM RESERVATION WHERE ACTIVITY_NO = #{activityNo} AND RESERVATION_ID = #{reservationId} AND RESERVATION_STATUS = '대기'
+   SELECT * FROM RESERVATION WHERE ACTIVITY_NO = #{activityNo} AND RESERVATION_ID = #{reservationId}
    </select>
    
    <!-- 액티비티 예약 취소(삭제) -->

@@ -38,7 +38,8 @@
 	<div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
 		data-bs-parent="#sidenavAccordion">
 		<nav class="sb-sidenav-menu-nested nav">
-			<a class="nav-link" href="#">클래스관리</a> <a class="nav-link" href="#">액티비티관리</a>
+			<a class="nav-link" href="adminbClassManage.com">클래스관리</a>
+			<a class="nav-link" href="adminActivityManage.com">액티비티관리</a>
 		</nav>
 	</div>
 	<a class="nav-link" href="#">

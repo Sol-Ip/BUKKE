@@ -3,6 +3,7 @@ package com.bukke.spring.admin.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -142,5 +143,48 @@ public class AdminController {
 				return "admin/activityManage"; 
 			}
 	}
+	 
+		// 클래스 삭제
+		@RequestMapping(value="adminbClassDelete.com", method=RequestMethod.GET)
+		public String bukkeClassRemove(Model model,
+										@RequestParam("classNo") int classNo,
+										@RequestParam("cRenameFilename") String cRenameFilename,
+										HttpServletRequest request) {
+//			// 업로드 된 파일 삭제
+//			if(cRenameFilename != "") {
+//				deleteFile(cRenameFilename, request);
+//			}
+//			// DB에 데이터 업데이트
+//			int result = bService.removeBclass(classNo);
+//			if(result > 0) {
+//				return "redirect:bukkeClassList.com";
+//			}else {
+//				model.addAttribute("msg", "부캐 클래스 삭제 실패");
+//				return "common/errorPage";
+//			}
+			return "admin/bClassManage"; 
+		}
+		
+		// 액티비티 삭제
+		@RequestMapping(value="adminActivityDelete.com", method = RequestMethod.GET)
+		public String activityRemove(Model model,
+							@RequestParam("activityNo") int activityNo,
+							@RequestParam("aRenameFilename") String aRenameFilename,
+							HttpServletRequest request) {
+//			// 업로드 된 파일 삭제
+//			if(aRenameFilename !="") {
+//				deleteActivityFile(aRenameFilename, request);
+//			}
+//			
+//			// DB에 데이터 업데이트
+//			int result = aService.removeActivity(activityNo);
+//			if(result > 0) {
+//				return "redirect:activityList.com";
+//			} else {
+//				model.addAttribute("msg", "액티비티 삭제 실패");
+//				return "common/errorPage";
+//			}
+			return "admin/activityManage";
+		}
 
 }

@@ -16,6 +16,9 @@ public interface BukkeClassService {
 	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
 	public ArrayList<BukkeClass> printAllBclass(PageInfo pi);
 	
+	// 클래스 전체목록 조회 (페이징 없음)
+	public ArrayList<BukkeClass> printAllBclass();
+		
 	public int getClassFlowerListCount();
 
 	public int getClassArtListCount();

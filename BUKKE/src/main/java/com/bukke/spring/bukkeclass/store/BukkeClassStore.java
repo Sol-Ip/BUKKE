@@ -36,6 +36,9 @@ public interface BukkeClassStore {
 
 	public ArrayList<BukkeClass> selectPhotoBclass(PageInfo pi);
 	
+	//클래스 목록 조회(페이징 없음)
+	public ArrayList<BukkeClass> selectAllListBclass();
+	
 	// 클래스 상세정보
 	public BukkeClass selectOneBclass(int classNo);
 

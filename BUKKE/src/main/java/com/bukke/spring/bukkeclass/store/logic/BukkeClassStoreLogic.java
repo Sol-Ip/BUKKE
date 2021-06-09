@@ -94,6 +94,11 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	    return (ArrayList)session.selectList("bclassMapper.selectAllPhotoList", null, rowBounds);
 	}
 
+	// 클래스 조회(페이징 없음)
+	@Override
+	public ArrayList<BukkeClass> selectAllListBclass() {
+	    return (ArrayList)session.selectList("bclassMapper.selectAllList");
+	}
 	// 클래스 상세정보
 	@Override
 	public BukkeClass selectOneBclass(int classNo) {

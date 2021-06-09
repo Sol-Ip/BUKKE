@@ -55,6 +55,12 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return bStore.selectAllListBclass(pi);
 	}
 	
+	// 클래스 전체목록 조회 (관리자-클래스 관리 메뉴)
+	@Override
+	public ArrayList<BukkeClass> printAllBclass() {
+		return bStore.selectAllListBclass();
+	}
+	
 	@Override
 	public ArrayList<BukkeClass> printFlowerBclass(PageInfo pi) {
 		return bStore.selectFlowerBclass(pi);

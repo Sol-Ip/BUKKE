@@ -82,41 +82,22 @@
 	       WHERE RESERVATION.CLASS_NO = CLASS.CLASS_NO, RESERVATION.ACTIVITY_NO = ACTIVITY.ACTIVITY_NO -->
    <!-- <select id="selectOneBclass" resultMap="bClassResultMap">
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
+   </select>-->
+   
+   <!-- 액티비티 예약하기(등록) -->
+   <insert id="insertActivityReservation">
+   	INSERT INTO RESERVATION VALUES (SEQ_RESERVATION_NO.NEXTVAL, #{reservationId}, NULL, #{activityNo}, DEFAULT, DEFAULT, DEFAULT)
+   </insert>
+   
+   <!-- 액티비티 예약 확인 -->
+   <select id="selectOneReservation" resultMap="reservationMap">
+   SELECT * FROM RESERVATION WHERE ACTIVITY_NO = #{activityNo} AND RESERVATION_ID = #{reservationId} AND RESERVATION_STATUS = '대기'
    </select>
    
-   
-   
-   
-   클래스 TOP3 목록
-   <select id="selectTopThreeList" resultMap="bClassResultMap">
-   	SELECT * FROM (SELECT * FROM CLASS ORDER BY CLASS_END_DATE DESC) WHERE ROWNUM &lt;= 3 AND CLASS_STATUS = 'Y'
-   </select>
-   
-   <select id="selectSearchBclass" resultMap="bClassResultMap">
-		<if test="classCategory.toString() =='name'">WHERE CLASS_NAME LIKE '%' || #{classKeyword}||'%'</if>
-		<if test="classCategory.toString() =='info'">WHERE CLASS_CONTENTS LIKE '%' || #{classKeyword}||'%'</if>
-	   	SELECT * FROM CLASS
-	   	WHERE CLASS_NAME LIKE '%' || #{classKeyword} ||'%' AND CLASS_INFO LIKE '%' || #{classKeyword} ||'%'
-		ORDER BY CLASS_ENROLL_DATE DESC
-   </select>
-   
-   <insert id="insertBclass" parameterType="BukkeClass">
-   	  INSERT INTO CLASS 
-   	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename })
-   </insert>  
-    
-   <update id="updateBclass">
-   		UPDATE CLASS
-   		SET CLASS_NAME = #{className }, CLASS_ADDR = #{classAddr }, CLASS_TYPE = #{classType }, CLASS_TYPEDETAILS = #{classTypedetails }, 
-   		CLASS_INFO = #{classInfo }, CLASS_PRICE = #{classPrice }, CLASS_START_DATE = #{classStartDate }, CLASS_END_DATE = #{classEndDate }, C_ORIGINAL_FILENAME = #{cOriginalFilename }, C_RENAME_FILENAME = #{cRenameFilename }
-   		WHERE CLASS_NO = #{classNo }
-   </update>
-   
-   <update id="deleteBclass">
-   		UPDATE CLASS
-   		SET CLASS_STATUS = 'N'
-   		WHERE CLASS_NO = #{classNo }
-   </update> -->
+   <!-- 액티비티 예약 취소(삭제) -->
+	<delete id="deleteActivityReservation">
+	DELETE FROM RESERVATION WHERE RESERVATION_NO = #{reservationNo} AND ACTIVITY_NO = #{activityNo}
+	</delete>
    
    
    <!-- 예약 승인 -->

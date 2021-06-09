@@ -36,25 +36,22 @@ public class ReservationServiceImpl implements ReservationService{
 		return null;
 	}
 
-	// 예약하기
+	// 액티비티 예약하기(등록)
 	@Override
-	public int makeReservation() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertActivityReservation(Reservation reservation) {
+		return reStore.insertActivityReservation(reservation);
 	}
 
-	// 예약 수정하기
+	// 액티비티 예약하기 확인
 	@Override
-	public int modifyReservation() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Reservation printOneActivityReservation(Reservation reservation) {
+		return reStore.selectOneActivityReservation(reservation);
 	}
 
-	// 예약 취소
+	// 액티비티 예약취소(삭제)
 	@Override
-	public int removeReservation() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteActivityReservation(Reservation reservation) {
+		return reStore.deleteActivityReservation(reservation);
 	}
 
 	// 예약 승인
@@ -78,6 +75,8 @@ public class ReservationServiceImpl implements ReservationService{
 	public int printActCount(String memberId) {
 		return reStore.actCountReservation(memberId);
 	}
+
+	
 	
 	
 

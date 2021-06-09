@@ -220,7 +220,7 @@
 										</h3></li>
 									<li><h3 id="act-type">${activity.activityEndTime }</h3></li>
 									<br>
-									
+
 									<br>
 									<li><h3 class="act-type">
 											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
@@ -247,43 +247,72 @@
 								</ul>
 
 							</div>
-							
+
+										<!-- 사용자 로그인 할 때 -->
 							<c:choose>
-								<c:when test="${empty loginShopper && !empty loginMember}">
-							<!-- 사용자만 버튼 누를 시 기능 적용 -->
-							<input type="hidden" id="activityNo" name="activityNo" value="${activity.activityNo }">
-							
-							
-								<!-- 사용자 로그인 할 때 -->
-									<c:if test="${keep.keepStatus == null || keep.keepStatus eq 'N' }">
-										<div class="event-btns">
-											<button id="keep-btn1" class="buy-button button--big"
-												onclick="keep()">
+								<c:when
+									test="${empty loginShopper && !empty sessionScope.loginMember}">
+									<!-- 사용자만 버튼 누를 시 기능 적용 -->
+									
+									<div class="row">
+									
+									<div class="col-md-6 event-btns">
+									
+										<input type="hidden" id="activityNo" name="activityNo" value="${activity.activityNo }">
+										<input type="hidden" id="keepNo" name="keepNo" value="${keep.keepNo }">
+										<input type="hidden" id="reservationNo" name="reservationNo" value="${reservation.reservationNo }">
+										
+										<c:if test="${ keep.keepStatus == null || keep.keepStatus eq 'N'  }">
+											<button id="keep-btn1" class="buy-button button--big">
 												<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기
 											</button>
-											<button id="reservation-btn1" class="buy-button button--big">
-												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
-											</button>
-											<br> <br>
-										</div>
-									</c:if>
-									<c:if test="${keep.keepStatus eq 'Y' }">
-									<input type="hidden" id="keepNo" name="keepNo" value="${keep.keepNo }">
-										<div class="event-btns">
+										</c:if>
+										<c:if test="${keep.keepStatus eq 'Y'}">
 											<button id="keep-btn2" class="buy-button button--big"
 												onclick="keep()">
 												<i class="fas fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기취소
 											</button>
-											<button id="reservation-btn2" class="buy-button button--big">
+										</c:if>
+									</div>
+									
+									<div class="col-md-6 event-btns">
+										<c:if test="${reservation.reservationStatus == null  }">
+											<button id="reservation-btn1" class="buy-button button--big">
 												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
 											</button>
-											<br> <br>
-										</div>
-									</c:if>
+										</c:if>
+										<c:if test="${ reservation.reservationStatus eq '대기'  }">
+											<button id="reservation-btn2" class="buy-button button--big">
+												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약취소
+											</button>
+										</c:if>
+										
+									</div>
+									
+									</div>									
 								</c:when>
-								<c:otherwise>
-								</c:otherwise>
 							</c:choose>
+
+						<%-- 	<c:choose>
+								<c:when test="${empty loginShopper && !empty sessionScope.loginMember}">
+									
+						<div class="event-btns">
+									<c:if test="${keep.keepStatus eq 'Y'}">
+											<button id="keep-btn2" class="buy-button button--big"
+												onclick="keep()">
+												<i class="fas fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기취소
+											</button>
+									</c:if>
+									<c:if test="${reservation.reservationStatus eq '대기'  }">
+											<button id="reservation-btn2" class="buy-button button--big">
+												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약취소
+											</button>
+											</c:if>
+										</div>
+											<br> <br>
+								</c:when>
+						</c:choose> --%>
+							
 							
 							
 							<c:if test="${empty loginShopper && empty loginMember}">

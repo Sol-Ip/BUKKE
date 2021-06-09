@@ -9,13 +9,30 @@ $(document).ready(function() {
 	});
 	
 	// 찜 하기 취소
-	//var activityNo = $("#activityNo").val();
-	//var keepNo = $("#keepNo").val();
+	var keepNo = $("#keepNo").val();
 	console.log("keepNo1 : " + keepNo);
 	$('#keep-btn2').click(function(){
 		console.log("keepNo2 : " + keepNo);
 		location.href='updateActivityKeep.com?activityNo=' + activityNo;
 		alert('찜하기가 취소되었습니다!');
+		
+	});
+	
+	
+	// 예약하기
+	$('#reservation-btn1').click(function(){
+		location.href='ActivityReservation.com?activityNo=' + activityNo;
+		alert('예약 신청이 완료되었습니다!');
+		
+	});
+	
+	// 예약하기 취소
+	var reservationNo = $("#reservationNo").val();
+	console.log("reservationNo1 : " + reservationNo);
+	$('#reservation-btn2').click(function(){
+		console.log("reservationNo2 : " + reservationNo);
+		location.href='deleteActivityReservation.com?activityNo=' + activityNo;
+		alert('예약 신청이 취소되었습니다!');
 		
 	});
 	

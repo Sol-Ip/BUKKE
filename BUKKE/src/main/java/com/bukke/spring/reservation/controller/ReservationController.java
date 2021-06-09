@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.ReservationPagination;
+import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
@@ -65,30 +66,64 @@ public class ReservationController {
       public String reservationDetailView(@RequestParam("reservationId")String reservationId,HttpSession session) {
          return null;
       }
+      
       // *예약 검색기능 메소드
       public String reservationSearch() {
          return null;
       }
-      // 예약 등록 jsp 이동 (업체회원)
-      public String reservationEnrollView() {
-         return null;
+      
+     
+      // * 액티비티 예약하기 (모든회원 - 예약 등록)
+      @RequestMapping(value="ActivityReservation.com")
+      public String insertActivityReservation(@RequestParam("activityNo") int activityNo,
+    		  								Model model,
+    		  								HttpSession session) {
+    	  
+    	  Member loginMember = (Member)session.getAttribute("loginMember"); 
+    	  String reservationId = loginMember.getMemberId();
+    	  Reservation reservation = new Reservation();
+    	  
+    	  reservation.setActivityNo(activityNo);
+    	  reservation.setReservationId(reservationId);
+        
+    	  int result = reService.insertActivityReservation(reservation);
+    	  
+    	  if(result > 0) {
+    		  return "redirect:activityDetail.com?activityNo="  + activityNo;
+    	  } else {
+    		  model.addAttribute("msg", "액티비티 예약하기 실패");
+  			return "common/errorPage";
+    	  }
       }
-      // *예약 등록기능 메소드
-      public String reservationAdd() {
-         return null;
+      
+      
+      // * 액티비티 예약 취소하기 (모든회원 - 예약 취소)
+      @RequestMapping(value="deleteActivityReservation.com")
+      public String deleteActivityReservation(@RequestParam("activityNo") int activityNo,
+										Model model,
+										HttpSession session) {
+    	Member loginMember = (Member)session.getAttribute("loginMember"); 
+  		String reservationId = loginMember.getMemberId();
+  		Reservation reservation = new Reservation();
+  	  
+	  	  reservation.setActivityNo(activityNo);
+	  	  reservation.setReservationId(reservationId);
+	  	  
+	  	  Reservation actRes = reService.printOneActivityReservation(reservation);
+	  	  model.addAttribute("reservationNo", actRes.getReservationNo());
+	  	  System.out.println("actRes 는 ? " + actRes);
+	  	  int result = reService.deleteActivityReservation(actRes);
+	  	  System.out.println("result : " + result);
+	  	  if(result > 0) {
+	  		return "redirect:activityDetail.com?activityNo=" + activityNo;
+	  	  } else {
+	  		model.addAttribute("msg", "액티비티 예약 취소 실패");
+			return "common/errorPage";
+	  	  }
       }
-      // 예약 수정 jsp 이동 (업체회원)
-      public String reservationModifyView() {
-         return null;
-      }
-      // *예약 수정기능 메소드
-      public String reservationUpdate() {
-         return null;
-      }
-      // *예약 삭제기능 메소드
-      public String reservationRemove() {
-         return null;
-      }
+      
+      
+     
       // 예약 여부
       @ResponseBody 
       @RequestMapping(value="reservationconfirm.com", method = RequestMethod.GET)

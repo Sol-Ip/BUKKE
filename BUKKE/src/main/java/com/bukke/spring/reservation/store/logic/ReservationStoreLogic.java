@@ -34,26 +34,26 @@ public class ReservationStoreLogic implements ReservationStore {
 
 	@Override
 	public Reservation selectOneReservation(int reservationNo) { // 예약 상세정보 조회
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+
+	// 액티비티 예약하기(등록)
 	@Override
-	public int makeReservation() { // 예약 하기 
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertActivityReservation(Reservation reservation) {
+		return sqlSession.insert("reservationMapper.insertActivityReservation", reservation);
 	}
 
+	// 액티비티 예약하기 확인
 	@Override
-	public int modifyReservation() { // 예약 수정
-		// TODO Auto-generated method stub
-		return 0;
+	public Reservation selectOneActivityReservation(Reservation reservation) {
+		return sqlSession.selectOne("reservationMapper.selectOneReservation", reservation);
 	}
 
+	// 액티비티 예약취소(삭제)
 	@Override
-	public int deleteReservation() { // 예약 삭제
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteActivityReservation(Reservation reservation) {
+		return sqlSession.delete("reservationMapper.deleteActivityReservation", reservation);
 	}
 
 	@Override
@@ -75,6 +75,8 @@ public class ReservationStoreLogic implements ReservationStore {
 	public int actCountReservation(String memberId) { //액티비티 카운트
 		return sqlSession.selectOne("reservationMapper.actCountReservation", memberId);
 	}
+
+	
 
 
 

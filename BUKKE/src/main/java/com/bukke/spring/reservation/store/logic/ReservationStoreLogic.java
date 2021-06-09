@@ -56,6 +56,13 @@ public class ReservationStoreLogic implements ReservationStore {
 	public int deleteActivityReservation(Reservation reservation) {
 		return sqlSession.delete("reservationMapper.deleteActivityReservation", reservation);
 	}
+	
+	// 사업자가 거절한 액티비티 다시 예약하기
+	@Override
+	public int reInsertActivityReservation(Reservation reservation) {
+		return sqlSession.update("reservationMapper.reInsertActivityReservation", reservation);
+	}
+	
 
 	@Override
 	public int confirmReservaion(Reservation reservation) { // 예약 승인
@@ -92,7 +99,6 @@ public class ReservationStoreLogic implements ReservationStore {
 	}
 
 	
-
 
 
 }

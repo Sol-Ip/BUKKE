@@ -129,6 +129,29 @@ public class ReservationController {
 	  	  }
       }
       
+      // * 액티비티 거절한 수업 다시 예약하기 
+      @RequestMapping(value="reActivityReservation.com")
+      public String reInsertActivityReservation(@RequestParam("activityNo") int activityNo,
+    		  								Model model,
+    		  								HttpSession session) {
+    	  
+    	  Member loginMember = (Member)session.getAttribute("loginMember"); 
+    	  String reservationId = loginMember.getMemberId();
+    	  Reservation reservation = new Reservation();
+    	  
+    	  reservation.setActivityNo(activityNo);
+    	  reservation.setReservationId(reservationId);
+        
+    	  int result = reService.reInsertActivityReservation(reservation);
+    	  
+    	  if(result > 0) {
+    		  return "redirect:activityDetail.com?activityNo="  + activityNo;
+    	  } else {
+    		  model.addAttribute("msg", "액티비티 예약하기 실패");
+  			return "common/errorPage";
+    	  }
+      }
+      
       
       
       ////////////////////////////////////////////// 예약 확인 logic

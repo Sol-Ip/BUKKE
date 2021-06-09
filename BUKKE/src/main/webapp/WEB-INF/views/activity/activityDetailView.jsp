@@ -276,7 +276,7 @@
 									</div>
 									
 									<div class="col-md-6 event-btns">
-										<c:if test="${reservation.reservationStatus == null || reservation.reservationStatus eq '거절' }">
+										<c:if test="${reservation.reservationStatus == null }">
 											<button id="reservation-btn1" class="buy-button button--big">
 												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
 											</button>
@@ -287,15 +287,15 @@
 											</button>
 										</c:if>
 										 <c:if test="${ reservation.reservationStatus eq '승인'  }">
-											<button id="reservation-btn2" class="buy-button button--big disabled">
+											<button id="reservation-btn3" class="buy-button disabled button--big">
 												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약완료
 											</button>
 										</c:if> 
-										 <%-- <c:if test="${ reservation.reservationStatus eq '거절'  }">
-											<button id="reservation-btn2" class="buy-button button--big">
+										 <c:if test="${ reservation.reservationStatus eq '거절'  }">
+											<button id="reservation-btn4" class="buy-button button--big">
 												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
 											</button>
-										</c:if>  --%>
+										</c:if>  
 										
 									</div>
 									

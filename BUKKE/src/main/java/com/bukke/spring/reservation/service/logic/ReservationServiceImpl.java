@@ -54,6 +54,14 @@ public class ReservationServiceImpl implements ReservationService{
 	public int deleteActivityReservation(Reservation reservation) {
 		return reStore.deleteActivityReservation(reservation);
 	}
+	
+	// 사업자가 거절한 액티비티 다시 예약하기
+	@Override
+	public int reInsertActivityReservation(Reservation reservation) {
+		return reStore.reInsertActivityReservation(reservation);
+	}
+	
+	
 
 	// 예약 승인
 	@Override
@@ -92,10 +100,6 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	
 	
-
-
-
-
 
 	
 }

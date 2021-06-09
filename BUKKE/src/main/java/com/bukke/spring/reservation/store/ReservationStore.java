@@ -15,7 +15,7 @@ public interface ReservationStore {
 	public int insertActivityReservation(Reservation reservation); // 액티비티 예약하기(등록)
 	public Reservation selectOneActivityReservation(Reservation reservation); // 액티비티 예약하기 확인
 	public int deleteActivityReservation(Reservation reservation); // 액티비티 예약취소(삭제)
-	
+	public int reInsertActivityReservation(Reservation reservation); // 사업자가 거절한 액티비티 다시 예약하기
 	
 	public int confirmReservaion(Reservation reservation); // 예약 승인
 	public int cancleReservation(Reservation reservation); // 예약 거절
@@ -26,4 +26,5 @@ public interface ReservationStore {
 	
 	// 사용자 예약확인(조회)
 	public ArrayList<Reservation> reservationListMyId(MemberPageInfo reservationPi, String memberId);
+	
 }

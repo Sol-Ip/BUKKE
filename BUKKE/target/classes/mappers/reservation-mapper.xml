@@ -99,6 +99,9 @@
 	DELETE FROM RESERVATION WHERE RESERVATION_NO = #{reservationNo} AND ACTIVITY_NO = #{activityNo}
 	</delete>
    
+   <update id="reInsertActivityReservation">
+   UPDATE RESERVATION SET RESERVATION_STATUS = '대기' WHERE ACTIVITY_NO = #{activityNo} AND RESERVATION_ID = #{reservationId}
+   </update>
    
    <!-- 예약 승인 -->
    <update id="confirmReservation">

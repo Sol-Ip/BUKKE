@@ -222,8 +222,8 @@
         </div>
        </section>
        
-        <%-- <section id="dunkles" class="tab-panel">
-    <table class="table table-hover" >
+         <section id="dunkles" class="tab-panel">
+   <table class="table table-hover" >
   <thead>
     <tr>
      
@@ -243,13 +243,16 @@
       <td>${bClass.className }</td>
       <td>${bClass.classType}</td>
       <td>${bClass.classTypedetails }</td>
-      <td>${bClass.classStartdate }</td>
+      <td>${bClass.classStartDate }</td>
     </tr>
     </c:if>
   </tbody>
   </c:forEach>
 </table>
-<!-- 페이징 처리 -->
+   
+   
+   
+   <!-- 페이징 처리 -->
       <div class="container">
        <div class="row no-gutters mt-5">   
           <div class="col text-center">
@@ -279,7 +282,7 @@
                </c:forEach>
                <!-- 다음 -->
                <c:url var="after" value="memberCAList.com">
-                  <c:param name="page" value="${classpi.currentPage + 1 }"></c:param>
+                  <c:param name="page" value="${classPi.currentPage + 1 }"></c:param>
                </c:url>
                <c:if test="${classPi.currentPage >= classPi.maxPage }">
                   <li><a href="#" onclick="lastPage()">&gt;</a></li>
@@ -296,7 +299,7 @@
        </div>
        </div>
        </div>
-  </section>  --%>
+  </section>  
    
    <%--  <section id="dunkles" class="tab-panel">
      

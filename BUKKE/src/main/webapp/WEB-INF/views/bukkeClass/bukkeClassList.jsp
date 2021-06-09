@@ -92,29 +92,25 @@
   background: linear-gradient(45deg, #05abe0 0%,#8200f4 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4',GradientType=1 );
 }
+.banner {
+		background-color: #ff5613;
+	}
+.banner * {
+	color: white;
+}
 </style>
 </head>
 <body>
-	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
+	<section class="banner hero-wrap hero-wrap-2">
 		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">CLASS</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Class <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
+					<h1 class="mb-2 bread">Class</h1>
+					<p class="mr-2">원하는 취미들을 마음껏 즐겨보세요</p>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- fixed section END-->
+	</section>	
 	
 	<!-- ========================= 리스트 시작 =========================  -->
 	

@@ -11,13 +11,18 @@
 <link rel="stylesheet" href="resources/css/activity-custom/activityListView.css">
 </head>
 <style>
-
-.button-group {
-	padding : 30px;
- }	
- .btn {
-display: inline-block;
-}
+	.button-group {
+		padding : 30px;
+	}	
+	.btn {
+	display: inline-block;
+	}
+	.banner {
+		background-color: #003cf2;
+	}
+	.banner * {
+		color: white;
+	}
 /* #exTab1 .tab-content {
   color : white;
   background-color: #428bca;
@@ -49,28 +54,16 @@ display: inline-block;
 }
 </style>
 <body>
-	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
+	<section class="banner hero-wrap hero-wrap-2">
 		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">ACTIVITY</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Activity <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
+					<h1 class="mb-2 bread">Activity</h1>
+					<p class="mr-2">마음에 드는 액티비티를 신청하세요</p>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- fixed section END-->
-
-		
+	</section>		
 		
 		<!-- ========================= 리스트 시작 =========================  -->
 		

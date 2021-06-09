@@ -10,7 +10,6 @@
 	.hero-wrap {
 		content: '';
 		background-image: url('/resources/images/bg-gift-center.png');
-		opacity: 0.7;
 		z-index: 1;
 	}
 	.banner {

@@ -17,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.common.MemberPagination;
 import com.bukke.spring.common.ReservationPagination;
 import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
@@ -33,6 +37,9 @@ public class ReservationController {
    
    @Autowired
    private ReservationService reService;
+   
+   @Autowired
+   private ActivityService aService;
    
    @Autowired
    private BukkeClassService bService;
@@ -122,6 +129,34 @@ public class ReservationController {
 	  	  }
       }
       
+      
+      
+      ////////////////////////////////////////////// 예약 확인 logic
+      
+    //일반회원 예약 전체 조회하기
+      @RequestMapping(value="myReservationList.com", method =RequestMethod.GET)
+      public ModelAndView myReservation(ModelAndView mv,@RequestParam(value="page", required=false) Integer page,HttpSession session, @ModelAttribute Reservation reservation) {
+         int currentPage = (page != null) ? page : 1;
+          int listCount = reService.getListCount();
+          PageInfo pi = ReservationPagination.getPageInfo(currentPage, listCount);
+          Member loginMember = (Member)session.getAttribute("loginMember");
+          
+          String memberId = loginMember.getMemberId();
+          int reListCountbyId = reService.getreListMyId(memberId);
+          
+          MemberPageInfo reservationPi = MemberPagination.getPageInfo(currentPage,reListCountbyId);
+
+          ArrayList<Reservation> reList = reService.printMyreservationById(reservationPi,memberId);
+          
+          if(reList.isEmpty()) {
+             mv.addObject("msg" ,"조회 실패입니다");
+          }else {
+            mv.addObject("reList",reList);
+            mv.addObject("reservationPi",reservationPi);
+            mv.setViewName("member/memberMyReservation");
+          }
+      return mv;
+      }
       
      
       // 예약 여부

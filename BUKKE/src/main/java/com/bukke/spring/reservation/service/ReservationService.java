@@ -3,6 +3,7 @@ package com.bukke.spring.reservation.service;
 import java.util.ArrayList;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 
@@ -22,6 +23,12 @@ public interface ReservationService {
 	
 	public int printclassCount(String memberId); //클래스 카운트
 	public int printActCount(String memberId); //액티비티 카운트
+	
+	
+	public int getreListMyId(String memberId); // 사용자 예약확인(조회) 카운트
+	
+	// 사용자 예약확인(조회)
+	public ArrayList<Reservation> printMyreservationById(MemberPageInfo reservationPi, String memberId); 
 	
 	
 	

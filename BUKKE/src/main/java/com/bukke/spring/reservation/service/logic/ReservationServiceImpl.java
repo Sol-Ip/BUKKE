@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
@@ -74,6 +75,18 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public int printActCount(String memberId) {
 		return reStore.actCountReservation(memberId);
+	}
+
+	// 사용자 예약확인(조회) 카운트
+	@Override
+	public int getreListMyId(String memberId) {
+		return reStore.reservationCountMyId(memberId);
+	}
+
+	// 사용자 예약확인(조회)
+	@Override
+	public ArrayList<Reservation> printMyreservationById(MemberPageInfo reservationPi, String memberId) {
+		 return reStore.reservationListMyId(reservationPi, memberId);
 	}
 
 	

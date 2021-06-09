@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.reservation.domain.PageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.store.ReservationStore;
@@ -74,6 +75,20 @@ public class ReservationStoreLogic implements ReservationStore {
 	@Override
 	public int actCountReservation(String memberId) { //액티비티 카운트
 		return sqlSession.selectOne("reservationMapper.actCountReservation", memberId);
+	}
+
+	@Override
+	public int reservationCountMyId(String memberId) { // 사용자 예약확인(조회) 카운트
+		  return sqlSession.selectOne("reservationMapper.reservationCountMyId",memberId);
+	}
+
+	// 사용자 예약확인(조회)
+	@Override
+	public ArrayList<Reservation> reservationListMyId(MemberPageInfo reservationPi, String memberId) {
+		 int offset = (reservationPi.getCurrentPage() - 1) * reservationPi.getBoardLimit();
+	      RowBounds rowBounds = new RowBounds(offset, reservationPi.getBoardLimit());
+	      return (ArrayList)sqlSession.selectList("reservationMapper.reservationListMyId", memberId, rowBounds);
+
 	}
 
 	

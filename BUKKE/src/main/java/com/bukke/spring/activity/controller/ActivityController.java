@@ -30,6 +30,8 @@ import com.bukke.spring.common.ActivityPagination;
 import com.bukke.spring.keep.domain.Keep;
 import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.reservation.domain.Reservation;
+import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,6 +45,9 @@ public class ActivityController {
 	
 	@Autowired
 	private KeepService kService;
+	
+	@Autowired
+	private ReservationService reService;
 	
 	// 분류별로 필터링 할 때 해쉬맵 이용해서 밸류값 넘겨줄 것 
 	// 에이젝스로 수정하기 
@@ -174,15 +179,27 @@ public class ActivityController {
 			Keep keep = new Keep();
 			keep.setActivityNo(activityNo);
 			keep.setMemberId(memberId);
+			
+			Reservation reservation = new Reservation();
+			reservation.setActivityNo(activityNo);
+			reservation.setReservationId(memberId);
+			reservation.setReservationStatus("대기");
+			
+			Reservation actRes = reService.printOneActivityReservation(reservation);
 			Keep actKeep = kService.printActivityKeep(keep);
+			
 			model.addAttribute("memberId", memberId);
-			if (actKeep != null && memberId.equals(actKeep.getMemberId())) {
+			if (actKeep != null && memberId.equals(actKeep.getMemberId()) 
+					|| actRes != null && memberId.equals(actRes.getReservationId())) {
 				keep.setKeepStatus("Y");
+				reservation.setReservationStatus("대기");
 			} else {
 				keep.setKeepStatus("N");
 			}
 			model.addAttribute("keep", keep);
+			model.addAttribute("reservation", reservation);
 		}
+		
 		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회
 		ArrayList<Activity> aList = aService.printTopThreeActivity(); // 상위 top3 용도
 		if(activity != null && !aList.isEmpty()) {

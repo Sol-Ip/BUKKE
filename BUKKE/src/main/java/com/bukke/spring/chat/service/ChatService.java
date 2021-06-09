@@ -23,15 +23,20 @@ public class ChatService {
 	public ArrayList<Room> printChatRoom() {
 		 return chatStore.selectChatRoom();
 	}
+	
+	public int printMaxRoomNumber() {
+		return chatStore.selectMaxRoomNumber();
+	}
 
 	// 채팅 내역 저장
 	public int registerChat(Chat chat) {
-		return 0;
+		return chatStore.insertChatRoom(chat);
 	}
 
 	// 채팅 내역 가져오기
 	public ArrayList<Chat> printChat(int roomNumber) {
-		return null;
+		return chatStore.selectChat(roomNumber);
 	}
+
 
 }

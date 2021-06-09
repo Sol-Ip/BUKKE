@@ -2,31 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="chatMapper">
-	<resultMap type="ChatRoom" id="chatRoomResultMap">
+	<resultMap type="Room" id="chatRoomResultMap">
 		<id property="roomNumber" column="ROOM_NUMBER"></id>
-		<result property="roomName" column="ROOM_NAME"></result>
 		<result property="memberId" column="MEMBER_ID"></result>
 		<result property="shopId" column="SHOP_ID"></result>
+		<result property="roomName" column="ROOM_NAME"></result>
+		<result property="memberNick" column="MEMBER_NICK"></result>
+		<result property="className" column="CLASS_NAME"></result>
+		<result property="activityName" column="ACTIVITY_NAME"></result>
+		<result property="chatTime" column="CHAT_TIME"></result>
+		<result property="lastChatMsg" column="LAST_CHAT_MSG"></result>
+		<result property="lastChatTime" column="LAST_CHAT_TIME"></result>
 	</resultMap>
 
 	<resultMap type="Chat" id="chatResultMap">
-		<id property="chatContentsNo" column="CHAT_CONTENTS_NO"></id>
+		<id property="chatNo" column="CHAT_NO"></id>
 		<result property="roomNumber" column="ROOM_NUMBER"></result>
 		<result property="memberId" column="MEMBER_ID"></result>
 		<result property="shopId" column="SHOP_ID"></result>
 		<result property="msg" column="MSG"></result>
 		<result property="chatTime" column="CHAT_TIME"></result>
-		<result property="chatDate" column="CHAT_DATE"></result>
 	</resultMap>
 	
 	<!-- 채팅방 리스트 -->
 	<select id="selectChatRoom" resultMap="chatRoomResultMap">
-		SELECT * FROM CHAT_ROOM
+		SELECT * FROM ROOM
+	</select>
+	
+	<select id="selectMaxRoomNumber" resultMap="chatRoomResultMap">
+		SELECT MAX(ROOM_NUMBER) FROM ROOM
+	</select>
+	
+	<!-- 채팅 내역  -->
+	<select id="selectChat" parameterType="_int" resultMap="chatResultMap">
+		SELECT * FROM CHAT WHERE ROOM_NUMBER = #{roomNumber }
 	</select>
 	
 	<!-- 채팅방 등록 -->
-	<insert id="insertChatRoom" parameterType="ChatRoom">
-		INSERT INTO CHAT_ROOM VALUES(#{roomNumber }, #{roomName })
+	<insert id="insertChatRoom" parameterType="Room">
+		INSERT INTO ROOM VALUES(#{roomNumber }, #{memberId }, #{shopId }, #{roomName }, #{memberNick }, #{className }, #{activityName }, #{chatTime }, #{lastChatMsg }, #{lastChatTime })
+	</insert>
+	
+	<!-- 채팅 내역 저장 -->
+	<insert id="insertChat" parameterType="Chat">
+		INSERT INTO VALUES(SEQ_CHAT_NO.NEXTVAL, #{roomNumber }, #{memberId }, #{shopId }, #{memberNick }, #{msg }, #{chatTime }, #{chatDate } )
 	</insert>
 	
 </mapper>

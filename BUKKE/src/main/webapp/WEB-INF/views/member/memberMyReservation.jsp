@@ -232,11 +232,11 @@
       <td>${reservation.activity.activityType}</td>
       <td>${reservation.activity.activityTypeDetails }</td>
       <td>${reservation.activity.activityStartdate }</td>
+      
       <td>
       <c:choose>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
 		      	<button type=button id="act-iamport" class="confirmbtn">결제하기</button>
-		      	
 		      	
 		      	<script>
 				$(document).ready(function(){
@@ -249,7 +249,7 @@
 				        pay_method : 'card',
 				        merchant_uid : 'merchant_' + new Date().getTime(),
 				        name : '${reservation.activity.activityName}',
-				        amount : '{reservation.activity.activityPrice}',
+				        amount : '${reservation.activity.activityPrice}',
 				       // buyer_email : '12345@naver.com',
 				        buyer_name : 'ㄱㄱㄱ',
 				        buyer_tel : '010-1111-2222',
@@ -269,7 +269,6 @@
 				    });
 				})
 		</script>
-		
 		
 		      	</c:when>
       	<c:when test="${reservation.reservationStatus eq '거절' }">
@@ -356,16 +355,47 @@
       <td>
       <c:choose>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
-      	<input type=button id="confirmbtn" value="결제하기"><a href=""></a>
-      	</c:when>
+		<button type=button id="class-iamport" class="confirmbtn">결제하기</button>
+		      	<script>
+				$(document).ready(function(){
+				    IMP.init('imp18509268');
+				});
+				
+				$("#class-iamport").click(function(e){
+				    IMP.request_pay({
+				        pg : 'html5_inicis',
+				        pay_method : 'card',
+				        merchant_uid : 'merchant_' + new Date().getTime(),
+				        name : '${reservation.bukkeClass.className}',
+				        amount : '${reservation.bukkeClass.classPrice}',
+				        //buyer_email : '12345@naver.com',
+				        buyer_name : 'ㄱㄱㄱ',
+				        buyer_tel : '010-1111-2222',
+				        buyer_addr : '서울특별시 중구 남대문로 120,2층',
+				    }, function(rsp) {
+				        if ( rsp.success ) {
+				            var msg = '결제에 성공하였습니다.';
+				            msg += ' 고유ID : ' + rsp.imp_uid;
+				            msg += ' 상점 거래ID : ' + rsp.merchant_uid;
+				            msg += ' 결제 금액 : ' + rsp.paid_amount;
+				            msg += ' 카드 승인번호 : ' + rsp.apply_num;
+				        } else {
+				            var msg = '결제에 실패하였습니다.';
+				            msg += ' 에러내용 : ' + rsp.error_msg;
+				        }
+				        alert(msg);
+				    });
+				})
+		</script>
+		      	</c:when>
       	<c:when test="${reservation.reservationStatus eq '거절' }">
-      	<div id="rejectbtn">거절</div>
+		<div id="rejectbtn">거절</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '대기' }">
       	<button type="button" data-toggle="modal" data-target="#myModal" id="waitbtn" >대기</button>
       	</c:when>
       </c:choose>
-      </td> 
+      </td>      	
     </tr> 
     </c:if>
   </tbody>

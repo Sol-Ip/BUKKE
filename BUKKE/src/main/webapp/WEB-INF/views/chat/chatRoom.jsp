@@ -104,12 +104,16 @@
 		console.log(number, name);
 	}
 
+	// 방을 만들고 채팅룸을 만들기
+	// res에 {roomNumber: ?, roomName : "createRoom 에서 입력한 채팅방 이름"}
 	function createChattingRoom(res){
 		console.log("createChattingRoom 실행");
 		console.log(res);
 		//var resJson = JSON.parse(res);
 		if(res != null){
 			var tag = "<tr><th class='num'>순서</th><th class='room'>방 이름</th><th class='go'></th></tr>";
+			// d : {roomNumber: ?, roomName : "createRoom 에서 입력한 채팅방 이름"}
+			// idx : 인덱스
 			res.forEach(function(d, idx){
 				console.log(d, idx)
 				var rn = d.roomName.trim();

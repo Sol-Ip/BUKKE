@@ -15,8 +15,8 @@ public class ChatService {
 	private ChatStore chatStore;
 	
 	// 채팅방 리스트
-	public ArrayList<Room> printAllList(String memberId, String shopId) {
-		return chatStore.selectAllList(memberId,shopId);
+	public ArrayList<Room> printAllList(String memberId) {
+		return chatStore.selectAllList(memberId);
 	}
 	
 	// 최신 방번호

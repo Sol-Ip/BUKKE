@@ -15,7 +15,7 @@ public class ChatStore {
 	private SqlSessionTemplate sqlSession;
 	
 	// 채팅방 리스트
-	public ArrayList<Room> selectAllList(String memberId, String shopId) {
+	public ArrayList<Room> selectAllList(String memberId) {
 		return (ArrayList)sqlSession.selectList("chatMapper.selectAllList", memberId);
 	}
 	
@@ -26,7 +26,7 @@ public class ChatStore {
 	
 	// 선택한 방 정보 가져오기
 	public Room selectOneRoom(Room roominfo) {
-		return sqlSession.selectOne("roomMapper.selectOneRoom", roominfo);
+		return sqlSession.selectOne("chatMapper.selectOneRoom", roominfo);
 	}
 		
 	// 채팅방 등록

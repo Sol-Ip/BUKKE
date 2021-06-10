@@ -100,8 +100,8 @@ public class ChatController {
 	@RequestMapping(value = "/getRoom.com", method=RequestMethod.POST)
 	public void getRoom(@RequestParam HashMap<Object, Object> params,HttpServletResponse response ,HttpSession session) throws Exception {
 		Member loginMember = (Member)session.getAttribute("loginMember");
-		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
-		roomList = chatService.printAllList(loginMember.getMemberId(), loginShopper.getShopId());
+		/* Shop loginShopper = (Shop)session.getAttribute("loginShopper"); */
+		roomList = chatService.printAllList(loginMember.getMemberId());
 		System.out.println(roomList);
 		new Gson().toJson(roomList, response.getWriter());
 	}
@@ -118,10 +118,10 @@ public class ChatController {
 		
 		if(new_list != null && new_list.size() > 0) {
 			Member loginMember = (Member)session.getAttribute("loginMember");
-			Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+			
 			Room roominfo = new Room();
 			roominfo.setMemberId(loginMember.getMemberId());
-			roominfo.setMemberId(loginShopper.getShopId());
+			
 			Room room = chatService.printOneRoom(roominfo);
 			mv.addObject("room", room);
 			mv.addObject("roomName", params.get("roomName"));

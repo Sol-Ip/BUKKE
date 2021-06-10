@@ -49,11 +49,11 @@
 	
 	<!-- 채팅 내역 저장 -->
 	<insert id="insertChat" parameterType="Chat">
-		INSERT INTO VALUES(SEQ_CHAT_NO.NEXTVAL, #{roomNumber }, #{memberId }, #{shopId }, #{memberNick }, #{msg }, #{chatTime }, #{chatDate } )
+		INSERT INTO VALUES(SEQ_CHAT_NO.NEXTVAL, #{roomNumber }, #{roomName }, #{memberId }, #{shopId }, #{memberNick }, #{msg }, #{chatTime }, #{chatDate } )
 	</insert>
 	
 	<!-- 채팅 내용 전체 가져오기 -->
-	<select id="selectAllChat" parameterType="Chat" resultMap="ChatResultMap">
+	<select id="selectAllChat" parameterType="Chat" resultMap="chatResultMap">
 		SELECT * FROM CHAT WHERE ROOM_NUMBER = #{roomNumber} ORDER BY CHAT_DATE ASC
 	</select>
 	

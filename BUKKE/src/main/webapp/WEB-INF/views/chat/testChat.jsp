@@ -48,7 +48,40 @@
 </head>
 
 <script type="text/javascript">
+	$( document ).ready(function() {
+		wsOpen();
+		chatLog();
+	});
+	
 	var ws;
+	
+	function chatLog() {
+		   var roomNumber = $("#roomNumber").val();
+		      $.ajax({
+		         url : "/chatLogDate.com",
+		         type : "post",
+		         data : {
+		            "roomNumber" : roomNumber
+		         },
+		         dataType : "json",
+		         success : function(data) {
+		            const $chatingTag = $("#chatting");
+		            console.log(data);
+		            for(var i in data) {
+		               var html = "";
+		               if(data[i].memberId == memberId ){
+		            	  html += $("#chatting").append("<p class='me'>"+$("#memberNick").val()+" :" +data[i].msg+ "</p>");	
+		                  $("#chating").append(html);   
+		               }else {
+		            	  html += $("#chatting").append("<p class='others'>"+$("#shopId").val()+" :" +data[i].msg+ "</p>");
+		                  $("#chating").append(html);
+		               }
+		               
+		            }
+		         }
+		         
+		      });
+		   }
 
 	function wsOpen(){
 		console.log($("#roomNumber").val());
@@ -76,9 +109,9 @@
 					}
 				}else if(d.type == "message"){
 					if(d.sessionId == $("#sessionId").val()){ // sessionId 값을 비교해서 같으면 내가 발신한 메세지이므로 오른쪽으로 정렬
-						$("#chatting").append("<p class='me'>나 :" + d.msg + "</p>");	
+						$("#chatting").append("<p class='me'>"+$("#memberNick").val()+" :" + d.msg + "</p>");
 					}else{ // 아니면 상대방 발신 메세지이므로 왼쪽 정렬
-						$("#chatting").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
+						$("#chatting").append("<p class='others'>"+$("#shopId").val()+" :" + d.msg + "</p>");
 					}
 						
 				}else{
@@ -94,7 +127,7 @@
 		});
 	}
 
-	function chatName(){
+	/* function chatName(){
 		var userName = $("#userName").val();
 		if(userName == null || userName.trim() == ""){
 			alert("사용자 이름을 입력해주세요.");
@@ -104,7 +137,7 @@
 			$("#yourName").hide();
 			$("#yourMsg").show();
 		}
-	} 
+	}  */
 
 	function send() {
 		alert("send 작동됨..")
@@ -115,8 +148,13 @@
 			userName : $("#userName").val(),
 			msg : $("#chatting2").val()
 		}
+		var roomNumber = $("#roomNumber").val();
+		var roomName = $("#roomName").val();
+		var memberNo = $("#memberId").val();
+		var memberNick = $("#shopId").val();
+		var withMemberNo = $("#memberNick").val();
 		ws.send(JSON.stringify(option));
-		$('#chatting2').val("");
+		/* $('#chatting2').val(""); */
 	}
 </script>
 <body>
@@ -124,11 +162,15 @@
 		<h1>${roomName }의 채팅</h1>
 		<input type="hidden" id="sessionId" value="">
 		<input type="hidden" id="roomNumber" value="${roomNumber }">
+		<input type="hidden" id="roomName" value="${roomName}">
+		<input type="hidden" id="memberId" value="${room.memberId}">
+		<input type="hidden" id="shopId" value="${room.shopId}">
+		<input type="hidden" id="memberNick" value="${room.memberNick}">
 		
 		<div id="chatting" class="chatting">
 		</div>
 		
-		<div id="yourName">
+		<!-- <div id="yourName">
 			<table class="inputTable">
 				<tr>
 					<th>사용자명</th>
@@ -136,7 +178,7 @@
 					<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
 				</tr>
 			</table>
-		</div> 
+		</div>  -->
 		<div id="yourMsg">
 			<table class="inputTable">
 				<tr>

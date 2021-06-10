@@ -12,6 +12,7 @@ public class Reservation {
 	private String reservationId; // 예약자
 	private Date reservationDate; // 예약일
 	private String reservationStatus; // 예약 승인여부
+	private String payStatus; // 결제 승인여부
 	// 추가 getter/setter
 	private String reviewStatus; // 리뷰 상태
 	private String commentStatus; // 댓글(삭제)여부
@@ -116,6 +117,16 @@ public class Reservation {
 	
 	
 
+	public String getPayStatus() {
+		return payStatus;
+	}
+
+
+	public void setPayStatus(String payStatus) {
+		this.payStatus = payStatus;
+	}
+
+
 	public Activity getActivity() {
 		return activity;
 	}
@@ -130,10 +141,10 @@ public class Reservation {
 	public String toString() {
 		return "Reservation [reservationNo=" + reservationNo + ", classNo=" + classNo + ", activityNo=" + activityNo
 				+ ", reservationId=" + reservationId + ", reservationDate=" + reservationDate + ", reservationStatus="
-				+ reservationStatus + ", bukkeClass=" + bukkeClass + ", activity=" + activity + "]";
+				+ reservationStatus + ", payStatus=" + payStatus + ", reviewStatus=" + reviewStatus + ", commentStatus="
+				+ commentStatus + ", bukkeClass=" + bukkeClass + ", activity=" + activity + "]";
 	}
 
-	
 
 	
 }

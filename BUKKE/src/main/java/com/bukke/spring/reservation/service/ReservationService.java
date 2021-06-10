@@ -32,7 +32,11 @@ public interface ReservationService {
 	
 	// 캘린더 예약확인(조회)
 	public ArrayList<Reservation> printMyreservationById(String memberId);
+	
+	//결제상태 변경(액티비티)
 	public int ChangeStatus(Reservation reservation);
+	//결제상태 변경(클래스)
+	public int ChangeStatusClass(Reservation reservation);
 	
 	
 }

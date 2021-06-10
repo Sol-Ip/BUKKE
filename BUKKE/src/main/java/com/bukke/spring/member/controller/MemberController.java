@@ -453,12 +453,25 @@ public class MemberController {
        }
        return mv;
     }
-    //결제시 pay_status Y로 변경
+    //결제시 pay_status Y로 변경(액티비티)
     @ResponseBody
 	@RequestMapping(value="paymentSuccess.com", method=RequestMethod.POST)
 	public String addComment(@ModelAttribute Reservation reservation) {
 		System.out.println(reservation.toString());
     	int result = reService.ChangeStatus(reservation);
+    	
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+    
+  //결제시 pay_status Y로 변경(액티비티)
+    @ResponseBody
+	@RequestMapping(value="paymentSuccessClass.com", method=RequestMethod.POST)
+	public String addCommentClass(@ModelAttribute Reservation reservation) {
+    	int result = reService.ChangeStatusClass(reservation);
     	
 		if(result > 0) {
 			return "success";

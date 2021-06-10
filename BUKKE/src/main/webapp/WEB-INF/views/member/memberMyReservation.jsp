@@ -21,8 +21,8 @@
 <link rel="stylesheet" href="../resources/css/mypage/tab.css"> 
 <link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
 	<style type="text/css">
-		.confirmbtn{
-		   width: 103px;
+.confirmbtn{
+	width: 103px;
     height: 28px;
     font-size: 12px;
     line-height: 26px;
@@ -48,7 +48,19 @@
     text-align: center; 
 }
 #waitbtn{
-			width: 103px;
+	width: 103px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 26px;
+    letter-spacing: -0.6px;
+    display: block;
+    margin: 6px 0 0;
+    color: #b7b7b7;
+    border: 1px solid #DFDFDF;
+    text-align: center;
+}
+#paymentbtn{
+		width: 103px;
     height: 28px;
     font-size: 12px;
     line-height: 26px;
@@ -227,14 +239,15 @@
   
      <c:if test="${ reservation.activityNo !=0}">
     <tr>
-      
       <td>${reservation.activity.activityName }</td>
       <td>${reservation.activity.activityType}</td>
       <td>${reservation.activity.activityTypeDetails }</td>
       <td>${reservation.activity.activityStartdate }</td>
-      
       <td>
       <c:choose>
+      	<c:when test="${reservation.reservationStatus eq '승인' and reservation.payStatus eq 'Y'}">
+      	<div id="paymentbtn">결제 완료</div>
+      	</c:when>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
 		      	<button type=button id="act-iamport" class="confirmbtn">결제하기</button>
 		      	
@@ -274,8 +287,7 @@
 							},
 							success : function(data) {
 								if (data == "success") {
-									alert("성공");
-									console.log("성공");
+									location.reload();
 								} else {
 									alert("실패");
 								}
@@ -298,6 +310,7 @@
       	<c:when test="${reservation.reservationStatus eq '대기' }">
       	<button type="button" data-toggle="modal" data-target="#myModal" id="waitbtn" >대기</button>
       	</c:when>
+      	 
       </c:choose>
       </td>
     </tr>
@@ -305,7 +318,7 @@
   </tbody>
   </c:forEach>
 </table>
-
+		
 <!-- 페이징 처리 -->
       <div class="container">
        <div class="row no-gutters mt-5">   
@@ -375,6 +388,9 @@
       <td>${reservation.bukkeClass.classStartDate }</td>
       <td>
       <c:choose>
+      	<c:when test="${reservation.reservationStatus eq '승인' and reservation.payStatus eq 'Y'}">
+      	<div id="paymentbtn">결제 완료</div>
+      	</c:when>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
 		<button type=button id="class-iamport" class="confirmbtn">결제하기</button>
 		      	<script>
@@ -400,6 +416,25 @@
 				            msg += ' 상점 거래ID : ' + rsp.merchant_uid;
 				            msg += ' 결제 금액 : ' + rsp.paid_amount;
 				            msg += ' 카드 승인번호 : ' + rsp.apply_num;
+				            console.log("해보자");
+				            var reservationNo = '${reservation.reservationNo}';
+				            var classNo = '${reservation.classNo}';
+				            $.ajax({
+				            	url : "paymentSuccessClass.com",
+				            	type : "post",
+				            	data : {
+				            		"reservationNo" : reservationNo,
+				            		"classNo" : classNo,
+				            	},
+				            	success : function(data){
+				            		if(data == "success"){
+				            			location.reload();
+				            		}else{
+				            			alert("실패");
+				            		}
+				            	}
+				            }); 
+				            
 				        } else {
 				            var msg = '결제에 실패하였습니다.';
 				            msg += ' 에러내용 : ' + rsp.error_msg;

@@ -110,6 +110,11 @@ public class ReservationStoreLogic implements ReservationStore {
 		// TODO Auto-generated method stub
 		return sqlSession.update("reservationMapper.changeStatus", reservation);
 	}
+
+	@Override
+	public int ChangeStatusClass(Reservation reservation) {
+		return sqlSession.update("reservationMapper.changeStatusClass", reservation);
+	}
 	
 
 

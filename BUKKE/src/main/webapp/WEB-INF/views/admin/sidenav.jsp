@@ -42,7 +42,7 @@
 			<a class="nav-link" href="adminActivityManage.com">액티비티관리</a>
 		</nav>
 	</div>
-	<a class="nav-link" href="#">
+	<a class="nav-link" href="noticeList.com">
 		<div class="sb-nav-link-icon">
 			<i class="fas fa-bullhorn"></i>
 		</div> 공지사항

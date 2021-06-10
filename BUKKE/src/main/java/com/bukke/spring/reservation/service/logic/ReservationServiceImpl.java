@@ -102,11 +102,18 @@ public class ReservationServiceImpl implements ReservationService{
 	public ArrayList<Reservation> printMyreservationById(String memberId) {
 		 return reStore.reservationListMyId(memberId);
 	}
-
+	
+	//결제상태 변경(액티비티)
 	@Override
 	public int ChangeStatus(Reservation reservation) {
 		// TODO Auto-generated method stub
 		return reStore.ChangeStatus(reservation);
+	}
+	//결제상태 변경(클래스)
+	@Override
+	public int ChangeStatusClass(Reservation reservation) {
+		// TODO Auto-generated method stub
+		return reStore.ChangeStatusClass(reservation);
 	}
 	
 

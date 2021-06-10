@@ -28,6 +28,10 @@ public interface ReservationStore {
 	public ArrayList<Reservation> reservationListMyId(MemberPageInfo reservationPi, String memberId);
 	// 캘린더 예약확인(조회)
 	public ArrayList<Reservation> reservationListMyId(String memberId);
+	
+	//결제 상태변경(액티비티)
 	public int ChangeStatus(Reservation reservation);
+	//결제 상태변경(클래스)
+	public int ChangeStatusClass(Reservation reservation);
 	
 }

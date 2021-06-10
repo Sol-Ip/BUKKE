@@ -24,6 +24,16 @@
 	boder-radius : 30px;
 } */
 
+.banner {
+      background-color: #8187dc;
+   }
+.banner * {
+   color: white;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
 .tab{
     margin-top: 30px;
 }
@@ -175,57 +185,466 @@
 		</div> -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<div class="tab" role="tabpanel">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#Section1"
-							aria-controls="home" role="tab" data-toggle="tab"><i
-								class="fa fa-user"></i>Section 1</a></li>
+							aria-controls="home" role="tab" data-toggle="tab"> <i
+								class="fa fa-user"></i>전체
+						</a></li>
 						<li role="presentation"><a href="#Section2"
-							aria-controls="profile" role="tab" data-toggle="tab"><i
-								class="fa fa-envelope"></i>Section 2</a></li>
+							aria-controls="profile" role="tab" data-toggle="tab"> <i
+								class="fa fa-envelope"></i>플라워
+						</a></li>
 						<li role="presentation"><a href="#Section3"
-							aria-controls="messages" role="tab" data-toggle="tab"><i
-								class="fa fa-cube"></i>Section 3</a></li>
+							aria-controls="messages" role="tab" data-toggle="tab"> <i
+								class="fa fa-cube"></i>미술
+						</a></li>
 						<li role="presentation"><a href="#Section4"
-							aria-controls="messages" role="tab" data-toggle="tab"><i
-								class="fa fa-comment"></i>Section 4</a></li>
+							aria-controls="messages" role="tab" data-toggle="tab"> <i
+								class="fa fa-comment"></i>뷰티
+						</a></li>
+						<li role="presentation"><a href="#Section5"
+							aria-controls="messages" role="tab" data-toggle="tab"> <i
+								class="fa fa-comment"></i>음악
+						</a></li>
+						<li role="presentation"><a href="#Section6"
+							aria-controls="messages" role="tab" data-toggle="tab"> <i
+								class="fa fa-comment"></i>사진
+						</a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
 						<div role="tabpanel" class="tab-pane fade in active" id="Section1">
-							<h3>Section-1</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
-								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
-								congue, placerat sem id, rutrum velit. Phasellus porta enim at
-								facilisis condimentum. Maecenas pharetra dolor vel elit tempor
-								pellentesque sed sed eros. Aenean vitae mauris tincidunt,
-								imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.</p>
+							<h3>부캐 클래스 전체</h3>
+							<div class="container">
+								<div class="row">
+									<c:forEach items="${bList }" var="bukkeClass">
+										<div class="col-md-6 col-lg-3 ftco-animate">
+											<div class="project">
+												<img
+													src="../resources/bClassFiles/${bukkeClass.cRenameFilename }"
+													id="class-img" class="img-fluid" alt="Colorlib Template">
+												<div class="text">
+													<span style="font-family: 'TmoneyRoundWindExtraBold';">[
+														${bukkeClass.classType} ]</span>
+													<c:url var="cDetail" value="bukkeClassDetailView.com">
+														<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+													</c:url>
+													<h3 style="font-family: 'TmoneyRoundWindExtraBold';">
+														<a href="${cDetail }">${bukkeClass.className }</a>
+													</h3>
+												</div>
+												<a href="${cDetail }"
+													class="icon image-popup d-flex justify-content-center align-items-center">
+													<span class="icon-expand"></span>
+												</a>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+							<br>
+
+							<!-- 글쓰기 버튼 -->
+							<!-- <div style="float: right; padding-right: 350px;"
+								class="ftco-animate">
+								<a href="bukkeClassWriteForm.com"><button
+										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+							</div> -->
+
+							<!-- 페이징 처리 -->
+							<div class="container">
+								<div class="row no-gutters mt-5">
+									<div class="col text-center">
+										<div class="block-27">
+											<!-- 이전 -->
+											<ul>
+												<c:url var="before" value="bukkeClassList.com">
+													<c:param name="page" value="${pi.currentPage - 1 }"></c:param>
+												</c:url>
+												<c:if test="${pi.currentPage <= 1 }">
+													<li><a href="#" onclick="firstPage()">&lt;</a></li>
+												</c:if>
+												<c:if test="${pi.currentPage > 1 }">
+													<li><a href="${before }">&lt;</a></li>
+												</c:if>
+												<!-- 페이지 -->
+												<c:forEach var="p" begin="${pi.startPage }"
+													end="${pi.endPage }">
+													<c:url var="pagination" value="bukkeClassList.com">
+														<c:param name="page" value="${p }"></c:param>
+													</c:url>
+													<c:if test="${p eq pi.currentPage }">
+														<li class="active"><span>${p }</span></li>
+													</c:if>
+													<c:if test="${p ne pi.currentPage }">
+														<li><a href="${pagination }">${p }</a></li>
+													</c:if>
+												</c:forEach>
+												<!-- 다음 -->
+												<c:url var="after" value="bukkeClassList.com">
+													<c:param name="page" value="${pi.currentPage + 1 }"></c:param>
+												</c:url>
+												<c:if test="${pi.currentPage >= pi.maxPage }">
+													<li><a href="#" onclick="lastPage()">&gt;</a></li>
+												</c:if>
+												<c:if test="${pi.currentPage < pi.maxPage }">
+													<li><a href="${after }">&gt;</a></li>
+												</c:if>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
+						<!-- ============== 플라워 모아보기 ================== -->
 						<div role="tabpanel" class="tab-pane fade" id="Section2">
-							<h3>Section-2</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
-								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
-								congue, placerat sem id, rutrum velit. Phasellus porta enim at
-								facilisis condimentum. Maecenas pharetra dolor vel elit tempor
-								pellentesque sed sed eros. Aenean vitae mauris tincidunt,
-								imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.</p>
+							<h3>부캐 클래스 플라워</h3>
+							<c:if test="${flowerList.size() > 0 }">
+							<div class="container">
+								<div class="row">
+									<c:forEach items="${flowerList }" var="flowerList">
+										<div class="col-md-6 col-lg-3 ftco-animate">
+											<div class="project">
+												<img
+													src="../resources/bClassFiles/${flowerList.cRenameFilename }"
+													id="class-img" class="img-fluid" alt="Colorlib Template">
+												<div class="text">
+													<span style="font-family: 'TmoneyRoundWindExtraBold';">[
+														${flowerList.classType} ]</span>
+													<c:url var="cDetail" value="bukkeClassDetailView.com">
+														<c:param name="classNo" value="${flowerList.classNo }"></c:param>
+													</c:url>
+													<h3 style="font-family: 'TmoneyRoundWindExtraBold';">
+														<a href="${cDetail }">${flowerList.className }</a>
+													</h3>
+												</div>
+												<a href="${cDetail }"
+													class="icon image-popup d-flex justify-content-center align-items-center">
+													<span class="icon-expand"></span>
+												</a>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+							<br>
+
+							<!-- 글쓰기 버튼 -->
+							<!-- <div style="float: right; padding-right: 350px;"
+								class="ftco-animate">
+								<a href="bukkeClassWriteForm.com"><button
+										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+							</div> -->
+
+							<!-- 페이징 처리 -->
+							<div class="container">
+								<div class="row no-gutters mt-5">
+									<div class="col text-center">
+										<div class="block-27">
+											<!-- 이전 -->
+											<ul>
+												<c:url var="before" value="bukkeClassList.com">
+													<c:param name="page" value="${pi.currentPage - 1 }"></c:param>
+												</c:url>
+												<c:if test="${pi.currentPage <= 1 }">
+													<li><a href="#" onclick="firstPage()">&lt;</a></li>
+												</c:if>
+												<c:if test="${pi.currentPage > 1 }">
+													<li><a href="${before }">&lt;</a></li>
+												</c:if>
+												<!-- 페이지 -->
+												<c:forEach var="p" begin="${piFlower.startPage }"
+													end="${piFlower.endPage }">
+													<c:url var="pagination" value="bukkeClassList.com">
+														<c:param name="page" value="${p }"></c:param>
+													</c:url>
+													<c:if test="${p eq piFlower.currentPage }">
+														<li class="active"><span>${p }</span></li>
+													</c:if>
+													<c:if test="${p ne piFlower.currentPage }">
+														<li><a href="${pagination }">${p }</a></li>
+													</c:if>
+												</c:forEach>
+												<!-- 다음 -->
+												<c:url var="after" value="bukkeClassList.com">
+													<c:param name="page" value="${piFlower.currentPage + 1 }"></c:param>
+												</c:url>
+												<c:if test="${piFlower.currentPage >= piFlower.maxPage }">
+													<li><a href="#" onclick="lastPage()">&gt;</a></li>
+												</c:if>
+												<c:if test="${piFlower.currentPage < piFlower.maxPage }">
+													<li><a href="${after }">&gt;</a></li>
+												</c:if>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							</c:if>
 						</div>
+						<!-- =============== 미술 모아보기 ================ -->
 						<div role="tabpanel" class="tab-pane fade" id="Section3">
-							<h3>Section-3</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
-								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
-								congue, placerat sem id, rutrum velit. Phasellus porta enim at
-								facilisis condimentum. Maecenas pharetra dolor vel elit tempor
-								pellentesque sed sed eros. Aenean vitae mauris tincidunt,
-								imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.</p>
+							<h3>부캐 클래스 미술</h3>
+							<c:if test="${artList.size() > 0 }">
+								<div class="container">
+								<div class="row">
+									<c:forEach items="${artList }" var="artList">
+										<div class="col-md-6 col-lg-3 ftco-animate">
+											<div class="project">
+												<img
+													src="../resources/bClassFiles/${artList.cRenameFilename }"
+													id="class-img" class="img-fluid" alt="Colorlib Template">
+												<div class="text">
+													<span style="font-family: 'TmoneyRoundWindExtraBold';">[
+														${artList.classType} ]</span>
+													<c:url var="cDetail" value="bukkeClassDetailView.com">
+														<c:param name="classNo" value="${artList.classNo }"></c:param>
+													</c:url>
+													<h3 style="font-family: 'TmoneyRoundWindExtraBold';">
+														<a href="${cDetail }">${artList.className }</a>
+													</h3>
+												</div>
+												<a href="${cDetail }"
+													class="icon image-popup d-flex justify-content-center align-items-center">
+													<span class="icon-expand"></span>
+												</a>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+							<br>
+
+							<!-- 글쓰기 버튼 -->
+							<!-- <div style="float: right; padding-right: 350px;"
+								class="ftco-animate">
+								<a href="bukkeClassWriteForm.com"><button
+										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+							</div> -->
+
+							<!-- 페이징 처리 -->
+							<div class="container">
+								<div class="row no-gutters mt-5">
+									<div class="col text-center">
+										<div class="block-27">
+											<!-- 이전 -->
+											<ul>
+												<c:url var="before" value="bukkeClassList.com">
+													<c:param name="page" value="${piArt.currentPage - 1 }"></c:param>
+												</c:url>
+												<c:if test="${piArt.currentPage <= 1 }">
+													<li><a href="#" onclick="firstPage()">&lt;</a></li>
+												</c:if>
+												<c:if test="${piArt.currentPage > 1 }">
+													<li><a href="${before }">&lt;</a></li>
+												</c:if>
+												<!-- 페이지 -->
+												<c:forEach var="p" begin="${piArt.startPage }"
+													end="${piArt.endPage }">
+													<c:url var="pagination" value="bukkeClassList.com">
+														<c:param name="page" value="${p }"></c:param>
+													</c:url>
+													<c:if test="${p eq piArt.currentPage }">
+														<li class="active"><span>${p }</span></li>
+													</c:if>
+													<c:if test="${p ne piArt.currentPage }">
+														<li><a href="${pagination }">${p }</a></li>
+													</c:if>
+												</c:forEach>
+												<!-- 다음 -->
+												<c:url var="after" value="bukkeClassList.com">
+													<c:param name="page" value="${piArt.currentPage + 1 }"></c:param>
+												</c:url>
+												<c:if test="${piArt.currentPage >= piArt.maxPage }">
+													<li><a href="#" onclick="lastPage()">&gt;</a></li>
+												</c:if>
+												<c:if test="${piArt.currentPage < piArt.maxPage }">
+													<li><a href="${after }">&gt;</a></li>
+												</c:if>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							</c:if>
 						</div>
+						<!-- ================== 뷰티 모아보기 ================== -->
 						<div role="tabpanel" class="tab-pane fade" id="Section4">
-							<h3>Section-4</h3>
+							<h3>부캐 클래스 뷰티</h3>
+							<c:if test="${beautyList.size() > 0 }">
+							<div class="container">
+								<div class="row">
+									<c:forEach items="${beautyList }" var="beautyList">
+										<div class="col-md-6 col-lg-3 ftco-animate">
+											<div class="project">
+												<img
+													src="../resources/bClassFiles/${beautyList.cRenameFilename }"
+													id="class-img" class="img-fluid" alt="Colorlib Template">
+												<div class="text">
+													<span style="font-family: 'TmoneyRoundWindExtraBold';">[
+														${beautyList.classType} ]</span>
+													<c:url var="cDetail" value="bukkeClassDetailView.com">
+														<c:param name="classNo" value="${beautyList.classNo }"></c:param>
+													</c:url>
+													<h3 style="font-family: 'TmoneyRoundWindExtraBold';">
+														<a href="${cDetail }">${beautyList.className }</a>
+													</h3>
+												</div>
+												<a href="${cDetail }"
+													class="icon image-popup d-flex justify-content-center align-items-center">
+													<span class="icon-expand"></span>
+												</a>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+							<br>
+
+							<!-- 글쓰기 버튼 -->
+							<!-- <div style="float: right; padding-right: 350px;"
+								class="ftco-animate">
+								<a href="bukkeClassWriteForm.com"><button
+										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+							</div> -->
+
+							<!-- 페이징 처리 -->
+							<div class="container">
+								<div class="row no-gutters mt-5">
+									<div class="col text-center">
+										<div class="block-27">
+											<!-- 이전 -->
+											<ul>
+												<c:url var="before" value="bukkeClassList.com">
+													<c:param name="page" value="${piBeauty.currentPage - 1 }"></c:param>
+												</c:url>
+												<c:if test="${piBeauty.currentPage <= 1 }">
+													<li><a href="#" onclick="firstPage()">&lt;</a></li>
+												</c:if>
+												<c:if test="${piBeauty.currentPage > 1 }">
+													<li><a href="${before }">&lt;</a></li>
+												</c:if>
+												<!-- 페이지 -->
+												<c:forEach var="p" begin="${piBeauty.startPage }"
+													end="${piBeauty.endPage }">
+													<c:url var="pagination" value="bukkeClassList.com">
+														<c:param name="page" value="${p }"></c:param>
+													</c:url>
+													<c:if test="${p eq piBeauty.currentPage }">
+														<li class="active"><span>${p }</span></li>
+													</c:if>
+													<c:if test="${p ne piBeauty.currentPage }">
+														<li><a href="${pagination }">${p }</a></li>
+													</c:if>
+												</c:forEach>
+												<!-- 다음 -->
+												<c:url var="after" value="bukkeClassList.com">
+													<c:param name="page" value="${piBeauty.currentPage + 1 }"></c:param>
+												</c:url>
+												<c:if test="${piBeauty.currentPage >= piBeauty.maxPage }">
+													<li><a href="#" onclick="lastPage()">&gt;</a></li>
+												</c:if>
+												<c:if test="${piBeauty.currentPage < piBeauty.maxPage }">
+													<li><a href="${after }">&gt;</a></li>
+												</c:if>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							</c:if>
+						</div>
+						<!--==================== 음악 모아보기 ==================  -->
+						<div role="tabpanel" class="tab-pane fade" id="Section5">
+							<h3>부캐 클래스 음악</h3>
+							<c:if test="${musicList.size() > 0 }">
+							<div class="container">
+								<div class="row">
+									<c:forEach items="${musicList }" var="beautyList">
+										<div class="col-md-6 col-lg-3 ftco-animate">
+											<div class="project">
+												<img
+													src="../resources/bClassFiles/${musicList.cRenameFilename }"
+													id="class-img" class="img-fluid" alt="Colorlib Template">
+												<div class="text">
+													<span style="font-family: 'TmoneyRoundWindExtraBold';">[
+														${musicList.classType} ]</span>
+													<c:url var="cDetail" value="bukkeClassDetailView.com">
+														<c:param name="classNo" value="${musicList.classNo }"></c:param>
+													</c:url>
+													<h3 style="font-family: 'TmoneyRoundWindExtraBold';">
+														<a href="${cDetail }">${musicList.className }</a>
+													</h3>
+												</div>
+												<a href="${cDetail }"
+													class="icon image-popup d-flex justify-content-center align-items-center">
+													<span class="icon-expand"></span>
+												</a>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+							<br>
+
+							<!-- 글쓰기 버튼 -->
+							<!-- <div style="float: right; padding-right: 350px;"
+								class="ftco-animate">
+								<a href="bukkeClassWriteForm.com"><button
+										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+							</div> -->
+
+							<!-- 페이징 처리 -->
+							<div class="container">
+								<div class="row no-gutters mt-5">
+									<div class="col text-center">
+										<div class="block-27">
+											<!-- 이전 -->
+											<ul>
+												<c:url var="before" value="bukkeClassList.com">
+													<c:param name="page" value="${piMusic.currentPage - 1 }"></c:param>
+												</c:url>
+												<c:if test="${piMusic.currentPage <= 1 }">
+													<li><a href="#" onclick="firstPage()">&lt;</a></li>
+												</c:if>
+												<c:if test="${piMusic.currentPage > 1 }">
+													<li><a href="${before }">&lt;</a></li>
+												</c:if>
+												<!-- 페이지 -->
+												<c:forEach var="p" begin="${piMusic.startPage }"
+													end="${piMusic.endPage }">
+													<c:url var="pagination" value="bukkeClassList.com">
+														<c:param name="page" value="${p }"></c:param>
+													</c:url>
+													<c:if test="${p eq piMusic.currentPage }">
+														<li class="active"><span>${p }</span></li>
+													</c:if>
+													<c:if test="${p ne piMusic.currentPage }">
+														<li><a href="${pagination }">${p }</a></li>
+													</c:if>
+												</c:forEach>
+												<!-- 다음 -->
+												<c:url var="after" value="bukkeClassList.com">
+													<c:param name="page" value="${piMusic.currentPage + 1 }"></c:param>
+												</c:url>
+												<c:if test="${piMusic.currentPage >= piMusic.maxPage }">
+													<li><a href="#" onclick="lastPage()">&gt;</a></li>
+												</c:if>
+												<c:if test="${piMusic.currentPage < piMusic.maxPage }">
+													<li><a href="${after }">&gt;</a></li>
+												</c:if>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							</c:if>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section6">
+							<h3>부캐 클래스 사진</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
 								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
@@ -243,7 +662,7 @@
 		
 		
 		<!-- 클래스 전체 수업 이미지 목록 -->
-		<div class="container">
+		<%-- <div class="container">
 			<div class="row">
 			<c:forEach items="${bList }" var="bukkeClass">
 				<div class="col-md-6 col-lg-3 ftco-animate">
@@ -317,7 +736,7 @@
             </div>
           </div>
         </div>
-    	</div>
+    	</div> --%>
     </section>
 </body>
 

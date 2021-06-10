@@ -24,80 +24,72 @@
 	boder-radius : 30px;
 } */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-.wrapper_tab{
-  text-align:center;
-  margin:50px auto;
+.tab{
+    margin-top: 30px;
+}
+.tab .nav-tabs{
+    border:none;
+    border-bottom: 1px solid #e4e4e4;
+}
+.nav-tabs li a{
+    padding: 15px 40px;
+    border:1px solid #ededed;
+    border-top: 2px solid #ededed;
+    border-right: 0px none;
+    background: #7a81f4;
+    color:#fff;
+    border-radius: 0px;
+    margin-right: 0px;
+    font-weight: bold;
+    transition: all 0.3s ease-in 0s;
+}
+.nav-tabs li a:hover{
+    border-bottom-color: #ededed;
+    border-right: 0px none;
+    background: #00b0ad;
+    color: #fff;
+}
+.nav-tabs li a i{
+    display: inline-block;
+    text-align: center;
+    margin-right:10px;
+}
+.nav-tabs li:last-child{
+    border-right:1px solid #ededed;
+}
+.nav-tabs li.active a,
+.nav-tabs li.active a:focus,
+.nav-tabs li.active a:hover{
+    border-top: 3px solid #00b0ad;
+    border-right: 1px solid #d3d3d3;
+    margin-top: -15px;
+    color: #444;
+    padding: 22px 40px;
+}
+.tab .tab-content{
+    padding: 20px;
+    line-height: 22px;
+    box-shadow:0px 1px 0px #808080;
+}
+.tab .tab-content h3{
+    margin-top: 0;
+}
+@media only screen and (max-width: 767px){
+    .nav-tabs li{
+        width:100%;
+        margin-bottom: 10px;
+    }
+    .nav-tabs li a{
+        padding: 15px;
+    }
+    .nav-tabs li.active a,
+    .nav-tabs li.active a:focus,
+    .nav-tabs li.active a:hover{
+        padding: 15px;
+        margin-top: 0;
+    }
 }
 
-.tabs{
-  margin-top:50px;
-  font-size:20px;
-  padding:0px;
-  width : 900px;
-  height: 80px;
-  list-style:none;
-  background:#fff;
-  box-shadow:0px 5px 20px rgba(0,0,0,0.1);
-  display:inline-block;
-  border-radius:50px;
-  position:relative;
-}
-
-/* .selector {
-	width : 150px;
-} */
-
-.tabs a{
-  width :130px; 
-  height : 80px;
-  text-decoration:none;
-  color: #777;
-  text-transform:uppercase;
-  padding:20px 20px;
-  display:inline-block;
-  position:relative;
-  z-index:1;
-  transition-duration:0.6s;
-}
-
-.tabs a.active{
-  color:#fff;
-}
-
-.tabs a i{
-  margin-right:20px;
-}
-
-.tabs ul li {
-	display:  inline-block;
-	float:left;
-}
-
-.tabs .selector{
-  width :300px;
-  height:100%;
-  display:inline-block;
-  position:absolute;
-  left:0px;
-  top:0px;
-  z-index:1;
-  border-radius:50px;
-  transition-duration:0.6s;
-  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  background: #05abe0;
-  background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
-  background: -webkit-linear-gradient(45deg, #05abe0 0%,#8200f4 100%);
-  background: linear-gradient(45deg, #05abe0 0%,#8200f4 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4',GradientType=1 );
-}
-.banner {
-		background-color: #ff5613;
-	}
-.banner * {
-	color: white;
-}
 </style>
 </head>
 <body>
@@ -163,14 +155,14 @@
 		
 		
 		<!-- ========================= 클래스 탭  =========================  -->
-		<div class="container">
+		<!-- <div class="container">
 			<div class="row">
 				<div class="wrapper_tab">
 				  <nav class="tabs">
 				  <ul style="list-style:none;">
 				    <div class="selector"></div>
-				    <!-- ================= 부캐 클래스 전체 보기 ==================== -->
-				    <li><a href="#" class="active"><i class="fas fa-border-all"></i>전체</a></li>
+				    ================= 부캐 클래스 전체 보기 ====================
+				    <li><a href="#tab-all" class="active"><i class="fas fa-border-all"></i>전체</a></li>
 				    <li><a data-toggle="tab" href="#" aria-expanded="true"><i class="fas fa-leaf"></i>플라워</a></li>
 				    <li><a href="#"><i class="fas fa-palette"></i>미술</a></li>
 				    <li><a href="#"><i class="fas fa-air-freshener"></i>뷰티</a></li>
@@ -180,7 +172,73 @@
 				  </nav>
 				</div>
 			</div>
+		</div> -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="tab" role="tabpanel">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#Section1"
+							aria-controls="home" role="tab" data-toggle="tab"><i
+								class="fa fa-user"></i>Section 1</a></li>
+						<li role="presentation"><a href="#Section2"
+							aria-controls="profile" role="tab" data-toggle="tab"><i
+								class="fa fa-envelope"></i>Section 2</a></li>
+						<li role="presentation"><a href="#Section3"
+							aria-controls="messages" role="tab" data-toggle="tab"><i
+								class="fa fa-cube"></i>Section 3</a></li>
+						<li role="presentation"><a href="#Section4"
+							aria-controls="messages" role="tab" data-toggle="tab"><i
+								class="fa fa-comment"></i>Section 4</a></li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content tabs">
+						<div role="tabpanel" class="tab-pane fade in active" id="Section1">
+							<h3>Section-1</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
+								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
+								congue, placerat sem id, rutrum velit. Phasellus porta enim at
+								facilisis condimentum. Maecenas pharetra dolor vel elit tempor
+								pellentesque sed sed eros. Aenean vitae mauris tincidunt,
+								imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section2">
+							<h3>Section-2</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
+								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
+								congue, placerat sem id, rutrum velit. Phasellus porta enim at
+								facilisis condimentum. Maecenas pharetra dolor vel elit tempor
+								pellentesque sed sed eros. Aenean vitae mauris tincidunt,
+								imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section3">
+							<h3>Section-3</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
+								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
+								congue, placerat sem id, rutrum velit. Phasellus porta enim at
+								facilisis condimentum. Maecenas pharetra dolor vel elit tempor
+								pellentesque sed sed eros. Aenean vitae mauris tincidunt,
+								imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="Section4">
+							<h3>Section-4</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam
+								faucibus lorem at eros consectetur lobortis. Maecenas nec nibh
+								congue, placerat sem id, rutrum velit. Phasellus porta enim at
+								facilisis condimentum. Maecenas pharetra dolor vel elit tempor
+								pellentesque sed sed eros. Aenean vitae mauris tincidunt,
+								imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
 	<!-- ========================= 클래스 탭 END =========================  -->
 		
 		
@@ -264,8 +322,8 @@
 </body>
 
 <!-- 리스트 탭을 위한 js -->
-<script>
-var tabs = $('.tabs');
+<!-- <script>
+<!-- var tabs = $('.tabs');
 var selector = $('.tabs').find('a').length;
 //var selector = $(".tabs").find(".selector");
 var activeItem = tabs.find('.active');
@@ -286,7 +344,10 @@ $(".tabs").on("click","a",function(e){
     "width": activeWidth + "px"
   });
 });
-</script>
+</script> -->
 </html>
 <br><br>
+<!-- 리스트탭 -->
+<script src="https://pagead2.googlesyndication.com/pagead/js/r20210607/r20190131/show_ads_impl_fy2019.js" id="google_shimpl"></script><script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <jsp:include page="../common/footer.jsp"></jsp:include>

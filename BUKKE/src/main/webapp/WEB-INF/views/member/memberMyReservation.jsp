@@ -235,7 +235,7 @@
       	<input type=button id="confirmbtn" value="결제하기"><a href=""></a>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '거절' }">
-		<div id="rejectbtn">흥</div>
+		<div id="rejectbtn">거절</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '대기' }">
       	<button type="button" data-toggle="modal" data-target="#myModal" id="waitbtn" >대기</button>
@@ -391,9 +391,8 @@
 
     <div class="modal-dialog">
 
-    
+     
       <!-- Modal content-->
-      <input type="hidden" class="activityNo" value="${reservation.classNo }" name="activityNo">
       
       <div class="modal-content">
         <div class="modal-header">
@@ -402,14 +401,14 @@
         </div>
         <div class="modal-body">
           <p>수업명: 
-          <c:if test="${ reservation.activityNo !=0}">
-   			   ${reservation.activity.activityName }
-				</c:if>   
-				<c:if test="${reservation.classNo != 0 && reservation.activityNo == 0}">
+     <%--      <c:if test="${reservation.activityNo !=0}">
+   			   ${reservation.activity.activityNo }
+				</c:if>    --%>
+				 <c:if test="${reservation.classNo != 0 }">
 					${reservation.bukkeClass.className }
-				</c:if>      
+				</c:if>       
           </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
-          <p>결제 금액:${reservation.activity.activityName } </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>결제 금액: </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
           <p>예약일: ${reservation.reservationDate }</p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
         </div>
         <div class="modal-footer">

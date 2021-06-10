@@ -580,18 +580,6 @@ body {
 														<div class="col-md-4">
 															<div class="item">
 																<div class="testimony-wrap p-4 pb-5">
-																	<%-- <c:if
-																		test="${keep.classNo == 0 && keep.activityNo != 0 }">
-																		<c:url var="aDetail" value="activityDetail.com">
-																			<c:param name="activityNo"
-																				value="${keep.activity.activityNo }"></c:param>
-																		</c:url>
-																		<a href="${aDetail }"><div class="user-img mb-5"
-																				id="keep-img"
-																				style="background-image: url(../resources/images/activityImageFiles/${keep.activity.aRenameFilename})">
-																			</div></a>
-																	</c:if> --%>
-																	
 																		<c:url var="cDetail" value="bukkeClassDetailView.com">
 																			<c:param name="classNo"
 																				value="${claKeep.bukkeClass.classNo }"></c:param>
@@ -599,23 +587,6 @@ body {
 																		<a href="${cDetail }"><div class="user-img mb-5" id="keep-img"
 																				style="background-image: url(../resources/bClassFiles/${claKeep.bukkeClass.cRenameFilename })">
 																			</div></a>
-																
-
-																<%-- 	<c:if
-																		test="${keep.classNo == 0 && keep.activityNo != 0 }">
-																		<div class="text">
-																			<div class="pl-5">
-																				<p class="name">${keep.activity.activityType }</p>
-																				<span class="position">${keep.activity.shopId }</span>
-																			</div>
-																			<br>
-																			<p class="mb-5 pl-4 line">
-																				<b>${keep.activity.activityName}</b>
-																			</p>
-																		</div>
-																		<br>
-																	</c:if> --%>
-
 																		<div class="text">
 																			<div class="pl-5">
 																				<p class="name">${claKeep.bukkeClass.classType }</p>
@@ -627,7 +598,6 @@ body {
 																			</p>
 																		</div>
 																		<br>
-																	
 																</div>
 															</div>
 														</div>
@@ -723,20 +693,6 @@ body {
 																				id="keep-img"
 																				style="background-image: url(../resources/images/activityImageFiles/${actKeep.activity.aRenameFilename})">
 																			</div></a>
-																	
-																	<%-- <c:if
-																		test="${keep.classNo != 0 && keep.activityNo == 0 }">
-																		<c:url var="cDetail" value="bukkeClassDetailView.com">
-																			<c:param name="classNo"
-																				value="${keep.bukkeClass.classNo }"></c:param>
-																		</c:url>
-																		<a href="${cDetail }"><div class="user-img mb-5"
-																				id="keep-img"
-																				style="background-image: url(../resources/bClassFiles/${keep.bukkeClass.cRenameFilename })">
-																			</div></a>
-																	</c:if>--%>
-
-																 	
 																		<div class="text">
 																			<div class="pl-5">
 																				<p class="name">${actKeep.activity.activityType }</p>

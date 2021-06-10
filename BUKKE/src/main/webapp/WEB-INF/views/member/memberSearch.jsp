@@ -77,7 +77,7 @@
 					class="ok">확인</button>
 			</fieldset>
 			<fieldset id="member-filed">
-				<button id="searchBtn2"  onclick="idSearchClick2()" type="button"
+				<button id="searchBtn2"  onclick="location.href='memberLoginForm.com'" type="button"
 					class="cancle">취소</button>
 			</fieldset>
 		</div>
@@ -109,7 +109,7 @@
 					class="ok">확인</button>
 			</fieldset>
 			<fieldset id="member-filed">
-				<button id="searchBtn4" onclick="idSearchClick4()" type="button"
+				<button id="searchBtn4" onclick="location.href='memberLoginForm.com'" type="button"
 					class="cancle">취소</button>
 			</fieldset>
 		</div>

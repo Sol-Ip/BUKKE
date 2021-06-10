@@ -227,7 +227,7 @@ public class MemberController {
 		if (memberSearch != null) {
 			result =  memberSearch.getMemberId();
 		} else {
-			result =  "별짓 다해봤는데";
+			result =  "아이디를 조회할 수 없습니다.";
 		}
 		new Gson().toJson(result, response.getWriter());
 	}
@@ -242,6 +242,7 @@ public class MemberController {
 		mem.setMemberId(memberId);
 		mem.setMemberEmail(memberEmail);
 		Member member = mService.searchMemberPw(mem);
+		
 		
 		
 		String pwd = "";

@@ -58,7 +58,6 @@
     border: 1px solid #DFDFDF;
     text-align: center;
 }
-		
 	</style>
 
 </head>
@@ -177,11 +176,11 @@
 		<div class="row justify-content-center" style="height: 250px;">
 			<div class="col-md-8 heading-section ftco-animate">
 				<span class="subheading subheading-with-line"><small
-					class="pr-2 bg-light">REVIEW</small></span>
+					class="pr-2 bg-light">RESERVATION</small></span>
 				<section class="text1">
 				<h3 class="h3Class" style="align-self: center;">Hey everyone look at this</h3>
 						<h1 class="h1Class">
-							<span class="fontawesome-star star" style="position: absolute; right: 500px;"></span> <span>LIKE LIST</span> <span
+							<span class="fontawesome-star star" style="position: absolute; right: 500px;"></span> <span>Reservation LIST</span> <span
 								class="fontawesome-star star"></span>
 						</h1>	
 				</section>			
@@ -192,10 +191,10 @@
 	</div>
 	<!-- <section class="ftco-section"> -->
       
-      
+      <br><br><br>
       <!-- 예약 목록 탭 -->
      <section class="ftco-animate"> 
-     <div class="container"> 
+     <div class="container" > 
       <div class="tabset retable"> 
   
   <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier" checked>

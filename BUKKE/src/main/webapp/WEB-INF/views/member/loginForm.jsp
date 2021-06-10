@@ -100,7 +100,7 @@
   <!-- 업체회원 -->
     <fieldset class="shop-field">
     <div class="enroll-and-findId">
-      <a href="">ID/PW 찾기</a>
+      <a href="memberCheck.com">ID/PW 찾기</a>
       <a href="shopRegisterForm.com">회원가입</a>
     </div>
   </fieldset>

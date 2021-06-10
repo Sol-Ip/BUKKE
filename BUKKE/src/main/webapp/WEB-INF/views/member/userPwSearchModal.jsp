@@ -11,7 +11,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<style>
-	
+	@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 	.backgroundModal2{
 		position: fixed;
 		background-color: white;
@@ -83,9 +89,9 @@
     <div class="modalContents">
         <div class="good-job">
           <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-          <h1>회원님의 비밀번호는</h1>
+          <h1 style=" font-family: 'KOTRA_BOLD-Bold';">회원님의 비밀번호는</h1>
           <div class="page-wrapper">
-          		<h2 id="pwValue"></h2>
+          		<h2 id="pwValue" style=" font-family: 'KOTRA_BOLD-Bold';"></h2>
   				<button id="close2">취소</button>
 			</div>
         </div>

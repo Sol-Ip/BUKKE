@@ -42,6 +42,9 @@ body {
 .l-navbar {
 	height: 1049px !important;
 }
+nav>* {
+	width: 100%;
+}
 </style>
 </head>
 <body>

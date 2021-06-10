@@ -19,7 +19,9 @@
 
 </head>
 <style>
-
+nav>* {
+	width: 100%;
+}
 </style>
 <!-- <body id="body-pd"> -->
 <body id="">

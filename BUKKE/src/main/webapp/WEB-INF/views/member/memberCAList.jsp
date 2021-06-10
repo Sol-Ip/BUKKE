@@ -287,7 +287,7 @@
                   <li class="active" style="background-color: #ffffff;"><span>${p }</span></li>
                </c:if>
                   <c:if test="${p ne classPi.currentPage }">
-                     <li><a href="${pagination }">${p }</a></li>
+                     <li><a href="${pagination }">${p } </a></li>
                   </c:if>
                </c:forEach>
                <!-- 다음 -->

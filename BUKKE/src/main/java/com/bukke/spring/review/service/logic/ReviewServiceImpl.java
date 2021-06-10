@@ -167,6 +167,11 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public ArrayList<Review> printReviewToActivity(int activityNo) {
+		// TODO Auto-generated method stub
+		return rStore.selectReviewToActivity(activityNo);
+	}
 	
 
 }

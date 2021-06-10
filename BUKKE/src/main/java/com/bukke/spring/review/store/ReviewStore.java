@@ -77,5 +77,7 @@ public interface ReviewStore {
 	public ArrayList<ReviewComment> selectCommentListbyId(ReviewPageInfo pi, String memberId);
 
 	public int selectReviewCount(String memberId); // 리뷰 상태 취득
+
+	public ArrayList<Review> selectReviewToActivity(int activityNo);//액티비티 상세페이지 후기 보이기
 	
 }

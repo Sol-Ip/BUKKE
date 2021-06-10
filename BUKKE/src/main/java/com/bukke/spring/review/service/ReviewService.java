@@ -54,6 +54,7 @@ public interface ReviewService {
 	public ArrayList<ReviewComment> printAllCommentbyId(ReviewPageInfo pi, String memberId);
 	public int printcommnetCount(String memberId); //댓글 카운트
 	public int printReviewCount(String memberId); //리뷰 카운트
+	public ArrayList<Review> printReviewToActivity(int activityNo);//클래스 상세페이지 아래 후기
 	
 	
 }

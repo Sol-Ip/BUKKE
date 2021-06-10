@@ -479,7 +479,7 @@
 	</section>
 	<!-- 액티비티 주소 지도로 표시 END -->
 
-	<section class="ftco-section">
+	<!-- <section class="ftco-section">
 		<div class="container">
 		<div class="row justify-content-center mb-5 pb-3">
 			<div class="col-md-7 heading-section ftco-animate">
@@ -490,8 +490,48 @@
 		</div>
 		
 		</div>
-	</section>
+	</section> -->
 
+<!-- 후기 보기 -->
+	<section class="ftco-section testimony-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate">
+          	<span class="subheading subheading-with-line"><small class="pr-2 bg-light">Activity REVIEW</small></span>
+            <h2 class="mb-4">Activity Review</h2>
+            <p>후기들을 볼 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel">
+            <c:forEach items="${rList }" var="review">
+	              <div class="item">
+	                <div class="testimony-wrap p-4 pb-5">
+	                  <div class="user-img mb-5" style="background-image: url(../resources/reviewFiles/${review.rRenameFilename })"><!-- 리뷰 사진 넣을 예정 -->
+	                    <span class="quote d-flex align-items-center justify-content-center">
+	                      <i class="icon-quote-left"></i>
+	                    </span>
+	                  </div>
+	                  <c:url var="rDetail" value="activityDetail.com">
+                     		<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
+                  	  </c:url>
+		              <div class="text">
+		                    <p class="mb-5 pl-4 line">${review.reviewContents }</p>
+			                  <div class="pl-5">
+				                <p class="name">${review.memberId }</p>
+				                <a href="${rDetail }"><span class="position">${review.reviewTitle }</span></a>
+			                  </div>
+		              </div>
+	                </div>
+	              </div>
+              </c:forEach>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- 후기보기 END -->	
 
 
 </body>

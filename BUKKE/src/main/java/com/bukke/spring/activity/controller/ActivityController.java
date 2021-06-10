@@ -32,6 +32,8 @@ import com.bukke.spring.keep.service.KeepService;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.service.ReviewService;
 import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,6 +50,9 @@ public class ActivityController {
 	
 	@Autowired
 	private ReservationService reService;
+	
+	@Autowired
+	private ReviewService rService;
 	
 	// 분류별로 필터링 할 때 해쉬맵 이용해서 밸류값 넘겨줄 것 
 	// 에이젝스로 수정하기 
@@ -201,9 +206,11 @@ public class ActivityController {
 		
 		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회
 		ArrayList<Activity> aList = aService.printTopThreeActivity(); // 상위 top3 용도
+		ArrayList<Review> rList = rService.printReviewToActivity(activityNo);
 		if(activity != null && !aList.isEmpty()) {
 			
 			model.addAttribute("aList", aList);
+			mv.addObject("rList", rList);
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
 		
 		} else {

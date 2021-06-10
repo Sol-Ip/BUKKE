@@ -173,4 +173,9 @@ public class ReviewStoreLogic implements ReviewStore {
 		// TODO Auto-generated method stub
 		return session.selectOne("reviewMapper.selectReviewCount", memberId);
 	}
+	@Override
+	public ArrayList<Review> selectReviewToActivity(int activityNo) {
+		// TODO Auto-generated method stub
+		return (ArrayList)session.selectList("reviewMapper.selectListToActivity",activityNo);
+	}
 }

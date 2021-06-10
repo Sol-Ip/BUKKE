@@ -249,7 +249,7 @@
 				        pay_method : 'card',
 				        merchant_uid : 'merchant_' + new Date().getTime(),
 				        name : '${reservation.activity.activityName}',
-				        amount : '${reservation.activity.activityPrice}',
+				        amount : '{reservation.activity.activityPrice}',
 				       // buyer_email : '12345@naver.com',
 				        buyer_name : 'ㄱㄱㄱ',
 				        buyer_tel : '010-1111-2222',

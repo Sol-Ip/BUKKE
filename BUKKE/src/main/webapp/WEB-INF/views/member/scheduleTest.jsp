@@ -182,7 +182,7 @@
   <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
   <hr>
   <h5>Tooltips in a modal</h5>
-  <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> have tooltips on hover.</p>
+  <p class="tooltip-test"></p>
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -225,106 +225,99 @@ $(document).ready(function() {
     
     var initialLocaleCode = 'ko';
     
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'interaction', 'dayGrid' ],
-      header: {
-        left: 'prevYear,prev,next,nextYear today',
-        center: 'title',
-        right: 'dayGridMonth,dayGridWeek,dayGridDay'
-      },
-     // defaultDate: '2020-02-12', <- 미표기 시 현재 날짜로 감
-      locale: initialLocaleCode,
-      navLinks: true, // can click day/week names to navigate views
-      editable: true,
-      eventLimit: true, // allow "more" link when too many events
-      selectable: true,
-      events: 'https://fullcalendar.io/demo-events.json?overload-day',
-      dateClick: function(info) {
-         
-      },
-      
-      eventClick: function(info){
-    	  /*   
-    	  var eventObj = info.event;
-    	 // $('#calNo').val(eventObj.id);
-   	  $('#deleteCalNo').val(eventObj.id);
-    	  $('#title').val(eventObj.title);
-    	  $('#startDate').val(moment(eventObj.start).format('YYYY-MM-DD'));
-    	  $('#startTime').val(moment(eventObj.start).format('HH:mm'));
-    	  $('#endDate').val(moment(eventObj.end).format('YYYY-MM-DD'));
-    	  $('#endTime').val(moment(eventObj.end).format('HH:mm'));
-    	  $('#calInfo').val(eventObj.groupId); */
-    	  //$("input:radio[name=color]:radio[value='"+eventObj.backgroundColor+"']").prop('checked', true);
-    	 // $("#delete-btn").append("<a id='deletebtn' class='btn btn-theme04' href='deleteCal.do?calNo="+eventObj.id+"'>삭제</a>");
-    	  detailModal.modal('show');
-      },
-      
-    		  
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2021-06-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2021-06-07',
-          end: '2021-06-10'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2021-06-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2021-06-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2021-06-11',
-          end: '2021-06-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2021-06-12T10:30:00',
-          end: '2021-06-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2021-06-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2021-06-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2021-06-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2021-06-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2021-06-13T07:00:00'
-        },
-        {
-         
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2021-06-28',
-          color : 'pink'
-          
-        }
-      ]
-    });
 
-    calendar.render(); 
-  });
-  
- 
+	var calendar = new FullCalendar.Calendar(calendarEl, {
+			plugins : [ 'interaction', 'dayGrid' ],
+			header : {
+				left : 'prevYear,prev,next,nextYear today',
+				center : 'title',
+				right : 'dayGridMonth,dayGridWeek,dayGridDay'
+			},
+			// defaultDate: '2020-02-12', <- 미표기 시 현재 날짜로 감
+			locale : initialLocaleCode,
+			navLinks : true, // can click day/week names to navigate views
+			editable : true,
+			eventLimit : true, // allow "more" link when too many events
+			selectable : true,
+			events : 'https://fullcalendar.io/demo-events.json?overload-day',
+			dateClick : function(info) {
+			},
+
+			eventClick : function(info) {
+				/*   
+				var eventObj = info.event;
+				// $('#calNo').val(eventObj.id);
+				$('#deleteCalNo').val(eventObj.id);
+				$('#title').val(eventObj.title);
+				$('#startDate').val(moment(eventObj.start).format('YYYY-MM-DD'));
+				$('#startTime').val(moment(eventObj.start).format('HH:mm'));
+				$('#endDate').val(moment(eventObj.end).format('YYYY-MM-DD'));
+				$('#endTime').val(moment(eventObj.end).format('HH:mm'));
+				$('#calInfo').val(eventObj.groupId); */
+				//$("input:radio[name=color]:radio[value='"+eventObj.backgroundColor+"']").prop('checked', true);
+				// $("#delete-btn").append("<a id='deletebtn' class='btn btn-theme04' href='deleteCal.do?calNo="+eventObj.id+"'>삭제</a>");
+				var eventObj = info.event;
+				/* 이부분에 ajax추가해서 클래스정보 가져오기 */
+				$(".modal-title").html(eventObj.id);
+				$(".tooltip-test").html(eventObj.title + "," + eventObj.start + "," + eventObj.test);
+				$(".modal").modal("show");
+			},
+
+			events : [ {
+				id : 'class50',
+				title : 'Dawn Evening',
+				start : '2021-06-01',
+				test: '모달창띄우기 가가가'
+			}, {
+				id : 'activity51',
+				title : 'Long Event',
+				start : '2021-06-07',
+				end : '2021-06-10',
+				test: '모달창띄우기 나나나'
+			}, {
+				id : 'class55',
+				groupId : 999,
+				title : 'Repeating Event',
+				start : '2021-06-09T16:00:00',
+			}, {
+				groupId : 999,
+				title : 'Repeating Event',
+				start : '2021-06-16T16:00:00'
+			}, {
+				title : 'Conference',
+				start : '2021-06-11',
+				end : '2021-06-13'
+			}, {
+				title : 'Meeting',
+				start : '2021-06-12T10:30:00',
+				end : '2021-06-12T12:30:00'
+			}, {
+				title : 'Lunch',
+				start : '2021-06-12T12:00:00'
+			}, {
+				title : 'Meeting',
+				start : '2021-06-12T14:30:00'
+			}, {
+				title : 'Happy Hour',
+				start : '2021-06-12T17:30:00'
+			}, {
+				title : 'Dinner',
+				start : '2021-06-12T20:00:00'
+			}, {
+				title : 'Birthday Party',
+				start : '2021-06-13T07:00:00'
+			}, {
+
+				title : 'Click for Google',
+				url : 'http://google.com/',
+				start : '2021-06-28',
+				color : 'pink'
+
+			} ]
+		});
+
+		calendar.render();
+	});
 </script>
 </body>
 </html>

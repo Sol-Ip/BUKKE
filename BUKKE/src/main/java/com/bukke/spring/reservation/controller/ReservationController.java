@@ -68,6 +68,24 @@ public class ReservationController {
          return mv;
       }
       
+//      @ResponseBody
+//      @RequestMapping(value="activityPaySuccess.com", method=RequestMethod.POST)
+//      public void ActivityPaysuccess(@ModelAttribute Reservation reservation,
+//    		  						HttpServletResponse response) {
+//    	  
+//    	  
+//    	  
+//      }
+//      
+//      
+//      public void ClassPaysuccess() {
+//    	  
+//      }
+      
+      
+      
+      
+      
       // 예약 상세정보 jsp 이동 (모든회원)
       @RequestMapping(value="reservationDetail.com", method =RequestMethod.GET )
       public String reservationDetailView(@RequestParam("reservationId")String reservationId,HttpSession session) {

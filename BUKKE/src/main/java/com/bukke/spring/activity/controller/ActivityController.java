@@ -130,36 +130,36 @@ public class ActivityController {
 	}
 			
 	// 액티비티 검색 페이지 이동 및 출력
-	@RequestMapping(value = "activitySearch.com",method=RequestMethod.GET)
-	public ModelAndView activitySearchView(ModelAndView mv, 
-										@RequestParam("activitySearch") String activitySearch,
-										HttpServletRequest session) {
-		//session.setAttribute("act", "activity");
-		ArrayList<Activity> aSearchList = aService.printSearchAllList(activitySearch);
-		if (!aSearchList.isEmpty()) {
-			mv.addObject("aSearchList", aSearchList).setViewName("activity/activitySearchView");
-		} else {
-			mv.addObject("aSearchList", null).addObject("activitySearch", activitySearch).setViewName("activity/activitySearchView");
-		}
-		return mv;
-	}	
+//	@RequestMapping(value = "activitySearch.com",method=RequestMethod.GET)
+//	public ModelAndView activitySearchView(ModelAndView mv, 
+//										@RequestParam("activitySearch") String activitySearch,
+//										HttpServletRequest session) {
+//		//session.setAttribute("act", "activity");
+//		ArrayList<Activity> aSearchList = aService.printSearchAllList(activitySearch);
+//		if (!aSearchList.isEmpty()) {
+//			mv.addObject("aSearchList", aSearchList).setViewName("activity/activitySearchView");
+//		} else {
+//			mv.addObject("aSearchList", null).addObject("activitySearch", activitySearch).setViewName("activity/activitySearchView");
+//		}
+//		return mv;
+//	}	
 			
 	
 	// *액티비티 검색기능 메소드
-//	@RequestMapping(value="activitySearch.com", method=RequestMethod.GET) 
-//	public String activitySearch(@ModelAttribute ActivitySearch activitySearch, Model model) {
-//		ArrayList<Activity> aSearchList = aService.searchActivity(activitySearch);
-//		if(!aSearchList.isEmpty()) {
-//			model.addAttribute("aList", aSearchList);
-//			model.addAttribute("activitySearch", activitySearch);
-//			System.out.println("aList :" + aSearchList);
-//			return "activity/activityListView";
-//		} else {
-//			System.out.println("aList  :" + aSearchList);
-//			model.addAttribute("msg", "액티비티 검색결과 없음");
-//			return "activity/activityNonSearch";
-//		}
-//	}
+	@RequestMapping(value="activitySearch.com", method=RequestMethod.GET) 
+	public String activitySearch(@ModelAttribute ActivitySearch activitySearch, Model model) {
+		ArrayList<Activity> aSearchList = aService.searchActivity(activitySearch);
+		if(!aSearchList.isEmpty()) {
+			model.addAttribute("aList", aSearchList);
+			model.addAttribute("activitySearch", activitySearch);
+			System.out.println("aList :" + aSearchList);
+			return "activity/activityListView";
+		} else {
+			System.out.println("aList  :" + aSearchList);
+			model.addAttribute("msg", "액티비티 검색결과 없음");
+			return "activity/activityNonSearch";
+		}
+	}
 	
 	
 	// 액티비티 상세정보 jsp 이동 (모든회원)

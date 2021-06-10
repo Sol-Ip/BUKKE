@@ -46,10 +46,10 @@ public class ActivityStoreLogic implements ActivityStore {
 		return sqlSession.selectOne("activityMapper.selectActivityOne", activityNo);
 	}
 
-//	@Override
-//	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
-//		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchActivity", activitySearch);
-//	}
+	@Override
+	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) { //액티비티 검색 (일반회원, 업체회원)
+		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchAllList", activitySearch);
+	}
 
 	@Override
 	public int insertActivity(Activity activity) { // 액티비티 등록 (업체회원-액티비티 등록 메뉴)
@@ -76,15 +76,15 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("keepMapper.selectAllKeepList");
 	}
 
-	@Override
-	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<Activity> selectSearchAllList(String activitySearch) { //액티비티 검색(21.06.07)
-		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchAllList", activitySearch);
-	}
+//	@Override
+//	public ArrayList<Activity> searchActivityList(ActivitySearch activitySearch) {
+//		return null;
+//	}
+//	
+//	@Override
+//	public ArrayList<Activity> selectSearchAllList(String activitySearch) { //액티비티 검색(21.06.07)
+//		return (ArrayList)sqlSession.selectList("activityMapper.selectSearchAllList", activitySearch);
+//	}
 
 	@Override
 	public ArrayList<Activity> selectActivityTypeList(String activityType) { // 액티비티 타입에 따른 리스트 출력

@@ -32,7 +32,7 @@ public interface ActivityStore {
 
 	public ArrayList selectKeepActivity(); // 찜 목록에 액티비티 출력
 
-	public ArrayList<Activity> selectSearchAllList(String activitySearch); //액티비티 검색(21.06.07)
+	//public ArrayList<Activity> selectSearchAllList(String activitySearch); //액티비티 검색(21.06.07)
 
 	public ArrayList<Activity> selectActivityTypeList(String activityType); // 액티비티 타입에 따른 리스트 출력
 

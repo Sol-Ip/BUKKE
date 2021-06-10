@@ -35,18 +35,18 @@
 	
 	
 	<!-- 액티비티 검색 -->
-	<!-- <select id="selectSearchAllList" resultMap="ActivityResultMap">
+	 <select id="selectSearchAllList" resultMap="ActivityResultMap">
 		SELECT * FROM ACTIVITY WHERE 
 		SHOP_ID LIKE '%' || #{activityKeyword} ||'%' OR
 		ACTIVITY_NAME LIKE '%' || #{activityKeyword} ||'%' OR 
 		ACTIVITY_TYPE LIKE '%' || #{activityKeyword} ||'%' OR 
 		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' OR
-		ACTIVITY_INFO LIKE '%' || #{activityKeyword} ||'%'
+		ACTIVITY_CONTENTS LIKE '%' || #{activityKeyword} ||'%'
 		ORDER BY ACTIVITY_ENROLL_DATE DESC
-	</select> -->
+	</select> 
 	
 	<!-- 액티비티 검색(21.06.07) -->
-	<select id="" resultMap="ActivityResultMap">
+	<!-- <select id="" resultMap="ActivityResultMap">
 	SELECT ACTIVITY_NO, SHOP_ID, ACTIVITY_NAME, ACTIVITY_ADDR,
             ACTIVITY_TYPE, ACTIVITY_TYPEDETAILS,
             ACTIVITY_CONTENTS, ACTIVITY_PRICE,  
@@ -68,7 +68,7 @@
 		ACTIVITY_TYPE LIKE '%' || #{activityKeyword} ||'%' OR 
 		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' OR
 		ACTIVITY_CONTENTS LIKE '%' || #{activityKeyword} ||'%') ORDER BY ACTIVITY_NO DESC
-	</select>
+	</select> -->
 	
 	<!-- 액티비티 TOP3 목록 ()-->
 	<select id="selectThreeActivityList" resultMap="ActivityResultMap">

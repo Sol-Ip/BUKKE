@@ -37,7 +37,7 @@ public interface ActivityService {
 
 	//public ArrayList<Activity> printActivitySelectList(HashMap<String, String> activitySelect); // 액티비티 선택 시 리스트 출력(21.06.07)
 
-	public ArrayList<Activity> printSearchAllList(String search); //액티비티 검색(21.06.07)
+	//public ArrayList<Activity> printSearchAllList(String search); //액티비티 검색(21.06.07)
 
 	public ArrayList<Activity> printActivityTypeList(String activityType); // 액티비티 타입에 따른 리스트 출력
 

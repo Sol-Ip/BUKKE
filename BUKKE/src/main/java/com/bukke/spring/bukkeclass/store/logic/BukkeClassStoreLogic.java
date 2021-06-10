@@ -159,4 +159,17 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	    return (ArrayList)session.selectList("bclassMapper.selectAllListbyId", memberId, rowBounds);
 	}
 
+	@Override
+	public int selectListcountbyMyId(String memberId) {
+		// TODO Auto-generated method stub
+		return session.selectOne("bclassMapper.selectListCountbyMyId",memberId);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectAllListBclassbyMyId(MemberPageInfo classPi, String memberId) {
+		int offset = (classPi.getCurrentPage() - 1) * classPi.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, classPi.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllListbyMyId", memberId, rowBounds);
+	}
+
 }

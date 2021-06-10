@@ -291,7 +291,7 @@ button.learn-more:active::before {
         </div>
         </div>
 			<div>
-				<div id="maps" style="width:80%;height:500px; margin-left:15%">
+				<div id="maps" style="width:90%;height:500px; position: relative; left: 5%">
 				<div></div>
 				<div></div>
 				</div>

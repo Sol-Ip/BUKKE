@@ -105,6 +105,19 @@ public class ActivityServiceImpl implements ActivityService {
 		return aStore.selectAllActivityListbyId(actPi,memberId);
 	}
 
+//	//마이페이지 내 예약 확인 카운트
+//	@Override
+//	public int getactListMyId(String memberId) {
+//		// TODO Auto-generated method stub
+//		return aStore.selectListCountbyOneId(memberId);
+//	}
+//	//마이페이지 내 예약 확인 리스트
+//	@Override
+//	public ArrayList<Activity> printMyactById(MemberPageInfo actPi, String memberId) {
+//		// TODO Auto-generated method stub
+//		return aStore.selectAllactivityListOneId(actPi,memberId);
+//	}
+
 	
 
 

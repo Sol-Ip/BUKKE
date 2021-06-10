@@ -6,8 +6,10 @@ import java.util.HashMap;
 import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.keep.domain.KeepPageInfo;
 import com.bukke.spring.member.domain.MemberPageInfo;
+import com.bukke.spring.reservation.domain.Reservation;
 
 public interface ActivityService {
 	
@@ -42,6 +44,13 @@ public interface ActivityService {
 	public int getListCountbyId(String memberId);
 
 	public ArrayList<Activity> printAllActivityById(MemberPageInfo actPi, String memberId);
+
+//	public int getactListMyId(String memberId); //마이페이지 내 예약 확인하기
+//
+//	public ArrayList<Activity> printMyactById(MemberPageInfo actPi, String memberId); //마이페이지 내 예약 확인하기
+
+
+	
 	
 	
 	

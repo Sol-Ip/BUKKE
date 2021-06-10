@@ -457,7 +457,7 @@ public class MemberController {
     @ResponseBody
 	@RequestMapping(value="paymentSuccess.com", method=RequestMethod.POST)
 	public String addComment(@ModelAttribute Reservation reservation) {
-		
+		System.out.println(reservation.toString());
     	int result = reService.ChangeStatus(reservation);
     	
 		if(result > 0) {

@@ -50,4 +50,17 @@ public class HomeController {
 		return "common/payment";
 	}
 	
+	// 마이페이지 스케쥴 관리(풀캘린더)
+    @RequestMapping(value = "scheduleTest.com", method = RequestMethod.GET)
+    public String scheduleView() {
+       return "member/scheduleTest";
+
+    }
+    
+ // 마이페이지 스케쥴 관리(풀캘린더)
+    @RequestMapping(value = "scheduleTest2.com", method = RequestMethod.GET)
+    public String scheduleView2() {
+       return "member/scheduleTest2";
+
+    }
 }

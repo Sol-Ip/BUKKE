@@ -154,6 +154,10 @@
     SELECT COUNT (*) AS ACT_RES_COUNT FROM RESERVATION WHERE RESERVATION_ID = #{memberId} AND ACTIVITY_NO IS NOT NULL AND RESERVATION_STATUS='승인'
    </select> 
    
-   
+    <update id="changeStatus">
+		UPDATE RESERVATION
+		SET PAY_STATUS = 'Y' 
+		WHERE RESERVATION_NO = #{reservationNo }
+	</update>  
    
 </mapper>

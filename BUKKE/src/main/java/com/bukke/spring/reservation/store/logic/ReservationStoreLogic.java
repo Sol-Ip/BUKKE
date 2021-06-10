@@ -104,6 +104,12 @@ public class ReservationStoreLogic implements ReservationStore {
 	      return (ArrayList)sqlSession.selectList("reservationMapper.reservationListMyId", memberId);
 
 	}
+
+	@Override
+	public int ChangeStatus(Reservation reservation) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("reservationMapper.changeStatus", reservation);
+	}
 	
 
 

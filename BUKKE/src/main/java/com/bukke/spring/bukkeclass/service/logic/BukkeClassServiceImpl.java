@@ -62,28 +62,28 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	}
 	
 	@Override
-	public ArrayList<BukkeClass> printFlowerBclass(PageInfo pi) {
-		return bStore.selectFlowerBclass(pi);
+	public ArrayList<BukkeClass> printFlowerBclass(PageInfo piFlower) {
+		return bStore.selectFlowerBclass(piFlower);
 	}
 
 	@Override
-	public ArrayList<BukkeClass> printArtBclass(PageInfo pi) {
-		return bStore.selectArtBclass(pi);
+	public ArrayList<BukkeClass> printArtBclass(PageInfo piArt) {
+		return bStore.selectArtBclass(piArt);
 	}
 
 	@Override
-	public ArrayList<BukkeClass> printBeautyBclass(PageInfo pi) {
-		return bStore.selectBeautyBclass(pi);
+	public ArrayList<BukkeClass> printBeautyBclass(PageInfo piBeauty) {
+		return bStore.selectBeautyBclass(piBeauty);
 	}
 
 	@Override
-	public ArrayList<BukkeClass> printMusicBclass(PageInfo pi) {
-		return bStore.selectMusicBclass(pi);
+	public ArrayList<BukkeClass> printMusicBclass(PageInfo piMusic) {
+		return bStore.selectMusicBclass(piMusic);
 	}
 
 	@Override
-	public ArrayList<BukkeClass> printPhotoBclass(PageInfo pi) {
-		return bStore.selectPhotoBclass(pi);
+	public ArrayList<BukkeClass> printPhotoBclass(PageInfo piPhoto) {
+		return bStore.selectPhotoBclass(piPhoto);
 	}
 
 	// 클래스 상세정보

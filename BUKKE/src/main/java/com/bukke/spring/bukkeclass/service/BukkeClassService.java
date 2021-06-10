@@ -29,15 +29,15 @@ public interface BukkeClassService {
 
 	public int getPhotoListCount();
 
-	public ArrayList<BukkeClass> printFlowerBclass(PageInfo pi);
+	public ArrayList<BukkeClass> printFlowerBclass(PageInfo piFlower);
 
-	public ArrayList<BukkeClass> printArtBclass(PageInfo pi);
+	public ArrayList<BukkeClass> printArtBclass(PageInfo piArt);
 
-	public ArrayList<BukkeClass> printBeautyBclass(PageInfo pi);
+	public ArrayList<BukkeClass> printBeautyBclass(PageInfo piBeauty);
 
-	public ArrayList<BukkeClass> printMusicBclass(PageInfo pi);
+	public ArrayList<BukkeClass> printMusicBclass(PageInfo piMusic);
 
-	public ArrayList<BukkeClass> printPhotoBclass(PageInfo pi);
+	public ArrayList<BukkeClass> printPhotoBclass(PageInfo piPhoto);
 	
 	// 클래스 상세 정보
 	public BukkeClass printOneBclass(int classNo);

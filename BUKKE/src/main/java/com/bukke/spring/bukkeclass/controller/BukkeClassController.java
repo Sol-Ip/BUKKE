@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,14 @@ import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.BukkeClassPagination;
+import com.bukke.spring.keep.domain.Keep;
+import com.bukke.spring.keep.service.KeepService;
+import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.reservation.domain.Reservation;
+import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.service.ReviewService;
+import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
@@ -36,6 +43,12 @@ public class BukkeClassController {
 	
 	@Autowired
 	private BukkeClassService bService;
+	
+	@Autowired
+	private ReservationService reService;
+	
+	@Autowired
+	private KeepService kService;
 	
 	@Autowired
 	private ReviewService rService;
@@ -60,11 +73,11 @@ public class BukkeClassController {
 	    PageInfo piPhoto = BukkeClassPagination.getPageInfo(currentPage, listCount);
 	    
 		ArrayList<BukkeClass> bList = bService.printAllBclass(pi);
-		ArrayList<BukkeClass> flowerList = bService.printFlowerBclass(pi);
-		ArrayList<BukkeClass> artList = bService.printArtBclass(pi);
-		ArrayList<BukkeClass> beautyList = bService.printBeautyBclass(pi);
-		ArrayList<BukkeClass> musicList = bService.printMusicBclass(pi);
-		ArrayList<BukkeClass> photoList = bService.printPhotoBclass(pi);
+		ArrayList<BukkeClass> flowerList = bService.printFlowerBclass(piFlower);
+		ArrayList<BukkeClass> artList = bService.printArtBclass(piArt);
+		ArrayList<BukkeClass> beautyList = bService.printBeautyBclass(piBeauty);
+		ArrayList<BukkeClass> musicList = bService.printMusicBclass(piMusic);
+		ArrayList<BukkeClass> photoList = bService.printPhotoBclass(piPhoto);
 		
 		
 		if(!bList.isEmpty()) {
@@ -92,7 +105,17 @@ public class BukkeClassController {
 	// 클래스 상세정보 jsp 이동
 	@RequestMapping(value="bukkeClassDetailView.com", method=RequestMethod.GET)
 	public ModelAndView bukkeClassDetailView(ModelAndView mv,
+											Model model,
+											HttpServletRequest request,
+											HttpSession session,
 											@RequestParam("classNo") int classNo) {
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		if(loginMember != null) {
+			String memberId = loginMember.getMemberId();
+			// 찜하기
+			
+			// 예약하기
+		}
 		BukkeClass bukkeClass = bService.printOneBclass(classNo);
 		ArrayList<BukkeClass> bList = bService.printTopThreeBclass();
 		ArrayList<Review> rList = rService.printReviewToBclass(classNo);
@@ -134,6 +157,7 @@ public class BukkeClassController {
 										@ModelAttribute BukkeClass bukkeClass,
 										@RequestParam("classAddr1") String classAddr1,
 										@RequestParam("classAddr2") String classAddr2,
+										HttpSession session,
 										@RequestParam(value="uploadFile", required=false) MultipartFile uploadFile,
 										HttpServletRequest request) {
 		// 서버에 파일 저장
@@ -150,6 +174,9 @@ public class BukkeClassController {
 		// DB에 데이터 저장
 		int result = 0;
 		String cPath = "";
+		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+		String shopId = loginShopper.getShopId();
+		
 		bukkeClass.setClassAddr(classAddr1 + ","+ classAddr2);
 		result = bService.registerBclass(bukkeClass);
 		if(result > 0) {

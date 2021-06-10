@@ -19,6 +19,7 @@
 	<typeAlias type="com.bukke.spring.reservation.domain.Reservation" alias="Reservation"/>
 	<typeAlias type="com.bukke.spring.chat.domain.Chat" alias="Chat"/>
 	<typeAlias type="com.bukke.spring.chat.domain.Room" alias="Room"/>
+	<typeAlias type="com.bukke.spring.schedule.domain.Schedule" alias="Schedule"/>
 </typeAliases> 
 
 	<mappers>
@@ -31,6 +32,7 @@
 		<mapper resource="mappers/keep-mapper.xml"></mapper> 
 		<mapper resource="mappers/reservation-mapper.xml"></mapper> 
 		<mapper resource="mappers/chat-mapper.xml"></mapper> 
+		<mapper resource="mappers/schedule-mapper.xml"></mapper> 
 	</mappers>
 
 </configuration>

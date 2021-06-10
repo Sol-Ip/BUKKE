@@ -12,6 +12,7 @@ public class Chat {
 	private String roomName;
 	private String msg;
 	private Timestamp chatTime;
+	private Date chatDate;
 	
 	public Chat() {}
 
@@ -78,14 +79,24 @@ public class Chat {
 	public void setChatTime(Timestamp chatTime) {
 		this.chatTime = chatTime;
 	}
+	
+
+	public Date getChatDate() {
+		return chatDate;
+	}
+
+	public void setChatDate(Date chatDate) {
+		this.chatDate = chatDate;
+	}
 
 	@Override
 	public String toString() {
 		return "Chat [chatNo=" + chatNo + ", roomNumber=" + roomNumber + ", memberId=" + memberId + ", shopId=" + shopId
 				+ ", memberNick=" + memberNick + ", roomName=" + roomName + ", msg=" + msg + ", chatTime=" + chatTime
-				+ "]";
+				+ ", chatDate=" + chatDate + "]";
 	}
 
 
+	
 	
 }

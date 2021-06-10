@@ -14,28 +14,36 @@ public class ChatService {
 	@Autowired
 	private ChatStore chatStore;
 	
-	// 채팅방 등록
-	public int registerChatRoom(Room room) {
-		return chatStore.insertChatRoom(room);
-	}
-
 	// 채팅방 리스트
-	public ArrayList<Room> printChatRoom() {
-		 return chatStore.selectChatRoom();
+	public ArrayList<Room> printAllList(String memberId, String shopId) {
+		return chatStore.selectAllList(memberId,shopId);
 	}
 	
+	// 최신 방번호
 	public int printMaxRoomNumber() {
 		return chatStore.selectMaxRoomNumber();
 	}
+	
+	// 선택한 방 정보 가져오기
+	public Room printOneRoom(Room roominfo) {
+		return chatStore.selectOneRoom(roominfo);
+	}
+		
+		
+	// 채팅방 등록
+//	public int registerChatRoom(Room roominfo) {
+//		return chatStore.insertChatRoom(roominfo);
+//	}
+
 
 	// 채팅 내역 저장
 	public int registerChat(Chat chat) {
-		return chatStore.insertChatRoom(chat);
+		return chatStore.insertChat(chat);
 	}
 
 	// 채팅 내역 가져오기
-	public ArrayList<Chat> printChat(int roomNumber) {
-		return chatStore.selectChat(roomNumber);
+	public ArrayList<Chat> printAllChat(int roomNumber) {
+		return chatStore.selectAllChat(roomNumber);
 	}
 
 

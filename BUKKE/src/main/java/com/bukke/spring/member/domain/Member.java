@@ -83,6 +83,9 @@ public class Member {
 				+ ", memberNick=" + memberNick + ", memberAddr=" + memberAddr + ", memberPhone=" + memberPhone
 				+ ", memberEmail=" + memberEmail + "]";
 	}
+
+
+
 	
 
 }

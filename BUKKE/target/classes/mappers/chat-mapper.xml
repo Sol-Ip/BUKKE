@@ -20,32 +20,41 @@
 		<result property="roomNumber" column="ROOM_NUMBER"></result>
 		<result property="memberId" column="MEMBER_ID"></result>
 		<result property="shopId" column="SHOP_ID"></result>
+		<result property="memberNick" column="MEMBER_NICK"></result>
+		<result property="roomName" column="ROOM_NAME"></result>
 		<result property="msg" column="MSG"></result>
 		<result property="chatTime" column="CHAT_TIME"></result>
+		<result property="chatDate" column="CHAT_DATE"></result>
 	</resultMap>
 	
 	<!-- 채팅방 리스트 -->
-	<select id="selectChatRoom" resultMap="chatRoomResultMap">
+	<select id="selectAllList" parameterType="Room" resultMap="chatRoomResultMap">
 		SELECT * FROM ROOM
 	</select>
 	
-	<select id="selectMaxRoomNumber" resultMap="chatRoomResultMap">
+	<!-- 최신 방번호 -->
+	<select id="selectMaxRoomNumber" resultType="_int">
 		SELECT MAX(ROOM_NUMBER) FROM ROOM
 	</select>
 	
 	<!-- 채팅 내역  -->
-	<select id="selectChat" parameterType="_int" resultMap="chatResultMap">
-		SELECT * FROM CHAT WHERE ROOM_NUMBER = #{roomNumber }
+	<select id="selectOneRoom" parameterType="Room" resultMap="chatRoomResultMap">
+		SELECT * FROM CHAT WHERE MEMBER_NICK = #{memberNick} AND ROOM_NUMBER = #{roomNumber }
 	</select>
 	
 	<!-- 채팅방 등록 -->
-	<insert id="insertChatRoom" parameterType="Room">
+	<!-- <insert id="insertChatRoom" parameterType="Room">
 		INSERT INTO ROOM VALUES(#{roomNumber }, #{memberId }, #{shopId }, #{roomName }, #{memberNick }, #{className }, #{activityName }, #{chatTime }, #{lastChatMsg }, #{lastChatTime })
-	</insert>
+	</insert> -->
 	
 	<!-- 채팅 내역 저장 -->
 	<insert id="insertChat" parameterType="Chat">
 		INSERT INTO VALUES(SEQ_CHAT_NO.NEXTVAL, #{roomNumber }, #{memberId }, #{shopId }, #{memberNick }, #{msg }, #{chatTime }, #{chatDate } )
 	</insert>
+	
+	<!-- 채팅 내용 전체 가져오기 -->
+	<select id="selectAllChat" parameterType="Chat" resultMap="ChatResultMap">
+		SELECT * FROM CHAT WHERE ROOM_NUMBER = #{roomNumber} ORDER BY CHAT_DATE ASC
+	</select>
 	
 </mapper>

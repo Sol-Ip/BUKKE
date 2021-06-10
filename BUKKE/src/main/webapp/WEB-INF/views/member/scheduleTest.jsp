@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,52 +15,47 @@
 <link rel="stylesheet" href="../resources/css/calendar/main.css">
 <link rel="stylesheet" href="../resources/css/calendar/core_main.css">
 
+<style>
+body {
+	/* margin: 40px 10px; */
+	padding: 0;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 14px;
+}
 
-<style>  
-  
-   body {
-    /* margin: 40px 10px; */
-    padding: 0;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 14px;
-  } 
-
-  #calendar { 
-  	width : 1100px;
-  	padding-top : 40px;
-  	padding-bottom : 120px;
-  	/* padding-left : 300px; */
-  	left : 80%;
-  	/* margin-left : 200px; */
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
+#calendar {
+	width: 1100px;
+	padding-top: 40px;
+	padding-bottom: 120px;
+	/* padding-left : 300px; */
+	left: 80%;
+	/* margin-left : 200px; */
+	max-width: 900px;
+	margin: 0 auto;
+}
+.banner {
+		background: linear-gradient(270deg, rgba(41,206,140,1) 0%, rgba(40,189,168,1) 100%);
+	}
+.banner * {
+	color: white;
+}
+.l-navbar {
+	height: 1049px !important;
+}
 </style>
-</head> 
-<!-- <body id="body-pd"> -->
-
-<body id="">
-
-   <!-- fixed section -->
-   <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('resources/images/bg_1.jpg');"
-      data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-         <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-               <h1 class="mb-2 bread">OPEN MYPAGE</h1>
-               <p class="breadcrumbs">
-                  <span class="mr-2"><a href="home.com">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-                  <span>MyPage <i class="ion-ios-arrow-forward"></i></span>
-               </p>
-            </div>
-         </div>
-      </div>
-      
+</head>
+<body>
+	<section class="banner hero-wrap hero-wrap-2">
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<h1 class="mb-2 bread">일정관리</h1>
+					<p class="mr-2">원하는 취미들을 마음껏 즐겨보세요</p>
+				</div>
+			</div>
+		</div>
       <!-- ======================= 사이드 바 시작 =============================== -->
-         <div class="l-navbar" id="navbar">
+        <div class="l-navbar" id="navbar">
         <nav class="nav">
             <div>
                 <div class="nav__brand">
@@ -150,65 +146,70 @@
    <!-- ======================= 사이드 바 끝 =============================== -->
   
       <!--===================== 풀캘린더 시작 =========== -->
-      <section>
-	      <div class="container">
-	      <div class="row justify-content-center mb-5 pb-3">
+	<section>
+		<div class="container">
+			<div class="row justify-content-center pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-white">BUKKE</small></span>
 					<h2 class="mb-4">SCHEDULE</h2>
 				</div>
 			</div>
-	      	<div class="row">
-		      	<div class="col-sm-12">
-		      		<div id='calendar'></div>
-		      	</div>
-	      	</div>
-	      	<hr>
-	      	
-	   <button type="button" class="btn btn-primary" id="btn1">모달창오픈</button>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-  <h5>Popover in a modal</h5>
-  <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
-  <hr>
-  <h5>Tooltips in a modal</h5>
-  <p class="tooltip-test"></p>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary">Save changes</button>
-</div>
-</div>
-</div>
-</div>
-
-<script>
-$(document).ready(function() {
-	$("#btn1").click(function() {
-	 $(".modal").modal("show");
-	}); 
-	//$("#ipt1").focus();
-	$(".modal").on("shown.bs.modal", function () {
-	$("#ipt1").focus();
-	}); 
-	});
-
-</script>
-
-
-      </section>
-      
-      <!-- ======================= 풀캘린더 끝 ================= -->
+			<table class =""  id="data-table">
+				<c:forEach var="cData" items="${reList}" varStatus="status">
+				<tr>
+					<td id=""><c:out value="class${cData.classNo}" /></td>
+					<td id=""><c:out value="activity${cData.activityNo}" /></td>
+					<td id=""><c:out value="${cData.activity.activityName}" /></td>
+					<td id=""><c:out value="${cData.bukkeClass.className}" /></td>
+					<td id=""><c:out value="${cData.activity.activityStartdate}" /></td>
+					<td id=""><c:out value="${cData.activity.activityEnddate}" /></td>
+					<td id=""><c:out value="${cData.bukkeClass.classStartDate}" /></td>
+					<td id=""><c:out value="${cData.bukkeClass.classEndDate}" /></td>
+					<td id=""><c:out value="${cData.reservationStatus}" /></td>
+				</tr>
+				</c:forEach>
+			</table>
+			<div class="row">
+				<div class="col-sm-12">
+					<div id='calendar'></div>
+				</div>
+			</div>
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<h5>Popover in a modal</h5>
+							<p>
+								This <a href="#" role="button"
+									class="btn btn-secondary popover-test" title="Popover title"
+									data-bs-content="Popover body content is set in this attribute.">button</a>
+								triggers a popover on click.
+							</p>
+							<hr>
+							<h5>Tooltips in a modal</h5>
+							<p class="tooltip-test"></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save
+								changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!-- ======================= 풀캘린더 끝 ================= -->
 <!-- 마이페이지 사이드바 -->
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
@@ -222,10 +223,8 @@ $(document).ready(function() {
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var localeSelectorEl = document.getElementById('locale-selector');
-    
     var initialLocaleCode = 'ko';
     
-
 	var calendar = new FullCalendar.Calendar(calendarEl, {
 			plugins : [ 'interaction', 'dayGrid' ],
 			header : {
@@ -263,60 +262,19 @@ $(document).ready(function() {
 				$(".modal").modal("show");
 			},
 
-			events : [ {
-				id : 'class50',
-				title : 'Dawn Evening',
-				start : '2021-06-01',
-				test: '모달창띄우기 가가가'
-			}, {
-				id : 'activity51',
-				title : 'Long Event',
-				start : '2021-06-07',
-				end : '2021-06-10',
-				test: '모달창띄우기 나나나'
-			}, {
-				id : 'class55',
-				groupId : 999,
-				title : 'Repeating Event',
-				start : '2021-06-09T16:00:00',
-			}, {
-				groupId : 999,
-				title : 'Repeating Event',
-				start : '2021-06-16T16:00:00'
-			}, {
-				title : 'Conference',
-				start : '2021-06-11',
-				end : '2021-06-13'
-			}, {
-				title : 'Meeting',
-				start : '2021-06-12T10:30:00',
-				end : '2021-06-12T12:30:00'
-			}, {
-				title : 'Lunch',
-				start : '2021-06-12T12:00:00'
-			}, {
-				title : 'Meeting',
-				start : '2021-06-12T14:30:00'
-			}, {
-				title : 'Happy Hour',
-				start : '2021-06-12T17:30:00'
-			}, {
-				title : 'Dinner',
-				start : '2021-06-12T20:00:00'
-			}, {
-				title : 'Birthday Party',
-				start : '2021-06-13T07:00:00'
-			}, {
-
-				title : 'Click for Google',
-				url : 'http://google.com/',
-				start : '2021-06-28',
-				color : 'pink'
-
-			} ]
+			events : [
+				
+			]
 		});
 
 		calendar.render();
+	});
+</script>
+<script>
+	$(document).ready(function() {
+		$(".modal").on("shown.bs.modal", function() {
+			$("#ipt1").focus();
+		});
 	});
 </script>
 </body>

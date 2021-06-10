@@ -453,5 +453,18 @@ public class MemberController {
        }
        return mv;
     }
+    //결제시 pay_status Y로 변경
+    @ResponseBody
+	@RequestMapping(value="paymentSuccess.com", method=RequestMethod.POST)
+	public String addComment(@ModelAttribute Reservation reservation) {
+		
+    	int result = reService.ChangeStatus(reservation);
+    	
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 	
 }

@@ -32,6 +32,7 @@ public interface ReservationService {
 	
 	// 캘린더 예약확인(조회)
 	public ArrayList<Reservation> printMyreservationById(String memberId);
+	public int ChangeStatus(Reservation reservation);
 	
 	
 }

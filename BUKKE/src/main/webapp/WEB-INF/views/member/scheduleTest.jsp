@@ -262,59 +262,9 @@ body {
 				$(".modal").modal("show");
 			},
 
-			// 액티비티 대기, 액티비티 승인
-			// 클래스 대기, 클래스 승인
-			events : [ {
-	            id : 'class50',
-	            title : 'Dawn Evening',
-	            start : '2021-06-01',
-	            test: '모달창띄우기 가가가'
-	         }, {
-	            id : 'activity51',
-	            title : 'Long Event',
-	            start : '2021-06-07',
-	            end : '2021-06-10',
-	            test: '모달창띄우기 나나나'
-	         }, {
-	            id : 'class55',
-	            groupId : 999,
-	            title : 'Repeating Event',
-	            start : '2021-06-09T16:00:00',
-	         }, {
-	            groupId : 999,
-	            title : 'Repeating Event',
-	            start : '2021-06-16T16:00:00'
-	         }, {
-	            title : 'Conference',
-	            start : '2021-06-11',
-	            end : '2021-06-13'
-	         }, {
-	            title : 'Meeting',
-	            start : '2021-06-12T10:30:00',
-	            end : '2021-06-12T12:30:00'
-	         }, {
-	            title : 'Lunch',
-	            start : '2021-06-12T12:00:00'
-	         }, {
-	            title : 'Meeting',
-	            start : '2021-06-12T14:30:00'
-	         }, {
-	            title : 'Happy Hour',
-	            start : '2021-06-12T17:30:00'
-	         }, {
-	            title : 'Dinner',
-	            start : '2021-06-12T20:00:00'
-	         }, {
-	            title : 'Birthday Party',
-	            start : '2021-06-13T07:00:00'
-	         }, {
-
-	            title : 'Click for Google',
-	            url : 'http://google.com/',
-	            start : '2021-06-28',
-	            color : 'pink'
-
-	         } ]
+			events : [
+				
+			]
 		});
 
 		calendar.render();

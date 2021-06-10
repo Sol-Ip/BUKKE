@@ -101,8 +101,8 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	// Ŭ�������� �ı� �����ֱ�
 	@Override
-	public ArrayList<Review> printReviewToBclass() {
-		return rStore.selectReviewToBclass();
+	public ArrayList<Review> printReviewToBclass(int classNo) {
+		return rStore.selectReviewToBclass(classNo);
 	}
 	@Override
 	public void insertReviewLike(ReviewLikes reviewLikes) {

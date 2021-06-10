@@ -100,7 +100,7 @@
 	
 	<!-- ?대옒?ㅼ뿉??由щ럭 蹂댁뿬二쇨린 -->
    <select id="selectListToBclass" resultMap="reviewResultMap">
-      SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
+      SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' AND CLASS_NO = #{classNo} ORDER BY REVIEW_NO DESC
    </select> 
 
 	<resultMap type="reviewLikes" id="likeResultMap">

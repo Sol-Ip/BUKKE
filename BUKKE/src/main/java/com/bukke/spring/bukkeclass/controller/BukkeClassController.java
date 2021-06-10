@@ -95,8 +95,8 @@ public class BukkeClassController {
 											@RequestParam("classNo") int classNo) {
 		BukkeClass bukkeClass = bService.printOneBclass(classNo);
 		ArrayList<BukkeClass> bList = bService.printTopThreeBclass();
-		ArrayList<Review> rList = rService.printReviewToBclass();
-		if(bukkeClass != null && !bList.isEmpty() && !rList.isEmpty()) {
+		ArrayList<Review> rList = rService.printReviewToBclass(classNo);
+		if(bukkeClass != null && !bList.isEmpty()) {
 			mv.addObject("bukkeClass", bukkeClass);
 			mv.addObject("bList", bList);
 			mv.addObject("rList", rList);

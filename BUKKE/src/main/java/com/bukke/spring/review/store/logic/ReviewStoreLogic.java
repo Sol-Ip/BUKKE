@@ -103,8 +103,8 @@ public class ReviewStoreLogic implements ReviewStore {
 	
 	// Ŭ�������� �ı� �����ֱ�
 	@Override
-	public ArrayList<Review> selectReviewToBclass() {
-		return (ArrayList)session.selectList("reviewMapper.selectListToBclass");
+	public ArrayList<Review> selectReviewToBclass(int classNo) {
+		return (ArrayList)session.selectList("reviewMapper.selectListToBclass",classNo);
 	}
 	@Override
 	public int getReviewLike(int reviewNo) {

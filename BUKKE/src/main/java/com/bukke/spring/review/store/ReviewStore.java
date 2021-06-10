@@ -48,7 +48,7 @@ public interface ReviewStore {
 	public int selectListCount();
 
 	// Ŭ�������� ���� �����ֱ�
-	public ArrayList<Review> selectReviewToBclass();
+	public ArrayList<Review> selectReviewToBclass(int classNo);
 	
 	//���ƿ䰹�� ǥ��
 	public int getReviewLike(int reviewNo);

@@ -35,7 +35,7 @@ public interface ReviewService {
 	public int removeLikes(Review review);
 	public int getListCount();
 	// Ŭ�������� �ı� �����ֱ�
-	public ArrayList<Review> printReviewToBclass();
+	public ArrayList<Review> printReviewToBclass(int classNo);
 	
 	//���ƿ��߰�
 	public void insertReviewLike(ReviewLikes reviewLikes);

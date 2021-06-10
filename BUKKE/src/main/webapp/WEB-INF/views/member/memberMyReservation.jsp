@@ -292,35 +292,35 @@
             <div class="block-27">
               <!-- 이전 --> 
               <ul>
-               <c:url var="before" value="memberCAList.com">
-                  <c:param name="page" value="${actPi.currentPage - 1 }"></c:param>
+               <c:url var="before" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage - 1 }"></c:param>
                </c:url>
-               <c:if test="${actPi.currentPage <= 1 }">
+               <c:if test="${reservationPi.currentPage <= 1 }">
                   <li><a href="#" onclick="firstPage()">&lt;</a></li>
                </c:if>
-               <c:if test="${actPi.currentPage > 1 }">
+               <c:if test="${reservationPi.currentPage > 1 }">
                   <li><a href="${before }">&lt;</a></li>
                </c:if>
                <!-- 페이지 -->
-                <c:forEach var="p" begin="${actPi.startPage }" end="${actPi.endPage }">
-                  <c:url var="pagination" value="memberCAList.com">
+                <c:forEach var="p" begin="${reservationPi.startPage }" end="${reservationPi.endPage }">
+                  <c:url var="pagination" value="myReservationList.com">
                      <c:param name="page" value="${p }"></c:param>
                   </c:url>
-                  <c:if test="${p eq actPi.currentPage }">
+                  <c:if test="${p eq reservationPi.currentPage }">
                   <li class="active" style="background-color: #ffffff;"><span>${p }</span></li>
                </c:if>
-                  <c:if test="${p ne actPi.currentPage }">
+                  <c:if test="${p ne reservationPi.currentPage }">
                      <li><a href="${pagination }">${p }</a></li>
                   </c:if>
                </c:forEach>
                <!-- 다음 -->
-               <c:url var="after" value="memberCAList.com">
-                  <c:param name="page" value="${actPi.currentPage + 1 }"></c:param>
+               <c:url var="after" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage + 1 }"></c:param>
                </c:url>
-               <c:if test="${actPi.currentPage >= actPi.maxPage }">
+               <c:if test="${reservationPi.currentPage >= reservationPi.maxPage }">
                   <li><a href="#" onclick="lastPage()">&gt;</a></li>
                </c:if>
-               <c:if test="${actPi.currentPage < actPi.maxPage }">
+               <c:if test="${reservationPi.currentPage < reservationPi.maxPage }">
                   <li><a href="${after }">&gt;</a></li>
                </c:if>
               </ul>
@@ -392,7 +392,7 @@
 		<div id="rejectbtn">거절</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '대기' }">
-      	<button type="button" data-toggle="modal" data-target="#myModal" id="waitbtn" >대기</button>
+      	<button type="button" data-toggle="modal" data-target="#myModal2" id="waitbtn" >대기</button>
       	</c:when>
       </c:choose>
       </td>      	
@@ -411,35 +411,35 @@
             <div class="block-27">
               <!-- 이전 --> 
               <ul>
-               <c:url var="before" value="memberCAList.com">
-                  <c:param name="page" value="${classPi.currentPage - 1 }"></c:param>
+               <c:url var="before" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage - 1 }"></c:param>
                </c:url>
-               <c:if test="${classPi.currentPage <= 1 }">
+               <c:if test="${reservationPi.currentPage <= 1 }">
                   <li><a href="#" onclick="firstPage()">&lt;</a></li>
                </c:if>
-               <c:if test="${classPi.currentPage > 1 }">
+               <c:if test="${reservationPi.currentPage > 1 }">
                   <li><a href="${before }">&lt;</a></li>
                </c:if>
                <!-- 페이지 -->
-                <c:forEach var="p" begin="${classPi.startPage }" end="${classPi.endPage }">
-                  <c:url var="pagination" value="memberCAList.com">
+                <c:forEach var="p" begin="${reservationPi.startPage }" end="${reservationPi.endPage }">
+                  <c:url var="pagination" value="myReservationList.com">
                      <c:param name="page" value="${p }"></c:param>
                   </c:url>
-                  <c:if test="${p eq classPi.currentPage }">
+                  <c:if test="${p eq reservationPi.currentPage }">
                   <li class="active" style="background-color: #ffffff;"><span>${p }</span></li>
                </c:if>
-                  <c:if test="${p ne classPi.currentPage }">
+                  <c:if test="${p ne reservationPi.currentPage }">
                      <li><a href="${pagination }">${p }</a></li>
                   </c:if>
                </c:forEach>
                <!-- 다음 -->
-               <c:url var="after" value="memberCAList.com">
-                  <c:param name="page" value="${classPi.currentPage + 1 }"></c:param>
+               <c:url var="after" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage + 1 }"></c:param>
                </c:url>
-               <c:if test="${classPi.currentPage >= classPi.maxPage }">
+               <c:if test="${reservationPi.currentPage >= reservationPi.maxPage }">
                   <li><a href="#" onclick="lastPage()">&gt;</a></li>
                </c:if>
-               <c:if test="${classPi.currentPage < classPi.maxPage }">
+               <c:if test="${reservationPi.currentPage < reservationPi.maxPage }">
                   <li><a href="${after }">&gt;</a></li>
                </c:if>
               </ul>
@@ -454,8 +454,9 @@
   </section>  
   
   <!-- Modal -->
-        <c:forEach items="${reList }" var="reservation">
-<div class="modal fade" id="myModal" role="dialog"> <!-- 사용자 지정 부분① : id명 -->
+  <c:forEach items="${reList}" var="reservation">
+          <c:if test="${reservation.activityNo !=0}">
+ <div class="modal fade" id="myModal" role="dialog"> <!-- 사용자 지정 부분① : id명 -->
 
     <div class="modal-dialog">
 
@@ -468,25 +469,56 @@
           <button type="button" class="close" data-dismiss="modal">×</button>
         </div>
         <div class="modal-body">
-          <p>수업명: 
-     <%--      <c:if test="${reservation.activityNo !=0}">
-   			   ${reservation.activity.activityNo }
-				</c:if>    --%>
-				 <c:if test="${reservation.classNo != 0 }">
-					${reservation.bukkeClass.className }
-				</c:if>       
+        <div style="text-align: center">
+        <i class="fas fa-4x fa-snowboarding"></i>
+        </div>
+        &nbsp&nbsp&nbsp&nbsp
+          <p>액티비티명: 
+   			   &nbsp ${reservation.activity.activityName }
           </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
-          <p>결제 금액: </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
-          <p>예약일: ${reservation.reservationDate }</p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>결제 금액:&nbsp ${reservation.activity.activityPrice }원 </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>예약일: &nbsp ${reservation.reservationDate }</p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
-  </div>
-        </c:forEach>
+  </div> 
+  </c:if> 
   
+  <c:if test="${reservation.classNo !=0}">
+ <div class="modal fade" id="myModal2" role="dialog"> <!-- 사용자 지정 부분① : id명 -->
+
+    <div class="modal-dialog">
+
+     
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">예약 정보</h4> <!-- 사용자 지정 부분② : 타이틀 -->
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+        <div style="text-align: center">
+        	<i class="fas fa-4x fa-chalkboard-teacher"></i>
+        </div>
+        &nbsp&nbsp&nbsp&nbsp
+          <p>
+   			   클래스명: &nbsp ${reservation.bukkeClass.className }
+          </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>결제 금액: &nbsp ${reservation.bukkeClass.classPrice }원 </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>예약일: &nbsp ${reservation.reservationDate }</p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  </c:if> 
+  </c:forEach>
 
 
    <%--  <section id="dunkles" class="tab-panel">

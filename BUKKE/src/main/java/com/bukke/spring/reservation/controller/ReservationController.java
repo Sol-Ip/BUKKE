@@ -168,7 +168,7 @@ public class ReservationController {
           int reListCountbyId = reService.getreListMyId(memberId);
           
           MemberPageInfo reservationPi = MemberPagination.getPageInfo(currentPage,reListCountbyId);
-
+          
           ArrayList<Reservation> reList = reService.printMyreservationById(reservationPi,memberId);
           
           if(reList.isEmpty()) {

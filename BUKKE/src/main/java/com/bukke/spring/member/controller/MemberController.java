@@ -233,7 +233,7 @@ public class MemberController {
 	}
 
 	// 새 비밀번호 만들기
-	@ResponseBody
+	/* @ResponseBody */
 	@RequestMapping(value = "memberSearchPw.com", method = RequestMethod.POST)
 	public String userPwSearch(HttpSession session, HttpServletRequest request, HttpServletRequest response,
 			@RequestParam("memberId") String memberId, @RequestParam("memberEmail") String memberEmail 

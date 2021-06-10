@@ -158,6 +158,7 @@ button.learn-more:active::before {
 						</div>
 					</div>
 				</div>
+				<br>
 				<div class="row mt-5 pt-4">
 					<div class="col-md-4 ftco-animate">
 						
@@ -179,7 +180,7 @@ button.learn-more:active::before {
 			</div>
 		</section>
 				<!-- fixed section End! -->
-
+		<br><br>
 		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(resources/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row d-md-flex align-items-center justify-content-end">
@@ -304,7 +305,7 @@ button.learn-more:active::before {
 		
 			<!--사용설명서 -->
     <section class="ftco-section testimony-section bg-light">
-		            <button class="learn-more" style="position: relative; left: 50%; font-family: 'DungGeunMo';"><a href="noticeList.com">부캐 사용설명서</a></button>
+		            <button class="learn-more" style="position: relative; left: 45%; font-family: 'DungGeunMo';"><a href="noticeList.com">부캐 사용설명서</a></button>
     </section>
     
    <!-- 지도 스크립트 부분 -->

@@ -13,6 +13,7 @@
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
 
+<!-- 모달창 -->
 
 <!-- 회원정보 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -237,7 +238,7 @@
 		<div id="rejectbtn">흥</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '대기' }">
-      	<div id="waitbtn">대기</div>
+      	<button type="button" data-toggle="modal" data-target="#myModal" id="waitbtn" >대기</button>
       	</c:when>
       </c:choose>
       </td>
@@ -323,7 +324,7 @@
       	<div id="rejectbtn">거절</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '대기' }">
-      	<div id="waitbtn">대기</div>
+      	<button type="button" data-toggle="modal" data-target="#myModal" id="waitbtn" >대기</button>
       	</c:when>
       </c:choose>
       </td> 
@@ -383,13 +384,45 @@
        </div>
        </div>
   </section>  
-   
+  
+  <!-- Modal -->
+        <c:forEach items="${reList }" var="reservation">
+<div class="modal fade" id="myModal" role="dialog"> <!-- 사용자 지정 부분① : id명 -->
+
+    <div class="modal-dialog">
+
+    
+      <!-- Modal content-->
+      <input type="hidden" class="activityNo" value="${reservation.classNo }" name="activityNo">
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">예약 정보</h4> <!-- 사용자 지정 부분② : 타이틀 -->
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <p>수업명: 
+          <c:if test="${ reservation.activityNo !=0}">
+   			   ${reservation.activity.activityName }
+				</c:if>   
+				<c:if test="${reservation.classNo != 0 && reservation.activityNo == 0}">
+					${reservation.bukkeClass.className }
+				</c:if>      
+          </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>결제 금액:${reservation.activity.activityName } </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>예약일: ${reservation.reservationDate }</p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </c:forEach>
+  
+
+
    <%--  <section id="dunkles" class="tab-panel">
-     
-  
-  
-  
-  
      
     
     </section> --%>
@@ -410,6 +443,8 @@
       
     </section>
 	
+
+
 		<script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="reservationMapper">
+<mapper namespace="scheduleMapper">
 	<resultMap type="Schedule" id="ScheduleMap">
 		<result property="classNo" column="CLASS_NO"></result>
 		<result property="activityNo" column="ACTIVITY_NO"></result>
@@ -13,7 +13,7 @@
 	</resultMap>
 	
 
-	<select id="selectScheduleList" resultMap="ScheduleMap">
+<select id="selectScheduleList" resultMap="ScheduleMap">
 		select class.class_no , null as activity_no, class.class_name as title, class.class_start_date as start_date , class.class_end_date as end_date, reservation.reservation_status
 		from class, reservation where (class.class_no in (select class_no from reservation where reservation_id = #{memberId} and (reservation_status = '승인' or reservation_status = '대기')))
                             AND (reservation.reservation_status = '승인' OR reservation.reservation_status = '대기')
@@ -21,5 +21,5 @@
 		select null as class_no, activity.activity_no, activity.activity_name as title, activity.activity_start_date as start_date ,activity.activity_end_date as end_date, reservation.reservation_status
 		from activity, reservation where (activity.activity_no in (select activity_no from reservation where reservation_id = #{memberId} and (reservation_status = '승인' or reservation_status = '대기'))) 
                             AND (reservation.reservation_status = '승인' OR reservation.reservation_status = '대기')
-	</select>
+</select>
 </mapper>

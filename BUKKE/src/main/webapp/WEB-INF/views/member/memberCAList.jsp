@@ -159,7 +159,7 @@
       <th scope="col">분류</th>
       <th scope="col">상세분류</th>
       <th scope="col">개강일</th>
-      
+      <th scope="col">후기작성</th>
     </tr>
   </thead>
   <c:forEach items="${aList }" var="activity">
@@ -172,7 +172,16 @@
       <td>${activity.activityType}</td>
       <td>${activity.activityTypeDetails }</td>
       <td>${activity.activityStartdate }</td>
+      <td><c:url var="rWrite" value="reviewWriteView.com">
+                     		<c:param name="activityNo" value="${activity.activityNo }"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${rWrite }" class="btn btn-sm btn-primary">글쓰기</a>
+							</h3>
+						</td>	
+      <%-- <td><a href="reviewWriteView.com"><button class="btn btn-sm btn-primary" value="${activity.activityNo }" type="submit">글쓰기</button></a></td> --%>
     </tr>
+    					
     </c:if>
   </tbody>
   </c:forEach>
@@ -231,7 +240,7 @@
       <th scope="col">분류</th>
       <th scope="col">상세분류</th>
       <th scope="col">개강일</th>
-      
+       <th scope="col">후기작성</th>
     </tr>
   </thead>
   <c:forEach items="${bList }" var="bClass">
@@ -244,6 +253,7 @@
       <td>${bClass.classType}</td>
       <td>${bClass.classTypedetails }</td>
       <td>${bClass.classStartDate }</td>
+      <td><a href="reviewWriteView.com"><button class="btn btn-sm btn-primary" value="${bClass.classNo}" type="submit">글쓰기</button></a></td>
     </tr>
     </c:if>
   </tbody>

@@ -58,7 +58,7 @@
 				
 				<input type="submit" class="float-center btn btn-lg btn-primary" value="등록">&nbsp;&nbsp;
 				<input type="reset" class="float-center btn btn-lg btn-outline-warning" value="취소">	
-			</div>
+			</div>${activityNo }
 
 			<!-- <tr>
 				<td>내용</td>

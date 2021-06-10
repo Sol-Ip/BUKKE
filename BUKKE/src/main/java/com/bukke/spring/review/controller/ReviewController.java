@@ -145,7 +145,9 @@ public class ReviewController {
 	
 	// �ı� ��� ��
 	@RequestMapping(value="reviewWriteView.com", method=RequestMethod.GET)
-	public String reviewEnrollView() {
+	public String reviewEnrollView(@RequestParam("activityNo") int activityNo,Model model) {
+		System.out.println("액티비티넘버는? : " +activityNo);
+		model.addAttribute("activityNo",activityNo);
 		return "review/reviewWriteForm";
 	}
 	

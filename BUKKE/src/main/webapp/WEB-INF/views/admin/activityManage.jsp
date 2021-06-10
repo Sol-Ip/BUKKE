@@ -52,69 +52,64 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">업체회원관리</h1>
+					<h1 class="mt-4">액티비티관리</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">Shop Management</li>
+						<li class="breadcrumb-item active">Activity Management</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table me-1"></i> DataTable Example
+							<!-- <i class="fas fa-table me-1"></i> DataTable Example -->
 						</div>
 						<div class="card-body">
 							<table  id="datatablesSimple">
 								<thead>
 									<tr>
-										<th scope="col"><input type="checkbox" name="shopBtn"
-											id="cb1"></th>
-										<th>아이디</th>
-										<th>대표이름</th>
+										<th scope="col">　</th>
+										<th>no</th>
 										<th>업체명</th>
+										<th>액티비티명</th>
 										<th>주소</th>
-										<th>연락처</th>
-										<th>이메일</th>
-										<th>사업자번호</th>
-										<th>승인여부</th>
+										<th>분류</th>
+										<th>가격</th>
+										<th>시간</th>
+										<th>인원</th>
+										<th>등록</th>
 									</tr>
 								</thead>
 								<tfoot>
 									<tr>
-										<th scope="col"><input type="checkbox" name="shopBtn"
-											id="cb1"></th>
-										<th>아이디</th>
-										<th>대표이름</th>
+										<th scope="col">　</th>
+										<th>no</th>
 										<th>업체명</th>
+										<th>액티비티명</th>
 										<th>주소</th>
-										<th>연락처</th>
-										<th>이메일</th>
-										<th>사업자번호</th>
-										<th>승인여부</th>
+										<th>분류</th>
+										<th>가격</th>
+										<th>시간</th>
+										<th>인원</th>
+										<th>등록</th>
 									</tr>
 								</tfoot>
 								<tbody>
-									<c:forEach items="${sList }" var="shop" varStatus="status">
-										<tr>
-											<th scope="row"><input type="checkbox" name="chkbox" value="${shop.shopId}" checknum="${status.index }"></th>
-											<td>${shop.shopId }</td>
-											<td>${shop.ceoName}</td>
-											<td>${shop.shopName }</td>
-											<td>${shop.shopAddr }</td>
-											<td>${shop.shopPhone }</td>
-											<td>${shop.shopEmail }</td>
-											<td>${shop.crnNo }</td>
-											<td id="sStatus">${shop.shopApproval}</td>
-											<td style="display: none;">
-												<button style="display: none;" id="confirm" onclick="confirm(this,${shop.shopId},'Y')" class="btn btn-primary confirm${status.index }"></button>
-												<button style="display: none;" id="reject" onclick="reject(this,${shop.shopId},'N')" class="btn btn-danger reject${status.index }"></button>
-											</td>
-       										
+									<c:forEach items="${aList }" var="activity" varStatus="status">
+										<tr id="id${activity.activityNo }">
+											<th scope="row"><input type="checkbox" name="chkbox" value="${activity.activityNo}/${activity.aRenameFilename }" checknum="${status.index }"></th>
+											<td>${activity.activityNo }</td>
+											<td>${activity.shopId }</td>
+											<td>${activity.activityName }</td>
+											<td>${activity.activityAddr }</td>
+											<td>${activity.activityType }<i class="ion-ios-arrow-forward">${activity.activityTypeDetails }</td>
+											<td>${activity.activityPrice }&#8361</td>
+											<td>${activity.activityStartdate }&#126<br>${activity.activityEnddate }</td>
+											<td>${activity.activityCapacity }</td>
+											<td>${activity.activityStatus}</td>	
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
 							<!-- 승인 거절 버튼 -->
 							<div style="float: right;">
-								<button type="button" id="confirmAll" class="btn btn-primary">승인</button>
-								<button type="button" id="rejectAll" class="btn btn-danger">거절</button>
+								<button type="button" id="check" class="btn btn-danger mt-2">삭제</button>
 							</div>
 						</div>
 					</div>
@@ -135,97 +130,29 @@
 		</div>
 	</div>
 	<script>
-	 function confirm(obj, shopId,shopApproval) {
-         var rSpan = $(obj);
-         var sendData = {
-               'shopId' : shopId,
-               'shopApproval' : shopApproval
-            };
-         $.ajax({
-         type:"GET",
-         url:"registConfirm.com",
-         data : sendData,
-         dataType : "json",
-         success:function(data){
-            if (data.resultYn=="success") {
-            	rSpan.parent().prev().text(data.resultStatus);
-            } else {
-               alert("실패!");
-            }
-         }
-         
-      });
- };
-      
-         
-  function reject(obj, shopId,shopApproval) {
-    var rSpan = $(obj);
-    var sendData = {
-          'shopId' : shopId,
-          'shopApproval' : shopApproval
-       };
-    $.ajax({
-		type:"GET",
-		url:"registConfirm.com",
-		data : sendData,
-		dataType : "json",
-		success:function(data){
-		   if (data.resultYn=="success") {
-			   rSpan.parent().prev().text(data.resultStatus);
-		   } else {
-		      alert("실패!");
-		   }
-		}
- 	});
-};    
-     
-	
-	 $(document).ready(function(){
-		 $('#cb1').click(function(){
-			var checked = $('#cb1').is(':checked');
-			console.log(checked);
-			if(checked){
-				$('input:checkbox').prop('checked',true);
-			}else{
-				$('input:checkbox').prop('checked',false);
-			}
-		});
-		 $('#confirmAll').click(function(){
-				var checkedList = [];
-			  $("input[name=chkbox]:checked").each(function(index, item){
-			    checkedList.push($(this).val());
-			    var index = $(item).attr("checknum");
-			    confirm($('.confirm'+index), $(this).val(),'Y');
-			    
-			  })
-			  	console.log(checkedList);
-			  	
-
-				var checked = $('#cb1').is(':checked');
-				
-				if(checked){
-					console.log("WOW");
-				}
-			}); 
-
-			$('#rejectAll').click(function(){
-				var checkedList = [];
-			  $("input[name=chkbox]:checked").each(function(index,item){
-			    checkedList.push($(this).val());
-			      var index = $(item).attr("checknum");
-			    reject($('.reject'+index), $(this).val(),'N');
-			  })
-			  	console.log(checkedList);
-			  	
-				var checked = $('#cb1').is(':checked');
-				
-				if(checked){
-					console.log("WOW");
-				}
-			}); 
-	 
-		 
-	 });
+	$('#check').click(function() {
+		var checkedList = [];
+		$("input[name=chkbox]:checked").each(function(index, item) {
+			var data = $(this).val().split('/');
+			var arr = {
+		               'activityNo' : data[0],
+		               'aRenameFilename' : data[1]
+			};
+			checkedList.push(arr);
+			var index = $(item).attr("checknum");
+		})
+			var  del_check = confirm(checkedList.length + "개의 항목을 정말 삭제하시겠습니까?");
+			$.each(checkedList,function(index, item){
+				$.ajax({
+			         type:"GET",
+			         url:"adminActivityDelete.com",
+			         data : item,
+			         async : false, //ajax를 동기식으로 처리함. ajax가 완료되기 전 페이지를 리로드하는 것을 방지.
+			         dataType : "json"
+				});
+			});
+			location.href = 'adminActivityManage.com';
+	})
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="/resources/admin/js/scripts.js"></script>

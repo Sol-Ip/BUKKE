@@ -165,26 +165,17 @@
 				checkedList.push(arr);
 				var index = $(item).attr("checknum");
 			})
-			if(checkedList.length > 0){
 				var  del_check = confirm(checkedList.length + "개의 항목을 정말 삭제하시겠습니까?");
-				$.each(checkedList,function(index, item){			
+				$.each(checkedList,function(index, item){
 					$.ajax({
 				         type:"GET",
 				         url:"adminbClassDelete.com",
 				         data : item,
-				         dataType : "json",
-				         success:function(data){
-				            if (data.msg=="true") {
-				            	alert("클래스 삭제에 성공했습니다!");
-				            	var rowId = "id" + item.classNo;
-				            	$('#rowId').remove();
-				            } else {
-				               alert("클래스 삭제에 실패했습니다!");
-				            }
-				         }
+				         async : false, //ajax를 동기식으로 처리함. ajax가 완료되기 전 페이지를 리로드하는 것을 방지.
+				         dataType : "json"
 					});
 				});
-			}
+				location.href = 'adminbClassManage.com';
 		})
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>

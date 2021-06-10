@@ -158,12 +158,11 @@ public class AdminController {
 			// DB에 데이터 업데이트
 			int result = bService.removeBclass(classNo);
 			if(result > 0) {
-				model.addAttribute("msg", "true");
+				model.addAttribute("msg", "클래스 삭제에 성공했습니다.");
 				return "admin/bClassManage"; 
 			}else {
 				return "admin/bClassManage"; 
 			}
-			
 		}
 		
 		// 액티비티 삭제

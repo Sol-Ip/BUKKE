@@ -143,20 +143,20 @@ public class ReviewController {
 	
 	
 	
-	// �ı� ��� ��
+	//후기 작성
 	@RequestMapping(value="reviewWriteView.com", method=RequestMethod.GET)
-	public String reviewEnrollView(@RequestParam("activityNo") int activityNo,Model model) {
-		System.out.println("액티비티넘버는? : " +activityNo);
-		model.addAttribute("activityNo",activityNo);
+	public String reviewEnrollView(@RequestParam("activityNo") int activityNo,@RequestParam("classNo") int classNo, Model model) {
+			model.addAttribute("activityNo",activityNo);
+			model.addAttribute("classNo",classNo);
 		return "review/reviewWriteForm";
 	}
 	
-	// �ı� ��� ���
+	
 	@RequestMapping(value="reviewAdd.com", method=RequestMethod.POST)
 	public ModelAndView reviewRegister(ModelAndView mv, @ModelAttribute Review review,
 			@RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile,
 			HttpServletRequest request) {
-		// ������ ������ �����ϴ� �۾�
+		
 		if (!uploadFile.getOriginalFilename().equals("")) {
 			String renameFileName = saveFile(uploadFile, request);
 			if (renameFileName != null) {
@@ -164,14 +164,14 @@ public class ReviewController {
 				review.setrRenameFilename(renameFileName);
 			}
 		}
-		// ��� �����͸� �����ϴ� �۾�
+		
 		int result = 0;
 		String path = "";
 		result = rService.registerReview(review);
 		if (result > 0) {
 			path = "redirect:reviewList.com";
 		} else {
-			mv.addObject("msg", "�Խñ� ��� ����");
+			mv.addObject("msg", "후기작성이 완료되지 않았습니다.");
 			path = "common/errorPage";
 		}
 		mv.setViewName(path);

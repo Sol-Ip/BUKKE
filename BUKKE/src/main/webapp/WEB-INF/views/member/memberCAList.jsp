@@ -174,6 +174,7 @@
       <td>${activity.activityStartdate }</td>
       <td><c:url var="rWrite" value="reviewWriteView.com">
                      		<c:param name="activityNo" value="${activity.activityNo }"></c:param>
+                     		<c:param name="classNo" value='0'></c:param>
                   		</c:url>
 							<h3>
 								<a href="${rWrite }" class="btn btn-sm btn-primary">글쓰기</a>
@@ -253,7 +254,14 @@
       <td>${bClass.classType}</td>
       <td>${bClass.classTypedetails }</td>
       <td>${bClass.classStartDate }</td>
-      <td><a href="reviewWriteView.com"><button class="btn btn-sm btn-primary" value="${bClass.classNo}" type="submit">글쓰기</button></a></td>
+      <td><c:url var="rWrite2" value="reviewWriteView.com">
+                     		<c:param name="activityNo" value='0'></c:param>
+                     		<c:param name="classNo" value="${bClass.classNo }"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${rWrite2 }" class="btn btn-sm btn-primary">글쓰기</a>
+							</h3>
+						</td>	
     </tr>
     </c:if>
   </tbody>

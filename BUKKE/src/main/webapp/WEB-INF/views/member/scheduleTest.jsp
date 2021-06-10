@@ -155,7 +155,7 @@ body {
 					<h2 class="mb-4">SCHEDULE</h2>
 				</div>
 			</div>
-			<table class =""  id="data-table">
+			<table class ="d-none"  id="data-table"> <!-- d-none 부트스트랩의 hide 기능 -->
 				<c:forEach var="schedule" items="${sList}" varStatus="status">
 				<tr>
 					<td id=""><c:out value="${schedule.classNo}" /></td>
@@ -260,9 +260,22 @@ body {
 				$(".modal").modal("show");
 			},
 
-			events : [
-				
-			]
+			events: [
+				<c:forEach var="schedule" items="${sList}" varStatus="status">
+		        {
+		        	<c:if test="${schedule.classNo} != 0">
+		         	id:'${schedule.classNo}',
+		         	</c:if>
+		         	<c:if test="${schedule.activityNo} != 0">
+		         	id:'${schedule.activityNo}',
+		         	</c:if>
+		          	title: '${schedule.title}',
+		          	start:'${schedule.startDate}',
+		          	end:'${schedule.endDate}',
+		          	color: '${schedule.color}'
+		       },
+		      </c:forEach>
+		       ]
 		});
 
 		calendar.render();

@@ -39,8 +39,12 @@ public interface ActivityStore {
 	public int selectListCountbyId(String memberId);
 
 	public ArrayList<Activity> selectAllActivityListbyId(MemberPageInfo actPi, String memberId);
-	
-	
+
+//	public int selectListCountbyOneId(String memberId); //마이페이지 내 예약 조회
+//
+//	public ArrayList<Activity> selectAllactivityListOneId(MemberPageInfo actPi, String memberId); //마이페이지 내 예야 조회
+//	
+//	
 
 
 }

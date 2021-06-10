@@ -1,24 +1,26 @@
 package com.bukke.spring.chat.domain;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Chat {
-	private int chatContentsNo;
+	private int chatNo;
 	private int roomNumber;
 	private String memberId;
 	private String shopId;
+	private String memberNick;
 	private String roomName;
 	private String msg;
-	private String chatTime;
+	private Timestamp chatTime;
 	
 	public Chat() {}
 
-	public int getChatContentsNo() {
-		return chatContentsNo;
+	public int getChatNo() {
+		return chatNo;
 	}
 
-	public void setChatContentsNo(int chatContentsNo) {
-		this.chatContentsNo = chatContentsNo;
+	public void setChatNo(int chatNo) {
+		this.chatNo = chatNo;
 	}
 
 	public int getRoomNumber() {
@@ -45,6 +47,14 @@ public class Chat {
 		this.shopId = shopId;
 	}
 
+	public String getMemberNick() {
+		return memberNick;
+	}
+
+	public void setMemberNick(String memberNick) {
+		this.memberNick = memberNick;
+	}
+
 	public String getRoomName() {
 		return roomName;
 	}
@@ -61,18 +71,21 @@ public class Chat {
 		this.msg = msg;
 	}
 
-	public String getChatTime() {
+	public Timestamp getChatTime() {
 		return chatTime;
 	}
 
-	public void setChatTime(String chatTime) {
+	public void setChatTime(Timestamp chatTime) {
 		this.chatTime = chatTime;
 	}
 
 	@Override
 	public String toString() {
-		return "Chat [chatContentsNo=" + chatContentsNo + ", roomNumber=" + roomNumber + ", memberId=" + memberId
-				+ ", shopId=" + shopId + ", roomName=" + roomName + ", msg=" + msg + ", chatTime=" + chatTime + "]";
+		return "Chat [chatNo=" + chatNo + ", roomNumber=" + roomNumber + ", memberId=" + memberId + ", shopId=" + shopId
+				+ ", memberNick=" + memberNick + ", roomName=" + roomName + ", msg=" + msg + ", chatTime=" + chatTime
+				+ "]";
 	}
 
+
+	
 }

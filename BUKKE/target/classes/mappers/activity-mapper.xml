@@ -145,4 +145,5 @@
 		SELECT * from activity where activity_no in (select activity_no from reservation where pay_status = 'Y' and reservation_status ='승인' and reservation_id = #{memberId }) ORDER BY ACTIVITY_NO DESC
 	</select>
 	
+	
 </mapper>

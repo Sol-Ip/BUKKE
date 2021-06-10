@@ -94,7 +94,7 @@
 		});
 	}
 
-	function chatName(){
+	/* function chatName(){
 		var userName = $("#userName").val();
 		if(userName == null || userName.trim() == ""){
 			alert("사용자 이름을 입력해주세요.");
@@ -104,7 +104,7 @@
 			$("#yourName").hide();
 			$("#yourMsg").show();
 		}
-	}
+	} */
 
 	function send() {
 		alert("send 작동됨..")
@@ -128,7 +128,7 @@
 		<div id="chatting" class="chatting">
 		</div>
 		
-		<div id="yourName">
+		<!-- <div id="yourName">
 			<table class="inputTable">
 				<tr>
 					<th>사용자명</th>
@@ -136,7 +136,7 @@
 					<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
 				</tr>
 			</table>
-		</div>
+		</div> -->
 		<div id="yourMsg">
 			<table class="inputTable">
 				<tr>

@@ -67,4 +67,10 @@ public interface BukkeClassService {
 
 	public ArrayList<BukkeClass> printAllbClassById(MemberPageInfo classPi, String memberId);
 
+	//마이페이지 내 예약 확인하기
+	public int getclassListMyId(String memberId);
+	
+	//마이페이지 내 예약 확인하기
+	public ArrayList<BukkeClass> printMyclassById(MemberPageInfo classPi, String memberId);
+
 }

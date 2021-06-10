@@ -104,6 +104,21 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityListbyId", memberId, rowBounds);
 	}
 
+	
+	
+//	//마이페이지 내 예약 조회
+//	@Override
+//	public int selectListCountbyOneId(String memberId) {
+//		return sqlSession.selectOne("activityMapper.selectListActivityCountbyMyId", memberId);
+//	}
+//	//마이페이지 내 예약 조회
+//	@Override
+//	public ArrayList<Activity> selectAllactivityListOneId(MemberPageInfo actPi, String memberId) {
+//		int offset = (actPi.getCurrentPage() - 1) * actPi.getBoardLimit();
+//		RowBounds rowBounds = new RowBounds(offset, actPi.getBoardLimit());
+//		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityListbyMyId", memberId, rowBounds);
+//	}
+
 
 	
 

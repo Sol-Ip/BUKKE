@@ -23,6 +23,7 @@ import com.bukke.spring.chat.domain.Chat;
 import com.bukke.spring.chat.domain.Room;
 import com.bukke.spring.chat.service.ChatService;
 import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -48,6 +49,9 @@ public class ChatController {
 	@RequestMapping(value = "chatRoomTest.com", method = RequestMethod.GET)
 	public ModelAndView chatRoomTest() {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("roomList", roomList);
+		roomList = chatService.printChatRoom();
+		System.out.println(roomList);
 		mv.setViewName("chat/chatRoomTest");
 		return mv;
 	}
@@ -82,6 +86,7 @@ public class ChatController {
 	public void createRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
 		String roomName = (String) params.get("roomName");
 		if(roomName != null && !roomName.trim().equals("")) {
+			roomNumber = chatService.printMaxRoomNumber();
 			Room room = new Room();
 			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
@@ -104,8 +109,11 @@ public class ChatController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/getRoom.com", method=RequestMethod.POST)
-	public void getRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
+	public void getRoom(@RequestParam HashMap<Object, Object> params,HttpServletResponse response ,HttpSession session) throws Exception {
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
 		roomList = chatService.printChatRoom();
+		System.out.println(roomList);
 		new Gson().toJson(roomList, response.getWriter());
 	}
 	
@@ -114,15 +122,16 @@ public class ChatController {
 	 * @return
 	 */
 	@RequestMapping(value="/moveChatting.com")
-	public ModelAndView chatting(@RequestParam HashMap<Object, Object> params, HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();
-		HttpSession session = request.getSession();
-		Member member = (Member)session.getAttribute("loginUser");
-		
+	public ModelAndView chatting(ModelAndView mv, @RequestParam HashMap<Object, Object> params, HttpSession session) {
 		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
+		
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
+		
 		if(new_list != null && new_list.size() > 0) {
-			mv.addObject("memberId", params.get("memberId"));
+			Member loginMember = (Member)session.getAttribute("loginMember");
+			Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+			mv.addObject("loginMember", params.get("loginMember"));
+			mv.addObject("loginShopper", params.get("loginShopper"));
 			mv.addObject("roomName", params.get("roomName"));
 			mv.addObject("roomNumber", params.get("roomNumber"));
 			mv.setViewName("chat/testChat");

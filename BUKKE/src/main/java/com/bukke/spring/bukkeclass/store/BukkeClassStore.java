@@ -67,4 +67,8 @@ public interface BukkeClassStore {
 
 	public ArrayList<BukkeClass> selectAllListBclassbyId(MemberPageInfo classPi, String memberId);
 
+	public int selectListcountbyMyId(String memberId); //마이페이지 내 예약 조회
+
+	public ArrayList<BukkeClass> selectAllListBclassbyMyId(MemberPageInfo classPi, String memberId); //마이페이지 내 예약 조회
+
 }

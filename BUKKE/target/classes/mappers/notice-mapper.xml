@@ -19,7 +19,7 @@
 		</select>
 
 		<select id="selectNoticeList" resultMap="noticeResultMap">
-			SELECT * FROM NOTICE WHERE NOTICE_STATUS = 'Y'
+			SELECT * FROM NOTICE WHERE NOTICE_STATUS = 'Y' ORDER BY NOTICE_DATE DESC
 		</select>
 		
 		<select id="selectOneNotice" resultMap="noticeResultMap">
@@ -34,15 +34,10 @@
 			ORDER BY NOTICE_DATE DESC
 		</select>
 		<!-- 파일 전송 insert  -->
-		<!-- <insert id="insertNotice" parameterType="Notice">
+		 <insert id="insertNotice" parameterType="Notice">
 			INSERT INTO NOTICE 
 				VALUES (SEQ_NOTICE_NO.NEXTVAL,'관리자', #{noticeTitle},SYSDATE,'Y',#{nOriginalFilename},#{nRenameFilename},#{noticeContents})
-		</insert> -->
-		
-		<insert id="insertNotice" parameterType="Notice">
-			INSERT INTO NOTICE 
-				VALUES (SEQ_NOTICE_NO.NEXTVAL,'관리자', #{noticeTitle},SYSDATE,'Y','nn','mm',#{noticeContents})
-		</insert>
+		</insert> 
 		
 		 <update id="updateNotice" parameterType="Notice">
 			UPDATE NOTICE

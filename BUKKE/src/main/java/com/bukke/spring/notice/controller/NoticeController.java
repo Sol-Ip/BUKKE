@@ -32,6 +32,8 @@ import com.bukke.spring.notice.domain.Notice;
 import com.bukke.spring.notice.domain.NoticePageInfo;
 import com.bukke.spring.notice.domain.NoticeSearch;
 import com.bukke.spring.notice.service.NoticeService;
+import com.bukke.spring.shop.domain.Shop;
+import com.bukke.spring.shop.service.ShopService;
 import com.google.gson.JsonObject;
 
 @Controller
@@ -39,6 +41,9 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService nService;
+	
+	@Autowired
+	private ShopService sService;
 
 	//전체목록 조회(리스트)
 	@RequestMapping(value="noticeList.com" , method = RequestMethod.GET)
@@ -210,8 +215,16 @@ public class NoticeController {
 	
 	//임시 테스트용 페이지
 	@RequestMapping(value="test.com")
-	public String testPage() {
-		return "test";
+	public ModelAndView testPage(ModelAndView mv) {
+			ArrayList<Shop> shopList = sService.printAllShop();
+			
+			if(!shopList.isEmpty()) {
+			mv.addObject("shopList",shopList);
+			mv.setViewName("test");
+			}else {
+				System.out.println("살려줘");
+			}
+		return mv;
 	}
 }
 

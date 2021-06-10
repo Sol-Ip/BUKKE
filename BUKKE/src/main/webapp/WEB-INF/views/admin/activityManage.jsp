@@ -8,7 +8,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>관리자 - 업체회원관리s</title>
+<title>관리자 - 액티비티관리</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link href="/resources/admin/css/styles.css" rel="stylesheet" />
 

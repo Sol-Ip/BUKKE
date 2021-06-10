@@ -1,5 +1,6 @@
 package com.bukke.spring.admin.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -150,19 +151,19 @@ public class AdminController {
 										@RequestParam("classNo") int classNo,
 										@RequestParam("cRenameFilename") String cRenameFilename,
 										HttpServletRequest request) {
-//			// 업로드 된 파일 삭제
-//			if(cRenameFilename != "") {
-//				deleteFile(cRenameFilename, request);
-//			}
-//			// DB에 데이터 업데이트
-//			int result = bService.removeBclass(classNo);
-//			if(result > 0) {
-//				return "redirect:bukkeClassList.com";
-//			}else {
-//				model.addAttribute("msg", "부캐 클래스 삭제 실패");
-//				return "common/errorPage";
-//			}
-			return "admin/bClassManage"; 
+			// 업로드 된 파일 삭제
+			if(cRenameFilename != "") {
+				deleteClassFile(cRenameFilename, request);
+			}
+			// DB에 데이터 업데이트
+			int result = bService.removeBclass(classNo);
+			if(result > 0) {
+				model.addAttribute("msg", "true");
+				return "admin/bClassManage"; 
+			}else {
+				return "admin/bClassManage"; 
+			}
+			
 		}
 		
 		// 액티비티 삭제
@@ -171,20 +172,37 @@ public class AdminController {
 							@RequestParam("activityNo") int activityNo,
 							@RequestParam("aRenameFilename") String aRenameFilename,
 							HttpServletRequest request) {
-//			// 업로드 된 파일 삭제
-//			if(aRenameFilename !="") {
-//				deleteActivityFile(aRenameFilename, request);
-//			}
-//			
-//			// DB에 데이터 업데이트
-//			int result = aService.removeActivity(activityNo);
-//			if(result > 0) {
-//				return "redirect:activityList.com";
-//			} else {
-//				model.addAttribute("msg", "액티비티 삭제 실패");
-//				return "common/errorPage";
-//			}
-			return "admin/activityManage";
+			// 업로드 된 파일 삭제
+			if(aRenameFilename !="") {
+				deleteActivityFile(aRenameFilename, request);
+			}
+			// DB에 데이터 업데이트
+			int result = aService.removeActivity(activityNo);
+			if(result > 0) {
+				return "admin/activityManage";
+			} else {
+				model.addAttribute("msg", "액티비티 삭제 실패");
+				return "admin/activityManage";
+			}
 		}
+	
+			// 파일 삭제
+			private void deleteClassFile(String fileName, HttpServletRequest request) {
+				String root = request.getSession().getServletContext().getRealPath("resources");
+				String savePath = root + "\\bClassFiles";
+				File file = new File(savePath + "\\" + fileName);
+				if(file.exists()) {
+					file.delete();
+				}
+			}
+			// 파일 삭제
+			public void deleteActivityFile(String fileName, HttpServletRequest request) {
+				String root = request.getSession().getServletContext().getRealPath("resources/images");
+				String savePath = root + "\\activityImageFiles";
+				File file = new File(savePath + "\\" + fileName);
+				if(file.exists()) {
+					file.delete();
+				}
+			}
 
 }

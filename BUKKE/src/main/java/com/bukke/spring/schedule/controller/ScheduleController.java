@@ -48,6 +48,6 @@ public class ScheduleController {
     	
     	mv.addObject("reList",reList);
     	mv.setViewName("member/scheduleTest");
-    	 return mv;
+    	return mv;
     }   
 }

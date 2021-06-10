@@ -156,17 +156,15 @@ body {
 				</div>
 			</div>
 			<table class =""  id="data-table">
-				<c:forEach var="cData" items="${reList}" varStatus="status">
+				<c:forEach var="schedule" items="${sList}" varStatus="status">
 				<tr>
-					<td id=""><c:out value="class${cData.classNo}" /></td>
-					<td id=""><c:out value="activity${cData.activityNo}" /></td>
-					<td id=""><c:out value="${cData.activity.activityName}" /></td>
-					<td id=""><c:out value="${cData.bukkeClass.className}" /></td>
-					<td id=""><c:out value="${cData.activity.activityStartdate}" /></td>
-					<td id=""><c:out value="${cData.activity.activityEnddate}" /></td>
-					<td id=""><c:out value="${cData.bukkeClass.classStartDate}" /></td>
-					<td id=""><c:out value="${cData.bukkeClass.classEndDate}" /></td>
-					<td id=""><c:out value="${cData.reservationStatus}" /></td>
+					<td id=""><c:out value="${schedule.classNo}" /></td>
+					<td id=""><c:out value="${schedule.activityNo}" /></td>
+					<td id=""><c:out value="${schedule.title}" /></td>
+					<td id=""><c:out value="${schedule.startDate}" /></td>
+					<td id=""><c:out value="${schedule.endDate}" /></td>
+					<td id=""><c:out value="${schedule.reservationStatus}" /></td>
+					<td id=""><c:out value="${schedule.color}" /></td>
 				</tr>
 				</c:forEach>
 			</table>

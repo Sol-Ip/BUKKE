@@ -13,13 +13,13 @@
 	</resultMap>
 	
 
-	<select id="selectAllList" resultMap="reservationMap">
+	<select id="selectScheduleList" resultMap="ScheduleMap">
 		select class.class_no , null as activity_no, class.class_name as title, class.class_start_date as start_date , class.class_end_date as end_date, reservation.reservation_status
-		from class, reservation where (class.class_no in (select class_no from reservation where reservation_id = 'user1' and (reservation_status = '승인' or reservation_status = '대기')))
+		from class, reservation where (class.class_no in (select class_no from reservation where reservation_id = #{memberId} and (reservation_status = '승인' or reservation_status = '대기')))
                             AND (reservation.reservation_status = '승인' OR reservation.reservation_status = '대기')
 		union
 		select null as class_no, activity.activity_no, activity.activity_name as title, activity.activity_start_date as start_date ,activity.activity_end_date as end_date, reservation.reservation_status
-		from activity, reservation where (activity.activity_no in (select activity_no from reservation where reservation_id = 'user1' and (reservation_status = '승인' or reservation_status = '대기'))) 
+		from activity, reservation where (activity.activity_no in (select activity_no from reservation where reservation_id = #{memberId} and (reservation_status = '승인' or reservation_status = '대기'))) 
                             AND (reservation.reservation_status = '승인' OR reservation.reservation_status = '대기')
 	</select>
 </mapper>

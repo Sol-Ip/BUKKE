@@ -13,12 +13,11 @@ import com.bukke.spring.schedule.store.ScheduleStore;
 public class ScheduleServiceImpl implements ScheduleService{
 
 	@Autowired
-	private ScheduleStore bStore;
+	private ScheduleStore sStore;
 
 	@Override
-	public ArrayList<Schedule> printAllSchedule() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Schedule> printSchedule(String memberId) {
+		return sStore.selectScheduleList(memberId);
 	}
 
 	@Override

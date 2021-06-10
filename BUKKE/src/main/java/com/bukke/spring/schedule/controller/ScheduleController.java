@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bukke.spring.activity.service.ActivityService;
@@ -17,6 +16,7 @@ import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
+import com.bukke.spring.schedule.domain.Schedule;
 import com.bukke.spring.schedule.service.ScheduleService;
 
 @Controller
@@ -31,8 +31,6 @@ public class ScheduleController {
 	@Autowired
 	private ActivityService aService;
 	
-	@Autowired
-	private ReservationService reService;
 //	
 //	// 마이페이지 스케쥴 관리(풀캘린더)
 //    @RequestMapping(value = "scheduleTest.com", method = RequestMethod.GET)
@@ -46,9 +44,17 @@ public class ScheduleController {
     	public ModelAndView scheduleView(HttpSession session, ModelAndView mv,  @ModelAttribute Reservation reservation) {
     	Member loginMember = (Member)session.getAttribute("loginMember");
     	String memberId = loginMember.getMemberId();
-    	ArrayList<Reservation> reList = reService.printMyreservationById(memberId);
+    	ArrayList<Schedule> sList = sService.printSchedule(memberId);
+    	for(int i = 0; i < sList.size(); i++) {
+    		String status = sList.get(i).getReservationStatus();
+    		if(status.equals("승인")) {
+    			sList.get(i).setColor("blue");
+    		} else {
+    			sList.get(i).setColor("red");
+    		}
+    	}
     	
-    	mv.addObject("reList",reList);
+    	mv.addObject("sList",sList);
     	mv.setViewName("member/scheduleTest");
     	return mv;
     }   

@@ -30,7 +30,8 @@ public interface ReservationService {
 	// 사용자 예약확인(조회)
 	public ArrayList<Reservation> printMyreservationById(MemberPageInfo reservationPi, String memberId);
 	
-	
+	// 캘린더 예약확인(조회)
+	public ArrayList<Reservation> printMyreservationById(String memberId);
 	
 	
 }

@@ -1,33 +1,53 @@
 package com.bukke.spring.schedule.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.reservation.domain.Reservation;
+import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.schedule.service.ScheduleService;
 
 public class ScheduleController {
 
 	@Autowired
-	private ScheduleService bService;
+	private ScheduleService sService;
 	
-	// 캘린더 전체목록 jsp 이동 (모든회원)
-	public String ScheduleListView() {
-		return null;
-	}
-	// 캘린더 상세정보 jsp 이동 (모든회원)
-	public String ScheduleDetailView() {
-		return null;
-	}
+	@Autowired
+	private BukkeClassService bService;
 	
-	// 캘린더 등록 jsp 이동 ()
-	public String ScheduleEnrollView() {
-		return null;
-	}
+	@Autowired
+	private ActivityService aService;
 	
-	// *캘린더 삭제기능 메소드
-	public String ScheduleRemove() {
-		return null;
-	}
+	@Autowired
+	private ReservationService reService;
+//	
+//	// 마이페이지 스케쥴 관리(풀캘린더)
+//    @RequestMapping(value = "scheduleTest.com", method = RequestMethod.GET)
+//    public String scheduleView() {
+//       return "member/scheduleTest";
+//
+//    }   
 	
-	
+    //마이페이지 스케쥴 목록 불러오기
+    @RequestMapping(value = "scheduleTest.com", method = RequestMethod.GET)
+    	public ModelAndView scheduleView(HttpSession session, ModelAndView mv,  @ModelAttribute Reservation reservation) {
+    	Member loginMember = (Member)session.getAttribute("loginMember");
+    	String memberId = loginMember.getMemberId();
+    	ArrayList<Reservation> reList = reService.printMyreservationById(memberId);
+    	
+    	mv.addObject("reList",reList);
+    	mv.setViewName("member/scheduleTest");
+    	 return mv;
+    }   
 }

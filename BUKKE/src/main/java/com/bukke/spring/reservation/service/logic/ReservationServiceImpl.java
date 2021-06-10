@@ -97,8 +97,11 @@ public class ReservationServiceImpl implements ReservationService{
 		 return reStore.reservationListMyId(reservationPi, memberId);
 	}
 
-	
-	
+	// 캘린더 예약확인(조회)
+	@Override
+	public ArrayList<Reservation> printMyreservationById(String memberId) {
+		 return reStore.reservationListMyId(memberId);
+	}
 	
 
 	

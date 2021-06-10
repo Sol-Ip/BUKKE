@@ -98,6 +98,12 @@ public class ReservationStoreLogic implements ReservationStore {
 
 	}
 
+	// 캘린더 예약확인(조회)
+	@Override
+	public ArrayList<Reservation> reservationListMyId(String memberId) {
+	      return (ArrayList)sqlSession.selectList("reservationMapper.reservationListMyId", memberId);
+
+	}
 	
 
 

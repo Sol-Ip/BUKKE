@@ -79,5 +79,7 @@ public interface ReviewStore {
 	public int selectReviewCount(String memberId); // 리뷰 상태 취득
 
 	public ArrayList<Review> selectReviewToActivity(int activityNo);//액티비티 상세페이지 후기 보이기
+
+	public ArrayList<Review> selectTopLikesReviewList();//후기 좋아요 많은 3개 리스트
 	
 }

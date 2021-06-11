@@ -176,4 +176,10 @@
 	<select id="selectReviewCount" resultType="_int">
 		SELECT COUNT(*) FROM REVIEW WHERE MEMBER_ID = #{memberId} AND REVIEW_STATUS = 'Y'
 	</select>
+	
+	<select id="selectTopLikesReviewList" resultMap="reviewResultMap">
+		SELECT * FROM (SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY R_LIKE_COUNT DESC) WHERE ROWNUM &lt; 4
+	</select>
+	
+	
 </mapper>

@@ -172,6 +172,13 @@ public class ReviewServiceImpl implements ReviewService {
 		// TODO Auto-generated method stub
 		return rStore.selectReviewToActivity(activityNo);
 	}
+	//후기 리스트 좋아요 많은거순 3개 리스트
+	@Override
+	public ArrayList<Review> printTopLikesReview() {
+		// TODO Auto-generated method stub
+		ArrayList<Review> rListTopLikes = rStore.selectTopLikesReviewList();
+		return rListTopLikes;
+	}
 	
 
 }

@@ -17,6 +17,21 @@
 	.banner * {
 		color: white;
 	}
+	#keep-img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	position: relative;
+	margin-top: -75px;
+	margin-left: 40px;
+	}
+	#text-id1 {
+  		width: 300px;
+  		height: auto;
+	}
+	.text-id1{
+		 font-family: 'trana';
+	}	
 </style>
 </head>
 <body>
@@ -34,6 +49,51 @@
         </div>
     </div>
 </section>
+
+	<!-- 좋아요 많은순 3개 리스트 -->
+	<div class="container ftco-animate">
+	<br><br>
+	<div class="row">
+	<i class="btn btn-danger fas fa-heart" height: auto></i>&nbsp;&nbsp;
+		<div class="text-primary" id="text-id1" height:auto>
+		가장 많은 좋아요를 받은 후기
+		</div>
+		</div>
+		<br>
+	<div class="container">
+	<br>	<br><br>
+			<div class="row">
+			
+			<c:forEach items="${rListTopLikes }" var="review">
+				<div class="col-sm-4 ftco-animate">
+					<div class="item">
+					<div class="testimony-wrap p-4 pb-5">
+					
+						<div class="text d-flex">
+						<c:url var="rDetail" value="reviewDetail.com">
+                     		<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
+                  		</c:url>
+							<h3>
+								<a href="${rDetail }"><div class="user-img mb-5" id="keep-img" 
+					style="background-image: url(../resources/reviewFiles/${review.rRenameFilename })"></div></a>
+							</h3>
+							 
+						</div>
+						<div class="col-sm text-info"  align="right">글쓴이 : ${review.memberId }</div>
+						<%-- <a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
+							<span class="icon-expand"></span>
+						</a> --%>
+						</div>
+					</div>
+					<br>
+				</div>
+			</c:forEach>
+			</div>
+		</div>
+	
+	</div>
+	<!-- 좋아요 많은순 3개 리스트 끝 -->
+	
 	
 	<div class="container ftco-animate">
 			<br />

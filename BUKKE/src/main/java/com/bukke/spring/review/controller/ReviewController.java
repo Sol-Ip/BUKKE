@@ -42,17 +42,24 @@ public class ReviewController {
 	@Autowired
 	private ReviewService rService;
 	
-	// �ı� ��ü ��ȸ
+	//후기 리스트 페이지
 	@RequestMapping(value="reviewList.com", method=RequestMethod.GET)
 	public ModelAndView reviewListView(ModelAndView mv
 			,@RequestParam(value="page", required=false) Integer page) {
 		int currentPage = (page != null) ? page : 1;
 		int listCount = rService.getListCount();
+		
+		//후기 전체리스트
 		ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
 		ArrayList<Review> rList = rService.printAllReview(pi);
+		
+		//좋아요 많은순 리스트 탑3개뽑기
+		ArrayList<Review> rListTopLikes = rService.printTopLikesReview();
+		
 		if(!rList.isEmpty()) {
 			mv.addObject("rList", rList);
 			mv.addObject("pi", pi);
+			mv.addObject("rListTopLikes", rListTopLikes);
 			mv.setViewName("review/reviewListView");
 			
 		}else {

@@ -178,4 +178,10 @@ public class ReviewStoreLogic implements ReviewStore {
 		// TODO Auto-generated method stub
 		return (ArrayList)session.selectList("reviewMapper.selectListToActivity",activityNo);
 	}
+	//후기 좋아요 많은 3개 리스트
+	@Override
+	public ArrayList<Review> selectTopLikesReviewList() {
+		// TODO Auto-generated method stub
+		return (ArrayList)session.selectList("reviewMapper.selectTopLikesReviewList");
+	}
 }

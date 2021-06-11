@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -187,12 +188,6 @@ public class MemberController {
 		}
 	}
 
-	// @RequestMapping(value="", method=RequestMethod.POST)
-	public String modifyMember() {
-		return "common/errorPage";
-
-	}
-
 	// @RequestMapping(value="", method=RequestMethod.GET)
 	public String memberDelete(@RequestParam("userId") String userId, Model model) {
 		return "";
@@ -342,14 +337,34 @@ public class MemberController {
 
 	}
 
-	// 마이페이지 회원 정보 수정
+	// 마이페이지 회원 정보 jsp
 	@RequestMapping(value = "memberModifyView.com", method = RequestMethod.GET)
-	public String memberModifyView() {
-		return "member/memberModify";
-
+	public String memberModifyView(HttpSession session) {
+		
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		String memberId = loginMember.getMemberId();
+		if(memberId.contains("kakao")) {
+			return "member/memberModify2"; //카카오회원 상세정보페이지
+		} else {
+			return "member/memberModify"; //일반회원 상세정보페이지
+		}
+		
 	}
 
-	
+	// 마이페이지 회원 정보 수정(일반회원)
+	@RequestMapping(value = "modifyMember.com", method = RequestMethod.GET)
+	public String modifyMember() {
+		
+		return "member/memberModify";
+	}
+
+	// 마이페이지 회원 정보 수정(카카오회원)
+	@RequestMapping(value = "modifyKakaoUser.com", method = RequestMethod.GET)
+	public String modifyKakaoUser() {
+		
+		return "member/memberModify";
+	}
+
 	
 	
 	//마이페이지 좋아요 목록

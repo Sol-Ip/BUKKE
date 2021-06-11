@@ -35,81 +35,56 @@
 	}
 }
 </style>
-<footer id="footer" class="ftco-footer ftco-bg-dark ftco-section">
-	<div class="wrapper">
-		<div class="row mb-5">
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Mosaic</h2>
-					<p>Far far away, behind the word mountains, far from the
-						countries Vokalia and Consonantia, there live the blind texts.</p>
-					<ul
-						class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-instagram"></span></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4 ml-md-4">
-					<h2 class="ftco-heading-2">Links</h2>
-					<ul class="list-unstyled">
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>소개</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>클래스</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>액티비티</a></li>
-						<li><a href="reviewList.com"><span class="icon-long-arrow-right mr-2"></span>후기</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Services</h2>
-					<ul class="list-unstyled">
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Architectural
-								Design</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Interior
-								Design</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Exterior
-								Design</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Lighting
-								Design</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>AutoCAD
-								Service</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Newsletter</h2>
-					<p>Far far away, behind the word mountains, far from the
-						countries.</p>
-					<form action="#" class="subscribe-form">
-						<div class="form-group">
-							<input type="text" class="form-control mb-2 text-center"
-								placeholder="Enter email address"> <input type="submit"
-								value="Subscribe" class="form-control submit px-3">
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<p>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;
-					<script>document.write(new Date().getFullYear());</script>
-					All rights reserved | This template is made with <i
-						class="icon-heart" aria-hidden="true"></i> by <a
-						href="https://colorlib.com" target="_blank">Colorlib</a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				</p>
-			</div>
-		</div>
-	</div>
-</footer>
+ <footer id="footer" class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="wrapper">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Bukke</h2>
+              <p>많은 사람들이 부캐를 통해<br>좋아하는 일을 찾을 수 있도록<br>노력하겠습니다.</p>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">부캐 바로가기</h2>
+              <ul class="list-unstyled">
+                <li><a href="home.com"><span class="mr-2"></span>메인</a></li>
+                <li><a href="bukkeClassList.com"><span class="mr-2"></span>클래스 목록</a></li>
+                <li><a href="activityList.com"><span class="mr-2"></span>액티비티 목록</a></li>
+                <li><a href="reviewList.com"><span class="mr-2"></span>후기글 보기</a></li>
+              </ul>
+            </div>
+            </div>
+            <div class="col-md">
+              <div class="ftco-footer-widget mb-4">
+               <h2 class="ftco-heading-2">About Us</h2>
+               <ul class="list-unstyled">
+                 <li><a href="introduce.com"><span class="mr-2"></span>회사 소개</a></li>
+                 <li><a href="#"><span class="mr-2"></span>이용약관</a></li>
+                 <li><a href="#"><span class="mr-2"></span>개인정보소개방침</a></li>
+               </ul>
+             </div>
+           </div>
+           <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+               <h2 class="ftco-heading-2">Any Questions?</h2>
+               <form action="noticeList.com" class="subscribe-form">
+                 <div class="form-group">
+                   <input type="submit" value="문의하기" class="form-control submit px-3">
+                 </div>
+               </form>
+             </div>
+           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <ul class="ftco-footer-social list-unstyled">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+            <p>Copyright &copy; 2021 BUKKE</p>
+          </div>
+        </div>
+      </div>
+    </footer>

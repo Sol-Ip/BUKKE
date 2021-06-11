@@ -49,7 +49,7 @@ public class KeepStoreLogic implements KeepStore {
 	}
 
 //	// 클래스 찜 상세
-	public Keep selectOneBukkeClassKeep(Keep keep) {
+	public Keep selectOneClassKeep(Keep keep) {
 		return sqlSession.selectOne("keepMapper.selectOneKeepClass", keep);
 	}
 

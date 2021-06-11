@@ -46,6 +46,12 @@ public class KeepServiceImpl implements KeepService {
 	public ArrayList<Keep> printClassKeepList(KeepPageInfo piCla, String memberId) {
 		return kStore.selectAllBukkeClassKeep(piCla, memberId);
 	}
+	
+	// 클래스 찜 상세 보기
+	@Override
+	public Keep printClassKeep(Keep keep) {
+		return kStore.selectOneClassKeep(keep);
+	}
 
 	// 클래스 찜 등록
 	@Override
@@ -97,7 +103,5 @@ public class KeepServiceImpl implements KeepService {
 	public int getActivityKeep(int activityNo) {
 		return kStore.getActivityKeep(activityNo);
 	}
-
-	
 
 }

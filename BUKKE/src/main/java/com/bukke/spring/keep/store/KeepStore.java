@@ -36,7 +36,7 @@ public interface KeepStore {
 	/**
 	 * 클래스 찜 상세
 	 */
-	public Keep selectOneBukkeClassKeep(Keep keep);
+	public Keep selectOneClassKeep(Keep keep);
 	
 	/**
 	 * 클래스 찜목록 추가
@@ -79,6 +79,8 @@ public interface KeepStore {
 	 * 액티비티 해당 게시글 당 찜 갯수
 	 */
 	public int getActivityKeep(int activityNo);
+
+
 	
 	
 }

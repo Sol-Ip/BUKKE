@@ -113,13 +113,30 @@ public class BukkeClassController {
 		if(loginMember != null) {
 			String memberId = loginMember.getMemberId();
 			// 찜하기
-			
+			Keep keep = new Keep();
+			keep.setClassNo(classNo);
+			keep.setMemberId(memberId);
 			// 예약하기
+			
+			
+			Keep classKeep = kService.printClassKeep(keep);
+			
+			model.addAttribute("memberId", memberId);
+			if(classKeep != null && memberId.equals(classKeep.getMemberId())) {
+				keep.setKeepStatus("Y");
+			}else {
+				keep.setKeepStatus("N");
+			}
+			
+			model.addAttribute("keep", classKeep);
 		}
 		BukkeClass bukkeClass = bService.printOneBclass(classNo);
 		ArrayList<BukkeClass> bList = bService.printTopThreeBclass();
+//		int getActKeeps = kService.getClassKeep(classNo);
 		ArrayList<Review> rList = rService.printReviewToBclass(classNo);
+		
 		if(bukkeClass != null && !bList.isEmpty()) {
+//			model.addAttribute("getClassKeeps", getClassKeeps);
 			mv.addObject("bukkeClass", bukkeClass);
 			mv.addObject("bList", bList);
 			mv.addObject("rList", rList);

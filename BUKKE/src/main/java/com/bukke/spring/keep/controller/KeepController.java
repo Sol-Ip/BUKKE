@@ -34,14 +34,49 @@ public class KeepController {
 	public String KeepListView() {
 		return null;
 	}
+	
 	// *찜목록 추가기능 메소드 --클래스
-	public String AddBukkeClasstoKeep() {
-		return null;
+	@RequestMapping(value="bukkeClassKeep.com")
+	public String AddBukkeClasstoKeep(@RequestParam("classNo") int classNo,
+										Model model,
+										HttpSession session) {
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		Keep keep = new Keep();
+		
+		keep.setClassNo(classNo);
+		keep.setMemberId(loginMember.getMemberId());
+		
+		int result = kService.insertBukkeClasstoKeep(keep);
+		if(result > 0) {
+			System.out.println(result);
+			return "redirect:bukkeClassDetailView.com?classNo=" + classNo;
+		} else {
+			model.addAttribute("msg", "클래스 찜하기 실패");
+			return "common/errorPage";
+		}
 	}
 	
 	// *찜목록 삭제기능 메소드 --클래스
-		public String RemoveBukkeClassfromKeep() {
-			return null;
+		@RequestMapping(value="deleteBukkeClassKeep.com")
+		public String RemoveBukkeClassfromKeep(@RequestParam("classNo") int classNo,
+												Model model,
+												HttpSession session) {
+			Member loginMember = (Member)session.getAttribute("loginMember");
+			String memberId = loginMember.getMemberId();
+			Keep keep = new Keep();
+			
+			keep.setClassNo(classNo);
+			keep.setMemberId(memberId);
+			Keep classKeep = kService.printClassKeep(keep);
+			model.addAttribute("keepNo", classKeep.getKeepNo());
+			
+			int result = kService.updateBukkeClassfromKeep(classKeep);
+			if(result > 0) {
+				return "redirect:bukkeClassDetailView.com?classNo=" + classNo;
+			}else {
+				model.addAttribute("msg", "클래스 찜하기 취소 실패");
+				return "common/errorPage";
+			}
 		}
 		
 		

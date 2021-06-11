@@ -31,6 +31,11 @@ public interface KeepService {
 	public ArrayList<Keep> printClassKeepList(KeepPageInfo piCla, String memberId);
 	
 	/**
+	 * 클래스 찜 상세 보기
+	 */
+	public Keep printClassKeep(Keep keep);
+	
+	/**
 	 * 클래스 찜 등록
 	 */
 	public int insertBukkeClasstoKeep(Keep keep);
@@ -73,6 +78,7 @@ public interface KeepService {
 	 * 액티비티 해당 게시글 당 찜 갯수
 	 */
 	public int getActivityKeep(int activityNo);
+	
 	
 	
 	

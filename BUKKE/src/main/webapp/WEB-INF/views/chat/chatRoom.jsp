@@ -89,9 +89,10 @@
 	
 	function createRoom(){
 		$("#createRoom").click(function(){
-			var msg = {	roomName : $('#roomName').val(), memberId : $('#memberId').val()};
-
-			commonAjax('/createRoom.com', 'memberId', 'post', function(result){
+			var msg = {	roomName : '${classNo}'};
+			console.log("roonName 은?" +$('#roomName').val());
+			//console.log("memberId는: ? "+memberId);
+			commonAjax('/createRoom.com', msg, 'post', function(result){
 				console.log("스프링에서 받아온 값 : " + result.toString());
 				createChattingRoom(result);
 			});
@@ -177,13 +178,7 @@
 			<table id="roomList" class="roomList"></table>
 		</div>
 		<div>
-			<table class="inputTable">
-				<tr>
-					<th>방 제목</th>
-					<th><input type="text" name="roomName" id="roomName"></th>
-					<th><button id="createRoom">방 만들기</button></th>
-				</tr>
-			</table>
+			
 		</div>
 	</div>
 </body>

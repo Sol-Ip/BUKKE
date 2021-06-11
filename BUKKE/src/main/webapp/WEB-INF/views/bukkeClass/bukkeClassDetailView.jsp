@@ -217,7 +217,10 @@
 					<div class="ftco-animate">
 						<input type="submit" class="btn btn-lg btn-primary" value="예약하기">
 						<button class="btn btn-lg btn-primary" type="submit">선물하기</button>
-						<a href="#" onclick="window.open('chatRoom.com', '_blank', 'width=600 height=600')"><button class="btn btn-lg btn-primary" type="submit">채팅하기</button></a>
+						<c:url var="chatRoom1" value="chatRoom.com">
+						<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+						</c:url>
+						<a onclick="window.open('${chatRoom1}', '_blank', 'width=600 height=600')"><button class="btn btn-lg btn-primary" type="submit">채팅하기</button></a>
 					</div>
 					<br> <br>
 

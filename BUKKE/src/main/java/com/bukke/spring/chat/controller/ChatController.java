@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.chat.domain.Chat;
 import com.bukke.spring.chat.domain.Room;
 import com.bukke.spring.chat.service.ChatService;
@@ -34,6 +36,10 @@ public class ChatController {
 	@Autowired
 	private ChatService chatService;
 	
+	@Autowired
+	private BukkeClassService bService;
+	
+	
 	List<Room> roomList = new ArrayList<Room>();
 	static int roomNumber = 0;
 	
@@ -47,9 +53,41 @@ public class ChatController {
 	
 	// 채팅 방 테스트
 	@RequestMapping(value = "chatRoom.com", method = RequestMethod.GET)
-	public ModelAndView chatRoomTest() {
+	public ModelAndView chatRoomTest(@RequestParam("classNo") int classNo,HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("chat/chatRoom");
+		BukkeClass bukkeClass = bService.printOneBclass(classNo);
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		HashMap<Object, Object> chatMap = new HashMap<Object, Object>();
+		
+		chatMap.put("roomNumber",++roomNumber);
+		chatMap.put("shopId",bukkeClass.getShopId());
+        chatMap.put("className", bukkeClass.getClassName());
+        chatMap.put("memberId", loginMember.getMemberId());
+        chatMap.put("memberNick", loginMember.getMemberNick());
+		System.out.println(bukkeClass.toString());
+		int result = chatService.registerChatRoom(chatMap);
+		
+
+		if (result > 0) {
+			mv.setViewName("chat/chatRoom");
+		} else {
+			mv.setViewName("common/errorPage");
+		}
+
+		
+		return mv;
+	}
+	//사업자 마이페이지 해당 채팅 목록
+	@RequestMapping(value = "chatRoomForShop.com", method = RequestMethod.GET)
+	public ModelAndView chatRoomForShop(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+		roomList = chatService.printAllListForShop(loginShopper.getShopId());
+		
+		mv.addObject("roomList",roomList);
+		
+		mv.setViewName("shop/ShopChatRoom");
+		
 		return mv;
 	}
 	
@@ -78,6 +116,7 @@ public class ChatController {
 	@RequestMapping(value="/createRoom.com", method=RequestMethod.POST)
 	public void createRoom(@RequestParam HashMap<Object, Object> params, HttpServletResponse response) throws Exception {
 		String roomName = (String) params.get("roomName");
+		
 		if(roomName != null && !roomName.trim().equals("")) {
 			roomNumber = chatService.printMaxRoomNumber();
 			Room room = new Room();

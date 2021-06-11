@@ -29,7 +29,7 @@
 	
 	<!-- 채팅방 리스트 -->
 	<select id="selectAllList" parameterType="Room" resultMap="chatRoomResultMap">
-		SELECT * FROM ROOM
+		SELECT * FROM ROOM WHERE MEMBER_ID = #{memberId}
 	</select>
 	
 	<!-- 최신 방번호 -->
@@ -43,9 +43,9 @@
 	</select>
 	
 	<!-- 채팅방 등록 -->
-	<!-- <insert id="insertChatRoom" parameterType="Room">
-		INSERT INTO ROOM VALUES(#{roomNumber }, #{memberId }, #{shopId }, #{roomName }, #{memberNick }, #{className }, #{activityName }, #{chatTime }, #{lastChatMsg }, #{lastChatTime })
-	</insert> -->
+	 <insert id="insertChatRoom" parameterType="java.util.HashMap">
+		INSERT INTO ROOM VALUES(#{roomNumber}, #{memberId} , #{shopId}, #{className }, #{memberNick}, #{className }, null, null,null, null)
+	</insert>
 	
 	<!-- 채팅 내역 저장 -->
 	<insert id="insertChat" parameterType="Chat">
@@ -56,5 +56,11 @@
 	<select id="selectAllChat" parameterType="Chat" resultMap="chatResultMap">
 		SELECT * FROM CHAT WHERE ROOM_NUMBER = #{roomNumber} ORDER BY CHAT_DATE ASC
 	</select>
+	
+	<!-- 사업자 마이페이지 채팅방 리스트 -->
+	<select id="selectAllListForShop" parameterType="Room" resultMap="chatRoomResultMap">
+		SELECT * FROM ROOM WHERE SHOP_ID = #{shopId}
+	</select>
+	
 	
 </mapper>

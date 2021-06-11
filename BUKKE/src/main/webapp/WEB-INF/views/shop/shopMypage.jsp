@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,9 +100,14 @@
                         <span class="nav_name">채팅</span>
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
+						
+						
+						
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">채팅 목록</a>
+                        	<c:url var="chatRoomForShop" value="chatRoomForShop.com">
+							<c:param name="roomList" value="${roomList }"></c:param>
+							</c:url>
+                            <a href="${chatRoomForShop }" class="collapse__sublink">채팅 목록</a>
                         </ul>
                     </div>
 

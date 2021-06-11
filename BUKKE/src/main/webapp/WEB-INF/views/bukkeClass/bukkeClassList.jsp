@@ -204,7 +204,7 @@
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
-						<div role="tabpanel" class="tab-pane fade in active" id="Section1">
+						<div role="tabpanel" class="tab-pane active" id="Section1">
 							<h3>부캐 클래스 전체</h3>
 							<div class="container">
 								<div class="row">
@@ -224,10 +224,7 @@
 														<a href="${cDetail }">${bukkeClass.className }</a>
 													</h3>
 												</div>
-												<a href="${cDetail }"
-													class="icon image-popup d-flex justify-content-center align-items-center">
-													<span class="icon-expand"></span>
-												</a>
+												<a href="${cDetail }"></a>
 											</div>
 										</div>
 									</c:forEach>
@@ -302,9 +299,7 @@
 														<a href="${cDetail }">${flowerList.className }</a>
 													</h3>
 												</div>
-												<a href="${cDetail }"
-													class="icon image-popup d-flex justify-content-center align-items-center">
-													<span class="icon-expand"></span>
+												<a href="${cDetail }">
 												</a>
 											</div>
 										</div>
@@ -381,9 +376,7 @@
 														<a href="${cDetail }">${artList.className }</a>
 													</h3>
 												</div>
-												<a href="${cDetail }"
-													class="icon image-popup d-flex justify-content-center align-items-center">
-													<span class="icon-expand"></span>
+												<a href="${cDetail }">
 												</a>
 											</div>
 										</div>
@@ -460,9 +453,7 @@
 														<a href="${cDetail }">${beautyList.className }</a>
 													</h3>
 												</div>
-												<a href="${cDetail }"
-													class="icon image-popup d-flex justify-content-center align-items-center">
-													<span class="icon-expand"></span>
+												<a href="${cDetail }">
 												</a>
 											</div>
 										</div>
@@ -539,9 +530,7 @@
 														<a href="${cDetail }">${musicList.className }</a>
 													</h3>
 												</div>
-												<a href="${cDetail }"
-													class="icon image-popup d-flex justify-content-center align-items-center">
-													<span class="icon-expand"></span>
+												<a href="${cDetail }">
 												</a>
 											</div>
 										</div>
@@ -618,9 +607,7 @@
 														<a href="${cDetail }">${photoList.className }</a>
 													</h3>
 												</div>
-												<a href="${cDetail }"
-													class="icon image-popup d-flex justify-content-center align-items-center">
-													<span class="icon-expand"></span>
+												<a href="${cDetail }">
 												</a>
 											</div>
 										</div>

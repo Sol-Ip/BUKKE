@@ -195,11 +195,11 @@
 										<%-- <c:url var="getActKeeps" value="activityDetail.com">
 									<c:param name="keepNo" value="${keep.keepNo }"></c:param>
 									</c:url> --%>
-										<c:if test="${keep.getActKeeps == 0 }">
+										<c:if test="${getActKeeps == 0 }">
 									<li><h3 id="act-type">0</h3></li>
 									</c:if>
-									<c:if test="${ keep.getActKeeps != 0}">
-									<li><h3 id="act-type">${keep.getActKeeps}</h3></li>
+									<c:if test="${ getActKeeps != 0}">
+									<li><h3 id="act-type">${getActKeeps}</h3></li>
 									</c:if>
 									<br>
 									<br>

@@ -81,16 +81,17 @@
 	}
 
 	function getRoom(){
-		commonAjax('/getRoom.com', "", 'post', function(result){
+		commonAjax('/getRoom.com', 'memberId', 'post', function(result){
 			createChattingRoom(result);
+			
 		});
 	}
 	
 	function createRoom(){
 		$("#createRoom").click(function(){
-			var msg = {	roomName : $('#roomName').val()	};
+			var msg = {	roomName : $('#roomName').val(), memberId : $('#memberId').val()};
 
-			commonAjax('/createRoom.com', msg, 'post', function(result){
+			commonAjax('/createRoom.com', 'memberId', 'post', function(result){
 				console.log("스프링에서 받아온 값 : " + result.toString());
 				createChattingRoom(result);
 			});

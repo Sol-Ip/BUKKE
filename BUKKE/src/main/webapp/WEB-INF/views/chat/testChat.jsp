@@ -41,9 +41,9 @@
 			width: 330px;
 			height: 25px;
 		}
-		#yourMsg{
-			display: none;
-		}
+		/* #yourMsg{
+			display: block;
+		} */
 	</style>
 </head>
 
@@ -150,11 +150,23 @@
 		}
 		var roomNumber = $("#roomNumber").val();
 		var roomName = $("#roomName").val();
-		var memberNo = $("#memberId").val();
-		var memberNick = $("#shopId").val();
-		var withMemberNo = $("#memberNick").val();
+		var memberId = $("#memberId").val();
+		var shopId = $("#shopId").val();
+		var memberNick = $("#memberNick").val();
 		ws.send(JSON.stringify(option));
 		/* $('#chatting2').val(""); */
+		
+		$.ajax({
+			url : "/chatRegister.com",
+			type : "get",
+			dataType : "json",
+			data : {"roomNumber":roomNumber, "roomName":roomName, "memberId":memberId, "shopId":shopId, "memberNick":memberNick, "msg":$("#chatting2").val()},
+			success : function(data) {
+				
+			}
+		});
+		
+		$("#chatting2").val("");
 	}
 </script>
 <body>
@@ -163,9 +175,9 @@
 		<input type="hidden" id="sessionId" value="">
 		<input type="hidden" id="roomNumber" value="${roomNumber }">
 		<input type="hidden" id="roomName" value="${roomName}">
-		<input type="hidden" id="memberId" value="${room.memberId}">
+		<input type="hidden" id="memberId" value="${loginMember.memberId}">
 		<input type="hidden" id="shopId" value="${room.shopId}">
-		<input type="hidden" id="memberNick" value="${room.memberNick}">
+		<input type="hidden" id="memberNick" value="${loginMember.memberNick}">
 		
 		<div id="chatting" class="chatting">
 		</div>

@@ -20,6 +20,10 @@
     box-shadow: none;
 }
 
+.project:after {
+	background : #d1ccdc;
+}
+
 /* .project:hover:after, .project:focus:after {
 	boder-radius : 30px;
 } */
@@ -116,7 +120,7 @@
 	
 	<!-- ========================= 리스트 시작 =========================  -->
 	
-	<!-- ========================= 검색창 =========================  -->
+	<!-- ========================= 검색창 ==============================  -->
 	<div class="container ftco-animate">
 			<br>
 			<div class="row justify-content-center">
@@ -165,24 +169,8 @@
 		
 		
 		<!-- ========================= 클래스 탭  =========================  -->
-		<!-- <div class="container">
-			<div class="row">
-				<div class="wrapper_tab">
-				  <nav class="tabs">
-				  <ul style="list-style:none;">
-				    <div class="selector"></div>
-				    ================= 부캐 클래스 전체 보기 ====================
-				    <li><a href="#tab-all" class="active"><i class="fas fa-border-all"></i>전체</a></li>
-				    <li><a data-toggle="tab" href="#" aria-expanded="true"><i class="fas fa-leaf"></i>플라워</a></li>
-				    <li><a href="#"><i class="fas fa-palette"></i>미술</a></li>
-				    <li><a href="#"><i class="fas fa-air-freshener"></i>뷰티</a></li>
-				    <li><a href="#"><i class="fas fa-music"></i>음악</a></li>
-				    <li><a href="#"><i class="fas fa-camera"></i>사진</a></li>
-				    </ul>
-				  </nav>
-				</div>
-			</div>
-		</div> -->
+		
+		<!-- =============== 부캐 클래스 전체 보기 ================== -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -246,13 +234,6 @@
 								</div>
 							</div>
 							<br>
-
-							<!-- 글쓰기 버튼 -->
-							<!-- <div style="float: right; padding-right: 350px;"
-								class="ftco-animate">
-								<a href="bukkeClassWriteForm.com"><button
-										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
-							</div> -->
 
 							<!-- 페이징 처리 -->
 							<div class="container">
@@ -331,13 +312,6 @@
 								</div>
 							</div>
 							<br>
-
-							<!-- 글쓰기 버튼 -->
-							<!-- <div style="float: right; padding-right: 350px;"
-								class="ftco-animate">
-								<a href="bukkeClassWriteForm.com"><button
-										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
-							</div> -->
 
 							<!-- 페이징 처리 -->
 							<div class="container">
@@ -418,13 +392,6 @@
 							</div>
 							<br>
 
-							<!-- 글쓰기 버튼 -->
-							<!-- <div style="float: right; padding-right: 350px;"
-								class="ftco-animate">
-								<a href="bukkeClassWriteForm.com"><button
-										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
-							</div> -->
-
 							<!-- 페이징 처리 -->
 							<div class="container">
 								<div class="row no-gutters mt-5">
@@ -503,13 +470,6 @@
 								</div>
 							</div>
 							<br>
-
-							<!-- 글쓰기 버튼 -->
-							<!-- <div style="float: right; padding-right: 350px;"
-								class="ftco-animate">
-								<a href="bukkeClassWriteForm.com"><button
-										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
-							</div> -->
 
 							<!-- 페이징 처리 -->
 							<div class="container">
@@ -590,13 +550,6 @@
 							</div>
 							<br>
 
-							<!-- 글쓰기 버튼 -->
-							<!-- <div style="float: right; padding-right: 350px;"
-								class="ftco-animate">
-								<a href="bukkeClassWriteForm.com"><button
-										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
-							</div> -->
-
 							<!-- 페이징 처리 -->
 							<div class="container">
 								<div class="row no-gutters mt-5">
@@ -676,13 +629,6 @@
 							</div>
 							<br>
 
-							<!-- 글쓰기 버튼 -->
-							<!-- <div style="float: right; padding-right: 350px;"
-								class="ftco-animate">
-								<a href="bukkeClassWriteForm.com"><button
-										class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
-							</div> -->
-
 							<!-- 페이징 처리 -->
 							<div class="container">
 								<div class="row no-gutters mt-5">
@@ -746,7 +692,6 @@
 	</section>
 	<br><br>
 </body>
-
 </html>
 <br><br>
 <!-- 리스트탭 -->

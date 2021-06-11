@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
+<!-- 부트스트랩 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 	<title>Room</title>
@@ -72,7 +77,7 @@
 		}
 	</style>
 </head>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	var ws;
 	window.onload = function(){
 		getRoom();
@@ -169,22 +174,41 @@
 			}
 		});
 	}
-</script>
+</script> -->
 <body>
 	<div class="container">
-		<h1>채팅방</h1>
 		<div id="roomContainer" class="roomContainer">
-			<table id="roomList" class="roomList"></table>
-		</div>
-		<div>
-			<tr>
-			<th class='num'>순서</th>
-			<th class='room'>방 이름</th>
-			<th class='go'></th>
-			</tr>
 			
-			<td class='num'>${roomList.roomNumber }</td>
-			<c:forEach items="${roomList }" var="room">
+		
+		<table class="table table-hover" >
+	<thread>
+		<tr>
+			<th class="col-md-4">순서</th>
+			<th class="col-md-4">방 이름</th>
+			<th class="col-md-4">참여</th>
+		</tr>
+	</thread>
+	<!-- <h1>채팅방</h1> -->
+	
+			
+				<tbody> 
+					<tr>
+						<c:forEach items="${roomList }" var="room">
+						<td>${room.roomNumber }</td>
+						<td>${room.roomName }</td>
+						<td>
+							<c:url var="rJoin" value="moveChattingForShop.com">
+                     		<c:param name="roomName" value="${room.roomName }"></c:param>
+                     		<c:param name="roomNumber" value="${room.roomNumber }"></c:param>
+                  			</c:url>
+                  			<a href="${rJoin}">참여</a>
+						</td>
+						</c:forEach> 
+					</tr>
+				</tbody>
+			
+		
+		</table>
 		</div>
 	</div>
 </body>

@@ -83,7 +83,7 @@ public class ChatController {
 		ModelAndView mv = new ModelAndView();
 		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
 		roomList = chatService.printAllListForShop(loginShopper.getShopId());
-		
+		System.out.println(roomList.toString());
 		mv.addObject("roomList",roomList);
 		
 		mv.setViewName("shop/ShopChatRoom");
@@ -156,10 +156,34 @@ public class ChatController {
 		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
 		
 		if(new_list != null && new_list.size() > 0) {
-			Member loginMember = (Member)session.getAttribute("loginMember");
-			
 			Room roominfo = new Room();
+			
+			
+			Member loginMember = (Member)session.getAttribute("loginMember");
 			roominfo.setMemberId(loginMember.getMemberId());
+						
+			Room room = chatService.printOneRoom(roominfo);
+			mv.addObject("room", room);
+			mv.addObject("roomName", params.get("roomName"));
+			mv.addObject("roomNumber", params.get("roomNumber"));
+			mv.setViewName("chat/testChat");
+		}else {
+			mv.setViewName("chat/chatRoom");
+		}
+		return mv;
+	}
+	//채팅방안에 들어가는거 사업자용
+	@RequestMapping(value="/moveChattingForShop.com")
+	public ModelAndView chattingForShop(ModelAndView mv, @RequestParam HashMap<Object, Object> params, HttpSession session) {
+		int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
+		
+		List<Room> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
+		
+		if(new_list != null && new_list.size() > 0) {
+			Room roominfo = new Room();
+			
+			Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+			roominfo.setShopId(loginShopper.getShopId());
 			
 			Room room = chatService.printOneRoom(roominfo);
 			mv.addObject("room", room);

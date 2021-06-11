@@ -97,6 +97,12 @@ public class KeepStoreLogic implements KeepStore {
 		return sqlSession.delete("keepMapper.updateKeepActivity", keep);
 	}
 
+	// 액티비티 해당 게시글 당 찜 갯수
+	@Override
+	public int getActivityKeep(int activityNo) {
+		return sqlSession.selectOne("keepMapper.getKeepOneActivityCount");
+	}
+
 	
 
 }

@@ -81,61 +81,22 @@
 						</ul>
 					</div>
 					<!-- URL 링크 -->
-					<div style="float: right">
-						<span id="top-icon"><i class="far fa-paper-plane fa-2x"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id = "ShareUrl" style="float: right">
+						<span id="top-icon"  class="btn-type1" OnClick="javascript:CopyUrlToClipboard()"><i class="fas fa-info-circle fa-2x"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</div>
 
 					<script>
-				//(크롬에서) url복사하기
-				$(document).on("click", "#top-icon", function(e) { // 링크복사 시 화면 크기 고정 
-					$('html').find('meta[name=viewport]').attr('content', 
-									'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'); 
-					var html = "<input id='act_target' type='text' value='' style='position:absolute;top:-9999em;'/>"; //style을 주어 보이지 않게 설정
-																														
-					$(this).append(html); //공유하기 버튼이 클릭될 때 화면에 보이게 함.
-					
-					var input_clip = document.getElementById("act_target"); 
-						//현재 url 가져오기 
-						var _url = $(location).attr('href'); 
-					$("#act_target").val(_url); //input태그에 복사가 되어 질 url값을 넣는다.
-						
-					if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) { //해당 기기에서 열릴 때 설정
-						var editable = input_clip.contentEditable; 
-						var readOnly = input_clip.readOnly; 
-						
-						input_clip.contentEditable = true; 
-						input_clip.readOnly = false; 
-						
-						var range = document.createRange(); 
-						range.selectNodeContents(input_clip); 
-						
-						var selection = window.getSelection(); 
-						selection.removeAllRanges(); 
-						selection.addRange(range); 
-						input_clip.setSelectionRange(0, 999999); 
-						
-						input_clip.contentEditable = editable; 
-						input_clip.readOnly = readOnly; 
-					} else { 									
-						input_clip.select(); 	// 해당 태그의 text를 선택(select).
-					} 
-					
-					try { 
-						var successful = document.execCommand('copy'); //copy 라는 명령어로 선택되어진 택스트를 복사
-						input_clip.blur(); // 다시 input 태그를 화면에 보이지 않게 처리.
-						if (successful) { 				
-							swal("URL이 복사 되었습니다. \n원하시는 곳에 붙여넣기 해 주세요!🌺");
-							// 링크복사 시 화면 크기 고정 
-							$('html').find('meta[name=viewport]').attr('content', 
-										'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes'); 
-						} else { 				
-							swal("URL이 복사에 실패했습니다. \n이 브라우저는 지원하지 않습니다.💦");
-							} 
-						} catch (err) { 
-							swal("URL이 복사에 실패했습니다. \n이 브라우저는 지원하지 않습니다.💦");
-							} 
-						}); // 클립보드 복사 기능 끝
-				
+					function CopyUrlToClipboard(){
+				        var dummy   = document.createElement("input");
+				        var text    = location.href;
+				        
+				        document.body.appendChild(dummy);
+				        dummy.value = text;
+				        dummy.select();
+				        document.execCommand("copy");
+				        document.body.removeChild(dummy);
+						alert("URL이 클립보드에 복사되었습니다"); 
+					}
 				</script>
 				</div>
 				<!-- URL 링크 END -->
@@ -231,7 +192,12 @@
 									<li><h3 class="act-type">
 											<b>조회 수</b>&nbsp;&nbsp;<i class="far fa-eye"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
-									<li><h3 id="act-type">조회수 들어오기</h3></li>
+										<c:if test="${keep.getActKeeps == 0 }">
+									<li><h3 id="act-type">0</h3></li>
+									</c:if>
+									<c:if test="${ keep.getActKeeps != 0}">
+									<li><h3 id="act-type">${keep.getActKeeps}</h3></li>
+									</c:if>
 									<br>
 									<br>
 									<li><h3 class="act-type">
@@ -303,28 +269,6 @@
 								</c:when>
 							</c:choose>
 
-						<%-- 	<c:choose>
-								<c:when test="${empty loginShopper && !empty sessionScope.loginMember}">
-									
-						<div class="event-btns">
-									<c:if test="${keep.keepStatus eq 'Y'}">
-											<button id="keep-btn2" class="buy-button button--big"
-												onclick="keep()">
-												<i class="fas fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기취소
-											</button>
-									</c:if>
-									<c:if test="${reservation.reservationStatus eq '대기'  }">
-											<button id="reservation-btn2" class="buy-button button--big">
-												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약취소
-											</button>
-											</c:if>
-										</div>
-											<br> <br>
-								</c:when>
-						</c:choose> --%>
-							
-							
-							
 							<c:if test="${empty loginShopper && empty loginMember}">
 								<!-- 사용자 로그인 안 할 때 -->
 								<div class="event-btns">

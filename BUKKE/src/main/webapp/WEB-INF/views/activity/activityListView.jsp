@@ -95,7 +95,7 @@
 							</div> 
 						</div>
 					</div>
-					<div class="col-md-8 d-flex align-self-stretch ftco-animate" >
+					<div class="col-md-8 d-flex align-self-stretch" >
 						<div class="button-group btn-group-toggle" data-toggle="buttons">
 							<button class="btn btn-secondary btn-lg" onclick="resetSelect()"><i class="fas fa-redo-alt fa-lg"></i></button>&nbsp;&nbsp;
 							<label class="btn btn-primary btn-lg <c:if test="${type eq '1' }">active</c:if>" for="acti-type1" onclick="getActivitySelectList(this)"> 

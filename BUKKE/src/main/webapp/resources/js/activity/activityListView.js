@@ -21,7 +21,6 @@ function getActList(){
   $.ajax({
     url : "activityList.com",
     type:"get",
-    /*data : {"current":1},*/
     dataType : "json",
     success : function(data){
       $("#act-count").text(data.length);      
@@ -65,6 +64,7 @@ function getActivitySelectList(obj){
 //	 var type = $("#acti-type:checked").val();
 //	var detail = $("#acti-detail:checked").val();
   var label = $(obj).children().val();
+  console.log(label);
   $.ajax({
     url : "activitySelect.com",
     type: "get",
@@ -98,9 +98,10 @@ function getActivitySelectList(obj){
         	for(var j in data.aList) {
         	aStr+='<div class="container">';
             aStr+='<div class="row">';
+           // aStr+='<div class="col-md-6 col-lg-3">';
         	aStr+='<div class="col-md-6 col-lg-3" onclick="location.href=\'activityDetail.com?activityNo='+data.aList[j].activityNo+'\'">';
         	aStr+='<div class="project">';
-        	aStr+='<img src="resources/images/activityImageFiles'+ data.aList[j].aRenameFilename+'/class="img-fluid" alt="Colorlib Template">';
+        	aStr+='<img src="/resources/images/activityImageFiles'+ data.aList[j].aRenameFilename+'/class="img-fluid" alt="Colorlib Template">';
         	aStr+='<div class="text">';
         	aStr+='<span style="font-family: '+'TmoneyRoundWindExtraBold;'+'" >['+ data.aList[j].activityType + ']</span>';
         	aStr+='<h3 style="font-family: '+'TmoneyRoundWindExtraBold;'+'">'+data.aList[j].activityName + '</h3>';
@@ -154,7 +155,7 @@ function getActDetailList(activityType) {
 		        	for(var j in data.detailList) {
 		        	aStr+='<div class="container">';
 		            aStr+='<div class="row">';
-		        	aStr+='<div class="col-md-6 col-lg-3 ftco-animate" onclick="location.href=\'activityDetail.com?activityNo='+data.detailList[j].activityNo+'\'">';
+		        	aStr+='<div class="col-md-6 col-lg-3" onclick="location.href=\'activityDetail.com?activityNo='+data.detailList[j].activityNo+'\'">';
 		        	aStr+='<div class="project">';
 		        	aStr+='<img src="resources/images/activityImageFiles'+ data.detailList[j].aRenameFilename+'/class="img-fluid" alt="Colorlib Template">';
 		        	aStr+='<div class="text">';
@@ -175,10 +176,10 @@ function getActDetailList(activityType) {
 
 
 function resetSelect(){  
-  $('.type-form').children('div').children().removeClass('active');
+  $('.type-form').children('div').removeClass('active');
  
-  $("#type-form").show();
-  getActDetailList(activityType);
+  //getActDetailList(activityType);
+  $("#type-form").hide();
   $("#detail-form").hide();
 
 }

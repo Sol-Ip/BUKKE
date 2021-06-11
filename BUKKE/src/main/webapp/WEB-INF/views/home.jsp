@@ -7,6 +7,14 @@
 <meta charset="UTF-8">
 <title>취미생활 플랫폼, 부캐</title>
 </head>
+<style>
+	.index-img1 {
+	background-image: url(resources/images/class1.jpg);
+	min-height:1450px;
+	width:100%;
+	background-size : cover;
+	}
+</style>
 <body>
 	<jsp:include page="./common/header.jsp">
 		<jsp:param name="active" value="home" />
@@ -20,23 +28,23 @@
 					class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
 					data-scrollax-parent="true">
 					<div class="one-third order-md-last img js-fullheight"
-						style="background-image: url(resources/images/bg_1.jpg);">
-						<h3 class="vr">Architecture Firm</h3>
+						style="background-image: url(resources/images/index2.jpg);">
+						<!-- <h3 class="vr">Architecture Firm</h3> -->
 					</div>
 					<div
 						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
 						data-scrollax=" properties: { translateY: '70%' }">
 						<div class="text">
 							<h1 class="mb-4">
-								We Love <br>Modern Designs
+								내 안의 <br>또 다른 나 !
 							</h1>
-							<p>A small river named Duden flows by their place and
+							<h4>A small river named Duden flows by their place and
 								supplies it with the necessary regelialia. It is a paradisematic
 								country, in which roasted parts of sentences fly into your
-								mouth.</p>
+								mouth.</h4>
 							<p>
-								<a href="#" class="btn btn-primary px-4 py-3 mt-3">
-								View our works</a>
+								<a href="memberRegisterForm.com" class="btn btn-primary px-4 py-3 mt-3">
+										부캐릭터 만들기</a>
 							</p>
 						</div>
 					</div>
@@ -51,21 +59,21 @@
 					class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
 					data-scrollax-parent="true">
 					<div class="one-third order-md-last img js-fullheight"
-						style="background-image: url(resources/images/bg_2.jpg);">
-						<h3 class="vr">Since - 2018</h3>
+						style="background-image: url(resources/images/index1.jpg);">
+						<!-- <h3 class="vr">Since - 2018</h3> -->
 					</div>
 					<div
 						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
 						data-scrollax=" properties: { translateY: '70%' }">
 						<div class="text">
-							<h1 class="mb-4">We Create Amazing Architecture Designs</h1>
+							<h1 class="mb-4"> 나만의 독특한 <br> 부캐를 부타캐 </h1>
 							<p>A small river named Duden flows by their place and
 								supplies it with the necessary regelialia. It is a paradisematic
 								country, in which roasted parts of sentences fly into your
 								mouth.</p>
 							<p>
-								<a href="#" class="btn btn-primary px-4 py-3 mt-3">View our
-									works</a>
+								<a href="memberRegisterForm.com" class="btn btn-primary px-4 py-3 mt-3">
+										부캐릭터 만들기</a>
 							</p>
 						</div>
 					</div>
@@ -148,6 +156,54 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="ftco-services ftco-counter index-img1" id="section-counter"  style="background-image: url(resources/images/class1.jpg);">
+		<div class="container">
+			<div class="row d-md-flex align-items-center justify-content-end">
+				<div class="col-lg-10">
+					<div class="row d-md-flex align-items-center">
+						<div
+							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18">
+								<div class="text">
+									<strong class="number" data-number="18">0</strong> <span>Years
+										of Experienced</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18">
+								<div class="text">
+									<strong class="number" data-number="351">0</strong> <span>Happy
+										Clients</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18">
+								<div class="text">
+									<strong class="number" data-number="564">0</strong> <span>Finished
+										Projects</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18">
+								<div class="text">
+									<strong class="number" data-number="300">0</strong> <span>Working
+										Days</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 
 	<section class="ftco-services">
 		<div class="container">

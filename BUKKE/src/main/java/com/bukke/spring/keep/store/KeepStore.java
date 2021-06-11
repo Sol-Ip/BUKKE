@@ -74,6 +74,11 @@ public interface KeepStore {
 	 * 액티비티 찜목록 삭제
 	 */
 	public int deleteActivityfromKeep(Keep keep);
+
+	/**
+	 * 액티비티 해당 게시글 당 찜 갯수
+	 */
+	public int getActivityKeep(int activityNo);
 	
 	
 }

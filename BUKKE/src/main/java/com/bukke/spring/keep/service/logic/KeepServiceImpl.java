@@ -92,6 +92,12 @@ public class KeepServiceImpl implements KeepService {
 		return kStore.deleteActivityfromKeep(keep);
 	}
 
+	// 액티비티 해당 게시글 당 찜 갯수 
+	@Override
+	public int getActivityKeep(int activityNo) {
+		return kStore.getActivityKeep(activityNo);
+	}
+
 	
 
 }

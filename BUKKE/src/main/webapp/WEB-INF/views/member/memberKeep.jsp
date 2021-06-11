@@ -379,16 +379,6 @@ body {
                                         <a data-toggle="tab" href="#tab-15" aria-expanded="true">
                                           <i class="fas fa-border-all fa-2x"></i></a>
                                     </li> 
-                                    <!--  <li class="">
-                                        <a data-toggle="tab" href="#tab-16" aria-expanded="false">
-                                            <i class="fa fa-file-text-o"></i>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a data-toggle="active" href="#tab-17" aria-expanded="false">
-                                            <i class="fa fa-lightbulb-o"></i>
-                                        </a>
-                                    </li>  -->
                                     <li class="">
                                         <a data-toggle="tab" href="#tab-18" aria-expanded="false">
                                           <i class="fas fa-hand-spock fa-2x"></i></a>

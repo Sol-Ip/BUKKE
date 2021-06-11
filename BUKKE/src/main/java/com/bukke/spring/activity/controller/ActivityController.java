@@ -206,9 +206,11 @@ public class ActivityController {
 		
 		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회
 		ArrayList<Activity> aList = aService.printTopThreeActivity(); // 상위 top3 용도
-		ArrayList<Review> rList = rService.printReviewToActivity(activityNo);
+		int getActKeeps = kService.getActivityKeep(activityNo); // 액티비티 해당 게시글 당 찜 갯수 
+		ArrayList<Review> rList = rService.printReviewToActivity(activityNo); // 해당 액티비티에 따른 리뷰 글
+		
 		if(activity != null && !aList.isEmpty()) {
-			
+			model.addAttribute("getActKeeps",getActKeeps);
 			model.addAttribute("aList", aList);
 			mv.addObject("rList", rList);
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");

@@ -69,6 +69,11 @@ public interface KeepService {
 	 */
 	public int updateActivityfromKeep(Keep keep);
 	
+	/**
+	 * 액티비티 해당 게시글 당 찜 갯수
+	 */
+	public int getActivityKeep(int activityNo);
+	
 	
 	
 }

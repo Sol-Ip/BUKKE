@@ -12,6 +12,7 @@ public interface MemberStore {
 	public int checkIdDup(String memberId);
 	public int insertMember(Member member);
 	public int updateMember(Member member);
+	public int updateKakaoUser(Member member);
 	public int deleteMember(String memberId);
 	public Member selectMemberId(Member member);
 	public Member selectMemberPw(Member member);

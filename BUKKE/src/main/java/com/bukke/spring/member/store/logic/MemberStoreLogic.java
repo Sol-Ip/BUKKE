@@ -51,8 +51,14 @@ public class MemberStoreLogic implements MemberStore {
 
 	@Override
 	public int updateMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = session.update("memberMapper.updateMember",member);
+		return result;
+	}
+	
+	@Override
+	public int updateKakaoUser(Member member) {
+		int result = session.update("memberMapper.updateKakaoUser",member);
+		return result;
 	}
 
 	@Override

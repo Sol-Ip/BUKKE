@@ -265,9 +265,10 @@ $(function() {
 $("#memberPw_re").on("keyup",function(){
 	invalidPw_re();
 })
-var check_ok = false;
+
 // 전송 시 유효성 검사
 $("#form-submit").click(function(e){
+	var check_ok = false;
 	check_ok = (check_ok || invalidPw_re());
 	if(!check_ok) {
 		$("#modifyform").submit();

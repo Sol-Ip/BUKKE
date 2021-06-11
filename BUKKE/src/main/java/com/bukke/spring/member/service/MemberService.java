@@ -13,6 +13,7 @@ public interface MemberService {
 	public int checkIdDup(String memberId);
 	public int registerMember(Member member);
 	public int modifyMember(Member member);
+	public int modifykakaoMember(Member member);
 	public int deleteMember(String memberId);
 	public Member searchMemberId(Member member);
 	public Member searchMemberPw(Member member);

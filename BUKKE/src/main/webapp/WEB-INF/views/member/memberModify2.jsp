@@ -25,6 +25,14 @@
    	display: none;
        color: #f00;
    }
+   .invalid-email {
+	   	display: block;
+   		color: #666;
+   }
+   .invalid-name {
+   		display: block;
+   		color: #666;
+   }
    .title {
    	font-family: 'Poppins', Arial, sans-serif;
    	font-size: 30px;
@@ -181,12 +189,13 @@ input:read-only {
 						class="form-control" id="memberEmail" name="memberEmail"
 						value="${loginMember.memberEmail}" readonly>
 				</div>
+				<div class="invalid-email invalid-check">카카오 ID와 연동된 내용은 바꿀 수 없습니다.</div>
 				<hr>
 				<div class="form-group">
 					<label for="memberName">이름</label> <input type="text"
 						class="form-control" id="memberName" name="memberName"
-						value="${loginMember.memberName}">
-					<div class="invalid-name invalid-check">필수 정보입니다.</div>
+						value="${loginMember.memberName}" readonly>
+					<div class="invalid-name invalid-check">카카오 ID와 연동된 내용은 바꿀 수 없습니다.</div>
 				</div>
 				<div class="form-group">
 					<label for="memberNick">부캐명</label> <input type="text"
@@ -249,9 +258,10 @@ $("#memberAddr2").val(addr[1]);
 $(function() {
 	$("#postSearch").postcodifyPopUp({})
 })
-var check_ok = false;
+
 //전송 시 유효성 검사
 $("#form-submit").click(function(e){
+	var check_ok = false;
 	if(!check_ok) {
 		$("#modifyform").submit();
 	}

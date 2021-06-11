@@ -51,8 +51,14 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int modifyMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = mStore.updateMember(member);
+		return result;
+	}
+	
+	@Override
+	public int modifykakaoMember(Member member) {
+		int result = mStore.updateKakaoUser(member);
+		return result;
 	}
 
 	@Override

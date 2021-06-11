@@ -19,6 +19,14 @@
 
 </head>
 <style>
+.banner {
+	background: linear-gradient(270deg, rgba(41, 206, 140, 1) 0%,
+		rgba(40, 189, 168, 1) 100%);
+}
+
+.banner * {
+	color: white;
+}
 nav>* {
 	width: 100%;
 }
@@ -27,22 +35,16 @@ nav>* {
 <body id="">
 
    <!-- fixed section -->
-   <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('resources/images/bg_1.jpg');"
-      data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-         <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-               <h1 class="mb-2 bread">OPEN MYPAGE</h1>
-               <p class="breadcrumbs">
-                  <span class="mr-2"><a href="home.com">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-                  <span>MyPage <i class="ion-ios-arrow-forward"></i></span>
-               </p>
-            </div>
-         </div>
-      </div>
-      
+	<section class="banner hero-wrap hero-wrap-2">
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<h1 class="mb-2 bread">마이페이지</h1>
+					<p class="mr-2"></p>
+				</div>
+			</div>
+		</div>
       <!-- ======================= 사이드 바 시작 =============================== -->
          <div class="l-navbar" id="navbar">
         <nav class="nav">
@@ -60,7 +62,7 @@ nav>* {
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">정보 수정</a>
+                            <a href="memberModifyView.com" class="collapse__sublink">정보 수정</a>
                         </ul>
                     </div>
                     
@@ -161,7 +163,7 @@ nav>* {
 							안녕하세요.
 							<div class="profile-name cut-txt" >${loginMember.memberNick } 님</div>
 							<!--a href="javascript:;" title="프로필 사진 편집" class="btn-profile-thumb">프로필 사진 편집</a-->
-							<label for="upload" class="btn-profile-thumb" style="font-family: 'Chosunilbo_myungjo';"><a href="#">내 정보 수정</a></label>
+							<label for="upload" class="btn-profile-thumb" style="font-family: 'Chosunilbo_myungjo';"><a href="memberModifyView.com">내 정보 수정</a></label>
 						</div>
 					</div>
 					<div class="my-info-wrap">
@@ -200,7 +202,7 @@ nav>* {
 							<h4 class="color-info" id="mypage">
 								<b >내 정보</b>
 							</h4>
-							<br> <a href="javascript:void(0)"
+							<br> <a href="memberModifyView.com"
 								class="btn btn-info btn-custom" id="sub1">Click</a>
 						</div>
 					</div>

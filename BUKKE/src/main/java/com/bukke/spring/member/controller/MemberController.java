@@ -352,17 +352,46 @@ public class MemberController {
 	}
 
 	// 마이페이지 회원 정보 수정(일반회원)
-	@RequestMapping(value = "modifyMember.com", method = RequestMethod.GET)
-	public String modifyMember() {
-		
-		return "member/memberModify";
+	@RequestMapping(value = "modifyMember.com", method = RequestMethod.POST)
+	public ModelAndView modifyMember(@ModelAttribute Member member, @RequestParam("memberAddr1") String memberAddr1,
+			@RequestParam("memberAddr2") String memberAddr2, HttpSession session,
+			ModelAndView mv) {
+		String memberAddr = memberAddr1 + "," + memberAddr2;
+		member.setMemberAddr(memberAddr);
+		// 회원정보 변경을 하면 세션도 바껴야 하기문에 세션 다시 만들기
+//		HttpSession session = request.getSession();
+//		session.setAttribute("loginMember", member);
+//		member = (Member) session.getAttribute("loginMember");
+		session.setAttribute("loginMember", member);
+		int result = mService.modifyMember(member);
+		if (result > 0) {
+			mv.addObject("msg", "success");
+		} else {
+			mv.addObject("msg", "fail");
+		}
+		mv.setViewName("member/modifyComplete");
+		return mv;
 	}
 
 	// 마이페이지 회원 정보 수정(카카오회원)
-	@RequestMapping(value = "modifyKakaoUser.com", method = RequestMethod.GET)
-	public String modifyKakaoUser() {
-		
-		return "member/memberModify";
+	@RequestMapping(value = "modifyKakaoUser.com", method = RequestMethod.POST)
+	public ModelAndView modifyKakaoUser(@ModelAttribute Member member, @RequestParam("memberAddr1") String memberAddr1,
+			@RequestParam("memberAddr2") String memberAddr2, HttpSession session,
+			ModelAndView mv) {
+		String memberAddr = memberAddr1 + "," + memberAddr2;
+		member.setMemberAddr(memberAddr);
+//		HttpSession session = request.getSession();
+
+//		session.setAttribute("loginMember", member);
+		session.setAttribute("loginMember", member);
+		int result = mService.modifykakaoMember(member);
+		if (result > 0) {
+			mv.addObject("msg", "success");
+		} else {
+			mv.addObject("msg", "fail");
+		}
+		mv.setViewName("member/modifyComplete");
+		return mv;
 	}
 
 	

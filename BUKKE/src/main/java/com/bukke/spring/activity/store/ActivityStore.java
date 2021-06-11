@@ -36,6 +36,8 @@ public interface ActivityStore {
 
 	public ArrayList<Activity> selectActivityTypeList(String activityType); // 액티비티 타입에 따른 리스트 출력
 
+	public ArrayList<Activity> selectActivityDetailTypeList(HashMap<String, String> actDetailMap); // 액티비티 타입 후 디테일타입에 따른 리스트 출력
+
 	public int selectListCountbyId(String memberId);
 
 	public ArrayList<Activity> selectAllActivityListbyId(MemberPageInfo actPi, String memberId);

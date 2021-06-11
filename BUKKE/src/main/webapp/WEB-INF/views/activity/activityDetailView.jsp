@@ -192,6 +192,9 @@
 									<li><h3 class="act-type">
 											<b>조회 수</b>&nbsp;&nbsp;<i class="far fa-eye"></i>&nbsp;&nbsp;&nbsp;
 										</h3></li>
+										<%-- <c:url var="getActKeeps" value="activityDetail.com">
+									<c:param name="keepNo" value="${keep.keepNo }"></c:param>
+									</c:url> --%>
 										<c:if test="${keep.getActKeeps == 0 }">
 									<li><h3 id="act-type">0</h3></li>
 									</c:if>

@@ -616,17 +616,17 @@ body {
 															</c:if>
 
 															<!-- 페이지 -->
-															<c:forEach var="cla" begin="${piCla.startPage }"
+															<c:forEach var="p" begin="${piCla.startPage }"
 																end="${piCla.endPage }">
 																<c:url var="pagination" value="KeepListbyId.com">
-																	<c:param name="page" value="${cla}"></c:param>
+																	<c:param name="page" value="${p}"></c:param>
 																</c:url>
-																<c:if test="${cla eq piCla.currentPage }">
-																	<li class="active"><span>${cla}</span></li>
+																<c:if test="${p eq piCla.currentPage }">
+																	<li class="active"><span>${p}</span></li>
 																</c:if>
-																<c:if test="${cla ne piCla.currentPage }">
+																<c:if test="${p ne piCla.currentPage }">
 																	<!-- ne : not equal -->
-																	<li><a href="${pagination}">${cla }</a></li>
+																	<li><a href="${pagination}">${p }</a></li>
 																</c:if>
 															</c:forEach>
 

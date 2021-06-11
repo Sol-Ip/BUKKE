@@ -92,6 +92,11 @@ public class ActivityServiceImpl implements ActivityService {
 	public ArrayList<Activity> printActivityTypeList(String activityType) { // 액티비티 타입에 따른 리스트 출력
 		return aStore.selectActivityTypeList(activityType);
 	}
+	
+	@Override
+	public ArrayList<Activity> printActivityDetailTypeList(HashMap<String, String> actDetailMap) { // 액티비티 타입 후 디테일타입에 따른 리스트 출력
+		return aStore.selectActivityDetailTypeList(actDetailMap);
+	}
 
 	@Override
 	public int getListCountbyId(String memberId) {
@@ -104,6 +109,8 @@ public class ActivityServiceImpl implements ActivityService {
 		// TODO Auto-generated method stub
 		return aStore.selectAllActivityListbyId(actPi,memberId);
 	}
+
+
 
 //	//마이페이지 내 예약 확인 카운트
 //	@Override

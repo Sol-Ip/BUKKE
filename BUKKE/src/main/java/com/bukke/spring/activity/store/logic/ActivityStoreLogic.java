@@ -92,6 +92,12 @@ public class ActivityStoreLogic implements ActivityStore {
 	}
 
 	@Override
+	public ArrayList<Activity> selectActivityDetailTypeList(HashMap<String, String> actDetailMap) { // 액티비티 타입 후 디테일타입에 따른 리스트 출력
+		return (ArrayList)sqlSession.selectList("activityMapper.selectActivityDetailTypeList",  actDetailMap);
+	}
+
+	
+	@Override
 	public int selectListCountbyId(String memberId) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("activityMapper.selectListActivityCountbyId", memberId);
@@ -104,6 +110,7 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityListbyId", memberId, rowBounds);
 	}
 
+	
 	
 	
 //	//마이페이지 내 예약 조회

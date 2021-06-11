@@ -41,6 +41,8 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printActivityTypeList(String activityType); // 액티비티 타입에 따른 리스트 출력
 
+	public ArrayList<Activity> printActivityDetailTypeList(HashMap<String, String> actDetailMap); // 액티비티 타입 후 디테일타입에 따른 리스트 출력
+
 	public int getListCountbyId(String memberId);
 
 	public ArrayList<Activity> printAllActivityById(MemberPageInfo actPi, String memberId);

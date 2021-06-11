@@ -85,6 +85,11 @@
 		SELECT * FROM ACTIVITY WHERE ACTIVITY_TYPE = #{activityType} AND ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
 	</select>
 	
+	<!-- 액티비티 타입 선정 후 디테일에 따른 리스트 출력  -->
+	<select id="selectActivityDetailTypeList" resultMap="ActivityResultMap">
+	SELECT * FROM ACTIVITY WHERE ACTIVITY_TYPE = #{activityType} AND ACTIVITY_TYPEDETAILS = #{activityTypeDetails} AND ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
+	</select>
+	
 	<!-- 액티비티 등록 -->
 	<insert id="insertActivity">
 		INSERT INTO ACTIVITY VALUES(SEQ_ACTIVITY_NO.NEXTVAL, #{shopId},

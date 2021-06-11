@@ -293,7 +293,7 @@
 			</c:if>
 		
 	 <!-- =============== 페이징 처리 =============== -->
-		<div class="container">
+		<div class="container page-area">
 		<div class="row no-gutters mt-5 ftco-animate">
           <div class="col text-center">
             <div class="block-27">
@@ -344,6 +344,6 @@
 
 
 <jsp:include page="../common/footer.jsp"></jsp:include>
-</body>
 <script type="text/javascript" src="../resources/js/activity/activityListView.js"></script>
+</body>
 </html>

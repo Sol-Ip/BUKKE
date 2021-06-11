@@ -8,6 +8,7 @@
 		<result property="classNo" column="CLASS_NO"></result>
 		<result property="activityNo" column="ACTIVITY_NO"></result>
 		<result property="keepStatus" column="KEEP_STATUS"></result>
+		
 		<collection property="bukkeClass" resultMap="bClassResultMap" />
 		<collection property="activity" resultMap="ActivityResultMap" />
 	</resultMap>
@@ -75,8 +76,8 @@
 	</update>
 	
 	<!-- 액티비티 해당 게시글 당 찜 갯수 -->
-	<select id="getKeepOneActivityCount" resultMap="KeepResultMap">
-	SELECT COUNT (KEEP_NO) FROM KEEP WHERE KEEP_STATUS = 'Y' AND ACTIVITY_NO = #{activityNo}
+	<select id="getKeepOneActivityCount" resultMap="_int">
+	SELECT COUNT(*) AS GET_KEEP FROM KEEP WHERE KEEP_STATUS = 'Y' AND ACTIVITY_NO = #{activityNo}
 	</select>
 	
 	

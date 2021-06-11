@@ -115,12 +115,16 @@ public class ActivityController {
 	}
 	
 	// 액티비티 상세분류 별 select 
+	@ResponseBody
 	@RequestMapping(value="activityDetailSelect.com")
 	public void getActivityDetailSelectList(HttpServletResponse response,
 											@RequestParam("activityTypeDetails") String activityTypeDetails,
 											@RequestParam("activityType") String activityType) throws Exception {
+		HashMap<String, String> actDetailMap = new HashMap<String, String>();
+		actDetailMap.put("activityType", activityType);
+		actDetailMap.put("activityTypeDetails", activityTypeDetails);
+		ArrayList<Activity> detailList = aService.printActivityDetailTypeList(actDetailMap); // 디테일 리스트 뿌려주기
 		
-		ArrayList<Activity> detailList = aService.printActivityType(activityType);
 		if(!detailList.isEmpty()) {
 			Gson gson = new Gson();
 			gson.toJson(detailList, response.getWriter());
@@ -209,12 +213,12 @@ public class ActivityController {
 		int getActKeeps = kService.getActivityKeep(activityNo); // 액티비티 해당 게시글 당 찜 갯수 
 		ArrayList<Review> rList = rService.printReviewToActivity(activityNo); // 해당 액티비티에 따른 리뷰 글
 		
+		System.out.println("찜 갯수는 ? " + getActKeeps);
 		if(activity != null && !aList.isEmpty()) {
 			model.addAttribute("getActKeeps",getActKeeps);
 			model.addAttribute("aList", aList);
 			mv.addObject("rList", rList);
 			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
-		
 		} else {
 			mv.addObject("msg", "액티비티 상세조회 실패");
 			mv.setViewName("common/errorPage");

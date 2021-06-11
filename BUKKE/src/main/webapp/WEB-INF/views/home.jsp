@@ -14,6 +14,8 @@
 	width:100%;
 	background-size : cover;
 	}
+	
+
 </style>
 <body>
 	<jsp:include page="./common/header.jsp">
@@ -108,9 +110,7 @@
 	</section>
 
 
-	<section class="ftco-section ftco-counter img" id="section-counter"
-		style="background-image: url(resources/images/bg_3.jpg);"
-		data-stellar-background-ratio="0.5">
+	<section class="ftco-services ftco-counter index-img1" id="section-counter"  style="background-image: url(resources/images/class1-1.jpg);">
 		<div class="container">
 			<div class="row d-md-flex align-items-center justify-content-end">
 				<div class="col-lg-10">
@@ -119,8 +119,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="18">0</strong> <span>Years
-										of Experienced</span>
+									<strong class="number" data-number="18">0</strong> <span>부캐릭터 수</span>
 								</div>
 							</div>
 						</div>
@@ -128,8 +127,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="351">0</strong> <span>Happy
-										Clients</span>
+									<strong class="number" data-number="351">0</strong> <span>사업자 수</span>
 								</div>
 							</div>
 						</div>
@@ -137,8 +135,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="564">0</strong> <span>Finished
-										Projects</span>
+									<strong class="number" data-number="564">0</strong> <span>총 부캐 클래스</span>
 								</div>
 							</div>
 						</div>
@@ -146,55 +143,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="300">0</strong> <span>Working
-										Days</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-services ftco-counter index-img1" id="section-counter"  style="background-image: url(resources/images/class1.jpg);">
-		<div class="container">
-			<div class="row d-md-flex align-items-center justify-content-end">
-				<div class="col-lg-10">
-					<div class="row d-md-flex align-items-center">
-						<div
-							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18">
-								<div class="text">
-									<strong class="number" data-number="18">0</strong> <span>Years
-										of Experienced</span>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18">
-								<div class="text">
-									<strong class="number" data-number="351">0</strong> <span>Happy
-										Clients</span>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18">
-								<div class="text">
-									<strong class="number" data-number="564">0</strong> <span>Finished
-										Projects</span>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18">
-								<div class="text">
-									<strong class="number" data-number="300">0</strong> <span>Working
-										Days</span>
+									<strong class="number" data-number="300">0</strong> <span>총 부캐 액티비티</span>
 								</div>
 							</div>
 						</div>
@@ -853,7 +802,17 @@
 		</div>
 	</section>
 
-	</script>
+ 
+
+<script type="text/javascript">
+var show = function(){
+    $('#modal-popup').modal('show');
+};
+
+$(window).load(function(){
+    var timer = window.setTimeout(show,5000);
+});
+</script>
 	<script async src="https://www.youtube.com/iframe_api"></script>
 	<script type="text/javascript">
 		var player;
@@ -885,5 +844,22 @@
 		}
 	</script>
 </body>
+<!-- <div class="modal fade in"  id="modal-popup"tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>  -->
 </html>
 <jsp:include page="./common/footer.jsp"></jsp:include>

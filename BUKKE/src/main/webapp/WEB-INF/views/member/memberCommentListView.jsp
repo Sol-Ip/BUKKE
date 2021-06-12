@@ -111,31 +111,27 @@
 				</div>
 			</div>
 		</div>
-
 		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
 	</section>
-	
+
 	<section class="ftco-section ftco-animate">
-	 <div class="container ">
-		<div class="row justify-content-center">
-			<div class="col-md-8 heading-section ftco-animate">
-				<!-- <span class="subheading subheading-with-line"><small
-					class="pr-2 bg-light">REVIEW</small></span> -->
-					<!-- <br><br><br><br><br><br> -->
-				<div class="text1">
-				<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
+		<div class="container ">
+			<div class="row justify-content-center">
+				<div class="col-md-8 heading-section ftco-animate">
+					<div class="text1">
+						<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
 						<h1 class="h1Class">
-							<span class="fontawesome-star star" style="position: absolute; right: 500px;"></span> <span>COMMENT LIST</span> <span
-								class="fontawesome-star star"></span>
-						</h1>	
-				</div>		
+							<span class="fontawesome-star star"
+								style="position: absolute; right: 500px;"></span> <span>COMMENT LIST</span> <span class="fontawesome-star star"></span>
+						</h1>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div> 
 	</section>
-		
-		
-			<!-- 댓글 없을 시 목록 출력-->
+
+
+	<!-- 댓글 없을 시 목록 출력-->
 		<c:if test="${rcList.isEmpty() }">
 		<section class="ftco-section ftco-animate">
 		<div class="container">
@@ -150,8 +146,8 @@
         </section>
 		</c:if>
 			
-			<c:if test="${rcList.size() > 0 }">
 		<!-- 댓글 있을 시 목록 출력-->
+			<c:if test="${rcList.size() > 0 }">
 		<section class="ftco-section ftco-animate">
 		<div class="container">
 				<div class="row">

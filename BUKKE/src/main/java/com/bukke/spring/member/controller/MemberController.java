@@ -426,8 +426,10 @@ public class MemberController {
 			mv.setViewName("member/memberLikeListView");
 			
 		}else {
-			mv.addObject("msg", "좋아요한 글이 없습니다");
-			mv.setViewName("common/errorPage");
+			mv.addObject("rlList", rlList);
+			mv.setViewName("member/memberLikeListView");
+			//			mv.addObject("msg", "좋아요한 글이 없습니다");
+//			mv.setViewName("common/errorPage");
 			
 		}
 		return mv;	

@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>좋아요 목록</title>
-	<!-- <link rel="stylesheet" href="../resources/css/mypage/mypageReview.css"> -->
 	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+	<link rel="stylesheet" href="../resources/css/mypage/banner.css">
 	<link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
 	
 	<link rel="stylesheet"
@@ -18,6 +18,65 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
 
 </head>
+<style>
+.non-cmt {
+	margin: auto;
+	font-family: 'Cafe24SsurroundAir';
+	text-align: center;
+	}
+	
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+/* 버튼 */
+.link-btn {
+	border: none;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	outline: none;
+	overflow: hidden;
+	position: relative;
+	color: #fff;
+	font-weight: 700;
+	font-size: 15px;
+	background-color: #222;
+	padding: 17px 60px;
+	margin: 0 auto;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+}
+
+.link-btn span {
+	font-family: 'EliceDigitalBaeum_Bold';
+	font-size: large;
+	position: relative;
+	z-index: 1;
+}
+
+.link-btn:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 490%;
+	width: 140%;
+	background: #78c7d2;
+	-webkit-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	-webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+	transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.link-btn:hover:after {
+	-webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+	transform: translateX(-9%) translateY(-25%) rotate(45deg);
+</style>
 <body>
 
 	<!-- fixed section -->
@@ -38,117 +97,45 @@
 				</div>
 			</div>
 		</div>
+		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
 		
-		<!-- ======================= 사이드 바 시작 =============================== -->
-                  <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">BUKKE</a>
-                </div>
-                <div class="nav__list">
-                    <div href="#" class="nav__link collapse1">
-                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
-                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
-                        <span class="nav_name">내 정보</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">정보 수정</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">부캐 일정</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
-                            
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">내 활동</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
-                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
-                            <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
-                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">선물 내역</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">받은 선물</a>
-                            <a href="#" class="collapse__sublink">보낸 선물</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">채팅</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">채팅 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">알림</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">예약 알림</a>
-                        </ul>
-                    </div>
-                </div>
-                
-                <a href="#" class="nav__link">
-                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                    <span class="nav_name">Log out</span>
-                </a>
-            </div>
-        </nav>
-    </div>
    </section>
-
-   <!-- ======================= 사이드 바 끝 =============================== -->
 	 <!-- fixed section END-->
-	<div class="container ftco-animate">
-		<div class="row justify-content-center" style="height: 250px;">
-			<div class="col-md-8 heading-section ftco-animate">
-				<span class="subheading subheading-with-line"><small
-					class="pr-2 bg-light">REVIEW</small></span>
-				<section class="text1">
-				<h3 class="h3Class" style="align-self: center;">Hey everyone look at this</h3>
+	 
+	<section class="ftco-section ftco-animate">
+		<div class="container ">
+			<div class="row justify-content-center">
+				<div class="col-md-8 heading-section ftco-animate">
+					<div class="text1">
+						<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
 						<h1 class="h1Class">
-							<span class="fontawesome-star star" style="position: absolute; right: 500px;"></span> <span>LIKE LIST</span> <span
-								class="fontawesome-star star"></span>
-						</h1>	
-				</section>			
+							<span class="fontawesome-star star"
+								style="position: absolute; right: 500px;"></span> <span>LIKE LIST</span> <span class="fontawesome-star star"></span>
+						</h1>
+					</div>
+				</div>
 			</div>
 		</div>
-		
+	</section>
 	
-	</div>
+	
+		<!-- 좋아요 없을 시 목록 출력-->
+		<c:if test="${rlList.isEmpty() }">
+		<section class="ftco-section ftco-animate">
+		<div class="container">
+				<div class="row">
+				<div class="non-cmt">
+					<h1> 아직 <i class="fas fa-heart" style="color:red;"></i> 를 누른 게시글없네요! 😵</h1><br>
+					<h3><b>후기 게시판으로 가볼까요 ?</b></h3><br><br>
+					<a href="reviewList.com"><button class="link-btn"><span>후기글로 이동</span></button></a>
+					</div>
+				</div>
+			</div>
+        </section>
+		</c:if>
+		
+	<!-- 좋아요 있을 시 목록 출력-->
+	<c:if test="${rlList.size() > 0 }">
 	<section class="">
 		<div class="container">
 			<div class="row">
@@ -230,6 +217,7 @@
           </div>
         </div>
     	</div>
+    	</c:if>
 	<script type="text/javascript">
 
 	function makeGrid() {

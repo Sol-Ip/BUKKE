@@ -179,9 +179,10 @@ button.learn-more:active::before {
 				</div>
 			</div>
 		</section>
+		<hr>
 				<!-- fixed section End! -->
 		<br><br>
-		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(resources/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+<!-- 		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(resources/images/bg_3.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row d-md-flex align-items-center justify-content-end">
     			<div class="col-lg-10">
@@ -222,7 +223,7 @@ button.learn-more:active::before {
           </div>
         </div>
     	</div>
-    </section>
+    </section> -->
 							<!-- 새 메뉴  -->
 							<section class="ftco-services">
 			<div class="container">

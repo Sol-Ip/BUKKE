@@ -38,7 +38,7 @@
 }
 #font3{
   font-family: 'Chosunilbo_myungjo';
-  font-size: 13px;
+  font-size: 15px;
 }
 </style>
 </head>
@@ -144,16 +144,16 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${nList }" var="notice">
+										<c:forEach items="${nList }" var="notice" varStatus="status">
 											<tr>
 												<td>
 												</td>
 												<td style="">
 													<p class="text-xs font-weight-bold mb-0">
 														<ul class="notice1">
-															<li class="menu" id="font3"><a>${notice.noticeTitle }</a>
+															<li class="menu" id="font3" style="font-weight: bold"><a>${notice.noticeTitle }</a>
 																<ul class="hide">
-																	<li>${notice.noticeContents } 
+																	<li style="font-weight: normal;">${notice.noticeContents } 
 																	<c:if test="${!empty notice.nOriginalFilename }">
 																	<img src="../resources/noticeFiles/${notice.nRenameFilename }">
 																	</c:if>
@@ -173,6 +173,8 @@
 												 <c:if test="${loginMember.memberId=='admin' }"> 
 												<td class="align-middle text-center"><span
 													class="text-secondary text-xs font-weight-bold">
+													<%-- <input type="hidden" value="${notice.noticeNo }" id="num">
+													<input type="hidden" value="${notice.nRenameFilename }" id="file"> --%>
 														<c:url var="nDetail" value="noticeDetail.com">
 															<c:param name="noticeNo" value="${notice.noticeNo }"></c:param>
 														</c:url>
@@ -182,12 +184,13 @@
 														</c:url>
 																<a href="${nDetail}" id="font3">수정 /</a> 
 																<a href="${nDelete}" id="font3">삭제</a>
+																<%-- onclick="location.href='${nDelete}' --%>
+																
 													</span>
 												</td>
 											 	</c:if> 
 											</tr>
 										</c:forEach>
-
 									</tbody>
 								</table>
 							</div>
@@ -202,8 +205,6 @@
 				style="float: right;"><a href="noticeWriteView.com">글쓰기</a></button>
 		</div>
 	 	</c:if> 
-		
-		
 		<!-- 페이징처리 -->
 		<div class="container">
 		<div class="row no-gutters mt-5 ftco-animate">
@@ -256,7 +257,12 @@
 				$(this).next("ul").toggleClass("hide");
 			});
 		});
+		
+		
+		
 	</script>
+	
+	
 
 </body>
 </html>

@@ -51,8 +51,22 @@ public class AdminController {
 
 	// 관리자페이지 이동
 	@RequestMapping(value = "adminPage.com", method = RequestMethod.GET)
-	public String adminPage() {
-		return "admin/index";
+	public String adminPage(Model model) {
+		int aCount = aService.getListCount();
+		int cCount = bService.getListCount();
+		ArrayList<Member> mList = mService.printAllMember();
+		
+		model.addAttribute("aCount", aCount); 
+		model.addAttribute("cCount", cCount);
+		
+		if (!mList.isEmpty()) {
+			model.addAttribute("mList", mList);
+			return "admin/index";
+		} else {
+			model.addAttribute("msg", "일반회원이없습니다");
+			return "common/errorPage";
+		}
+		
 	}
 
 	/*

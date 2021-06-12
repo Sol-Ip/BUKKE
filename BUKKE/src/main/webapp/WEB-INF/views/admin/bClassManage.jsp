@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../common/header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +10,9 @@
 <title>관리자 - 클래스관리</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link href="/resources/admin/css/styles.css" rel="stylesheet" />
+
+<!-- 아이콘 -->
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 <!--jQuery O-->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -187,4 +189,3 @@
 	
 </body>
 </html>
-<jsp:include page="../common/footer.jsp"></jsp:include>

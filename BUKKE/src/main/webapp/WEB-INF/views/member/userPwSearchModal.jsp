@@ -52,7 +52,7 @@
 	}
 	#close2{
 		width: 150px;
-		  height: 30px;
+		  height: 40px;
 		  box-sizing: border-box;
 		  background: transparent;
 		  border: 0;

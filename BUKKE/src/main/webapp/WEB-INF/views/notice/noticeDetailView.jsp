@@ -59,7 +59,7 @@
 					</c:if>
 				</div>
 				<div>
-					<input type="submit" id="subBtn" value="수정하기" style="float: right;" />
+					<input type="submit" id="subBtn" class="float-center btn btn-lg btn-primary"  value="수정하기" style="float: right;" />
 				</div>
 			</form>
 			</div>

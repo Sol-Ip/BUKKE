@@ -119,7 +119,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="18">0</strong> <span>부캐릭터 수</span>
+									<strong class="number" data-number="${mCount }">0</strong> <span>부캐릭터 수</span>
 								</div>
 							</div>
 						</div>
@@ -127,7 +127,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="351">0</strong> <span>사업자 수</span>
+									<strong class="number" data-number="${sCount }">0</strong> <span>사업자 수</span>
 								</div>
 							</div>
 						</div>
@@ -135,7 +135,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="564">0</strong> <span>총 부캐 클래스</span>
+									<strong class="number" data-number="${cCount }">0</strong> <span>총 부캐 클래스</span>
 								</div>
 							</div>
 						</div>
@@ -143,7 +143,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="300">0</strong> <span>총 부캐 액티비티</span>
+									<strong class="number" data-number="${aCount }">0</strong> <span>총 부캐 액티비티</span>
 								</div>
 							</div>
 						</div>
@@ -420,7 +420,7 @@
 			</div>
 		</div>
 	</section>
-
+<!-- 후기 좋아요 탑3 -->
 	<section class="ftco-section testimony-section bg-light">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
@@ -428,15 +428,49 @@
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-light">Testimony</small></span>
 					<h2 class="mb-4">Our satisfied customer says</h2>
-					<p>Far far away, behind the word mountains, far from the
+					<!-- <p>Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
-						Separated they live in</p>
+						Separated they live in</p> -->
 				</div>
 			</div>
+			<br>
 			<div class="row ftco-animate">
 				<div class="col-md-12">
-					<div class="carousel-testimony owl-carousel">
-						<div class="item">
+					<div class="row">
+						<c:forEach items="${rListTopLikes }" var="review">
+							<div class="col-sm-4 ftco-animate">
+								<div class="item">
+									<div class="testimony-wrap p-4 pb-5">
+										<div class="text d-flex">
+											<c:url var="rDetail" value="reviewDetail.com">
+												<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
+											</c:url>
+											<h3>
+												<a href="${rDetail }"><div class="user-img mb-5"
+														id="keep-img"
+														style="background-image: url(../resources/reviewFiles/${review.rRenameFilename })"></div></a>
+											</h3>
+
+										</div>
+
+									</div>
+									<span class="quote d-flex"> <i class="icon-quote-left"></i>
+									</span>
+									<div class="text">
+										<p class="mb-5 pl-4 line">${review.reviewContents }</p>
+										<div class="pl-5">
+											<p class="name">${review.memberId }</p>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+					<br>
+				
+						<!-- <div class="item">
 							<div class="testimony-wrap p-4 pb-5">
 								<div class="user-img mb-5"
 									style="background-image: url(resources/images/person_1.jpg)">
@@ -536,7 +570,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

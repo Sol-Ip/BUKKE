@@ -1,16 +1,25 @@
 package com.bukke.spring;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.member.service.MemberService;
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.service.ReviewService;
+import com.bukke.spring.shop.service.ShopService;
 
 /**
  * Handles requests for the application home page.
@@ -23,6 +32,21 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	@Autowired
+	private ActivityService aService;
+	
+	@Autowired
+	private BukkeClassService bService;
+	
+	@Autowired
+	private MemberService mService;
+	
+	@Autowired
+	private ShopService sService;
+	
+	@Autowired
+	private ReviewService rService;
+	
 	@RequestMapping(value = "home.com", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 //		logger.info("Welcome home! The client locale is {}.", locale);
@@ -33,7 +57,19 @@ public class HomeController {
 //		String formattedDate = dateFormat.format(date);
 //		
 //		model.addAttribute("serverTime", formattedDate );
-
+		int mCount = mService.getListCount();
+		int sCount = sService.getListCount();
+		int aCount = aService.getListCount();
+		int cCount = bService.getListCount();
+		model.addAttribute("mCount", mCount); 
+		model.addAttribute("sCount", sCount); 
+		model.addAttribute("aCount", aCount); 
+		model.addAttribute("cCount", cCount); 
+		
+		//좋아요 많은순 리스트 탑3개뽑기
+		ArrayList<Review> rListTopLikes = rService.printTopLikesReview();
+		model.addAttribute("rListTopLikes",rListTopLikes);
+		
 		
 		return "home";
 	}

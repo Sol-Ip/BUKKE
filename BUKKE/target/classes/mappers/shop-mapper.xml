@@ -46,5 +46,9 @@
    WHERE SHOP_ID = #{shopId}
    </update>
    
+   <!-- 업체회원 총 수  -->
+   <select id="selectShopListCount" resultType="_int">
+		SELECT COUNT(*) FROM SHOP
+	</select>
 	
 </mapper>

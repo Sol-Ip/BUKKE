@@ -37,4 +37,5 @@ public interface ShopService {
 	public ArrayList<Shop> printAllShop();
 	public int confirmRegister(String shopId);
 	public int cancelRegister(String shopId);
+	public int getListCount();// 전체 업체회원 수
 }

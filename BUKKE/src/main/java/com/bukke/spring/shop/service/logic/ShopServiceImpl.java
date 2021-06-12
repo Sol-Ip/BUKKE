@@ -77,4 +77,10 @@ public class ShopServiceImpl implements ShopService {
 		// TODO Auto-generated method stub
 		return sStore.cancelRegister(shopId);
 	}
+
+	@Override
+	public int getListCount() {
+		// TODO Auto-generated method stub
+		return sStore.selectMemberListCount();
+	}
 }

@@ -77,5 +77,12 @@ public class ShopStoreLogic implements ShopStore {
 		// TODO Auto-generated method stub
 		return session.update("shopMapper.rejectRegister", shopId);
 	}
+	
+	//전체 업체회원수 
+	@Override
+	public int selectMemberListCount() {
+		// TODO Auto-generated method stub
+		return session.selectOne("shopMapper.selectShopListCount");
+	}
 
 }

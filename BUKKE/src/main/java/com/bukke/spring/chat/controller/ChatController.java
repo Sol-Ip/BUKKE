@@ -100,7 +100,7 @@ public class ChatController {
 		System.out.println(roomList.toString());
 		mv.addObject("roomList", roomList);
 
-		mv.setViewName("shop/ShopChatRoom");
+		mv.setViewName("member/memberChatRoom");
 
 		return mv;
 	}

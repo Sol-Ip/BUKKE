@@ -197,7 +197,7 @@
 						<td>${room.roomNumber }</td>
 						<td>${room.roomName }</td>
 						<td>
-							<c:url var="rJoin" value="moveChattingForShop.com">
+							<c:url var="rJoin" value="moveChatting.com">
                      		<c:param name="roomName" value="${room.roomName }"></c:param>
                      		<c:param name="roomNumber" value="${room.roomNumber }"></c:param>
                   			</c:url>

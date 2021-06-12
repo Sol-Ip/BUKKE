@@ -150,5 +150,9 @@
 		SELECT * from activity where activity_no in (select activity_no from reservation where pay_status = 'Y' and reservation_status ='승인' and reservation_id = #{memberId }) ORDER BY ACTIVITY_NO DESC
 	</select>
 	
+	<!-- 업체 마이페이지 액티비티 카운트-->
+   <select id="selectListActivityCountShopId" resultType="_int">
+      SELECT COUNT(*) FROM ACTIVITY WHERE SHOP_ID =#{shopId} AND ACTIVITY_STATUS='Y'
+   </select>
 	
 </mapper>

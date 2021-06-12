@@ -20,9 +20,20 @@
 
 </head>
 <style>
-.banner {
+
+/* .banner {
 	background: linear-gradient(270deg, rgba(41, 206, 140, 1) 0%,
 		rgba(40, 189, 168, 1) 100%);
+} */
+
+. banner hero-wrap hero-wrap-2{
+background-size : cover;
+background-position : 50% 50%;
+}
+
+.hero-wrap .overlay {
+background: linear-gradient(270deg, rgba(77, 229, 169, 1) 0%,
+		rgba(44, 171, 153, 1) 70%);
 }
 
 .banner * {
@@ -36,13 +47,19 @@ nav>* {
 <body id="">
 
    <!-- fixed section -->
-	<section class="banner hero-wrap hero-wrap-2">
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/mypageuser_1.jpg'); background-position:50% 80%;"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
 		<div class="container">
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					<h1 class="mb-2 bread">마이페이지</h1>
-					<p class="mr-2"></p>
+					<p class="breadcrumbs">
+						<span class="mr-2"><a href="activityList.com">ACTIVITY <i
+								class="ion-ios-arrow-forward"></i></a></span> <span>Activity Details <i
+							class="ion-ios-arrow-forward"></i></span>
+					</p>
 				</div>
 			</div>
 		</div>

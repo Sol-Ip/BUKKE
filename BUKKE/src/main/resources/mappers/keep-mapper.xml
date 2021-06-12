@@ -77,7 +77,7 @@
 	
 	<!-- 액티비티 해당 게시글 당 찜 갯수 -->
 	<select id="getKeepOneActivityCount" resultType="_int">
-	SELECT COUNT(*) AS GET_ACT_KEEP FROM KEEP WHERE KEEP_STATUS = 'Y' AND ACTIVITY_NO = #{activityNo}
+	SELECT COUNT(*) AS GET_ACT_KEEP FROM KEEP WHERE ACTIVITY_NO = #{activityNo} AND KEEP_STATUS = 'Y' 
 	</select>
 	
 	

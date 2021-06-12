@@ -189,24 +189,18 @@
 									<li><h3 id="act-type">${activity.shopId }</h3></li>
 									<br>
 									<br>
-									<li><h3 class="act-type">
-											<b>조회 수</b>&nbsp;&nbsp;<i class="far fa-eye"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-										<%-- <c:url var="getActKeeps" value="activityDetail.com">
+									<%-- <c:url var="getActKeeps" value="activityDetail.com">
 									<c:param name="keepNo" value="${keep.keepNo }"></c:param>
 									</c:url> --%>
+									<li><h3 class="act-type">
+											<b>부캐 회원들의 찜하기</b>&nbsp;&nbsp;<i class="fas fa-heartbeat"></i></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
 										<c:if test="${getActKeeps == 0 }">
-									<li><h3 id="act-type">0</h3></li>
+									<li><h3 id="act-type">찜 해주세요!</h3></li>
 									</c:if>
-									<c:if test="${ getActKeeps != 0}">
+										<c:if test="${ getActKeeps != 0}">
 									<li><h3 id="act-type">${getActKeeps}</h3></li>
 									</c:if>
-									<br>
-									<br>
-									<li><h3 class="act-type">
-											<b>찜 갯수</b>&nbsp;&nbsp;<i class="fas fa-heartbeat"></i></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">찜 갯수 들어오기</h3></li>
 									<br>
 									<br>
 									<li><h3 class="act-type">

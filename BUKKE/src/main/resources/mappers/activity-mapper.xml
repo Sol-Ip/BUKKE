@@ -30,18 +30,18 @@
 
 	<!-- 액티비티 총 목록 -->
 	 <select id="selectAllActivityList" resultMap="ActivityResultMap">
-		SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC
+		 SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_NO DESC 
 	</select>
 	
 	
 	<!-- 액티비티 검색 -->
 	 <select id="selectSearchAllList" resultMap="ActivityResultMap">
-		SELECT * FROM ACTIVITY WHERE 
-		SHOP_ID LIKE '%' || #{activityKeyword} ||'%' OR
+		SELECT * FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' AND
+		( SHOP_ID LIKE '%' || #{activityKeyword} ||'%' OR
 		ACTIVITY_NAME LIKE '%' || #{activityKeyword} ||'%' OR 
 		ACTIVITY_TYPE LIKE '%' || #{activityKeyword} ||'%' OR 
 		ACTIVITY_TYPEDETAILS LIKE '%' || #{activityKeyword} ||'%' OR
-		ACTIVITY_CONTENTS LIKE '%' || #{activityKeyword} ||'%'
+		ACTIVITY_CONTENTS LIKE '%' || #{activityKeyword} ||'%' )
 		ORDER BY ACTIVITY_ENROLL_DATE DESC
 	</select> 
 	

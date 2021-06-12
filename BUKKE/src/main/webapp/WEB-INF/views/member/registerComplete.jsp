@@ -22,6 +22,12 @@
 									<div class="text-center mt-4">
 										<p class="lead">회원가입 성공</p>
 										<p>부캐의 일원이 되신것을 환영합니다!</p>
+										<c:choose>
+											<c:when test="${msg eq 'shopmember'}">
+												<p>부캐 기능의 원활한 사용을 위해<br>관리자 승인을 기다려주세요.(최대 1일 소요)</p>
+											</c:when>
+											<c:otherwise></c:otherwise>
+										</c:choose>
 										<a href="home.com">
 											<i class="fas fa-arrow-left me-1"></i>
 											홈으로 이동

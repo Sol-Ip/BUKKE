@@ -1,6 +1,7 @@
 package com.bukke.spring.review.store;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
@@ -81,5 +82,11 @@ public interface ReviewStore {
 	public ArrayList<Review> selectReviewToActivity(int activityNo);//액티비티 상세페이지 후기 보이기
 
 	public ArrayList<Review> selectTopLikesReviewList();//후기 좋아요 많은 3개 리스트
+	
+	public ArrayList<Review> selectAlladminList(); //리뷰 전체 리스트(페이징x)
+
+	public ArrayList<ReviewComment> selectAlladminCommentList(); // 댓글 전체 리스트 (페이징x)
+
+	public int deleteAdminComment(HashMap<String, Integer> cMap); // 관리자 댓글 삭제
 	
 }

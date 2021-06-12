@@ -91,6 +91,20 @@ public class ChatController {
 		return mv;
 	}
 	
+	//일반회원 마이페이지 해당 채팅 목록
+	@RequestMapping(value = "chatRoomForMember.com", method = RequestMethod.GET)
+	public ModelAndView chatRoomForMember(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		roomList = chatService.printAllList(loginMember.getMemberId());
+		System.out.println(roomList.toString());
+		mv.addObject("roomList", roomList);
+
+		mv.setViewName("shop/ShopChatRoom");
+
+		return mv;
+	}
+
 	// 채팅 테스트
 	@RequestMapping(value = "chat.com", method = RequestMethod.GET)
 	public ModelAndView chatView() {

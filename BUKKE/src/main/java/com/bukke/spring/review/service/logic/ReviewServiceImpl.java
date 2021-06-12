@@ -1,6 +1,7 @@
 package com.bukke.spring.review.service.logic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -180,5 +181,21 @@ public class ReviewServiceImpl implements ReviewService {
 		return rListTopLikes;
 	}
 	
+	@Override
+	public ArrayList<Review> printAllManageReview() {
+		// TODO Auto-generated method stub
+		return rStore.selectAlladminList();
+	}
 
+	@Override
+	public ArrayList<ReviewComment> printAllManageComment() {
+		// TODO Auto-generated method stub
+		return rStore.selectAlladminCommentList();
+	}
+
+	@Override
+	public int removeAdminComment(HashMap<String, Integer> cMap) {
+		// TODO Auto-generated method stub
+		return rStore.deleteAdminComment(cMap);
+	}
 }

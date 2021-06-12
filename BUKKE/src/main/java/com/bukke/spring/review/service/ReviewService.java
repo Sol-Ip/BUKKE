@@ -1,6 +1,7 @@
 package com.bukke.spring.review.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.bukke.spring.review.domain.Review;
 import com.bukke.spring.review.domain.ReviewComment;
@@ -56,6 +57,8 @@ public interface ReviewService {
 	public int printReviewCount(String memberId); //리뷰 카운트
 	public ArrayList<Review> printReviewToActivity(int activityNo);//클래스 상세페이지 아래 후기
 	public ArrayList<Review> printTopLikesReview();//후기 좋아요 탑3개 리스트
-	
+	public ArrayList<Review> printAllManageReview(); //전체 리뷰 카운트 (페이징x)
+	public ArrayList<ReviewComment> printAllManageComment();//전체 댓글 카운트 (페이징x)
+	public int removeAdminComment(HashMap<String,Integer> cMap); //관리자 댓글 삭제
 	
 }

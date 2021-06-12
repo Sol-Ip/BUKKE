@@ -1,6 +1,7 @@
 package com.bukke.spring.review.store.logic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -183,5 +184,23 @@ public class ReviewStoreLogic implements ReviewStore {
 	public ArrayList<Review> selectTopLikesReviewList() {
 		// TODO Auto-generated method stub
 		return (ArrayList)session.selectList("reviewMapper.selectTopLikesReviewList");
+	}
+	
+	@Override
+	public ArrayList<Review> selectAlladminList() {
+		// TODO Auto-generated method stub
+		return (ArrayList) session.selectList("reviewMapper.selectAllAdimList");
+	}
+
+	@Override
+	public ArrayList<ReviewComment> selectAlladminCommentList() {
+		// TODO Auto-generated method stub
+		return (ArrayList) session.selectList("reviewMapper.selectAllCommentList");
+	}
+
+	@Override
+	public int deleteAdminComment(HashMap<String, Integer> cMap) {
+		// TODO Auto-generated method stub
+		return session.update("reviewMapper.deleteAdminComment", cMap);
 	}
 }

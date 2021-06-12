@@ -180,6 +180,20 @@
 	<select id="selectTopLikesReviewList" resultMap="reviewResultMap">
 		SELECT * FROM (SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY R_LIKE_COUNT DESC) WHERE ROWNUM &lt; 4
 	</select>
-	
+
+	<select id="selectAllAdimList" resultMap="reviewResultMap">
+		SELECT * FROM REVIEW WHERE REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
+	</select>
+
+	<select id="selectAllCommentList" resultMap="commentResultMap">
+		SELECT * FROM REVIEW_COMMENT WHERE COMMENT_STATUS = 'Y' ORDER BY REVIEW_NO
+		DESC
+	</select>
+
+	<update id="deleteAdminComment" parameterType="_int">
+		UPDATE REVIEW_COMMENT
+		SET COMMENT_STATUS = 'N'
+		WHERE REVIEW_NO =#{reviewNo} AND COMMENT_NO = #{commentNo }
+	</update>
 	
 </mapper>

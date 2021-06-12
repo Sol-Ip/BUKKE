@@ -110,8 +110,11 @@ nav>* {
 
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">채팅 목록</a>
+                         <ul class="collapse__menu">
+                        	<c:url var="chatRoom" value="chatRoom.com">
+							<c:param name="roomList" value="${roomList }"></c:param>
+							</c:url>
+                            <a href="${chatRoom }" class="collapse__sublink">채팅 목록</a>
                         </ul>
                     </div>
 

@@ -192,9 +192,15 @@ public class MemberController {
 		}
 	}
 
+	@RequestMapping(value="memberDeleteView.com", method=RequestMethod.GET)
+	public String memberDeleteView() {
+		return "member/memberDelete";
+	}
+	
 	// @RequestMapping(value="", method=RequestMethod.GET)
-	public String memberDelete(@RequestParam("userId") String userId, Model model) {
-		return "";
+	public ModelAndView memberDelete(HttpSession session,
+			ModelAndView mv) {
+		return mv;
 
 	}
 

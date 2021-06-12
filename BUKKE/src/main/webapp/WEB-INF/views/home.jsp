@@ -6,30 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>취미생활 플랫폼, 부캐</title>
+<jsp:include page="./common/header.jsp">
+	<jsp:param name="active" value="home" />
+</jsp:include>
+<link rel="stylesheet" href="../resources/css/home/home.css">
 </head>
 <style>
-	.index-img1 {
-	background-image: url(resources/images/class1.jpg);
-	min-height:1450px;
-	width:100%;
-	background-size : cover;
-	}
-	.modal-header {
-		padding: 0 !important;
-	}
-	.modal {
-		background: none;
-	}
-	a img {
-		width: 100%;
-		height: 100%;
-	}
+
 </style>
 <body>
-	<jsp:include page="./common/header.jsp">
-		<jsp:param name="active" value="home" />
-	</jsp:include>
-
 	<section class="home-slider js-fullheight owl-carousel bg-white">
 		<div class="slider-item js-fullheight">
 			<div class="overlay"></div>
@@ -38,7 +23,7 @@
 					class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
 					data-scrollax-parent="true">
 					<div class="one-third order-md-last img js-fullheight"
-						style="background-image: url(resources/images/index2.jpg);">
+						style="background-image: url(resources/images/index1.jpg);">
 						<!-- <h3 class="vr">Architecture Firm</h3> -->
 					</div>
 					<div
@@ -46,12 +31,13 @@
 						data-scrollax=" properties: { translateY: '70%' }">
 						<div class="text">
 							<h1 class="mb-4">
-								내 안의 <br>또 다른 나 !
+								일상에 지친<br>하루의 끝에,
 							</h1>
-							<h4>A small river named Duden flows by their place and
-								supplies it with the necessary regelialia. It is a paradisematic
-								country, in which roasted parts of sentences fly into your
-								mouth.</h4>
+							<h4>아주 평화롭지만<br>
+							어떤 놀이동산보다 <br>
+							신나고 재미있는 곳.<br>
+							마음만 먹으면 순간이동하듯 <br>
+							갈 수 있는 언제나 열려있는 곳.</h4>
 							<p>
 								<a href="memberRegisterForm.com" class="btn btn-primary px-4 py-3 mt-3">
 										부캐릭터 만들기</a>
@@ -69,18 +55,19 @@
 					class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
 					data-scrollax-parent="true">
 					<div class="one-third order-md-last img js-fullheight"
-						style="background-image: url(resources/images/index1.jpg);">
+						style="background-image: url(resources/images/index2.jpg);">
 						<!-- <h3 class="vr">Since - 2018</h3> -->
 					</div>
 					<div
 						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
 						data-scrollax=" properties: { translateY: '70%' }">
 						<div class="text">
-							<h1 class="mb-4"> 나만의 독특한 <br> 부캐를 부타캐 </h1>
-							<p>A small river named Duden flows by their place and
-								supplies it with the necessary regelialia. It is a paradisematic
-								country, in which roasted parts of sentences fly into your
-								mouth.</p>
+							<h1 class="mb-4"> 즐거운 도전을<br>하고싶을 때!</h1>
+							<h4>내가 몰랐던 나의 능력을 <br>
+							무한대로 탐험할 수 있는 곳. <br>
+							즐거운 취미 여행을 <br>
+							멈출 수 없는, <br>
+							여기는 부캐입니다.</h4>
 							<p>
 								<a href="memberRegisterForm.com" class="btn btn-primary px-4 py-3 mt-3">
 										부캐릭터 만들기</a>
@@ -92,7 +79,7 @@
 		</div>
 	</section>
 	<!-- 유튜브 비디오 부분 -->
-	<section class="ftco-section ftc-no-pb">
+	<!-- <section class="ftco-section ftc-no-pb">
 		<div class="container">
 			<div class="row justify-content-start mb-5 pb-5">
 				<div class="col-md-4 heading-section ftco-animate">
@@ -115,10 +102,36 @@
 
 			<div class="video-film"></div>
 		</div>
+	</section> -->
+	
+			
+	<section class="ftco-services">
+		<div class="container">
+			<div class="row justify-content-start mb-5 pb-5">
+			<div class="col-md-1"></div>
+				<div class="col-md-4 heading-section ftco-animate">
+					<h4 class="mb-4">본래 일상을 떠나 부캐를 찾아갈 때!</h4>
+				</div>
+				<div class="col-md-6 pl-md-5 ftco-animate">
+					<div class="pl-md-4 border-line">
+						<div class="wrapper intro-btn">
+							<a class="cta" href="#"> <span class="intro">부캐 이용방법</span> 
+							<span class="intro"> <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <path class="one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+          <path class="two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
+          <path class="three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
+        </g></svg></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</div>
 	</section>
 
-
-	<section class="ftco-services ftco-counter index-img1" id="section-counter"  style="background-image: url(resources/images/class1-1.jpg);">
+	<section class="ftco-services ftco-counter index-img1" id="section-counter"  style="background-image: url(resources/images/class1-13.jpg);">
 		<div class="container">
 			<div class="row d-md-flex align-items-center justify-content-end">
 				<div class="col-lg-10">
@@ -127,7 +140,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="${mCount }">0</strong> <span>부캐릭터 수</span>
+									<strong class="number" >${mCount }</strong> <span>부캐릭터 수</span>
 								</div>
 							</div>
 						</div>
@@ -135,7 +148,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="${sCount }">0</strong> <span>사업자 수</span>
+									<strong class="number">${sCount }</strong> <span>사업자 수</span>
 								</div>
 							</div>
 						</div>
@@ -143,7 +156,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="${cCount }">0</strong> <span>총 부캐 클래스</span>
+									<strong class="number" >${cCount }</strong> <span>총 부캐 클래스</span>
 								</div>
 							</div>
 						</div>
@@ -151,7 +164,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" data-number="${aCount }">0</strong> <span>총 부캐 액티비티</span>
+									<strong class="number" >${aCount }</strong> <span>총 부캐 액티비티</span>
 								</div>
 							</div>
 						</div>
@@ -160,8 +173,75 @@
 			</div>
 		</div>
 	</section>
+	
+	<section class="ftco-services">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../resources/images/index1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../resources/images/index2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../resources/images/index1.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+	
+	</section>
 
+	<!-- <section class="home-slider js-fullheight owl-carousel bg-white">
+		<div class="slider-item js-fullheight">
+			<div class="container">
+				<div
+					class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+					data-scrollax-parent="true">
+					<div class="one-third order-md-last img js-fullheight"
+						style="background-image: url(resources/images/index1.jpg);">
+						<h3 class="vr">Architecture Firm</h3>
+					</div>
+					<div
+						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+						data-scrollax=" properties: { translateY: '70%' }">
+						
+					</div>
+				</div>
+			</div>
+		</div>
 
+		<div class="slider-item js-fullheight">
+			<div class="container">
+				<div
+					class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+					data-scrollax-parent="true">
+					<div class="one-third order-md-last img js-fullheight"
+						style="background-image: url(resources/images/index2.jpg);">
+						<h3 class="vr">Since - 2018</h3>
+					</div>
+					<div
+						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+						data-scrollax=" properties: { translateY: '70%' }">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	
 	<section class="ftco-services">
 		<div class="container">
 			<div class="row justify-content-start mb-5 pb-5">
@@ -799,50 +879,7 @@
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-client">
-		<div class="container">
-			<div class="row justify-content-start mb-5 pb-2">
-				<div class="col-md-4 heading-section ftco-animate">
-					<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-white">Clients</small></span>
-					<h2 class="mb-4">Our CLients</h2>
-				</div>
-				<div class="col-md-8 pl-md-5 heading-section ftco-animate">
-					<div class="pl-md-4 border-line">
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row ftco-animate">
-				<div class="col-md-12">
-					<div class="carousel-client owl-carousel">
-						<div class="item">
-							<a href="#" class="client text-center p-5"> CLient Logo 1 </a>
-						</div>
-						<div class="item">
-							<a href="#" class="client text-center p-5"> CLient Logo 2 </a>
-						</div>
-						<div class="item">
-							<a href="#" class="client text-center p-5"> CLient Logo 3 </a>
-						</div>
-						<div class="item">
-							<a href="#" class="client text-center p-5"> CLient Logo 4 </a>
-						</div>
-						<div class="item">
-							<a href="#" class="client text-center p-5"> CLient Logo 5 </a>
-						</div>
-						<div class="item">
-							<a href="#" class="client text-center p-5"> CLient Logo 6 </a>
-						</div>
-						<div class="item">
-							<a href="#" class="client text-center p-5"> CLient Logo 7 </a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	
 
  
 

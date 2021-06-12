@@ -138,4 +138,8 @@
 	<!-- SELECT CLASS_NAME, CLASS_TYPE, CLASS_TYPEDETAILS, CLASS_START_DATE,RESERVATION_STATUS FROM CLASS INNER JOIN RESERVATION ON CLASS.CLASS_NO = RESERVATION.ACTIVITY_NO WHERE RESERVATION_ID=#{memberId} -->
    </select>
    
+   <!-- 업체 마이페이지 내 클래스 리스트 -->
+   <select id="selectAllListbyShop" resultMap="bClassResultMap">
+   	SELECT * FROM CLASS WHERE SHOP_ID = #{shop_id} AND CLASS_STATUS= 'Y'
+   </select>
 </mapper>

@@ -7,6 +7,7 @@ import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 public interface BukkeClassStore {
 
@@ -72,5 +73,7 @@ public interface BukkeClassStore {
 	public ArrayList<BukkeClass> selectAllListBclassbyMyId(MemberPageInfo classPi, String memberId); //마이페이지 내 예약 조회
 
 	public int selectCountShop(String shopId); //업체 마이페이지 클래스카운트
+
+	public ArrayList<BukkeClass> selectAllListBclassbyMyShop(ShopPageInfo shopPi, String shopId); //업체 마이페이지 클래스 확인
 
 }

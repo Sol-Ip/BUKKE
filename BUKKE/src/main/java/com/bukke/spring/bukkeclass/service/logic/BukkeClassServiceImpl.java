@@ -12,6 +12,7 @@ import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
 import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 @Service
 public class BukkeClassServiceImpl implements BukkeClassService {
@@ -164,6 +165,12 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	public int getListCountShopId(String shopId) {
 		// TODO Auto-generated method stub
 		return bStore.selectCountShop(shopId);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> printAllbClassByShop(ShopPageInfo shopPi, String shopId) {
+		// TODO Auto-generated method stub
+		return bStore.selectAllListBclassbyMyShop(shopPi,shopId );
 	}
 
 	

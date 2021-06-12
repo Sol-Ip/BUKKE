@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.common.ShopPagination;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.shop.domain.Shop;
@@ -177,10 +178,17 @@ public class ShopController {
 			String shopId = loginShopper.getShopId();
 			int currentPage = (page != null) ? page : 1;
 			
-			//int listCount = sService.getListCount(shopId);
-			//ShopPageInfo pi = ShopPagenation.getPageInfo(currentPage,listCount)
-			//ArrayList<BukkeClass> bList = cService.printAllbClassByShop(classPi, memberId);
-			 mv.setViewName ("shop/bukkeClassList");
+			int listCount = cService.getListCountShopId(shopId);
+			ShopPageInfo shopPi = ShopPagination.getPageInfo(currentPage,listCount);
+			ArrayList<BukkeClass> bList = cService.printAllbClassByShop(shopPi, shopId);
+			 if(!bList.isEmpty()) {
+				 mv.addObject("bList",bList);
+				 mv.addObject("shopPi",shopPi);
+				 mv.setViewName("shop/bukkeClassList");
+			 }else {
+				 mv.addObject("shop/bukkeClassList");
+				 
+			 }
 			return mv;
 		}
 		

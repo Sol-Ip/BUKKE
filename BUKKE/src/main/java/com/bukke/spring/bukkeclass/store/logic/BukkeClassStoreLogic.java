@@ -13,6 +13,7 @@ import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.bukkeclass.store.BukkeClassStore;
 import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 @Repository
 public class BukkeClassStoreLogic implements BukkeClassStore {
@@ -176,6 +177,13 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	public int selectCountShop(String shopId) {
 		// TODO Auto-generated method stub
 		return session.selectOne("bclassMapper.selectListCountShopId",shopId);
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectAllListBclassbyMyShop(ShopPageInfo shopPi, String shopId) {
+		int offset = (shopPi.getCurrentPage() - 1) * shopPi.getBoardLimit();
+	    RowBounds rowBounds = new RowBounds(offset, shopPi.getBoardLimit());
+	    return (ArrayList)session.selectList("bclassMapper.selectAllListbyShop", shopId, rowBounds);
 	}
 
 }

@@ -163,7 +163,7 @@ public class BukkeClassController {
 			return "bukkeClass/bukkeClassList";
 		}else {
 			model.addAttribute("msg", "클래스 검색 실패");
-			return "common/errorPage";
+			return "bukkeClass/bukkeClassNonSearch";
 		}
 	}
 	

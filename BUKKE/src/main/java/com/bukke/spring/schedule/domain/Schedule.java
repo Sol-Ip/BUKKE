@@ -12,6 +12,15 @@ public class Schedule {
 	private Date startDate; // 시작날짜
 	private Date endDate; // 시작날짜
 	private String reservationStatus;
+	private String payStatus;
+	public String getPayStatus() {
+		return payStatus;
+	}
+
+	public void setPayStatus(String payStatus) {
+		this.payStatus = payStatus;
+	}
+
 	private String color;
 	
 	public Schedule() {}
@@ -75,8 +84,10 @@ public class Schedule {
 	@Override
 	public String toString() {
 		return "Schedule [classNo=" + classNo + ", activityNo=" + activityNo + ", title=" + title + ", startDate="
-				+ startDate + ", endDate=" + endDate + ", reservationStatus=" + reservationStatus + ", color=" + color
-				+ "]";
+				+ startDate + ", endDate=" + endDate + ", reservationStatus=" + reservationStatus + ", payStatus="
+				+ payStatus + ", color=" + color + "]";
 	}
+
+	
 	
 }

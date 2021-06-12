@@ -125,7 +125,7 @@ public class ReviewController {
 			model.addAttribute("search", search);
 			return "review/reviewListView";
 		}else {
-			model.addAttribute("msg", "�������� �˻� ����");
+			model.addAttribute("msg", "검색결과가 없습니다.");
 			return "common/errorPage";
 		}
 	}

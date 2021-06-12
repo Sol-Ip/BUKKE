@@ -46,11 +46,23 @@ public class ScheduleController {
     	String memberId = loginMember.getMemberId();
     	ArrayList<Schedule> sList = sService.printSchedule(memberId);
     	for(int i = 0; i < sList.size(); i++) {
-    		String status = sList.get(i).getReservationStatus();
-    		if(status.equals("승인")) {
-    			sList.get(i).setColor("blue");
+    		String PayStatus = sList.get(i).getPayStatus();
+    		int classNo = sList.get(i).getClassNo();
+    		int activityNo = sList.get(i).getActivityNo();
+    		
+    		if(PayStatus.equals("Y")) {
+    			if(classNo == 0 && activityNo !=0) {
+    				sList.get(i).setColor("blue");
+    			}else {
+    				sList.get(i).setColor("green");
+    			}
+    			
     		} else {
-    			sList.get(i).setColor("red");
+    			if(classNo == 0) {
+    				sList.get(i).setColor("yellow");
+    			}else {
+    				sList.get(i).setColor("#FF0000");
+    			}
     		}
     	}
     	

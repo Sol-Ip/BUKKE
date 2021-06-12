@@ -1,0 +1,19 @@
+/* myPage 배너 css */
+
+. banner hero-wrap hero-wrap-2{
+background-size : cover;
+background-position : 50% 50%;
+}
+
+.hero-wrap .overlay {
+background: linear-gradient(270deg, rgba(77, 229, 169, 1) 0%,
+		rgba(44, 171, 153, 1) 70%);
+}
+
+.banner * {
+	color: white;
+}
+nav>* {
+	width: 100%;
+}
+/* myPage 배너 css END */

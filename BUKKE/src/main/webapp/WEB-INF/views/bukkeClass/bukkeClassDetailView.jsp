@@ -67,6 +67,7 @@ button.learn-more {
   color: #382b22;
   text-transform: uppercase;
   padding: 1.25em 2em;
+  width:165px;
   background: #bcd4e6;
   border: 2px solid #b18597;
   border-radius: 0.75em;
@@ -238,27 +239,6 @@ $(document).ready(function() {
 						<h5>${bukkeClass.classInfo }</h5>
 					</div>
 					<hr>
-
-					<div class="tag-widget post-tag-container mb-5 mt-5">
-						<div class="meta">
-							<div>
-								<button class="btn btn-outline-danger">
-									<span class="icon-heart icon-large"></span> 찜하기
-								</button>
-								<button class="btn btn-outline-warning">
-									<span class="icon-smile icon-large"></span> 찜하기
-								</button>
-								<button class="btn btn-outline-danger">❤</button>
-								<button class="btn btn-outline-danger">
-									<i class="fas fa-bookmark fa-2x"></i>
-								</button>
-
-								<span class="icon-eye-open"></span>
-							</div>
-
-						</div>
-					</div>
-
 				</div>
 
 				<!-- ================  Detail END================ -->
@@ -391,7 +371,7 @@ $(document).ready(function() {
 						</c:choose>
 						
 							<!-- 사업자에게만 버튼 보이게 하기 -->
-							<div align="center">
+							<div align="center" style="padding-right : 50px;">
 								<c:url var="cModify" value="bukkeClassModify.com">
 									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
 								</c:url>
@@ -417,7 +397,7 @@ $(document).ready(function() {
 						</div>
 					</div>
 
-					<div class="ftco-animate">
+					<div class="ftco-animate" style="padding-left : 40px;">
 						<!-- <input type="submit" class="btn btn-lg btn-primary" value="예약하기"> -->
 						<!-- <button class="learn-more">예약하기</button> -->
 						<!-- <button class="btn btn-lg btn-primary" type="submit">선물하기</button> -->

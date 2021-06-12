@@ -23,7 +23,9 @@ import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.member.service.MemberService;
-
+import com.bukke.spring.review.domain.Review;
+import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.service.ReviewService;
 import com.bukke.spring.shop.domain.Shop;
 import com.bukke.spring.shop.service.ShopService;
 import com.google.gson.Gson;
@@ -43,6 +45,9 @@ public class AdminController {
 
 	@Autowired
 	private ActivityService aService;
+	
+	@Autowired
+	private ReviewService rService;
 
 	// 관리자페이지 이동
 	@RequestMapping(value = "adminPage.com", method = RequestMethod.GET)
@@ -203,5 +208,77 @@ public class AdminController {
 					file.delete();
 				}
 			}
-
-}
+			
+		//후기관리 메뉴
+		@RequestMapping(value="adminReviewManage.com", method=RequestMethod.GET)
+		public String getreivewList(Model model) { 
+			ArrayList<Review> rList = rService.printAllManageReview();
+				if(!rList.isEmpty()) {
+					model.addAttribute("rList",rList);
+					return "admin/reviewManage";
+				}else {
+					model.addAttribute("msg", "등록된 후기가 없습니다.");
+					return "admin/reviewManage";
+				}
+		}
+		
+		//후기 삭제
+		@RequestMapping(value="reviewAdminDelete.com", method = RequestMethod.GET)
+		public String reviewAdiminDelete(Model model,@RequestParam("reviewNo") int reviewNo,
+											@RequestParam("rRenameFilename") String rRenameFilename, HttpServletRequest request) {
+			if (rRenameFilename != "") {
+				deleteReviewFile(rRenameFilename, request);
+			}
+			
+			int result = rService.removeReview(reviewNo);
+			if (result > 0) {
+				return "redirect:adminReviewManage.com";
+			} else {
+				model.addAttribute("msg", "삭제하실 수 없습니다");
+				return "common/errorPage";
+			}
+		}
+		
+		//후기 파일 삭제
+		private void deleteReviewFile(String fileName, HttpServletRequest request) {
+			String root = request.getSession().getServletContext().getRealPath("resources");
+			String savePath = root + "\\bClassFiles";
+			File file = new File(savePath + "\\" + fileName);
+			if(file.exists()) {
+				file.delete();
+			}
+		}
+		
+		//댓글 관리 메뉴
+		@RequestMapping(value="adminCommentManage.com", method=RequestMethod.GET)
+		public String getcommentList(Model model) { 	
+			ArrayList<ReviewComment> rcList = rService.printAllManageComment();
+			if(!rcList.isEmpty()) {
+				model.addAttribute("rcList",rcList);
+				return "admin/commentManage";
+			}else {
+				model.addAttribute("msg","등록된 댓글이 없습니다.");
+				return "admin/commentManage";
+			}
+		}
+		
+		//댓글 삭제
+		@RequestMapping(value="commentAdminDelete.com",method = RequestMethod.GET)
+		public String updateComment(@RequestParam("commentNo")int commentNo,@RequestParam("reviewNo")int reviewNo, HttpServletResponse response,Model model) {
+			HashMap<String,Integer> cMap = new HashMap<String, Integer>();
+			cMap.put("commentNo", commentNo);
+			cMap.put("reviewNo", reviewNo);
+			int result = rService.removeAdminComment(cMap);
+			
+			
+			
+//			new Gson().toJson(cMap, response.getWriter());
+			if (result > 0) {
+				return "redirect:adminCommentManage.com";
+			} else {
+				model.addAttribute("msg", "삭제하실 수 없습니다");
+				return "common/errorPage";
+			}
+			
+			}
+		}

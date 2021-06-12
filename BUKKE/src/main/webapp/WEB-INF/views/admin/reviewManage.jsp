@@ -8,7 +8,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>관리자 - 클래스관리</title>
+<title>후기글 관리</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link href="/resources/admin/css/styles.css" rel="stylesheet" />
 
@@ -52,65 +52,57 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">클래스관리</h1>
+					<h1 class="mt-4">후기글 관리</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">Class Management</li>
+						<li class="breadcrumb-item active">Review Management</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-header">
-							<!-- <i class="fas fa-table me-1"></i> DataTable Example -->
+							<i class="fas fa-table me-1"></i> DataTable Example
 						</div>
 						<div class="card-body">
 							<table  id="datatablesSimple">
 								<thead>
 									<tr>
-										<th scope="col">　</th>
-										<th>no</th>
-										<th>업체명</th>
-										<th>클래스명</th>
-										<th>주소</th>
-										<th>분류</th>
-										<th>가격</th>
-										<th>시간</th>
-										<th>인원</th>
-										<th>등록</th>
+										<th scope="col"><input type="checkbox" name="reviewBtn"
+											id="cb1"></th>
+										<th>No</th>
+										<th>회원 아이디</th>
+										<th>제목</th>
+										<th>내용</th>
+										<th>날짜</th>
 									</tr>
 								</thead>
 								<tfoot>
 									<tr>
-										<th scope="col">　</th>
-										<th>no</th>
-										<th>업체명</th>
-										<th>클래스명</th>
-										<th>주소</th>
-										<th>분류</th>
-										<th>가격</th>
-										<th>시간</th>
-										<th>인원</th>
-										<th>등록</th>
+										<th scope="col"><input type="checkbox" name="reviewBtn"
+											id="cb1"></th>
+										<th>No</th>
+										<th>회원 아이디</th>
+										<th>제목</th>
+										<th>내용</th>
+										<th>날짜</th>
 									</tr>
 								</tfoot>
 								<tbody>
-									<c:forEach items="${bList }" var="bClass" varStatus="status">
-										<tr id="${bClass.classNo }">
-											<th scope="row"><input type="checkbox"  name="chkbox"  value="${bClass.classNo}/${bClass.cRenameFilename }"  checknum="${status.index }"></th>
-											<td>${bClass.classNo }</td>
-											<td>${bClass.shopId }</td>
-											<td>${bClass.className }</td>
-											<td>${bClass.classAddr }</td>
-											<td>${bClass.classType }<i class="ion-ios-arrow-forward">${bClass.classTypedetails }</td>
-											<td>${bClass.classPrice }&#8361</td>
-											<td>${bClass.classStartDate }&#126<br>${bClass.classEndDate }</td>
-											<td>${bClass.classCapacity }</td>
-											<td>${bClass.classStatus}</td>
+									<c:forEach items="${rList }" var="review" varStatus="status">
+									<tr id="${review.reviewNo }">
+											<th scope="row"><input type="checkbox" name="chkbox" value="${review.reviewNo}/${review.rRenameFilename }" checknum="${status.index }"></th>
+											<td>${review.reviewNo }</td>
+											<td>${review.memberId }</td>
+											<td>${review.reviewTitle }</td>
+											<td>${review.reviewContents }</td>
+											<td>${review.reviewDate }</td>
+											<%-- <td id="sStatus">${shop.shopApproval}</td> --%>
+       							
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
-							<!-- 체크박스 확인 -->
+							<!-- 삭제 버튼 -->
 							<div style="float: right;">
 								<button type="button" id="check" class="btn btn-danger mt-2">삭제</button>
-							</div>
+							</div>		
 						</div>
 					</div>
 				</div>
@@ -129,38 +121,15 @@
 			</footer>
 		</div>
 	</div>
-	<script>
-	/* 	
-	$('#delete').click(function() {
-			var  del_check = confirm("정말 삭제하시겠습니까?");
-			if(del_check) {
-				var sendData = {
-			               'classNo' : classNo,
-			               'cRenameFilename' : cRenameFilename
-				};
-				$.ajax({
-			         type:"GET",
-			         url:"adminbClassDelete.com",
-			         data : sendData,
-			         dataType : "json",
-			         success:function(data){
-			            if (data.msg=="true") {
-			            } else {
-			               alert("클래스 삭제에 실패했습니다!");
-			            }
-			         }
-				});
-			} else {
-			}
-		})
-	 */
-		$('#check').click(function() {
+
+<script>
+	$('#check').click(function() {
 			var checkedList = [];
 			$("input[name=chkbox]:checked").each(function(index, item) {
 				var data = $(this).val().split('/');
 				var arr = {
-			               'classNo' : data[0],
-			               'cRenameFilename' : data[1]
+			               'reviewNo' : data[0],
+			               'rRenameFilename' : data[1]
 				};
 				checkedList.push(arr);
 				var index = $(item).attr("checknum");
@@ -169,15 +138,15 @@
 				$.each(checkedList,function(index, item){
 					$.ajax({
 				         type:"GET",
-				         url:"adminbClassDelete.com",
+				         url:"reviewAdminDelete.com",
 				         data : item,
 				         async : false, //ajax를 동기식으로 처리함. ajax가 완료되기 전 페이지를 리로드하는 것을 방지.
 				         dataType : "json"
 					});
 				});
-				location.href = 'adminbClassManage.com';
+				location.href = 'adminReviewManage.com';
 		})
-	</script>
+</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="/resources/admin/js/scripts.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>

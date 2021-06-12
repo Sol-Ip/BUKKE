@@ -29,7 +29,7 @@
 		data-bs-target="#collapsePages" aria-expanded="false"
 		aria-controls="collapsePages">
 		<div class="sb-nav-link-icon">
-			<i class="fas fa-snowboarding"></i>
+			<i class="fas fa-skiing"></i>
 		</div> 수업관리
 		<div class="sb-sidenav-collapse-arrow">
 			<i class="fas fa-angle-down"></i>
@@ -40,6 +40,23 @@
 		<nav class="sb-sidenav-menu-nested nav">
 			<a class="nav-link" href="adminbClassManage.com">클래스관리</a>
 			<a class="nav-link" href="adminActivityManage.com">액티비티관리</a>
+		</nav>
+	</div>
+	<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+		data-bs-target="#collapseReview" aria-expanded="false"
+		aria-controls="collapsePages">
+		<div class="sb-nav-link-icon">
+			<i class="fas fa-edit"></i>
+		</div> 후기관리
+		<div class="sb-sidenav-collapse-arrow">
+			<i class="fas fa-angle-down"></i>
+		</div>
+	</a>
+	<div class="collapse" id="collapseReview" aria-labelledby="headingthree"
+		data-bs-parent="#sidenavAccordion">
+		<nav class="sb-sidenav-menu-nested nav">
+			<a class="nav-link" href="adminReviewManage.com">후기글관리</a>
+			<a class="nav-link" href="adminCommentManage.com">댓글관리</a>
 		</nav>
 	</div>
 	<a class="nav-link" href="noticeList.com">

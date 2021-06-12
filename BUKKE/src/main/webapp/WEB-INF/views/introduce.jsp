@@ -154,7 +154,7 @@ button.learn-more:active::before {
 							<p id="pt">'부캐'란 게임에서 사용하던 용어로 '본 캐릭터' 외에 새롭게 만든 '부 캐릭터'의 줄임말입니다. 지금은 많은 사람들이 '평소의 나의 모습이 아닌 새로운 모습이나 캐릭터'를 칭하는 말로 쓰이고 있습니다. </p>
 							<P id="pt">최근 직장인들 사이에서 취미생활을 위한 다양한 원데이 클래스, 액티비티 등 취미활동을 통해 행복과 만족감을 얻는 사람들이 늘고 있습니다. 워라벨을 중시하면서 일과 삶의 분리를 하려는 사람들이 증가하였기 때문입니다</P>
 							<p id="pt">부캐에서는 일상생활에서 벗어나 오로지 '나'로써 온전한 시간을 취미생활을 통해 느낄 수 있도록 다양한 클래스와 액티비티의 정보를 공유하며 누구든지 취미를 만들 수 있는 서비스를 제공하고 있습니다.</p>
-							<p><a href="#" class="btn-custom">Learn More <span class="ion-ios-arrow-forward"></span></a></p>
+							<p><a href="#" class="btn-custom">question go <span class="ion-ios-arrow-forward"></span></a></p>
 						</div>
 					</div>
 				</div>

@@ -116,9 +116,13 @@ public class BukkeClassController {
 			Keep keep = new Keep();
 			keep.setClassNo(classNo);
 			keep.setMemberId(memberId);
+			
 			// 예약하기
+			Reservation reservation = new Reservation();
+			reservation.setClassNo(classNo);
+			reservation.setReservationId(memberId);
 			
-			
+			Reservation classRes = reService.printOneClassReservation(reservation);
 			Keep classKeep = kService.printClassKeep(keep);
 			
 			model.addAttribute("memberId", memberId);
@@ -129,6 +133,7 @@ public class BukkeClassController {
 			}
 			
 			model.addAttribute("keep", classKeep);
+			model.addAttribute("reservation", classRes);
 		}
 		BukkeClass bukkeClass = bService.printOneBclass(classNo);
 		ArrayList<BukkeClass> bList = bService.printTopThreeBclass();

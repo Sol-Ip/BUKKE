@@ -61,6 +61,24 @@ public class ReservationServiceImpl implements ReservationService{
 		return reStore.reInsertActivityReservation(reservation);
 	}
 	
+	// 클래스 예약하기
+	@Override
+	public int registerClassReservation(Reservation reservation) {
+		return reStore.insertClassReservation(reservation);
+	}
+	
+	// 클랙스 예약하기 확인
+	@Override
+	public Reservation printOneClassReservation(Reservation reservation) {
+		return reStore.selectOneClassReservation(reservation);
+	}
+	
+	// 클래스 예약 취소하기
+	@Override
+	public int removeClassReservation(Reservation classRes) {
+		return reStore.deleteClassReservation(classRes);
+	}
+	
 	
 
 	// 예약 승인
@@ -115,7 +133,5 @@ public class ReservationServiceImpl implements ReservationService{
 		// TODO Auto-generated method stub
 		return reStore.ChangeStatusClass(reservation);
 	}
-	
 
-	
 }

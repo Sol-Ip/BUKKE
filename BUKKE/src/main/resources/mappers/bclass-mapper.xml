@@ -91,7 +91,7 @@
    
    <insert id="insertBclass" parameterType="BukkeClass">
    	  INSERT INTO CLASS 
-   	  VALUES(SEQ_CLASS_NO.NEXTVAL, 'shop1', #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename }, #{classStartTime }, #{classEndTime })
+   	  VALUES(SEQ_CLASS_NO.NEXTVAL, #{shopId}, #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename }, #{classStartTime }, #{classEndTime })
    </insert>
    
     

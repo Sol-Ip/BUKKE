@@ -140,20 +140,20 @@ $(document).ready(function() {
 	
 	
 	// 예약하기
-	//$('#reservation-btn1').click(function(){
-		//location.href='ActivityReservation.com?activityNo=' + activityNo;
-		//alert('예약 신청이 완료되었습니다!');
+	$('#reservation-btn1').click(function(){
+		location.href='BukkeClassReservation.com?classNo=' + classNo;
+		alert('예약 신청이 완료되었습니다!');
 		
-	//});
+	});
 	
 	// 예약하기 취소
-	//var reservationNo = $("#reservationNo").val();
-	//console.log("reservationNo1 : " + reservationNo);
-	//$('#reservation-btn2').click(function(){
-		//console.log("reservationNo2 : " + reservationNo);
-		//location.href='deleteActivityReservation.com?activityNo=' + activityNo;
-		//alert('예약 신청이 취소되었습니다!');
-	//});
+	var reservationNo = $("#reservationNo").val();
+	console.log("reservationNo1 : " + reservationNo);
+	$('#reservation-btn2').click(function(){
+		console.log("reservationNo2 : " + reservationNo);
+		location.href='deleteBukkeClassReservation.com?classNo=' + classNo;
+		alert('예약 신청이 취소되었습니다!');
+	});
 	
 	// 거절 당한 것 다시 예약하기
 	//$('#reservation-btn4').click(function(){
@@ -172,8 +172,6 @@ $(document).ready(function() {
 		     // 확인
 		 		//}
 	 		//}); 
-
-
 });
 </script>
 </head>

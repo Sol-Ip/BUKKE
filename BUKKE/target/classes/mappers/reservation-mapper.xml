@@ -104,6 +104,21 @@
    UPDATE RESERVATION SET RESERVATION_STATUS = '대기' WHERE ACTIVITY_NO = #{activityNo} AND RESERVATION_ID = #{reservationId}
    </update>
    
+   <!-- 클래스 예약하기 -->
+   <insert id="insertClassReservation">
+   	INSERT INTO RESERVATION VALUES (SEQ_RESERVATION_NO.NEXTVAL, #{reservationId}, #{classNo}, NULL, DEFAULT, DEFAULT, DEFAULT)
+   </insert>
+   
+   <!-- 클래스 예약 확인 -->
+   <select id="selectOneClassReservation" resultMap="reservationMap">
+   SELECT * FROM RESERVATION WHERE CLASS_NO = #{classNo} AND RESERVATION_ID = #{reservationId}
+   </select>
+   
+   <!-- 클래스 예약 취소하기 -->
+   <delete id="deleteClassReservation">
+	DELETE FROM RESERVATION WHERE RESERVATION_NO = #{reservationNo} AND CLASS_NO = #{classNo}
+	</delete>
+   
    <!-- 예약 승인 -->
    <update id="confirmReservation">
    UPDATE RESERVATION SET

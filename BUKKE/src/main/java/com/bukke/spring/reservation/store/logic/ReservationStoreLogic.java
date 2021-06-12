@@ -63,6 +63,23 @@ public class ReservationStoreLogic implements ReservationStore {
 		return sqlSession.update("reservationMapper.reInsertActivityReservation", reservation);
 	}
 	
+	// 클래스 예약하기
+	@Override
+	public int insertClassReservation(Reservation reservation) {
+		return sqlSession.insert("reservationMapper.insertClassReservation", reservation);
+	}
+	
+	// 클래스 예약하기 확인
+	@Override
+	public Reservation selectOneClassReservation(Reservation reservation) {
+		return sqlSession.selectOne("reservationMapper.selectOneClassReservation", reservation);
+	}
+	
+	// 클래스 예약 취소하기
+	@Override
+	public int deleteClassReservation(Reservation reservation) {
+		return sqlSession.delete("reservationMapper.deleteClassReservation", reservation);
+	}
 
 	@Override
 	public int confirmReservaion(Reservation reservation) { // 예약 승인
@@ -115,7 +132,5 @@ public class ReservationStoreLogic implements ReservationStore {
 	public int ChangeStatusClass(Reservation reservation) {
 		return sqlSession.update("reservationMapper.changeStatusClass", reservation);
 	}
-	
-
 
 }

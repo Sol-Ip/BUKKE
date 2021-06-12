@@ -72,19 +72,9 @@ public class ReservationController {
 //      @RequestMapping(value="activityPaySuccess.com", method=RequestMethod.POST)
 //      public void ActivityPaysuccess(@ModelAttribute Reservation reservation,
 //    		  						HttpServletResponse response) {
-//    	  
-//    	  
-//    	  
 //      }
-//      
-//      
 //      public void ClassPaysuccess() {
-//    	  
 //      }
-      
-      
-      
-      
       
       // 예약 상세정보 jsp 이동 (모든회원)
       @RequestMapping(value="reservationDetail.com", method =RequestMethod.GET )
@@ -171,6 +161,52 @@ public class ReservationController {
       }
       
       
+      // 클래스 예약하기
+      @RequestMapping(value="BukkeClassReservation.com")
+      public String insertBukkeClassReservation(@RequestParam("classNo") int classNo,
+    		  									Model model,
+    		  									HttpSession session) {
+    	  Member loginMember = (Member)session.getAttribute("loginMember");
+    	  String reservationId = loginMember.getMemberId();
+    	  Reservation reservation = new Reservation();
+    	  
+    	  reservation.setClassNo(classNo);
+    	  reservation.setReservationId(reservationId);
+    	  
+    	  int result = reService.registerClassReservation(reservation);
+    	  
+    	  if(result > 0) {
+    		  return "redirect:bukkeClassDetailView.com?classNo=" + classNo;
+    	  }else {
+    		  model.addAttribute("msg", "클래스 예약 실패");
+    		  return "common/errorPage";
+    	  }
+      }
+      
+      // 클래스 예약 취소하기
+      @RequestMapping(value="deleteBukkeClassReservation.com")
+      public String removeBukkeClassReservation(@RequestParam("classNo") int classNo,
+    		  									Model model,
+    		  									HttpSession session) {
+    	  Member loginMember = (Member)session.getAttribute("loginMember");
+    	  String reservationId = loginMember.getMemberId();
+    	  Reservation reservation = new Reservation();
+    	  
+    	  reservation.setClassNo(classNo);
+    	  reservation.setReservationId(reservationId);
+    	  
+    	  Reservation classRes = reService.printOneClassReservation(reservation);
+    	  model.addAttribute("reservationNo", classRes.getReservationNo());
+    	  System.out.println(classRes);
+    	  int result = reService.removeClassReservation(classRes);
+    	  
+    	  if(result > 0) {
+    		  return "redirect:bukkeClassDetailView.com?classNo=" + classNo;
+    	  } else {
+    		  model.addAttribute("msg", "클래스 예약 취소 실패");
+    		  return "common/errorPage";
+    	  }
+      }
       
       ////////////////////////////////////////////// 예약 확인 logic
       

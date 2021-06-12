@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <title>좋아요 목록</title>
 	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
-	<link rel="stylesheet" href="../resources/css/mypage/banner.css">
 	<link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
+	<link rel="stylesheet" href="../resources/css/mypage/banner.css">
 	
 	<link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
@@ -80,46 +80,40 @@
 <body>
 
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/mypageuser_1.jpg'); background-position:50% 80%;"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">좋아요 목록</h1>
+					<h1 class="mb-2 bread">MY ACTIVITY</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> 
-								<span>Likes <i class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="memberMyPage.com">MY INFORMATION</a></span>
 					</p>
 				</div>
 			</div>
 		</div>
 		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
-		
-   </section>
+	</section>
 	 <!-- fixed section END-->
-	 
-	<section class="ftco-section ftco-animate">
-		<div class="container ">
-			<div class="row justify-content-center">
-				<div class="col-md-8 heading-section ftco-animate">
-					<div class="text1">
-						<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
-						<h1 class="h1Class">
-							<span class="fontawesome-star star"
-								style="position: absolute; right: 500px;"></span> <span>LIKE LIST</span> <span class="fontawesome-star star"></span>
-						</h1>
-					</div>
+
+	<div id="info-title" class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 heading-section ftco-animate">
+				<div class="text1">
+					<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
+					<h1 class="h1Class">
+						<span class="fontawesome-star star"
+							style="position: absolute; right: 500px;"></span> <span>COMMENT LIST</span> <span class="fontawesome-star star"></span>
+					</h1>
 				</div>
 			</div>
 		</div>
-	</section>
-	
-	
-		<!-- 좋아요 없을 시 목록 출력-->
+	</div>
+
+
+	<!-- 좋아요 없을 시 목록 출력-->
 		<c:if test="${rlList.isEmpty() }">
 		<section class="ftco-section ftco-animate">
 		<div class="container">

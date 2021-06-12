@@ -14,6 +14,8 @@
 
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+<link rel="stylesheet" href="../resources/css/mypage/banner.css">
+
 <!-- tab -->
 <link rel="stylesheet" href="../resources/css/mypage/tab.css"> 
 
@@ -25,6 +27,21 @@
 
 </head>
  <style>
+ .non-keep {
+	margin: auto;
+	font-family: 'Cafe24SsurroundAir';
+	text-align: center;
+	}
+	
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 @import
 	url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic)
 	;
@@ -242,131 +259,42 @@ body {
 	background-color: #fff !important;
 }
 </style>
-<body id="">
+<body>
 
-   <!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
+  <!-- fixed section -->
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/mypageuser_1.jpg'); background-position:50% 80%;"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">OPEN MYPAGE</h1>
+					<h1 class="mb-2 bread">MY ACTIVITY</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>BOOKMARK <i
-							class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="memberMyPage.com">MY INFORMATION</a></span>
 					</p>
 				</div>
 			</div>
 		</div>
-
-		          <!-- ======================= 사이드 바 시작 =============================== -->
-         <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">BUKKE</a>
-                </div>
-                <div class="nav__list">
-                    <div href="#" class="nav__link collapse1">
-                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
-                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
-                        <span class="nav_name">내 정보</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">정보 수정</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">부캐 일정</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
-                            
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">내 활동</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
-                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
-                            <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
-                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">선물 내역</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">받은 선물</a>
-                            <a href="#" class="collapse__sublink">보낸 선물</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">채팅</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">채팅 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">알림</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">예약 알림</a>
-                        </ul>
-                    </div>
-                </div>
-                
-                <a href="#" class="nav__link">
-                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                    <span class="nav_name">Log out</span>
-                </a>
-            </div>
-        </nav>
-    </div>
-   </section>
-   <!-- ======================= 사이드 바 끝 =============================== -->
-   
-	<section class="ftco-section">
-		<div class="container ftco-animate">
-			<div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-7 heading-section ftco-animate">
-					<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-white">BUKKE</small></span>
-					<h2 class="mb-4">${loginMember.memberNick }'S BOOKMARK LIST</h2>
+		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
+	</section>
+	 <!-- fixed section END-->
+	 
+	 <div id="info-title" class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 heading-section ftco-animate">
+				<div class="text1">
+					<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
+					<h1 class="h1Class">
+						<span class="fontawesome-star star"
+							style="position: absolute; right: 500px;"></span> <span>BOOKMARK LIST</span> <span class="fontawesome-star star"></span>
+					</h1>
 				</div>
 			</div>
 		</div>
-	</section>
-
+	</div>
+	
+<section class="ftco-animate">
 <div class="page-content tab-parallax">
 <div class="container">
                     <div class="row">
@@ -399,7 +327,7 @@ body {
 									<!-- ======================== 북마크 리스트 전체 ======================== -->
 									<c:if test="${kList.size() == 0 }">
 										<section class="ftco-section">
-											<div class="container">
+											<div class="container non-keep">
 												<!-- 찜 목록이 없는 경우 -->
 												<h1>찜 목록이 없습니다.</h1>
 											</div>
@@ -552,7 +480,7 @@ body {
 									<!-- ======================== 북마크 리스트 전체 ======================== -->
 									<c:if test="${claList.size() == 0 }">
 										<section class="ftco-section">
-											<div class="container">
+											<div class="container non-keep">
 												<!-- 찜 목록이 없는 경우 -->
 												<h1>클래스 찜 목록이 없습니다.</h1>
 											</div>
@@ -658,9 +586,9 @@ body {
 									<!-- ======================== 북마크 리스트 전체 ======================== -->
 									<c:if test="${actList.size() == 0 }">
 										<section class="ftco-section">
-											<div class="container">
+											<div class="container non-keep">
 												<!-- 찜 목록이 없는 경우 -->
-												<h1>찜 목록이 없습니다.</h1>
+												<h1>액티비티 찜 목록이 없습니다.</h1>
 											</div>
 										</section>
 									</c:if>
@@ -768,6 +696,7 @@ body {
                     </div>
                 </div>
   </div>
+  </section>
 
 	<%-- <!-- ======================== 북마크 리스트 전체 ======================== -->
 	<c:if test="${kList.size() == 0 }">

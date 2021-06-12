@@ -5,149 +5,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
-	<link rel="stylesheet" href="../resources/css/mypage/mypageReview.css">
-	<link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
+<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+<link rel="stylesheet" href="../resources/css/mypage/mypageReview.css">
+<link rel="stylesheet" href="../resources/css/mypage/banner.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> <!--CDN 링크 -->
 <meta charset="UTF-8">
 <title>좋아요 목록</title>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
-	<style type="text/css">
-    
-	</style>
+
 </head>
+<style type="text/css">
+.non-cmt {
+	margin: auto;
+	font-family: 'Cafe24SsurroundAir';
+	text-align: center;
+	}
+	
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}    
+</style>
 <body>
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/mypageuser_1.jpg'); background-position:50% 80%;"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">내가 쓴 후기 목록</h1>
+					<h1 class="mb-2 bread">MY REVIEW</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Review <i
-							class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="memberMyPage.com">MY INFORMATION</a></span>
 					</p>
 				</div>
 			</div>
 		</div>
-	
-	<!-- ======================= 사이드 바 시작 =============================== -->
-         
-         <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">BUKKE</a>
-                </div>
-                <div class="nav__list">
-                    <div href="#" class="nav__link collapse1">
-                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
-                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
-                        <span class="nav_name">내 정보</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">정보 수정</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">부캐 일정</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
-                            
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">내 활동</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
-                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
-                            <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
-                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">선물 내역</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">받은 선물</a>
-                            <a href="#" class="collapse__sublink">보낸 선물</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">채팅</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">채팅 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">알림</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">예약 알림</a>
-                        </ul>
-                    </div>
-                </div>
-                
-                <a href="#" class="nav__link">
-                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                    <span class="nav_name">Log out</span>
-                </a>
-            </div>
-        </nav>
-    </div>
-   </section>
-   <!-- ======================= 사이드 바 끝 =============================== -->
-	<div class="container ftco-animate">
-		<div class="row justify-content-center">
-			<div class="col-md-8 heading-section ftco-animate">
-				<span class="subheading subheading-with-line"><small
-					class="pr-2 bg-light">REVIEW</small></span>
-					<br><br><br><br><br><br><br>
-				<section class="text1">
-					<h3 class="h3Class" style="align-self: center;">Hey everyone
-						look at this</h3>
-					<h1 class="h1Class">
-						<span class="fontawesome-star star"
-							style="position: absolute; right: 500px;"></span> <span>REVIEW LIST</span> <span class="fontawesome-star star"></span>
-					</h1>
-				</section>
+		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
+	</section>
+	 <!-- fixed section END-->
+	 
+		<div id="info-title" class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-8 heading-section ftco-animate">
+					<div class="text1">
+						<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
+						<h1 class="h1Class">
+							<span class="fontawesome-star star"
+								style="position: absolute; right: 500px;"></span> <span>REVIEW LIST</span> <span class="fontawesome-star star"></span>
+						</h1>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+		
+	<!-- 작성한 리뷰글  없을 시 목록 출력-->
+		<c:if test="${rList.isEmpty() }">
+		<section class="ftco-section ftco-animate">
+		<div class="container">
+				<div class="row">
+				<div class="non-cmt">
+					<h1>&nbsp;&nbsp;작성한 리뷰가 없습니다 😲</h1>
+					</div>
+				</div>
+			</div>
+        </section>
+		</c:if>
+	
+	<!-- 작성한 리뷰글 있을 시 목록 출력-->
+	<c:if test="${rList.size() > 0 }">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row">
@@ -195,7 +129,7 @@
 
 			</div>
 		</div>
-	</section>
+	
 	<!-- 페이징 처리 -->
 		<div class="container">
     	<div class="row no-gutters mt-5">	
@@ -239,6 +173,8 @@
           </div>
         </div>
     	</div>
+    	</section>
+    	</c:if>
 <script src="../resources/js/member/mypageSidebar.js"></script>	
 	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>

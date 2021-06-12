@@ -452,8 +452,10 @@ public class MemberController {
 			mv.setViewName("member/memberReviewListView");
 
 		} else {
-			mv.addObject("msg", "작성한 후기가 없습니다");
-			mv.setViewName("common/errorPage");
+			mv.addObject("rList", rList);
+			mv.setViewName("member/memberReviewListView");
+//			mv.addObject("msg", "작성한 후기가 없습니다");
+//			mv.setViewName("common/errorPage");
 
 		}
 		return mv;

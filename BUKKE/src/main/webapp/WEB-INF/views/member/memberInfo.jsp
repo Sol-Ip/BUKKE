@@ -47,6 +47,7 @@
 		</div>
       <jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
    </section>
+    <!-- fixed section END-->
     
       <!--===================== 회원 정보 관리 시작 =========== -->
 	<section class="ftco-section">

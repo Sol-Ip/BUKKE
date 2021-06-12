@@ -94,28 +94,25 @@
 </head>
 <body>
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/mypageuser_1.jpg'); background-position:50% 80%;"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">MY PAGE</h1>
+					<h1 class="mb-2 bread">MY ACTIVITY</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="memberMyPage.com">MY
-								INFORMATION <i class="ion-ios-arrow-forward"></i>
-						</a></span> <span>Review Comment</span>
+						<span class="mr-2"><a href="memberMyPage.com">MY INFORMATION</a></span>
 					</p>
 				</div>
 			</div>
 		</div>
 		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
 	</section>
-
-	<section class="ftco-section ftco-animate">
-		<div class="container ">
+	 <!-- fixed section END-->
+	
+		<div id="info-title" class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-8 heading-section ftco-animate">
 					<div class="text1">
@@ -128,7 +125,6 @@
 				</div>
 			</div>
 		</div>
-	</section>
 
 
 	<!-- 댓글 없을 시 목록 출력-->

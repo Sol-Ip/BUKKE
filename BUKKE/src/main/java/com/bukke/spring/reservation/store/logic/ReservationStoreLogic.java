@@ -80,6 +80,12 @@ public class ReservationStoreLogic implements ReservationStore {
 	public int deleteClassReservation(Reservation reservation) {
 		return sqlSession.delete("reservationMapper.deleteClassReservation", reservation);
 	}
+	
+	// 클래스 다시 예약
+	@Override
+	public int reInsertClassReservation(Reservation reservation) {
+		return sqlSession.insert("reservationMapper.reInsertClassReservation", reservation);
+	}
 
 	@Override
 	public int confirmReservaion(Reservation reservation) { // 예약 승인

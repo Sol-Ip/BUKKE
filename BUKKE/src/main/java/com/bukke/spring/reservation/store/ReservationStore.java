@@ -20,6 +20,7 @@ public interface ReservationStore {
 	public int insertClassReservation(Reservation reservation); // 클래스 예약하기
 	public Reservation selectOneClassReservation(Reservation reservation); // 클래스 예약 확인
 	public int deleteClassReservation(Reservation reservation); // 클래스 예약 취소하기
+	public int reInsertClassReservation(Reservation reservation); // 클래스 다시 예약하기
 	
 	public int confirmReservaion(Reservation reservation); // 예약 승인
 	public int cancleReservation(Reservation reservation); // 예약 거절
@@ -37,5 +38,6 @@ public interface ReservationStore {
 	public int ChangeStatus(Reservation reservation);
 	//결제 상태변경(클래스)
 	public int ChangeStatusClass(Reservation reservation);
+	
 	
 }

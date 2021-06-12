@@ -79,6 +79,12 @@ public class ReservationServiceImpl implements ReservationService{
 		return reStore.deleteClassReservation(classRes);
 	}
 	
+	// 클래스 다시 예약
+	@Override
+	public int reRegisterClassReservation(Reservation reservation) {
+		return reStore.reInsertClassReservation(reservation);
+	}
+	
 	
 
 	// 예약 승인

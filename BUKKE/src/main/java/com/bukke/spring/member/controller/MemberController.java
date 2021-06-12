@@ -129,17 +129,18 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "memberRegister.com", method = RequestMethod.POST)
-	public String memberRegister(@ModelAttribute Member member, @RequestParam("memberAddr1") String memberAddr1,
-			@RequestParam("memberAddr2") String memberAddr2, Model model) {
+	public ModelAndView memberRegister(@ModelAttribute Member member, @RequestParam("memberAddr1") String memberAddr1,
+			@RequestParam("memberAddr2") String memberAddr2, ModelAndView mv) {
 		String memberAddr = memberAddr1 + "," + memberAddr2;
 		member.setMemberAddr(memberAddr);
 		int result = mService.registerMember(member);
 		if (result > 0) {
-			return "member/registerComplete";
+			mv.addObject("msg", "member");
+			mv.setViewName("member/registerComplete");
 		} else {
-			return "redirect:home.com";
+			mv.setViewName("redirect:home.com");
 		}
-
+		return mv;
 	}
 
 	// 카카오 로그인 기능

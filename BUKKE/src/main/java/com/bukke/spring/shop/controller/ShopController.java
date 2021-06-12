@@ -89,6 +89,7 @@ public class ShopController {
 		}
 		int result = sService.registerShop(shop);
 		if(result > 0) {
+			mv.addObject("msg", "shopmember");
 			mv.setViewName("member/registerComplete");
 		} else {
 			mv.setViewName("redirect:home.com");

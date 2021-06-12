@@ -106,6 +106,7 @@
 		</div>
 		</div>
 		<div class="container">
+		<c:if test="${!empty loginMember}">
 			<h3 class="act-type" align="right">
 				<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
 				<button id="heart" class="" name=""></button>
@@ -158,20 +159,27 @@
 						});
 					});
 				</script>
-				<!-- 사업자에게만 버튼 보이게 하기 -->
-				<div align="right">
-					<c:url var="rModify" value="reviewModifyView.com">
-						<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
-					</c:url>
-					<!-- renameFilename 은 실제 저장된 파일 이름  -->
-					<c:url var="rDelete" value="reviewDelete.com">
-						<c:param name="reviewNo" value="${bukkeClass.classNo }"></c:param>
-						<c:param name="rRenameFilename" value="${review.rRenameFilename }"></c:param>
-					</c:url>
-					<a href="${rModify }"><input class="btn btn-lg btn-warning"
-						type="submit" value="수정"></a> <a href="${rDelete }"><input
-						class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
-				</div>
+			
+			
+			</h3>
+				<c:if test="${loginMember.memberId eq review.memberId }">
+					<!-- 사업자에게만 버튼 보이게 하기 -->
+					<div align="right">
+						<c:url var="rModify" value="reviewModifyView.com">
+							<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
+						</c:url>
+						<!-- renameFilename 은 실제 저장된 파일 이름  -->
+						<c:url var="rDelete" value="reviewDelete.com">
+							<c:param name="reviewNo" value="${bukkeClass.classNo }"></c:param>
+							<c:param name="rRenameFilename"
+								value="${review.rRenameFilename }"></c:param>
+						</c:url>
+						<a href="${rModify }"><input class="btn btn-lg btn-warning"
+							type="submit" value="수정"></a> <a href="${rDelete }"><input
+							class="btn btn-lg btn-danger" type="submit" value="삭제"></a>
+					</div>
+				</c:if>
+			</c:if>
 		</div>
 
 
@@ -185,8 +193,12 @@
 					<span class="subheading subheading-with-line"></span>
 					<div class="row">
 						<i class="far fa-comments fa-2x text-info"></i>&nbsp;&nbsp;
-						<h2 class="mb-4">Comments</h2>
+						<h2 class="mb-4">Comments</h2>&nbsp;
+						
 					</div>
+						<c:if test="${empty loginMember}">
+						<h2 align="center">로그인 후 댓글입력해주세요</h2>
+						</c:if>	
 				</div>
 			</div>
 			<!-- 댓글 등록 -->
@@ -202,6 +214,9 @@
 				
 			</table> -->
 			<!-- 댓글 등록2 -->
+			
+			
+			<c:if test="${!empty loginMember}">
 			 <div class="comment-form">
 
 				<div class="form" name="form">
@@ -214,6 +229,7 @@
 					</div>
 				</div>
 			</div>
+			</c:if>
 			<section>
 			<h3 class="mb-5 h4 font-weight-bold" id="comment1"></h3>
 			 <table id="commentGo">

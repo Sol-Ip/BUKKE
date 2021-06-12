@@ -11,27 +11,32 @@
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
 <style>
-	.banner {
-		background-color: rgb(68, 201, 244);
-	}
-	.banner * {
-		color: white;
-	}
-	#keep-img {
+.banner {
+	background-color: rgb(68, 201, 244);
+}
+
+.banner * {
+	color: white;
+}
+
+#keep-img {
 	width: 200px;
 	height: 200px;
 	border-radius: 50%;
 	position: relative;
 	margin-top: -75px;
 	margin-left: 40px;
-	}
-	#text-id1 {
-  		width: 300px;
-  		height: auto;
-	}
-	.text-id1{
-		 font-family: 'trana';
-	}	
+}
+
+#text-id1 {
+	width: 300px;
+	height: auto;
+}
+
+.text-id1 {
+	font-family: 'trana';
+}
+
 </style>
 </head>
 <body>
@@ -80,9 +85,7 @@
 							 
 						</div>
 						<div class="col-sm text-info"  align="right">글쓴이 : ${review.memberId }</div>
-						<%-- <a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a> --%>
+						
 						</div>
 					</div>
 					<br>
@@ -138,31 +141,36 @@
 		</div>
 			<!--end of col-->
 			<hr>
-		</div>	
-	<br>	
+		</div>
+		
+	<div align="center">후기 전체보기 (최신순)</div>	
+	<br><br><br><br>	
+	
+	
 	<!-- 클래스 전체 수업 이미지 목록 -->
 	
 		<div class="container">
 			<div class="row">
 			<c:forEach items="${rList }" var="review">
 				<div class="col-sm-4 ftco-animate">
-					<div class="project">
-						<img src="../resources/reviewFiles/${review.rRenameFilename }" id="class-img" class="block-20"
-							alt="Colorlib Template">
-						<div class="text d-flex">
+					<div class="item">
+					<div class="testimony-wrap p-4 pb-5">
+						
+						
 						<c:url var="rDetail" value="reviewDetail.com">
                      		<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
                   		</c:url>
 							<h3>
-								<a href="${rDetail }">${review.reviewTitle }</a>
+								<a href="${rDetail }"><div class="user-img mb-5" id="keep-img" 
+					style="background-image: url(../resources/reviewFiles/${review.rRenameFilename })"></div></a>
 							</h3>
 							
-						</div>
+						
 						<div class="col-sm text-info"  align="right">글쓴이 : ${review.memberId }</div>
 						<%-- <a href="resources/reviewFiles/${review.rRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
 						</a> --%>
-						
+						</div>
 					</div>
 					<br>
 				</div>

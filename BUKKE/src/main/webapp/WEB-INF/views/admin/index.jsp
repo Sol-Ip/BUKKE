@@ -103,27 +103,29 @@
 					<div class="col-xl-6">
 						<div class="card mb-4">
 							<div class="card-header">
-								<i class="fas fa-chart-area me-1"></i> Area Chart Example
+								<i class="fas fa-chart-area me-1"></i> 액티비티 best5
 							</div>
 							<div class="card-body">
-								<canvas id="myAreaChart" width="100%" height="40"></canvas>
+								<%-- <canvas id="myAreaChart" width="100%" height="40"></canvas> --%>
+								<div>클래스 best5</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-xl-6">
 						<div class="card mb-4">
 							<div class="card-header">
-								<i class="fas fa-chart-bar me-1"></i> Bar Chart Example
+								<i class="fas fa-chart-bar me-1"></i> 클래스 best5
 							</div>
 							<div class="card-body">
-								<canvas id="myBarChart" width="100%" height="40"></canvas>
+								<div></div>
+								<%-- <canvas id="myBarChart" width="100%" height="40"></canvas> --%>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="card mb-4">
 					<div class="card-header">
-						<i class="fas fa-table me-1"></i> DataTable Example
+						<i class="fas fa-table me-1"></i> ㄴㄴㄴㄴ
 					</div>
 					<div class="card-body">
 						<table id="datatablesSimple">

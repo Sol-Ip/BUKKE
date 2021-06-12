@@ -190,6 +190,8 @@
 		         $.ajax({
 		            type:"POST",
 		            url:"memberSearchPw.com",
+		           /*  contentType: "charset=UTF-8",
+					dataType: "text", */
 		            data : {
 		               "memberId" : $('#memberId').val(),
 		               "memberEmail" : $('#memberEmail').val()

@@ -1,5 +1,6 @@
 package com.bukke.spring.member.controller;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import javax.mail.Multipart;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -60,6 +62,7 @@ import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.service.ReviewService;
 import com.bukke.spring.shop.domain.Shop;
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 import com.sun.mail.util.logging.MailHandler;
 
 @Controller
@@ -230,14 +233,15 @@ public class MemberController {
 	// 새 비밀번호 만들기
 	/* @ResponseBody */
 	@RequestMapping(value = "memberSearchPw.com", method = RequestMethod.POST)
-	public String userPwSearch(HttpSession session, HttpServletRequest request, HttpServletRequest response,
+	public void userPwSearch(HttpSession session, HttpServletResponse response, HttpServletRequest request,
 			@RequestParam("memberId") String memberId, @RequestParam("memberEmail") String memberEmail 
-				) {
+			) throws Exception {
+		response.setCharacterEncoding("UTF-8");
 		Member mem = new Member();
 		mem.setMemberId(memberId);
 		mem.setMemberEmail(memberEmail);
 		Member member = mService.searchMemberPw(mem);
-		
+		String password = "";
 		
 		
 		String pwd = "";
@@ -284,11 +288,14 @@ public class MemberController {
 				} catch (Exception ex) {
 				}
 			}
-			return "success";
+			if(member != null)
+				password = "회원님의 이메일로 전송되었습니다.";
 		} else {
-			return "회원님의 아이디가 조회되지 않습니다.";
+			password = "조회되지 않습니다.";
 		}
-	}
+		new Gson().toJson(password,response.getWriter());
+		
+	} 
 	
 	
 	

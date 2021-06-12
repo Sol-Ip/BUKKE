@@ -356,7 +356,7 @@ body {
    <!-- ======================= 사이드 바 끝 =============================== -->
    
 	<section class="ftco-section">
-		<div class="container">
+		<div class="container ftco-animate">
 			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small

@@ -71,7 +71,7 @@
                         </ul>
                     </div>
 
-                    <div href="#" class="nav__link collapse">
+                   <!--  <div href="#" class="nav__link collapse">
                         <ion-icon name="people-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">선물 내역</span>
 
@@ -81,7 +81,7 @@
                             <a href="#" class="collapse__sublink">받은 선물</a>
                             <a href="#" class="collapse__sublink">보낸 선물</a>
                         </ul>
-                    </div>
+                    </div> -->
                     
                     <div href="#" class="nav__link collapse1">
                         <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>

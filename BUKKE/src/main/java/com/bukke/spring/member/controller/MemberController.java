@@ -474,9 +474,12 @@ public class MemberController {
 			mv.setViewName("member/memberCommentListView");
 
 		} else {
-			mv.addObject("msg", "작성한 댓글이 없습니다");
-			mv.setViewName("common/errorPage");
-
+			/*
+			 * mv.addObject("msg", "작성한 댓글이 없습니다"); 
+			 * mv.setViewName("common/errorPage");
+			 */
+			mv.addObject("rcList", rcList);
+			mv.setViewName("member/memberCommentListView");
 		}
 		return mv;
 	}

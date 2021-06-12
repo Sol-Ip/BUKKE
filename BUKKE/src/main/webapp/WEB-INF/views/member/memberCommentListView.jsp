@@ -11,28 +11,84 @@
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
-	<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
-	<link rel="stylesheet" href="../resources/css/mypage/reviewComment.css">
-		<link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
-	
-	
+<link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
+<link rel="stylesheet" href="../resources/css/mypage/reviewComment.css">
+<link rel="stylesheet" href="../resources/css/mypage/banner.css">
+
+
 <style type="text/css">
-	#comment1{
-	font-size: 30px;
-	   font-family: 'MaruBuri-Regular';
-	}
-	
-@font-face {
-    font-family: 'Cafe24SsurroundAir';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+.non-cmt {
+	margin: auto;
+	font-family: 'Cafe24SsurroundAir';
+	text-align: center;
 }
+
+#comment1 {
+	font-size: 30px;
+	font-family: 'MaruBuri-Regular';
+}
+
 @font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MaruBuri-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 버튼 */
+.link-btn {
+	border: none;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	outline: none;
+	overflow: hidden;
+	position: relative;
+	color: #fff;
+	font-weight: 700;
+	font-size: 15px;
+	background-color: #222;
+	padding: 17px 60px;
+	margin: 0 auto;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+}
+
+.link-btn span {
+	font-family: 'EliceDigitalBaeum_Bold';
+	font-size: large;
+	position: relative;
+	z-index: 1;
+}
+
+.link-btn:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 490%;
+	width: 140%;
+	background: #78c7d2;
+	-webkit-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	-webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+	transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.link-btn:hover:after {
+	-webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+	transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 </style>
 </head>
@@ -46,129 +102,57 @@
 			<div
 				class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">내가 쓴 댓글 목록</h1>
+					<h1 class="mb-2 bread">MY PAGE</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Review <i
-							class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="memberMyPage.com">MY
+								INFORMATION <i class="ion-ios-arrow-forward"></i>
+						</a></span> <span>Review Comment</span>
 					</p>
 				</div>
 			</div>
 		</div>
-		
+
+		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
+	</section>
 	
-	<!-- ======================= 사이드 바 시작 =============================== -->
-         
-         <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">BUKKE</a>
-                </div>
-                <div class="nav__list">
-                    <div href="#" class="nav__link collapse1">
-                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
-                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
-                        <span class="nav_name">내 정보</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">정보 수정</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">부캐 일정</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
-                            
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">내 활동</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
-                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
-                            <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
-                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">선물 내역</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">받은 선물</a>
-                            <a href="#" class="collapse__sublink">보낸 선물</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">채팅</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">채팅 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">알림</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">예약 알림</a>
-                        </ul>
-                    </div>
-                </div>
-                
-                <a href="#" class="nav__link">
-                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                    <span class="nav_name">Log out</span>
-                </a>
-            </div>
-        </nav>
-    </div>
-   </section>
-   <!-- ======================= 사이드 바 끝 =============================== -->
-	<div class="container ftco-animate">
+	<section class="ftco-section ftco-animate">
+	 <div class="container ">
 		<div class="row justify-content-center">
 			<div class="col-md-8 heading-section ftco-animate">
-				<span class="subheading subheading-with-line"><small
-					class="pr-2 bg-light">REVIEW</small></span>
-					<br><br><br><br><br><br>
-				<section class="text1">
-				<h3 class="h3Class" style="align-self: center;">Hey everyone look at this</h3>
+				<!-- <span class="subheading subheading-with-line"><small
+					class="pr-2 bg-light">REVIEW</small></span> -->
+					<!-- <br><br><br><br><br><br> -->
+				<div class="text1">
+				<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
 						<h1 class="h1Class">
 							<span class="fontawesome-star star" style="position: absolute; right: 500px;"></span> <span>COMMENT LIST</span> <span
 								class="fontawesome-star star"></span>
 						</h1>	
-				</section>		
+				</div>		
 			</div>
 		</div>
-	</div>
-	
-	<!-- 공지사항 리스트 -->
+	</div> 
+	</section>
 		
-		<br><br><br>
+		
+			<!-- 댓글 없을 시 목록 출력-->
+		<c:if test="${rcList.isEmpty() }">
+		<section class="ftco-section ftco-animate">
+		<div class="container">
+				<div class="row">
+				<div class="non-cmt">
+					<h1> 아직 작성하신 댓글이 없네요! 🙄</h1><br>
+					<h3><b>작성하러 가볼까요 ?</b></h3><br><br>
+					<a href="reviewList.com"><button class="link-btn"><span>작성하러 가기</span></button></a>
+					</div>
+				</div>
+			</div>
+        </section>
+		</c:if>
+			
+			<c:if test="${rcList.size() > 0 }">
+		<!-- 댓글 있을 시 목록 출력-->
+		<section class="ftco-section ftco-animate">
 		<div class="container">
 				<div class="row">
 				  <div id="admin" class="col s12">
@@ -209,7 +193,8 @@
 				    </div>
 				  </div>
 				</div>
-				   </section>
+			</div>
+				   
 				<%-- <div class="col-12">
 					<div class="card mb-4">
 						<div class="card-header pb-0 text-center">
@@ -286,8 +271,8 @@
 						</div>
 					</div>
 				</div> --%>
-			</div>
-		</div>
+			
+		
 		
 		 <%-- <c:if test="${loginMember.memberId=='admin' }"> 
 		<div>
@@ -342,6 +327,8 @@
           </div>
         </div>
         </div>
+        </section>
+        </c:if>
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 </body>

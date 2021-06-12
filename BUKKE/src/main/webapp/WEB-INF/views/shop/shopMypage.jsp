@@ -16,8 +16,16 @@
 <!-- 회원정보 -->
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <link rel="stylesheet" href="../resources/css/shop/shopMyPage.css">
-
-
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="../resources/css/member/mypage.css">
+<style type="text/css">
+	#myPage{
+		padding: 0px;
+	}
+	#what-we-do{
+		padding: 0px;
+	}
+</style>
 </head>
 <!-- <body id="body-pd"> -->
 <body id="">
@@ -40,7 +48,7 @@
       </div>
       
       <!-- ======================= 사이드 바 시작 =============================== -->
-         <div class="l-navbar" id="navbar" style="height : 830px;">
+         <div class="l-navbar" id="navbar" style="height : 800px;">
         <nav class="nav">
             <div>
                 <div class="nav__brand">
@@ -66,7 +74,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">수업 목록</a>
+                            <a href="reservationList.com" class="collapse__sublink">수업 목록</a>
                         </ul>
                     </div>
 
@@ -83,17 +91,6 @@
                         </ul>
                     </div>
                     
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="close-circle-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">업체 탈퇴</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">탈퇴 신청</a>
-                        </ul>
-                    </div>
-
                     
                     <div href="#" class="nav__link collapse1">
                         <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
@@ -123,6 +120,17 @@
                     </div>
                 </div>
                 
+                <div href="#" class="nav__link collapse1">
+                        <ion-icon name="close-circle-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">업체 탈퇴</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">탈퇴 신청</a>
+                        </ul>
+                    </div>
+                
                 <a href="#" class="nav__link">
                     <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
                     <span class="nav_name">Log out</span>
@@ -134,25 +142,61 @@
    <br><br>
    <!-- ======================= 사이드 바 끝 =============================== -->
    <!-- ======================= 마이페이지 인포 ================= -->
-	<div class="container">
-		<div class="row justify-content-start mb-5 pb-2">
-			<div class="col-md-4 heading-section ftco-animate">
-				<span class="subheading subheading-with-line"><small
-					class="pr-2 bg-light">BUKKE</small></span>
-				<h2 class="mb-4">MY PAGE</h2>
-			</div>
-			<div class="col-md-8 pl-md-5 heading-section ftco-animate">
-				<div class="pl-md-4 border-line">
-					<p>Far far away, behind the word mountains, far from the
-						countries Vokalia and Consonantia, there live the blind texts.
-						Separated they live in. A small river named Duden flows by their
-						place and supplies it with the necessary regelialia. It is a
-						paradisematic country, in which roasted parts of sentences fly
-						into your mouth.</p>
+		<section class="ftco-section" id="myPage">
+		<div class="container">
+			 <%-- <div class="row justify-content-center mb-5 pb-3">
+			< 	<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">BUKKE</small></span>
+					<h2 class="mb-4">${loginMember.memberNick }'S BUKKE PAGE</h2>
+				</div>
+			</div> --%> 
+			
+			<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white" style="font-size: 30px">BUKKE My page</small></span>
+			<hr>				
+			<!-- 상단 프로필 설정 -->
+			<div class="container">
+				<div class="my-summary-wrap">
+					<div class="profile-wrap">
+						<div class="profile-thumb-wrap">
+							<img src="https://img.icons8.com/nolan/452/shop.png"
+								class="thumb-profile" alt="프로필사진" />
+						</div>
+						<div class="profile-info-wrap">
+							안녕하세요.
+							<div class="profile-name cut-txt" >${loginShopper.ceoName } 님</div>
+							<!--a href="javascript:;" title="프로필 사진 편집" class="btn-profile-thumb">프로필 사진 편집</a-->
+							<label for="upload" class="btn-profile-thumb" style="font-family: 'Chosunilbo_myungjo';"><a href="memberModifyView.com">내 정보 수정</a></label>
+						</div>
+					</div>
+					<div class="my-info-wrap">
+						<ul class="my-info-list">
+							<li class="my-info"><span class="my-info-tit" id="sub1">내 클래스<a
+									title="보기" class="view-grade"
+									onclick="showPopup2();"></a></span> <strong
+								class="my-info-txt my-level" id="sub1">${cCount }개</strong></li>
+							<li class="my-info"><span class="my-info-tit" id="sub1">내 액티비티</span> <a
+								><strong class="my-info-txt my-class" id="sub1">${aCount }개</strong></a>
+							</li>
+							<li class="my-info"><span class="my-info-tit" id="sub1">대기중 예약</span> <a><strong
+									class="my-info-txt cut-txt my-point"
+									id="sub1">${listCount }개</strong></a>
+							</li>
+							<li class="my-info"><span class="my-info-tit" id="sub1">완료 예약</span> <a
+								><strong class="my-info-txt my-coupon"
+									id="sub1">${colistCount }개</strong></a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+				<hr>
+				<br><br><br>
+			<!-- 정보들 -->
+			
+
+
 	<!-- ================ 마이페이지 인포 끝 ===================== -->
    
       <!--===================== 회원 정보 관리 시작 =========== -->
@@ -174,7 +218,7 @@
 						<div class="card-block block-3">
 							<h3 class="card-title">내 일정</h3>
 							<p class="card-text"></p>
-							<a href="javascript:void();" title="Read more" class="read-more">더보기<i
+							<a href="reservationList.com" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>
 						</div>
 					</div>
@@ -205,6 +249,7 @@
 			</div>
 
 		</div>
+	</section>
 	</section>
 	<br>
 <!-- 사이드바 -->

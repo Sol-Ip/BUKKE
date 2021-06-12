@@ -172,4 +172,10 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	    return (ArrayList)session.selectList("bclassMapper.selectAllListbyMyId", memberId, rowBounds);
 	}
 
+	@Override
+	public int selectCountShop(String shopId) {
+		// TODO Auto-generated method stub
+		return session.selectOne("bclassMapper.selectListCountShopId",shopId);
+	}
+
 }

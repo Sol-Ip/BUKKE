@@ -71,4 +71,6 @@ public interface BukkeClassStore {
 
 	public ArrayList<BukkeClass> selectAllListBclassbyMyId(MemberPageInfo classPi, String memberId); //마이페이지 내 예약 조회
 
+	public int selectCountShop(String shopId); //업체 마이페이지 클래스카운트
+
 }

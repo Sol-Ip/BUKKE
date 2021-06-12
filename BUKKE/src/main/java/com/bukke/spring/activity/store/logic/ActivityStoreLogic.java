@@ -110,6 +110,12 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityListbyId", memberId, rowBounds);
 	}
 
+	@Override
+	public int getListCountShopId(String shopId) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("activityMapper.selectListActivityCountShopId",shopId);
+	}
+
 	
 	
 	

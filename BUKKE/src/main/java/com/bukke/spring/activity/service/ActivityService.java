@@ -47,6 +47,9 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printAllActivityById(MemberPageInfo actPi, String memberId);
 
+	public int getListCountShop(String shopId); //업체회원 마이페이지 카운트
+
+
 //	public int getactListMyId(String memberId); //마이페이지 내 예약 확인하기
 //
 //	public ArrayList<Activity> printMyactById(MemberPageInfo actPi, String memberId); //마이페이지 내 예약 확인하기

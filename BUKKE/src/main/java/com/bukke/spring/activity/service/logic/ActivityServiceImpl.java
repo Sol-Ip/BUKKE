@@ -110,6 +110,12 @@ public class ActivityServiceImpl implements ActivityService {
 		return aStore.selectAllActivityListbyId(actPi,memberId);
 	}
 
+	@Override
+	public int getListCountShop(String shopId) {
+		// TODO Auto-generated method stub
+		return aStore.getListCountShopId(shopId);
+	}
+
 
 
 //	//마이페이지 내 예약 확인 카운트

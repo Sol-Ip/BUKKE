@@ -160,6 +160,12 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return bStore.selectAllListBclassbyMyId(classPi,memberId);
 	}
 
+	@Override
+	public int getListCountShopId(String shopId) {
+		// TODO Auto-generated method stub
+		return bStore.selectCountShop(shopId);
+	}
+
 	
 
 

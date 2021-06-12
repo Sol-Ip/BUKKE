@@ -85,6 +85,7 @@
    	SELECT * FROM CLASS WHERE CLASS_NO = #{classNo } AND CLASS_STATUS = 'Y'
    </select>-->
    
+   
    <!-- 액티비티 예약하기(등록) -->
    <insert id="insertActivityReservation">
    	INSERT INTO RESERVATION VALUES (SEQ_RESERVATION_NO.NEXTVAL, #{reservationId}, NULL, #{activityNo}, DEFAULT, DEFAULT, DEFAULT)

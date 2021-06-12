@@ -4,12 +4,14 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
+import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.shop.domain.Shop;
 import com.bukke.spring.shop.service.ShopService;
 
@@ -27,6 +33,15 @@ public class ShopController {
 
 	@Autowired
 	private ShopService sService;
+	
+	@Autowired
+	private BukkeClassService cService;
+	
+	@Autowired
+	private ActivityService aService;
+	
+	@Autowired
+	private ReservationService reService;
 	
 	// 업체회원 로그인(ajax)
 	@ResponseBody
@@ -124,8 +139,17 @@ public class ShopController {
 	
 	// 업체회원 마이페이지 메인 화면
 	@RequestMapping(value="shopMypage.com")
-	public String shopInfoView() {
-		return "shop/shopMypage";
+	public ModelAndView shopInfoView(ModelAndView mv,Model model,HttpSession session) {
+		
+		Shop loginShopper = (Shop) session.getAttribute("loginShopper");
+		String shopId = loginShopper.getShopId();
+		
+		int cCount = cService.getListCountShopId(shopId);
+		int aCount = aService.getListCountShop(shopId);
+		mv.addObject("cCount", cCount );
+		mv.addObject("aCount", aCount);
+		mv.setViewName("shop/shopMypage");
+		return mv;
 	}
 	
 	
@@ -146,10 +170,24 @@ public class ShopController {
 		return "";
 	}
 	
-		// 업체 회원 마이페이지 수업 목록
+		// 업체 회원 클래스 목록
 		@RequestMapping(value="shopClassList.com")
-		public String shopClassListView() {
-			return "shop/bukkeClassList";
+		public ModelAndView shopClassListView(ModelAndView mv,@RequestParam(value = "page", required = false) Integer page,HttpSession session) {
+			Shop loginShopper = (Shop) session.getAttribute("loginShopper");
+			String shopId = loginShopper.getShopId();
+			int currentPage = (page != null) ? page : 1;
+			
+			//int listCount = sService.getListCount(shopId);
+			//ShopPageInfo pi = ShopPagenation.getPageInfo(currentPage,listCount)
+			//ArrayList<BukkeClass> bList = cService.printAllbClassByShop(classPi, memberId);
+			 mv.setViewName ("shop/bukkeClassList");
+			return mv;
+		}
+		
+		// 업체 회원 액티비티 목록
+		@RequestMapping(value="shopActivityList.com")
+		public String shopActivityListView() {
+			return "shop/activityList";
 		}
 		
 		// 업체 회원 마이페이지 수업 목록

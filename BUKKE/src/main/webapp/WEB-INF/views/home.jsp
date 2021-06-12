@@ -14,8 +14,16 @@
 	width:100%;
 	background-size : cover;
 	}
-	
-
+	.modal-header {
+		padding: 0 !important;
+	}
+	.modal {
+		background: none;
+	}
+	a img {
+		width: 100%;
+		height: 100%;
+	}
 </style>
 <body>
 	<jsp:include page="./common/header.jsp">
@@ -840,7 +848,7 @@
 
 <script type="text/javascript">
 var show = function(){
-    $('#modal-popup').modal('show');
+    $('#modal-popup').modal();
 };
 
 $(window).load(function(){
@@ -878,22 +886,18 @@ $(window).load(function(){
 		}
 	</script>
 </body>
-<!-- <div class="modal fade in"  id="modal-popup"tabindex="-1">
+<div class="modal fade"  id="modal-popup" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <p class="modal-title"></p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
       </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
+      <a href="giftFirstPageView.com"><img src="/resources/images/recommendation.png"></a>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-</div>  -->
+</div>
 </html>
 <jsp:include page="./common/footer.jsp"></jsp:include>

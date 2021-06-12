@@ -208,6 +208,28 @@ public class ReservationController {
     	  }
       }
       
+      // 클래스 거절한 수업 다시 예약하기
+      @RequestMapping(value="reBukkeClassReservation.com")
+      public String reRegisterBukkeClassReservation(@RequestParam("classNo") int classNo,
+    		  										Model model,
+    		  										HttpSession session) {
+    	  Member loginMember = (Member)session.getAttribute("loginMember");
+    	  String reservationId = loginMember.getMemberId();
+    	  Reservation reservation = new Reservation();
+    	  
+    	  reservation.setClassNo(classNo);
+    	  reservation.setReservationId(reservationId);
+    	  
+    	  int result = reService.reRegisterClassReservation(reservation);
+    	  
+    	  if(result > 0) {
+    		  return "redirect:bukkeClassDetailView.com?classNo=" + classNo;
+    	  }else {
+    		  model.addAttribute("msg", "클래스 다시 예약하기 실패");
+    		  return "common/errorPage";
+    	  }
+      }
+      
       ////////////////////////////////////////////// 예약 확인 logic
       
     //일반회원 예약 전체 조회하기

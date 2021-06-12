@@ -156,11 +156,10 @@ $(document).ready(function() {
 	});
 	
 	// 거절 당한 것 다시 예약하기
-	//$('#reservation-btn4').click(function(){
-		//location.href='reActivityReservation.com?activityNo=' + activityNo;
-		//alert('예약 신청이 완료되었습니다!');
-		
-	//});
+	$('#reservation-btn4').click(function(){
+		location.href='reBukkeClassReservation.com?classNo=' + classNo;
+		alert('예약 신청이 완료되었습니다!');
+	});
 	
 	
 	 //$("#delete-btn").on("click",function(){

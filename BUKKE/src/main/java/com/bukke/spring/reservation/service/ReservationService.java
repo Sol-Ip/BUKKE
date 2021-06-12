@@ -21,7 +21,7 @@ public interface ReservationService {
 	public int registerClassReservation(Reservation reservation); // 클래스 예약하기
 	public Reservation printOneClassReservation(Reservation reservation); // 클래스 예약 확인
 	public int removeClassReservation(Reservation reservation); // 클래스 예약 취소
-	
+	public int reRegisterClassReservation(Reservation reservation); // 사업자가 거절한 클래스 다시 예약하기
 	
 	public int confirmReservaion(Reservation reservation); // 예약 승인
 	public int cancleReservation(Reservation reservation); // 예약 거절
@@ -42,5 +42,6 @@ public interface ReservationService {
 	public int ChangeStatus(Reservation reservation);
 	//결제상태 변경(클래스)
 	public int ChangeStatusClass(Reservation reservation);
+	
 	
 }

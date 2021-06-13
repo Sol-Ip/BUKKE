@@ -183,12 +183,58 @@
   </ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<div class="col-lg-12">
+					<div class="row col-lg-12">
 						<div class="col-lg-6">
 							<img src="../resources/images/hobby2.jpg" class="d-block w-100"
 								alt="...">
 						</div>
-						<div class="col-lg-6"></div>
+						<div class="col-lg-6 act-top2">
+						<div class="row">
+						<div class="col-md-12 ftco-animate">
+							<h1>액티비티 추천</h1>
+						</div>
+						</div>
+							<div class="row">
+								<!-- 액티비티 최근 글 2개 목록 -->
+								<c:forEach items="${twoActList }" var="twoActList">
+								<div class="col-md-6 ftco-animate">
+									<div class="staff">
+										<div class="img"
+											style="background-image: url(resources/images/activityImageFiles/${twoActList.aRenameFilename});"></div>
+										<div class="text px-4 pt-4">
+											<h3>${twoActList.activityName }</h3>
+											<span class="position mb-2">${twoActList.activityType} / ${twoActList.activityTypeDetails}</span>
+										</div>
+									</div>
+								</div>
+								</c:forEach>
+								</div>
+						</div>
+							<!-- 	<div class="col-md-6 ftco-animate">
+									<div class="staff">
+										<div class="img"
+											style="background-image: url(resources/images/team-2.jpg);"></div>
+										<div class="text px-4 pt-4">
+											<h3>David Smith</h3>
+											<span class="position mb-2">Achitect</span>
+											<div class="faded">
+												<p>I am an ambitious workaholic, but apart from that,
+													pretty simple person.</p>
+												<ul class="ftco-social d-flex">
+													<li class="ftco-animate"><a href="#"><span
+															class="icon-twitter"></span></a></li>
+													<li class="ftco-animate"><a href="#"><span
+															class="icon-facebook"></span></a></li>
+													<li class="ftco-animate"><a href="#"><span
+															class="icon-google-plus"></span></a></li>
+													<li class="ftco-animate"><a href="#"><span
+															class="icon-instagram"></span></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div> -->
+							
 					</div>
 				</div>
 				<div class="carousel-item">

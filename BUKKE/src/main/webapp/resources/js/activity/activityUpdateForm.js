@@ -21,13 +21,13 @@ $(document).ready(function() {
 	$("#postcodify_search_button").postcodifyPopUp();
 	
 	
-	/*$("#activity-type option").each(function(){
+	$("#act-type option").each(function(){
 	    if($(this).val()==$("#activityNo").val()){
 	      $(this).attr("selected","selected"); // attr적용안될경우 prop으로 
 	    }
-	  });*/
+	  });
 	
-	$('#act-type').change(function () {
+	/*$('#act-type').change(function () {
 		var selectType=$(this).val();
 		//alert(selectType);
 			$("#activityTypeDetails").html("");
@@ -46,7 +46,7 @@ $(document).ready(function() {
 				 }
 				});//ajax 
 			})//첫번째 select 박스
-			
+			*/
 	 $("#update-btn").on("click",function(){
 		 if (!confirm("글을 수정하시겠습니까?")) {
 			 // 취소

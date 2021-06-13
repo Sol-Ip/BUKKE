@@ -38,7 +38,7 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityList");
 	}
 
-	public ArrayList<Activity> selectTopThreeActivityList() {
+	public ArrayList<Activity> selectTopThreeActivityList() { // 액티비티 Top3
 		return (ArrayList)sqlSession.selectList("activityMapper.selectThreeActivityList");
 	}
 	
@@ -123,6 +123,11 @@ public class ActivityStoreLogic implements ActivityStore {
 		int offset = (shopPi.getCurrentPage() - 1) * shopPi.getBoardLimit();
 		RowBounds rowBounds = new RowBounds(offset, shopPi.getBoardLimit());
 		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityListbyShop", shopId, rowBounds);
+	}
+
+	@Override
+	public ArrayList<Activity> selectHomeTWoActivityListDesc() {
+		return (ArrayList)sqlSession.selectList("activityMapper.selectHomeTwoActivityListDesc");
 	}
 
 	

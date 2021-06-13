@@ -134,36 +134,13 @@
 							</div>
 						</div>
 						
-<!-- 							<div class="col-md-8">
-								<div class="calendar">
-									<label class="form-label" for="">시작일</label> <input type="date"
-										name="activityStartdate" placeholder="시작일">&nbsp;&nbsp;
-									<label class="form-label" for="">종료일</label> <input type="date"
-										name="activityEnddate" placeholder="종료일">
-								</div>
-							</div>
-
-							<div class="col-md-4">
-								<br> <label for="activityCapacity" class="form-label">수강인원</label>
-								<div class="form-group">
-									<input type="number" min="1" max="10" class="form-control"
-										id="activityCapacity" name="activityCapacity">
-								</div>
-							</div> -->
-						
-
-
 						<hr>
 							
 							<label class="form-label" for="activityAddr">액티비티 주소</label>&nbsp;
 							<input type="button" id="postcodify_search_button" class="btn btn btn-dark btn-md" value="주소찾기"> 
 							<!-- <input type="button" id="address-btn" class="btn btn btn-dark btn-md" value="주소찾기">-->
 							<div class="col-md-12">
-							
-						<!--  <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" /> 
-						 <input type="text" id="activityAddr1" class="postcodify_address" name="activityAddr1" autocomplete="off" required maxlength="50" />  -->
-							
-							 <input type="text" class="postcodify_address" name="activityAddr1" autocomplete="off" placeholder="도로명주소" value="${activity.activityAddr }"required size="50" /> 
+							<input type="text" class="postcodify_address" name="activityAddr1" autocomplete="off" placeholder="도로명주소" value="${activity.activityAddr }"required size="50" /> 
 							<input type="text" class="postcodify_extra_info" name="activityAddr2" autocomplete="off" placeholder="상세주소" required size="50" /> 
 							
 							<!-- <input type="text"  class="form-control" id="sample4_roadAddress" name="activityAddr1" autocomplete="none" placeholder="도로명주소" required size="50" />
@@ -192,7 +169,7 @@
 						<div class="button-set text-center">
 							 <input type="submit" value="수정" id="update-btn" class="btn btn-lg btn-primary">
 					
-					<a href="activityList.com"><input type="button" value="목록으로" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
+					<a href="activityListView.com"><input type="button" value="목록으로" id="cancle-btn" class="btn btn-lg btn-outline-warning"></a>
 							 <br>
 						</div>
 				</form>

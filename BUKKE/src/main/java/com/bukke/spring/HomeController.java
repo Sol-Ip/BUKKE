@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.service.ActivityService;
+import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.member.service.MemberService;
 import com.bukke.spring.review.domain.Review;
@@ -68,8 +70,15 @@ public class HomeController {
 		
 		//좋아요 많은순 리스트 탑3개뽑기
 		ArrayList<Review> rListTopLikes = rService.printTopLikesReview();
-		model.addAttribute("rListTopLikes",rListTopLikes);
 		
+		// 액티비티 최근 글 상위2개 목록
+		ArrayList<Activity> twoActList = aService.printHomeTWoActivityListDesc(); 
+		// 클래스 최근 글 상위2개 목록
+		//ArrayList<BukkeClass> twoClaList = bService.printHomeTWoClassListDesc();
+		
+		
+		model.addAttribute("rListTopLikes",rListTopLikes);
+		model.addAttribute("twoActList", twoActList);
 		
 		return "home";
 	}

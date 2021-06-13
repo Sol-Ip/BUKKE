@@ -124,6 +124,12 @@ public class ActivityServiceImpl implements ActivityService {
 
 	}
 
+	@Override
+	public ArrayList<Activity> printHomeTWoActivityListDesc() { // 액티비티 최근 글 상위2개 목록
+		ArrayList<Activity> twoActList = aStore.selectHomeTWoActivityListDesc();
+		return twoActList;
+	}
+
 //	//마이페이지 내 예약 확인 카운트
 //	@Override
 //	public int getactListMyId(String memberId) {

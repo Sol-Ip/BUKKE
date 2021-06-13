@@ -52,6 +52,8 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printAllActivityByShop(ShopPageInfo shopPi, String shopId); // 업체회원 액티비티 확인
 
+	public ArrayList<Activity> printHomeTWoActivityListDesc(); // 액티비티 최근 글 상위2개 목록
+
 
 
 //	public int getactListMyId(String memberId); //마이페이지 내 예약 확인하기

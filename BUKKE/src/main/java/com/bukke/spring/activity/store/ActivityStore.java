@@ -47,6 +47,8 @@ public interface ActivityStore {
 
 	public ArrayList<Activity> selectShopActivityList(ShopPageInfo shopPi, String shopId); //업체 마이페이지 내 액티비티 조회
 
+	public ArrayList<Activity> selectHomeTWoActivityListDesc(); // 액티비티 최근 글 상위2개 목록
+
 //	public int selectListCountbyOneId(String memberId); //마이페이지 내 예약 조회
 //
 //	public ArrayList<Activity> selectAllactivityListOneId(MemberPageInfo actPi, String memberId); //마이페이지 내 예야 조회

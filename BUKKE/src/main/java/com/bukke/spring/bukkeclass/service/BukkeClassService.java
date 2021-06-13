@@ -80,4 +80,7 @@ public interface BukkeClassService {
 	//업체회원 마이페이지 클래스 확인하기
 	public ArrayList<BukkeClass> printAllbClassByShop(ShopPageInfo shopPi, String shopId);
 
+	// 클래스 최근 글 상위2개 목록
+	public ArrayList<BukkeClass> printHomeTWoClassListDesc();
+
 }

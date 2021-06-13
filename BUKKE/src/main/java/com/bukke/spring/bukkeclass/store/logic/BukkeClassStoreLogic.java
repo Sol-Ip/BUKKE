@@ -186,4 +186,9 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	    return (ArrayList)session.selectList("bclassMapper.selectAllListbyShop", shopId, rowBounds);
 	}
 
+	@Override
+	public ArrayList<BukkeClass> selectHomeTWoClassListDesc() { // 클래스 최신 글 상위2개 목록 
+		return (ArrayList)session.selectList("activityMapper.selectHomeTwoClassListDesc");
+	}
+
 }

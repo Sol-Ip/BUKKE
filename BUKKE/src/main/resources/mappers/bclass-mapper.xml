@@ -142,6 +142,13 @@
    <select id="selectAllListbyShop" resultMap="bClassResultMap">
    	SELECT * FROM CLASS WHERE SHOP_ID = #{shop_id} AND CLASS_STATUS= 'Y'
    </select>
+   
+   
    <!--  ================== 인덱스 전용 ================== -->
    <!-- 클래스 최신 글 상위2개 목록 -->
+   <select id="selectHomeTwoClassListDesc" resultMap="ActivityResultMap">
+   SELECT * FROM (SELECT CLASS_NO, SHOP_ID, CLASS_NAME, CLASS_TYPE, 
+    CLASS_TYPEDETAILS, CLASS_ENROLL_DATE, CLASS_START_DATE, CLASS_END_DATE, 
+    C_ORIGINAL_FILENAME, C_RENAME_FILENAME FROM CLASS WHERE CLASS_STATUS = 'Y' ORDER BY CLASS_ENROLL_DATE DESC) WHERE ROWNUM &lt;= 2
+    </select>
 </mapper>

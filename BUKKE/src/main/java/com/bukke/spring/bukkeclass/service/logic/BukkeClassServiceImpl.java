@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.domain.ClassSearch;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
@@ -171,6 +172,13 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 	public ArrayList<BukkeClass> printAllbClassByShop(ShopPageInfo shopPi, String shopId) {
 		// TODO Auto-generated method stub
 		return bStore.selectAllListBclassbyMyShop(shopPi,shopId );
+	}
+
+	// 클래스 최근 글 상위2개 목록
+	@Override
+	public ArrayList<BukkeClass> printHomeTWoClassListDesc() {
+		ArrayList<BukkeClass> twoClaList = bStore.selectHomeTWoClassListDesc();
+		return twoClaList;
 	}
 
 	

@@ -205,6 +205,7 @@
 								</c:url> <a href="${rJoin}">참여</a></td>
 						</c:if>
 						</tr>
+						
 					</c:forEach>
 
 				</tbody>

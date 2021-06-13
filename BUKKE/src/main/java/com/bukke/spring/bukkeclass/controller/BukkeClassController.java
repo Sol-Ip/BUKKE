@@ -276,8 +276,8 @@ public class BukkeClassController {
 			}
 		}
 		// DB 수정
-		int result = bService.modifyBclass(bClass);
 		bClass.setClassAddr(classAddr1 + ","+ classAddr2);
+		int result = bService.modifyBclass(bClass);
 		if(result > 0) {
 			mv.setViewName("redirect:bukkeClassList.com");
 		}else  {

@@ -151,7 +151,9 @@ function findAddr(){
 			<!-- <div class="row"> -->
 	
 				<form action="bukkeClassUpdate.com" method="post" enctype="multipart/form-data">
-
+					<input type="hidden" id="classNo" name="classNo" value="${bukkeClass.classNo }">
+					<input type="hidden" id="cOriginalFilename" name="cOriginalFilename" value="${bukkeClass.cOriginalFilename }">
+					<input type="hidden" id="cRenameFilename" name="cRenameFilename" value="${bukkeClass.cRenameFilename }">
 					
 					<!-- 글쓰기 폼 전체 틀 -->
 					<div class="row border col-md-12">

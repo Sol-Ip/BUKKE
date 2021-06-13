@@ -9,6 +9,7 @@
 <title>부캐, 새로운 나 ! - Activity</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/activity-custom/activityListView.css">
+<link rel="stylesheet" href="resources/css/activity-custom/activity-banner.css">
 </head>
 <style>
 	.button-group {
@@ -54,12 +55,16 @@
 }
 </style>
 <body>
-	<section class="banner hero-wrap hero-wrap-2">
+		<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/activity-banner.jpg'); background-position:50% 80%;"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Activity</h1>
-					<p class="mr-2">마음에 드는 액티비티를 신청하세요</p>
+					<h1 class="mb-2 bread">ACTIVITY</h1>
+					<p class="breadcrumbs">
+						<span class="mr-2"><a href="activityListView.com">ACTIVITY LIST</a></span>
+					</p>
 				</div>
 			</div>
 		</div>

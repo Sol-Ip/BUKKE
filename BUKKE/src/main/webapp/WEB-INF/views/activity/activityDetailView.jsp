@@ -15,6 +15,7 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="resources/css/activity-custom/activityDetailView.css">
+<link rel="stylesheet" href="resources/css/activity-custom/activity-banner.css">
 
 </head>
 
@@ -34,26 +35,20 @@
 </style>
 
 <body>
-	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
+		<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/activity-banner.jpg'); background-position:50% 80%;"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">ACTIVITY DETAILS</h1>
+					<h1 class="mb-2 bread">ACTIVITY</h1>
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="activityList.com">ACTIVITY <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Activity Details <i
-							class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="activityListView.com">ACTIVITY DETAIL</a></span>
 					</p>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- fixed section END-->
 
 	<!-- Activity detail section-->
 

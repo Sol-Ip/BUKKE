@@ -42,14 +42,14 @@
    	display: none;
    	margin-left: 10px;
    }
-.banner {
+/* .banner {
 	background: linear-gradient(270deg, rgba(41, 206, 140, 1) 0%,
 		rgba(40, 189, 168, 1) 100%);
 }
 
 .banner * {
 	color: white;
-}
+} */
 
 nav>* {
 	width: 100%;

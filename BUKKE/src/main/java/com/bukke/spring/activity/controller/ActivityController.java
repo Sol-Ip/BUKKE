@@ -360,7 +360,7 @@ public class ActivityController {
 		int result = aService.modifyActivity(activity);
 		System.out.println("result : " +result);
 		if(result > 0) {
-			mv.setViewName("redirect:activityList.com");
+			mv.setViewName("redirect:activityListView.com");
 		} else {
 			mv.addObject("msg", "액티비티 수정 실패").setViewName("common/errorPage");
 		}

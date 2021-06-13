@@ -49,15 +49,51 @@
   background-color: #428bca;
   padding : 5px 15px;
 }
+button.blue {
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
+}
 
- 
+button.blue:hover {
+    border: 1px #2F5BB7 solid;
+    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+    background: #3F83F1;
+}
+
+button.blue:active {
+    box-shadow: inset 0 2px 5px #2370FE;   
+}
+button.red {
+    background: -webkit-linear-gradient(top, #DD4B39, #D14836); 
+    background: -moz-linear-gradient(top, #DD4B39, #D14836); 
+    background: -ms-linear-gradient(top, #DD4B39, #D14836); 
+    border: 1px solid #DD4B39;
+    color: white;
+    text-shadow: 0 1px 0 #C04131;
+}
+
+button.red:hover {
+     background: -webkit-linear-gradient(top, #DD4B39, #C53727);
+     background: -moz-linear-gradient(top, #DD4B39, #C53727);
+     background: -ms-linear-gradient(top, #DD4B39, #C53727);
+     border: 1px solid #AF301F;
+}
+
+button.red:active {
+     box-shadow: inset 0 1px 1px rgba(0,0,0,0.2);
+    background: -webkit-linear-gradient(top, #D74736, #AD2719);
+    background: -moz-linear-gradient(top, #D74736, #AD2719);
+    background: -ms-linear-gradient(top, #D74736, #AD2719);
+} 
 
 </style>
 </head>
 <body>
    <!-- fixed section -->
    <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('resources/resources/images/bg_1.jpg');"
+       style="background-color: yellow;"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -400,8 +436,8 @@
     </section>
     <b></b>
       <div style="float: right;">
-      	<button type="button" id="confirmAll">승인</button>
-      	<button type="button" id="rejectAll">거절</button>
+      	<button type="button" id="confirmAll" class="blue">선택 승인</button>
+      	<button type="button" id="rejectAll" class="red">선택 거절</button>
       </div>
  </div>
   </div> 

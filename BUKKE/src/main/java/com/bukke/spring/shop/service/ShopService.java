@@ -38,4 +38,5 @@ public interface ShopService {
 	public int confirmRegister(String shopId);
 	public int cancelRegister(String shopId);
 	public int getListCount();// 전체 업체회원 수
+	public int getCommentListCountByShop(String shopId); //업체 댓글 카운트
 }

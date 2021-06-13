@@ -83,4 +83,10 @@ public class ShopServiceImpl implements ShopService {
 		// TODO Auto-generated method stub
 		return sStore.selectMemberListCount();
 	}
+
+	@Override
+	public int getCommentListCountByShop(String shopId) {
+		// TODO Auto-generated method stub
+		return sStore.selectMemberListCountMyShop(shopId);
+	}
 }

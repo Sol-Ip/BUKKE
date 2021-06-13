@@ -14,6 +14,7 @@ import com.bukke.spring.review.domain.ReviewLikes;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.store.ReviewStore;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 @Repository
 public class ReviewStoreLogic implements ReviewStore {

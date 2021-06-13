@@ -8,6 +8,7 @@ import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewLikes;
 import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 public interface ReviewStore {
 	// �ı� ��ü ��ȸ
@@ -88,5 +89,7 @@ public interface ReviewStore {
 	public ArrayList<ReviewComment> selectAlladminCommentList(); // 댓글 전체 리스트 (페이징x)
 
 	public int deleteAdminComment(HashMap<String, Integer> cMap); // 관리자 댓글 삭제
+
+
 	
 }

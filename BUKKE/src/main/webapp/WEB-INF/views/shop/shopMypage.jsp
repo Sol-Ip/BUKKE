@@ -19,11 +19,20 @@
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <link rel="stylesheet" href="../resources/css/member/mypage.css">
 <style type="text/css">
+@font-face {
+     font-family: 'DungGeunMo';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
 	#myPage{
 		padding: 0px;
 	}
 	#what-we-do{
 		padding: 0px;
+	}
+	#fonts{
+	 font-family: 'DungGeunMo';
 	}
 </style>
 </head>
@@ -32,7 +41,7 @@
 
    <!-- fixed section -->
    <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('resources/images/bg_1.jpg');"
+       style="background-color: yellow;"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -75,7 +84,7 @@
 
                         <ul class="collapse__menu">
                             <a href="reservationList.com" class="collapse__sublink">수업 목록</a>
-                            <a href="#" class="collapse__sublink">수업 일정</a>
+                            <a href="shopSchedule.com" class="collapse__sublink">수업 일정</a>
                         </ul>
                     </div>
 
@@ -88,7 +97,6 @@
                         <ul class="collapse__menu">
                             <a href="shopActivityList.com" class="collapse__sublink">등록한 액티비티</a>
                             <a href="shopClassList.com" class="collapse__sublink">등록한 클래스</a>
-                            <a href="#" class="collapse__sublink">작성한 댓글</a>
                         </ul>
                     </div>
                     
@@ -153,8 +161,8 @@
 				</div>
 			</div> --%> 
 			
-			<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-white" style="font-size: 30px">BUKKE My page</small></span>
+			<span class="subheading subheading-with-line">
+			<small class="pr-2 bg-white" style="font-size: 30px;">BUKKE My page</small></span>
 			<hr>				
 			<!-- 상단 프로필 설정 -->
 			<div class="container">
@@ -207,7 +215,7 @@
 				<div class="col-xs-9 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 					<div class="card">
 						<div class="card-block block-3">
-							<h3 class="card-title">내 정보</h3>
+							<h3 class="card-title" id=fonts>내 정보</h3>
 							<p class="card-text"></p>
 							<a href="javascript:void();" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>
@@ -217,7 +225,7 @@
 				<div class="col-xs-9 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 					<div class="card">
 						<div class="card-block block-3">
-							<h3 class="card-title">내 일정</h3>
+							<h3 class="card-title" id=fonts>내 일정</h3>
 							<p class="card-text"></p>
 							<a href="reservationList.com" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>
@@ -230,7 +238,7 @@
 				<div class="col-xs-9 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 					<div class="card">
 						<div class="card-block block-3">
-							<h3 class="card-title">내 활동</h3>
+							<h3 class="card-title" id=fonts>내 활동</h3>
 							<p class="card-text"></p>
 							<a href="javascript:void();" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>
@@ -240,7 +248,7 @@
 				<div class="col-xs-9 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 					<div class="card">
 						<div class="card-block block-3">
-							<h3 class="card-title">업체 탈퇴</h3>
+							<h3 class="card-title" id=fonts>업체 탈퇴</h3>
 							<p class="card-text"></p>
 							<a href="javascript:void();" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>

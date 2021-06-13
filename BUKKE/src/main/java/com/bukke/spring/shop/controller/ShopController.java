@@ -30,6 +30,7 @@ import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewPageInfo;
+import com.bukke.spring.review.service.ReviewService;
 import com.bukke.spring.shop.domain.Shop;
 import com.bukke.spring.shop.service.ShopService;
 
@@ -47,6 +48,9 @@ public class ShopController {
 	
 	@Autowired
 	private ReservationService reService;
+	
+	@Autowired
+	private ReviewService rService; 
 	
 	// 업체회원 로그인(ajax)
 	@ResponseBody
@@ -216,36 +220,11 @@ public class ShopController {
 			return mv;
 		}
 		
-		// 업체 회원 마이페이지 수업 목록
+		// 업체 회원 마이페이지 수업 스케쥴
 		@RequestMapping(value="shopSchedule.com")
 		public String shopScheduleView() {
 			return "shop/shopSchedule";
 		}
 		
-//		//업체회원 댓글목록
-//		@RequestMapping(value="shopComment")
-//		public ModelAndView rListViewbyId(ModelAndView mv,
-//				@RequestParam(value = "page", required = false) Integer page, HttpSession session) {
-//			Shop loginShoper = (Shop) session.getAttribute("loginShopper");
-//			String memberId = loginShoper.getShopId();
-//			int currentPage = (page != null) ? page : 1;
-//
-//			int listCount = sService.getCommentListCountById(memberId);
-//			ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
-//			ArrayList<ReviewComment> rcList = rService.printAllCommentbyId(pi, memberId);
-//			if (!rcList.isEmpty()) {
-//				mv.addObject("rcList", rcList);
-//				mv.addObject("pi", pi);
-//				mv.setViewName("member/memberCommentListView");
-//
-//			} else {
-//				/*
-//				 * mv.addObject("msg", "작성한 댓글이 없습니다"); 
-//				 * mv.setViewName("common/errorPage");
-//				 */
-//				mv.addObject("rcList", rcList);
-//				mv.setViewName("member/memberCommentListView");
-//			}
-//			return mv;
-//}
+		
 }

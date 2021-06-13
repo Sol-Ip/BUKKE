@@ -40,7 +40,7 @@
 
    <!-- fixed section -->
    <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('resources/images/bg_1.jpg');"
+        style="background-color: yellow;"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">

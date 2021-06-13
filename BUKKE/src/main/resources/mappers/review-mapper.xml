@@ -196,4 +196,7 @@
 		WHERE REVIEW_NO =#{reviewNo} AND COMMENT_NO = #{commentNo }
 	</update>
 	
+	<select id="selectCommentListbyShop" resultMap="reviewResultMap">
+		SELECT * FROM REVIEW_COMMNET
+	</select>
 </mapper>

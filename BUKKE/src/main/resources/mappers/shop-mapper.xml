@@ -51,4 +51,5 @@
 		SELECT COUNT(*) FROM SHOP
 	</select>
 	
+	
 </mapper>

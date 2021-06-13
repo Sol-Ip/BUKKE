@@ -85,4 +85,10 @@ public class ShopStoreLogic implements ShopStore {
 		return session.selectOne("shopMapper.selectShopListCount");
 	}
 
+	@Override
+	public int selectMemberListCountMyShop(String shopId) {
+		// TODO Auto-generated method stub
+		return session.selectOne("shopMapper.selectCountListByShop",shopId);
+	}
+
 }

@@ -13,6 +13,7 @@ import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.review.domain.ReviewSearch;
 import com.bukke.spring.review.service.ReviewService;
 import com.bukke.spring.review.store.ReviewStore;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {

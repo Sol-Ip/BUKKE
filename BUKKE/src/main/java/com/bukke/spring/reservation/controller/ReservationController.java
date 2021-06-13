@@ -250,6 +250,7 @@ public class ReservationController {
           if(reList.isEmpty()) {
              mv.addObject("msg" ,"조회 실패입니다");
           }else {
+        	  
             mv.addObject("reList",reList);
             mv.addObject("reservationPi",reservationPi);
             mv.setViewName("member/memberMyReservation");

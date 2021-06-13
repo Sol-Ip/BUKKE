@@ -145,7 +145,7 @@ public class BukkeClassController {
 			mv.addObject("bukkeClass", bukkeClass);
 			mv.addObject("bList", bList);
 			mv.addObject("rList", rList);
-			System.out.println(rList);
+			/* System.out.println(rList); */
 			mv.setViewName("bukkeClass/bukkeClassDetailView");
 		} else {
 			mv.addObject("msg", "클래스 상세 조회 실패 !").setViewName("common/errorPage");
@@ -198,6 +198,8 @@ public class BukkeClassController {
 		String cPath = "";
 		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
 		String shopId = loginShopper.getShopId();
+		
+		bukkeClass.setShopId(shopId);
 		
 		bukkeClass.setClassAddr(classAddr1 + ","+ classAddr2);
 		result = bService.registerBclass(bukkeClass);

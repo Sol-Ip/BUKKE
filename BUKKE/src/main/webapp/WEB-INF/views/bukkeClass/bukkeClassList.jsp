@@ -207,7 +207,7 @@
 					<!-- Tab panes -->
 					<div class="tab-content tabs">
 						<div role="tabpanel" class="tab-pane active" id="Section1">
-							<h3>부캐 클래스 전체</h3>
+							<!-- <h3>부캐 클래스 전체</h3> -->
 							<div class="container">
 								<div class="row">
 									<c:forEach items="${bList }" var="bukkeClass">
@@ -281,7 +281,7 @@
 						</div>
 						<!-- ============== 플라워 모아보기 ================== -->
 						<div role="tabpanel" class="tab-pane fade" id="Section2">
-							<h3>부캐 클래스 플라워</h3>
+							<!-- <h3>부캐 클래스 플라워</h3> -->
 							<c:if test="${flowerList.size() > 0 }">
 							<div class="container">
 								<div class="row">
@@ -358,7 +358,7 @@
 						</div>
 						<!-- =============== 미술 모아보기 ================ -->
 						<div role="tabpanel" class="tab-pane fade" id="Section3">
-							<h3>부캐 클래스 미술</h3>
+							<!-- <h3>부캐 클래스 미술</h3> -->
 							<c:if test="${artList.size() > 0 }">
 								<div class="container">
 								<div class="row">
@@ -435,7 +435,7 @@
 						</div>
 						<!-- ================== 뷰티 모아보기 ================== -->
 						<div role="tabpanel" class="tab-pane fade" id="Section4">
-							<h3>부캐 클래스 뷰티</h3>
+							<!-- <h3>부캐 클래스 뷰티</h3> -->
 							<c:if test="${beautyList.size() > 0 }">
 							<div class="container">
 								<div class="row">
@@ -512,7 +512,7 @@
 						</div>
 						<!--==================== 음악 모아보기 ==================  -->
 						<div role="tabpanel" class="tab-pane fade" id="Section5">
-							<h3>부캐 클래스 음악</h3>
+							<!-- <h3>부캐 클래스 음악</h3> -->
 							<c:if test="${musicList.size() > 0 }">
 							<div class="container">
 								<div class="row">
@@ -589,7 +589,7 @@
 						</div>
 						<!-- ================ 사진 모아보기 ================== -->
 						<div role="tabpanel" class="tab-pane fade" id="Section6">
-							<h3>부캐 클래스 사진</h3>
+							<!-- <h3>부캐 클래스 사진</h3> -->
 							<c:if test="${musicList.size() > 0 }">
 							<div class="container">
 								<div class="row">

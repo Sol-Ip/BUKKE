@@ -9,7 +9,7 @@
 		<result property="classAddr" column="CLASS_ADDR"></result>
 		<result property="classType" column="CLASS_TYPE"></result>
 		<result property="classTypedetails" column="CLASS_TYPEDETAILS"></result>
-		<result property="classInfo" column="CLASS_INFO"></result>
+		<result property="classInfo" column="CLASS_CONTENTS"></result>
 		<result property="classPrice" column="CLASS_PRICE"></result>
 		<result property="classCapacity" column="CLASS_CAPACITY"></result>
 		<result property="classEnrollDate" column="CLASS_ENROLL_DATE"></result>  
@@ -85,7 +85,7 @@
 		<!-- <if test="classCategory.toString() =='name'">WHERE CLASS_NAME LIKE '%' || #{classKeyword}||'%'</if> -->
 		<!-- <if test="classCategory.toString() =='info'">WHERE CLASS_CONTENTS LIKE '%' || #{classKeyword}||'%'</if> -->
 	   	SELECT * FROM CLASS WHERE CLASS_STATUS = 'Y' AND
-	   	CLASS_NAME LIKE '%' || #{classKeyword} ||'%' AND CLASS_INFO LIKE '%' || #{classKeyword} ||'%'
+	   	CLASS_NAME LIKE '%' || #{classKeyword} ||'%' AND CLASS_CONTENTS LIKE '%' || #{classKeyword} ||'%'
 		ORDER BY CLASS_ENROLL_DATE DESC
    </select>
    
@@ -96,14 +96,14 @@
    
    <insert id="insertBclass" parameterType="BukkeClass">
    	  INSERT INTO CLASS 
-   	  VALUES(SEQ_CLASS_NO.NEXTVAL, #{shopId}, #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classInfo }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename }, #{classStartTime }, #{classEndTime })
+   	  VALUES(SEQ_CLASS_NO.NEXTVAL, #{shopId}, #{className }, #{classAddr }, #{classType}, #{classTypedetails }, #{classPrice }, #{classCapacity },SYSDATE, #{classStartDate }, #{classEndDate },DEFAULT, #{cOriginalFilename }, #{cRenameFilename }, #{classStartTime }, #{classEndTime }, #{classInfo })
    </insert>
    
     
    <update id="updateBclass">
    		UPDATE CLASS
    		SET CLASS_NAME = #{className }, CLASS_ADDR = #{classAddr }, CLASS_TYPE = #{classType }, CLASS_TYPEDETAILS = #{classTypedetails }, 
-   		CLASS_INFO = #{classInfo }, CLASS_PRICE = #{classPrice }, CLASS_START_DATE = #{classStartDate }, CLASS_END_DATE = #{classEndDate }, CLASS_START_TIME = #{classStartTime }, CLASS_END_TIME = #{classEndTime}, C_ORIGINAL_FILENAME = #{cOriginalFilename }, C_RENAME_FILENAME = #{cRenameFilename }
+   		CLASS_PRICE = #{classPrice }, CLASS_START_DATE = #{classStartDate }, CLASS_END_DATE = #{classEndDate }, CLASS_START_TIME = #{classStartTime }, CLASS_END_TIME = #{classEndTime}, C_ORIGINAL_FILENAME = #{cOriginalFilename }, C_RENAME_FILENAME = #{cRenameFilename }, CLASS_CONTENTS = #{classInfo }
    		WHERE CLASS_NO = #{classNo }
    </update>
    
@@ -142,7 +142,6 @@
    <select id="selectAllListbyShop" resultMap="bClassResultMap">
    	SELECT * FROM CLASS WHERE SHOP_ID = #{shop_id} AND CLASS_STATUS= 'Y'
    </select>
-   
    <!--  ================== 인덱스 전용 ================== -->
    <!-- 클래스 최신 글 상위2개 목록 -->
 </mapper>

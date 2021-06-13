@@ -246,7 +246,7 @@ $(document).ready(function() {
 
 				<!-- =============== side bar =============== -->
 
-				<div class="col-lg-4 sidebar ftco-animate">
+				<div class="col-lg-5 sidebar ftco-animate">
 					<div
 						class="media block-6 services services-2 d-block bg-light p-4 mb-4 ">
 						<div class="sidebar-box ftco-animate">
@@ -323,55 +323,55 @@ $(document).ready(function() {
 									<!-- 사용자만 버튼 누를 시 기능 적용 -->
 									
 									<div class="row">
-									
-									<div class="col-md-6 event-btns">
-									
-										<input type="hidden" id="classNo" name="classNo" value="${bukkeClass.classNo }">
-										<input type="hidden" id="keepNo" name="keepNo" value="${keep.keepNo }">
-										<input type="hidden" id="reservationNo" name="reservationNo" value="${reservation.reservationNo }">
+									<div class="btn100" style="align:center">
+										<div class="col-md-6 event-btns">
 										
-										<c:if test="${ keep.keepStatus == null || keep.keepStatus eq 'N'  }">
-											<button id="keep-btn1" class="learn-more">
-												<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기
-											</button>
-										</c:if>
-										<c:if test="${keep.keepStatus eq 'Y'}">
-											<button id="keep-btn2" class="learn-more" onclick="keep()">
-												<i class="fas fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기취소
-											</button>
-										</c:if>
-									</div>
+											<input type="hidden" id="classNo" name="classNo" value="${bukkeClass.classNo }">
+											<input type="hidden" id="keepNo" name="keepNo" value="${keep.keepNo }">
+											<input type="hidden" id="reservationNo" name="reservationNo" value="${reservation.reservationNo }">
+											
+											<c:if test="${ keep.keepStatus == null || keep.keepStatus eq 'N'  }">
+												<button id="keep-btn1" class="learn-more">
+													<i class="far fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기
+												</button>
+											</c:if>
+											<c:if test="${keep.keepStatus eq 'Y'}">
+												<button id="keep-btn2" class="learn-more" onclick="keep()">
+													<i class="fas fa-bookmark fa-lg"></i>&nbsp;&nbsp;찜하기취소
+												</button>
+											</c:if>
+										</div>
 									
-									<div class="col-md-6 event-btns">
-										<c:if test="${reservation.reservationStatus == null }">
-											<button id="reservation-btn1" class="learn-more">
-												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
-											</button>
-										</c:if>
-										<c:if test="${ reservation.reservationStatus eq '대기'  }">
-											<button id="reservation-btn2" class="learn-more">
-												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약취소
-											</button>
-										</c:if>
-										 <c:if test="${ reservation.reservationStatus eq '승인'  }">
-											<button id="reservation-btn3" class="learn-more">
-												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약완료
-											</button>
-										</c:if> 
-										 <c:if test="${ reservation.reservationStatus eq '거절'  }">
-											<button id="reservation-btn4" class="learn-more">
-												<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
-											</button>
-										</c:if>  
-										
+										<div class="col-md-6 event-btns">
+											<c:if test="${reservation.reservationStatus == null }">
+												<button id="reservation-btn1" class="learn-more">
+													<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
+												</button>
+											</c:if>
+											<c:if test="${ reservation.reservationStatus eq '대기'  }">
+												<button id="reservation-btn2" class="learn-more">
+													<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약취소
+												</button>
+											</c:if>
+											 <c:if test="${ reservation.reservationStatus eq '승인'  }">
+												<button id="reservation-btn3" class="learn-more">
+													<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약완료
+												</button>
+											</c:if> 
+											 <c:if test="${ reservation.reservationStatus eq '거절'  }">
+												<button id="reservation-btn4" class="learn-more">
+													<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;예약하기
+												</button>
+											</c:if>  
+											
+										</div>
 									</div>
-									
 									</div>									
 								</c:when>
 						</c:choose>
 						
 							<!-- 사업자에게만 버튼 보이게 하기 -->
-							<div align="center" style="padding-right : 50px;">
+							<div align="center">
 								<c:url var="cModify" value="bukkeClassModify.com">
 									<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
 								</c:url>
@@ -390,22 +390,26 @@ $(document).ready(function() {
 								</c:if>
 								<!-- 사업자, 멤버 둘 다 로그인 안 할 경우 -->
 								<c:if test="${empty loginShopper && empty loginMember }">
+								
 									<button class="learn-more" onclick="alert('로그인 후 이용 가능합니다.')">찜 하기</button>
 									<button class="learn-more" onclick="alert('로그인 후 이용 가능합니다.')">예약하기</button>
+								
 								</c:if>
 							</div>
 						</div>
 					</div>
-
-					<div class="ftco-animate" style="padding-left : 40px;">
-						<!-- <input type="submit" class="btn btn-lg btn-primary" value="예약하기"> -->
-						<!-- <button class="learn-more">예약하기</button> -->
-						<!-- <button class="btn btn-lg btn-primary" type="submit">선물하기</button> -->
-						<button class="learn-more" type="submit">선물하기</button>
-						<c:url var="chatRoom1" value="chatRoom.com">
-						<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
-						</c:url>
-						<a onclick="window.open('${chatRoom1}', '_blank', 'width=600 height=600')"><button class="learn-more" type="submit">채팅하기</button></a>
+					
+					<div class="btn200" style="align : center;">
+						<div class="ftco-animate" style="padding-left : 90px;">
+							<!-- <input type="submit" class="btn btn-lg btn-primary" value="예약하기"> -->
+							<!-- <button class="learn-more">예약하기</button> -->
+							<!-- <button class="btn btn-lg btn-primary" type="submit">선물하기</button> -->
+							<button class="learn-more" type="submit">선물하기</button>
+							<c:url var="chatRoom1" value="chatRoom.com">
+							<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+							</c:url>
+							<a onclick="window.open('${chatRoom1}', '_blank', 'width=600 height=600')"><button class="learn-more" type="submit">채팅하기</button></a>
+						</div>
 					</div>
 					<br> <br>
 

@@ -104,7 +104,12 @@ function findAddr(){
 </script>
 
 </head>
+<style>
+.note-modal-backdrop {
+    position: inherit;
+}
 
+</style>
 <body>
 	<!-- fixed section -->
 	<section class="hero-wrap hero-wrap-2"
@@ -268,7 +273,7 @@ function findAddr(){
 			</div>
 	
 	</section>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() {
 	//여기 아래 부분
 	$('#summernote').summernote({
@@ -295,6 +300,219 @@ $(document).ready(function() {
 /* $(function() {
 	$("#postcodify_search_button").postcodifyPopUp();
 }); */
+
+</script> -->
+<script>
+   $(function(){
+      
+$('#summernote').summernote({
+    placeholder: '여기에 내용 입력하세요~ 그림파일 용량은 2MB까지입니다~',
+    tabsize: 2,
+    height: 500, // 에디터 높이
+    defaultFontName: '바탕체',
+    toolbar: [
+['style', ['style']],
+['fontname', ['fontname']],
+['fontsize', ['fontsize']],
+['font style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+['color', ['forecolor','color']],
+['para', ['ul', 'ol', 'paragraph']],
+['table', ['table']],
+['insert', ['link', 'picture', 'video']],
+['view', ['fullscreen', 'codeview', 'help']],
+],
+defaultFontName:'바탕',
+fontNames: ['Arial', 'Comic Sans MS','맑은 고딕','궁서','굴림','돋음체','바탕'],
+fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+maximumImageFileSize:2097152,
+
+popover: {
+              image: [
+                ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']]
+              ],
+              link: [
+                ['link', ['linkDialogShow', 'unlink']]
+              ],
+              table: [
+                ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+                ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+              ],
+              air: [
+                ['color', ['color']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['para', ['ul', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture']]
+              ]
+            }
+  });
+$('.dropdown-toggle').dropdown()
+   });
+   
+   $(function(){
+		//여기 아래 부분
+		   $('#summernote').summernote({
+		      placeholder: '최대 500자 작성 가능합니다.',
+		              height: 300,
+		              lang: 'ko-KR',
+		              callbacks: {
+		                 onImageUpload: function(files, editor, welEditable) {
+		                    for(var i = files.length -1; i>=0; i--) {
+		                       sendFile(files[i], this);
+		                    }
+		                 }
+		              }
+		       });
+		       getReplyList($("#curiosityNo").val());
+		       getHashtagLink();
+
+		       $("#replyContent").on("keypress",function(key){
+		         if(key.keyCode==13) {
+		            replyRegister($("#curiosityNo").val());
+		         }
+		         if(key.keyCode==32) {
+		         
+		            $("#replyContent").focus();   
+		            setTimeout(function() { 
+		               $("#hashTagSearch").val("");   
+		               $("#hashTagResult").text("#");   
+		            },200);
+		            $("#hashTag").hide();
+		         }
+		      
+		      });
+
+		   
+		         
+		         Mousetrap.bind('shift+3', function(e) {            
+		            getHashTag();
+		         });
+		         // Mousetrap.bind('space', function(e) {            
+		         //    $("#hashTag").hide();
+		         //    $("#replyContent").focus();   
+		         //    $("#hashTagSearch").val("");         
+		         // });
+		         // Mousetrap.bind('backspace', function(e) {            
+		         //    $("#hashTag").hide();
+		         // });
+		         
+		   
+		});
+		function getHashTag(){
+		   var reply = $("#replyContent").val();
+		   //var text = $("#hashTagText").text();
+		   $("#hashTagText").text(reply);
+		   $("#hashTag").show();   
+		   $("#hashTagSearch").focus();
+		   
+		   $("#hashTagSearch").on("keyup",function(key){
+		      if(key.keyCode==8 && $("#hashTagSearch").val().length==0){
+		         $("#replyContent").focus();   
+		         $("#hashTag").hide();
+		      }
+		      if(key.keyCode==32) {
+		         
+		         $("#replyContent").focus();   
+		          setTimeout(function() { 
+		            $("#hashTagSearch").val("");   
+		            $("#hashTagResult").text("#");   
+		         },200);
+		         $("#hashTag").hide();
+		      }
+		      var search = $("#hashTagSearch").val();
+		      console.log($("#hashTagSearch").val());
+		      $("#replyContent").val(function(){
+		         return $("#hashTagText").text() + search;
+		      });
+		      if(search.length > 0){
+
+		            $.ajax({
+		               url:"getHashTag.kh",
+		               tyle:"get",
+		               data:{"tagName":search},
+		               dataType:"json",
+		               success:function(data){
+		                  console.log(data);
+		                  var str = "";
+		                  for(var i in data){
+		                     str+='<span class="hashTagPlant"onmouseover="chageColor(this)"onmouseout="chageDefaultColor(this)" onclick="insertText(\''+data[i].plantName+'\')">'+data[i].plantName+'<br></span>';
+		                  }
+		                  $("#hashTagResult").html(str);
+		                  }
+		                  
+		            });
+		      }
+		   
+		   });
+
+		}
+		function insertText(plantName){
+		   $("#replyContent").val($("#hashTagText").text()+"#"+plantName+" ");
+		   $("#replyContent").focus();   
+		   $("#hashTagSearch").val("");
+		   $("#hashTag").hide();
+		}
+		function chageColor(obj){
+		   $(obj).css("color","#00bd56");
+		}
+		function chageDefaultColor(obj){
+		   $(obj).css("color","#808080");
+		}
+		/**
+		   * 이미지 파일 업로드
+		   */
+		   function sendFile(file, el) {
+		      var form_data = new FormData();
+		      form_data.append('file', file);
+		      $.ajax({
+		         data: form_data,
+		         type : "post",
+		         url: 'summer_image.kh',
+		         cache :false,
+		         contentType : false,
+		         enctype : 'multipart/form-data',
+		         processData : false,
+		         success : function(img_name) {
+		            $(el).summernote('editor.insertImage', img_name);
+		         }
+		      });
+		   }
+
+		function readURL(input) {
+		  if (input.files && input.files[0]) {
+
+		    var reader = new FileReader();
+
+		    reader.onload = function(e) {
+		      $('.image-upload-wrap').hide();
+
+		      $('.file-upload-image').attr('src', e.target.result);
+		      $('.file-upload-content').show();
+
+		      $('.image-title').html(input.files[0].name);
+		    };
+
+		    reader.readAsDataURL(input.files[0]);
+
+		  } else {
+		    removeUpload();
+		  }
+		}
+
+		function removeUpload() {
+		  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+		  $('.file-upload-content').hide();
+		  $('.image-upload-wrap').show();
+		}
+		$('.image-upload-wrap').bind('dragover', function () {
+		        $('.image-upload-wrap').addClass('image-dropping');
+		    });
+		    $('.image-upload-wrap').bind('dragleave', function () {
+		        $('.image-upload-wrap').removeClass('image-dropping');
+		});
+
 
 </script>
 <!-- 타임피커 -->

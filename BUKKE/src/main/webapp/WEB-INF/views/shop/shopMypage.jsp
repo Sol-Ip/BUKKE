@@ -34,6 +34,9 @@
 	#fonts{
 	 font-family: 'DungGeunMo';
 	}
+	.myinfo {
+    text-align: -webkit-center;
+}
 </style>
 </head>
 <!-- <body id="body-pd"> -->
@@ -152,7 +155,7 @@
    <!-- ======================= 사이드 바 끝 =============================== -->
    <!-- ======================= 마이페이지 인포 ================= -->
 		<section class="ftco-section" id="myPage">
-		<div class="container">
+		<div class="container myinfo">
 			 <%-- <div class="row justify-content-center mb-5 pb-3">
 			< 	<div class="col-md-7 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
@@ -161,8 +164,8 @@
 				</div>
 			</div> --%> 
 			
-			<span class="subheading subheading-with-line">
-			<small class="pr-2 bg-white" style="font-size: 30px;">BUKKE My page</small></span>
+			<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white" style="font-size: 30px">BUKKE My page</small></span>
 			<hr>				
 			<!-- 상단 프로필 설정 -->
 			<div class="container">
@@ -190,11 +193,11 @@
 							</li>
 							<li class="my-info"><span class="my-info-tit" id="sub1">대기중 예약</span> <a><strong
 									class="my-info-txt cut-txt my-point"
-									id="sub1">${listCount }개</strong></a>
+									id="sub1">${reTotalCount }개</strong></a>
 							</li>
 							<li class="my-info"><span class="my-info-tit" id="sub1">완료 예약</span> <a
 								><strong class="my-info-txt my-coupon"
-									id="sub1">${colistCount }개</strong></a>
+									id="sub1">${reWaitCount }개</strong></a>
 							</li>
 						</ul>
 					</div>

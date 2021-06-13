@@ -38,6 +38,10 @@ public interface ReservationStore {
 	public int ChangeStatus(Reservation reservation);
 	//결제 상태변경(클래스)
 	public int ChangeStatusClass(Reservation reservation);
+	//예약 전체 카운트 (업체)
+	public int ShopTotalCount(String shopId);
+	//예약 대기 카운트 (업체)
+	public int ShopWaitCount(String shopId);
 	
 	
 }

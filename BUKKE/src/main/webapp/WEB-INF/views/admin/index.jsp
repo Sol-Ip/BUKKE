@@ -175,7 +175,7 @@
 											</svg>
 										</div>
 								<%-- <canvas id="myAreaChart" width="100%" height="40"></canvas> --%>
-										<div class="col-md-6" style="">클래스 수 :${cCount }</div>
+										<div class="col-md-6" style="font-size: 60px;">전체 클래스 :${cCount }개</div>
 										</div>
 									</div>
 							</div>
@@ -197,7 +197,7 @@
 											<text class="value" x="50%" y="55%">0%</text>
 										</svg>
 										</div>
-										<div class="col-md-6">액티비티 수 :${aCount }</div>
+										<div class="col-md-6"style="font-size: 60px;">전체 액티비티:${aCount }</div>
 										</div>
 									</div>
 								<%-- <canvas id="myBarChart" width="100%" height="40"></canvas> --%>
@@ -214,7 +214,6 @@
 									<thead>
 										<tr>
 											<th>아이디</th>
-											<th>비밀번호</th>
 											<th>이름</th>
 											<th>부캐명</th>
 											<th>주소</th>
@@ -225,7 +224,6 @@
 									<tfoot>
 										<tr>
 											<th>아이디</th>
-											<th>비밀번호</th>
 											<th>이름</th>
 											<th>부캐명</th>
 											<th>주소</th>
@@ -237,7 +235,6 @@
 									<c:forEach items="${mList }" var="member">
 										<tr>
 											<td>${member.memberId }</td>
-											<td>${member.memberPw }</td>
 											<td>${member.memberName }</td>
 											<td>${member.memberNick }</td>
 											<td>${member.memberAddr }</td>

@@ -140,4 +140,17 @@ public class ReservationServiceImpl implements ReservationService{
 		return reStore.ChangeStatusClass(reservation);
 	}
 
+	//예약 전체 카운트(업체)
+	@Override
+	public int getreTotalCount(String shopId) {
+		// TODO Auto-generated method stub
+		return reStore.ShopTotalCount(shopId);
+	}
+	//예약 대기 카운트(업체)
+	@Override
+	public int getreWaitCount(String shopId) {
+		// TODO Auto-generated method stub
+		return reStore.ShopWaitCount(shopId);
+	}
+
 }

@@ -43,5 +43,10 @@ public interface ReservationService {
 	//결제상태 변경(클래스)
 	public int ChangeStatusClass(Reservation reservation);
 	
+	//예약 전체 수 카운트(업체)
+	public int getreTotalCount(String shopId);
+	//예약 대기 카운트 (업체)
+	public int getreWaitCount(String shopId);
+	
 	
 }

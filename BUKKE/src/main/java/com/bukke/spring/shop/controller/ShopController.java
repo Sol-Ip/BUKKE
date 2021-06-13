@@ -27,6 +27,7 @@ import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.common.ShopPagination;
 import com.bukke.spring.member.domain.Member;
+import com.bukke.spring.reservation.domain.Reservation;
 import com.bukke.spring.reservation.service.ReservationService;
 import com.bukke.spring.review.domain.ReviewComment;
 import com.bukke.spring.review.domain.ReviewPageInfo;
@@ -155,9 +156,14 @@ public class ShopController {
 		
 		int cCount = cService.getListCountShopId(shopId);
 		int aCount = aService.getListCountShop(shopId);
+		int reTotalCount = reService.getreTotalCount(shopId);
+		int reWaitCount = reService.getreWaitCount(shopId);
 		mv.addObject("cCount", cCount );
 		mv.addObject("aCount", aCount);
+		mv.addObject("reTotalCount", reTotalCount);
+		mv.addObject("reWaitCount", reTotalCount);
 		mv.setViewName("shop/shopMypage");
+		
 		return mv;
 	}
 	
@@ -189,7 +195,8 @@ public class ShopController {
 			int listCount = cService.getListCountShopId(shopId);
 			ShopPageInfo shopPi = ShopPagination.getPageInfo(currentPage,listCount);
 			ArrayList<BukkeClass> bList = cService.printAllbClassByShop(shopPi, shopId);
-			 if(!bList.isEmpty()) {
+
+			if(!bList.isEmpty()) {
 				 mv.addObject("bList",bList);
 				 mv.addObject("shopPi",shopPi);
 				 mv.setViewName("shop/bukkeClassList");

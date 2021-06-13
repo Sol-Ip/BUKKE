@@ -139,4 +139,16 @@ public class ReservationStoreLogic implements ReservationStore {
 		return sqlSession.update("reservationMapper.changeStatusClass", reservation);
 	}
 
+	@Override
+	public int ShopTotalCount(String shopId) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("reservationMapper.reTotalCount", shopId);
+	}
+
+	@Override
+	public int ShopWaitCount(String shopId) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("reservationMapper.reWaitCount", shopId);
+	}
+
 }

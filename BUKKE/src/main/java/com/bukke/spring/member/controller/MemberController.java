@@ -197,11 +197,24 @@ public class MemberController {
 		return "member/memberDelete";
 	}
 	
-	// @RequestMapping(value="", method=RequestMethod.GET)
+	// 회원탈퇴
+	@RequestMapping(value="memberDelete.com", method=RequestMethod.GET)
 	public ModelAndView memberDelete(HttpSession session,
 			ModelAndView mv) {
+		// 회원 id를 가져옴
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		String memberId = loginMember.getMemberId();
+		int result = mService.deleteMember(memberId);
+		if (result > 0) {
+			mv.addObject("msg", "success");
+			// 회원탈퇴에 성공시, 세션 삭제
+			session.invalidate();
+			mv.setViewName("member/memberDeleteComplete");
+		} else {
+			mv.addObject("msg", "fail");
+			mv.setViewName("member/memberInfo");
+		}
 		return mv;
-
 	}
 
 	@ResponseBody

@@ -33,11 +33,17 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 #font2{
   font-family: 'Chosunilbo_myungjo';
 }
 #font3{
-  font-family: 'Chosunilbo_myungjo';
+  font-family: 'MaruBuri-Regular';
   font-size: 15px;
 }
 </style>

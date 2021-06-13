@@ -169,7 +169,7 @@
 	</select>
 	
 	<select id="selectCommentListbyId" resultMap="commentResultMap">
-		SELECT * FROM REVIEW_COMMENT WHERE REVIEW_NO IN (SELECT REVIEW_NO FROM REVIEW_COMMENT WHERE COMMENT_STATUS = 'Y' AND MEMBER_ID = #{memberId })
+		SELECT * FROM REVIEW_COMMENT WHERE MEMBER_ID = #{memberId} AND COMMENT_STATUS = 'Y'
 	</select>
 	
 	

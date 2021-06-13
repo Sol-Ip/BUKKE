@@ -151,7 +151,7 @@
 						<h2></h2>
 						<div class="info">
 							<p class="date"></p>
-							<p class="author">${review.reviewTitle }<a href="${rlDetail }" style="color: black;"></p>
+							<p class="author">${review.reviewTitle }<a href="${rDetail }" style="color: black;"></p>
 							<div class="like">
 							
 								<i class="fa fa-heart" aria-hidden="true" style="color: #dc3545;"></i> ${review.reviewLikeCnt }
@@ -190,7 +190,7 @@
 	                  <c:param name="page" value="${p }"></c:param>
 	               </c:url>
 	               <c:if test="${p eq pi.currentPage }">
-						<li class="active"><span>${p }</span></li>
+						<li class="active""><span>${p }</span></li>
 					</c:if>
 	               <c:if test="${p ne pi.currentPage }">
 	                  <li><a href="${pagination }">${p }</a></li>

@@ -430,7 +430,7 @@ body {
 																	<c:param name="page" value="${p}"></c:param>
 																</c:url>
 																<c:if test="${p eq pi.currentPage }">
-																	<li class="active"><span>${p }</span></li>
+																	<li class="active" style="background-color: white;"><span>${p }</span></li>
 																</c:if>
 																<c:if test="${p ne pi.currentPage }">
 																	<!-- ne : not equal -->
@@ -657,7 +657,7 @@ body {
 																	<c:param name="page" value="${act}"></c:param>
 																</c:url>
 																<c:if test="${act eq piAct.currentPage }">
-																	<li class="active"><span>${act}</span></li>
+																	<li class="active" style="background-color: white;"><span>${act}</span></li>
 																</c:if>
 																<c:if test="${act ne piAct.currentPage }">
 																	<!-- ne : not equal -->

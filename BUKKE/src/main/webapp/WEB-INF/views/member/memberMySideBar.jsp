@@ -97,7 +97,7 @@
                         </ul>
                     </div>
 
-                    <div href="#" class="nav__link collapse1">
+                    <!-- <div href="#" class="nav__link collapse1">
                         <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
                         <span class="nav_name">알림</span>
 
@@ -106,7 +106,7 @@
                         <ul class="collapse__menu">
                             <a href="#" class="collapse__sublink">예약 알림</a>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <a href="#" class="nav__link">

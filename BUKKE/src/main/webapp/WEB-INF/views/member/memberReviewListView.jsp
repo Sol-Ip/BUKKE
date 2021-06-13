@@ -152,7 +152,7 @@
 	                  <c:param name="page" value="${p }"></c:param>
 	               </c:url>
 	               <c:if test="${p eq pi.currentPage }">
-						<li class="active"><span>${p }</span></li>
+						<li class="active" style="background-color: white;"><span>${p }</span></li>
 					</c:if>
 	               <c:if test="${p ne pi.currentPage }">
 	                  <li><a href="${pagination }">${p }</a></li>

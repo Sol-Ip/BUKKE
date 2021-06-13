@@ -17,79 +17,18 @@
 
 
 <style type="text/css">
-.non-cmt {
-	margin: auto;
-	font-family: 'Cafe24SsurroundAir';
-	text-align: center;
+.card .card-body .message {
+  padding-left: 80px;
+  
+  &::after {
+    clear: both;
+  }
 }
 
-#comment1 {
-	font-size: 30px;
-	font-family: 'MaruBuri-Regular';
+.card .card-body .actions {
+  margin-top: 5px;
 }
 
-@font-face {
-	font-family: 'Cafe24SsurroundAir';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'MaruBuri-Regular';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* 버튼 */
-.link-btn {
-	border: none;
-	display: block;
-	text-align: center;
-	cursor: pointer;
-	text-transform: uppercase;
-	outline: none;
-	overflow: hidden;
-	position: relative;
-	color: #fff;
-	font-weight: 700;
-	font-size: 15px;
-	background-color: #222;
-	padding: 17px 60px;
-	margin: 0 auto;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
-}
-
-.link-btn span {
-	font-family: 'EliceDigitalBaeum_Bold';
-	font-size: large;
-	position: relative;
-	z-index: 1;
-}
-
-.link-btn:after {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 490%;
-	width: 140%;
-	background: #78c7d2;
-	-webkit-transition: all .5s ease-in-out;
-	transition: all .5s ease-in-out;
-	-webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-	transform: translateX(-98%) translateY(-25%) rotate(45deg);
-}
-
-.link-btn:hover:after {
-	-webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-	transform: translateX(-9%) translateY(-25%) rotate(45deg);
-}
 </style>
 </head>
 <body>
@@ -146,7 +85,7 @@
 			<c:if test="${rcList.size() > 0 }">
 		<section class="ftco-section ftco-animate">
 		<div class="container">
-				<div class="row">
+				<%-- <div class="row">
 				  <div id="admin" class="col s12">
 				    <div class="card material-table">
 				      <div class="table-header" style="background-color:#50BCDF">
@@ -184,7 +123,31 @@
 				      
 				    </div>
 				  </div>
-				</div>
+				</div> --%>
+			 <c:forEach items="${rcList }" var="reviewComment"> 
+				<div class="container">
+						  <div class="card">
+						    <div class="card-body">
+						      <img src="https://lh3.googleusercontent.com/proxy/_VEhXIVMYLQVEzVLPvToZ1ai3Po0L6tyG86TZ-lqnwZuiAfUHK2N5ZFiNutCWOiN8WdL93BUHnk0ClbzSDKf1rhcmjCZwkUwglt9JXfIb6oxDDW-UBq_RXNTgQ" style="width:60px"class="float-left rounded-circle">
+						     <c:url var="rcDetail" value="reviewDetail.com">
+									<c:param name="reviewNo" value="${reviewComment.reviewNo }"></c:param>
+							</c:url>
+						      <div class="message">
+						        <h5 class="card-title">${reviewComment.memberId }</h5>
+						        <h6 class="card-subtitle mb-2 text-muted">${reviewComment.commentDate }</h6>
+						        <p class="card-text">${reviewComment.commentContents }</p>
+						      </div>
+						      <div class="actions">
+						        <a href="${rcDetail }" class="card-link">Click!</a>
+						      </div>
+						    </div>
+						  </div>
+						  
+			  
+			</div>
+			</c:forEach>
+
+</div>
 			</div>
 				   
 				<%-- <div class="col-12">
@@ -297,7 +260,7 @@
 						<c:param name="page" value="${p}"></c:param>
 					</c:url>
 					<c:if test="${p eq pi.currentPage }">
-						<li class="active"><span>${p }</span></li>
+						<li class="active" style="background-color: white;"><span>${p }</span></li>
 					</c:if>
 					<c:if test="${p ne pi.currentPage }"> <!-- ne : not equal -->
 						<li><a href="${pagination}">${p }</a></li>
@@ -323,6 +286,30 @@
         </c:if>
 <script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<script type="text/javascript">
+//Design:  Chris Burton
+//URL:     chrisburton.me
+//JS by: https://github.com/vitorarjol
+
+Vue.component('like', {
+ template: "<div class='like-data'><button class='icon-rocknroll' v-class='active: liked' v-on='click: toggleLike'>&hearts;</button><span class='like-count' v-class='active: liked'>{{ likesCount }}</span></div>",
+ data: function() {
+     return {
+         liked: false,
+         likesCount: 0
+     }
+ },
+ methods: {
+     toggleLike: function() {
+         this.liked = !this.liked;
+         this.liked ? this.likesCount++ : this.likesCount--;
+     }
+ }
+});
+new Vue({
+ el: '#app',
+});
+</script>
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

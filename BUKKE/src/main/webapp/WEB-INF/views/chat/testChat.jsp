@@ -57,8 +57,10 @@
 	
 	function chatLog() {
 		   var roomNumber = $("#roomNumber").val();
-		   var memberId2 = '${loginMember.memberId}';
-		   
+		   var memberNick2 = '${loginMember.memberNick}';
+		   var shopId2 = '${loginShopper.shopId}';
+			
+		  
 		      $.ajax({
 		         url : "/chatLogDate.com",
 		         type : "post",
@@ -68,20 +70,34 @@
 		         dataType : "json",
 		         success : function(data) {
 		            const $chatingTag = $("#chatting");
-		            console.log(data);
+		            
 		            for(var i in data) {
 		               var html = "";
-		               console.log(data[i]);
-		              
-		               if(data[i].memberId == memberId2 ){
-		            	  html += $("#chatting").append("<p class='me'>"+$("#memberNick").val()+" :" +data[i].msg+ "</p>");	
-		                  $("#chating").append(html);   
-		               }else {
-		            	   
-		            	  html += $("#chatting").append("<p class='others'>"+$("#shopId").val()+" :" +data[i].msg+ "</p>");
-		                  $("#chating").append(html);
+		               if(memberNick2 != ""){
+		            		if(data[i].memberNick == memberNick2){
+		            		  	html += $("#chatting").append("<p class='me'>"+$("#memberNick").val()+" : " +data[i].msg+ "</p>");	
+		              		    $("#chating").append(html);   
+		               		}else {
+		               			
+		            	 		html += $("#chatting").append("<p class='others'>"+"업체 : " +data[i].msg+ "</p>");
+		                		 $("#chating").append(html);
+		              		} 
+		               }else{
+		            	   if(data[i].memberNick == null){
+		            		  	html += $("#chatting").append("<p class='me'>"+$("#memberNick").val()+" 나 :" +data[i].msg+ "</p>");	
+		              		    $("#chating").append(html);   
+		               		}else {
+		               			
+		            	 		html += $("#chatting").append("<p class='others'>"+$("#memberNick").val()+" 손님"+" :" +data[i].msg+ "</p>");
+		                		 $("#chating").append(html);
+		              		} 
 		               }
-		               
+		             
+		            	
+		            
+		            	 
+		            
+		             		               
 		            }
 		         }
 		         

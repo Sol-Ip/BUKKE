@@ -39,7 +39,7 @@
 	
 	<!-- 채팅 내역  -->
 	<select id="selectOneRoom" parameterType="Room" resultMap="chatRoomResultMap">
-		SELECT * FROM CHAT WHERE MEMBER_NICK = #{memberNick} AND ROOM_NUMBER = #{roomNumber }
+		SELECT * FROM CHAT WHERE MEMBER_NICK = #{memberNick} AND ROOM_NUMBER = #{roomNumber } AND SHOP_ID =#{shopId}
 	</select>
 	
 	<!-- 채팅방 등록 -->

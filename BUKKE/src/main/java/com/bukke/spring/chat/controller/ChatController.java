@@ -179,6 +179,8 @@ public class ChatController {
 			roominfo.setMemberId(loginMember.getMemberId());
 						
 			Room room = chatService.printOneRoom(roominfo);
+			//System.out.println("moveChatting.com에서 room tostring?" + room.toString());
+			System.out.println(params.get("roomName")+"  "+params.get("roomNumber") );
 			mv.addObject("room", room);
 			mv.addObject("roomName", params.get("roomName"));
 			mv.addObject("roomNumber", params.get("roomNumber"));
@@ -200,8 +202,9 @@ public class ChatController {
 			
 			Shop loginShopper = (Shop)session.getAttribute("loginShopper");
 			roominfo.setShopId(loginShopper.getShopId());
-			
+			roominfo.setMemberId(null);
 			Room room = chatService.printOneRoom(roominfo);
+			//System.out.println("movechattingforshop"+room.toString());
 			mv.addObject("room", room);
 			mv.addObject("roomName", params.get("roomName"));
 			mv.addObject("roomNumber", params.get("roomNumber"));
@@ -222,6 +225,7 @@ public class ChatController {
 	@RequestMapping(value="/chatLogDate.com")
 	public void chatDate(@RequestParam("roomNumber") int roomNumber, HttpServletResponse response) throws JsonIOException, IOException {
 		ArrayList<Chat> chatList = chatService.printAllChat(roomNumber);
+		System.out.println("chatList는? " + chatList.toString());
 		if(!chatList.isEmpty()) {
 			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 			gson.toJson(chatList, response.getWriter());

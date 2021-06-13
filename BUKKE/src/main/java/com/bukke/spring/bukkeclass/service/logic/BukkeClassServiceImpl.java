@@ -176,8 +176,8 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 
 	// 클래스 최근 글 상위2개 목록
 	@Override
-	public ArrayList<BukkeClass> printHomeTWoClassListDesc() {
-		ArrayList<BukkeClass> twoClaList = bStore.selectHomeTWoClassListDesc();
+	public ArrayList<BukkeClass> printHomeFourClassListDesc() {
+		ArrayList<BukkeClass> twoClaList = bStore.selectHomeFourClassListDesc();
 		return twoClaList;
 	}
 

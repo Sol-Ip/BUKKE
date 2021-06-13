@@ -72,13 +72,13 @@ public class HomeController {
 		ArrayList<Review> rListTopLikes = rService.printTopLikesReview();
 		// 액티비티 최근 글 상위2개 목록
 		ArrayList<Activity> twoActList = aService.printHomeTWoActivityListDesc(); 
-		// 클래스 최근 글 상위2개 목록
-		ArrayList<BukkeClass> twoClaList = bService.printHomeTWoClassListDesc();
+		// 클래스 최근 글 상위4개 목록
+		ArrayList<BukkeClass> fourClaList = bService.printHomeFourClassListDesc();
 		
 		
 		model.addAttribute("rListTopLikes",rListTopLikes);
 		model.addAttribute("twoActList", twoActList);
-		model.addAttribute("twoClaList", twoClaList);
+		model.addAttribute("fourClaList", fourClaList);
 		
 		return "home";
 	}

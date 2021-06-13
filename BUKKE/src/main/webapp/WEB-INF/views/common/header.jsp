@@ -76,7 +76,7 @@ crossorigin="anonymous">
 						<li id="review" class="nav-item"><a href="reviewList.com"
 							class="nav-link">후기</a></li>
 						<li id="gift" class="nav-item"><a
-							href="giftFirstPageView.com" class="nav-link">선물하기</a></li>
+							href="giftFirstPageView.com" class="nav-link">추천하기</a></li>
 						<c:choose>
 							<c:when
 								test="${ empty sessionScope.loginMember && empty sessionScope.loginShopper}">

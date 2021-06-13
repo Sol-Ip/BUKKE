@@ -76,6 +76,6 @@ public interface BukkeClassStore {
 
 	public ArrayList<BukkeClass> selectAllListBclassbyMyShop(ShopPageInfo shopPi, String shopId); //업체 마이페이지 클래스 확인
 
-	public ArrayList<BukkeClass> selectHomeTWoClassListDesc(); // 클래스 최근 글 상위2개 목록
+	public ArrayList<BukkeClass> selectHomeFourClassListDesc(); // 클래스 최근 글 상위4개 목록
 
 }

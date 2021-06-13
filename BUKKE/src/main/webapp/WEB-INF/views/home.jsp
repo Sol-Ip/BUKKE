@@ -9,11 +9,9 @@
 <jsp:include page="./common/header.jsp">
 	<jsp:param name="active" value="home" />
 </jsp:include>
-<link rel="stylesheet" href="../resources/css/home/home.css">
 </head>
-<style>
+<link rel="stylesheet" href="../resources/css/home/home.css">
 
-</style>
 <body>
 	<section class="home-slider js-fullheight owl-carousel bg-white">
 		<div class="slider-item js-fullheight">
@@ -30,10 +28,10 @@
 						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
 						data-scrollax=" properties: { translateY: '70%' }">
 						<div class="text">
-							<h1 class="mb-4">
+							<h1 class="mb-4" id="index-text1">
 								일상에 지친<br>하루의 끝에,
 							</h1>
-							<h4>아주 평화롭지만<br>
+							<h4 class="index-text3">아주 평화롭지만<br>
 							어떤 놀이동산보다 <br>
 							신나고 재미있는 곳.<br>
 							마음만 먹으면 순간이동하듯 <br>
@@ -62,8 +60,8 @@
 						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
 						data-scrollax=" properties: { translateY: '70%' }">
 						<div class="text">
-							<h1 class="mb-4"> 즐거운 도전을<br>하고싶을 때!</h1>
-							<h4>내가 몰랐던 나의 능력을 <br>
+							<h1 class="mb-4" id="index-text1">즐거운 도전을<br>하고싶을 때!</h1>
+							<h4 class="index-text3">내가 몰랐던 나의 능력을 <br>
 							무한대로 탐험할 수 있는 곳. <br>
 							즐거운 취미 여행을 <br>
 							멈출 수 없는, <br>
@@ -104,18 +102,20 @@
 		</div>
 	</section> -->
 	
-			
-	<section class="ftco-services">
+	<!-- BUKKE 이용방법 -->			
+	<section class="ftco-services" id="intro-section">
 		<div class="container">
-			<div class="row justify-content-start mb-5 pb-5">
-			<div class="col-md-1"></div>
-				<div class="col-md-4 heading-section ftco-animate">
-					<h4 class="mb-4">본래 일상을 떠나 부캐를 찾아갈 때!</h4>
+			<div class="row justify-content-start mb-5 pb-5" id="howto">
+			<div class="col-md-2"></div>
+				<div class="col-md-3 heading-section ftco-animate">
+					<h4 class="mb-4" id="index-text5">본래 일상을 떠나,</h4>
+					<h4 class="mb-4" id="index-text5" style="color:#1552dd; float:left;">부캐</h4>
+					<h4 class="mb-4" id="index-text5">를 찾아갈 때!</h4>
 				</div>
-				<div class="col-md-6 pl-md-5 ftco-animate">
+				<div class="col-md-5 pl-md-5 ftco-animate">
 					<div class="pl-md-4 border-line">
 						<div class="wrapper intro-btn">
-							<a class="cta" href="#"> <span class="intro">부캐 이용방법</span> 
+							<a class="cta" href="introduce.com"> <span class="intro">부캐 이용방법</span> 
 							<span class="intro"> <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <path class="one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
@@ -126,21 +126,22 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-1"></div>
+				<div class="col-md-2"></div>
 			</div>
 		</div>
 	</section>
 
+	<!-- BUKKE 카운트  -->	
 	<section class="ftco-services ftco-counter index-img1" id="section-counter"  style="background-image: url(resources/images/class1-13.jpg);">
 		<div class="container">
 			<div class="row d-md-flex align-items-center justify-content-end">
-				<div class="col-lg-10">
+				<div class="col-lg-10 count">
 					<div class="row d-md-flex align-items-center">
 						<div
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" >${mCount }</strong> <span>부캐릭터 수</span>
+									<strong class="number" >${mCount }</strong> <span id="count-number">부 캐릭터 수</span>
 								</div>
 							</div>
 						</div>
@@ -148,7 +149,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number">${sCount }</strong> <span>사업자 수</span>
+									<strong class="number">${sCount }</strong> <span id="count-number">사업자 수</span>
 								</div>
 							</div>
 						</div>
@@ -156,7 +157,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" >${cCount }</strong> <span>총 부캐 클래스</span>
+									<strong class="number" >${cCount }</strong> <span id="count-number">총 부캐 클래스</span>
 								</div>
 							</div>
 						</div>
@@ -164,7 +165,7 @@
 							class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18">
 								<div class="text">
-									<strong class="number" >${aCount }</strong> <span>총 부캐 액티비티</span>
+									<strong class="number" >${aCount }</strong> <span id="count-number">총 부캐 액티비티</span>
 								</div>
 							</div>
 						</div>
@@ -174,7 +175,130 @@
 		</div>
 	</section>
 	
+	<!-- 여백 고민인 부분 -->
+	<section class="ftco-services" id="intro-section"></section>
+	
+	<!-- FOUR NEW BUKKE CLASSES  -->
 	<section class="ftco-services">
+	<div class="container row ftco-animate"  style="margin:auto; padding: inherit;">
+		<h1 id="open-text" contenteditable spellcheck="false">new bukke class open!</h1>
+		</div>
+		 <div class="container">
+		<div class="row">
+		<c:forEach items="${fourClaList }" var="fourClaList">
+				<div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="staff">
+							<c:url var="cDetail" value="bukkeClassDetailView.com">
+								<c:param name="classNo" value="${fourClaList.classNo }"></c:param>
+							</c:url>
+							<div class="img"
+							style="background-image: url(resources/bClassFiles/${fourClaList.cRenameFilename });"></div>
+						<div class="text px-4 pt-4">
+							<h3> [${fourClaList.classType}] ${fourClaList.className }</h3>
+							<a href="${cDetail }"><span class="position mb-2">${fourClaList.shopId} </span></a>
+						 	<div class="faded">
+								<p>${fourClaList.classAddr }</p>
+							<!--	<ul class="ftco-social d-flex">
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-twitter"></span></a></li>
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-facebook"></span></a></li>
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-google-plus"></span></a></li>
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-instagram"></span></a></li>
+								</ul>-->
+							</div> 
+						</div>
+					</div>
+				</div>
+				</c:forEach>
+			</div>
+		</div>
+	</section>
+	
+	<!-- FOUR NEW ACTIVITY CLASSES  -->
+	<section class="ftco-services" id="four-activity">
+	<div class="container row ftco-animate"  style="margin:auto; padding: inherit;">
+		<h1 id="open-text" contenteditable spellcheck="false">new activity open!</h1>
+		</div>
+		 <div class="container">
+		<div class="row">
+		<c:forEach items="${fourClaList }" var="fourClaList">
+				<div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="staff">
+							<c:url var="cDetail" value="bukkeClassDetailView.com">
+								<c:param name="classNo" value="${fourClaList.classNo }"></c:param>
+							</c:url>
+							<div class="img"
+							style="background-image: url(resources/bClassFiles/${fourClaList.cRenameFilename });"></div>
+						<div class="text px-4 pt-4">
+							<h3> [${fourClaList.classType}] ${fourClaList.className }</h3>
+							<a href="${cDetail }"><span class="position mb-2">${fourClaList.shopId} </span></a>
+						 	<div class="faded">
+								<p>${fourClaList.classAddr }</p>
+							<!--	<ul class="ftco-social d-flex">
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-twitter"></span></a></li>
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-facebook"></span></a></li>
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-google-plus"></span></a></li>
+									<li class="ftco-animate"><a href="#"><span
+											class="icon-instagram"></span></a></li>
+								</ul>-->
+							</div> 
+						</div>
+					</div>
+				</div>
+				</c:forEach>
+			</div>
+		</div>
+	</section>
+	
+	
+	<!-- <section class="home-slider js-fullheight owl-carousel bg-white">
+		<div class="slider-item js-fullheight">
+			<div class="container">
+				<div
+					class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+					data-scrollax-parent="true">
+					<div class="one-third order-md-last img js-fullheight"
+						style="background-image: url(resources/images/index1.jpg);">
+						<h3 class="vr">Architecture Firm</h3>
+					</div>
+					<div
+						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+						data-scrollax=" properties: { translateY: '70%' }">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="slider-item js-fullheight">
+			<div class="container">
+				<div
+					class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+					data-scrollax-parent="true">
+					<div class="one-third order-md-last img js-fullheight"
+						style="background-image: url(resources/images/index2.jpg);">
+						<h3 class="vr">Since - 2018</h3>
+					</div>
+					<div
+						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+						data-scrollax=" properties: { translateY: '70%' }">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	
+	
+	<!-- BUKKE 추천 수업 -->
+	<section class="ftco-services">
+	<div class="container">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -184,11 +308,11 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="row col-lg-12">
-						<div class="col-lg-6">
+						<div class="col-lg-6" id="act-top2"">
 							<img src="../resources/images/hobby2.jpg" class="d-block w-100"
 								alt="...">
 						</div>
-						<div class="col-lg-6 act-top2">
+						<div class="col-lg-6" id="act-top2">
 						<div class="row">
 						<div class="col-md-12 ftco-animate">
 							<h1>액티비티 추천</h1>
@@ -265,105 +389,26 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-	
+	</div>
 	</section>
-
-	<!-- <section class="home-slider js-fullheight owl-carousel bg-white">
-		<div class="slider-item js-fullheight">
-			<div class="container">
-				<div
-					class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
-					data-scrollax-parent="true">
-					<div class="one-third order-md-last img js-fullheight"
-						style="background-image: url(resources/images/index1.jpg);">
-						<h3 class="vr">Architecture Firm</h3>
-					</div>
-					<div
-						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
-						data-scrollax=" properties: { translateY: '70%' }">
-						
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="slider-item js-fullheight">
-			<div class="container">
-				<div
-					class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
-					data-scrollax-parent="true">
-					<div class="one-third order-md-last img js-fullheight"
-						style="background-image: url(resources/images/index2.jpg);">
-						<h3 class="vr">Since - 2018</h3>
-					</div>
-					<div
-						class="one-forth d-flex js-fullheight align-items-center ftco-animate"
-						data-scrollax=" properties: { translateY: '70%' }">
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
 	
-	<section class="ftco-services">
+	
+	<section class="ftco-services" id="shop-info">
 		<div class="container">
-			<div class="row justify-content-start mb-5 pb-5">
-				<div class="col-md-4 heading-section ftco-animate">
-					<h2 class="mb-4">Our Work Flow</h2>
-				</div>
-				<div class="col-md-8 pl-md-5 ftco-animate">
-					<div class="pl-md-4 border-line">
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.
-							Separated they live in.</p>
-					</div>
+			<!-- BUKKE SHOPPER -->
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section ftco-animate">
+					<span class="subheading subheading-with-line"><small
+						class="pr-2 bg-white">BUKKE</small></span>
+					<h2 class="mb-4">HOW TO BUKKE HOST</h2>
+					<p>원스탑 클래스 및 액티비티 서비스를 통해 쉽고 편하게 경험을 공유하고 누군가의 또 다른 모습을 발굴해낼 수 있습니다</p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-4 d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services d-block">
-						<div class="icon d-flex justify-content-center align-items-center">
-							<span class="flaticon-idea"></span>
-						</div>
-						<div class="media-body p-2 mt-3">
-							<h3 class="heading">Perfectly Design</h3>
-							<p>Even the all-powerful Pointing has no control about the
-								blind texts it is an almost unorthographic.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services d-block">
-						<div class="icon d-flex justify-content-center align-items-center">
-							<span class="flaticon-compass-symbol"></span>
-						</div>
-						<div class="media-body p-2 mt-3">
-							<h3 class="heading">Carefully Planned</h3>
-							<p>Even the all-powerful Pointing has no control about the
-								blind texts it is an almost unorthographic.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services d-block">
-						<div class="icon d-flex justify-content-center align-items-center">
-							<span class="flaticon-layers"></span>
-						</div>
-						<div class="media-body p-2 mt-3">
-							<h3 class="heading">Smartly Execute</h3>
-							<p>Even the all-powerful Pointing has no control about the
-								blind texts it is an almost unorthographic.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<div class="row justify-content-start mt-5 py-5">
-				<div class="col-md-4 heading-section ftco-animate">
-					<h2 class="mb-4">Our Services</h2>
-					<p>Even the all-powerful Pointing has no control about the
-						blind texts it is an almost unorthographic.</p>
-				</div>
+			<div class="col-md-2"></div>
+			
+			
 				<div class="col-md-8 ftco-animate">
 					<div class="row d-flex">
 						<div class="col-md-6 d-flex align-items-stretch">
@@ -374,9 +419,8 @@
 									<span class="flaticon-layers"></span>
 								</div>
 								<div class="media-body p-2 mt-3">
-									<h3 class="heading">Design</h3>
-									<p>Even the all-powerful Pointing has no control about the
-										blind texts it is an almost unorthographic.</p>
+									<h3 class="heading">호스트 등록</h3>
+									<p>간편한 가입으로 5분 만에 호스트가 되어보세요.</p>
 								</div>
 							</div>
 						</div>
@@ -388,9 +432,24 @@
 									<span class="flaticon-layers"></span>
 								</div>
 								<div class="media-body p-2 mt-3">
-									<h3 class="heading">Industrial Design</h3>
-									<p>Even the all-powerful Pointing has no control about the
-										blind texts it is an almost unorthographic.</p>
+									<h3 class="heading">관리자 승인</h3>
+									<p>부캐를 가입하신 후 관리자 승인이 완료되면 자유롭게 진행할 수업을 등록해주세요.</p>
+								</div>
+							</div>
+						</div>
+						</div>
+						
+						<div class="row d-flex">
+						<div class="col-md-6 d-flex align-items-stretch">
+							<div
+								class="media block-6 services services-2 d-block bg-light p-4 mb-4">
+								<div
+									class="icon d-flex justify-content-center align-items-center">
+									<span class="flaticon-layers"></span>
+								</div>
+								<div class="media-body p-2 mt-3">
+									<h3 class="heading">부캐 수업 오픈 및 운영</h3>
+									<p>부캐는 자유로운 수업 방식을 추구합니다. 수업이 오픈 되면 모객을 위한 각종 홍보 활동을 진행합니다.</p>
 								</div>
 							</div>
 						</div>
@@ -402,33 +461,21 @@
 									<span class="flaticon-layers"></span>
 								</div>
 								<div class="media-body p-2 mt-3">
-									<h3 class="heading">Architecture Support</h3>
-									<p>Even the all-powerful Pointing has no control about the
-										blind texts it is an almost unorthographic.</p>
+									<h3 class="heading">부캐 생생 후기</h3>
+									<p>실제 받은 수업의 후기만 작성 가능하므로 더욱 진솔한 수업의 면모를 드러낼 수 있습니다.</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6 d-flex align-items-stretch">
-							<div
-								class="media block-6 services services-2 d-block bg-light p-4 mb-4">
-								<div
-									class="icon d-flex justify-content-center align-items-center">
-									<span class="flaticon-layers"></span>
-								</div>
-								<div class="media-body p-2 mt-3">
-									<h3 class="heading">Renovation</h3>
-									<p>Even the all-powerful Pointing has no control about the
-										blind texts it is an almost unorthographic.</p>
-								</div>
-							</div>
 						</div>
-					</div>
-				</div>
+						</div>
+						
+					
+				<div class="col-md-2"></div>
 			</div>
 		</div>
 	</section>
-
-	<section class="ftco-section ftco-no-pb">
+	
+	<!-- 	<section class="ftco-section ftco-no-pb">
 		<div class="container">
 			<div class="row justify-content-start mb-5 pb-2">
 				<div class="col-md-4 heading-section ftco-animate">
@@ -571,15 +618,15 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 <!-- 후기 좋아요 탑3 -->
 	<section class="ftco-section testimony-section bg-light">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-light">Testimony</small></span>
-					<h2 class="mb-4">Our satisfied customer says</h2>
+						class="pr-2 bg-light">BUKKE</small></span>
+					<h2 class="mb-4">BEST REVIEW</h2>
 					<!-- <p>Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
 						Separated they live in</p> -->
@@ -726,10 +773,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
-	<section class="ftco-section">
+	<!-- <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
@@ -840,9 +886,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
-	<section class="ftco-section bg-light">
+<!-- 	<section class="ftco-section bg-light">
 		<div class="container">
 			<div class="row justify-content-start mb-5 pb-2">
 				<div class="col-md-4 heading-section ftco-animate">
@@ -941,9 +987,20 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
-	
+	<!-- IMAGE GIF -->
+	<section class="ftco-services" style="padding:0px;">
+		<div class="container">
+			<div class="row col-lg-12">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4">
+					<img src="https://team.frip.co.kr/static/media/phone-banner.1a4cdd7d.gif" />
+				</div>
+				<div class="col-lg-4"></div>
+			</div>
+		</div>
+	</section>
 
  
 

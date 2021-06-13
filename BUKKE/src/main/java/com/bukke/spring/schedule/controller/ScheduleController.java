@@ -49,19 +49,22 @@ public class ScheduleController {
     		String PayStatus = sList.get(i).getPayStatus();
     		int classNo = sList.get(i).getClassNo();
     		int activityNo = sList.get(i).getActivityNo();
+    		String title = sList.get(i).getTitle();
     		
     		if(PayStatus.equals("Y")) {
+    			sList.get(i).setTitle("<결제완료>"+title);
     			if(classNo == 0 && activityNo !=0) {
-    				sList.get(i).setColor("blue");
+    				sList.get(i).setColor("#4472c4");
     			}else {
-    				sList.get(i).setColor("green");
+    				sList.get(i).setColor("#70ad47");
     			}
     			
     		} else {
+    			sList.get(i).setTitle("<결제대기>"+title);
     			if(classNo == 0) {
-    				sList.get(i).setColor("yellow");
+    				sList.get(i).setColor("#cc0066");
     			}else {
-    				sList.get(i).setColor("#FF0000");
+    				sList.get(i).setColor("#e26714");
     			}
     		}
     	}

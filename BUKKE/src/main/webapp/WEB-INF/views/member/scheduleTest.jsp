@@ -206,7 +206,8 @@ nav>* {
 		          	title: '${schedule.title}',
 		          	start:'${schedule.startDate}',
 		          	end:'${schedule.endDate}',
-		          	color: '${schedule.color}'
+		          	color: '${schedule.color}',
+		          	textColor: 'white'
 		       },
 		      </c:forEach>
 		       ]

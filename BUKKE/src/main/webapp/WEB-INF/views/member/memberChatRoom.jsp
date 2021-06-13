@@ -189,23 +189,24 @@
 		</tr>
 	</thread>
 	<!-- <h1>채팅방</h1> -->
-	
 			
-				<tbody> 
-					<tr>
-						<c:forEach items="${roomList }" var="room">
-						<td>${room.roomNumber }</td>
-						<td>${room.roomName }</td>
-						<td>
-							<c:url var="rJoin" value="moveChatting.com">
-                     		<c:param name="roomName" value="${room.roomName }"></c:param>
-                     		<c:param name="roomNumber" value="${room.roomNumber }"></c:param>
-                  			</c:url>
-                  			<a href="${rJoin}">참여</a>
-						</td>
+			
+				<tbody>
+
+
+					<c:forEach items="${roomList }" var="room">
+						<tr>
+						<c:if test="${room.memberId eq loginMember.memberId }">
+							<td>${room.roomNumber }</td>
+							<td>${room.roomName }</td>
+							<td><c:url var="rJoin" value="moveChatting.com">
+									<c:param name="roomName" value="${room.roomName }"></c:param>
+									<c:param name="roomNumber" value="${room.roomNumber }"></c:param>
+								</c:url> <a href="${rJoin}">참여</a></td>
+						</c:if>
 						</tr>
-						</c:forEach> 
-					
+					</c:forEach>
+
 				</tbody>
 			
 		

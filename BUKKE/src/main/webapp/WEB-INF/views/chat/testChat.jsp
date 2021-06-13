@@ -57,6 +57,8 @@
 	
 	function chatLog() {
 		   var roomNumber = $("#roomNumber").val();
+		   var memberId2 = '${loginMember.memberId}';
+		   
 		      $.ajax({
 		         url : "/chatLogDate.com",
 		         type : "post",
@@ -69,10 +71,13 @@
 		            console.log(data);
 		            for(var i in data) {
 		               var html = "";
-		               if(data[i].memberId == memberId ){
+		               console.log(data[i]);
+		              
+		               if(data[i].memberId == memberId2 ){
 		            	  html += $("#chatting").append("<p class='me'>"+$("#memberNick").val()+" :" +data[i].msg+ "</p>");	
 		                  $("#chating").append(html);   
 		               }else {
+		            	   
 		            	  html += $("#chatting").append("<p class='others'>"+$("#shopId").val()+" :" +data[i].msg+ "</p>");
 		                  $("#chating").append(html);
 		               }

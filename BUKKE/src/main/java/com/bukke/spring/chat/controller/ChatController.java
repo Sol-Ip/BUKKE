@@ -99,7 +99,7 @@ public class ChatController {
 		roomList = chatService.printAllList(loginMember.getMemberId());
 		System.out.println(roomList.toString());
 		mv.addObject("roomList", roomList);
-
+		mv.addObject("loginMember",loginMember);
 		mv.setViewName("member/memberChatRoom");
 
 		return mv;
@@ -107,8 +107,10 @@ public class ChatController {
 
 	// 채팅 테스트
 	@RequestMapping(value = "chat.com", method = RequestMethod.GET)
-	public ModelAndView chatView() {
+	public ModelAndView chatView(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		Member loginMember = (Member)session.getAttribute("loginMember");
+		mv.addObject("memberId", loginMember.getMemberId());
 		mv.setViewName("chat/testChat");
 		return mv;
 	}

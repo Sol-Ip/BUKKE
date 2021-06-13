@@ -7,6 +7,7 @@ import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.member.domain.MemberPageInfo;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 public interface ActivityStore {
 	
@@ -43,6 +44,8 @@ public interface ActivityStore {
 	public ArrayList<Activity> selectAllActivityListbyId(MemberPageInfo actPi, String memberId);
 
 	public int getListCountShopId(String shopId); //업체회원 마이페이지 카운트
+
+	public ArrayList<Activity> selectShopActivityList(ShopPageInfo shopPi, String shopId); //업체 마이페이지 내 액티비티 조회
 
 //	public int selectListCountbyOneId(String memberId); //마이페이지 내 예약 조회
 //

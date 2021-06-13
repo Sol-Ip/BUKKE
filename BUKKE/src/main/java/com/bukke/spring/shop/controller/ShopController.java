@@ -20,12 +20,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.domain.Activity;
 import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
+import com.bukke.spring.common.ReviewPagination;
 import com.bukke.spring.common.ShopPagination;
 import com.bukke.spring.member.domain.Member;
 import com.bukke.spring.reservation.service.ReservationService;
+import com.bukke.spring.review.domain.ReviewComment;
+import com.bukke.spring.review.domain.ReviewPageInfo;
 import com.bukke.spring.shop.domain.Shop;
 import com.bukke.spring.shop.service.ShopService;
 
@@ -194,8 +198,22 @@ public class ShopController {
 		
 		// 업체 회원 액티비티 목록
 		@RequestMapping(value="shopActivityList.com")
-		public String shopActivityListView() {
-			return "shop/activityList";
+		public ModelAndView shopActivityListView(ModelAndView mv ,@RequestParam(value = "page", required = false) Integer page,HttpSession session) {
+			Shop loginShopper = (Shop) session.getAttribute("loginShopper");
+			String shopId = loginShopper.getShopId();
+			int currentPage = (page != null) ? page : 1;
+			
+			int listCount = cService.getListCountShopId(shopId);
+			ShopPageInfo shopPi = ShopPagination.getPageInfo(currentPage,listCount);
+			ArrayList<Activity> aList = aService.printAllActivityByShop(shopPi, shopId);
+			if(!aList.isEmpty()) {
+				mv.addObject("aList", aList);
+				mv.addObject("shopPi", shopPi);
+				mv.setViewName("shop/activityList");
+			}else {
+				mv.setViewName("shop/activityList");
+			}
+			return mv;
 		}
 		
 		// 업체 회원 마이페이지 수업 목록
@@ -203,4 +221,31 @@ public class ShopController {
 		public String shopScheduleView() {
 			return "shop/shopSchedule";
 		}
+		
+//		//업체회원 댓글목록
+//		@RequestMapping(value="shopComment")
+//		public ModelAndView rListViewbyId(ModelAndView mv,
+//				@RequestParam(value = "page", required = false) Integer page, HttpSession session) {
+//			Shop loginShoper = (Shop) session.getAttribute("loginShopper");
+//			String memberId = loginShoper.getShopId();
+//			int currentPage = (page != null) ? page : 1;
+//
+//			int listCount = sService.getCommentListCountById(memberId);
+//			ReviewPageInfo pi = ReviewPagination.getPageInfo(currentPage, listCount);
+//			ArrayList<ReviewComment> rcList = rService.printAllCommentbyId(pi, memberId);
+//			if (!rcList.isEmpty()) {
+//				mv.addObject("rcList", rcList);
+//				mv.addObject("pi", pi);
+//				mv.setViewName("member/memberCommentListView");
+//
+//			} else {
+//				/*
+//				 * mv.addObject("msg", "작성한 댓글이 없습니다"); 
+//				 * mv.setViewName("common/errorPage");
+//				 */
+//				mv.addObject("rcList", rcList);
+//				mv.setViewName("member/memberCommentListView");
+//			}
+//			return mv;
+//}
 }

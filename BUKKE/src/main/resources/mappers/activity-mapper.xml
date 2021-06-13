@@ -154,5 +154,10 @@
    <select id="selectListActivityCountShopId" resultType="_int">
       SELECT COUNT(*) FROM ACTIVITY WHERE SHOP_ID =#{shopId} AND ACTIVITY_STATUS='Y'
    </select>
+   
+   <!-- 업체 마이페이지 액티비티 리스트 -->
+   <select id="selectAllActivityListbyShop" resultMap="ActivityResultMap">
+   	 SELECT * FROM ACTIVITY WHERE SHOP_ID = #{shopId} AND ACTIVITY_STATUS= 'Y'
+   </select>
 	
 </mapper>

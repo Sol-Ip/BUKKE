@@ -75,6 +75,7 @@
 
                         <ul class="collapse__menu">
                             <a href="reservationList.com" class="collapse__sublink">수업 목록</a>
+                            <a href="#" class="collapse__sublink">수업 일정</a>
                         </ul>
                     </div>
 
@@ -85,8 +86,8 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="ActivityListbyId.com" class="collapse__sublink">등록한 액티비티</a>
-                            <a href="#" class="collapse__sublink">등록한 클래스</a>
+                            <a href="shopActivityList.com" class="collapse__sublink">등록한 액티비티</a>
+                            <a href="shopClassList.com" class="collapse__sublink">등록한 클래스</a>
                             <a href="#" class="collapse__sublink">작성한 댓글</a>
                         </ul>
                     </div>

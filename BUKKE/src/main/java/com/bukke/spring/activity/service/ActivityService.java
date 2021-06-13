@@ -10,6 +10,7 @@ import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.keep.domain.KeepPageInfo;
 import com.bukke.spring.member.domain.MemberPageInfo;
 import com.bukke.spring.reservation.domain.Reservation;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 public interface ActivityService {
 	
@@ -48,6 +49,9 @@ public interface ActivityService {
 	public ArrayList<Activity> printAllActivityById(MemberPageInfo actPi, String memberId);
 
 	public int getListCountShop(String shopId); //업체회원 마이페이지 카운트
+
+	public ArrayList<Activity> printAllActivityByShop(ShopPageInfo shopPi, String shopId); // 업체회원 액티비티 확인
+
 
 
 //	public int getactListMyId(String memberId); //마이페이지 내 예약 확인하기

@@ -13,6 +13,7 @@ import com.bukke.spring.activity.domain.ActivityPageInfo;
 import com.bukke.spring.activity.domain.ActivitySearch;
 import com.bukke.spring.activity.store.ActivityStore;
 import com.bukke.spring.member.domain.MemberPageInfo;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 @Repository
 public class ActivityStoreLogic implements ActivityStore {
@@ -114,6 +115,14 @@ public class ActivityStoreLogic implements ActivityStore {
 	public int getListCountShopId(String shopId) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("activityMapper.selectListActivityCountShopId",shopId);
+	}
+
+	@Override
+	public ArrayList<Activity> selectShopActivityList(ShopPageInfo shopPi, String shopId) {
+		// TODO Auto-generated method stub
+		int offset = (shopPi.getCurrentPage() - 1) * shopPi.getBoardLimit();
+		RowBounds rowBounds = new RowBounds(offset, shopPi.getBoardLimit());
+		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityListbyShop", shopId, rowBounds);
 	}
 
 	

@@ -13,6 +13,7 @@ import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.activity.store.ActivityStore;
 import com.bukke.spring.bukkeclass.domain.PageInfo;
 import com.bukke.spring.member.domain.MemberPageInfo;
+import com.bukke.spring.shop.controller.ShopPageInfo;
 
 @Service
 public class ActivityServiceImpl implements ActivityService {
@@ -116,7 +117,12 @@ public class ActivityServiceImpl implements ActivityService {
 		return aStore.getListCountShopId(shopId);
 	}
 
+	@Override
+	public ArrayList<Activity> printAllActivityByShop(ShopPageInfo shopPi, String shopId) {
+		// TODO Auto-generated method stub
+		return aStore.selectShopActivityList(shopPi,shopId);
 
+	}
 
 //	//마이페이지 내 예약 확인 카운트
 //	@Override

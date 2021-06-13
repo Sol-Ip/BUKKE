@@ -15,8 +15,22 @@
 <!-- tab -->
 <link rel="stylesheet" href="../resources/css/mypage/tab.css"> 
 <link rel="stylesheet" href="../resources/css/shop/shopList.css"> 
-<style>
+<style type="text/css">
+ #btbt{
+ 	font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
 
+  display: inline-block;
+  width: auto;
+
+  border: none;
+  border-radius: 4px;
+  color: blue;
+  background-color: white;
+ }
 </style>
 </head>
 <body>
@@ -140,7 +154,7 @@
 				<div class="row justify-content-center">
 					<div class="col-md-4 heading-section ftco-animate">
 						<span class="subheading subheading-with-line"><small
-							class="pr-2 bg-light">ACTIVITY & CLASS LIST</small></span>
+							class="pr-2 bg-light">CLASS LIST</small></span>
 						<h2 class="mb-4">SEARCH</h2>
 					</div>
 					
@@ -191,7 +205,7 @@
 	 <c:forEach items="${bList }" var="bList">
   <div class="card">
     <div class="card__image-holder">
-      <img class="card__image" src="../resources/bClassFiles/${bList.cRenameFilename }" alt="wave" />
+      <img class="card__image" style="width: 100%" src="../resources/bClassFiles/${bList.cRenameFilename }" alt="wave" />
     </div>
     <div class="card-title">
       <a href="#" class="toggle-info btn">
@@ -211,7 +225,7 @@
 			</c:url>
       <div class="card-flap flap2">
         <div class="card-actions">
-          <a href="${bDetail}">Read more</a>
+          <button onclick="location.href = '${bDetail}' " id="btbt">Click</button>
         </div>
       </div>
     </div>
@@ -272,35 +286,35 @@
             <div class="block-27">
               <!-- 이전 --> 
               <ul>
-	            <c:url var="before" value="reservationList.com">
-	               <c:param name="page" value="${pi.currentPage - 1 }"></c:param>
+	            <c:url var="before" value="shopClassList.com">
+	               <c:param name="page" value="${shopPi.currentPage - 1 }"></c:param>
 	            </c:url>
-	            <c:if test="${pi.currentPage <= 1 }">
+	            <c:if test="${shopPi.currentPage <= 1 }">
 	               <li><a href="#" onclick="firstPage()">&lt;</a></li>
 	            </c:if>
-	            <c:if test="${pi.currentPage > 1 }">
+	            <c:if test="${shopPi.currentPage > 1 }">
 	               <li><a href="${before }">&lt;</a></li>
 	            </c:if>
 	            <!-- 페이지 -->
-                <c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage }">
-	               <c:url var="pagination" value="reservationList.com">
+                <c:forEach var="p" begin="${shopPi.startPage }" end="${shopPi.endPage }">
+	               <c:url var="pagination" value="shopClassList.com">
 	                  <c:param name="page" value="${p }"></c:param>
 	               </c:url>
-	               <c:if test="${p eq pi.currentPage }">
-						<li class="active"><span>${p }</span></li>
+	               <c:if test="${p eq shopPi.currentPage }">
+						<li class="active" style="background-color: white;"><span>${p }</span></li>
 					</c:if>
-	               <c:if test="${p ne pi.currentPage }">
+	               <c:if test="${p ne shopPi.currentPage }">
 	                  <li><a href="${pagination }">${p }</a></li>
 	               </c:if>
             	</c:forEach>
             	<!-- 다음 -->
-	            <c:url var="after" value="reservationList.com">
-	               <c:param name="page" value="${pi.currentPage + 1 }"></c:param>
+	            <c:url var="after" value="shopClassList.com">
+	               <c:param name="page" value="${shopPi.currentPage + 1 }"></c:param>
 	            </c:url>
-	            <c:if test="${pi.currentPage >= pi.maxPage }">
+	            <c:if test="${shopPi.currentPage >= shopPi.maxPage }">
 	               <li><a href="#" onclick="lastPage()">&gt;</a></li>
 	            </c:if>
-	            <c:if test="${pi.currentPage < pi.maxPage }">
+	            <c:if test="${shopPi.currentPage < shopPi.maxPage }">
 	               <li><a href="${after }">&gt;</a></li>
 	            </c:if>
               </ul>

@@ -50,10 +50,9 @@
       <div class="container">
          <div class="row no-gutters slider-text align-items-center justify-content-center" style="height:240px;">
             <div class="col-md-9 ftco-animate text-center">
-               <h1 class="mb-2 bread">OPEN MYPAGE</h1>
+               <h1 class="mb-2 bread">MY PAGE</h1>
                <p class="breadcrumbs">
-                  <span class="mr-2"><a href="home.com">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-                  <span>MyPage <i class="ion-ios-arrow-forward"></i></span>
+                  <span class="mr-2"><a href="shopMyPage.com">MY INFORMATION</a></span> 
                </p>
             </div>
          </div>

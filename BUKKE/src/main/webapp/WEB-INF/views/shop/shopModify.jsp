@@ -62,22 +62,21 @@ input:read-only {
 </head>
 <body>
 	<!-- fixed section -->
-	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/mypageuser_1.jpg'); background-position:50% 80%;"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">MY INFORMATION</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="memberMyPage.com">MY INFORMATION</a></span>
-					</p>
-				</div>
-			</div>
-		</div>
-		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
-	</section>
+   <section class="hero-wrap hero-wrap-2"
+       style="background-color: yellow;"
+      data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+         <div class="row no-gutters slider-text align-items-center justify-content-center" style="height:240px;">
+            <div class="col-md-9 ftco-animate text-center">
+               <h1 class="mb-2 bread">MY INFORMATION</h1>
+               <p class="breadcrumbs">
+                  <span class="mr-2"><a href="shopMyPage.com">MY INFORMATION</a></span>
+               </p>
+            </div>
+         </div>
+      </div>
+      </section>
 	 <!-- fixed section END-->
 	 
 	 
@@ -86,57 +85,63 @@ input:read-only {
 			<div class="text-left">
 				<h3 class="mt-4 mb-2">회원정보수정</h3>
 			</div>
-			<form action="modifyMember.com" id="modifyform" method="post">
+			<form action="modifyShop.com" id="modifyform" method="post">
 				<hr>
 				<div class="form-group">
-					<label for="memberId">아이디</label><input
-						type="text" class="form-control" id="memberId" name="memberId"
-						value="${loginMember.memberId}" readonly>
+					<label for="shopId">아이디</label> <input
+						type="text" class="form-control" id="shopId" name="shopId"
+						value="${loginShopper.shopId}" readonly>
 				</div>
 				<div class="form-group">
-					<label for="memberPw_re">비밀번호 확인</label> <input type="password"
-						class="form-control" id="memberPw_re" name="memberPw_re"
+					<label for="shopPw_re">비밀번호 확인</label> <input type="password"
+						class="form-control" id="shopPw_re" name="shopPw_re"
 						placeholder="비밀번호를 입력해주세요">
 					<div class="invalid-pw_re invalid-check">필수 정보입니다.</div>
 				</div>
 				<hr>
 				<div class="form-group">
-					<label for="memberName">이름</label> <input type="text"
-						class="form-control" id="memberName" name="memberName"
-						value="${loginMember.memberName}">
-					<div class="invalid-name invalid-check">필수 정보입니다.</div>
+					<label for="ceoName">대표자명</label> <input type="text"
+						class="form-control" id="ceoName" name="ceoName"
+						value="${loginShopper.ceoName}">
+					<div class="invalid-check invalid-name">필수 정보입니다.</div>
 				</div>
 				<div class="form-group">
-					<label for="memberNick">부캐명</label> <input type="text"
-						class="form-control" id="memberNick" name="memberNick"
-						value="${loginMember.memberNick}">
-					<div class="invalid-nick invalid-check">필수 정보입니다.</div>
+					<label for="shopName">업체명</label> <input type="text"
+						class="form-control" id="shopName" name="shopName"
+						value="${loginShopper.shopName}">
+					<div class="invalid-check invalid-shop">필수 정보입니다.</div>
 				</div>
 				<hr>
 				<div class="form-group">
-					<label for="memberAddr1">도로명주소
+					<label for="shopAddr1">도로명주소
 						<button type="button" class="btn btn-default btn-sm"
 							id="postSearch">주소찾기</button>
 					</label> <input type="text" class="form-control postcodify_address"
-						id="memberAddr1" name="memberAddr1" readonly>
+						id="shopAddr1" name="shopAddr1" readonly>
 					<div class="invalid-addr invalid-check">필수 정보입니다.</div>
 				</div>
 				<div class="form-group">
-					<label for="memberAddr2">상세주소</label> <input type="text"
-						class="form-control" id="memberAddr2" name="memberAddr2">
+					<label for="shopAddr2">상세주소</label> <input type="text"
+						class="form-control" id="shopAddr2" name="shopAddr2">
 				</div>
 				<hr>
 				<div class="form-group">
-					<label for="memberPhone">전화번호</label> <input type="text"
-						class="form-control" id="memberPhone" name="memberPhone"
-						value="${loginMember.memberPhone}">
+					<label for="shopPhone">연락처</label> <input type="text"
+						class="form-control" id="shopPhone" name="shopPhone"
+						value="${loginShopper.shopPhone}">
 					<div class="invalid-phone invalid-check">필수 정보입니다.</div>
 				</div>
 				<div class="form-group">
-					<label for="memberEmail">이메일</label> <input type="text"
-						class="form-control" id="memberEmail" name="memberEmail"
-						value="${loginMember.memberEmail}">
+					<label for="shopEmail">이메일</label> <input type="text"
+						class="form-control" id="shopEmail" name="shopEmail"
+						value="${loginShopper.shopEmail}">
 					<div class="invalid-email invalid-check">필수 정보입니다.</div>
+				</div>
+				<div class="form-group">
+					<label for="crnNo">사업자번호</label> <input type="text"
+						class="form-control" id="crnNo" name="crnNo"
+						value="${loginShopper.crnNo}">
+					<div class="invalid-email invalid-crn">필수 정보입니다.</div>
 				</div>
 				<div class="text-center">
 					<button type="button" id="form-submit" class="btn btn-dark signUp">가입하기</button>

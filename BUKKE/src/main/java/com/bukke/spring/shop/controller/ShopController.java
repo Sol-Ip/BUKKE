@@ -167,13 +167,18 @@ public class ShopController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "shopModifyView.com", method = RequestMethod.GET)
+	public String shopModifyView() {
+		return "shop/shopModify";
+	}
 	
-	public String modifyShop() {
+	@RequestMapping(value = "modifyShop.com", method = RequestMethod.POST)
+	public String shopModify() {
 		return "";
 	}
 	
-	@RequestMapping(value="")
-	public String shopRegisterConfirm() {
+	// 업체회원 승인여부는 admincotroller에 있음
+		public String shopRegisterConfirm() {
 		return "";
 	}
 	
@@ -181,9 +186,9 @@ public class ShopController {
 		return "";
 	}
 
-	public String idDuplicateCheck() {
-		return "";
-	}
+//	public String idDuplicateCheck() {
+//		return "";
+//	}
 	
 		// 업체 회원 클래스 목록
 		@RequestMapping(value="shopClassList.com")

@@ -43,13 +43,6 @@
    	padding: 6px 24px;
    	margin-bottom: 13px;
    }
-   /* ajax 기다리는 동안 로딩아이콘 표시 */
-   #ajax_indicator {
-   	width: 2rem;
-   	height: 2rem;
-   	display: none;
-   	margin-left: 10px;
-   }
 /* .banner {
 	background: linear-gradient(270deg, rgba(41, 206, 140, 1) 0%,
 		rgba(40, 189, 168, 1) 100%);
@@ -98,7 +91,7 @@ input:read-only {
 	<section class="member-wrapper">
 		<div class="container member-container">
 			<div class="text-left">
-				<h3 class="mt-2 mb-2">회원정보수정</h3>
+				<h3 class="mt-4 mb-2">회원정보수정</h3>
 			</div>
 			<form action="modifyKakaoUser.com" id="modifyform" method="post">
 				<hr>

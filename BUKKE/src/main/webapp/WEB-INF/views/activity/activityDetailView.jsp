@@ -304,6 +304,7 @@
 					<br>
 
 					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) ========== -->
+						<input type="hidden" id="shopId" name="shopId" value="${activity.shopId }">
 					<div class="sidebar-box ftco-animate">
 						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
 							<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의 또 다른 강좌</h4>
@@ -314,7 +315,6 @@
 						
 						<c:if test="${aList.size > 0 }">
 						<c:forEach items="${aList }" var="activity">
-						<input type="hidden" id="shopId" name="shopId" value="${activity.shopId }">
 							<div class="block-21 mb-4 d-flex">
 								<a class="blog-img mr-4"
 									style="background-image: url(resources/images/activityImageFiles/${activity.aRenameFilename});"></a>

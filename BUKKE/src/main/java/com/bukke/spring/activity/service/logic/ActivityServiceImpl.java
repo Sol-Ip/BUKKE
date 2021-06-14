@@ -38,7 +38,7 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 	
 	@Override
-	public ArrayList<Activity> printTopThreeActivity(Activity shopId) { // 액티비티 Top3
+	public ArrayList<Activity> printTopThreeActivity(String shopId) { // 액티비티 Top3
 		ArrayList<Activity> aList = aStore.selectTopThreeActivityList(shopId);
 		return aList;
 	}

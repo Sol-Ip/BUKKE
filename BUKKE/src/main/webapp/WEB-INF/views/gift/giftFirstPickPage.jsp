@@ -15,132 +15,170 @@
 	.banner {
 		background-color: rgb(255, 81, 114);
 	}
-	/*Lets start with the cloud formation rather*/
-
-/*The container will also serve as the SKY*/
-
-*{ margin: 0; padding: 0;}
-
-body {
-  /*To hide the horizontal scroller appearing during the animation*/
-  overflow: hidden;
+	#clcl {
+  background: #00b4ff;
+  color: #333;
+  font: 100% Arial, Sans Serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-#clouds{
-  padding: 100px;
-  background: #c9dbe9;
-  background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-  background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
-  background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-  height: 200px;
+#clcl-wrap {
+    bottom: 0;
+  left: 0;
+  padding-top: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
 }
 
-/*Time to finalise the cloud shape*/
-.cloud {
-  width: 200px; height: 70px;
-  background: #fff;
-  
-  border-radius: 200px;
-  -moz-border-radius: 200px;
-  -webkit-border-radius: 200px;
-  
-  position: relative; 
+/* KEYFRAMES */
+
+@-webkit-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
 }
 
-.cloud:before, .cloud:after {
-  content: '';
-  position: absolute; 
-  background: #fff;
-  width: 100px; height: 80px;
-  position: absolute; top: -15px; left: 10px;
-  
-  border-radius: 100px;
-  -moz-border-radius: 100px;
-  -webkit-border-radius: 100px;
-  
-  -webkit-transform: rotate(30deg);
-  transform: rotate(30deg);
-  -moz-transform: rotate(30deg);
+@-moz-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
 }
 
-.cloud:after {
-  width: 120px; height: 120px;
-  top: -55px; left: auto; right: 15px;
+@keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
 }
 
-/*Time to animate*/
+/* ANIMATIONS */
+
 .x1 {
-  -webkit-animation: moveclouds 15s linear infinite;
-  -moz-animation: moveclouds 15s linear infinite;
-  -o-animation: moveclouds 15s linear infinite;
+  -webkit-animation: animateCloud 35s linear infinite;
+  -moz-animation: animateCloud 35s linear infinite;
+  animation: animateCloud 35s linear infinite;
+  
+  -webkit-transform: scale(0.65);
+  -moz-transform: scale(0.65);
+  transform: scale(0.65);
 }
 
-/*variable speed, opacity, and position of clouds for realistic effect*/
 .x2 {
-  left: 200px;
+  -webkit-animation: animateCloud 20s linear infinite;
+  -moz-animation: animateCloud 20s linear infinite;
+  animation: animateCloud 20s linear infinite;
   
-  -webkit-transform: scale(0.6);
-  -moz-transform: scale(0.6);
-  transform: scale(0.6);
-  opacity: 0.6; /*opacity proportional to the size*/
-  
-  /*Speed will also be proportional to the size and opacity*/
-  /*More the speed. Less the time in 's' = seconds*/
-  -webkit-animation: moveclouds 25s linear infinite;
-  -moz-animation: moveclouds 25s linear infinite;
-  -o-animation: moveclouds 25s linear infinite;
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  transform: scale(0.3);
 }
 
 .x3 {
-  left: -250px; top: -200px;
+  -webkit-animation: animateCloud 30s linear infinite;
+  -moz-animation: animateCloud 30s linear infinite;
+  animation: animateCloud 30s linear infinite;
   
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  transform: scale(0.8);
-  opacity: 0.8; /*opacity proportional to the size*/
-  
-  -webkit-animation: moveclouds 20s linear infinite;
-  -moz-animation: moveclouds 20s linear infinite;
-  -o-animation: moveclouds 20s linear infinite;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  transform: scale(0.5);
 }
 
 .x4 {
-  left: 470px; top: -250px;
+  -webkit-animation: animateCloud 18s linear infinite;
+  -moz-animation: animateCloud 18s linear infinite;
+  animation: animateCloud 18s linear infinite;
   
-  -webkit-transform: scale(0.75);
-  -moz-transform: scale(0.75);
-  transform: scale(0.75);
-  opacity: 0.75; /*opacity proportional to the size*/
-  
-  -webkit-animation: moveclouds 18s linear infinite;
-  -moz-animation: moveclouds 18s linear infinite;
-  -o-animation: moveclouds 18s linear infinite;
+  -webkit-transform: scale(0.4);
+  -moz-transform: scale(0.4);
+  transform: scale(0.4);
 }
 
 .x5 {
-  left: -150px; top: -150px;
+  -webkit-animation: animateCloud 25s linear infinite;
+  -moz-animation: animateCloud 25s linear infinite;
+  animation: animateCloud 25s linear infinite;
   
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  transform: scale(0.8);
-  opacity: 0.8; /*opacity proportional to the size*/
-  
-  -webkit-animation: moveclouds 20s linear infinite;
-  -moz-animation: moveclouds 20s linear infinite;
-  -o-animation: moveclouds 20s linear infinite;
+  -webkit-transform: scale(0.55);
+  -moz-transform: scale(0.55);
+  transform: scale(0.55);
 }
 
-@-webkit-keyframes moveclouds {
-  0% {margin-left: 1000px;}
-  100% {margin-left: -1000px;}
+/* OBJECTS */
+
+.cloud {
+  background: #fff;
+  background: -moz-linear-gradient(top,  #fff 5%, #f1f1f1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#fff), color-stop(100%,#f1f1f1));
+  background: -webkit-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+  background: -o-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+  background: -ms-linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+  background: linear-gradient(top,  #fff 5%,#f1f1f1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1',GradientType=0 );
+  
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  
+  -webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+
+  height: 120px;
+  position: relative;
+  width: 350px;
 }
-@-moz-keyframes moveclouds {
-  0% {margin-left: 1000px;}
-  100% {margin-left: -1000px;}
+
+.cloud:after, .cloud:before {
+    background: #fff;
+  content: '';
+  position: absolute;
+  z-indeX: -1;
 }
-@-o-keyframes moveclouds {
-  0% {margin-left: 1000px;}
-  100% {margin-left: -1000px;}
+
+.cloud:after {
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+
+  height: 100px;
+  left: 50px;
+  top: -50px;
+  width: 100px;
+}
+
+.cloud:before {
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  border-radius: 200px;
+
+  width: 180px;
+  height: 180px;
+  right: 50px;
+  top: -90px;
+}
+
+@font-face {
+     font-family: 'DungGeunMo';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+#fon1{
+    font-family: 'DungGeunMo';
+    font-size: 60px;
 }
 </style>
 </head>
@@ -159,19 +197,37 @@ body {
 	</div>
 </section>
 	
-	<section>
-		<%-- <div class="container ftco-animate" align="center">
+			
+			<section>
+			<div id="clcl">
+<div id="background-wrap">
+
+    <div class="x2">
+        <div class="cloud"></div>
+    </div>
+
+    <div class="x1">
+        <div class="cloud"></div>
+    </div>
+
+    <div class="x3">
+        <div class="cloud"></div>
+    </div>
+
 			<br>
 			<br>
-			<br>
-			<h1>선물을 고민하고 계신가요?</h1>
-			<h1>알맞은 선물을 추천해드려요</h1>
-			<br>
-			<br>
-			<h2>클릭 몇번으로 선물을 추천드려요</h2>
+			<div align="center">
+			<div id="fon1" style="font: bold;">
+			<h1>취미를 고민하고 계신가요?</h1>
+			<h1>알맞은 취미를 추천해드려요😎</h1>
+			</div>
+			<br><br>
+    		<div id="fon1">
+			<h2>클릭 몇번으로 취미를 발견!</h2>
 			<h2>버튼을 누르시면 해당 영역으로 이동합니다</h2>
-			<br>
-			<br>
+			</div>
+			<br><br>
+			</div>
 			<div align="center">
 				<c:url var="bukkeClass" value="giftBukkeClass.com">
 					
@@ -180,57 +236,27 @@ body {
 				<c:url var="activity" value="giftActivity.com">
 					
 				</c:url>
-				<a href="${bukkeClass }"><input class="btn btn-lg btn-danger" type="submit" value="선물하기"></a> &nbsp;&nbsp;
+				<a href="${bukkeClass }"><input class="btn btn-lg btn-danger" type="submit" value="클래스"></a> &nbsp;&nbsp;
 				<a href="${activity }"><input class="btn btn-lg btn-primary r" type="submit" value="액티비티"></a>
 			</div>
 			<br>
 			<br>
 			<br>
 			<br>
+			<div class="x3">
+        <div class="cloud"></div>
+    		</div>
+    <div class="x4">
+        <div class="cloud"></div>
+    </div>
 
-		</div> --%>
-		<!--
-So we will have an animated background with 5 clouds moving across the screen.
-Steps: 
-1. create the clouds
-2. Animate them to move across the screen
-3. Stylize the clouds(can be done as step #2 also)
--->
-<div id="clouds" style="height: 1000px;">
-  <div class="cloud x1"></div>
-  <!-- Time for multiple clouds to dance around -->
-  <div class="cloud x2"></div>
-  <div class="cloud x3"></div>
-  <div class="cloud x4"></div>
-  <div class="cloud x5"></div>
-  <div align="center">
-  <h1>선물을 고민하고 계신가요?</h1>
-			<h1>알맞은 선물을 추천해드려요</h1>
-			<br>
-			<br>
-			<h2>클릭 몇번으로 선물을 추천드려요</h2>
-			<h2>버튼을 누르시면 해당 영역으로 이동합니다</h2>
-			<br>
-			<br>
-	</div>
-			<div align="center">
-				<c:url var="bukkeClass" value="giftBukkeClass.com">
-					
-				</c:url>
-		
-				<c:url var="activity" value="giftActivity.com">
-					
-				</c:url>
-				<a href="${bukkeClass }"><input class="btn btn-lg btn-danger" type="submit" value="선물하기"></a> &nbsp;&nbsp;
-				<a href="${activity }"><input class="btn btn-lg btn-primary r" type="submit" value="액티비티"></a>
+    <div class="x5">
+        <div class="cloud"></div>
+    </div>
+</div>
+<br>
 		</div>
-<!-- Thats the markup! -->
-<!-- That looks cool. We are done!! -->
-
-
-
-<!--  Disregard --><a style="position: fixed; bottom: 10px; right: 10px;color:#CCC" href="https://plus.google.com/111052275277622928148?rel=me">Google+</a>
-	</section>
+		</section>
 </body>
 </html>
 <jsp:include page="../common/footer.jsp"></jsp:include>

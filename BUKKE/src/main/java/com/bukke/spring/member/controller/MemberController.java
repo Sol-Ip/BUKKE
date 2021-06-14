@@ -405,13 +405,15 @@ public class MemberController {
 	public ModelAndView modifyKakaoUser(@ModelAttribute Member member, @RequestParam("memberAddr1") String memberAddr1,
 			@RequestParam("memberAddr2") String memberAddr2, HttpSession session,
 			ModelAndView mv) {
+		Member loginMember = (Member) session.getAttribute("loginMember");
 		String memberAddr = memberAddr1 + "," + memberAddr2;
-		member.setMemberAddr(memberAddr);
+		loginMember.setMemberAddr(memberAddr);
+		loginMember.setMemberNick(member.getMemberNick());
+		loginMember.setMemberPhone(member.getMemberPhone());
 //		HttpSession session = request.getSession();
-
-//		session.setAttribute("loginMember", member);
-		session.setAttribute("loginMember", member);
-		int result = mService.modifykakaoMember(member);
+//		session.setAttribute("loginMember", loginMember);
+		session.setAttribute("loginMember", loginMember);
+		int result = mService.modifykakaoMember(loginMember);
 		if (result > 0) {
 			mv.addObject("msg", "success");
 		} else {

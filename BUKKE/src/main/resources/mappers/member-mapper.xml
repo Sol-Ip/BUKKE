@@ -51,7 +51,7 @@
 	<update id="updateKakaoUser" parameterType="Member">
 		UPDATE MEMBER
 		SET MEMBER_NICK = #{memberNick}, MEMBER_ADDR = #{memberAddr}, MEMBER_PHONE = #{memberPhone}
-		WHERE MEMBER_ID = #{memberId}
+		WHERE MEMBER_EMAIL = #{memberEmail}
 	</update>
 	
 	<update id="updatePw" parameterType="Member">

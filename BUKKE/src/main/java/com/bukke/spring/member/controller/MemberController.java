@@ -135,8 +135,8 @@ public class MemberController {
 		member.setMemberAddr(memberAddr);
 		int result = mService.registerMember(member);
 		if (result > 0) {
-			mv.addObject("msg", "member");
-			mv.setViewName("member/registerComplete");
+			
+			mv.setViewName("redirect:home.com");
 		} else {
 			mv.setViewName("redirect:home.com");
 		}

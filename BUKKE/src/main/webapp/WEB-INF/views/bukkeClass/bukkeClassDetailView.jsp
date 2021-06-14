@@ -39,6 +39,16 @@
   box-sizing: border-box;
 }
 
+.banner {
+      background-color: #8187dc;
+   }
+.banner * {
+   color: white;
+}
+.hero-wrap .overlay {
+	background-color: #f0efeb;
+}
+
 /* body {
   font-family: 'Rubik', sans-serif;
   font-size: 1rem;
@@ -178,7 +188,7 @@ $(document).ready(function() {
 
 <body>
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
+	<!-- <section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/bg_1.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
@@ -194,7 +204,19 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/bukkeClassImg/banner.jpg'); background-position:50% 80%;"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<h1 class="mb-2 bread" style="color:#595959;">Class</h1>
+					<p class="mr-2" style="color:#595959;">원하는 취미들을 마음껏 즐겨보세요</p>
+				</div>
+			</div>
+		</div>
+	</section>	
 	<!-- fixed section END-->
 
 	<!-- Class detail section-->

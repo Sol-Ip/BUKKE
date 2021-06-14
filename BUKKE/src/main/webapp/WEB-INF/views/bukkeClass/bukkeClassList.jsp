@@ -10,6 +10,16 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" href="resources/css/bClass-custom/bClassListView.css">
 <style>
+/* .banner {
+      background-color: #8187dc;
+   } */
+.banner * {
+   color: white;
+}
+
+.hero-wrap .overlay {
+	background-color: #f0efeb;
+}
 .form-control-borderless {
     border: none;
 }
@@ -21,19 +31,26 @@
 }
 
 .project:after {
-	background : #d1ccdc;
+	background : #e9ecd1;
+}
+
+.block-27 ul li.active a, .block-27 ul li.active span {
+	background:#ddbea9;
+}
+
+.block-27 ul li a, .block-27 ul li span {
+	border : 1px solid #bdc5dd;
 }
 
 /* .project:hover:after, .project:focus:after {
 	boder-radius : 30px;
 } */
 
-.banner {
-      background-color: #8187dc;
-   }
-.banner * {
-   color: white;
+.btn.btn-primary {
+	background: #e7cbb1;
+	border: 1px solid #e7cbb1;
 }
+
 
 
 /* 탭 css */
@@ -52,7 +69,7 @@
     border:1px solid #ededed;
     border-top: 2px solid #ededed;
     border-right: 0px none;
-    background: #7a81f4;
+    background: #f4cd8d;
     color:#fff;
     border-radius: 0px;
     margin-right: 0px;
@@ -109,12 +126,14 @@
 </style>
 </head>
 <body>
-	<section class="banner hero-wrap hero-wrap-2">
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/bukkeClassImg/banner.jpg'); background-position:50% 80%;"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Class</h1>
-					<p class="mr-2">원하는 취미들을 마음껏 즐겨보세요</p>
+					<h1 class="mb-2 bread" style="color:#595959;">Class</h1>
+					<p class="mr-2" style="color:#595959;">원하는 취미들을 마음껏 즐겨보세요</p>
 				</div>
 			</div>
 		</div>

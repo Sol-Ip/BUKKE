@@ -261,6 +261,7 @@ public class BukkeClassController {
 										@ModelAttribute BukkeClass bClass,
 										@RequestParam("classAddr1") String classAddr1,
 										@RequestParam("classAddr2") String classAddr2,
+										HttpSession session,
 										@RequestParam(value="reloadFile", required=false) MultipartFile reloadFile) {
 		// 파일 삭제 후 업로드 (수정)
 		if(reloadFile != null && !reloadFile.isEmpty()) {
@@ -278,6 +279,9 @@ public class BukkeClassController {
 		// DB 수정
 		bClass.setClassAddr(classAddr1 + ","+ classAddr2);
 		int result = bService.modifyBclass(bClass);
+		Shop loginShopper = (Shop)session.getAttribute("loginShopper");
+		String shopId = loginShopper.getShopId();
+		bClass.setShopId(shopId);
 		if(result > 0) {
 			mv.setViewName("redirect:bukkeClassList.com");
 		}else  {

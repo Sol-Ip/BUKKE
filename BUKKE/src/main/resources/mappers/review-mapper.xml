@@ -159,7 +159,7 @@
 	</select>
 	
 	<select id="selectReviewListbyId" resultMap="reviewResultMap">
-		SELECT * FROM REVIEW WHERE MEMBER_ID= #{memberId } ORDER BY REVIEW_NO DESC
+		SELECT * FROM REVIEW WHERE MEMBER_ID= #{memberId } AND REVIEW_STATUS = 'Y' ORDER BY REVIEW_NO DESC
 	</select>
 	<!-- 멤버 마이페이지 내가 쓴 후기글 전체조회 관련 기능 끝!-->
 	

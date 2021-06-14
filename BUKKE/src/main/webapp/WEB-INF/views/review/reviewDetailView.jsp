@@ -237,7 +237,7 @@
 						</c:url>
 						<!-- renameFilename 은 실제 저장된 파일 이름  -->
 						<c:url var="rDelete" value="reviewDelete.com">
-							<c:param name="reviewNo" value="${bukkeClass.classNo }"></c:param>
+							<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
 							<c:param name="rRenameFilename"
 								value="${review.rRenameFilename }"></c:param>
 						</c:url>

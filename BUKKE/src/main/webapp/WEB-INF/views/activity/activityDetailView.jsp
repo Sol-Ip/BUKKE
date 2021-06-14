@@ -309,37 +309,39 @@
 						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
 							<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의 또 다른 강좌</h4>
 						<hr>
-						<c:if test="${aList.size() == 0 }">
-							<div><p>등록한 액티비티가 없습니다.</p></div>
+						<c:if test="${aList.isEmpty() }">
+							<div><p>해당 외 따로 등록한 액티비티가 없습니다.</p></div>
 						</c:if>
 						
-						<c:if test="${aList.size > 0 }">
-						<c:forEach items="${aList }" var="activity">
+						<c:if test="${!aList.isEmpty() }">
+						<c:forEach items="${aList }" var="activity2">
+							<c:if test="${activity2.activityNo != activity.activityNo}">
 							<div class="block-21 mb-4 d-flex">
 								<a class="blog-img mr-4"
-									style="background-image: url(resources/images/activityImageFiles/${activity.aRenameFilename});"></a>
+									style="background-image: url(resources/images/activityImageFiles/${activity2.aRenameFilename});"></a>
 								<div class="text">
 
 									<h3 id="top-actname" class="heading">
 										<c:url var="aDetail" value="activityDetail.com">
-											<c:param name="activityNo" value="${activity.activityNo }"></c:param>
+											<c:param name="activityNo" value="${activity2.activityNo }"></c:param>
 										</c:url>
-										<a href="${aDetail}">[${activity.activityType}]&nbsp;${activity.activityName}</a>
+										<a href="${aDetail}">[${activity2.activityType}]&nbsp;${activity2.activityName}</a>
 									</h3>
 									<div class="meta">
 										<div>
-											<i class="far fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityStartdate}
+											<i class="far fa-calendar-alt fa-lg"></i>&nbsp;${activity2.activityStartdate}
 										</div>
 										<div>
-											<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;${activity.activityEnddate}
+											<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;${activity2.activityEnddate}
 										</div>
 										<div>
-											<i class="fas fa-arrow-circle-right fa-lg"></i>&nbsp;${activity.activityTypeDetails}
+											<i class="fas fa-arrow-circle-right fa-lg"></i>&nbsp;${activity2.activityTypeDetails}
 										</div>
 									</div>
 								</div>
 							</div>
 							<hr>
+							</c:if>
 						</c:forEach>
 						</c:if>
 					</div>

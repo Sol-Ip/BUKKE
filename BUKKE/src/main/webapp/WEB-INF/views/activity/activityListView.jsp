@@ -277,7 +277,7 @@
 								<a href="${aDetail}">${activity.activityName}</a>
 							</h3>
 							<br>
-							<span><b>${activity.shopId }</b></span>
+						<%-- 	<span><b>${activity.shopId }</b></span> --%>
 						</div>
 						<a href="resources/images/activityImageFiles/${activity.aRenameFilename}" class="icon image-popup d-flex justify-content-center align-items-center">
 								<span class="icon-expand"></span>

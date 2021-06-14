@@ -47,7 +47,7 @@
 	
 	<!-- 액티비티 TOP3 목록 ()-->
 	<select id="selectThreeActivityList" resultMap="ActivityResultMap">
-		SELECT * FROM (SELECT * FROM ACTIVITY ORDER BY ACTIVITY_END_DATE DESC) WHERE SHOP_ID = #{shopId} ROWNUM &lt;= 3 AND ACTIVITY_STATUS = 'Y'
+		SELECT * FROM (SELECT * FROM ACTIVITY ORDER BY ACTIVITY_END_DATE DESC ) WHERE SHOP_ID = #{shopId} AND ACTIVITY_STATUS = 'Y' AND ROWNUM &lt;= 3
 	</select>
 	
 	<!-- 액티비티 상세조회 -->

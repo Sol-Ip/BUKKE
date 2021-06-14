@@ -174,7 +174,7 @@ public class ActivityController {
 										HttpServletRequest request,
 										HttpSession session,
 										//@ModelAttribute Keep keep,
-										@RequestParam("shopId") String shopId,
+										
 										@RequestParam("activityNo") int activityNo) {
 		//조회 수 증가
 		//aService.addReadCountActivity(activityNo);
@@ -210,16 +210,19 @@ public class ActivityController {
 		}
 		
 		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회
-		ArrayList<Activity> aList = aService.printTopThreeActivity(shopId); // 상위 top3 용도
+		System.out.println("이액티비티의 샵 아이디는!?"+activity.getShopId());
+		ArrayList<Activity> aList = aService.printTopThreeActivity(activity.getShopId()); // 상위 top3 용도
 		int getActKeeps = kService.getActivityKeep(activityNo); // 액티비티 해당 게시글 당 찜 갯수 
 		ArrayList<Review> rList = rService.printReviewToActivity(activityNo); // 해당 액티비티에 따른 리뷰 글
 		
 		System.out.println("찜 갯수는 ? " + getActKeeps);
-		if(activity != null && !aList.isEmpty()) {
+		if(activity != null ) {
 			model.addAttribute("getActKeeps",getActKeeps);
+			System.out.println("aList는!? "+aList.toString());
 			model.addAttribute("aList", aList);
 			mv.addObject("rList", rList);
-			mv.addObject("activity", activity).setViewName("activity/activityDetailView");
+			mv.addObject("activity", activity);
+			mv.setViewName("activity/activityDetailView");
 		} else {
 			mv.addObject("msg", "액티비티 상세조회 실패");
 			mv.setViewName("common/errorPage");

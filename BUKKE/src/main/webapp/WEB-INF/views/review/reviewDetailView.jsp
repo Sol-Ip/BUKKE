@@ -237,7 +237,7 @@
 						<h2 class="mb-4">Comments</h2>&nbsp;
 						
 					</div> -->
-						<c:if test="${empty loginMember}">
+						<c:if test="${empty loginMember && empty loginShopper}">
 						<h2 align="center">로그인 후 댓글입력해주세요</h2>
 						</c:if>	
 				</div>
@@ -257,7 +257,7 @@
 			<!-- 댓글 등록2 -->
 			
 			<br><br>
-			<c:if test="${!empty loginMember}">
+			<c:if test="${!empty loginMember || !empty loginShopper}">
 			 <div class="comment-form">
 				<div class="form" name="form">
 					<div class="form-row">
@@ -346,7 +346,7 @@
 											comments +='</h3>';
 											comments +='<div class="meta mb-2">'+data[i].commentDate+'</div>';
 											comments +='<p>'+data[i].commentContents+'</p>';
-											comments +='<p><a href="#" class="reply">delete</a></p>';
+											comments +='<p><a href="#" >delete</a></p>';
 											comments +='</div>';
 											comments +='</li>';
 											comments +='</ul>';

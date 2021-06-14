@@ -71,7 +71,7 @@ public class ReviewController {
 		
 	}
 	
-	// �ı� �� ��ȸ
+	//후기 상세 디테일
 	@RequestMapping(value="reviewDetail.com", method=RequestMethod.GET)
 	public String reviewDetail(@RequestParam("reviewNo") int reviewNo,  Model model, HttpServletRequest request,HttpServletResponse response, HttpSession session) {
 		Review review = rService.printOneReview(reviewNo);
@@ -95,9 +95,9 @@ public class ReviewController {
 					 model.addAttribute("heartYN", heartYN); 
 				}
 		}
-			// 1check?���ƿ� ���θ� üũ���༭ ��Ʈ������ �����ش�
-		    int rLikes = rService.getReviewLike(reviewNo); // ���� �� reviewNo�� �޺κ� ����
-		    model.addAttribute("heart",rLikes);////////////////////////////////////////////////�̰� �ڲ� 0���ΰ���
+			
+		    int rLikes = rService.getReviewLike(reviewNo);
+		    model.addAttribute("heart",rLikes);
 		    System.out.println("좋아요몇개? "+ rLikes);
 		}
 	    
@@ -106,19 +106,17 @@ public class ReviewController {
 			model.addAttribute("review", review);
 			return "review/reviewDetailView";
 		}else {
-			model.addAttribute("msg", "�ı� ����ȸ ����");
+			model.addAttribute("msg", "후기가 없습니다");
 			return "common/errorPage";
 		}
 		
 	}
 	
-	// �ı� �˻� ���
+	//후기 검색
 	@RequestMapping(value="reviewSearch.com", method=RequestMethod.GET)
 	public String reviewSearch(@ModelAttribute ReviewSearch search, Model model) {
 		
-		// 2���� ���� �ϳ��� ��Ƽ� ������ ���
-		// 1. Domain(VO) Ŭ���� �̿�
-		// 2. HashMap ����ϱ�
+		
 		ArrayList<Review> searchList = rService.searchReview(search);
 		if(!searchList.isEmpty()) {
 			model.addAttribute("rList", searchList);
@@ -129,27 +127,7 @@ public class ReviewController {
 			return "common/errorPage";
 		}
 	}
-	///////////////////////////////////////////////////////////////////
-	//검색후 페이징 처리를 도전했으나.....................페이징은 계속 원본을 따라간다..
-	/*
-	 * @RequestMapping(value="reviewSearch.com", method=RequestMethod.GET) public
-	 * ModelAndView reviewSearch(ModelAndView
-	 * mv, @RequestParam(value="page",required=false) Integer page ,@ModelAttribute
-	 * ReviewSearch search, Model model) { int currentPage = (page != null) ? page :
-	 * 1; int listCount = rService.getListCount(); ReviewPageInfo pi =
-	 * ReviewPagination.getPageInfo(currentPage, listCount);
-	 * 
-	 * ArrayList<Review> searchList = rService.searchReview(search);
-	 * if(!searchList.isEmpty()) { mv.addObject("searchList", searchList);
-	 * mv.addObject("pi", pi); mv.setViewName("review/reviewListView"); }else {
-	 * mv.addObject("msg", "�Խñ� ��ü��ȸ ����"); mv.setViewName("common/errorPage");
-	 * } return mv; }
-	 */
-	
-		/////////////////////////////////////////////////////////////////////
-	
-	
-	
+
 	//후기 작성
 	@RequestMapping(value="reviewWriteView.com", method=RequestMethod.GET)
 	public String reviewEnrollView(@RequestParam("activityNo") int activityNo,@RequestParam("classNo") int classNo, Model model) {
@@ -185,25 +163,20 @@ public class ReviewController {
 		return mv;
 	}
 
-	//�ı� ���� ����
+	//파일저장
 	public String saveFile(MultipartFile file, HttpServletRequest request) {
-		// ���� ���� ��� ����
 		String root = request.getSession().getServletContext().getRealPath("resources");
 		String savePath = root + "\\reviewFiles";
-		// ���� ���� ����
 		File folder = new File(savePath);
-		// ���������� �ڵ� ����
 		if(!folder.exists()) {
 			folder.mkdir();
 		}
-		// ���ϸ� �����ϱ�
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 		String originalFileName = file.getOriginalFilename();
 		String renameFileName = sdf.format(new Date(System.currentTimeMillis())) 
 								+ "." + originalFileName.substring(originalFileName.lastIndexOf(".")+1);
-								// a.bc.jpg
+								
 		String filePath = folder + "\\" + renameFileName;
-		// ��������
 		try {
 			file.transferTo(new File(filePath));
 		} catch (IllegalStateException e) {
@@ -213,11 +186,10 @@ public class ReviewController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// ����
 		return renameFileName;
 	}
 	
-	// �ı� ���� ��
+	//후기 수정 페이지
 	@RequestMapping(value="reviewModifyView.com")
 	public ModelAndView reviewModifyView(ModelAndView mv, @RequestParam("reviewNo") int reviewNo) {
 
@@ -225,35 +197,35 @@ public class ReviewController {
 		if (review != null) {
 			mv.addObject("review", review).setViewName("review/reviewUpdateView");
 		} else {
-			mv.addObject("msg", "�Խñ� �� ��ȸ ����").setViewName("common/errorPage");
+			mv.addObject("msg", "잘못된 경로입니다").setViewName("common/errorPage");
 		}
 
 		return mv;
 	}
 	
-	// �ı� ���� ���
+	//후기 수정 기능
 	@RequestMapping(value="reviewUpdate.com", method=RequestMethod.POST)
 	public ModelAndView reviewUpdate(ModelAndView mv, HttpServletRequest request, @ModelAttribute Review review,
 			@RequestParam(value = "reloadFile", required = false) MultipartFile reloadFile) {
-			// ���� ���� �� ���ε� ( ���� )
+			
 		if (reloadFile != null && !reloadFile.isEmpty()) {
-				// ���� ���� ����
+				
 			if (review.getrOriginalFilename() != "") {
 				deleteFile(review.getrRenameFilename(), request);
 			}
-				// �� ���� ���ε�
+			
 			String renameFileName = saveFile(reloadFile, request);
 			if (renameFileName != null) {
 				review.setrOriginalFilename(reloadFile.getOriginalFilename());
 				review.setrRenameFilename(renameFileName);
 			}
 		}
-			// DB ����
+			
 		int result = rService.modifyReview(review);
 		if (result > 0) {
 			mv.setViewName("redirect:reviewList.com");
 		} else {
-			mv.addObject("msg", "�Խñ� ���� ����").setViewName("common/errorPage");
+			mv.addObject("msg", "잘못된 경로 입니다").setViewName("common/errorPage");
 		}
 		return mv;
 	}
@@ -266,26 +238,25 @@ public class ReviewController {
 		}
 	}
 	
-	// �Խñ� ����(�����δ� ���� ������Ʈ)
+	//후기 삭제
 	@RequestMapping(value = "reviewDelete.com", method = RequestMethod.GET)
 	public String reviewDelete(Model model, @RequestParam("reviewNo") int reviewNo,
 			@RequestParam("rRenameFilename") String rRenameFilename, HttpServletRequest request) {
-		// ���ε�� ���� ����
+		
 		if (rRenameFilename != "") {
 			deleteFile(rRenameFilename, request);
 		}
 
-		// ��� ������ ������Ʈ
 		int result = rService.removeReview(reviewNo);
 		if (result > 0) {
 			return "redirect:reviewList.com";
 		} else {
-			model.addAttribute("msg", "�Խñ� ���� ����");
+			model.addAttribute("msg", "잘못된 경로입니다");
 			return "common/errorPage";
 		}
 	}
 		
-	//��� ���
+	//댓글작성
 	@ResponseBody
 	@RequestMapping(value="addComment.com", method=RequestMethod.POST)
 	public String addComment(@ModelAttribute ReviewComment rComment, HttpSession session) {
@@ -299,7 +270,7 @@ public class ReviewController {
 		}
 	}
 	
-	//��� ����
+	//댓글삭제
 	@ResponseBody
 	@RequestMapping(value="deleteComment.com", method=RequestMethod.GET)
 	public String removeComment(@ModelAttribute ReviewComment rComment) {
@@ -311,44 +282,36 @@ public class ReviewController {
 		}
 	}
 	
-	//��� ����Ʈ ��ȸ
+	//댓글 리스트
 	@RequestMapping(value="commentList.com", method=RequestMethod.GET)
 	public void getCommentList(HttpServletResponse response, @RequestParam("reviewNo") int reviewNo) throws Exception {
 		ArrayList<ReviewComment> rcList = rService.printCommentAll(reviewNo);
 		if(!rcList.isEmpty()) {
-			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); // ��¥ ���� ����!
+			Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create(); 
 			gson.toJson(rcList, response.getWriter());
 		}else {
-			System.out.println("��� �����Ͱ� �����ϴ�.");
+			System.out.println("댓글이없습니다");
 		}
 	}
 	
 	
 	
-	// ��� ���� ���
+	//댓글 수정
 	public String commentUpdate() {
 		return null;
 	}
 	
 	
 	
-	//���ƿ� ��Ʈ
+	//좋아요
     @RequestMapping(value = "heart.com", method = RequestMethod.POST)
     public void heart(@ModelAttribute  ReviewLikes reviewLikes, HttpSession session, HttpServletResponse response) throws Exception {
 
         String heartYN = reviewLikes.getLikeCheck();
         System.out.println("heart�� :" +heartYN);
-        //int reviewNo = reviewLikes.getReviewNo();
-    //    Member loginMember = (Member)session.getAttribute("loginMember");
-        //String memberId = loginMember.getMemberId();
+   
         HashMap<String, Object> likeMap = new HashMap<String, Object>();
-        
-        //reviewLikes.setReviewNo(reviewNo);
-        //reviewLikes.setMemberId(memberId);
-        if(reviewLikes !=null) {
-        	System.out.println("reviewLikes ���� �ξƴ�");
-        	System.out.println("reviewLikes.likesNo �� : "+ reviewLikes.getLikesNo());
-        }
+  
         if(heartYN.equals("Y")) {
         	 rService.deleteReviewLike(reviewLikes);
         	 heartYN="N";
@@ -359,18 +322,7 @@ public class ReviewController {
         int likeCount = rService.getReviewLike(reviewLikes.getReviewNo());
         likeMap.put("likeCount",likeCount);
         likeMap.put("heartYN", heartYN);
-        
-        System.out.println(reviewLikes.getMemberId());
-        
-		/*
-		 * if(heart >= 1) { rService.deleteReviewLike(reviewLikes); heart=0;
-		 * ////////////////////////////////////////db�����޾ƿ��°������ؾ���
-		 * 
-		 * } else { rService.insertReviewLike(reviewLikes); heart=1;
-		 * //////////////////////////////////////// }
-		 */
-        //heart=rService.getReviewLike(reviewLikes);	
-        System.out.println("heart�� :" +heartYN);
+       
         new Gson().toJson(likeMap, response.getWriter());
     }
 	

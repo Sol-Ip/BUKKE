@@ -125,8 +125,8 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public ArrayList<Activity> printHomeTWoActivityListDesc() { // 액티비티 최근 글 상위2개 목록
-		ArrayList<Activity> twoActList = aStore.selectHomeTWoActivityListDesc();
+	public ArrayList<Activity> printHomeFourActivityListDesc() { // 액티비티 최근 글 상위2개 목록
+		ArrayList<Activity> twoActList = aStore.selectHomeFourActivityListDesc();
 		return twoActList;
 	}
 

@@ -126,7 +126,7 @@ public class ActivityStoreLogic implements ActivityStore {
 	}
 
 	@Override
-	public ArrayList<Activity> selectHomeTWoActivityListDesc() {
+	public ArrayList<Activity> selectHomeFourActivityListDesc() {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectHomeTwoActivityListDesc");
 	}
 

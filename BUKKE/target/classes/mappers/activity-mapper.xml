@@ -121,8 +121,8 @@
    
    
    <!--  ================== 인덱스 전용 ================== -->
-   <!-- 액티비티 최신 글 상위2개 목록 -->
-	<select id="selectHomeTwoActivityListDesc" resultMap="ActivityResultMap">
+   <!-- 액티비티 최신 글 상위4개 목록 -->
+	<select id="selectHomeFourActivityListDesc" resultMap="ActivityResultMap">
 	SELECT * FROM (SELECT ACTIVITY_NO, SHOP_ID, ACTIVITY_NAME, ACTIVITY_TYPE, 
     ACTIVITY_TYPEDETAILS, ACTIVITY_ENROLL_DATE, ACTIVITY_START_DATE, ACTIVITY_END_DATE, 
     A_ORIGINAL_FILENAME, A_RENAME_FILENAME FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_ENROLL_DATE DESC) WHERE ROWNUM &lt;= 2

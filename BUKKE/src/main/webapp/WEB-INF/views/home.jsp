@@ -226,19 +226,19 @@
 		</div>
 		 <div class="container">
 		<div class="row">
-		<c:forEach items="${fourClaList }" var="fourClaList">
+		<c:forEach items="${fourActList }" var="fourActList">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="staff">
-							<c:url var="cDetail" value="bukkeClassDetailView.com">
-								<c:param name="classNo" value="${fourClaList.classNo }"></c:param>
+							<c:url var="aDetail" value="activityDetail.com">
+								<c:param name="activityNo" value="${fourActList.activityNo }"></c:param>
 							</c:url>
 							<div class="img"
-							style="background-image: url(resources/bClassFiles/${fourClaList.cRenameFilename });"></div>
+							style="background-image: url(resources/images/activityImageFiles/${fourActList.aRenameFilename });"></div>
 						<div class="text px-4 pt-4">
-							<h3> [${fourClaList.classType}] ${fourClaList.className }</h3>
-							<a href="${cDetail }"><span class="position mb-2">${fourClaList.shopId} </span></a>
+							<h3> [${fourActList.activityType}] ${fourActList.activityName }</h3>
+							<a href="${aDetail }"><span class="position mb-2">${fourActList.shopId} </span></a>
 						 	<div class="faded">
-								<p>${fourClaList.classAddr }</p>
+								<p>${fourActList.activityAddr }</p>
 							<!--	<ul class="ftco-social d-flex">
 									<li class="ftco-animate"><a href="#"><span
 											class="icon-twitter"></span></a></li>

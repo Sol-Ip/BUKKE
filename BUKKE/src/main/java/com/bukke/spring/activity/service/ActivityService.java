@@ -52,7 +52,7 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printAllActivityByShop(ShopPageInfo shopPi, String shopId); // 업체회원 액티비티 확인
 
-	public ArrayList<Activity> printHomeTWoActivityListDesc(); // 액티비티 최근 글 상위2개 목록
+	public ArrayList<Activity> printHomeFourActivityListDesc(); // 액티비티 최근 글 상위4개 목록
 
 	public ArrayList<Activity> printGiftActivity(Activity activity);//추천하기용
 

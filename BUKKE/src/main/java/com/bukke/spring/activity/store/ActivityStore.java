@@ -47,7 +47,7 @@ public interface ActivityStore {
 
 	public ArrayList<Activity> selectShopActivityList(ShopPageInfo shopPi, String shopId); //업체 마이페이지 내 액티비티 조회
 
-	public ArrayList<Activity> selectHomeTWoActivityListDesc(); // 액티비티 최근 글 상위2개 목록
+	public ArrayList<Activity> selectHomeFourActivityListDesc(); // 액티비티 최근 글 상위2개 목록
 
 	public ArrayList<Activity> selectGiftListActivity(Activity activity);//추천하기용
 

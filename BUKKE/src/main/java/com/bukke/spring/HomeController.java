@@ -71,13 +71,13 @@ public class HomeController {
 		//좋아요 많은순 리스트 탑3개뽑기
 		ArrayList<Review> rListTopLikes = rService.printTopLikesReview();
 		// 액티비티 최근 글 상위2개 목록
-		ArrayList<Activity> twoActList = aService.printHomeTWoActivityListDesc(); 
+		ArrayList<Activity> fourActList = aService.printHomeFourActivityListDesc(); 
 		// 클래스 최근 글 상위4개 목록
 		ArrayList<BukkeClass> fourClaList = bService.printHomeFourClassListDesc();
 		
 		
 		model.addAttribute("rListTopLikes",rListTopLikes);
-		model.addAttribute("twoActList", twoActList);
+		model.addAttribute("fourActList", fourActList);
 		model.addAttribute("fourClaList", fourClaList);
 		
 		return "home";

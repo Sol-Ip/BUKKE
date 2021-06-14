@@ -75,10 +75,20 @@ public class HomeController {
 		// 클래스 최근 글 상위4개 목록
 		ArrayList<BukkeClass> fourClaList = bService.printHomeFourClassListDesc();
 		// 클래스 미술 
+		ArrayList<BukkeClass> artTwoList = bService.printHomeTwoArtClassList();
+		// 클래스 사진
+		ArrayList<BukkeClass> picTwoList = bService.printHomeTwoPicClassList();
+		// 액티비티 서핑
+		ArrayList<Activity> surfTwoList = aService.printHomeTwoSurfActivityList();
+		
 		
 		model.addAttribute("rListTopLikes",rListTopLikes);
 		model.addAttribute("fourActList", fourActList);
 		model.addAttribute("fourClaList", fourClaList);
+		model.addAttribute("artTwoList", artTwoList);
+		model.addAttribute("picTwoList", picTwoList);
+		model.addAttribute("surfTwoList", surfTwoList);
+		
 		
 		return "home";
 	}

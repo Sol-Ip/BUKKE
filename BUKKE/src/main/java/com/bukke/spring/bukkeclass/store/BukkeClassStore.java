@@ -78,4 +78,8 @@ public interface BukkeClassStore {
 
 	public ArrayList<BukkeClass> selectHomeFourClassListDesc(); // 클래스 최근 글 상위4개 목록
 
+	public ArrayList<BukkeClass> selectHomeTwoArtClassList();
+
+	public ArrayList<BukkeClass> selectHomeTwoPicClassList();
+
 }

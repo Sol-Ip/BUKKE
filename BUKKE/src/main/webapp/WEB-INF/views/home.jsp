@@ -185,7 +185,7 @@
 	<div class="container row ftco-animate"  style="margin:auto; padding: inherit;">
 		<h1 id="open-text" contenteditable spellcheck="false">new bukke class open!</h1>
 		</div>
-		 <div class="container">
+		 <div class="container" style="font-family: 'ELAND_Choice_M';">
 		<div class="row">
 		<c:forEach items="${fourClaList }" var="fourClaList">
 				<div class="col-md-6 col-lg-3 ftco-animate">
@@ -224,7 +224,7 @@
 	<div class="container row ftco-animate"  style="margin:auto; padding: inherit;">
 		<h1 id="open-text" contenteditable spellcheck="false">new activity open!</h1>
 		</div>
-		 <div class="container">
+		 <div class="container" style="font-family: 'ELAND_Choice_M';">
 		<div class="row">
 		<c:forEach items="${fourActList }" var="fourActList">
 				<div class="col-md-6 col-lg-3 ftco-animate">
@@ -310,26 +310,31 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="row col-lg-12">
-						<div class="col-lg-6" id="act-top2"">
+						<div class="col-lg-6" id="act-top2">
 							<img src="../resources/images/hobby2.jpg" class="d-block w-100"
 								alt="...">
 						</div>
 						<div class="col-lg-6" id="act-top2">
-						<div class="row">
-						<div class="col-md-12 ftco-animate">
-							<h1>액티비티 추천</h1>
-						</div>
-						</div>
 							<div class="row">
-								<!-- 액티비티 최근 글 2개 목록 -->
-								<c:forEach items="${twoActList }" var="twoActList">
+							<div class="col-md-12 ftco-animate" id="rcmd-title">
+								<h1 style="font-size:xx-large;">부캐가 추천합니다!🤩💖</h1>
+							</div>
+							</div>
+							<div class="row">
+								<!-- 클래스 미술 2개 목록 -->
+								<c:forEach items="${artTwoList }" var="artTwoList">
 								<div class="col-md-6 ftco-animate">
 									<div class="staff">
+										<c:url var="cDetail" value="bukkeClassDetailView.com">
+										<c:param name="classNo" value="${artTwoList.classNo }"></c:param>
+										</c:url>
 										<div class="img"
-											style="background-image: url(resources/images/activityImageFiles/${twoActList.aRenameFilename});"></div>
+											style="background-image: url(resources/bClassFiles/${artTwoList.cRenameFilename});"></div>
 										<div class="text px-4 pt-4">
-											<h3>${twoActList.activityName }</h3>
-											<span class="position mb-2">${twoActList.activityType} / ${twoActList.activityTypeDetails}</span>
+											<h3>${artTwoList.className }</h3>
+											<a href="${cDetail }"><span class="position mb-2">${artTwoList.shopId}</span></a>
+											<div class="faded">
+												<p>${artTwoList.classAddr }</p></div>
 										</div>
 									</div>
 								</div>
@@ -364,21 +369,73 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<div class="col-lg-12">
+					<div class="row col-lg-12">
 						<div class="col-lg-6">
 							<img src="../resources/images/hobby3.png" class="d-block w-100"
 								alt="...">
 						</div>
-						<div class="col-lg-6"></div>
+						<div class="col-lg-6" id="act-top2">
+						<div class="row">
+						<div class="col-md-12 ftco-animate" id="rcmd-title">
+							<h1 style="color:#3c723b;">주말에 즐길 수 있는 액티비티🏄‍♂</h1>
+						</div>
+						</div>
+							<div class="row">
+								<!-- 액티비티 최근 글 2개 목록 -->
+								<c:forEach items="${surfTwoList }" var="surfTwoList">
+								<div class="col-md-6 ftco-animate">
+									<div class="staff">
+									<c:url var="aDetail" value="activityDetail.com">
+								<c:param name="activityNo" value="${surfTwoList.activityNo }"></c:param>
+							</c:url>
+										<div class="img"
+											style="background-image: url(resources/images/activityImageFiles/${surfTwoList.aRenameFilename});"></div>
+										<div class="text px-4 pt-4">
+											<h3>[${surfTwoList.activityType}] ${surfTwoList.activityName }</h3>
+											<a href="${aDetail }"><span class="position mb-2">${surfTwoList.shopId}</span></a>
+												<div class="faded">
+												<p>${surfTwoList.activityAddr }</p></div>
+										</div>
+									</div>
+								</div>
+								</c:forEach>
+								</div>
+						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<div class="col-lg-12">
+					<div class="row col-lg-12">
 						<div class="col-lg-6">
 							<img src="../resources/images/hobby4.png" class="d-block w-100"
 								alt="...">
 						</div>
-						<div class="col-lg-6"></div>
+							<div class="col-lg-6" id="act-top2">
+						<div class="row">
+						<div class="col-md-12 ftco-animate" id="rcmd-title">
+							<h1 style="font-size:xx-large; color:#8443bf;">👻 슬기로운 부캐생활 👻</h1>
+						</div>
+						</div>
+							<div class="row">
+								<!-- 클래스 사진 2개 목록 -->
+								<c:forEach items="${picTwoList }" var="picTwoList">
+								<div class="col-md-6 ftco-animate">
+									<div class="staff">
+											<c:url var="cDetail" value="bukkeClassDetailView.com">
+										<c:param name="classNo" value="${picTwoList.classNo }"></c:param>
+										</c:url>
+										<div class="img"
+											style="background-image: url(resources/bClassFiles/${picTwoList.cRenameFilename});"></div>
+										<div class="text px-4 pt-4">
+											<h3>${picTwoList.className }</h3>
+											<a href="${cDetail }"><span class="position mb-2">${picTwoList.shopId}</span></a>
+											<div class="faded">
+												<p>${picTwoList.classAddr }</p></div>
+										</div>
+									</div>
+								</div>
+								</c:forEach>
+								</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -483,151 +540,8 @@
 		</div>
 	</section>
 	
-	<!-- 	<section class="ftco-section ftco-no-pb">
-		<div class="container">
-			<div class="row justify-content-start mb-5 pb-2">
-				<div class="col-md-4 heading-section ftco-animate">
-					<span class="subheading subheading-with-line"><small
-						class="pr-2 bg-white">Projects</small></span>
-					<h2 class="mb-4">Featured Projects</h2>
-				</div>
-				<div class="col-md-8 pl-md-5 heading-section ftco-animate">
-					<div class="pl-md-4 border-line">
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.
-							Separated they live in. A small river named Duden flows by their
-							place and supplies it with the necessary regelialia. It is a
-							paradisematic country, in which roasted parts of sentences fly
-							into your mouth.</p>
-						<p class="category mt-5">
-							<span class="active mr-2"><a href="#">All Work</a></span> <span
-								class="mr-2"><a href="#">Interior</a></span> <span class="mr-2"><a
-								href="#">Exterior</a></span> <span class="mr-2"><a href="#">Landscape</a></span>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container-wrap">
-			<div class="row no-gutters">
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-1.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>
-								<a href="project.html">Office Interior Design</a>
-							</h3>
-						</div>
-						<a href="resources/images/work-1.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-2.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-2.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-3.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-3.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-4.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-4.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-5.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Landscape Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-5.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-6.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Exterior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-6.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-7.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Exterior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-7.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="project">
-						<img src="resources/images/work-8.jpg" class="img-fluid"
-							alt="Colorlib Template">
-						<div class="text">
-							<span>Interior Design</span>
-							<h3>Office Interior Design</h3>
-						</div>
-						<a href="resources/images/work-8.jpg"
-							class="icon image-popup d-flex justify-content-center align-items-center">
-							<span class="icon-expand"></span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-<!-- 후기 좋아요 탑3 -->
+	
+<%-- <!-- 후기 좋아요 탑3 -->
 	<section class="ftco-section testimony-section bg-light">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
@@ -676,112 +590,10 @@
 						</c:forEach>
 					</div>
 					<br>
-				
-						<!-- <div class="item">
-							<div class="testimony-wrap p-4 pb-5">
-								<div class="user-img mb-5"
-									style="background-image: url(resources/images/person_1.jpg)">
-									<span
-										class="quote d-flex align-items-center justify-content-center">
-										<i class="icon-quote-left"></i>
-									</span>
-								</div>
-								<div class="text">
-									<p class="mb-5 pl-4 line">Far far away, behind the word
-										mountains, far from the countries Vokalia and Consonantia,
-										there live the blind texts.</p>
-									<div class="pl-5">
-										<p class="name">Garreth Smith</p>
-										<span class="position">CEO Founder of Commercial
-											Building</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap p-4 pb-5">
-								<div class="user-img mb-5"
-									style="background-image: url(resources/images/person_2.jpg)">
-									<span
-										class="quote d-flex align-items-center justify-content-center">
-										<i class="icon-quote-left"></i>
-									</span>
-								</div>
-								<div class="text">
-									<p class="mb-5 pl-4 line">Far far away, behind the word
-										mountains, far from the countries Vokalia and Consonantia,
-										there live the blind texts.</p>
-									<div class="pl-5">
-										<p class="name">Garreth Smith</p>
-										<span class="position">CEO Founder of Interior Design</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap p-4 pb-5">
-								<div class="user-img mb-5"
-									style="background-image: url(resources/images/person_3.jpg)">
-									<span
-										class="quote d-flex align-items-center justify-content-center">
-										<i class="icon-quote-left"></i>
-									</span>
-								</div>
-								<div class="text">
-									<p class="mb-5 pl-4 line">Far far away, behind the word
-										mountains, far from the countries Vokalia and Consonantia,
-										there live the blind texts.</p>
-									<div class="pl-5">
-										<p class="name">Garreth Smith</p>
-										<span class="position">Exterior Designer</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap p-4 pb-5">
-								<div class="user-img mb-5"
-									style="background-image: url(resources/images/person_1.jpg)">
-									<span
-										class="quote d-flex align-items-center justify-content-center">
-										<i class="icon-quote-left"></i>
-									</span>
-								</div>
-								<div class="text">
-									<p class="mb-5 pl-4 line">Far far away, behind the word
-										mountains, far from the countries Vokalia and Consonantia,
-										there live the blind texts.</p>
-									<div class="pl-5">
-										<p class="name">Garreth Smith</p>
-										<span class="position">Landscape Designer</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="testimony-wrap p-4 pb-5">
-								<div class="user-img mb-5"
-									style="background-image: url(resources/images/person_1.jpg)">
-									<span
-										class="quote d-flex align-items-center justify-content-center">
-										<i class="icon-quote-left"></i>
-									</span>
-								</div>
-								<div class="text">
-									<p class="mb-5 pl-4 line">Far far away, behind the word
-										mountains, far from the countries Vokalia and Consonantia,
-										there live the blind texts.</p>
-									<div class="pl-5">
-										<p class="name">Garreth Smith</p>
-										<span class="position">System Analyst</span>
-									</div>
-								</div>
-							</div>
-						</div> -->
 					</div>
 				</div>
 			</div>
-	</section>
+	</section> --%>
 
 	<!-- <section class="ftco-section">
 		<div class="container">

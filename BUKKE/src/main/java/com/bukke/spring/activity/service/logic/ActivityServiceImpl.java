@@ -125,7 +125,7 @@ public class ActivityServiceImpl implements ActivityService {
 	}
 
 	@Override
-	public ArrayList<Activity> printHomeFourActivityListDesc() { // 액티비티 최근 글 상위2개 목록
+	public ArrayList<Activity> printHomeFourActivityListDesc() { // 액티비티 최근 글 상위4개 목록
 		ArrayList<Activity> twoActList = aStore.selectHomeFourActivityListDesc();
 		return twoActList;
 	}
@@ -134,6 +134,12 @@ public class ActivityServiceImpl implements ActivityService {
 	public ArrayList<Activity> printGiftActivity(Activity activity) {
 		// TODO Auto-generated method stub
 		return aStore.selectGiftListActivity(activity);
+	}
+
+	@Override
+	public ArrayList<Activity> printHomeTwoSurfActivityList() {
+		ArrayList<Activity> twoSurfList = aStore.selectHomeTwoSurfActivityList();
+		return twoSurfList;
 	}
 
 //	//마이페이지 내 예약 확인 카운트

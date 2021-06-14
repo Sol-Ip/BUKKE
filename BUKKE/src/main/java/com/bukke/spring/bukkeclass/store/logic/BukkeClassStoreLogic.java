@@ -187,8 +187,18 @@ public class BukkeClassStoreLogic implements BukkeClassStore {
 	}
 
 	@Override
-	public ArrayList<BukkeClass> selectHomeFourClassListDesc() { // 클래스 최신 글 상위2개 목록 
+	public ArrayList<BukkeClass> selectHomeFourClassListDesc() { // 클래스 최신 글 상위4개 목록 
 		return (ArrayList)session.selectList("bclassMapper.selectHomeFourClassListDesc");
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectHomeTwoArtClassList() {
+		return (ArrayList)session.selectList("bclassMapper.selectHomeTwoArtClassList");
+	}
+
+	@Override
+	public ArrayList<BukkeClass> selectHomeTwoPicClassList() {
+		return (ArrayList)session.selectList("bclassMapper.selectHomeTwoPicClassList");
 	}
 
 }

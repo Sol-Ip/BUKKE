@@ -70,6 +70,11 @@ a img {
 	background-color:#f2f7fc;
 }
 
+	#rcmd-title {
+    text-align: center;
+    font-family: 'SEBANG_Gothic_Bold';
+    padding: 40px;
+}
 
 .cta {
 	/* width : min-content; */
@@ -265,3 +270,8 @@ background : #5d606899;
 	font-size : xxx-large;
 	color : #0033C7;
 }
+
+.staff {
+	font-family: 'SEBANG_Gothic_Bold';
+}
+

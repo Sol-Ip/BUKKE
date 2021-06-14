@@ -136,6 +136,11 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectGiftList", activity);
 	}
 
+	@Override
+	public ArrayList<Activity> selectHomeTwoSurfActivityList() {
+		return (ArrayList)sqlSession.selectList("activityMapper.selectHomeTwoSurfActivityList"); 
+	}
+
 	
 	
 	

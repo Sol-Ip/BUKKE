@@ -181,6 +181,18 @@ public class BukkeClassServiceImpl implements BukkeClassService {
 		return twoClaList;
 	}
 
+	@Override
+	public ArrayList<BukkeClass> printHomeTwoArtClassList() {
+		ArrayList<BukkeClass> twoArtList = bStore.selectHomeTwoArtClassList();
+		return twoArtList;
+	}
+
+	@Override
+	public ArrayList<BukkeClass> printHomeTwoPicClassList() {
+		ArrayList<BukkeClass> twoPicList = bStore.selectHomeTwoPicClassList();
+		return twoPicList;
+	}
+
 	
 
 

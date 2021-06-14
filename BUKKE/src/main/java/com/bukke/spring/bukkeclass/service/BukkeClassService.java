@@ -82,5 +82,9 @@ public interface BukkeClassService {
 
 	// 클래스 최근 글 상위4개 목록
 	public ArrayList<BukkeClass> printHomeFourClassListDesc();
+	// 클래스 미술 
+	public ArrayList<BukkeClass> printHomeTwoArtClassList();
+	// 클래스 사진
+	public ArrayList<BukkeClass> printHomeTwoPicClassList();
 
 }

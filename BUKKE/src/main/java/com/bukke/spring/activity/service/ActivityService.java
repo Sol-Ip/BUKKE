@@ -56,6 +56,9 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printGiftActivity(Activity activity);//추천하기용
 
+	public ArrayList<Activity> printHomeTwoSurfActivityList(); // 액티비티 서핑
+
+
 	
 
 

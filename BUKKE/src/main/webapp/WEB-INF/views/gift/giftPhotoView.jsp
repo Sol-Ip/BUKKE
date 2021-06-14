@@ -12,24 +12,6 @@
 <body>
 
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Gift</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Gift-Class <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- fixed section END-->
 <div id="gradient">
 	<section class="container">
@@ -52,14 +34,14 @@
                      		<c:param name="classTypedetails" value="사진"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';">사진</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo }" class="btn btn-sm animated-button thar-one" style="font-size:30px; font-size:30px; font-family: 'NeoDunggeunmo';z-index:1000 ;">사진</a> </div>
 							</h3>
 						<c:url var="photo2" value="giftList.com">
 							<c:param name="classType" value="사진"></c:param>
                      		<c:param name="classTypedetails" value="영상제작"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo2 }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';">영상제작</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo2 }" class="btn btn-sm animated-button thar-two" style="font-size:30px; border:solid 2px red;font-family: 'NeoDunggeunmo';z-index:1000 ;">영상제작</a> </div>
 							</h3>	
 						
 						<c:url var="photo3" value="giftList.com">
@@ -67,7 +49,7 @@
                      		<c:param name="classTypedetails" value="포토샵"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo3 }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';">포토샵</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo3 }" class="btn btn-sm animated-button thar-three" style="font-size:30px; border:solid 2px green; font-size:30px;;font-family: 'NeoDunggeunmo';z-index:1000 ;">포토샵</a> </div>
 							</h3>
 													
 			

@@ -187,16 +187,7 @@
 	<jsp:param name="active" value="gift" />
 </jsp:include>
 
-<section class="banner hero-wrap hero-wrap-2">
-	<div class="container">
-		<div class="row no-gutters slider-text align-items-center justify-content-center">
-			<div class="col-md-9 ftco-animate text-center">
-				<h1 class="mb-2 bread">gift</h1>
-			</div>
-		</div>
-	</div>
-</section>
-	
+
 			
 			<section>
 			<div id="clcl">

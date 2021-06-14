@@ -12,24 +12,6 @@
 <body>
 
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Gift</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Gift-Class <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
 <div id="gradient">
 			<div class="container"> 
 			  <!-- Example row of columns -->
@@ -74,28 +56,28 @@
 			                     		<c:param name="classTypedetails" value="가드닝"></c:param>
 			                  		</c:url>
 										<h3>
-											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';">가드닝</a> </div>
+											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">가드닝</a> </div>
 										</h3>
 									<c:url var="flower2" value="giftList.com">
 										<c:param name="classType" value="플라워"></c:param>
 			                     		<c:param name="classTypedetails" value="꽃 바구니"></c:param>
 			                  		</c:url>
 										<h3>
-											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower2 }" class="btn btn-sm animated-button thar-one" style="border:solid 2px green;font-size:30px;font-family: 'NeoDunggeunmo';">꽃 바구니</a> </div>
+											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower2 }" class="btn btn-sm animated-button thar-two" style="border:solid 2px red;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">꽃 바구니</a> </div>
 										</h3>	
 									<c:url var="flower3" value="giftList.com">
 										<c:param name="classType" value="플라워"></c:param>
 			                     		<c:param name="classTypedetails" value="꽃다발 및 부케"></c:param>
 			                  		</c:url>
 										<h3>
-											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower3 }" class="btn btn-sm animated-button thar-one" style="border:solid 2px blue;font-size:30px;font-family: 'NeoDunggeunmo';">꽃다발 및 부케</a> </div>
+											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower3 }" class="btn btn-sm animated-button thar-three" style="border:solid 2px green;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">꽃다발 및 부케</a> </div>
 										</h3>
 									<c:url var="flower4" value="giftList.com">
 										<c:param name="classType" value="플라워"></c:param>
 			                     		<c:param name="classTypedetails" value="플라워리스, 테이블리스"></c:param>
 			                  		</c:url>
 										<h3>
-											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower4 }" class="btn btn-sm animated-button thar-one" style="border:solid 2px pink;font-size:30px;font-family: 'NeoDunggeunmo';">&nbsp;플라워리스,&nbsp;&nbsp;   테이블리스</a> </div>
+											<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower4 }" class="btn btn-sm animated-button thar-four" style="border:solid 2px purple;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">&nbsp;플라워리스,&nbsp;&nbsp;   테이블리스</a> </div>
 										</h3>	
 										</div>
 										

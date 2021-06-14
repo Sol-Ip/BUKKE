@@ -11,26 +11,8 @@
 <body>
   <link rel="stylesheet" href="resources/css/gift/gift.css">
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Gift</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Gift-Class <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- fixed section END-->
-	 <div id="gradient">
+	 <div id="gradient" style="height: 1000px;">
 	<section class="container">
 			
 			<br>
@@ -73,42 +55,42 @@
                      		<c:param name="classTypedetails" value="수채화"></c:param>
                   		</c:url>
 							<h3>
-									<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art }" class="btn btn-sm animated-button thar-one" style="border:solid 2px red;font-size:30px;font-family: 'NeoDunggeunmo';">수채화</a> </div>
+									<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art }" class="btn btn-sm animated-button thar-one" style="border:solid 2px yellow;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">수채화</a> </div>
 							</h3>
 						<c:url var="art2" value="giftList.com">
 							<c:param name="classType" value="미술"></c:param>
                      		<c:param name="classTypedetails" value="오일 파스텔"></c:param>
                   		</c:url>
 							<h3>
-									<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-one" style="border:solid 2px orange;font-size:30px;font-family: 'NeoDunggeunmo';">오일파스텔</a> </div>
+									<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-two" style="border:solid 2px red;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">오일파스텔</a> </div>
 							</h3>	
 						<c:url var="art3" value="giftList.com">
 							<c:param name="classType" value="미술"></c:param>
                      		<c:param name="classTypedetails" value="드로잉"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art3}" class="btn btn-sm animated-button thar-one" style="border:solid 2px yellow;font-size:30px;font-family: 'NeoDunggeunmo';">드로잉</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art3}" class="btn btn-sm animated-button thar-three" style="border:solid 2px green;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">드로잉</a> </div>
 							</h3>
 						<c:url var="art4" value="giftList.com">
 							<c:param name="classType" value="미술"></c:param>
                      		<c:param name="classTypedetails" value="동양화, 만화"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-one" style="border:solid 2px green;font-size:30px;font-family: 'NeoDunggeunmo';">동양화,만화</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-four" style="border:solid 2px purple;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">동양화,만화</a> </div>
 							</h3>
 						<c:url var="art5" value="giftList.com">
 							<c:param name="classType" value="미술"></c:param>
                      		<c:param name="classTypedetails" value="캘리스라피, 서예"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-one" style="border:solid 2px pink;font-size:30px;font-family: 'NeoDunggeunmo';">캘리그라피,서예</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-one" style="border:solid 2px yello;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">캘리그라피,서예</a> </div>
 							</h3>
 						<c:url var="art6" value="giftList.com">
 							<c:param name="classType" value="미술"></c:param>
                      		<c:param name="classTypedetails" value="디지털 드로잉"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-one" style="border:solid 2px gray;font-size:30px;font-family: 'NeoDunggeunmo';">디지털드로잉</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art2}" class="btn btn-sm animated-button thar-two" style="border:solid 2px red;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">디지털드로잉</a> </div>
 							</h3>							
 			<%-- <br>
 			<br>

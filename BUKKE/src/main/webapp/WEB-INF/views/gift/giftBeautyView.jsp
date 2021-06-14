@@ -13,24 +13,6 @@
 <body>
 
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Gift</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Gift-Class <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- fixed section END-->
 	<div id="gradient">
 	<section class="container">
@@ -53,14 +35,14 @@
                      		<c:param name="classTypedetails" value="메이크업,퍼스널컬러"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty }" class="btn btn-sm animated-button thar-one" style="border:solid 2px green;font-size:30px;font-family: 'NeoDunggeunmo';">메이크업,퍼스널컬러</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty }" class="btn btn-sm animated-button thar-one" style="border:solid 2px yellow;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">메이크업,퍼스널컬러</a> </div>
 							</h3>
 						<c:url var="beauty2" value="giftList.com">
 							<c:param name="classType" value="뷰티"></c:param>
                      		<c:param name="classTypedetails" value="헤어"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty2 }" class="btn btn-sm animated-button thar-one" style="border:solid 2px red;font-size:30px;font-family: 'NeoDunggeunmo';">헤어</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty2 }" class="btn btn-sm animated-button thar-two" style="border:solid 2px red;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">헤어</a> </div>
 							</h3>	
 						
 						<c:url var="beauty3" value="giftList.com">
@@ -68,7 +50,7 @@
                      		<c:param name="classTypedetails" value="네일, 속눈썹 연장"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty3 }" class="btn btn-sm animated-button thar-one" style="border:solid 2px purple;font-size:30px;font-family: 'NeoDunggeunmo';">네일, 속눈썹 &nbsp; 연장</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty3 }" class="btn btn-sm animated-button thar-three" style="border:solid 2px green;font-size:30px;font-family: 'NeoDunggeunmo';z-index: 100;">네일, 속눈썹 &nbsp; 연장</a> </div>
 							</h3>
 													
 			

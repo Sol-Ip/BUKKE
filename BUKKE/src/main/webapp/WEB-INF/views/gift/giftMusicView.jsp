@@ -12,26 +12,8 @@
 <body>
 
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Gift</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Gift-Class <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- fixed section END-->
-	<div id="gradient">
+	<div id="gradient" style="height: 1000px;">
 	<section class="container">
 			
 			
@@ -52,35 +34,35 @@
                      		<c:param name="classTypedetails" value="기타 및 우클렐레"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';">기타,우클렐레</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';z-index: 1000;">기타,우클렐레</a> </div>
 							</h3>
 						<c:url var="music2" value="giftList.com">
 							<c:param name="classType" value="음악"></c:param>
                      		<c:param name="classTypedetails" value="피아노"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music2 }" class="btn btn-sm animated-button thar-one" style="font-size:30px;border:solid 2px red; font-family: 'NeoDunggeunmo';">피아노</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music2 }" class="btn btn-sm animated-button thar-two" style="font-size:30px;border:solid 2px red; font-family: 'NeoDunggeunmo';z-index: 1000;">피아노</a> </div>
 							</h3>	
 						<c:url var="music3" value="giftList.com">
 							<c:param name="classType" value="음악"></c:param>
                      		<c:param name="classTypedetails" value="보컬 및 작사 작곡"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music3 }" class="btn btn-sm animated-button thar-one" style="font-size:30px;border:solid 2px gray;font-family: 'NeoDunggeunmo';">보컬,작사작곡</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music3 }" class="btn btn-sm animated-button thar-three" style="font-size:30px;border:solid 2px green;font-family: 'NeoDunggeunmo';z-index: 1000;">보컬,작사작곡</a> </div>
 							</h3>
 						<c:url var="music4" value="giftList.com">
 							<c:param name="classType" value="음악"></c:param>
                      		<c:param name="classTypedetails" value="전통악기"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music4 }" class="btn btn-sm animated-button thar-one" style="font-size:30px;border:solid 2px black;font-family: 'NeoDunggeunmo';">전통악기</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music4 }" class="btn btn-sm animated-button thar-four" style="font-size:30px;border:solid 2px purple;font-family: 'NeoDunggeunmo';z-index: 1000;">전통악기</a> </div>
 							</h3>
 						<c:url var="music5" value="giftList.com">
 							<c:param name="classType" value="음악"></c:param>
                      		<c:param name="classTypedetails" value="드럼"></c:param>
                   		</c:url>
 							<h3>
-								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music5 }" class="btn btn-sm animated-button thar-one" style="font-size:30px;border:solid 2px pink;font-family: 'NeoDunggeunmo';">드럼</a> </div>
+								<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music5 }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';z-index: 1000;">드럼</a> </div>
 							</h3>
 											
 			

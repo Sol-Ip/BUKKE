@@ -17,20 +17,12 @@
     font-style: normal;
 }
 
+
   </style>
 </head>
 <body>
 
 	<!-- fixed section -->
-	<section class="banner hero-wrap hero-wrap-2">
-	<div class="container">
-		<div class="row no-gutters slider-text align-items-center justify-content-center">
-			<div class="col-md-9 ftco-animate text-center">
-				<h1 class="mb-2 bread">gift</h1>
-			</div>
-		</div>
-	</div>
-</section>
 	<!-- fixed section END-->
 
 			  <div id="gradient">
@@ -44,7 +36,7 @@
 			<br>
 			<br>
 			<br>
-			<h1 align="center">어떤 클래스를 원하시나요?👀<h1>
+			<h1 align="center">어떤 클래스를 원하시나요?👀</h1>
 			<br>
 			<div align="center">
 <%-- 
@@ -78,31 +70,31 @@
                      		<c:param name="classType" value="플라워"></c:param>
                   		</c:url>
 							<h3>
-								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo';">플라워</a> </div>
+								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo'; z-index: 100;">플라워</a> </div>
 							</h3>
 						<c:url var="art" value="giftType.com">
                      		<c:param name="classType" value="미술"></c:param>
                   		</c:url>
 							<h3>
-								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art }" class="btn btn-sm animated-button thar-one"style="font-size:30px; border:solid 2px red; font-family: 'NeoDunggeunmo';" >미술</a> </div>
+								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${art }" class="btn btn-sm animated-button thar-two"style="font-size:30px; border:solid 2px red; font-family: 'NeoDunggeunmo'; z-index: 100;" >미술</a> </div>
 							</h3>
 						<c:url var="beauty" value="giftType.com">
                      		<c:param name="classType" value="뷰티"></c:param>
                   		</c:url>
 							<h3>
-								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty }" class="btn btn-sm animated-button thar-one"style="font-size:30px; border:solid 2px green;font-family: 'NeoDunggeunmo';">뷰티</a> </div>
+								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${beauty }" class="btn btn-sm animated-button thar-three"style="font-size:30px; border:solid 2px green;font-family: 'NeoDunggeunmo'; z-index: 100;">뷰티</a> </div>
 							</h3>
 						<c:url var="music" value="giftType.com">
                      		<c:param name="classType" value="음악"></c:param>
                   		</c:url>
 							<h3>
-							 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music }" class="btn btn-sm animated-button thar-one"style="font-size:30px; border:solid 2px purple;font-family: 'NeoDunggeunmo';">음악</a> </div>
+							 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${music }" class="btn btn-sm animated-button thar-four"style="font-size:30px; border:solid 2px purple;font-family: 'NeoDunggeunmo';z-index: 100;">음악</a> </div>
 							</h3>
 						<c:url var="photo" value="giftType.com">
                      		<c:param name="classType" value="사진"></c:param>
                   		</c:url>
 							<h3>
-								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo }" class="btn btn-sm animated-button thar-one"style="font-size:30px; border:solid 2px orange;font-family: 'NeoDunggeunmo';">사진</a> </div>
+								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${photo }" class="btn btn-sm animated-button thar-one"style="font-size:30px; border:solid 2px orange;font-family: 'NeoDunggeunmo';z-index: 100;">사진</a> </div>
 							</h3>
 							</div>
 			<br>

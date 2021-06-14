@@ -443,3 +443,42 @@ a.animated-button.thar-four:before {
   background: #F7CA18;
   transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 0s;
+}
+footer{
+	margin-top: 0;
+}
+ .hero-wrap {
+      content: '';
+      background-image: url('/resources/images/bg-gift-center.png');
+      z-index: 1;
+   }
+   .banner {
+      background-color: rgb(255, 81, 114);
+   }
+   
+  a.animated-button.thar-two:before{
+	background: red;
+}
+a.animated-button.thar-three:before{
+	background: green;
+}
+  a.animated-button.thar-four:before{
+	background: purple;
+}
+ a.animated-button.thar-five:before{
+	background: gray;
+	 display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 0px;
+  z-index: -1;
+  content: '';
+  color: #000 !important;
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+ a.animated-button.thar-six:before{
+	background: pink;
+}

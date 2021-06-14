@@ -12,24 +12,6 @@
 <body>
 
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">Gift</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Gift-Activity <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- fixed section END-->
 <div id="gradient">
 	<section class="container">
@@ -54,15 +36,15 @@
 				<c:url var="waterSports" value="">
 				</c:url>
 				<div>
-					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${outdoor }" class="btn btn-sm animated-button thar-one" style="border:solid 2px blue;font-size:30px;font-family: 'NeoDunggeunmo';">아웃도어</a> </div>
-					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${surfing }" class="btn btn-sm animated-button thar-one" style="border:solid 2px blue;font-size:30px;font-family: 'NeoDunggeunmo';">서핑</a> </div>
+					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${outdoor }" class="btn btn-sm animated-button thar-one" style="font-size:30px; border:solid 2px yellow;font-family: 'NeoDunggeunmo'; z-index: 100;">아웃도어</a> </div>
+					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${surfing }" class="btn btn-sm animated-button thar-two" style="font-size:30px;border:solid 2px red;font-family: 'NeoDunggeunmo';z-index: 100;">서핑</a> </div>
 				</div>
 				<br>
 				<div>
-					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower3 }" class="btn btn-sm animated-button thar-one" style="border:solid 2px blue;font-size:30px;font-family: 'NeoDunggeunmo';">스포츠</a> </div>
-					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower3 }" class="btn btn-sm animated-button thar-one" style="border:solid 2px blue;font-size:30px;font-family: 'NeoDunggeunmo';">수상레저</a> </div>
+					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower3 }" class="btn btn-sm animated-button thar-three" style="font-size:30px;border:solid 2px green;font-family: 'NeoDunggeunmo';z-index: 100;">스포츠</a> </div>
+					<div class="col-md-3 col-sm-3 col-xs-6"> <a href="${flower3 }" class="btn btn-sm animated-button thar-four" style="font-size:30px;border:solid 2px purple;font-family: 'NeoDunggeunmo';z-index: 100;">수상레저</a> </div>
 				</div>
-				<button id="typeButton" class="" name="">아웃도어</button>
+				<!-- <button id="typeButton" class="" name="">아웃도어</button> -->
 
 
 				<table class="form-control-borderless" align="center" border="1" cellspacing="0" id="rtb">

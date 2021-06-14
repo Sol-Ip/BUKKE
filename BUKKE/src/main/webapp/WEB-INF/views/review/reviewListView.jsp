@@ -355,10 +355,10 @@
 	<!-- 글쓰기 버튼 -->
 	<!--  일반회원마이페이지에서 본인이 들었던거만 후기남길수있게 글로 버튼위치바꿈 -->	
 		<!-- <div style="float: right; padding-right : 350px;" class="ftco-animate">
-		<a href="reviewWriteView.com"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+			<a href="reviewWriteView.com"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
 		</div>
-	<br style="clear:both">
-	 -->
+	<br style="clear:both"> -->
+	 
 	<!-- 페이징 처리 -->
 		<div class="container">
     	<div class="row no-gutters mt-5">	

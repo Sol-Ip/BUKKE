@@ -13,6 +13,14 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="../resources/css/review/review.css">
 <style type="text/css">
+.banner {
+	/* background-color: rgb(68, 201, 244); */
+	background-color: #d1b3c4;
+}
+
+.banner * {
+	color: white;
+}
 	.textbox1{
 		background-color: #555f77;
     border: none;
@@ -37,7 +45,7 @@
 <body>
 
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2"
+	<!-- <section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/bg_1.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
@@ -55,6 +63,17 @@
 				</div>
 			</div>
 		</div>
+	</section> -->
+	<section class="banner hero-wrap hero-wrap-2">
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<h1 class="mb-2 bread">Review</h1>
+					<p class="mr-2">부캐들이 남긴 활동 후기</p>
+				</div>
+			</div>
+		</div>
 	</section>
 	<!-- fixed section END-->
 
@@ -67,10 +86,10 @@
 				<div class="col-sm-6 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-white">REVIEW</small></span>
-					<h2 class="mb-4">DETAILS</h2>
+					<h2 class="mb-4">${review.reviewTitle }</h2>
 					&nbsp;
 				</div>
-				<div class="col-sm-5 heading-section ftco-animate">
+				<%-- <div class="col-sm-5 heading-section ftco-animate">
 
 					<h1 align="right">
 						<i class="fas fa-quote-left text-success"></i>&nbsp;${review.reviewTitle }&nbsp;<i
@@ -85,21 +104,52 @@
 							</h4>
 						</div>
 					</h1>
-				</div>
+				</div> --%>
 
 			</div>
 			<hr>
 			<!-- 왼쪽위사진넣어보기 -->
 
 			<div class="row">
-				<div class="col-sm ftco-animate">
-
+				<div class="col-lg-6 ftco-animate">
 					<img src="../resources/reviewFiles/${review.rRenameFilename }"
 						alt="class photo" class="img-fluid block-40">
 				</div>
 
-				<div class="col-sm-4" style="padding: 30px;">
-					<h5>${review.reviewContents }</h5>
+				<div class="col-lg-6"  style="background-color:#f2f2f2;">
+					<%-- <h5>${review.reviewContents }</h5> --%>
+					<h5 align="center">
+								<!-- <i class="fas fa-list fa-lg"></i>&nbsp; -->
+								REVIEW
+							</h5>
+							<hr>
+							<br>
+							<div class="block-21 mb-4 d-flex">
+								<ul id="type-ul">
+									<li><h3 class="act-type">
+											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classStartDate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>종료일</b>&nbsp;&nbsp;<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classEndDate }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>시간</b>&nbsp;&nbsp;<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.classStartTime } - ${bukkeClass.classEndTime }</h3></li>
+									<br>
+									<br>
+									<li><h3 class="act-type">
+											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
+										</h3></li>
+									<li><h3 id="act-type">${bukkeClass.shopId }</h3></li>
+								</ul>
+							</div>
 				</div>
 			</div>
 		</div>
@@ -181,21 +231,15 @@
 				</c:if>
 			</c:if>
 		</div>
-
-
-
-
 		<div class="container">
-
-
 			<div class="row justify-content-center">
 				<div class="col-md-12 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"></span>
-					<div class="row">
+					<!-- <div class="row">
 						<i class="far fa-comments fa-2x text-info"></i>&nbsp;&nbsp;
 						<h2 class="mb-4">Comments</h2>&nbsp;
 						
-					</div>
+					</div> -->
 						<c:if test="${empty loginMember}">
 						<h2 align="center">로그인 후 댓글입력해주세요</h2>
 						</c:if>	
@@ -215,10 +259,9 @@
 			</table> -->
 			<!-- 댓글 등록2 -->
 			
-			
+			<br><br>
 			<c:if test="${!empty loginMember}">
 			 <div class="comment-form">
-
 				<div class="form" name="form">
 					<div class="form-row">
 						<textarea class="input"

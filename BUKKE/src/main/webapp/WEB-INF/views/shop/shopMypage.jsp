@@ -219,7 +219,7 @@
 						<div class="card-block block-3">
 							<h3 class="card-title" id=fonts>내 정보</h3>
 							<p class="card-text"></p>
-							<a href="javascript:void();" title="Read more" class="read-more">더보기<i
+							<a href="shopModifyView.com" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>
 						</div>
 					</div>

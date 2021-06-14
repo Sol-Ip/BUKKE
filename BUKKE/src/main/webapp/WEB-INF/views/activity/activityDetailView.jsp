@@ -309,8 +309,8 @@
 						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
 							<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의 또 다른 강좌</h4>
 						<hr>
-						<c:if test="${aList.isEmpty() }">
-							<div><p>해당 외 따로 등록한 액티비티가 없습니다.</p></div>
+						<c:if test="${aList.isEmpty() || aList.size() == 1 }">
+							<div style="text-align:center;"><b>해당 외 따로 등록한 액티비티가 없습니다.</b></div>
 						</c:if>
 						
 						<c:if test="${!aList.isEmpty() }">
@@ -447,6 +447,16 @@
             <p>후기들을 볼 수 있습니다.</p>
           </div>
         </div>
+        
+        <c:if test="${rList.isEmpty() }">
+         <div class="row ftco-animate">
+          <div class="col-md-12" style="text-align:center;">
+          <h3>등록된 후기가 없습니다.☹</h3>
+          </div>
+          </div>
+        </c:if>
+        
+         <c:if test="${!rList.isEmpty() }">
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">
@@ -474,6 +484,7 @@
             </div>
           </div>
         </div>
+        </c:if>
       </div>
     </section>
 <!-- 후기보기 END -->	

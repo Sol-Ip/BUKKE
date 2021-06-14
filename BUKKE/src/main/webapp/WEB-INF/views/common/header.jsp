@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="resources/css/jquery.timepicker.css">
 
 <!-- 아이콘 -->
+<link rel="icon" type="image/png"  href="resources/images/bukke_favi3.png"/>
 <link rel="stylesheet"
 	href="resources/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/ionicons.min.css">

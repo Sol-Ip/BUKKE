@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bukke.spring.activity.domain.Activity;
+import com.bukke.spring.activity.service.ActivityService;
 import com.bukke.spring.bukkeclass.domain.BukkeClass;
 import com.bukke.spring.bukkeclass.service.BukkeClassService;
 import com.bukke.spring.common.ReviewPagination;
@@ -28,6 +30,9 @@ public class GiftController {
 	
 	@Autowired
 	private BukkeClassService bService;
+	
+	@Autowired
+	private ActivityService aService;
 	
 	//선물하기 처음 페이지
 	@RequestMapping(value="giftFirstPageView.com", method=RequestMethod.GET)
@@ -45,7 +50,7 @@ public class GiftController {
 	public String GiftActivityView() {
 		return "gift/giftActivity";
 	}
-
+	//클래스용 타입
 	@RequestMapping(value = "giftType.com", method = RequestMethod.GET)
 	public String GiftType(@RequestParam("classType") String classType, Model model, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
@@ -68,16 +73,35 @@ public class GiftController {
 		
 
 	}
+	//액티비티용 타입
+	@RequestMapping(value = "giftTypeForAct.com", method = RequestMethod.GET)
+	public String GiftTypeForAct(@RequestParam("activityType") String activityType, Model model, HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) {
+		if(activityType.equals("아웃도어")) {
+			return "gift/giftOutdoorView";	
+		}
+		else if(activityType.equals("서핑")){
+			return "gift/giftSurfingView";
+		}else if(activityType.equals("스포츠")){
+			return "gift/giftSportsView";
+		}else if(activityType.equals("수상레저")){
+			return "gift/giftWaterView";
+		}			
+		else {
+			return "common/errorPage";
+		}
+		
+		
+
+	}
 	
 	
-	  //선물 리스트 by 상세+ 상세분류
+	  //선물 리스트 by 상세+ 상세분류(클래스용)
 	  
-	  @RequestMapping(value = "giftList.com", method = RequestMethod.GET) public
-	  String GiftList(@RequestParam("classType") String classType,
-	  
-	  @RequestParam("classTypedetails") String classTypedetails, Model model,
-	  HttpServletRequest request, HttpServletResponse response, HttpSession
-	  session) {
+	  @RequestMapping(value = "giftList.com", method = RequestMethod.GET) 
+	  public String GiftList(@RequestParam("classType") String classType,
+			  				@RequestParam("classTypedetails") String classTypedetails, Model model,
+			  				HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 	  
 	  BukkeClass bukkeClass = new BukkeClass(); bukkeClass.setClassType(classType);
 	  bukkeClass.setClassTypedetails(classTypedetails);
@@ -90,6 +114,33 @@ public class GiftController {
 	  
 	  
 	  if(!bList.isEmpty()) {
+		  return "gift/giftListView";   
+	  }
+	  else {
+		  model.addAttribute("msg","해당 항목이 없습니다");
+		  return "common/errorPage";
+	  }
+	  
+	  
+	  }
+	  //선물 리스트 by 상세+ 상세분류 (액티비티용)
+	  @RequestMapping(value = "giftListForAct.com", method = RequestMethod.GET) 
+	  public String GiftListForAct(@RequestParam("activityType") String activityType,
+			  				@RequestParam("activityTypeDetails") String activityTypeDetails, Model model,
+			  				HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	  
+	  Activity activity = new Activity(); 
+	  activity.setActivityType(activityType);
+	  activity.setActivityTypeDetails(activityTypeDetails);
+	  
+	  ArrayList<Activity> aList = aService.printGiftActivity(activity);
+	  
+	  System.out.println("aList "+ aList.toString());
+	  
+	  model.addAttribute("aList",aList);
+	  
+	  
+	  if(!aList.isEmpty()) {
 		  return "gift/giftListView";   
 	  }
 	  else {

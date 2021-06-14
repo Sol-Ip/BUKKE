@@ -20,6 +20,8 @@
 		<!-- 클래스 전체 수업 이미지 목록 -->
 		<div class="container">
 			<div class="row">
+			<!-- 클래스 -->
+			<c:if test="${!bList.isEmpty()}">
 			<c:forEach items="${bList }" var="bukkeClass">
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="project">
@@ -35,6 +37,29 @@
 							</h3>
 						</div>
 						<a href="${cDetail }"
+							class="icon image-popup d-flex justify-content-center align-items-center">
+							<span class="icon-expand"></span>
+						</a>
+					</div>
+				</div>
+			</c:forEach>
+			</c:if>
+			<!-- 여긴 액티비티 -->
+			<c:forEach items="${aList }" var="activity">
+				<div class="col-md-6 col-lg-3 ftco-animate">
+					<div class="project">
+						<img src="resources/images/activityImageFiles/${activity.aRenameFilename }" id="class-img" class="img-fluid"
+							alt="Colorlib Template">
+						<div class="text">
+						<span style="font-family: 'TmoneyRoundWindExtraBold';" >[ ${activity.activityType} ]</span>
+						<c:url var="aDetail" value="activityListView.com">
+                     		<c:param name="activityNo" value="${activity.activityNo }"></c:param>
+                  		</c:url>
+							<h3 style="font-family: 'TmoneyRoundWindExtraBold';">
+								<a href="${aDetail }">${activity.activityName }</a>
+							</h3>
+						</div>
+						<a href="${aDetail }"
 							class="icon image-popup d-flex justify-content-center align-items-center">
 							<span class="icon-expand"></span>
 						</a>

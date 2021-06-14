@@ -127,7 +127,11 @@
     ACTIVITY_TYPEDETAILS, ACTIVITY_ENROLL_DATE, ACTIVITY_START_DATE, ACTIVITY_END_DATE, 
     A_ORIGINAL_FILENAME, A_RENAME_FILENAME FROM ACTIVITY WHERE ACTIVITY_STATUS = 'Y' ORDER BY ACTIVITY_ENROLL_DATE DESC) WHERE ROWNUM &lt;= 2
 	</select>
-   
+	
+   <!-- 추천하기용 -->
+   <select id="selectGiftList" resultMap="ActivityResultMap">
+      select * from activity where activity_type = #{activityType } AND activity_typedetails = #{activityTypeDetails }
+   </select>
    
 	
 </mapper>

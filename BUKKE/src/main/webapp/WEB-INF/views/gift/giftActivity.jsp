@@ -23,11 +23,37 @@
 			<br>
 			<h1 align="center">어떤 액티비티를 원하시나요?👀</h1>
 			
-			<br>
+			
 			<br>
 			<div align="center">
+				<c:url var="outdoor" value="giftTypeForAct.com">
+                     		<c:param name="activityType" value="아웃도어"></c:param>
+                  		</c:url>
+							<h3>
+								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${outdoor }" class="btn btn-sm animated-button thar-one" style="font-size:30px;font-family: 'NeoDunggeunmo'; z-index: 100;">아웃도어</a> </div>
+							</h3>
+						<c:url var="surfing" value="giftTypeForAct.com">
+                     		<c:param name="activityType" value="서핑"></c:param>
+                  		</c:url>
+							<h3>
+								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${surfing }" class="btn btn-sm animated-button thar-two"style="font-size:30px; border:solid 2px red; font-family: 'NeoDunggeunmo'; z-index: 100;" >서핑</a> </div>
+							</h3>
+						<c:url var="sports" value="giftTypeForAct.com">
+                     		<c:param name="activityType" value="스포츠"></c:param>
+                  		</c:url>
+							<h3>
+								 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${sports }" class="btn btn-sm animated-button thar-three"style="font-size:30px; border:solid 2px green;font-family: 'NeoDunggeunmo'; z-index: 100;">스포츠</a> </div>
+							</h3>
+						<c:url var="water" value="giftTypeForAct.com">
+                     		<c:param name="activityType" value="수상레저"></c:param>
+                  		</c:url>
+							<h3>
+							 <div class="col-md-3 col-sm-3 col-xs-6"> <a href="${water }" class="btn btn-sm animated-button thar-four"style="font-size:30px; border:solid 2px purple;font-family: 'NeoDunggeunmo';z-index: 100;">수상레저</a> </div>
+							</h3>
+									
+			
 
-				<c:url var="outdoor" value="">
+				<%-- <c:url var="outdoor" value="">
 				</c:url>
 				<c:url var="surfing" value="">
 				</c:url>
@@ -49,8 +75,8 @@
 
 				<table class="form-control-borderless" align="center" border="1" cellspacing="0" id="rtb">
 					<tbody class="form-control-borderless"></tbody>
-				</table>
-				<script>
+				</table> --%>
+				<!-- <script>
 					$('#typeButton').on("click",function(){
 						console.log("버튼이눌리긴할까");
 						
@@ -112,7 +138,7 @@
 								});
 						});
 					}); */
-				</script>
+				</script> -->
 				
 				
 				

@@ -130,6 +130,12 @@ public class ActivityServiceImpl implements ActivityService {
 		return twoActList;
 	}
 
+	@Override
+	public ArrayList<Activity> printGiftActivity(Activity activity) {
+		// TODO Auto-generated method stub
+		return aStore.selectGiftListActivity(activity);
+	}
+
 //	//마이페이지 내 예약 확인 카운트
 //	@Override
 //	public int getactListMyId(String memberId) {

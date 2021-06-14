@@ -54,6 +54,8 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printHomeTWoActivityListDesc(); // 액티비티 최근 글 상위2개 목록
 
+	public ArrayList<Activity> printGiftActivity(Activity activity);//추천하기용
+
 	
 
 

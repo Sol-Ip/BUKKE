@@ -130,6 +130,12 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectHomeTwoActivityListDesc");
 	}
 
+	@Override
+	public ArrayList<Activity> selectGiftListActivity(Activity activity) {
+		// TODO Auto-generated method stub
+		return (ArrayList)sqlSession.selectList("activityMapper.selectGiftList", activity);
+	}
+
 	
 	
 	

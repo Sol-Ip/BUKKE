@@ -49,30 +49,30 @@ $(document).ready(function() {
 function classTypeList(result) {
 	$('#classTypedetails').html("");
 	if(result == '플라워') { 
-		$('#classTypedetails').append("<option value='11' >꽃다발 및 부케</option>");
-		$('#classTypedetails').append("<option value='12' >꽃바구니</option>");
-		$('#classTypedetails').append("<option value='13' >가드닝</option>");
-       $('#classTypedetails').append("<option value='14' >플라워리스 및 테이블리스</option>");
+		$('#classTypedetails').append("<option value='꽃다발 및 부케' >꽃다발 및 부케</option>");
+		$('#classTypedetails').append("<option value='꽃바구니' >꽃바구니</option>");
+		$('#classTypedetails').append("<option value='가드닝' >가드닝</option>");
+       $('#classTypedetails').append("<option value='플라워리스 및 테이블리스' >플라워리스 및 테이블리스</option>");
     } else if (result == '뷰티') {  
-        $('#classTypedetails').append("<option value='21' >헤어</option>");
-        $('#classTypedetails').append("<option value='22' >메이크업 및 퍼스널컬러</option>");
-        $('#classTypedetails').append("<option value='23' >네일 및 속눈썹 연장</option>");
+        $('#classTypedetails').append("<option value='헤어' >헤어</option>");
+        $('#classTypedetails').append("<option value='메이크업 및 퍼스널컬러' >메이크업 및 퍼스널컬러</option>");
+        $('#classTypedetails').append("<option value='네일 및 속눈썹 연장' >네일 및 속눈썹 연장</option>");
     } else if (result == '음악') {  
-        $('#classTypedetails').append("<option value='31' >피아노</option>");
-        $('#classTypedetails').append("<option value='32' >전통악기</option>");
-        $('#classTypedetails').append("<option value='33' >보컬 및 작사 작곡</option>");
-        $('#classTypedetails').append("<option value='34' >드럼</option>");
-        $('#classTypedetails').append("<option value='35' >기타 및 우클렐레</option>");
+        $('#classTypedetails').append("<option value='피아노' >피아노</option>");
+        $('#classTypedetails').append("<option value='전통악기' >전통악기</option>");
+        $('#classTypedetails').append("<option value='보컬 및 작사 작곡' >보컬 및 작사 작곡</option>");
+        $('#classTypedetails').append("<option value='드럼' >드럼</option>");
+        $('#classTypedetails').append("<option value='기타 및 우클렐레' >기타 및 우클렐레</option>");
     } else if (result == '사진') { 
-    	 $('#classTypedetails').append("<option value='41' >포토샵</option>");
-         $('#classTypedetails').append("<option value='42' >영상제작</option>");
-         $('#classTypedetails').append("<option value='43' >사진</option>");
+    	 $('#classTypedetails').append("<option value='포토샵' >포토샵</option>");
+         $('#classTypedetails').append("<option value='영상제작' >영상제작</option>");
+         $('#classTypedetails').append("<option value='사진' >사진</option>");
     }else if (result == '미술') { 
-	   	 $('#classTypedetails').append("<option value='51' >캘리그라피 및 서예</option>");
-	     $('#classTypedetails').append("<option value='52' >오일 파스텔</option>");
-	     $('#classTypedetails').append("<option value='53' >수채화</option>");
-	     $('#classTypedetails').append("<option value='54' >디지털 드로잉</option>");
-	     $('#classTypedetails').append("<option value='55' >드로잉</option>");
+	   	 $('#classTypedetails').append("<option value='캘리그라피 및 서예' >캘리그라피 및 서예</option>");
+	     $('#classTypedetails').append("<option value='오일 파스텔' >오일 파스텔</option>");
+	     $('#classTypedetails').append("<option value='수채화' >수채화</option>");
+	     $('#classTypedetails').append("<option value='디지털 드로잉' >디지털 드로잉</option>");
+	     $('#classTypedetails').append("<option value='드로잉' >드로잉</option>");
 	}
 }
 

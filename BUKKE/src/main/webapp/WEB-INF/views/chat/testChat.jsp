@@ -4,47 +4,83 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+crossorigin="anonymous">
 <meta charset="UTF-8">
 	<title>Chatting</title>
 	<style>
-		*{
-			margin:0;
-			padding:0;
-		}
-		.container{
-			width: 500px;
-			margin: 0 auto;
-			padding: 25px
-		}
-		.container h1{
-			text-align: left;
-			padding: 5px 5px 5px 15px;
-			color: #FFBB00;
-			border-left: 3px solid #FFBB00;
-			margin-bottom: 20px;
-		}
-		.chatting{
-			background-color: #FFF;
-			width: 500px;
-			height: 500px;
-			overflow: auto;
-		}
-		.chatting .me{
-			color: #F6F6F6;
-			text-align: right;
-		}
-		.chatting .others{
-			color: #FFE400;
-			text-align: left;
-		}
-		input{
-			width: 330px;
-			height: 25px;
-		}
-		/* #yourMsg{
+@font-face {
+	font-family: 'S-CoreDream-3Light';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	background-color: #fff2dcfc;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 500px;
+	margin: 0 auto;
+	padding: 25px
+}
+
+.container h1 {
+	text-align: left;
+	padding: 5px 5px 5px 15px;
+	color: #gray;
+	font-family: 'S-CoreDream-3Light';
+	border-left: 3px solid #560bad;
+	margin-bottom: 20px;
+}
+
+.chatting {
+	background-color: #fff2dcfc;
+	width: 500px;
+	height: 500px;
+	overflow: auto;
+}
+
+.chatting .me {
+	font-family: 'S-CoreDream-3Light';
+	font-weight: bold;
+	color: #9705a0;
+	text-align: right;
+}
+
+.chatting .others {
+	font-family: 'S-CoreDream-3Light';
+	font-weight: bold;
+	color: #47454c;
+	text-align: left;
+}
+
+input {
+	background-color: #fff;
+	width: 330px;
+	height: 25px;
+}
+
+button {
+	background-color: #e0c5ff;
+	font-size: 14px;
+	color: #000;
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 3px;
+	margin: 3px;
+}
+/* #yourMsg{
 			display: block;
 		} */
-	</style>
+</style>
 </head>
 
 <script type="text/javascript">
@@ -217,7 +253,7 @@
 				<tr>
 					<th>메시지</th>
 					<th><input id="chatting2" placeholder="보내실 메시지를 입력하세요."></th>
-					<th><button onclick="send()" id="sendBtn">보내기</button></th>
+					<th><button onclick="send()" id="sendBtn">&nbsp;&nbsp;💭&nbsp;&nbsp;</button></th>
 				</tr>
 			</table>
 		</div>

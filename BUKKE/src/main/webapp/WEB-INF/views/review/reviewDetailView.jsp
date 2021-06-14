@@ -44,6 +44,8 @@
 </head>
 <body>
 
+	
+
 	<!-- fixed section -->
 	<!-- <section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/bg_1.jpg');"
@@ -76,6 +78,21 @@
 		</div>
 	</section>
 	<!-- fixed section END-->
+	
+	
+		<section class="ftco-animate">
+			<div class="container">
+			<div class="row">
+			<div class="col-md-12">
+			<div class=""> 
+			<H1>TEST</H1>			
+			</div>			
+			</div>
+			</div>			
+			</div>
+		</section>
+
+	
 
 	<section class="ftco-section">
 		<div class="container">
@@ -124,7 +141,7 @@
 							</h5>
 							<hr>
 							<br>
-							<div class="block-21 mb-4 d-flex">
+							<%-- <div class="block-21 mb-4 d-flex">
 								<ul id="type-ul">
 									<li><h3 class="act-type">
 											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
@@ -149,7 +166,7 @@
 										</h3></li>
 									<li><h3 id="act-type">${bukkeClass.shopId }</h3></li>
 								</ul>
-							</div>
+							</div> --%>
 				</div>
 			</div>
 		</div>

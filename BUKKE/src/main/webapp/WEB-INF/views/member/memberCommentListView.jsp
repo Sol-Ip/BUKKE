@@ -193,7 +193,7 @@
 				<div class="container">
 						  <div class="card">
 						    <div class="card-body">
-						      <img src="https://lh3.googleusercontent.com/proxy/_VEhXIVMYLQVEzVLPvToZ1ai3Po0L6tyG86TZ-lqnwZuiAfUHK2N5ZFiNutCWOiN8WdL93BUHnk0ClbzSDKf1rhcmjCZwkUwglt9JXfIb6oxDDW-UBq_RXNTgQ" style="width:60px"class="float-left rounded-circle">
+						      
 						     <c:url var="rcDetail" value="reviewDetail.com">
 									<c:param name="reviewNo" value="${reviewComment.reviewNo }"></c:param>
 							</c:url>

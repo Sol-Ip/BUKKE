@@ -24,7 +24,7 @@
 			margin-bottom: 20px;
 		}
 		.chatting{
-			background-color: #000;
+			background-color: #FFF;
 			width: 500px;
 			height: 500px;
 			overflow: auto;

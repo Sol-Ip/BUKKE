@@ -50,6 +50,17 @@ crossorigin="anonymous">
 
 <!-- 카카오 로그인 API -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- 프로필 아이콘 -->
+<style>
+	.nav-item a {
+		margin-top: 10px;
+	}
+	.profile_icon {
+		width: 32px;
+		height: 32px;
+		margin: 5px;
+	}
+</style>
 </head>
 <body>
 	<header id="header">
@@ -87,7 +98,7 @@ crossorigin="anonymous">
 								test="${ !empty sessionScope.loginMember && loginMember.memberId eq 'admin'}">
 								<li id="member" class="nav-item dropdown">
 									<div class="dropdown-toggle nav-link" data-toggle="dropdown">
-										<i class="fas fa-cog"></i>관리자
+										<img class="profile_icon" src="/resources/images/icon_admin.png">관리자
 									</div>
 									<div class="dropdown-menu dropdown-menu-left">
 										<a href="adminPage.com" class="dropdown-item">관리자페이지</a>
@@ -101,7 +112,7 @@ crossorigin="anonymous">
 								test="${ !empty sessionScope.loginMember && empty sessionScope.loginShopper}">
 								<li id="member" class="nav-item dropdown">
 									<div class="dropdown-toggle nav-link" data-toggle="dropdown">
-										<i class="fas fa-user fa-fw"></i>회원정보
+										<img class="profile_icon"  src="/resources/images/icon_account.png">회원정보
 									</div>
 									<div class="dropdown-menu dropdown-menu-left">
 										<a href="noticeList.com" class="dropdown-item">공지사항</a>
@@ -117,7 +128,7 @@ crossorigin="anonymous">
 								test="${ empty sessionScope.loginMember && !empty sessionScope.loginShopper}">
 								<li id="shop" class="nav-item dropdown">
 									<div class="dropdown-toggle nav-link" data-toggle="dropdown">
-										<i class="fas fa-user fa-fw"></i>회원정보
+										<img class="profile_icon" src="/resources/images/icon_shop.png">회원정보
 									</div>
 									<div class="dropdown-menu dropdown-menu-left">
 										<a href="noticeList.com" class="dropdown-item">공지사항</a>

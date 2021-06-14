@@ -9,14 +9,15 @@
 <title>자주 묻는 질문</title>
 <link rel="stylesheet" href="resources/css/noticecss/nucleo-icons.css">
 <link rel="stylesheet" href="resources/css/noticecss/nucleo-svg.css">
-<link rel="stylesheet"
-	href="resources/css/noticecss/soft-ui-dashboard.css">
-<link rel="stylesheet"
-	href="resources/css/noticecss/soft-ui-dashboard.min.css">
+<!-- <link rel="stylesheet"
+	href="resources/css/noticecss/soft-ui-dashboard.css"> -->
+<!-- <link rel="stylesheet"
+	href="resources/css/noticecss/soft-ui-dashboard.min.css"> -->
 <link rel="stylesheet"
 	href="resources/css/notice-custom/noticeListView.css">
 <jsp:include page="../common/header.jsp"></jsp:include>
 <style type="text/css">
+
 .ftco-section{
 	    padding: 4em 0;
 	    
@@ -46,6 +47,12 @@
   font-family: 'MaruBuri-Regular';
   font-size: 15px;
 }
+.banner {
+      background-color: #c8d4bc;
+   }
+.banner * {
+   color: white;
+}
 </style>
 </head>
 
@@ -53,25 +60,16 @@
 
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<!-- fixed section -->
-	<section class="hero-wrap hero-wrap-2" 
-		style="background-image: url('resources/images/bg_1.jpg');"
-		data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
+	<section class="banner hero-wrap hero-wrap-2">
 		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					_
 					<h1 class="mb-2 bread">Notice</h1>
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="home.com">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
-							class="ion-ios-arrow-forward"></i></span>
-					</p>
+					<p class="mr-2"></p>
 				</div>
 			</div>
 		</div>
-	</section>
+	</section>	
 	<!-- fixed section END-->
 	
 	<!-- 검색창  -->

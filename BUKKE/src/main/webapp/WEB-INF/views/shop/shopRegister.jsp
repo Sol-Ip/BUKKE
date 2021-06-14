@@ -128,7 +128,7 @@
             <hr>
             <div class="form-group">
                 <label for="crnNo">사업자번호</label>
-                <input type="text" class="form-control" id="crnNo" name="crnNo" placeholder="10자리의 사업자번호를 입력해주세요" required>
+                <input type="text" class="form-control" id="crnNo" name="crnNo" placeholder="-를 제외한 10자리의 사업자번호를 입력해주세요" required>
                 <div class="invalid-check invalid-crn">필수 정보입니다.</div>
             </div>
             <div class="form-group img-wrap">
@@ -169,6 +169,10 @@
 	// 실시간 비밀번호 재확인 검사
 	$("#shopPw_re").on("keyup",function(){
 		invalidPw_re();
+	})
+	// 실시간 사업자번호 검사
+	$("#crnNo").on("keyup",function(){
+		invalidCrn();
 	})
 	// 전송 시 유효성 검사
 	$("#form-submit").click(function(e){

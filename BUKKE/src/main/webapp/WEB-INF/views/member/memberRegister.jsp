@@ -139,9 +139,29 @@
 	$("#memberPw_re").on("keyup",function(){
 		invalidPw_re();
 	})
+	// 실시간 아이디 검사
+	$("#memberId").on("keyup",function(){
+		invalidId();
+		dupId(false);
+	})
+	
 	// 전송 시 유효성 검사
 	$("#form-submit").click(function(e){
 		var check_ok = false;
+		dupId(check_ok)
+		check_ok = (check_ok || invalidId());
+		check_ok = (check_ok || invalidPw());
+		check_ok = (check_ok || invalidPw_re());
+		check_ok = (check_ok || invalidName());
+		check_ok = (check_ok || invalidNick());
+		check_ok = (check_ok || invalidAddr());
+		check_ok = (check_ok || invalidPhone());
+		check_ok = (check_ok || invaildEmail());
+		if(!check_ok) {
+			$("#registerform").submit();
+		}
+	})
+	function dupId(check_ok) {
 		$.ajax({
 			url: "memberCheckIdDup.com",
 			type: "POST",
@@ -170,18 +190,8 @@
 				$('#ajax_indicator').fadeOut();
 			}
 		});
-		check_ok = (check_ok || invalidId());
-		check_ok = (check_ok || invalidPw());
-		check_ok = (check_ok || invalidPw_re());
-		check_ok = (check_ok || invalidName());
-		check_ok = (check_ok || invalidNick());
-		check_ok = (check_ok || invalidAddr());
-		check_ok = (check_ok || invalidPhone());
-		check_ok = (check_ok || invaildEmail());
-		if(!check_ok) {
-			$("#registerform").submit();
-		}
-	})
+		return check_ok;
+	}
 	function invalidId() {
 		var Id = $("#memberId").val();
 		var regexp = /^[a-zA-Z0-9_]{4,12}$/;

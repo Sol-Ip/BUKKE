@@ -153,19 +153,19 @@
 												<td>
 												</td>
 												<td style="">
-													<p class="text-xs font-weight-bold mb-0">
+													<!-- <p class="text-xs font-weight-bold mb-0"> -->
 														<ul class="notice1">
 															<li class="menu" id="font3" style="font-weight: bold"><a>${notice.noticeTitle }</a>
-																<ul class="hide">
-																	<li style="font-weight: normal;">${notice.noticeContents } 
+																<ul class="hide" style=" font-family: 'MaruBuri-Regular';">
+																	<li style="font-weight: normal; font-family: 'MaruBuri-Regular';">${notice.noticeContents } 
 																	<c:if test="${!empty notice.nOriginalFilename }">
 																	<img src="../resources/noticeFiles/${notice.nRenameFilename }">
 																	</c:if>
 																	</li>
 																</ul></li>
 														</ul>
-													</p>
-													<p class="text-xs text-secondary mb-0"></p>
+												<!-- 	</p> -->
+												<!-- 	<p class="text-xs text-secondary mb-0"></p> -->
 												</td>
 												<td class="align-middle text-center text-sm"><span
 													class="badge badge-sm bg-gradient-success"></span></td>
@@ -186,8 +186,13 @@
 															<c:param name="noticeNo" value="${notice.noticeNo }"></c:param>
 															<c:param name="nRenameFilename" value="${notice.nRenameFilename }"></c:param>
 														</c:url>
-																<a href="${nDetail}" id="font3">수정 /</a> 
-																<a href="${nDelete}" id="font3">삭제</a>
+														
+																<a href="${nDetail}" id="font3"><input class="btn btn-lg btn-primary"
+																id="update-btn" type="button" value="수정"></a> 
+																
+																<!-- <input class="btn btn-lg btn-danger" type="submit" value="삭제"> -->
+																<a href="${nDelete}" id="font3"><input class="btn btn-lg btn-danger"
+																id="delete-btn" type="button" value="삭제"></a>
 																<%-- onclick="location.href='${nDelete}' --%>
 																
 													</span>
@@ -260,8 +265,17 @@
 			$(".menu>a").click(function() {
 				$(this).next("ul").toggleClass("hide");
 			});
+	//삭제
+	$("#delete-btn").on("click",function() {
+		if(!confirm("삭제하시겠습니까?")) {
+			return false;
+		}else{
+			
+		}
+	});
+	
 		});
-		
+	
 		
 		
 	</script>

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>선물하기</title>
+<title>추천하기</title>
 </head>
 <body>
 

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>선물하기</title>
+<title>추천하기</title>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <link rel="stylesheet" href="resources/css/gift/gift.css">
   <style type="text/css">

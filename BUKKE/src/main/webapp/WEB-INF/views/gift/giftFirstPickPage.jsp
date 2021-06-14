@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>부캐 - 선물하기</title>
+<title>추천하기</title>
 <style>
 	.hero-wrap {
 		content: '';

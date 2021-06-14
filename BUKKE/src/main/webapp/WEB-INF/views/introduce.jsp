@@ -126,12 +126,11 @@ button.learn-more:active::before {
 	<jsp:param name="active" value="introduce" />
 </jsp:include>
 
-<section class="banner hero-wrap hero-wrap-2">
+<section class="banner hero-wrap hero-wrap-2" style="background-image: url(resources/noticeFiles/introduceB.jpg);background-position:50% 80%;data-stellar-background-ratio="0.5;" >
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
 			<div class="col-md-9 ftco-animate text-center">
 				<h1 class="mb-2 bread">introduce</h1>
-				<h3 class="mr-2">본업에 지친 본캐들을 위한<br>취미생활 클래스</h3>
 			</div>
         </div>
     </div>

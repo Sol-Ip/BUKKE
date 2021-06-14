@@ -7,6 +7,12 @@
 <meta charset="UTF-8">
 	<title>Room</title>
 	<style>
+	@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
 		*{
 			margin:0;
 			padding:0;
@@ -19,7 +25,8 @@
 		.container h1{
 			text-align: left;
 			padding: 5px 5px 5px 15px;
-			color: #FFBB00;
+			color: #gray;
+			font-family: 'S-CoreDream-3Light';	
 			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
 		}
@@ -44,7 +51,7 @@
 			color: #FFBB00;
 		}
 		.roomList .num{
-			width: 75px;
+			width: 35px;
 			text-align: center;
 		}
 		.roomList .room{

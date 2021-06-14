@@ -215,16 +215,9 @@ public class NoticeController {
 	
 	//임시 테스트용 페이지
 	@RequestMapping(value="test.com")
-	public ModelAndView testPage(ModelAndView mv) {
-			ArrayList<Shop> shopList = sService.printAllShop();
+	public String testPage() {
 			
-			if(!shopList.isEmpty()) {
-			mv.addObject("shopList",shopList);
-			mv.setViewName("test");
-			}else {
-				System.out.println("살려줘");
-			}
-		return mv;
+		return "test";
 	}
 }
 

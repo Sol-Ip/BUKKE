@@ -37,7 +37,7 @@
 	<update id="updateShop">
    UPDATE SHOP
    SET CEO_NAME = #{ceoName}, SHOP_NAME = #{shopName}, SHOP_ADDR = #{shopAddr}, SHOP_PHONE = #{shopPhone},
-   SHOP_EMAIL = #{shopEmail},  CRN_NO = #{crnNo}, CRN_ORIGINAL_FILENAME = #{crnOriginalFilename},
+   SHOP_EMAIL = #{shopEmail},  CRN_NO = #{crnNo}, CRN_ORIGINAL_FILENAME = #{crnOriginalFilename}, CRN_RENAME_FILENAME = #{crnRenameFilename},
    CRN_RENAME_FILENAME = #{crnRenameFilename}
    WHERE SHOP_ID = #{shopId}
    </update>

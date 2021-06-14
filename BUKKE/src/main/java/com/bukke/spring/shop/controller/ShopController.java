@@ -173,8 +173,44 @@ public class ShopController {
 	}
 	
 	@RequestMapping(value = "modifyShop.com", method = RequestMethod.POST)
-	public String shopModify() {
-		return "";
+	public ModelAndView shopModify(HttpServletRequest request,
+			@ModelAttribute Shop shop,
+			@RequestParam("shopAddr1") String shopAddr1,
+			@RequestParam("shopAddr2") String shopAddr2,
+			@RequestParam(value = "input-file") MultipartFile uploadFile,
+			HttpSession session,
+			ModelAndView mv
+			) {
+		
+		
+		String shopAddr = shopAddr1 + "," + shopAddr2;
+		shop.setShopAddr(shopAddr);
+		//이미지처리
+		String origianlFileName = uploadFile.getOriginalFilename();
+		if(!origianlFileName.equals("")) {
+			String renameFileName = saveFileCRN(uploadFile, request);
+			if(renameFileName != null) {
+				shop.setCrnOriginalFilename(origianlFileName);
+				shop.setCrnRenameFilename(renameFileName);
+			}
+			// 여기서 loginShopper는 변경하기 전 정보, 즉 사진 변경이 안 됬을 경우 원래 정보를 db에 돌려놓음
+			Shop loginShopper = (Shop) session.getAttribute("loginShopper");
+			shop.setCrnOriginalFilename(loginShopper.getCrnOriginalFilename());
+			shop.setCrnRenameFilename(loginShopper.getCrnRenameFilename());
+		}
+		// 변경된 정보로 세션 업데이트
+		session.setAttribute("loginShopper", shop);
+		int result = sService.modifyShop(shop);
+		if(result > 0) {
+			mv.addObject("msg","success");
+			mv.setViewName("member/ModifyComplete");
+		} else {
+			mv.setViewName("redirect:home.com");
+		}
+		
+		
+		
+		return mv;
 	}
 	
 	// 업체회원 승인여부는 admincotroller에 있음
@@ -182,8 +218,29 @@ public class ShopController {
 		return "";
 	}
 	
-	public String shopDelete() {
-		return "";
+	@RequestMapping(value = "shopDeleteView.com")
+	public String shopDeleteView() {
+		return "shop/shopDelete";
+	}
+	
+	//업체회원 탈퇴
+	@RequestMapping(value = "shopDelete.com")	
+	public ModelAndView shopDelete(HttpSession session,
+			ModelAndView mv) {
+		// 회원 id를 가져옴
+		Shop loginShopper = (Shop) session.getAttribute("loginShopper");
+		String shopId = loginShopper.getShopId();
+		int result = sService.deleteShop(shopId);
+		if (result > 0) {
+			mv.addObject("msg", "success");
+			// 회원탈퇴에 성공시, 세션 삭제
+			session.invalidate();
+			mv.setViewName("member/memberDeleteComplete");
+		} else {
+			mv.addObject("msg", "fail");
+			mv.setViewName("redirect:shopMypage.com");
+		}
+		return mv;
 	}
 
 //	public String idDuplicateCheck() {

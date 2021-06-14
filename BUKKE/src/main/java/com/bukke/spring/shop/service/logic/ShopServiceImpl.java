@@ -50,14 +50,14 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public int modifyShop(Shop shop) {
-		// 업체 정보수정
-		return 0;
+		int result = sStore.updateShop(shop);
+		return result;
 	}
 
 	@Override
 	public int deleteShop(String shopId) {
-		// 업체 회원탈퇴
-		return 0;
+		int result = sStore.deleteShop(shopId);
+		return result;
 	}
 
 	@Override

@@ -50,14 +50,14 @@ public class ShopStoreLogic implements ShopStore {
 
 	@Override
 	public int updateShop(Shop shop) {
-		// 업체 정보수정
-		return 0;
+		int result = session.insert("shopMapper.updateShop",shop);
+		return result;
 	}
 
 	@Override
 	public int deleteShop(String shopId) {
-		// 업체 회원탈퇴
-		return 0;
+		int result = session.insert("shopMapper.deleteShop",shopId);
+		return result;
 	}
 
 	@Override

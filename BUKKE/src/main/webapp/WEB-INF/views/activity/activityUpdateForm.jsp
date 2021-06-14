@@ -135,6 +135,25 @@
 						</div>
 						
 						<hr>
+						
+						<!-- <input type="text" name="time" class="timepicker"> -->
+							<div class="row col-md-12" style="align:center;">
+							<div class="col-md-4">
+							<div class="startTime">
+									<label class="form-label" for="">시작 시간</label>
+									<br> 
+									<input type="text" class="timepicker" name="activityStartTime" style="width:240px;" placeholder="시작 시간" required>
+							</div>
+							</div>
+							<div class="col-md-4">
+							<div class="endTime">
+									<label class="form-label" for="">종료 시간</label>
+									<br> 
+									<input type="text" class="timepicker" name="activityEndTime" style="width:240px;" placeholder="종료 시간" required>
+							</div>
+							</div>
+							</div>
+						<hr>
 							
 							<label class="form-label" for="activityAddr">액티비티 주소</label>&nbsp;
 							<input type="button" id="postcodify_search_button" class="btn btn btn-dark btn-md" value="주소찾기"> 
@@ -176,7 +195,72 @@
 			</div>
 	
 	</section>
+	 <script>
+   $(function(){
+      
+$('#summernote').summernote({
+    placeholder: '여기에 내용 입력하세요~ 그림파일 용량은 2MB까지입니다~',
+    tabsize: 2,
+    height: 500, // 에디터 높이
+    defaultFontName: '바탕체',
+    toolbar: [
+['style', ['style']],
+['fontname', ['fontname']],
+['fontsize', ['fontsize']],
+['font style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+['color', ['forecolor','color']],
+['para', ['ul', 'ol', 'paragraph']],
+['table', ['table']],
+['insert', ['link', 'picture', 'video']],
+['view', ['fullscreen', 'codeview', 'help']],
+],
+defaultFontName:'바탕',
+fontNames: ['Arial', 'Comic Sans MS','맑은 고딕','궁서','굴림','돋음체','바탕'],
+fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+maximumImageFileSize:2097152,
 
+popover: {
+              image: [
+                ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']]
+              ],
+              link: [
+                ['link', ['linkDialogShow', 'unlink']]
+              ],
+              table: [
+                ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+                ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+              ],
+              air: [
+                ['color', ['color']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['para', ['ul', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture']]
+              ]
+            }
+  });
+$('.dropdown-toggle').dropdown()
+   });
+
+
+</script>
+	
+<!-- 타임피커 -->
+<script>
+$('.timepicker').timepicker({
+    timeFormat: 'p h:mm',
+    interval: 60,
+    minTime: '09',
+    maxTime: '11:00pm',
+    defaultTime: '00',
+    startTime: '00:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+</script>
 
 </body>
 </html>

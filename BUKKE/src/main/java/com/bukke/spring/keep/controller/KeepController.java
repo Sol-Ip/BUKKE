@@ -153,7 +153,7 @@ public class KeepController {
 		ArrayList<Keep> claList = kService.printClassKeepList(piCla, memberId); // keep 목록 중 클래스
 		ArrayList<Keep> actList = kService.printActivityKeepList(piAct, memberId); // keep 목록 중 액티비티
 		System.out.println("keepList : "+ kList);
-		if(!kList.isEmpty()) {
+		if(!kList.isEmpty() || kList.isEmpty()) {
 			mv.addObject("claList", claList);
 			mv.addObject("actList", actList);
 			mv.addObject("kList", kList);

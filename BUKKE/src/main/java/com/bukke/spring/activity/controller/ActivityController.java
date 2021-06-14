@@ -218,7 +218,7 @@ public class ActivityController {
 		System.out.println("찜 갯수는 ? " + getActKeeps);
 		if(activity != null ) {
 			model.addAttribute("getActKeeps",getActKeeps);
-			System.out.println("aList는!? "+aList.toString());
+			//System.out.println("aList는!? "+aList.toString());
 			model.addAttribute("aList", aList);
 			mv.addObject("rList", rList);
 			mv.addObject("activity", activity);

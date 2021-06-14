@@ -359,6 +359,6 @@
 	</section>
 
 </body>
-</html>
 <jsp:include page="../common/footer.jsp"></jsp:include>
+</html>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>

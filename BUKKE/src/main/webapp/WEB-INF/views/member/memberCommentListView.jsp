@@ -12,17 +12,82 @@
 	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
-<link rel="stylesheet" href="../resources/css/mypage/reviewComment.css">
 <link rel="stylesheet" href="../resources/css/mypage/banner.css">
+<link rel="stylesheet" href="../resources/css/mypage/reviewComment.css">
 
 
 <style type="text/css">
+.non-cmt {
+	margin: auto;
+	font-family: 'Cafe24SsurroundAir';
+	text-align: center;
+	}
+	
+	
+	@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'MaruBuri-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+/* 버튼 */
+.link-btn {
+	border: none;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	text-transform: uppercase;
+	outline: none;
+	overflow: hidden;
+	position: relative;
+	color: #fff;
+	font-weight: 700;
+	font-size: 15px;
+	background-color: #222;
+	padding: 17px 60px;
+	margin: 0 auto;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
+}
+.link-btn span {
+	font-family: 'EliceDigitalBaeum_Bold';
+	font-size: large;
+	position: relative;
+	z-index: 1;
+}
+.link-btn:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 490%;
+	width: 140%;
+	background: #78c7d2;
+	-webkit-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	-webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+	transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+.link-btn:hover:after {
+	-webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+	transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
 .card .card-body .message {
   padding-left: 80px;
+  }
   
   &::after {
     clear: both;
-  }
 }
 
 .card .card-body .actions {

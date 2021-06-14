@@ -127,7 +127,7 @@
 							<h4 class="color-warning" id="mypage">
 								<b>부캐 일정</b>
 							</h4>
-							<br> <a href="javascript:void(0)"
+							<br> <a href="scheduleTest.com"
 								class="btn btn-warning btn-custom" id="sub1">Click</a>
 						</div>
 					</div>
@@ -145,7 +145,7 @@
 							<h4 class="color-success" id="mypage">
 								<b>내 활동</b>
 							</h4>
-							<br> <a href="javascript:void(0)"
+							<br> <a href="memberCAList.com"
 								class="btn btn-success btn-custom" id="sub1">Click</a>
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 							<h4 class="color-danger" id="mypage">
 								<b>회원 탈퇴</b>
 							</h4>
-							<br> <a href="javascript:void(0)"
+							<br> <a href="memberDeleteView.com"
 								class="btn btn-danger btn-custom" id="sub1">Click</a>
 						</div>
 					</div>

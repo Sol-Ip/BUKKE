@@ -40,6 +40,16 @@
     position: relative;
     right: 60px;
 	}
+	
+	.review-content {
+		padding:30px;
+	}
+	.row review-info {
+	justify-content: flex-end;
+	}
+	.img-fluid {
+	    width: -webkit-fill-available;
+	}
 </style>
 </head>
 <body>
@@ -78,104 +88,74 @@
 		</div>
 	</section>
 	<!-- fixed section END-->
-	
-	
-		<section class="ftco-animate">
-			<div class="container">
-			<div class="row">
-			<div class="col-md-12">
-			<div class=""> 
-			<H1>TEST</H1>			
-			</div>			
-			</div>
-			</div>			
-			</div>
-		</section>
 
-	
 
 	<section class="ftco-section">
-		<div class="container">
-
-			<!-- <div class="container"> -->
-			<div class="row">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-6 heading-section ftco-animate">
+	<div class="container">
+	<div class="row">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8 heading-section ftco-animate">
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-white">REVIEW</small></span>
 					<h2 class="mb-4">${review.reviewTitle }</h2>
 					&nbsp;
 				</div>
-				<%-- <div class="col-sm-5 heading-section ftco-animate">
-
-					<h1 align="right">
-						<i class="fas fa-quote-left text-success"></i>&nbsp;${review.reviewTitle }&nbsp;<i
-							class="fas fa-quote-right text-success"></i> <br>
-						<div class="row">
-							<h4 class="col-sm">
-								<i class="fas fa-user-circle text-primary"></i>&nbsp;<b>부캐명
-									: </b>&nbsp;&nbsp;${review.memberId }&nbsp;&nbsp;
-							</h4>
-							<h4>
-								<i class="far fa-calendar-alt text-warning"></i><b>작성날짜 : </b>&nbsp;&nbsp;${review.reviewDate }
-							</h4>
-						</div>
-					</h1>
-				</div> --%>
-
+				<div class="col-lg-2"></div>
 			</div>
-			<hr>
-			<!-- 왼쪽위사진넣어보기 -->
+			</div>
+			</section>
 
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 ftco-animate">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8">
+					<div class="row review-info" style="justify-content: flex-end;">
+						<!-- <div class="heading-section ftco-animate"> -->
+						<h1 align="right">
+							<i class="fas fa-quote-left text-success"></i>&nbsp;${review.reviewTitle }&nbsp;<i
+								class="fas fa-quote-right text-success"></i> <br>
+							<div class="row">
+								<h4 class="col-sm">
+									<i class="fas fa-user-circle text-primary"></i>&nbsp;<b>부캐명
+										: </b>&nbsp;&nbsp;${review.memberId }&nbsp;&nbsp;
+								</h4>
+								<h4>
+									<i class="far fa-calendar-alt text-warning"></i>&nbsp;<b>작성날짜
+										: </b>&nbsp;${review.reviewDate }
+								</h4>
+							</div>
+						</h1>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-2"></div>
+		</div>
+
+		<!-- -->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8"  style="background-color:#f2f2f2;">
+					<div class="review-content">
+					<h3>${review.reviewTitle }</h3><hr>
+					<div class="review-content contents">
 					<img src="../resources/reviewFiles/${review.rRenameFilename }"
 						alt="class photo" class="img-fluid block-40">
+						<br>
+					 <div style="padding: inherit;"><h5>${review.reviewContents }</h5></div>
+					 </div>
+					<br>
 				</div>
-
-				<div class="col-lg-6"  style="background-color:#f2f2f2;">
-					<%-- <h5>${review.reviewContents }</h5> --%>
-					<h5 align="center">
-								<!-- <i class="fas fa-list fa-lg"></i>&nbsp; -->
-								REVIEW
-							</h5>
-							<hr>
-							<br>
-							<%-- <div class="block-21 mb-4 d-flex">
-								<ul id="type-ul">
-									<li><h3 class="act-type">
-											<b>시작일</b>&nbsp;&nbsp;<i class="far fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.classStartDate }</h3></li>
-									<br>
-									<br>
-									<li><h3 class="act-type">
-											<b>종료일</b>&nbsp;&nbsp;<i class="fas fa-calendar-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.classEndDate }</h3></li>
-									<br>
-									<br>
-									<li><h3 class="act-type">
-											<b>시간</b>&nbsp;&nbsp;<i class="far fa-clock fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.classStartTime } - ${bukkeClass.classEndTime }</h3></li>
-									<br>
-									<br>
-									<li><h3 class="act-type">
-											<b>업체명</b>&nbsp;&nbsp;<i class="fas fa-id-card-alt fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</h3></li>
-									<li><h3 id="act-type">${bukkeClass.shopId }</h3></li>
-								</ul>
-							</div> --%>
-				</div>
+				<div class="col-lg-2"></div>
 			</div>
 		</div>
 		</div>
-		</div>
+		<br><br>
 		<div class="container">
 		<c:if test="${!empty loginMember}">
-			<h3 class="act-type" align="right">
-				<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp;
+			<h3 class="act-type" align="center">
+<%-- 				<b>좋아요 </b>&nbsp;&nbsp;<span id="hearCnt">${review.reviewLikeCnt }</span>&nbsp;&nbsp; --%>
+				<span id="hearCnt">${review.reviewLikeCnt }</span><b>명이 이 글을 좋아합니다.</b><br><br>
 				<button id="heart" class="" name=""></button>
 				<script>
 					$(document).ready(function() {
@@ -183,12 +163,12 @@
 						if (heartYN == "Y") {
 							$("#heart")
 									.prop("class",
-											"btn btn-danger fas fa-heart");
+											"btn btn-danger btn-lg fas fa-heart");
 							//$("#heart").prop('name',heartval)
 						} else {
 							$("#heart")
 									.prop("class",
-											"btn btn-danger far fa-heart");
+											"btn btn-danger btn-lg far fa-heart");
 							//$("#heart").prop('name',heartval)
 						}
 						$("#heart").on("click", function() {
@@ -210,13 +190,13 @@
 												'#heart')
 												.prop(
 														"class",
-														"btn btn-danger far fa-heart");
+														"btn btn-danger btn-lg far fa-heart");
 									} else {
 										$(
 												'#heart')
 												.prop(
 														"class",
-														"btn btn-danger fas fa-heart");
+														"btn btn-danger btn-lg fas fa-heart");
 									}
 									heartYN = data.heartYN;
 									heartSpan
@@ -237,7 +217,7 @@
 						</c:url>
 						<!-- renameFilename 은 실제 저장된 파일 이름  -->
 						<c:url var="rDelete" value="reviewDelete.com">
-							<c:param name="reviewNo" value="${bukkeClass.classNo }"></c:param>
+							<c:param name="reviewNo" value="${review.reviewNo }"></c:param>
 							<c:param name="rRenameFilename"
 								value="${review.rRenameFilename }"></c:param>
 						</c:url>
@@ -257,7 +237,7 @@
 						<h2 class="mb-4">Comments</h2>&nbsp;
 						
 					</div> -->
-						<c:if test="${empty loginMember}">
+						<c:if test="${empty loginMember && empty loginShopper}">
 						<h2 align="center">로그인 후 댓글입력해주세요</h2>
 						</c:if>	
 				</div>
@@ -277,7 +257,7 @@
 			<!-- 댓글 등록2 -->
 			
 			<br><br>
-			<c:if test="${!empty loginMember}">
+			<c:if test="${!empty loginMember || !empty loginShopper}">
 			 <div class="comment-form">
 				<div class="form" name="form">
 					<div class="form-row">
@@ -366,7 +346,7 @@
 											comments +='</h3>';
 											comments +='<div class="meta mb-2">'+data[i].commentDate+'</div>';
 											comments +='<p>'+data[i].commentContents+'</p>';
-											comments +='<p><a href="#" class="reply">delete</a></p>';
+											comments +='<p><a href="#" >delete</a></p>';
 											comments +='</div>';
 											comments +='</li>';
 											comments +='</ul>';

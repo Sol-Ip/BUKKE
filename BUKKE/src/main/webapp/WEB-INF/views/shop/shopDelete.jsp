@@ -19,14 +19,6 @@
    	cursor: Pointer;
    }
 
-.banner {
-	background: linear-gradient(270deg, rgba(41, 206, 140, 1) 0%,
-		rgba(40, 189, 168, 1) 100%);
-}
-
-.banner * {
-	color: white;
-}
 
 nav>* {
 	width: 100%;
@@ -42,7 +34,7 @@ input[type="checkbox"] {
     height: 1.25em; /* 높이 설정 */
     vertical-align: middle;
 }
-.notice {
+/* .notice {
 	color: black;
 	font-weight: bold;
 }
@@ -54,113 +46,130 @@ input[type="checkbox"] {
 }
 .notice-info ul {
 	margin:4px 0;
+} */
+.shop-wrapper {
+	height: 690px;
+}
+
+.hero-wrap {
+	padding: 60px 0;
 }
 </style>
 </head>
 <body>
-	<section class="banner hero-wrap hero-wrap-2">
-		<div class="container">
-			<div
-				class="row no-gutters slider-text align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<h1 class="mb-2 bread">마이페이지</h1>
-					<p class="mr-2"></p>
-				</div>
-			</div>
-		</div>
-		<!-- ======================= 사이드 바 시작 =============================== -->
-		<div class="l-navbar" id="navbar">
-			<nav class="nav">
-				<div>
-					<div class="nav__brand">
-						<ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-						<a href="#" class="nav__logo">BUKKE</a>
-					</div>
-					<div class="nav__list">
-						<div href="#" class="nav__link collapse1">
-							<ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-							<span class="nav_name">내 정보</span>
 
-							<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+   <!-- fixed section -->
+   <section class="hero-wrap hero-wrap-2"
+       style="background-color: yellow;"
+      data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+         <div class="row no-gutters slider-text align-items-center justify-content-center" style="height:240px;">
+            <div class="col-md-9 ftco-animate text-center">
+               <h1 class="mt-2 mb-2 bread">MY PAGE</h1>
+               <p class="breadcrumbs">
+                  <span class="mr-2"><a href="shopMyPage.com">MY INFORMATION</a></span> 
+               </p>
+            </div>
+         </div>
+      </div>
+      
+      <!-- ======================= 사이드 바 시작 =============================== -->
+        <div class="l-navbar" id="navbar" style="height : 800px;">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">BUKKE</a>
+                </div>
+                <div class="nav__list">
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 정보</span>
 
-							<ul class="collapse__menu">
-								<a href="#" class="collapse__sublink">정보 수정</a>
-							</ul>
-						</div>
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-						<div href="#" class="nav__link collapse1">
-							<ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-							<span class="nav_name">부캐 일정</span>
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">정보 수정</a>
+                        </ul>
+                    </div>
+                    
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="calendar-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 일정</span>
 
-							<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-							<ul class="collapse__menu">
-								<a href="#" class="collapse__sublink">부캐 일정보기</a>
-								<a href="#" class="collapse__sublink">좋아요 목록</a>
-								<a href="#" class="collapse__sublink">찜 목록</a>
-							</ul>
-						</div>
+                        <ul class="collapse__menu">
+                            <a href="reservationList.com" class="collapse__sublink">수업 목록</a>
+                            <a href="shopSchedule.com" class="collapse__sublink">수업 일정</a>
+                        </ul>
+                    </div>
 
-						<div href="#" class="nav__link collapse1">
-							<ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-							<span class="nav_name">내 활동</span>
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="bicycle-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">내 활동</span>
 
-							<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-							<ul class="collapse__menu">
-								<a href="#" class="collapse__sublink">작성한 게시글</a>
-								<a href="#" class="collapse__sublink">작성한 댓글</a>
-							</ul>
-						</div>
+                        <ul class="collapse__menu">
+                            <a href="shopActivityList.com" class="collapse__sublink">등록한 액티비티</a>
+                            <a href="shopClassList.com" class="collapse__sublink">등록한 클래스</a>
+                        </ul>
+                    </div>
+                    
+                    
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">채팅</span>
 
-						<div href="#" class="nav__link collapse">
-							<ion-icon name="people-outline" class="nav__icon"></ion-icon>
-							<span class="nav_name">선물 내역</span>
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+						
+						
+						
+                        <ul class="collapse__menu">
+                        	<c:url var="chatRoomForShop" value="chatRoomForShop.com">
+							<c:param name="roomList" value="${roomList }"></c:param>
+							</c:url>
+                            <a href="${chatRoomForShop }" class="collapse__sublink">채팅 목록</a>
+                        </ul>
+                    </div>
 
-							<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+                    <div href="#" class="nav__link collapse1">
+                        <ion-icon name="alarm-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">예약 관리</span>
 
-							<ul class="collapse__menu">
-								<a href="#" class="collapse__sublink">받은 선물</a>
-								<a href="#" class="collapse__sublink">보낸 선물</a>
-							</ul>
-						</div>
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-						<div href="#" class="nav__link collapse1">
-							<ion-icon name="people-outline" class="nav__icon"></ion-icon>
-							<span class="nav_name">채팅</span>
+                        <ul class="collapse__menu">
+                            <a href="reservationList.com" class="collapse__sublink">예약 목록</a>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div href="#" class="nav__link collapse1">
+                        <ion-icon name="close-circle-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">업체 탈퇴</span>
 
-							<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
-							<ul class="collapse__menu">
-								<a href="#" class="collapse__sublink">채팅 목록</a>
-							</ul>
-						</div>
-
-						<div href="#" class="nav__link collapse1">
-							<ion-icon name="people-outline" class="nav__icon"></ion-icon>
-							<span class="nav_name">알림</span>
-
-							<ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-							<ul class="collapse__menu">
-								<a href="#" class="collapse__sublink">예약 알림</a>
-							</ul>
-						</div>
-					</div>
-
-					<a href="#" class="nav__link"> <ion-icon name="log-out-outline"
-							class="nav__icon"></ion-icon> <span class="nav_name">Log
-							out</span>
-					</a>
-				</div>
-			</nav>
-		</div>
-	</section>
-	<br>
-	<br>
-	<!-- ======================= 사이드 바 끝 =============================== -->
-	<section class="member-wrapper">
-	<div class="container member-container">
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">탈퇴 신청</a>
+                        </ul>
+                    </div>
+                
+                <a href="#" class="nav__link">
+                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">Log out</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+   </section>
+   <br><br>
+   <!-- ======================= 사이드 바 끝 =============================== -->
+	<section class="shop-wrapper">
+	<div class="container shop-container">
 	<div class="text-left">
 				<h3 class="mt-2 mb-2">회원탈퇴</h3>
 	</div>
@@ -215,7 +224,7 @@ input[type="checkbox"] {
 <script>
 	$("#withdraw").click(function(){
 		
-		var pw = ${loginShopper.memberPw};
+		var pw = "${loginShopper.shopPw}";
 		if($("#pw_check").val() == pw) {
 			location.href="shopDelete.com";
 		} else {

@@ -59,7 +59,7 @@
       </div>
       
       <!-- ======================= 사이드 바 시작 =============================== -->
-         <div class="l-navbar" id="navbar" style="height : 800px;">
+        <div class="l-navbar" id="navbar" style="height : 800px;">
         <nav class="nav">
             <div>
                 <div class="nav__brand">
@@ -138,7 +138,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">탈퇴 신청</a>
+                            <a href="shopDeleteView.com" class="collapse__sublink">탈퇴 신청</a>
                         </ul>
                     </div>
                 
@@ -219,7 +219,7 @@
 						<div class="card-block block-3">
 							<h3 class="card-title" id=fonts>내 정보</h3>
 							<p class="card-text"></p>
-							<a href="javascript:void();" title="Read more" class="read-more">더보기<i
+							<a href="shopModifyView.com" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>
 						</div>
 					</div>
@@ -252,7 +252,7 @@
 						<div class="card-block block-3">
 							<h3 class="card-title" id=fonts>업체 탈퇴</h3>
 							<p class="card-text"></p>
-							<a href="javascript:void();" title="Read more" class="read-more">더보기<i
+							<a href="shopDeleteView.com" title="Read more" class="read-more">더보기<i
 								class="fa fa-angle-double-right ml-2"></i></a>
 						</div>
 					</div>

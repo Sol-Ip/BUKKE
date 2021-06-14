@@ -135,8 +135,8 @@ public class MemberController {
 		member.setMemberAddr(memberAddr);
 		int result = mService.registerMember(member);
 		if (result > 0) {
-			mv.addObject("msg", "member");
-			mv.setViewName("member/registerComplete");
+			
+			mv.setViewName("redirect:home.com");
 		} else {
 			mv.setViewName("redirect:home.com");
 		}
@@ -279,10 +279,12 @@ public class MemberController {
 				String tomail = member.getMemberEmail();
 				String title = "안녕하세요 부캐입니다. 임시 비밀번호를 이메일로 보냈습니다.";
 				String content = "";
-					content += "<div align='center' style='border:1px solid black;'>";
-					content += "<h3>안녕하세요 부캐입니다! 회원님의 임시 비밀번호입니다. 마이페이지에서 비밀번호를 변경해주세요</h3>";
-					content += "<p>임시비밀번호는 " + pwd + "입니다<p></div>";
-				    String filename="C:\\Users\\gywjd\\Desktop\\부캐\\introduce1.jpg";
+				content += "<div align='center' style='border:1px solid black;'>";
+				content += "<img src='https://alice-closet.kakaogames.com/test/static/media/popup.c5ce45a3.png'>";
+				content += "<h2>안녕하세요 부캐입니다! 회원님의 임시 비밀번호입니다. 마이페이지에서 비밀번호를 변경해주세요!</h2>";
+				content += "<p>임시비밀번호는 " + pwd + "입니다<p></div>";
+			    String filename="C:\\Users\\gywjd\\Desktop\\부캐\\introduce1.jpg";
+
 					//첨부파일 경로
 
 				MimeMessage message = javaMailSender.createMimeMessage();

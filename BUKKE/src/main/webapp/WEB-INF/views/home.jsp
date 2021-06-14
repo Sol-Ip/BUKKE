@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png"  href="resources/images/bukke_favi3.png"/>
+
 <title>취미생활 플랫폼, 부캐</title>
 <jsp:include page="./common/header.jsp">
 	<jsp:param name="active" value="home" />
@@ -392,7 +394,6 @@
 	</div>
 	</section>
 	
-	
 	<section class="ftco-services" id="shop-info">
 		<div class="container">
 			<!-- BUKKE SHOPPER -->
@@ -401,11 +402,11 @@
 					<span class="subheading subheading-with-line"><small
 						class="pr-2 bg-white">BUKKE</small></span>
 					<h2 class="mb-4">HOW TO BUKKE HOST</h2>
-					<p>원스탑 클래스 및 액티비티 서비스를 통해 쉽고 편하게 경험을 공유하고 누군가의 또 다른 모습을 발굴해낼 수 있습니다</p>
+					<p class="host-info">원스탑 클래스 및 액티비티 서비스를 통해 쉽고 편하게 경험을 공유하고 누군가의 또 다른 모습을 발굴해낼 수 있습니다</p>
 				</div>
 			</div>
 			
-			<div class="row justify-content-start mt-5 py-5">
+			<div class="row justify-content-start mt-5 py-5 ftco-animate">
 			<div class="col-md-2"></div>
 			
 			
@@ -471,6 +472,13 @@
 						
 					
 				<div class="col-md-2"></div>
+			</div>
+			
+			<div class="row ftco-animate" style="place-content: center;">
+				<p>
+					<a href="shopRegisterForm.com"
+						class="btn btn-primary btn-lg px-4 py-3 mt-3">업체 등록하기</a>
+				</p>
 			</div>
 		</div>
 	</section>

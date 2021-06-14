@@ -70,6 +70,7 @@ a img {
 	background-color:#f2f7fc;
 }
 
+
 .cta {
 	/* width : min-content; */
     display: flex;
@@ -244,4 +245,23 @@ background : #5d606899;
         text-shadow: none;
         box-shadow: none;
     }    
+}
+.ftco-services .services .media-body h3 { 
+	font-family : 'SEBANG_Gothic_Bold';
+}
+ .host-info, .ftco-services .services .media-body p {
+	font-family: 'ELAND_Choice_M';
+}
+
+@font-face {
+    font-family: 'NeoDunggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bukke-icon h1{
+	font-family: 'NeoDunggeunmo';
+	font-size : xxx-large;
+	color : #0033C7;
 }

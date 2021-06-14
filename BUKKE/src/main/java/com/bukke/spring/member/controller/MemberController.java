@@ -545,7 +545,7 @@ public class MemberController {
 		}
 	}
     
-  //결제시 pay_status Y로 변경(액티비티)
+  //결제시 pay_status Y로 변경(클래스)
     @ResponseBody
 	@RequestMapping(value="paymentSuccessClass.com", method=RequestMethod.POST)
 	public String addCommentClass(@ModelAttribute Reservation reservation) {

@@ -249,7 +249,12 @@
       	<div id="paymentbtn">결제 완료</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
+		      	<c:if test ="${reservation.payStatus eq 'N'}">
 		      	<button type=button id="act-iamport" class="confirmbtn">결제하기</button>
+		      	</c:if>
+		      	<c:if test ="${reservation.payStatus eq 'Y'}">
+		      	<button type="button" data-toggle="modal" data-target="#myModal2" id="waitbtn" >결제완료</button>
+		      	</c:if>
 		      	
 		      	<script>
 				$(document).ready(function(){
@@ -392,7 +397,14 @@
       	<div id="paymentbtn">결제 완료</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
-		<button type=button id="class-iamport" class="confirmbtn">결제하기</button>
+				<c:if test ="${reservation.payStatus eq 'N'}">
+		      	<button type=button id="class-iamport" class="confirmbtn">결제하기</button>
+		      	</c:if>
+		      	<c:if test ="${reservation.payStatus eq 'Y'}">
+		      	<button type="button" data-toggle="modal" data-target="#myModal2" id="waitbtn" >결제완료</button>
+		      	</c:if>
+				
+				
 		      	<script>
 				$(document).ready(function(){
 				    IMP.init('imp18509268');

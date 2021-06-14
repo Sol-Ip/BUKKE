@@ -13,6 +13,7 @@
 <!-- 사이드바 -->
 <link rel="stylesheet" href="../resources/css/member/mypageSidebar.css">
 
+<!-- 모달창 -->
 
 <!-- 회원정보 -->
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -20,7 +21,7 @@
 <link rel="stylesheet" href="../resources/css/mypage/tab.css"> 
 <link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
 	<style type="text/css">
-		#confirmbtn{
+		.confirmbtn{
 		   width: 103px;
     height: 28px;
     font-size: 12px;
@@ -62,6 +63,9 @@
 
 </head>
 <body>
+<!-- 아임포트 사용설명서 -->
+<a href="https://github.com/iamport/iamport-manual/blob/master/%EC%9D%B8%EC%A6%9D%EA%B2%B0%EC%A0%9C/README.md"></a>
+
 <!-- fixed section -->
    <section class="hero-wrap hero-wrap-2"
       style="background-image: url('resources/images/bg_1.jpg');"
@@ -228,16 +232,50 @@
       <td>${reservation.activity.activityType}</td>
       <td>${reservation.activity.activityTypeDetails }</td>
       <td>${reservation.activity.activityStartdate }</td>
+      
       <td>
       <c:choose>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
-      	<input type=button id="confirmbtn" value="결제하기"><a href=""></a>
-      	</c:when>
+		      	<button type=button id="act-iamport" class="confirmbtn">결제하기</button>
+		      	
+		      	<script>
+				$(document).ready(function(){
+				    IMP.init('imp18509268');
+				});
+				
+				$("#act-iamport").click(function(e){
+				    IMP.request_pay({
+				        pg : 'html5_inicis',
+				        pay_method : 'card',
+				        merchant_uid : 'merchant_' + new Date().getTime(),
+				        name : '${reservation.activity.activityName}',
+				        amount : '${reservation.activity.activityPrice}',
+				       // buyer_email : '12345@naver.com',
+				        buyer_name : 'ㄱㄱㄱ',
+				        buyer_tel : '010-1111-2222',
+				        buyer_addr : '서울특별시 중구 남대문로 120,2층',
+				    }, function(rsp) {
+				        if ( rsp.success ) {
+				            var msg = '결제에 성공하였습니다.';
+				            msg += ' 고유ID : ' + rsp.imp_uid;
+				            msg += ' 상점 거래ID : ' + rsp.merchant_uid;
+				            msg += ' 결제 금액 : ' + rsp.paid_amount;
+				            msg += ' 카드 승인번호 : ' + rsp.apply_num;
+				        } else {
+				            var msg = '결제에 실패하였습니다.';
+				            msg += ' 에러내용 : ' + rsp.error_msg;
+				        }
+				        alert(msg);
+				    });
+				})
+		</script>
+		
+		      	</c:when>
       	<c:when test="${reservation.reservationStatus eq '거절' }">
-		<div id="rejectbtn">흥</div>
+		<div id="rejectbtn">거절</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '대기' }">
-      	<div id="waitbtn">대기</div>
+      	<button type="button" data-toggle="modal" data-target="#myModal" id="waitbtn" >대기</button>
       	</c:when>
       </c:choose>
       </td>
@@ -254,35 +292,35 @@
             <div class="block-27">
               <!-- 이전 --> 
               <ul>
-               <c:url var="before" value="memberCAList.com">
-                  <c:param name="page" value="${actPi.currentPage - 1 }"></c:param>
+               <c:url var="before" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage - 1 }"></c:param>
                </c:url>
-               <c:if test="${actPi.currentPage <= 1 }">
+               <c:if test="${reservationPi.currentPage <= 1 }">
                   <li><a href="#" onclick="firstPage()">&lt;</a></li>
                </c:if>
-               <c:if test="${actPi.currentPage > 1 }">
+               <c:if test="${reservationPi.currentPage > 1 }">
                   <li><a href="${before }">&lt;</a></li>
                </c:if>
                <!-- 페이지 -->
-                <c:forEach var="p" begin="${actPi.startPage }" end="${actPi.endPage }">
-                  <c:url var="pagination" value="memberCAList.com">
+                <c:forEach var="p" begin="${reservationPi.startPage }" end="${reservationPi.endPage }">
+                  <c:url var="pagination" value="myReservationList.com">
                      <c:param name="page" value="${p }"></c:param>
                   </c:url>
-                  <c:if test="${p eq actPi.currentPage }">
+                  <c:if test="${p eq reservationPi.currentPage }">
                   <li class="active" style="background-color: #ffffff;"><span>${p }</span></li>
                </c:if>
-                  <c:if test="${p ne actPi.currentPage }">
+                  <c:if test="${p ne reservationPi.currentPage }">
                      <li><a href="${pagination }">${p }</a></li>
                   </c:if>
                </c:forEach>
                <!-- 다음 -->
-               <c:url var="after" value="memberCAList.com">
-                  <c:param name="page" value="${actPi.currentPage + 1 }"></c:param>
+               <c:url var="after" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage + 1 }"></c:param>
                </c:url>
-               <c:if test="${actPi.currentPage >= actPi.maxPage }">
+               <c:if test="${reservationPi.currentPage >= reservationPi.maxPage }">
                   <li><a href="#" onclick="lastPage()">&gt;</a></li>
                </c:if>
-               <c:if test="${actPi.currentPage < actPi.maxPage }">
+               <c:if test="${reservationPi.currentPage < reservationPi.maxPage }">
                   <li><a href="${after }">&gt;</a></li>
                </c:if>
               </ul>
@@ -317,16 +355,47 @@
       <td>
       <c:choose>
       	<c:when test="${reservation.reservationStatus eq '승인' }">
-      	<input type=button id="confirmbtn" value="결제하기"><a href=""></a>
-      	</c:when>
+		<button type=button id="class-iamport" class="confirmbtn">결제하기</button>
+		      	<script>
+				$(document).ready(function(){
+				    IMP.init('imp18509268');
+				});
+				
+				$("#class-iamport").click(function(e){
+				    IMP.request_pay({
+				        pg : 'html5_inicis',
+				        pay_method : 'card',
+				        merchant_uid : 'merchant_' + new Date().getTime(),
+				        name : '${reservation.bukkeClass.className}',
+				        amount : '${reservation.bukkeClass.classPrice}',
+				        //buyer_email : '12345@naver.com',
+				        buyer_name : 'ㄱㄱㄱ',
+				        buyer_tel : '010-1111-2222',
+				        buyer_addr : '서울특별시 중구 남대문로 120,2층',
+				    }, function(rsp) {
+				        if ( rsp.success ) {
+				            var msg = '결제에 성공하였습니다.';
+				            msg += ' 고유ID : ' + rsp.imp_uid;
+				            msg += ' 상점 거래ID : ' + rsp.merchant_uid;
+				            msg += ' 결제 금액 : ' + rsp.paid_amount;
+				            msg += ' 카드 승인번호 : ' + rsp.apply_num;
+				        } else {
+				            var msg = '결제에 실패하였습니다.';
+				            msg += ' 에러내용 : ' + rsp.error_msg;
+				        }
+				        alert(msg);
+				    });
+				})
+		</script>
+		      	</c:when>
       	<c:when test="${reservation.reservationStatus eq '거절' }">
-      	<div id="rejectbtn">거절</div>
+		<div id="rejectbtn">거절</div>
       	</c:when>
       	<c:when test="${reservation.reservationStatus eq '대기' }">
-      	<div id="waitbtn">대기</div>
+      	<button type="button" data-toggle="modal" data-target="#myModal2" id="waitbtn" >대기</button>
       	</c:when>
       </c:choose>
-      </td> 
+      </td>      	
     </tr> 
     </c:if>
   </tbody>
@@ -342,35 +411,35 @@
             <div class="block-27">
               <!-- 이전 --> 
               <ul>
-               <c:url var="before" value="memberCAList.com">
-                  <c:param name="page" value="${classPi.currentPage - 1 }"></c:param>
+               <c:url var="before" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage - 1 }"></c:param>
                </c:url>
-               <c:if test="${classPi.currentPage <= 1 }">
+               <c:if test="${reservationPi.currentPage <= 1 }">
                   <li><a href="#" onclick="firstPage()">&lt;</a></li>
                </c:if>
-               <c:if test="${classPi.currentPage > 1 }">
+               <c:if test="${reservationPi.currentPage > 1 }">
                   <li><a href="${before }">&lt;</a></li>
                </c:if>
                <!-- 페이지 -->
-                <c:forEach var="p" begin="${classPi.startPage }" end="${classPi.endPage }">
-                  <c:url var="pagination" value="memberCAList.com">
+                <c:forEach var="p" begin="${reservationPi.startPage }" end="${reservationPi.endPage }">
+                  <c:url var="pagination" value="myReservationList.com">
                      <c:param name="page" value="${p }"></c:param>
                   </c:url>
-                  <c:if test="${p eq classPi.currentPage }">
+                  <c:if test="${p eq reservationPi.currentPage }">
                   <li class="active" style="background-color: #ffffff;"><span>${p }</span></li>
                </c:if>
-                  <c:if test="${p ne classPi.currentPage }">
+                  <c:if test="${p ne reservationPi.currentPage }">
                      <li><a href="${pagination }">${p }</a></li>
                   </c:if>
                </c:forEach>
                <!-- 다음 -->
-               <c:url var="after" value="memberCAList.com">
-                  <c:param name="page" value="${classPi.currentPage + 1 }"></c:param>
+               <c:url var="after" value="myReservationList.com">
+                  <c:param name="page" value="${reservationPi.currentPage + 1 }"></c:param>
                </c:url>
-               <c:if test="${classPi.currentPage >= classPi.maxPage }">
+               <c:if test="${reservationPi.currentPage >= reservationPi.maxPage }">
                   <li><a href="#" onclick="lastPage()">&gt;</a></li>
                </c:if>
-               <c:if test="${classPi.currentPage < classPi.maxPage }">
+               <c:if test="${reservationPi.currentPage < reservationPi.maxPage }">
                   <li><a href="${after }">&gt;</a></li>
                </c:if>
               </ul>
@@ -383,13 +452,76 @@
        </div>
        </div>
   </section>  
-   
-   <%--  <section id="dunkles" class="tab-panel">
+  
+  <!-- Modal -->
+  <c:forEach items="${reList}" var="reservation">
+          <c:if test="${reservation.activityNo !=0}">
+ <div class="modal fade" id="myModal" role="dialog"> <!-- 사용자 지정 부분① : id명 -->
+
+    <div class="modal-dialog">
+
      
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">예약 정보</h4> <!-- 사용자 지정 부분② : 타이틀 -->
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+        <div style="text-align: center">
+        <i class="fas fa-4x fa-snowboarding"></i>
+        </div>
+        &nbsp&nbsp&nbsp&nbsp
+          <p>액티비티명: 
+   			   &nbsp ${reservation.activity.activityName }
+          </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>결제 금액:&nbsp ${reservation.activity.activityPrice }원 </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>예약일: &nbsp ${reservation.reservationDate }</p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  </c:if> 
   
-  
-  
-  
+  <c:if test="${reservation.classNo !=0}">
+ <div class="modal fade" id="myModal2" role="dialog"> <!-- 사용자 지정 부분① : id명 -->
+
+    <div class="modal-dialog">
+
+     
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">예약 정보</h4> <!-- 사용자 지정 부분② : 타이틀 -->
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+        <div style="text-align: center">
+        	<i class="fas fa-4x fa-chalkboard-teacher"></i>
+        </div>
+        &nbsp&nbsp&nbsp&nbsp
+          <p>
+   			   클래스명: &nbsp ${reservation.bukkeClass.className }
+          </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>결제 금액: &nbsp ${reservation.bukkeClass.classPrice }원 </p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+          <p>예약일: &nbsp ${reservation.reservationDate }</p> <!-- 사용자 지정 부분③ : 텍스트 메시지 -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  </c:if> 
+  </c:forEach>
+
+
+   <%--  <section id="dunkles" class="tab-panel">
      
     
     </section> --%>
@@ -410,7 +542,10 @@
       
     </section>
 	
-		<script src="../resources/js/member/mypageSidebar.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
+<script src="../resources/js/member/mypageSidebar.js"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>

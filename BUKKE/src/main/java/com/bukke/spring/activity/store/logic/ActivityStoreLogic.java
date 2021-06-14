@@ -38,8 +38,8 @@ public class ActivityStoreLogic implements ActivityStore {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectAllActivityList");
 	}
 
-	public ArrayList<Activity> selectTopThreeActivityList() { // 액티비티 Top3
-		return (ArrayList)sqlSession.selectList("activityMapper.selectThreeActivityList");
+	public ArrayList<Activity> selectTopThreeActivityList(String shopId) { // 액티비티 Top3
+		return (ArrayList)sqlSession.selectList("activityMapper.selectThreeActivityList", shopId);
 	}
 	
 	@Override
@@ -128,6 +128,12 @@ public class ActivityStoreLogic implements ActivityStore {
 	@Override
 	public ArrayList<Activity> selectHomeTWoActivityListDesc() {
 		return (ArrayList)sqlSession.selectList("activityMapper.selectHomeTwoActivityListDesc");
+	}
+
+	@Override
+	public ArrayList<Activity> selectTopThreeActivityList(Activity shopId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

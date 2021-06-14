@@ -292,8 +292,10 @@
 			
 			<c:if test="${ !empty sessionScope.loginShopper && empty sessionScope.loginMember }">
 			<!-- 사업자용 등록 버튼 -->
+			<div class="container">
 			<div style="float: right" class="ftco-animate">
 				<a href="activityWriteView.com"><button class="btn btn-lg btn-primary" type="submit">글쓰기</button></a>
+			</div>
 			</div>
 			</c:if>
 		

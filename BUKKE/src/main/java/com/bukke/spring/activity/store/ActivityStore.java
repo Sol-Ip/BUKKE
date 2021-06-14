@@ -17,7 +17,7 @@ public interface ActivityStore {
 
 	public ArrayList<Activity> selectAllActivityList(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
 
-	public ArrayList<Activity> selectTopThreeActivityList(); // 액티비티 Top3
+	public ArrayList<Activity> selectTopThreeActivityList(Activity shopId); // 액티비티 Top3
 
 	public Activity selectOneActivity(int activityNo); // 액티비티 상세정보
 

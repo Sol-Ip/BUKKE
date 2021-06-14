@@ -20,7 +20,7 @@ public interface ActivityService {
 
 	public ArrayList<Activity> printAllActivity(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
 
-	public ArrayList<Activity> printTopThreeActivity(); // 액티비티 전체목록 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
+	public ArrayList<Activity> printTopThreeActivity(Activity ShopId); // 액티비티 사용자 글 Top3 조회 (관리자-액티비티 관리 메뉴) 페이징 미포함
 
 	public ArrayList<Activity> searchActivity(ActivitySearch activitySearch); //액티비티 검색 (일반회원, 업체회원)
 

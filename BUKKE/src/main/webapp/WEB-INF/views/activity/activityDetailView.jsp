@@ -308,7 +308,13 @@
 						<h4 style="font-family: 'KOTRA_BOLD-Bold';" align="center">
 							<i class="fas fa-tasks fa-lg"></i>&nbsp;${activity.shopId }&nbsp;의 또 다른 강좌</h4>
 						<hr>
+						<c:if test="${aList.size() == 0 }">
+							<div><p>등록한 액티비티가 없습니다.</p></div>
+						</c:if>
+						
+						<c:if test="${aList.size > 0 }">
 						<c:forEach items="${aList }" var="activity">
+						<input type="hidden" id="shopId" name="shopId" value="${activity.shopId }">
 							<div class="block-21 mb-4 d-flex">
 								<a class="blog-img mr-4"
 									style="background-image: url(resources/images/activityImageFiles/${activity.aRenameFilename});"></a>
@@ -335,6 +341,7 @@
 							</div>
 							<hr>
 						</c:forEach>
+						</c:if>
 					</div>
 					<!-- ========== 액티비티 상위TOP(수업 종강일 최신기준=늦게끝나는 것) END ========== -->
 				</div>

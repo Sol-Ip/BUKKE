@@ -167,13 +167,14 @@ public class ActivityController {
 	
 	
 	// 액티비티 상세정보 jsp 이동 (모든회원)
-	// 액티비티 상위3개 글 목록
+	// 액티비티 사업자의 상위3개 글 목록
 	@RequestMapping(value="activityDetail.com", method = RequestMethod.GET)
 	public ModelAndView activityDetailView(ModelAndView mv,
 										Model model,
 										HttpServletRequest request,
 										HttpSession session,
 										//@ModelAttribute Keep keep,
+										@RequestParam("shopId") String shopId,
 										@RequestParam("activityNo") int activityNo) {
 		//조회 수 증가
 		//aService.addReadCountActivity(activityNo);
@@ -209,7 +210,7 @@ public class ActivityController {
 		}
 		
 		Activity activity = aService.printOneActivity(activityNo); // 게시글 상세 조회
-		ArrayList<Activity> aList = aService.printTopThreeActivity(); // 상위 top3 용도
+		ArrayList<Activity> aList = aService.printTopThreeActivity(shopId); // 상위 top3 용도
 		int getActKeeps = kService.getActivityKeep(activityNo); // 액티비티 해당 게시글 당 찜 갯수 
 		ArrayList<Review> rList = rService.printReviewToActivity(activityNo); // 해당 액티비티에 따른 리뷰 글
 		

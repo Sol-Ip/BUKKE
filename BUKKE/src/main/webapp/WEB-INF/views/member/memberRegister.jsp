@@ -51,12 +51,17 @@
     	display: none;
     	margin-left: 10px;
     }
+        #member-icon {
+    	width: 50px;
+    	height: 50px;
+    	margin-left: 10px;
+    }
 </style>
 <body>
 	<div class="py-5 title text-center">BUKKE</div>
 	<div class="container">
 		<div class="text-left">
-			<h3>회원가입</h3>
+			<h3>회원가입<img id="member-icon" src="/resources/images/icon_user.png"></h3>
 		</div>
         <form action="memberRegister.com" id="registerform" method="post">
         	<hr>

@@ -45,7 +45,7 @@
 	<!-- 업체회원 삭제 -->
 	<update id="deleteShop">
     UPDATE SHOP SET
-   	SHOP_RM = 'N' 
+   	SHOP_RM = 'Y' 
    	WHERE SHOP_ID = #{shopId}
    </update>
 	

@@ -12,70 +12,113 @@
 <meta charset="UTF-8">
 	<title>Room</title>
 	<style>
-		*{
-			margin:0;
-			padding:0;
-		}
-		.container{
-			width: 500px;
-			margin: 0 auto;
-			padding: 25px
-		}
-		.container h1{
-			text-align: left;
-			padding: 5px 5px 5px 15px;
-			color: #FFBB00;
-			border-left: 3px solid #FFBB00;
-			margin-bottom: 20px;
-		}
-		.roomContainer{
-			background-color: #F6F6F6;
-			width: 500px;
-			height: 500px;
-			overflow: auto;
-		}
-		.roomList{
-			border: none;
-		}
-		.roomList th{
-			border: 1px solid #FFBB00;
-			background-color: #fff;
-			color: #FFBB00;
-		}
-		.roomList td{
-			border: 1px solid #FFBB00;
-			background-color: #fff;
-			text-align: left;
-			color: #FFBB00;
-		}
-		.roomList .num{
-			width: 75px;
-			text-align: center;
-		}
-		.roomList .room{
-			width: 350px;
-		}
-		.roomList .go{
-			width: 71px;
-			text-align: center;
-		}
-		button{
-			background-color: #FFBB00;
-			font-size: 14px;
-			color: #000;
-			border: 1px solid #000;
-			border-radius: 5px;
-			padding: 3px;
-			margin: 3px;
-		}
-		.inputTable th{
-			padding: 5px;
-		}
-		.inputTable input{
-			width: 330px;
-			height: 25px;
-		}
-	</style>
+@font-face {
+	font-family: 'S-CoreDream-3Light';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	background-color: #fff2dcfc;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 430px;
+	margin: 0 auto;
+	padding: 25px
+}
+
+.container h1 {
+	text-align: left;
+	padding: 5px 5px 5px 15px;
+	color: #gray;
+	font-family: 'S-CoreDream-3Light';
+	border-left: 3px solid #560bad;
+	margin-bottom: 20px;
+}
+
+.roomContainer {
+	background-color: #ffffff;
+	width: 1000px;
+	height: 100%;
+	overflow: auto;
+}
+
+.roomList {
+	border: none;
+}
+
+.roomList th {
+	border: 1px solid #560bad;
+	background-color: #fff;
+	color: #560bad;
+}
+
+.roomList td {
+	border: 1px solid #560bad;
+	background-color: #fff;
+	text-align: left;
+	color: #560bad;
+}
+
+.roomList .num {
+	width: 35px;
+	text-align: center;
+}
+
+.roomList .room {
+	width: 350px;
+}
+
+.roomList .go {
+	width: 71px;
+	text-align: center;
+}
+
+button {
+	background-color: #560bad;
+	font-size: 14px;
+	color: #000;
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 3px;
+	margin: 3px;
+}
+
+.room:hover {
+	color: #1409c5;
+    background-color: #f1f1e5;
+}
+
+button:hover {
+	background-color: #b5179e;
+	font-size: 14px;
+	color: #000;
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 3px;
+	margin: 3px;
+}
+
+.inputTable th {
+	padding: 5px;
+}
+
+.inputTable input {
+	width: 330px;
+	height: 25px;
+}
+
+table * {
+	background-color : #bdb2ff;
+	font-family: 'S-CoreDream-3Light';
+}
+</style>
 </head>
 <!-- <script type="text/javascript">
 	var ws;
@@ -183,7 +226,7 @@
 		<table id="roomList" class="roomList">
 	<thread>
 		<tr>
-			<th class="col-md-4">순서</th>
+			<!-- <th class="col-md-4">순서</th> -->
 			<th class="col-md-4">방 이름</th>
 			<th class="col-md-4">참여</th>
 		</tr>
@@ -194,7 +237,7 @@
 				<tbody> 
 					<tr>
 						<c:forEach items="${roomList }" var="room">
-						<td>${room.roomNumber }</td>
+						<%-- <td>${room.roomNumber }</td> --%>
 						<td>${room.roomName }</td>
 						<td>
 							<c:url var="rJoin" value="moveChattingForShop.com">

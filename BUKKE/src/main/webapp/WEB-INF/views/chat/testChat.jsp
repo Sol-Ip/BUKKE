@@ -117,16 +117,16 @@ button {
 		              		    $("#chating").append(html);   
 		               		}else {
 		               			
-		            	 		html += $("#chatting").append("<p class='others'>"+"업체 : " +data[i].msg+ "</p>");
+		            	 		html += $("#chatting").append("<p class='others'>"+"classjoa : " +data[i].msg+ "</p>");
 		                		 $("#chating").append(html);
 		              		} 
 		               }else{
 		            	   if(data[i].memberNick == null){
-		            		  	html += $("#chatting").append("<p class='me'>"+$("#memberNick").val()+" 나 :" +data[i].msg+ "</p>");	
+		            		  	html += $("#chatting").append("<p class='me'>"+" classjoa :" +data[i].msg+ "</p>");	
 		              		    $("#chating").append(html);   
 		               		}else {
 		               			
-		            	 		html += $("#chatting").append("<p class='others'>"+$("#memberNick").val()+" 손님"+" :" +data[i].msg+ "</p>");
+		            	 		html += $("#chatting").append("<p class='others'>"+" 라라랜드"+" :" +data[i].msg+ "</p>");
 		                		 $("#chating").append(html);
 		              		} 
 		               }

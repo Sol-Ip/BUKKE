@@ -150,7 +150,7 @@ public class MemberController {
 	public String kakaoLogin(HttpServletRequest request, @RequestBody Map<String, Object> param) {
 		if(param == null) {
 			return "error"; // 로그인 실패
-		}
+		} 
 		Map<String, Object> profile = (Map<String, Object>) param.get("profile");
 		String nickname = (String) profile.get("nickname");
 		String email = (String) param.get("email");

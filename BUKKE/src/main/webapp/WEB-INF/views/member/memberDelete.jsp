@@ -203,7 +203,7 @@ input[type="checkbox"] {
  	</div>
 		</div>
 	</section>
-</body>
+</body> 
 
 <!-- 마이페이지 사이드바 -->
 <script src="../resources/js/member/mypageSidebar.js"></script>

@@ -573,15 +573,15 @@ $(document).ready(function() {
           </div>
         </div>
         
-        <c:if test="${rList.isEmpty() }">
+        <%-- <c:if test="${rList.isEmpty() }">
          <div class="row ftco-animate">
           <div class="col-md-12" style="text-align:center;">
           <h3>등록된 후기가 없습니다.☹</h3>
           </div>
           </div>
-        </c:if>
+        </c:if> --%>
         
-        
+        <c:if test="${!rList.isEmpty() }">
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">
@@ -609,6 +609,7 @@ $(document).ready(function() {
             </div>
           </div>
         </div>
+        </c:if>
       </div>
     </section>
     <!-- 후기 끝 -->

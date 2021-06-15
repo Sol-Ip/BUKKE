@@ -53,6 +53,7 @@ crossorigin="anonymous">
 	font-weight: bold;
 	color: #9705a0;
 	text-align: right;
+	font-size : 1.5em;
 }
 
 .chatting .others {
@@ -60,6 +61,7 @@ crossorigin="anonymous">
 	font-weight: bold;
 	color: #47454c;
 	text-align: left;
+	font-size : 1.5em;
 }
 
 input {

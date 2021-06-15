@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../resources/css/member/mypage.css">
 <link rel="stylesheet" href="../resources/css/mypage/tab.css"> 
 <link rel="stylesheet" href="../resources/css/mypage/mypageLike.css">
+<link rel="stylesheet" href="../resources/css/mypage/banner.css">
 	<style type="text/css">
 .confirmbtn{
 	width: 103px;
@@ -78,134 +79,38 @@
 <!-- 아임포트 사용설명서 -->
 <a href="https://github.com/iamport/iamport-manual/blob/master/%EC%9D%B8%EC%A6%9D%EA%B2%B0%EC%A0%9C/README.md"></a>
 
-<!-- fixed section -->
-   <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('resources/images/bg_1.jpg');"
-      data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-         <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-               <h1 class="mb-2 bread">OPEN MYPAGE</h1>
-               <p class="breadcrumbs">
-                  <span class="mr-2"><a href="home.com">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-                  <span>MyPage <i class="ion-ios-arrow-forward"></i></span><i class="ion-ios-arrow-forward"></i></a></span> 
-                  <span>History <i class="ion-ios-arrow-forward"></i>
-               </p>
-            </div>
-         </div>
-      </div>
-      
-      <!-- ======================= 사이드 바 시작 =============================== -->
-         <div class="l-navbar" id="navbar">
-        <nav class="nav">
-            <div>
-                <div class="nav__brand">
-                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
-                    <a href="#" class="nav__logo">BUKKE</a>
-                </div>
-                <div class="nav__list">
-                    <div href="#" class="nav__link collapse1">
-                    	<ion-icon name="person-sharp" class="nav__icon"></ion-icon>
-                        <!-- <ion-icon name="folder-outline" class="nav__icon"></ion-icon> -->
-                        <span class="nav_name">내 정보</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">정보 수정</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                   		<ion-icon name="calendar-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">부캐 일정</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">부캐 일정보기</a>
-                            
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">내 활동</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="reviewListbyId.com" class="collapse__sublink">작성한 후기</a>
-                            <a href="commentListbyId.com" class="collapse__sublink">작성한 댓글</a>
-                            <a href="reviewLikeList.com" class="collapse__sublink">좋아요 목록</a>
-                            <a href="KeepListbyId.com" class="collapse__sublink">찜 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse">
-                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
-                        <span class="nav_name">선물 내역</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">받은 선물</a>
-                            <a href="#" class="collapse__sublink">보낸 선물</a>
-                        </ul>
-                    </div>
-                    
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="chatbubbles-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">채팅</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">채팅 목록</a>
-                        </ul>
-                    </div>
-
-                    <div href="#" class="nav__link collapse1">
-                        <ion-icon name="notifications-sharp" class="nav__icon"></ion-icon>
-                        <span class="nav_name">알림</span>
-
-                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
-
-                        <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">예약 알림</a>
-                        </ul>
-                    </div>
-                </div>
-                
-                <a href="#" class="nav__link">
-                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
-                    <span class="nav_name">Log out</span>
-                </a>
-            </div>
-        </nav>
-    </div>
-   </section>
-   <!-- ======================= 사이드 바 끝 =============================== -->
-	
-      <div class="container ftco-animate">
-		<div class="row justify-content-center" style="height: 250px;">
-			<div class="col-md-8 heading-section ftco-animate">
-				<span class="subheading subheading-with-line"><small
-					class="pr-2 bg-light">RESERVATION</small></span>
-				<section class="text1">
-				<h3 class="h3Class" style="align-self: center;">Hey everyone look at this</h3>
-						<h1 class="h1Class">
-							<span class="fontawesome-star star" style="position: absolute; right: 500px;"></span> <span>Reservation LIST</span> <span
-								class="fontawesome-star star"></span>
-						</h1>	
-				</section>			
+	<!-- fixed section -->
+	<section class="banner hero-wrap hero-wrap-2" style="background-image: url('resources/images/mypageuser_1.jpg'); background-position:50% 80%;"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<h1 class="mb-2 bread">MY ACTIVITY</h1>
+					<p class="breadcrumbs">
+						<span class="mr-2"><a href="memberMyPage.com">MY INFORMATION</a></span>
+					</p>
+				</div>
 			</div>
 		</div>
-		
-	
+		<jsp:include page="../member/memberMySideBar.jsp"></jsp:include>
+	</section>
+	 <!-- fixed section END-->
+      
+     <div id="info-title" class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 heading-section ftco-animate">
+				<div class="text1">
+					<h3 class="h3Class" style="align-self: center;">BUKKE</h3>
+					<h1 class="h1Class">
+						<span class="fontawesome-star star"
+							style="position: absolute; right: 500px;"></span> <span>RESERVATION LIST</span> <span class="fontawesome-star star"></span>
+					</h1>
+				</div>
+			</div>
+		</div>
 	</div>
-	<!-- <section class="ftco-section"> -->
       
       <br><br><br>
       <!-- 예약 목록 탭 -->
@@ -268,9 +173,9 @@
 				        merchant_uid : 'merchant_' + new Date().getTime(),
 				        name : '${reservation.activity.activityName}',
 				        amount : '${reservation.activity.activityPrice}',
-				       // buyer_email : '12345@naver.com',
-				        buyer_name : 'ㄱㄱㄱ',
-				        buyer_tel : '010-1111-2222',
+				        buyer_email : 'fine00924@naver.com',
+				        buyer_name : '김솔잎',
+				        buyer_tel : '010-9323-9024',
 				        buyer_addr : '서울특별시 중구 남대문로 120,2층',
 				    }, function(rsp) {
 				        if ( rsp.success ) {
@@ -417,9 +322,9 @@
 				        merchant_uid : 'merchant_' + new Date().getTime(),
 				        name : '${reservation.bukkeClass.className}',
 				        amount : '${reservation.bukkeClass.classPrice}',
-				        //buyer_email : '12345@naver.com',
-				        buyer_name : 'ㄱㄱㄱ',
-				        buyer_tel : '010-1111-2222',
+				        buyer_email : 'fine00924@naver.com',
+				        buyer_name : '김솔잎',
+				        buyer_tel : '010-9323-9024',
 				        buyer_addr : '서울특별시 중구 남대문로 120,2층',
 				    }, function(rsp) {
 				        if ( rsp.success ) {

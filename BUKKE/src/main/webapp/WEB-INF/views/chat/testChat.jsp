@@ -197,7 +197,6 @@ button {
 	}  */
 
 	function send() {
-		alert("send 작동됨..")
 		var option ={
 			type : "message",
 			roomNumber : $('#roomNumber').val(),

@@ -344,8 +344,8 @@ $(document).ready(function() {
 									test="${empty loginShopper && !empty sessionScope.loginMember}">
 									<!-- 사용자만 버튼 누를 시 기능 적용 -->
 									
-									<div class="row">
 									<div class="btn100" style="align:center">
+									<div class="row col-md-12">
 										<div class="col-md-6 event-btns">
 										
 											<input type="hidden" id="classNo" name="classNo" value="${bukkeClass.classNo }">
@@ -387,8 +387,8 @@ $(document).ready(function() {
 											</c:if>  
 											
 										</div>
+									</div>						
 									</div>
-									</div>									
 								</c:when>
 						</c:choose>
 						
@@ -421,18 +421,6 @@ $(document).ready(function() {
 						</div>
 					</div>
 					
-					<div class="btn200" style="align : center;">
-						<div class="ftco-animate" style="padding-left : 90px;">
-							<!-- <input type="submit" class="btn btn-lg btn-primary" value="예약하기"> -->
-							<!-- <button class="learn-more">예약하기</button> -->
-							<!-- <button class="btn btn-lg btn-primary" type="submit">선물하기</button> -->
-							<button class="learn-more" type="submit">선물하기</button>
-							<c:url var="chatRoom1" value="chatRoom.com">
-							<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
-							</c:url>
-							<a onclick="window.open('${chatRoom1}', '_blank', 'width=600 height=600')"><button class="learn-more" type="submit">채팅하기</button></a>
-						</div>
-					</div>
 					<br> <br>
 
 					<!--=========== 클래스 상위 TOP 3 (수업 종강일 최신기준) =========== -->
@@ -472,6 +460,21 @@ $(document).ready(function() {
 							<hr>
 						</c:forEach>
 					</div>
+					
+					<div class="btn200" style="padding-left : 180px;">
+						<div class="ftco-animate" style="padding-left : 90px;">
+							<!-- <input type="submit" class="btn btn-lg btn-primary" value="예약하기"> -->
+							<!-- <button class="learn-more">예약하기</button> -->
+							<!-- <button class="btn btn-lg btn-primary" type="submit">선물하기</button> -->
+							<!-- <button class="learn-more" type="submit">선물하기</button> -->
+							<c:url var="chatRoom1" value="chatRoom.com">
+							<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+							</c:url>
+							<a onclick="window.open('${chatRoom1}', '_blank', 'width=600 height=600')"><button class="learn-more" type="submit">채팅하기</button></a>
+						</div>
+					</div>
+					
+					
 				</div>
 			</div>
 		</div>
@@ -479,6 +482,21 @@ $(document).ready(function() {
 
 	</section>
 	
+	<%-- <div class="btn200" style="align: center;">
+		<div class="ftco-animate" style="padding-left: 90px;">
+			<!-- <input type="submit" class="btn btn-lg btn-primary" value="예약하기"> -->
+			<!-- <button class="learn-more">예약하기</button> -->
+			<!-- <button class="btn btn-lg btn-primary" type="submit">선물하기</button> -->
+			<!-- <button class="learn-more" type="submit">선물하기</button> -->
+			<c:url var="chatRoom1" value="chatRoom.com">
+				<c:param name="classNo" value="${bukkeClass.classNo }"></c:param>
+			</c:url>
+			<a
+				onclick="window.open('${chatRoom1}', '_blank', 'width=600 height=600')"><button
+					class="learn-more" type="submit">채팅하기</button></a>
+		</div>
+	</div>
+ --%>
 	<!-- ========= 클래스 주소 지도로 표시 -->
 
 	<section class="ftco-section bg-light">
@@ -554,6 +572,16 @@ $(document).ready(function() {
             <p>후기들을 볼 수 있습니다.</p>
           </div>
         </div>
+        
+        <c:if test="${rList.isEmpty() }">
+         <div class="row ftco-animate">
+          <div class="col-md-12" style="text-align:center;">
+          <h3>등록된 후기가 없습니다.☹</h3>
+          </div>
+          </div>
+        </c:if>
+        
+        
         <div class="row ftco-animate">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">

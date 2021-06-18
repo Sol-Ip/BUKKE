@@ -137,56 +137,36 @@ DataBase | Oracle 11g
      - 일반 회원 관리 / 업체 회원 관리 조회
     <br>
   
+  
 ------------
 ## 주요 기능
-### 일반 회원
-1-1-1. 일반 회원가입
-
-
-1-2-1. 카카오 로그인을 이용한 회원가입
-
-
-1-3-1. 일반 로그인
-
-### 업체 회원
-1-1-2. 업체 회원가입
-
-
-1-2-2. 업체 로그인 
-
-
-2-1. 아이디 찾기 
-
-
-2-2. 비밀번호 찾기
-
-### 공통
-3. 홈페이지 메인
-
-
-4. 소개
-
-
-5. 클래스
-
-
-6. 액티비티
-
-
-7. 추천하기
-
-
-8. 일반 회원 - 업체 회원 1:1 실시간 채팅
-
-
-### 마이 페이지
-9-1. 일반 회원 마이 페이지
-
-
-9-2. 업체 회원 마이 페이지
-
-10. 관리자
-
+**1.로그인**
+![카카오](https://user-images.githubusercontent.com/81762007/122334328-85084600-cf74-11eb-9441-cc119ddbae06.PNG)
+**2.회원가입**
+![일반회원](https://user-images.githubusercontent.com/81762007/122334326-846faf80-cf74-11eb-916f-5952c1289137.PNG)
+**3.아이디 찾기**
+![아이디 찾기](https://user-images.githubusercontent.com/81762007/122334333-86d20980-cf74-11eb-9ef2-ed2537efc9de.PNG)
+**4.클래스**
+![클래스](https://user-images.githubusercontent.com/81762007/122334552-e0d2cf00-cf74-11eb-827d-dd9e31ea74de.PNG)
+![클래스상세](https://user-images.githubusercontent.com/81762007/122334557-e29c9280-cf74-11eb-8e58-c21b46742cea.PNG)
+**5.액티비티**
+![액티비티](https://user-images.githubusercontent.com/81762007/122335068-ab7ab100-cf75-11eb-938e-fde8e68f6842.PNG)
+![액티비티상세](https://user-images.githubusercontent.com/81762007/122335074-ad447480-cf75-11eb-919e-c70ea0069130.PNG)
+**6.후기**
+![후기](https://user-images.githubusercontent.com/81762007/122335081-afa6ce80-cf75-11eb-915a-363b43d97a6e.PNG)
+![후기상세](https://user-images.githubusercontent.com/81762007/122335087-b2092880-cf75-11eb-9d3d-fa080b1128c1.PNG)
+**7.추천하기**
+![추천](https://user-images.githubusercontent.com/81762007/122335095-b5041900-cf75-11eb-82e2-3f410e6c44de.PNG)
+**8.마이페이지(회원)**
+![마페1](https://user-images.githubusercontent.com/81762007/122335120-c0efdb00-cf75-11eb-9e47-ff7ee0b5ef8c.PNG)
+![마페2](https://user-images.githubusercontent.com/81762007/122335124-c2b99e80-cf75-11eb-8682-972bac1a9ef5.PNG)
+**9.예약관리(업체)**
+![예약승인](https://user-images.githubusercontent.com/81762007/122335283-fac0e180-cf75-11eb-8da6-2a65bdaf0e9d.PNG)
+**10.채팅**
+![채팅](https://user-images.githubusercontent.com/81762007/122335133-c51bf880-cf75-11eb-8d7a-ee300687eab7.PNG)
+**11.관리자페이지**
+![관리자](https://user-images.githubusercontent.com/81762007/122335137-c5b48f00-cf75-11eb-80d4-5bd123505610.PNG)
+![관리자2](https://user-images.githubusercontent.com/81762007/122335770-c26dd300-cf76-11eb-8948-b2d44950ecca.png)
 
 ------------ 
 ## Document
